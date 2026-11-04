@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173653">
+  <title>Comparatore territoriale | Palermo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="top"><div class="brand"><span class="mark">PA</span><div><b>Comparatore territoriale</b><small>Comune di Palermo · piattaforma di analisi urbana</small></div></div><span id="status" class="status">Caricamento fonti…</span></header>
+<div class="layout">
+<aside class="side"><div class="side-label">ANALISI</div>
+<nav id="nav">
+<button class="nav active" data-page="overview">Panoramica</button>
+<button class="nav" data-page="demography">Demografia</button>
+<button class="nav" data-page="social">Analisi sociale</button>
+<button class="nav" data-page="schools">Scuole</button>
+<button class="nav" data-page="standards">Standard urbanistici</button>
+<button class="nav" data-page="gis">Cartografia GIS</button>
+<button class="nav" data-page="spatial">Analisi spaziale</button>
+<button class="nav" data-page="compare">Confronti</button>
+<button class="nav" data-page="sources">Fonti e metodologia</button>
+</nav><div class="side-note"><b>Trasparenza dei dati</b><p>Gli indicatori sono mostrati solo quando sono disponibili dati verificati e una corrispondenza territoriale documentata.</p></div></aside>
+<main>
+<section class="filters"><label>Circoscrizione<select id="circ"><option value="">Tutte le circoscrizioni</option></select></label><label>Quartiere<select id="quart"><option value="">Tutti i quartieri</option></select></label><div class="territory"><small>Territorio di riferimento</small><b id="territory">Palermo</b></div></section>
+<div id="content"></div>
+<footer>Comparatore territoriale di Palermo · Versione tecnica avanzata · Dati e indicatori soggetti a verifica delle fonti</footer>
+</main></div>
+</body></html>
