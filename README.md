@@ -30,3 +30,4 @@ Questa prima base tecnica automatizza lo scaricamento della fonte comunale, ma *
 
 ## Licenze e attribuzione
 Rispettare la licenza indicata nella scheda del dataset e mantenere attribuzione al Comune di Palermo. Verificare le condizioni di riutilizzo delle ulteriori fonti ISTAT e cartografiche prima della distribuzione.
+Aggiornamento per pubblicazione GitHub Pages
