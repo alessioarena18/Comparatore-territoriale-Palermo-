@@ -1,80 +1,33 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17324d">
-<title>Comparatore territoriale | Palermo</title>
-<link rel="stylesheet" href="styles.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173653">
+  <title>Comparatore territoriale | Palermo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
-<header class="topbar">
-  <div class="brand"><div class="brand-mark">PA</div><div><strong>Comparatore territoriale</strong><small>Comune di Palermo · piattaforma di analisi urbana</small></div></div>
-  <span class="status" id="data-status">Verifica dati in corso</span>
-</header>
-<div class="shell">
-  <aside class="sidebar">
-    <div class="side-label">ANALISI</div>
-    <button class="nav active" data-page="dashboard">Panoramica</button>
-    <button class="nav" data-page="demografia">Demografia</button>
-    <button class="nav" data-page="scuole">Scuole</button>
-    <button class="nav" data-page="standard">Standard urbanistici</button>
-    <button class="nav" data-page="cartografia">Cartografia GIS</button>
-    <button class="nav" data-page="fonti">Fonti e metodologia</button>
-    <div class="sidebar-note">Versione iniziale<br><span>Le statistiche vengono mostrate solo quando la fonte e la corrispondenza territoriale sono verificate.</span></div>
-  </aside>
-  <main>
-    <section class="filters">
-      <div><label for="circ">Circoscrizione</label><select id="circ"><option value="all">Tutte le circoscrizioni</option><option disabled>Perimetri da associare ai dati ufficiali</option></select></div>
-      <div><label for="quart">Quartiere</label><select id="quart"><option value="all">Tutti i quartieri</option><option disabled>Perimetri da associare ai dati ufficiali</option></select></div>
-      <div class="filter-meta"><span>Territorio di riferimento</span><strong>Palermo</strong></div>
-    </section>
-
-    <section class="page active" id="dashboard">
-      <div class="page-head"><div><p class="eyebrow">QUADRO CONOSCITIVO</p><h1>Panoramica territoriale</h1><p class="sub">Una piattaforma per leggere e confrontare le caratteristiche demografiche, scolastiche e urbanistiche della città.</p></div></div>
-      <div class="notice"><b>Base dati in configurazione</b><p>Il repository è predisposto per acquisire automaticamente i dati demografici del Comune di Palermo. Prima di pubblicare indicatori per quartiere e circoscrizione occorre associare le sezioni censuarie ai perimetri amministrativi ufficiali.</p></div>
-      <div class="grid three">
-        <article class="metric"><span>Circoscrizioni</span><strong>8</strong><small>Articolazione territoriale prevista</small></article>
-        <article class="metric"><span>Quartieri</span><strong>25</strong><small>Articolazione territoriale prevista</small></article>
-        <article class="metric"><span>Ultima fonte comunale</span><strong>2022</strong><small>Dato per sezione censuaria, da aggiornare con ISTAT 2023</small></article>
-      </div>
-      <div class="panel"><h2>Stato di avanzamento dei contenuti</h2><div class="progress-row"><span>Acquisizione automatica fonte demografica comunale</span><b class="tag ready">Predisposta</b></div><div class="progress-row"><span>Integrazione dati ISTAT 2023</span><b class="tag pending">Da completare</b></div><div class="progress-row"><span>Perimetri ufficiali quartieri e circoscrizioni</span><b class="tag pending">Da associare</b></div><div class="progress-row"><span>Inventario scuole e bacini di influenza</span><b class="tag pending">Da integrare</b></div><div class="progress-row"><span>Dotazioni e standard urbanistici</span><b class="tag pending">Da integrare</b></div></div>
-    </section>
-
-    <section class="page" id="demografia">
-      <div class="page-head"><div><p class="eyebrow">POPOLAZIONE RESIDENTE</p><h1>Analisi demografica</h1><p class="sub">Distribuzione per sesso, classi d'età e fasce funzionali.</p></div></div>
-      <div class="notice"><b>Elaborazione in attesa della normalizzazione del tracciato</b><p>La fonte comunale 2022 è acquisita automaticamente dal flusso dati. I valori non vengono aggregati per quartiere o circoscrizione finché non è verificata la relazione tra codici delle sezioni censuarie e confini territoriali.</p></div>
-      <div class="grid two"><article class="panel"><h2>Distribuzione per età</h2><canvas id="ageChart" height="220"></canvas><p class="chart-empty">Grafico disponibile dopo la validazione del tracciato ISTAT/Comune.</p></article><article class="panel"><h2>Indicatori demografici</h2><div class="empty-state">Nessun indicatore territoriale pubblicato. I dati non verificati non vengono stimati.</div></article></div>
-      <div class="panel"><h2>Indicatori da calcolare</h2><div class="grid three compact"><div class="mini"><b>0-14</b><span>Popolazione giovane</span></div><div class="mini"><b>15-64</b><span>Età attiva</span></div><div class="mini"><b>65+</b><span>Popolazione anziana</span></div></div></div>
-    </section>
-
-    <section class="page" id="scuole">
-      <div class="page-head"><div><p class="eyebrow">ISTRUZIONE E SERVIZI</p><h1>Rete scolastica</h1><p class="sub">Localizzazione degli istituti, livelli scolastici e bacini di influenza.</p></div></div>
-      <div class="notice"><b>Inventario scolastico da integrare</b><p>Questa sezione è predisposta per distinguere nidi e infanzia, primaria, secondaria di primo grado e secondaria di secondo grado. I punti e i bacini saranno pubblicati solo dopo l'acquisizione di un inventario istituzionale georiferito e la verifica delle coordinate.</p></div>
-      <div class="panel"><h2>Classificazione prevista</h2><div class="grid four"><div class="mini"><b>0-6</b><span>Nidi e infanzia</span></div><div class="mini"><b>6-11</b><span>Primaria</span></div><div class="mini"><b>11-14</b><span>Secondaria I grado</span></div><div class="mini"><b>14-19</b><span>Secondaria II grado</span></div></div></div>
-    </section>
-
-    <section class="page" id="standard">
-      <div class="page-head"><div><p class="eyebrow">DOTAZIONI TERRITORIALI</p><h1>Standard urbanistici</h1><p class="sub">Verifica delle dotazioni e confronto con i riferimenti normativi.</p></div></div>
-      <div class="notice"><b>Quadro delle dotazioni da costruire</b><p>La piattaforma distinguerà aree per istruzione, attrezzature di interesse comune, verde pubblico e parcheggi. Le superfici e gli eventuali deficit saranno calcolati solo su geometrie e dataset ufficiali validati.</p></div>
-      <div class="panel"><h2>Riferimento normativo</h2><p>Il quadro di analisi sarà strutturato in coerenza con il D.M. 1444/1968 e con gli strumenti urbanistici comunali applicabili, distinguendo standard teorici, dotazioni rilevate e disponibilità pro capite.</p></div>
-    </section>
-
-    <section class="page" id="cartografia">
-      <div class="page-head"><div><p class="eyebrow">SISTEMA INFORMATIVO TERRITORIALE</p><h1>Cartografia GIS</h1><p class="sub">Visualizzazione dei confini amministrativi, sezioni censuarie e servizi.</p></div></div>
-      <div class="notice"><b>Cartografia ufficiale da associare</b><p>La mappa sarà attivata dopo l'inserimento delle basi territoriali ISTAT e dei confini amministrativi comunali. Non vengono disegnati confini approssimativi.</p></div>
-      <div class="map-placeholder"><div class="map-symbol">⌖</div><b>Area cartografica</b><span>In attesa dei layer GIS ufficiali</span></div>
-    </section>
-
-    <section class="page" id="fonti">
-      <div class="page-head"><div><p class="eyebrow">TRASPARENZA E RIPRODUCIBILITÀ</p><h1>Fonti e metodologia</h1><p class="sub">Provenienza, aggiornamento e limiti dei dati utilizzati.</p></div></div>
-      <div class="panel source"><h2>Comune di Palermo · Open Data</h2><p>Popolazione residente al 31/12/2022 per sezione di censimento e fasce quinquennali d'età. Fonte dichiarata: Anagrafe. Frequenza indicata: annuale; ultimo aggiornamento pubblicato: 30/05/2023.</p><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706" target="_blank" rel="noopener">Scheda dataset ufficiale ↗</a><p class="small">Risorsa CSV: <a href="https://opendata.comune.palermo.it/ws.php?id=2696&fmt=csv" target="_blank" rel="noopener">download CSV</a>. Licenza indicata dal portale: CC BY-SA 4.0.</p></div>
-      <div class="panel source"><h2>ISTAT · Censimento permanente 2023</h2><p>Dati sub-comunali per sezione censuaria e, dove disponibili, aree sub-comunali amministrative. Variabili comprendenti sesso, età, istruzione, occupazione, famiglie e abitazioni.</p><a href="https://www.istat.it/notizia/dati-per-sezioni-di-censimento/" target="_blank" rel="noopener">Pagina ufficiale ISTAT ↗</a></div>
-      <div class="panel"><h2>Registro aggiornamenti automatici</h2><p id="updated">Ultimo aggiornamento dei file: non ancora eseguito dal workflow GitHub Actions.</p><p class="small">Il dato pubblicato mostrerà sempre l'anno di riferimento della fonte, distinto dalla data di scaricamento.</p></div>
-    </section>
-  </main>
-</div>
-<footer>Comparatore territoriale di Palermo · Progetto in sviluppo · Dati soggetti a verifica e attribuzione della fonte</footer>
-<script src="app.js"></script>
+<header class="top"><div class="brand"><span class="mark">PA</span><div><b>Comparatore territoriale</b><small>Comune di Palermo · piattaforma di analisi urbana</small></div></div><span id="status" class="status">Caricamento fonti…</span></header>
+<div class="layout">
+<aside class="side"><div class="side-label">ANALISI</div>
+<nav id="nav">
+<button class="nav active" data-page="overview">Panoramica</button>
+<button class="nav" data-page="demography">Demografia</button>
+<button class="nav" data-page="social">Analisi sociale</button>
+<button class="nav" data-page="schools">Scuole</button>
+<button class="nav" data-page="standards">Standard urbanistici</button>
+<button class="nav" data-page="gis">Cartografia GIS</button>
+<button class="nav" data-page="spatial">Analisi spaziale</button>
+<button class="nav" data-page="compare">Confronti</button>
+<button class="nav" data-page="sources">Fonti e metodologia</button>
+</nav><div class="side-note"><b>Trasparenza dei dati</b><p>Gli indicatori sono mostrati solo quando sono disponibili dati verificati e una corrispondenza territoriale documentata.</p></div></aside>
+<main>
+<section class="filters"><label>Circoscrizione<select id="circ"><option value="">Tutte le circoscrizioni</option></select></label><label>Quartiere<select id="quart"><option value="">Tutti i quartieri</option></select></label><div class="territory"><small>Territorio di riferimento</small><b id="territory">Palermo</b></div></section>
+<div id="content"></div>
+<footer>Comparatore territoriale di Palermo · Versione tecnica avanzata · Dati e indicatori soggetti a verifica delle fonti</footer>
+</main></div>
 </body></html>

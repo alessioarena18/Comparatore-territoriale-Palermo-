@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "status": "Dati ufficiali da integrare e validare",
+    "updated": null,
+    "note": "Non inserire dati stimati. Aggiungere solo dataset verificati."
+  },
+  "territories": {
+    "circoscrizioni": [],
+    "quartieri": []
+  },
+  "demografia": [],
+  "scuole": [],
+  "standard": [],
+  "geojson": null
+}

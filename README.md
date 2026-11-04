@@ -1,33 +1,31 @@
-# Comparatore territoriale di Palermo
+# Comparatore territoriale di Palermo – versione avanzata
 
-Applicazione web statica responsive, predisposta per GitHub Pages.
+Questa è una base applicativa avanzata e pubblicabile con GitHub Pages. Non contiene dati territoriali inventati: i moduli restano esplicitamente in attesa finché i dataset non sono stati acquisiti, normalizzati e verificati.
 
-## Contenuti
-- Panoramica territoriale
-- Demografia
-- Rete scolastica
-- Standard urbanistici
-- Cartografia GIS
-- Fonti e metodologia
+## Moduli
+Panoramica, demografia, analisi sociale, scuole, standard urbanistici, GIS, analisi spaziale, confronti, fonti e metodologia.
 
-## Pubblicazione
-1. Caricare tutti i file e le cartelle di questo archivio nella **radice** del repository GitHub `Comparatore-territoriale-Palermo-`.
-2. Aprire **Settings → Pages**.
-3. In **Build and deployment**, selezionare **Deploy from a branch**.
-4. Selezionare branch `main` e cartella `/ (root)`, quindi salvare.
-5. Aprire la scheda **Actions** e avviare manualmente il workflow "Aggiornamento fonti ufficiali" con **Run workflow**. In seguito il workflow è programmato mensilmente.
+## Installazione
+Caricare **il contenuto** di questo archivio nella radice del repository GitHub, sovrascrivendo i file omonimi. In particolare `styles.css` sostituisce il file precedente `stili.css`: il nome deve corrispondere a quello richiamato da `index.html`.
 
-## Aggiornamento dati
-Il workflow scarica il CSV ufficiale del Comune di Palermo:
-https://opendata.comune.palermo.it/ws.php?id=2696&fmt=csv
+Dopo il commit, GitHub Pages pubblica il ramo `principale` dalla cartella radice, se questa è la configurazione già impostata nel repository.
 
-Dataset: popolazione residente al 31/12/2022 per sezione censuaria e fasce quinquennali di età.
-Scheda: https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706
+## Dati
+Schema applicativo in `data/territoriale.json`. Gli array sono volutamente vuoti. Non inserire valori aggregati finché non è verificata la relazione tra codici delle sezioni censuarie e confini di quartieri/circoscrizioni.
 
-## Limiti espliciti della prima versione
-Questa prima base tecnica automatizza lo scaricamento della fonte comunale, ma **non dichiara ancora disponibili statistiche per quartiere o circoscrizione**. Per calcolarle correttamente occorre normalizzare il tracciato CSV e associare le sezioni censuarie alle geometrie ufficiali dei 25 quartieri e delle 8 circoscrizioni.
-È inoltre necessario integrare il rilascio ISTAT 2023, l'inventario georiferito delle scuole e i layer delle dotazioni urbanistiche. Fino alla validazione, l'interfaccia mostra chiaramente lo stato di configurazione e non inventa valori.
+Fonti da usare:
+- Comune di Palermo, popolazione residente 31/12/2022 per sezione e classi quinquennali: https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706
+- ISTAT, dati censuari 2023 per sezioni e aree subcomunali: https://www.istat.it/notizia/dati-per-sezioni-di-censimento/
+- USR Sicilia, open data delle istituzioni scolastiche: https://www.usr.sicilia.it/open-data/
 
-## Licenze e attribuzione
-Rispettare la licenza indicata nella scheda del dataset e mantenere attribuzione al Comune di Palermo. Verificare le condizioni di riutilizzo delle ulteriori fonti ISTAT e cartografiche prima della distribuzione.
-Aggiornamento per pubblicazione GitHub Pages
+## Schema minimo del JSON
+- `meta`: stato, data aggiornamento, note.
+- `territories.circoscrizioni`: oggetti `{ "id": "...", "name": "..." }`.
+- `territories.quartieri`: oggetti `{ "id": "...", "name": "...", "circ_id": "..." }`.
+- `demografia`: record validati con `territorio_id`, `anno`, `pop_totale`, `maschi`, `femmine`, `eta_0_14`, `eta_15_64`, `eta_65_plus`, `fonte`.
+- `scuole`: oggetti con identificativo, denominazione, tipologia, indirizzo, latitudine, longitudine, anno scolastico e fonte.
+- `standard`: oggetti con territorio, categoria, superficie, unità, anno e fonte.
+- `geojson`: FeatureCollection GeoJSON con proprietà `territorio_id` e `nome`.
+
+## Limiti e criteri
+La mappa usa Leaflet e cartografia OpenStreetMap via rete. Il sito è statico: non ha database server né autenticazione. Gli aggiornamenti automatici richiedono un flusso GitHub Actions separato e la verifica dei tracciati delle fonti prima di automatizzare la trasformazione.
