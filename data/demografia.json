@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "titolo": "Archivio demografico del Comune di Palermo",
+    "versione": "1.0",
+    "data_aggiornamento": "2026-11-04",
+    "stato": "Struttura predisposta, dati da acquisire e validare",
+    "licenza": "CC BY-SA 4.0"
+  },
+  "fonti": [
+    {
+      "ente": "Comune di Palermo",
+      "dataset": "Popolazione residente per quartiere e cittadinanza",
+      "anno": 2022,
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1693"
+    },
+    {
+      "ente": "Comune di Palermo",
+      "dataset": "Popolazione residente per circoscrizione e cittadinanza",
+      "anno": 2022,
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1694"
+    },
+    {
+      "ente": "Comune di Palermo",
+      "dataset": "Popolazione per sezione censuaria e fasce di eta",
+      "anno": 2022,
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706"
+    }
+  ],
+  "popolazione_territoriale": [],
+  "popolazione_per_eta": [],
+  "indicatori": [],
+  "note_metodologiche": [
+    "I valori demografici saranno inseriti solo dopo l'acquisizione e la verifica dei dataset ufficiali.",
+    "I dati per sezione censuaria richiedono una corretta associazione geografica ai quartieri e alle circoscrizioni.",
+    "I dati non attribuibili a un territorio specifico saranno mantenuti separati."
+  ]
+}
