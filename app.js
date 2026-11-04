@@ -58,7 +58,7 @@ html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circosc
 }else if(active==='social'){
 html+=empty('Analisi sociale in fase di sviluppo','La sezione sarà attivata successivamente con gli indicatori sociali e demografici.');
 html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">In attesa dell’integrazione dei dati censuari per fascia d’età.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Indici di vecchiaia, dipendenza e struttura della popolazione da elaborare.</div></div></div>`;
-}
+
 
  }else if(active==='schools'){
  html+=empty(hasSchools?'Dati scolastici acquisiti: validazione necessaria':'Inventario scolastico non ancora caricato','Il modulo prevede istituzioni statali e paritarie, ordine e grado, indirizzo, coordinate, bacini di prossimità e anno scolastico di riferimento.');
