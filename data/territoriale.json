@@ -1,12 +1,228 @@
 {
   "meta": {
-    "status": "Dati ufficiali da integrare e validare",
-    "updated": null,
-    "note": "Non inserire dati stimati. Aggiungere solo dataset verificati."
+    "status": "Anagrafica territoriale caricata; dati statistici da integrare e validare",
+    "updated": "2026-11-04",
+    "note": "Sono riportati esclusivamente i nomi e le relazioni territoriali. Non sono inseriti valori demografici stimati.",
+    "sources": [
+      {
+        "name": "Comune di Palermo, Documento Unico di Programmazione 2026-2028",
+        "url": "https://docs.comune.palermo.it/js/server/uploads/bilancio/_11062026100540.pdf"
+      }
+    ]
   },
   "territories": {
-    "circoscrizioni": [],
-    "quartieri": []
+    "circoscrizioni": [
+      {
+        "id": "c1",
+        "name": "I Circoscrizione"
+      },
+      {
+        "id": "c2",
+        "name": "II Circoscrizione"
+      },
+      {
+        "id": "c3",
+        "name": "III Circoscrizione"
+      },
+      {
+        "id": "c4",
+        "name": "IV Circoscrizione"
+      },
+      {
+        "id": "c5",
+        "name": "V Circoscrizione"
+      },
+      {
+        "id": "c6",
+        "name": "VI Circoscrizione"
+      },
+      {
+        "id": "c7",
+        "name": "VII Circoscrizione"
+      },
+      {
+        "id": "c8",
+        "name": "VIII Circoscrizione"
+      }
+    ],
+    "quartieri": [
+      {
+        "id": "tribunali-castellammare",
+        "name": "Tribunali-Castellammare",
+        "circ_ids": [
+          "c1"
+        ]
+      },
+      {
+        "id": "palazzo-reale-monte-di-pieta",
+        "name": "Palazzo Reale-Monte di Pietà",
+        "circ_ids": [
+          "c1"
+        ]
+      },
+      {
+        "id": "brancaccio-ciaculli",
+        "name": "Brancaccio-Ciaculli",
+        "circ_ids": [
+          "c2"
+        ]
+      },
+      {
+        "id": "sette-cannoli",
+        "name": "Settecannoli",
+        "circ_ids": [
+          "c2"
+        ]
+      },
+      {
+        "id": "oreto-stazione",
+        "name": "Oreto-Stazione",
+        "circ_ids": [
+          "c2",
+          "c3"
+        ]
+      },
+      {
+        "id": "villagrazia-falsomiele",
+        "name": "Villagrazia-Falsomiele",
+        "circ_ids": [
+          "c3"
+        ]
+      },
+      {
+        "id": "cuba-calatafimi",
+        "name": "Cuba-Calatafimi",
+        "circ_ids": [
+          "c4"
+        ]
+      },
+      {
+        "id": "santa-rosalia-montegrappa",
+        "name": "S. Rosalia-Montegrappa",
+        "circ_ids": [
+          "c4"
+        ]
+      },
+      {
+        "id": "altarello",
+        "name": "Altarello",
+        "circ_ids": [
+          "c4"
+        ]
+      },
+      {
+        "id": "mezzomonreale-villa-tasca",
+        "name": "Mezzomonreale-Villa Tasca",
+        "circ_ids": [
+          "c4"
+        ]
+      },
+      {
+        "id": "boccadifalco",
+        "name": "Boccadifalco",
+        "circ_ids": [
+          "c4"
+        ]
+      },
+      {
+        "id": "zisa",
+        "name": "Zisa",
+        "circ_ids": [
+          "c5"
+        ]
+      },
+      {
+        "id": "uditore-passo-di-rigano",
+        "name": "Uditore-Passo di Rigano",
+        "circ_ids": [
+          "c5"
+        ]
+      },
+      {
+        "id": "borgo-nuovo",
+        "name": "Borgo Nuovo",
+        "circ_ids": [
+          "c5"
+        ]
+      },
+      {
+        "id": "noce",
+        "name": "Noce",
+        "circ_ids": [
+          "c5"
+        ]
+      },
+      {
+        "id": "san-giovanni-apostolo",
+        "name": "S. Giovanni Apostolo",
+        "circ_ids": [
+          "c6"
+        ]
+      },
+      {
+        "id": "resuttana-san-lorenzo",
+        "name": "Resuttana-San Lorenzo",
+        "circ_ids": [
+          "c6"
+        ]
+      },
+      {
+        "id": "arenella-vergine-maria",
+        "name": "Arenella-Vergine Maria",
+        "circ_ids": [
+          "c7"
+        ]
+      },
+      {
+        "id": "pallavicino",
+        "name": "Pallavicino",
+        "circ_ids": [
+          "c7"
+        ]
+      },
+      {
+        "id": "tommaso-natale-sferracavallo",
+        "name": "Tommaso Natale-Sferracavallo",
+        "circ_ids": [
+          "c7"
+        ]
+      },
+      {
+        "id": "partanna-mondello",
+        "name": "Partanna-Mondello",
+        "circ_ids": [
+          "c7"
+        ]
+      },
+      {
+        "id": "politeama",
+        "name": "Politeama",
+        "circ_ids": [
+          "c8"
+        ]
+      },
+      {
+        "id": "liberta",
+        "name": "Libertà",
+        "circ_ids": [
+          "c8"
+        ]
+      },
+      {
+        "id": "montepellegrino",
+        "name": "Montepellegrino",
+        "circ_ids": [
+          "c8"
+        ]
+      },
+      {
+        "id": "malaspina-palagonia",
+        "name": "Malaspina-Palagonia",
+        "circ_ids": [
+          "c8"
+        ]
+      }
+    ]
   },
   "demografia": [],
   "scuole": [],
