@@ -1,0 +1,9 @@
+{
+  "source": "Comune di Palermo - Open Data, dataset 1706",
+  "source_url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706",
+  "download_url": "https://opendata.comune.palermo.it/ws.php?id=2696&fmt=csv",
+  "reference_year": 2022,
+  "last_download": null,
+  "status": "in attesa del primo aggiornamento GitHub Actions",
+  "license": "CC BY-SA 4.0"
+}
