@@ -26,7 +26,11 @@ function render(){
 
 }else if(active==='demography'){
  const quartieri=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
- const righe=s.quart?quartieri.filter(x=>x.territorio_id===s.quart):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
+
+const normalizza=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
+const righe=s.quart?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeQuartiere)):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
+
  const somma=campo=>righe.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
  const italiani=somma('italiani');
  const stranieri=somma('stranieri');
