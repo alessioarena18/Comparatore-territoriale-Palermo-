@@ -43,9 +43,22 @@ const righe=s.quart?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeQuar
 
  
 html+=`<div class="grid"><div class="card"><h3>Composizione della popolazione</h3><canvas id="chartComposizione"></canvas></div><div class="card"><h3>Popolazione per quartiere</h3><canvas id="chartQuartieri"></canvas></div></div><div class="card"><h3>Incidenza della popolazione straniera</h3><canvas id="chartIncidenza"></canvas></div>`;
-}else if(active==='social'||active==='compare'){
- html+=empty('Analisi in fase di sviluppo','La sezione sarà attivata successivamente con gli indicatori demografici e il confronto territoriale.');
- html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">In attesa dell’integrazione dei dati censuari per fascia d’età.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Indici di vecchiaia, dipendenza e struttura della popolazione da elaborare.</div></div></div>`;
+}else if(active==='compare'){
+const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+const confronto=DATA.territories.circoscrizioni.map(c=>{
+const rr=qd.filter(x=>(x.circoscrizione_id||[]).includes(c.id));
+const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
+const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
+const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
+return {...c,italiani,stranieri,totale,percentuale:totale?stranieri/totale*100:0};
+});
+const fmtC=n=>Number(n).toLocaleString('it-IT');
+html+=`<div class="card"><h3>Confronto demografico tra le 8 circoscrizioni</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div style="overflow-x:auto"><table><thead><tr><th>Circoscrizione</th><th>Italiani</th><th>Stranieri</th><th>Totale residenti</th><th>Incidenza stranieri</th></tr></thead><tbody>${confronto.map(c=>`<tr><td>${c.name}</td><td>${fmtC(c.italiani)}</td><td>${fmtC(c.stranieri)}</td><td><strong>${fmtC(c.totale)}</strong></td><td>${c.percentuale.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})}%</td></tr>`).join('')}</tbody></table></div></div>`;
+html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circoscrizione</h3><canvas id="chartCircoscrizioni"></canvas></div><div class="card"><h3>Incidenza stranieri per circoscrizione</h3><canvas id="chartStranieriCircoscrizioni"></canvas></div></div>`;
+}else if(active==='social'){
+html+=empty('Analisi sociale in fase di sviluppo','La sezione sarà attivata successivamente con gli indicatori sociali e demografici.');
+html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">In attesa dell’integrazione dei dati censuari per fascia d’età.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Indici di vecchiaia, dipendenza e struttura della popolazione da elaborare.</div></div></div>`;
+}
 
  }else if(active==='schools'){
  html+=empty(hasSchools?'Dati scolastici acquisiti: validazione necessaria':'Inventario scolastico non ancora caricato','Il modulo prevede istituzioni statali e paritarie, ordine e grado, indirizzo, coordinate, bacini di prossimità e anno scolastico di riferimento.');
@@ -78,6 +91,22 @@ if(active==='demography'&&window.Chart){
   const incD=[...rd].sort((a,b)=>(b.stranieri/b.totale)-(a.stranieri/a.totale)).map(x=>({nome:x.nome,valore:x.totale?x.stranieri/x.totale*100:0}));
   charts.push(new Chart(canvasD('chartIncidenza'),{type:'bar',data:{labels:incD.map(x=>x.nome),datasets:[{label:'Stranieri (%)',data:incD.map(x=>Number(x.valore.toFixed(2)))}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
  }
+}
+if(active==='compare'&&window.Chart){
+const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+const confronto=DATA.territories.circoscrizioni.map(c=>{
+const rr=qd.filter(x=>(x.circoscrizione_id||[]).includes(c.id));
+const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
+const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
+const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
+return {...c,italiani,stranieri,totale,percentuale:totale?stranieri/totale*100:0};
+});
+if(document.getElementById('chartCircoscrizioni')){
+charts.push(new Chart(document.getElementById('chartCircoscrizioni'),{type:'bar',data:{labels:confronto.map(x=>x.name),datasets:[{label:'Residenti',data:confronto.map(x=>x.totale)}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));
+}
+if(document.getElementById('chartStranieriCircoscrizioni')){
+charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{type:'bar',data:{labels:confronto.map(x=>x.name),datasets:[{label:'Stranieri (%)',data:confronto.map(x=>Number(x.percentuale.toFixed(2)))}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
+}
 }
 
  if(active==='gis'||active==='spatial') initMap();
