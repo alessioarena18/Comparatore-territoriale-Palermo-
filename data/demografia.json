@@ -1,37 +1,488 @@
 {
   "meta": {
     "titolo": "Archivio demografico del Comune di Palermo",
-    "versione": "1.0",
+    "versione": "1.1",
     "data_aggiornamento": "2026-11-04",
-    "stato": "Struttura predisposta, dati da acquisire e validare",
-    "licenza": "CC BY-SA 4.0"
+    "stato": "Dati ufficiali 2022 acquisiti e verificati",
+    "data_riferimento": "2022-12-31",
+    "licenza": "CC BY-SA 4.0",
+    "nota": "I dati rappresentano la popolazione residente al 31 dicembre 2022 e non la popolazione aggiornata al 2026."
   },
   "fonti": [
     {
       "ente": "Comune di Palermo",
-      "dataset": "Popolazione residente per quartiere e cittadinanza",
+      "dataset": "Popolazione residente al 31/12/2022 per quartiere e cittadinanza",
       "anno": 2022,
-      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1693"
+      "url_dataset": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1693",
+      "url_csv": "https://opendata.comune.palermo.it/ws.php?id=2361&fmt=csv"
     },
     {
       "ente": "Comune di Palermo",
-      "dataset": "Popolazione residente per circoscrizione e cittadinanza",
+      "dataset": "Popolazione residente al 31/12/2022 per circoscrizione e cittadinanza",
       "anno": 2022,
-      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1694"
+      "url_dataset": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1694",
+      "url_csv": "https://opendata.comune.palermo.it/ws.php?id=2362&fmt=csv"
     },
     {
       "ente": "Comune di Palermo",
-      "dataset": "Popolazione per sezione censuaria e fasce di eta",
+      "dataset": "Popolazione per sezione censuaria e fasce di età",
       "anno": 2022,
-      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706"
+      "url_dataset": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706",
+      "nota": "Da integrare dopo acquisizione e associazione geografica delle sezioni censuarie."
     }
   ],
-  "popolazione_territoriale": [],
+  "popolazione_territoriale": [
+    {
+      "territorio_id": "tribunali-castellammare",
+      "tipo_territorio": "quartiere",
+      "nome": "Tribunali-Castellammare",
+      "nome_fonte": "TRIBUNALI-CASTELLAMMARE",
+      "circoscrizioni_id": [
+        "c1"
+      ],
+      "italiani": 10169,
+      "stranieri": 2098,
+      "totale": 12267,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "palazzo-reale-monte-di-pieta",
+      "tipo_territorio": "quartiere",
+      "nome": "Palazzo Reale-Monte di Pietà",
+      "nome_fonte": "PALAZZO REALE - MONTE DI PIETA'",
+      "circoscrizioni_id": [
+        "c1"
+      ],
+      "italiani": 11264,
+      "stranieri": 2756,
+      "totale": 14020,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "brancaccio-ciaculli",
+      "tipo_territorio": "quartiere",
+      "nome": "Brancaccio-Ciaculli",
+      "nome_fonte": "BRANCACCIO-CIACULLI",
+      "circoscrizioni_id": [
+        "c2"
+      ],
+      "italiani": 16201,
+      "stranieri": 145,
+      "totale": 16346,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "sette-cannoli",
+      "tipo_territorio": "quartiere",
+      "nome": "Settecannoli",
+      "nome_fonte": "SETTECANNOLI",
+      "circoscrizioni_id": [
+        "c2"
+      ],
+      "italiani": 47602,
+      "stranieri": 319,
+      "totale": 47921,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "oreto-stazione",
+      "tipo_territorio": "quartiere",
+      "nome": "Oreto-Stazione",
+      "nome_fonte": "ORETO- STAZIONE",
+      "circoscrizioni_id": [
+        "c2",
+        "c3"
+      ],
+      "italiani": 34554,
+      "stranieri": 4487,
+      "totale": 39041,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "villagrazia-falsomiele",
+      "tipo_territorio": "quartiere",
+      "nome": "Villagrazia-Falsomiele",
+      "nome_fonte": "VILLAGRAZIA-FALSOMIELE",
+      "circoscrizioni_id": [
+        "c3"
+      ],
+      "italiani": 39508,
+      "stranieri": 211,
+      "totale": 39719,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "cuba-calatafimi",
+      "tipo_territorio": "quartiere",
+      "nome": "Cuba-Calatafimi",
+      "nome_fonte": "CUBA-CALATAFIMI",
+      "circoscrizioni_id": [
+        "c4"
+      ],
+      "italiani": 18957,
+      "stranieri": 550,
+      "totale": 19507,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "santa-rosalia-montegrappa",
+      "tipo_territorio": "quartiere",
+      "nome": "S. Rosalia-Montegrappa",
+      "nome_fonte": "MONTEGRAPPA - S. ROSALIA",
+      "circoscrizioni_id": [
+        "c4"
+      ],
+      "italiani": 20506,
+      "stranieri": 552,
+      "totale": 21058,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "altarello",
+      "tipo_territorio": "quartiere",
+      "nome": "Altarello",
+      "nome_fonte": "ALTARELLO",
+      "circoscrizioni_id": [
+        "c4"
+      ],
+      "italiani": 14724,
+      "stranieri": 207,
+      "totale": 14931,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "mezzomonreale-villa-tasca",
+      "tipo_territorio": "quartiere",
+      "nome": "Mezzomonreale-Villa Tasca",
+      "nome_fonte": "MEZZOMONREALE -VILLA TASCA",
+      "circoscrizioni_id": [
+        "c4"
+      ],
+      "italiani": 35388,
+      "stranieri": 277,
+      "totale": 35665,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "boccadifalco",
+      "tipo_territorio": "quartiere",
+      "nome": "Boccadifalco",
+      "nome_fonte": "BOCCADIFALCO",
+      "circoscrizioni_id": [
+        "c4"
+      ],
+      "italiani": 7724,
+      "stranieri": 75,
+      "totale": 7799,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "zisa",
+      "tipo_territorio": "quartiere",
+      "nome": "Zisa",
+      "nome_fonte": "ZISA",
+      "circoscrizioni_id": [
+        "c5"
+      ],
+      "italiani": 30814,
+      "stranieri": 2429,
+      "totale": 33243,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "uditore-passo-di-rigano",
+      "tipo_territorio": "quartiere",
+      "nome": "Uditore-Passo di Rigano",
+      "nome_fonte": "UDITORE-PASSO DI RIGANO",
+      "circoscrizioni_id": [
+        "c5"
+      ],
+      "italiani": 29771,
+      "stranieri": 474,
+      "totale": 30245,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "borgo-nuovo",
+      "tipo_territorio": "quartiere",
+      "nome": "Borgo Nuovo",
+      "nome_fonte": "BORGO NUOVO",
+      "circoscrizioni_id": [
+        "c5"
+      ],
+      "italiani": 19292,
+      "stranieri": 131,
+      "totale": 19423,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "noce",
+      "tipo_territorio": "quartiere",
+      "nome": "Noce",
+      "nome_fonte": "NOCE",
+      "circoscrizioni_id": [
+        "c5"
+      ],
+      "italiani": 24914,
+      "stranieri": 2159,
+      "totale": 27073,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "san-giovanni-apostolo",
+      "tipo_territorio": "quartiere",
+      "nome": "S. Giovanni Apostolo",
+      "nome_fonte": "CRUILLAS - S.GIOVANNI APOSTOLO",
+      "circoscrizioni_id": [
+        "c6"
+      ],
+      "italiani": 30097,
+      "stranieri": 238,
+      "totale": 30335,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "resuttana-san-lorenzo",
+      "tipo_territorio": "quartiere",
+      "nome": "Resuttana-San Lorenzo",
+      "nome_fonte": "RESUTTANA - S.LORENZO",
+      "circoscrizioni_id": [
+        "c6"
+      ],
+      "italiani": 39550,
+      "stranieri": 688,
+      "totale": 40238,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "arenella-vergine-maria",
+      "tipo_territorio": "quartiere",
+      "nome": "Arenella-Vergine Maria",
+      "nome_fonte": "ARENELLA - VERGINE MARIA",
+      "circoscrizioni_id": [
+        "c7"
+      ],
+      "italiani": 8338,
+      "stranieri": 54,
+      "totale": 8392,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "pallavicino",
+      "tipo_territorio": "quartiere",
+      "nome": "Pallavicino",
+      "nome_fonte": "PALLAVICINO",
+      "circoscrizioni_id": [
+        "c7"
+      ],
+      "italiani": 25287,
+      "stranieri": 604,
+      "totale": 25891,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "tommaso-natale-sferracavallo",
+      "tipo_territorio": "quartiere",
+      "nome": "Tommaso Natale-Sferracavallo",
+      "nome_fonte": "TOMMASO NATALE - SFERRACAVALLO",
+      "circoscrizioni_id": [
+        "c7"
+      ],
+      "italiani": 21787,
+      "stranieri": 300,
+      "totale": 22087,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "partanna-mondello",
+      "tipo_territorio": "quartiere",
+      "nome": "Partanna-Mondello",
+      "nome_fonte": "PARTANNA MONDELLO",
+      "circoscrizioni_id": [
+        "c7"
+      ],
+      "italiani": 19004,
+      "stranieri": 418,
+      "totale": 19422,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "politeama",
+      "tipo_territorio": "quartiere",
+      "nome": "Politeama",
+      "nome_fonte": "POLITEAMA",
+      "circoscrizioni_id": [
+        "c8"
+      ],
+      "italiani": 27811,
+      "stranieri": 3585,
+      "totale": 31396,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "liberta",
+      "tipo_territorio": "quartiere",
+      "nome": "Libertà",
+      "nome_fonte": "LIBERTA'",
+      "circoscrizioni_id": [
+        "c8"
+      ],
+      "italiani": 39241,
+      "stranieri": 1447,
+      "totale": 40688,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "montepellegrino",
+      "tipo_territorio": "quartiere",
+      "nome": "Montepellegrino",
+      "nome_fonte": "MONTEPELLEGRINO",
+      "circoscrizioni_id": [
+        "c8"
+      ],
+      "italiani": 25808,
+      "stranieri": 646,
+      "totale": 26454,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "malaspina-palogonia",
+      "tipo_territorio": "quartiere",
+      "nome": "Malaspina-Palagonia",
+      "nome_fonte": "MALASPINA -PALAGONIA",
+      "circoscrizioni_id": [
+        "c8"
+      ],
+      "italiani": 18455,
+      "stranieri": 391,
+      "totale": 18846,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c1",
+      "tipo_territorio": "circoscrizione",
+      "nome": "I Circoscrizione",
+      "italiani": 21433,
+      "stranieri": 4854,
+      "totale": 26287,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c2",
+      "tipo_territorio": "circoscrizione",
+      "nome": "II Circoscrizione",
+      "italiani": 68923,
+      "stranieri": 1451,
+      "totale": 70374,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c3",
+      "tipo_territorio": "circoscrizione",
+      "nome": "III Circoscrizione",
+      "italiani": 68942,
+      "stranieri": 3711,
+      "totale": 72653,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c4",
+      "tipo_territorio": "circoscrizione",
+      "nome": "IV Circoscrizione",
+      "italiani": 97299,
+      "stranieri": 1661,
+      "totale": 98960,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c5",
+      "tipo_territorio": "circoscrizione",
+      "nome": "V Circoscrizione",
+      "italiani": 104791,
+      "stranieri": 5193,
+      "totale": 109984,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c6",
+      "tipo_territorio": "circoscrizione",
+      "nome": "VI Circoscrizione",
+      "italiani": 69647,
+      "stranieri": 926,
+      "totale": 70573,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c7",
+      "tipo_territorio": "circoscrizione",
+      "nome": "VII Circoscrizione",
+      "italiani": 74416,
+      "stranieri": 1376,
+      "totale": 75792,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    },
+    {
+      "territorio_id": "c8",
+      "tipo_territorio": "circoscrizione",
+      "nome": "VIII Circoscrizione",
+      "italiani": 111315,
+      "stranieri": 6069,
+      "totale": 117384,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31"
+    }
+  ],
   "popolazione_per_eta": [],
+  "popolazione_non_attribuita": [
+    {
+      "categoria": "senza fissa dimora",
+      "italiani": 533,
+      "stranieri": 76,
+      "totale": 609,
+      "anno": 2022,
+      "data_riferimento": "2022-12-31",
+      "nota": "Dato mantenuto separato e non attribuito a quartieri o circoscrizioni."
+    }
+  ],
   "indicatori": [],
   "note_metodologiche": [
-    "I valori demografici saranno inseriti solo dopo l'acquisizione e la verifica dei dataset ufficiali.",
-    "I dati per sezione censuaria richiedono una corretta associazione geografica ai quartieri e alle circoscrizioni.",
-    "I dati non attribuibili a un territorio specifico saranno mantenuti separati."
+    "I valori demografici sono riferiti al 31 dicembre 2022.",
+    "I dati dei quartieri e delle circoscrizioni provengono da due dataset ufficiali distinti del Comune di Palermo.",
+    "Il campo nome_fonte conserva la denominazione originale del dataset comunale, mentre nome riprende la denominazione dell'anagrafica territoriale.",
+    "Oreto-Stazione è associato sia alla II sia alla III Circoscrizione nell'anagrafica territoriale. Il dato demografico del quartiere è registrato una sola volta e non viene sommato ai totali delle circoscrizioni.",
+    "La voce senza fissa dimora è conservata separatamente e non attribuita a uno specifico territorio.",
+    "I dati per sezione censuaria e fasce di età saranno integrati dopo la verifica della corrispondenza geografica."
   ]
 }
