@@ -23,9 +23,23 @@ function render(){
  if(active==='overview'){
  html+=empty('Base informativa in configurazione','La piattaforma è predisposta per acquisire fonti ufficiali. Gli indicatori territoriali saranno attivati dopo la validazione delle corrispondenze geografiche.');
  html+=`<div class="grid"><div class="card"><h3>Circoscrizioni censite</h3><div class="metric">${DATA.territories.circoscrizioni.length||'—'}</div><span class="muted">Elenco territoriale validato</span></div><div class="card"><h3>Quartieri censiti</h3><div class="metric">${DATA.territories.quartieri.length||'—'}</div><span class="muted">Elenco territoriale validato</span></div><div class="card"><h3>Dataset demografici</h3><div class="metric">${hasDemo?'Disponibili':'In attesa'}</div><span class="muted">Nessun valore stimato</span></div><div class="card"><h3>Ultimo aggiornamento</h3><div class="metric">${esc(DATA.meta.updated||'—')}</div><span class="muted">Data registrata nel pacchetto dati</span></div></div>`;
- }else if(active==='demography'||active==='social'||active==='compare'){
- html+=empty(hasDemo?'Dati disponibili: elaborazione da completare':'Elaborazione in attesa della normalizzazione del tracciato','Per pubblicare valori per quartiere e circoscrizione occorre associare le sezioni censuarie ai perimetri amministrativi e validare i campi del dataset. Non vengono generati valori dimostrativi.');
- html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">Grafico attivabile dopo la validazione dei dati.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Popolazione 0–14, 15–64, 65+, indici di vecchiaia e dipendenza.</div></div></div>`;
+
+}else if(active==='demography'){
+ const quartieri=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+ const righe=s.quart?quartieri.filter(x=>x.territorio_id===s.quart):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
+ const somma=campo=>righe.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
+ const italiani=somma('italiani');
+ const stranieri=somma('stranieri');
+ const totale=somma('totale');
+ const percentuale=totale?((stranieri/totale)*100).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1}):'0,0';
+ const nome=s.quart?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
+ const fmt=n=>Number(n).toLocaleString('it-IT');
+ html+=`<div class="card"><h3>Popolazione residente · ${nome}</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div class="grid"><div class="card"><span class="muted">Popolazione totale</span><div class="metric">${fmt(totale)}</div></div><div class="card"><span class="muted">Cittadini italiani</span><div class="metric">${fmt(italiani)}</div></div><div class="card"><span class="muted">Cittadini stranieri</span><div class="metric">${fmt(stranieri)}</div></div><div class="card"><span class="muted">Incidenza stranieri</span><div class="metric">${percentuale}%</div></div></div></div>`;
+ html+=`<div class="card"><h3>Popolazione per quartiere</h3><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>${[...righe].sort((a,b)=>b.totale-a.totale).map(x=>`<tr><td>${esc(x.nome)}</td><td>${fmt(x.italiani)}</td><td>${fmt(x.stranieri)}</td><td>${fmt(x.totale)}</td><td>${x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0'}%</td></tr>`).join('')}</tbody></table></div></div>`;
+}else if(active==='social'||active==='compare'){
+ html+=empty('Analisi in fase di sviluppo','La sezione sarà attivata successivamente con gli indicatori demografici e il confronto territoriale.');
+ html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">In attesa dell’integrazione dei dati censuari per fascia d’età.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Indici di vecchiaia, dipendenza e struttura della popolazione da elaborare.</div></div></div>`;
+
  }else if(active==='schools'){
  html+=empty(hasSchools?'Dati scolastici acquisiti: validazione necessaria':'Inventario scolastico non ancora caricato','Il modulo prevede istituzioni statali e paritarie, ordine e grado, indirizzo, coordinate, bacini di prossimità e anno scolastico di riferimento.');
  }else if(active==='standards'){
