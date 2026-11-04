@@ -45,6 +45,6 @@ function fillFilters(){
 }
 async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(r.ok)DATA=await r.json();$('#status').textContent=DATA.meta?.status||'Struttura pronta · dati da validare';fillFilters();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();}
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
-$('#circ').addEventListener('change',()=>{let id=$('#circ').value;$('#quart').value='';if(id){let q=$('#quart');[...q.options].forEach((o,i)=>{if(i)o.hidden=!DATA.territories.quartieri.find(x=>x.id===o.value&&x.circ_id===id);});}else [...$('#quart').options].forEach(o=>o.hidden=false);render();});
+$('#circ').addEventListener('change',()=>{const id=$('#circ').value,q=$('#quart');q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));render();});
 $('#quart').addEventListener('change',render);
 load();
