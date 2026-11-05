@@ -46,7 +46,7 @@ html+=`<div class="grid"><div class="card"><h3>Composizione della popolazione</h
 }else if(active==='compare'){
 const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
 const confronto=DATA.territories.circoscrizioni.map(c=>{
-const rr=qd.filter(x=>(x.circoscrizione_id||[]).includes(c.id));
+const rr=qd.filter(x=>(x.circoscrizioni_id||[]).includes(c.id));
 const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
 const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
 const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
@@ -95,7 +95,7 @@ if(active==='demography'&&window.Chart){
 if(active==='compare'&&window.Chart){
 const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
 const confronto=DATA.territories.circoscrizioni.map(c=>{
-const rr=qd.filter(x=>(x.circoscrizione_id||[]).includes(c.id));
+const rr=qd.filter(x=>(x.circoscrizioni_id||[]).includes(c.id));
 const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
 const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
 const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
