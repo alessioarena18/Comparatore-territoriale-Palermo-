@@ -85,8 +85,14 @@ html+=`<div class="card">
     DIS8:'Giovani NEET 15-29 anni',
     DIS9:'Dispersione e ripetenza scolastica'
   };
-  html+=`<div class="grid">
-    <div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
+  html+=`<div class="card">
+<h3>Seleziona le UPL da confrontare</h3>
+<p class="muted">Seleziona almeno due aree per avviare il confronto.</p>
+<div id="uplSelezione" class="grid">
+${aree.map(a=>'<label style="display:block;margin:6px 0"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
+</div>
+</div>`;
+    html+=`<div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
     <div class="card"><span class="muted">IDISE medio delle UPL</span><div class="metric">${numero(media)}</div></div>
     <div class="card"><span class="muted">Maggiore disagio</span><h3>${massimo?esc(massimo.nome):'N.D.'}</h3><div class="metric">${massimo?numero(massimo.idise):'N.D.'}</div></div>
     <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
