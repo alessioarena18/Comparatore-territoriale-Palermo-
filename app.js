@@ -121,8 +121,9 @@ if(active==='social'){
   const box=document.createElement('div');
   box.id='uplConfronto';
   box.className='card';
-document.querySelector('#content').appendChild(box);
-
+const avviso=[...document.querySelector('#content').children].find(el=>el.textContent.includes('Inventario scolastico non ancora caricato'));
+if(avviso) document.querySelector('#content').insertBefore(box,avviso);
+else document.querySelector('#content').appendChild(box);
   const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
 
   function aggiornaConfronto(){
