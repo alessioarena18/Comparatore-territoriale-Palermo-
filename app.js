@@ -117,6 +117,40 @@ ${aree.map(a=>'<label style="display:block;margin:6px 0"><input type="checkbox" 
  }
  $('#content').innerHTML=html;
  
+if(active==='social'){
+  const box=document.createElement('div');
+  box.id='uplConfronto';
+  box.className='card';
+  document.querySelector('#uplSelezione').insertAdjacentElement('afterend',box);
+
+  const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
+
+  function aggiornaConfronto(){
+    const codici=[...document.querySelectorAll('.upl-check:checked')].map(x=>x.value);
+    const aree=DATA.sociale.filter(x=>codici.includes(x.cod_asc));
+
+    if(aree.length<2){
+      box.innerHTML='<h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare il confronto.</p>';
+      return;
+    }
+
+    const numero=v=>Number(v||0).toLocaleString('it-IT',{maximumFractionDigits:2});
+    const righe=[
+      ['IDISE',a=>a.idise],
+      ['Popolazione',a=>a.popolazione],
+      ['Famiglie',a=>a.famiglie],
+      ['Superficie (km²)',a=>a.superficie_km2],
+      ...indicatori.map(k=>[k,a=>a.dis?.[k]])
+    ];
+
+    box.innerHTML='<h3>Confronto tra '+aree.length+' UPL</h3><div style="overflow-x:auto"><table><thead><tr><th>Indicatore</th>'+aree.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+aree.map(a=>'<td>'+numero(fn(a))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+  }
+
+  document.querySelectorAll('.upl-check').forEach(c=>c.addEventListener('change',aggiornaConfronto));
+  aggiornaConfronto();
+}
+
+ 
 if(active==='demography'&&window.Chart){
  const sd=selected();
  const normGrafico=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
