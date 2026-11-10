@@ -121,7 +121,7 @@ if(active==='social'){
   const box=document.createElement('div');
   box.id='uplConfronto';
   box.className='card';
-  document.querySelector('#uplSelezione').insertAdjacentElement('afterend',box);
+document.querySelector('#content').appendChild(box);
 
   const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
 
