@@ -56,11 +56,38 @@ const fmtC=n=>Number(n).toLocaleString('it-IT');
 html+=`<div class="card"><h3>Confronto demografico tra le 8 circoscrizioni</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div style="overflow-x:auto"><table><thead><tr><th>Circoscrizione</th><th>Italiani</th><th>Stranieri</th><th>Totale residenti</th><th>Incidenza stranieri</th></tr></thead><tbody>${confronto.map(c=>`<tr><td>${c.name}</td><td>${fmtC(c.italiani)}</td><td>${fmtC(c.stranieri)}</td><td><strong>${fmtC(c.totale)}</strong></td><td>${c.percentuale.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})}%</td></tr>`).join('')}</tbody></table></div></div>`;
 html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circoscrizione</h3><canvas id="chartCircoscrizioni"></canvas></div><div class="card"><h3>Incidenza stranieri per circoscrizione</h3><canvas id="chartStranieriCircoscrizioni"></canvas></div></div>`;
 }else if(active==='social'){
-html+=empty('Analisi sociale in fase di sviluppo','La sezione sarà attivata successivamente con gli indicatori sociali e demografici.');
-html+=`<div class="grid"><div class="card"><h3>Distribuzione per età</h3><div class="empty">In attesa dell’integrazione dei dati censuari per fascia d’età.</div></div><div class="card"><h3>Indicatori demografici</h3><div class="empty">Indici di vecchiaia, dipendenza e struttura della popolazione da elaborare.</div></div></div>`;
-
-
- }else if(active==='schools'){
+  const aree=[...(DATA.sociale||[])].sort((a,b)=>Number(b.idise)-Number(a.idise));
+  const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:0;
+  const massimo=aree[0];
+  const minimo=[...aree].sort((a,b)=>Number(a.idise)-Number(b.idise))[0];
+  const numero=n=>Number(n||0).toLocaleString('it-IT',{maximumFractionDigits:2});
+  const descrizioni={
+    DIS1:'Anziani soli in condizioni di vulnerabilità abitativa',
+    DIS2:'Persone in famiglie senza occupati o pensionati da lavoro',
+    DIS3:'Persone in famiglie con basso reddito equivalente',
+    DIS4:'Tasso di occupazione 25-64 anni',
+    DIS5:'Famiglie con bassa intensità lavorativa',
+    DIS6:'Occupazione instabile 25-64 anni',
+    DIS7:'Basso livello di istruzione 25-64 anni',
+    DIS8:'Giovani NEET 15-29 anni',
+    DIS9:'Dispersione e ripetenza scolastica'
+  };
+  html+=`<div class="grid">
+    <div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
+    <div class="card"><span class="muted">IDISE medio delle UPL</span><div class="metric">${numero(media)}</div></div>
+    <div class="card"><span class="muted">Maggiore disagio</span><h3>${massimo?esc(massimo.nome):'N.D.'}</h3><div class="metric">${massimo?numero(massimo.idise):'N.D.'}</div></div>
+    <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
+  </div>
+  <div class="card"><h3>Indice di disagio socio-economico IDISE 2023</h3>
+  <p class="muted">Fonte: ISTAT. Unità territoriali: 55 UPL di Palermo. Valore comunale di riferimento: 100. Valori più elevati indicano maggiore disagio socio-economico.</p>
+  <div style="overflow-x:auto"><table><thead><tr><th>UPL</th><th>IDISE</th><th>Popolazione</th><th>Famiglie</th></tr></thead><tbody>
+  ${aree.map(a=>`<tr><td>${esc(a.nome)}</td><td>${numero(a.idise)}</td><td>${numero(a.popolazione)}</td><td>${numero(a.famiglie)}</td></tr>`).join('')}
+  </tbody></table></div></div>
+  <div class="card"><h3>Indicatori elementari del disagio</h3>
+  <p class="muted">Il sistema IDISE è composto da nove indicatori. La direzione interpretativa del DIS4 è inversa rispetto agli altri indicatori.</p>
+  <div style="overflow-x:auto"><table><thead><tr><th>Codice</th><th>Indicatore</th></tr></thead><tbody>
+  ${Object.entries(descrizioni).map(([codice,descrizione])=>`<tr><td>${codice}</td><td>${descrizione}</td></tr>`).join('')}
+  </tbody></table></div></div>`;
  html+=empty(hasSchools?'Dati scolastici acquisiti: validazione necessaria':'Inventario scolastico non ancora caricato','Il modulo prevede istituzioni statali e paritarie, ordine e grado, indirizzo, coordinate, bacini di prossimità e anno scolastico di riferimento.');
  }else if(active==='standards'){
  html+=empty(hasStandards?'Dotazioni caricate: verifica metodologica necessaria':'Quadro delle dotazioni in attesa dei dati urbanistici','Per calcolare gli standard occorrono superfici, destinazioni, popolazione di riferimento e disciplina urbanistica applicabile. I risultati saranno distinti per tipologia e unità di misura.');
