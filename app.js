@@ -21,19 +21,7 @@ function render(){
  let html=pageShell(),s=selected();
  const hasDemo=DATA.demografia.length>0, hasSchools=DATA.scuole.length>0, hasStandards=DATA.standard.length>0;
  if(active==='overview'){
- html+=`<div class="card">
-<h3>Che cos’è l’IDISE?</h3>
-<p>L’Indice di Disagio Socio-Economico (IDISE), elaborato dall’ISTAT, è uno strumento statistico che consente di analizzare le condizioni di svantaggio socio-economico della popolazione a scala territoriale.</p>
-<p>L’indice sintetizza nove indicatori che riguardano diversi aspetti della vita delle persone e delle famiglie: condizioni abitative, reddito, occupazione, stabilità lavorativa, istruzione, presenza di giovani NEET e dispersione scolastica.</p>
-<h3>Come si interpreta il valore?</h3>
-<ul>
-<li><strong>Valore pari a 100:</strong> corrisponde al valore medio di riferimento del Comune.</li>
-<li><strong>Valore superiore a 100:</strong> indica condizioni di maggiore disagio socio-economico.</li>
-<li><strong>Valore inferiore a 100:</strong> indica condizioni di minore disagio rispetto al riferimento comunale.</li>
-</ul>
-<p>I dati utilizzati in questa piattaforma si riferiscono all’anno 2023 e riguardano 55 Unità di Primo Livello (UPL) del Comune di Palermo.</p>
-<p class="muted">Fonte: ISTAT, Indice di disagio socio-economico a livello sub-comunale (IDISE), anno 2023.</p>
-</div>`;html+=empty('Base informativa in configurazione','La piattaforma è predisposta per acquisire fonti ufficiali. Gli indicatori territoriali saranno attivati dopo la validazione delle corrispondenze geografiche.');
+ html+=empty('Base informativa in configurazione','La piattaforma è predisposta per acquisire fonti ufficiali. Gli indicatori territoriali saranno attivati dopo la validazione delle corrispondenze geografiche.');
  html+=`<div class="grid"><div class="card"><h3>Circoscrizioni censite</h3><div class="metric">${DATA.territories.circoscrizioni.length||'—'}</div><span class="muted">Elenco territoriale validato</span></div><div class="card"><h3>Quartieri censiti</h3><div class="metric">${DATA.territories.quartieri.length||'—'}</div><span class="muted">Elenco territoriale validato</span></div><div class="card"><h3>Dataset demografici</h3><div class="metric">${hasDemo?'Disponibili':'In attesa'}</div><span class="muted">Nessun valore stimato</span></div><div class="card"><h3>Ultimo aggiornamento</h3><div class="metric">${esc(DATA.meta.updated||'—')}</div><span class="muted">Data registrata nel pacchetto dati</span></div></div>`;
 
 }else if(active==='demography'){
@@ -68,6 +56,19 @@ const fmtC=n=>Number(n).toLocaleString('it-IT');
 html+=`<div class="card"><h3>Confronto demografico tra le 8 circoscrizioni</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div style="overflow-x:auto"><table><thead><tr><th>Circoscrizione</th><th>Italiani</th><th>Stranieri</th><th>Totale residenti</th><th>Incidenza stranieri</th></tr></thead><tbody>${confronto.map(c=>`<tr><td>${c.name}</td><td>${fmtC(c.italiani)}</td><td>${fmtC(c.stranieri)}</td><td><strong>${fmtC(c.totale)}</strong></td><td>${c.percentuale.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})}%</td></tr>`).join('')}</tbody></table></div></div>`;
 html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circoscrizione</h3><canvas id="chartCircoscrizioni"></canvas></div><div class="card"><h3>Incidenza stranieri per circoscrizione</h3><canvas id="chartStranieriCircoscrizioni"></canvas></div></div>`;
 }else if(active==='social'){
+html+=`<div class="card">
+<h3>Che cos’è l’IDISE?</h3>
+<p>L’Indice di Disagio Socio-Economico (IDISE), elaborato dall’ISTAT, è uno strumento statistico che permette di analizzare e rappresentare le condizioni di svantaggio socio-economico della popolazione a livello territoriale.</p>
+<p>L’indice sintetizza nove indicatori che riguardano le condizioni abitative, il reddito, l’occupazione, la stabilità lavorativa, il livello di istruzione, la presenza di giovani NEET e la dispersione scolastica.</p>
+<h3>Come si interpreta?</h3>
+<ul>
+<li><strong>Valore pari a 100:</strong> corrisponde al valore medio di riferimento del Comune di Palermo.</li>
+<li><strong>Valore superiore a 100:</strong> segnala un livello di disagio socio-economico maggiore rispetto al riferimento comunale.</li>
+<li><strong>Valore inferiore a 100:</strong> segnala un livello di disagio inferiore rispetto al riferimento comunale.</li>
+</ul>
+<p>L’analisi utilizza i dati ISTAT 2023 e considera le 55 Unità di Primo Livello (UPL) individuate nel territorio comunale di Palermo.</p>
+<p class="muted">Fonte: ISTAT, Indice di disagio socio-economico a livello sub-comunale (IDISE), anno 2023.</p>
+</div>`;
   const aree=[...(DATA.sociale||[])].sort((a,b)=>Number(b.idise)-Number(a.idise));
   const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:0;
   const massimo=aree[0];
