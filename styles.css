@@ -40,3 +40,11 @@
 .gis-import-panel{margin-top:16px}
 .gis-file-label{display:flex;flex-direction:column;gap:8px;max-width:440px;font-size:12px;color:#526d86;font-weight:700}
 .gis-file-label input{max-width:100%;padding:10px;border:1px solid #cbd8e4;border-radius:8px;background:#f8fafc;color:#243e57;font:inherit}
+
+/* Importazione locale e rapporto di controllo GIS */
+.gis-import-panel{margin-top:16px;background:#fbfdff}
+.gis-file-label{display:flex;flex-direction:column;gap:8px;max-width:520px;color:#405b74;font-size:13px;font-weight:600}
+.gis-file-label input{font:inherit;border:1px solid #cbd8e4;border-radius:8px;padding:10px;background:#fff}
+.secondary-button{margin-top:10px;border:1px solid #b9cad9;border-radius:8px;background:#f2f6fa;color:#244761;padding:9px 13px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.secondary-button:hover{background:#e5eef5}
+#gisReport{white-space:pre-line;overflow-wrap:anywhere}
