@@ -1,7 +1,7 @@
 const $=s=>document.querySelector(s);
 let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null};
 let active='overview', charts=[];
-let gisMap=null, gisImportedLayer=null, gisImportedData=null;
+let gisMap=null, gisImportedLayers=[], gisLayerControl=null;
 const pages={
 overview:['QUADRO CONOSCITIVO','Panoramica territoriale','Quadro integrato delle componenti demografiche, scolastiche, urbanistiche e spaziali.'],
 demography:['POPOLAZIONE RESIDENTE','Analisi demografica','Distribuzione per sesso, classi d’età e fasce funzionali.'],
@@ -134,7 +134,7 @@ if(active==='social'){
  html+=`<div class="card standards-calculator"><h3>Simulatore del fabbisogno di standard</h3><p class="muted">Inserisci la popolazione di riferimento e le superfici effettivamente disponibili. Il calcolo è una simulazione parametrica, non una certificazione urbanistica.</p><div class="calc-input"><label>Popolazione di riferimento<input id="stdPopulation" type="number" min="0" step="1" placeholder="Inserisci numero abitanti"></label></div><div class="table-wrap"><table><thead><tr><th>Categoria</th><th>Standard (m²/ab)</th><th>Superficie disponibile (m²)</th><th>Fabbisogno teorico (m²)</th><th>Differenza (m²)</th></tr></thead><tbody>${standard.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td><input class="std-area" data-index="${i}" type="number" min="0" step="0.01" placeholder="Da inserire" aria-label="Superficie disponibile ${x[0]}"></td><td id="stdNeed${i}">N.D.</td><td id="stdGap${i}">N.D.</td></tr>`).join('')}</tbody><tfoot><tr><th colspan="3">Totale</th><th id="stdTotalNeed">N.D.</th><th id="stdTotalGap">N.D.</th></tr></tfoot></table></div><p id="stdCalcStatus" class="muted comparison-note">Inserisci popolazione e superfici per calcolare fabbisogno e differenziali.</p></div>`;
  html+=`<div class="grid standards-kpis"><div class="card"><span class="muted">Dotazione complessiva di riferimento</span><div class="metric">18,00 <small>m²/ab</small></div><small class="muted">D.M. 1444/1968, art. 3</small></div><div class="card"><span class="muted">Categorie di standard</span><div class="metric">4</div><small class="muted">Ripartizione ordinaria</small></div><div class="card"><span class="muted">Superfici validate</span><div class="metric">N.D.</div><small class="muted">Da acquisire e verificare</small></div><div class="card"><span class="muted">Verifica di conformità</span><div class="metric">Non calcolabile</div><small class="muted">Mancano superfici georeferenziate</small></div></div><div class="card"><h3>Parametri di riferimento del D.M. 1444/1968</h3><p class="muted">Dotazioni minime di norma per gli insediamenti residenziali. I parametri non descrivono la dotazione effettivamente presente a Palermo.</p><div class="table-wrap"><table><thead><tr><th>Categoria</th><th>Parametro</th><th>Contenuto</th></tr></thead><tbody>${standard.map(x=>`<tr><td><b>${x[0]}</b></td><td><b>${x[1]} m²/ab</b></td><td>${x[2]}</td></tr>`).join('')}</tbody><tfoot><tr><th>Totale</th><th>18,00 m²/ab</th><th>Escluse le sedi viarie</th></tr></tfoot></table></div></div><div class="card"><h3>Procedura di verifica territoriale</h3><div class="workflow-grid"><div><b>1. Inventario</b><span>Acquisizione dei poligoni e delle superfici per categoria.</span></div><div><b>2. Validazione</b><span>Controllo di geometrie, destinazioni, fruibilità e aggiornamento.</span></div><div><b>3. Attribuzione</b><span>Associazione delle superfici a quartieri e circoscrizioni tramite overlay GIS.</span></div><div><b>4. Calcolo</b><span>m² per abitante, fabbisogno teorico e differenziale per categoria.</span></div></div><p class="notice-inline">Non viene calcolato alcun deficit o surplus finché non saranno disponibili superfici attendibili e popolazione coerente per territorio e anno.</p></div>`;
  }else if(active==='gis'||active==='spatial'){
- html+=`<div class="grid gis-kpis"><div class="card"><span class="muted">Circoscrizioni</span><div class="metric">8</div></div><div class="card"><span class="muted">Quartieri</span><div class="metric">25</div></div><div class="card"><span class="muted">Layer validati</span><div class="metric">0</div></div><div class="card"><span class="muted">Sistema di riferimento</span><div class="metric">Da verificare</div></div></div><div class="card"><h3>${active==='gis'?'Cartografia GIS':'Analisi spaziale e accessibilità'}</h3><p class="muted">Mappa di base interattiva. Le basi territoriali ISTAT 2021 comprendono sezioni censuarie e aree subcomunali; i confini comunali e le circoscrizioni del Comune hanno aggiornamenti differenti. I quattro livelli ISTAT 2021 per Palermo sono stati acquisiti ed elaborati: 3.600 sezioni, 8 circoscrizioni (ASC1), 25 aree ASC2 e 55 aree ASC3. I codici territoriali risultano agganciati; tre geometrie di sezione presentano auto-intersezioni e restano escluse da qualsiasi certificazione. Il totale censuario POP21 è 635.439 e non va confuso con l’anagrafe comunale 2022. I GeoJSON sono disponibili nel pacchetto di elaborazione e devono essere sottoposti a verifica topologica in QGIS prima dell’attivazione.</p><div id="map"></div><div class="card gis-import-panel"><h3>Importa un layer GeoJSON per la verifica locale</h3><p class="muted">Estrai il pacchetto cartografico ISTAT Palermo 2021 e carica qui un GeoJSON alla volta, in WGS 84 (EPSG:4326). Il file viene letto nel browser, non viene inviato né salvato nel repository. Per la verifica iniziale usa i layer ASC1, ASC2 e ASC3; il layer delle sezioni contiene tre geometrie con auto-intersezioni già segnalate nel rapporto.</p><label class="gis-file-label">Seleziona file GeoJSON <input id="gisFile" type="file" accept=".geojson,.json,application/geo+json,application/json"></label><div id="gisReport" class="notice-inline" aria-live="polite">Nessun file caricato. I layer ufficiali restano non validati finché non vengono verificati.</div><p class="muted">Per preparare i layer ufficiali ISTAT 2021 è disponibile uno script Python nel <a href="https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/blob/main/tools/prepara_cartografia_istat.py" target="_blank" rel="noopener">repository GitHub</a>, con istruzioni nel README. Il <a href="data/geo/rapporto_controllo_istat_palermo_2021.json" target="_blank" rel="noopener">rapporto dei controlli preliminari</a> documenta conteggi, codici e anomalie. I file GeoJSON non sono ancora pubblicati nel repository e non sono certificati per analisi topologiche.</p></div><div class="map-legend"><span><i class="legend-dot base"></i>Mappa di base</span><span><i class="legend-dot pending"></i>Layer territoriali da integrare</span></div></div><div class="grid"><div class="card"><h3>Fonti cartografiche individuate</h3><ul><li><a href="https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip" target="_blank" rel="noopener">ISTAT – download diretto basi territoriali 2021, Sicilia (R19_21.zip)</a><br><small class="muted">Archivio ufficiale delle sezioni censuarie regionali. CRS di origine EPSG:32632. Per la pubblicazione web occorre convertire in EPSG:4326, verificare il codice comunale di Palermo, gli identificativi di sezione, la validità geometrica e la copertura.</small></li><li><a href="https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip" target="_blank" rel="noopener">ISTAT – download diretto aree subcomunali 2021 (ASC_21.zip)</a><br><small class="muted">Archivio ufficiale aggiornato il 14 maggio 2026. Verificare le tabelle ASC di Palermo e i campi COD_ASCn, COD_ASCn_T, DEN_ASCn e TIPO_ASCn; non confondere i livelli ASC1, ASC2 e ASC3.</small></li><li><a href="https://www.istat.it/notizia/dati-per-sezioni-di-censimento/" target="_blank" rel="noopener">ISTAT – Censimento permanente al 31/12/2023</a><br><small class="muted">Dati per sezioni e aree subcomunali, riferiti alle basi territoriali 2021; aggiornamento del rilascio 9 giugno 2026. Il codice di sezione va verificato prima dell’abbinamento alla geometria. Le sezioni fittizie 888888x (senza tetto e senza fissa dimora) e 999999x (zone in contestazione) vanno mantenute separate dai poligoni ordinari.</small></li><li><a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/" target="_blank" rel="noopener">ISTAT – confini amministrativi a fini statistici aggiornati al 1° gennaio 2026</a><br><small class="muted">Riferimento aggiornato per i confini amministrativi statistici; non sostituisce automaticamente i confini delle circoscrizioni comunali.</small></li><li><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=265" target="_blank" rel="noopener">Comune di Palermo – perimetrazione circoscrizioni (dataset 265)</a><br><small class="muted">Dato storico 2013, catalogo aggiornato nel 2018. Una segnalazione pubblica ha evidenziato differenze rispetto a ISTAT, assenza del file PRJ e un'anomalia geometrica della I circoscrizione: escluso dalle analisi fino a verifica tecnica.</small></li><li><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706" target="_blank" rel="noopener">Comune di Palermo – popolazione 2022 per sezione e classi quinquennali d'età</a><br><small class="muted">Fonte comunale aggiuntiva, mantenuta separata dai dati censuari ISTAT 2023 per differenza di anno e possibile differenza di codifica.</small></li></ul><p class="notice-inline">Stato operativo: fonti individuate, layer geografici non ancora validati e quindi non visualizzati.</p></div><div class="card"><h3>Procedura di integrazione dei layer</h3><ol><li>Scaricare e conservare gli archivi originali ISTAT R19_21.zip e ASC_21.zip, annotando data e versione.</li><li>Estrarre gli shapefile e verificare i metadati, il sistema di riferimento e i campi identificativi.</li><li>Selezionare Palermo tramite codice ISTAT del Comune, mai tramite il solo nome, e verificare la corrispondenza dei codici di sezione e delle aree subcomunali.</li><li>Abbinare i dati censuari 2023 alle geometrie 2021 usando il codice ufficiale della sezione; conservare separatamente le sezioni fittizie 888888x e 999999x, senza attribuire loro un poligono ordinario.</li><li>Controllare geometrie vuote o non valide, duplicati, sovrapposizioni, buchi e copertura territoriale.</li><li>Convertire una copia per il web in GeoJSON EPSG:4326, conservando gli identificativi originali e senza semplificazioni che alterino i confini.</li><li>Confrontare estensione e conteggi con i metadati ISTAT e registrare esito, data e operatore della validazione.</li></ol><p class="notice-inline">Stato attuale: archivi ufficiali individuati, ma non ancora acquisiti e verificati in questa versione del progetto. Nessun layer analitico viene quindi attivato.</p></div><div class="card"><h3>Analisi spaziali previste</h3><ul><li>Verifica topologica e sovrapposizione dei confini</li><li>Associazione delle sezioni censuarie alle unità subcomunali</li><li>Distanze e prossimità ai servizi</li><li>Bacini di influenza e aree raggiungibili</li><li>Mappe coropletiche demografiche e sociali</li></ul></div></div>`;
+ html+=`<div class="grid gis-kpis"><div class="card"><span class="muted">Circoscrizioni</span><div class="metric">8</div></div><div class="card"><span class="muted">Quartieri</span><div class="metric">25</div></div><div class="card"><span class="muted">Layer validati</span><div class="metric">0</div></div><div class="card"><span class="muted">Sistema di riferimento</span><div class="metric">Da verificare</div></div></div><div class="card"><h3>${active==='gis'?'Cartografia GIS':'Analisi spaziale e accessibilità'}</h3><p class="muted">Mappa di base interattiva. Le basi territoriali ISTAT 2021 comprendono sezioni censuarie e aree subcomunali; i confini comunali e le circoscrizioni del Comune hanno aggiornamenti differenti. I quattro livelli ISTAT 2021 per Palermo sono stati acquisiti ed elaborati: 3.600 sezioni, 8 circoscrizioni (ASC1), 25 aree ASC2 e 55 aree ASC3. I codici territoriali risultano agganciati; tre geometrie di sezione presentano auto-intersezioni e restano escluse da qualsiasi certificazione. Il totale censuario POP21 è 635.439 e non va confuso con l’anagrafe comunale 2022. I GeoJSON sono disponibili nel pacchetto di elaborazione e devono essere sottoposti a verifica topologica in QGIS prima dell’attivazione.</p><div id="map"></div><div class="card gis-import-panel"><h3>Importa un layer GeoJSON per la verifica locale</h3><p class="muted">Estrai il pacchetto cartografico ISTAT Palermo 2021 e seleziona contemporaneamente uno o più file GeoJSON, in WGS 84 (EPSG:4326). Ogni file viene controllato e caricato come livello autonomo; il selettore della mappa consente di mostrarlo o nasconderlo. I file sono letti nel browser, non vengono inviati né salvati nel repository. Il layer delle sezioni contiene tre geometrie con auto-intersezioni già segnalate nel rapporto.</p><label class="gis-file-label">Seleziona uno o più file GeoJSON <input id="gisFile" type="file" multiple accept=".geojson,.json,application/geo+json,application/json"></label><div id="gisReport" class="notice-inline" aria-live="polite">Nessun file caricato. I layer ufficiali restano non validati finché non vengono verificati.</div><p class="muted">Per preparare i layer ufficiali ISTAT 2021 è disponibile uno script Python nel <a href="https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/blob/main/tools/prepara_cartografia_istat.py" target="_blank" rel="noopener">repository GitHub</a>, con istruzioni nel README. Il <a href="data/geo/rapporto_controllo_istat_palermo_2021.json" target="_blank" rel="noopener">rapporto dei controlli preliminari</a> documenta conteggi, codici e anomalie. I file GeoJSON non sono ancora pubblicati nel repository e non sono certificati per analisi topologiche.</p></div><div class="map-legend"><span><i class="legend-dot base"></i>Mappa di base</span><span><i class="legend-dot pending"></i>Layer territoriali da integrare</span></div></div><div class="grid"><div class="card"><h3>Fonti cartografiche individuate</h3><ul><li><a href="https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip" target="_blank" rel="noopener">ISTAT – download diretto basi territoriali 2021, Sicilia (R19_21.zip)</a><br><small class="muted">Archivio ufficiale delle sezioni censuarie regionali. CRS di origine EPSG:32632. Per la pubblicazione web occorre convertire in EPSG:4326, verificare il codice comunale di Palermo, gli identificativi di sezione, la validità geometrica e la copertura.</small></li><li><a href="https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip" target="_blank" rel="noopener">ISTAT – download diretto aree subcomunali 2021 (ASC_21.zip)</a><br><small class="muted">Archivio ufficiale aggiornato il 14 maggio 2026. Verificare le tabelle ASC di Palermo e i campi COD_ASCn, COD_ASCn_T, DEN_ASCn e TIPO_ASCn; non confondere i livelli ASC1, ASC2 e ASC3.</small></li><li><a href="https://www.istat.it/notizia/dati-per-sezioni-di-censimento/" target="_blank" rel="noopener">ISTAT – Censimento permanente al 31/12/2023</a><br><small class="muted">Dati per sezioni e aree subcomunali, riferiti alle basi territoriali 2021; aggiornamento del rilascio 9 giugno 2026. Il codice di sezione va verificato prima dell’abbinamento alla geometria. Le sezioni fittizie 888888x (senza tetto e senza fissa dimora) e 999999x (zone in contestazione) vanno mantenute separate dai poligoni ordinari.</small></li><li><a href="https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/" target="_blank" rel="noopener">ISTAT – confini amministrativi a fini statistici aggiornati al 1° gennaio 2026</a><br><small class="muted">Riferimento aggiornato per i confini amministrativi statistici; non sostituisce automaticamente i confini delle circoscrizioni comunali.</small></li><li><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=265" target="_blank" rel="noopener">Comune di Palermo – perimetrazione circoscrizioni (dataset 265)</a><br><small class="muted">Dato storico 2013, catalogo aggiornato nel 2018. Una segnalazione pubblica ha evidenziato differenze rispetto a ISTAT, assenza del file PRJ e un'anomalia geometrica della I circoscrizione: escluso dalle analisi fino a verifica tecnica.</small></li><li><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706" target="_blank" rel="noopener">Comune di Palermo – popolazione 2022 per sezione e classi quinquennali d'età</a><br><small class="muted">Fonte comunale aggiuntiva, mantenuta separata dai dati censuari ISTAT 2023 per differenza di anno e possibile differenza di codifica.</small></li></ul><p class="notice-inline">Stato operativo: fonti individuate, layer geografici non ancora validati e quindi non visualizzati.</p></div><div class="card"><h3>Procedura di integrazione dei layer</h3><ol><li>Scaricare e conservare gli archivi originali ISTAT R19_21.zip e ASC_21.zip, annotando data e versione.</li><li>Estrarre gli shapefile e verificare i metadati, il sistema di riferimento e i campi identificativi.</li><li>Selezionare Palermo tramite codice ISTAT del Comune, mai tramite il solo nome, e verificare la corrispondenza dei codici di sezione e delle aree subcomunali.</li><li>Abbinare i dati censuari 2023 alle geometrie 2021 usando il codice ufficiale della sezione; conservare separatamente le sezioni fittizie 888888x e 999999x, senza attribuire loro un poligono ordinario.</li><li>Controllare geometrie vuote o non valide, duplicati, sovrapposizioni, buchi e copertura territoriale.</li><li>Convertire una copia per il web in GeoJSON EPSG:4326, conservando gli identificativi originali e senza semplificazioni che alterino i confini.</li><li>Confrontare estensione e conteggi con i metadati ISTAT e registrare esito, data e operatore della validazione.</li></ol><p class="notice-inline">Stato attuale: archivi ufficiali individuati, ma non ancora acquisiti e verificati in questa versione del progetto. Nessun layer analitico viene quindi attivato.</p></div><div class="card"><h3>Analisi spaziali previste</h3><ul><li>Verifica topologica e sovrapposizione dei confini</li><li>Associazione delle sezioni censuarie alle unità subcomunali</li><li>Distanze e prossimità ai servizi</li><li>Bacini di influenza e aree raggiungibili</li><li>Mappe coropletiche demografiche e sociali</li></ul></div></div>`;
  }else if(active==='sources'){
  const fonti=[
  ['Comune di Palermo','Popolazione residente per quartiere e cittadinanza','2022 · 31/12','Dataset 1693','https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1693','Dato anagrafico già utilizzato; licenza CC BY-SA 4.0.'],
@@ -212,107 +212,132 @@ $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?
 }
 function initMap(){
  let el=$('#map');if(!el||!window.L)return;
- if(gisMap){gisMap.remove();gisMap=null;gisImportedLayer=null;}
+ if(gisMap){gisMap.remove();gisMap=null;gisImportedLayers=[];gisLayerControl=null;}
  gisMap=L.map(el).setView([38.1157,13.3615],12);
  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap'}).addTo(gisMap);
- if(DATA.geojson){gisImportedLayer=L.geoJSON(DATA.geojson).addTo(gisMap);}
  const fileInput=$('#gisFile'),report=$('#gisReport');
+ const palette=['#1769aa','#c05a21','#27834a','#8054a6'];
+ const accepted=[];
+ const updateControl=()=>{
+  if(gisLayerControl){gisMap.removeControl(gisLayerControl);gisLayerControl=null;}
+  const overlays={};
+  gisImportedLayers.forEach((item)=>{overlays[item.name]=item.layer;});
+  if(gisImportedLayers.length)gisLayerControl=L.control.layers(null,overlays,{collapsed:false}).addTo(gisMap);
+ };
+ const reset=()=>{
+  gisImportedLayers.forEach(item=>{if(gisMap.hasLayer(item.layer))gisMap.removeLayer(item.layer);});
+  gisImportedLayers=[];accepted.length=0;
+  if(gisLayerControl){gisMap.removeControl(gisLayerControl);gisLayerControl=null;}
+  if(fileInput)fileInput.value='';
+  if(report)report.textContent='Layer rimossi. Nessun dato cartografico locale attivo.';
+  const dl=$('#gisReportDownload');if(dl)dl.remove();
+  gisMap.setView([38.1157,13.3615],12);
+ };
  if(fileInput&&report){
   fileInput.addEventListener('change',()=>{
-   const file=fileInput.files&&fileInput.files[0];if(!file)return;
-   report.textContent='Lettura e controllo preliminare del file…';
-   const reader=new FileReader();
-   reader.onload=()=>{
-    try{
-     const data=JSON.parse(reader.result);
-     if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('Il file deve contenere una FeatureCollection GeoJSON.');
-     let empty=0,invalid=0,positions=0,outside=0,badRings=0,unknownGeometry=0,missingProperties=0;
-     const ids=new Set();let duplicateIds=0;
-     const scanCoordinates=value=>{
-      if(!Array.isArray(value))return;
-      if(value.length>=2&&typeof value[0]==='number'&&typeof value[1]==='number'){
-       positions++;
-       if(!value.every(n=>typeof n==='number'&&Number.isFinite(n)))invalid++;
-       else if(value[0]<13.0||value[0]>13.8||value[1]<37.9||value[1]>38.4)outside++;
-       return;
-      }
-      value.forEach(scanCoordinates);
-     };
-     const checkRings=rings=>{
-      if(!Array.isArray(rings)||!rings.length){badRings++;return;}
-      rings.forEach(r=>{
-       if(!Array.isArray(r)||r.length<4){badRings++;return;}
-       const first=r[0],last=r[r.length-1];
-       if(!Array.isArray(first)||!Array.isArray(last)||first[0]!==last[0]||first[1]!==last[1])badRings++;
-      });
-     };
-     const scanGeometry=g=>{
-      if(!g||typeof g!=='object'){empty++;return;}
-      if(g.type==='GeometryCollection'){
-       if(!Array.isArray(g.geometries)||!g.geometries.length){empty++;return;}
-       g.geometries.forEach(scanGeometry);return;
-      }
-      if(!['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon'].includes(g.type)){unknownGeometry++;return;}
-      if(!Array.isArray(g.coordinates)||!g.coordinates.length){empty++;return;}
-      if(g.type==='Polygon')checkRings(g.coordinates);
-      if(g.type==='MultiPolygon')g.coordinates.forEach(checkRings);
-      scanCoordinates(g.coordinates);
-     };
-     data.features.forEach(feature=>{
-      if(!feature||feature.type!=='Feature'||!feature.geometry){empty++;return;}
-      if(!feature.properties||typeof feature.properties!=='object')missingProperties++;
-      if(feature.id!==undefined){const key=String(feature.id);if(ids.has(key))duplicateIds++;ids.add(key);}
-      scanGeometry(feature.geometry);
-     });
-     const crs=data.crs?.properties?.name||'non dichiarato (specifica GeoJSON: WGS 84 / CRS84)';
-     const problems=empty+invalid+outside+badRings+unknownGeometry+duplicateIds;
-     const plausible=positions>0&&problems===0;
-     const reportText=[
-      'CONTROLLO PRELIMINARE GEOJSON',
-      'File: '+file.name,
-      'Feature: '+data.features.length,
-      'Coordinate esaminate: '+positions,
-      'Geometrie mancanti o vuote: '+empty,
-      'Coordinate non valide: '+invalid,
-      'Coordinate fuori dall’area indicativa di Palermo: '+outside,
-      'Anelli poligonali non chiusi o con meno di 4 vertici: '+badRings,
-      'Tipi geometrici non riconosciuti: '+unknownGeometry,
-      'Feature senza proprietà: '+missingProperties,
-      'Identificativi duplicati: '+duplicateIds,
-      'CRS dichiarato: '+crs,
-      'CRS: non verificato automaticamente; controllare l’esportazione EPSG:4326 in QGIS.',
-      'ESITO: '+(plausible?'controlli preliminari superati. Non equivale a validazione topologica, verifica del CRS o certificazione della fonte.':'controlli preliminari non superati. Layer non visualizzato.')
-     ].join('\n');
-     report.textContent=reportText;
-     let dl=$('#gisReportDownload');
-     if(!dl){dl=document.createElement('button');dl.id='gisReportDownload';dl.type='button';dl.className='secondary-button';dl.textContent='Scarica rapporto di controllo';report.insertAdjacentElement('afterend',dl);}
-     dl.onclick=()=>{
-      const blob=new Blob([reportText],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);
-      const link=document.createElement('a');link.href=url;link.download='rapporto-controllo-'+file.name.replace(/\.[^.]+$/,'')+'.txt';link.click();URL.revokeObjectURL(url);
-     };
-     if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
-     gisImportedData=null;
-     if(plausible){
-      gisImportedData=data;
-      gisImportedLayer=L.geoJSON(data,{style:{color:'#1769aa',weight:1.5,fillOpacity:.12}}).addTo(gisMap);
-      const bounds=gisImportedLayer.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});
-     }
-    }catch(err){
-     report.textContent='File non leggibile: '+err.message;gisImportedData=null;
-     if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
+   const files=Array.from(fileInput.files||[]);
+   if(!files.length)return;
+   report.textContent='Lettura e controllo preliminare di '+files.length+' file…';
+   accepted.length=0;
+   let pending=files.length;
+   const finish=()=>{
+    pending--;
+    if(pending!==0)return;
+    report.textContent=accepted.map(x=>x.report).join('\n\n')+
+     (accepted.length?'\n\nLayer caricati nella mappa. Usa il selettore in alto a destra per mostrare o nascondere ciascun livello.':'\n\nNessun layer visualizzato: i controlli preliminari hanno rilevato anomalie o i file non sono leggibili.');
+    if(gisImportedLayers.length){
+     updateControl();
+     const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
+     const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});
     }
+    let dl=$('#gisReportDownload');
+    if(!dl){dl=document.createElement('button');dl.id='gisReportDownload';dl.type='button';dl.className='secondary-button';dl.textContent='Scarica rapporto di controllo';report.insertAdjacentElement('afterend',dl);}
+    dl.onclick=()=>{
+     const blob=new Blob([report.textContent],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);
+     const link=document.createElement('a');link.href=url;link.download='rapporto-controllo-cartografia-palermo.txt';link.click();URL.revokeObjectURL(url);
+    };
    };
-   reader.onerror=()=>{report.textContent='Errore durante la lettura del file.';};
-   reader.readAsText(file);
+   files.forEach((file,index)=>{
+    const reader=new FileReader();
+    reader.onload=()=>{
+     try{
+      const data=JSON.parse(reader.result);
+      if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('Il file deve contenere una FeatureCollection GeoJSON.');
+      let empty=0,invalid=0,positions=0,outside=0,badRings=0,unknownGeometry=0,missingProperties=0;
+      const ids=new Set();let duplicateIds=0;
+      const scanCoordinates=value=>{
+       if(!Array.isArray(value))return;
+       if(value.length>=2&&typeof value[0]==='number'&&typeof value[1]==='number'){
+        positions++;
+        if(!value.every(n=>typeof n==='number'&&Number.isFinite(n)))invalid++;
+        else if(value[0]<13.0||value[0]>13.8||value[1]<37.9||value[1]>38.4)outside++;
+        return;
+       }
+       value.forEach(scanCoordinates);
+      };
+      const checkRings=rings=>{
+       if(!Array.isArray(rings)||!rings.length){badRings++;return;}
+       rings.forEach(r=>{
+        if(!Array.isArray(r)||r.length<4){badRings++;return;}
+        const first=r[0],last=r[r.length-1];
+        if(!Array.isArray(first)||!Array.isArray(last)||first[0]!==last[0]||first[1]!==last[1])badRings++;
+       });
+      };
+      const scanGeometry=g=>{
+       if(!g||typeof g!=='object'){empty++;return;}
+       if(g.type==='GeometryCollection'){
+        if(!Array.isArray(g.geometries)||!g.geometries.length){empty++;return;}
+        g.geometries.forEach(scanGeometry);return;
+       }
+       if(!['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon'].includes(g.type)){unknownGeometry++;return;}
+       if(!Array.isArray(g.coordinates)||!g.coordinates.length){empty++;return;}
+       if(g.type==='Polygon')checkRings(g.coordinates);
+       if(g.type==='MultiPolygon')g.coordinates.forEach(checkRings);
+       scanCoordinates(g.coordinates);
+      };
+      data.features.forEach(feature=>{
+       if(!feature||feature.type!=='Feature'||!feature.geometry){empty++;return;}
+       if(!feature.properties||typeof feature.properties!=='object')missingProperties++;
+       if(feature.id!==undefined){const key=String(feature.id);if(ids.has(key))duplicateIds++;ids.add(key);}
+       scanGeometry(feature.geometry);
+      });
+      const problems=empty+invalid+outside+badRings+unknownGeometry+duplicateIds;
+      const plausible=positions>0&&problems===0;
+      const crs=data.crs?.properties?.name||'non dichiarato (GeoJSON standard: WGS 84 / CRS84)';
+      const reportText=[
+       'CONTROLLO PRELIMINARE GEOJSON',
+       'File: '+file.name,
+       'Feature: '+data.features.length,
+       'Coordinate esaminate: '+positions,
+       'Geometrie mancanti o vuote: '+empty,
+       'Coordinate non valide: '+invalid,
+       'Coordinate fuori dall’area indicativa di Palermo: '+outside,
+       'Anelli poligonali non chiusi o con meno di 4 vertici: '+badRings,
+       'Tipi geometrici non riconosciuti: '+unknownGeometry,
+       'Feature senza proprietà: '+missingProperties,
+       'Identificativi duplicati: '+duplicateIds,
+       'CRS dichiarato: '+crs,
+       'CRS: non verificato automaticamente; controllare EPSG:4326 in QGIS.',
+       'ESITO: '+(plausible?'controlli formali preliminari superati. Non equivale a validazione topologica, verifica del CRS o certificazione della fonte.':'controlli preliminari non superati. Layer non visualizzato.')
+      ].join('\n');
+      if(plausible){
+       const layer=L.geoJSON(data,{style:()=>({color:palette[index%palette.length],weight:1.5,fillOpacity:.10}),pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:4,color:palette[index%palette.length],fillOpacity:.7})});
+       layer.addTo(gisMap);
+       gisImportedLayers.push({name:file.name,layer});
+      }
+      accepted[index]={report:reportText};
+     }catch(err){
+      accepted[index]={report:'FILE NON LEGGIBILE\nFile: '+file.name+'\nErrore: '+err.message};
+     }
+     finish();
+    };
+    reader.onerror=()=>{accepted[index]={report:'ERRORE DI LETTURA\nFile: '+file.name};finish();};
+    reader.readAsText(file);
+   });
   });
-  const reset=document.createElement('button');reset.type='button';reset.className='secondary-button';reset.textContent='Rimuovi layer caricato';
-  reset.addEventListener('click',()=>{
-   if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
-   gisImportedData=null;fileInput.value='';report.textContent='Layer rimosso. Nessun dato cartografico locale attivo.';
-   const dl=$('#gisReportDownload');if(dl)dl.remove();
-   gisMap.setView([38.1157,13.3615],12);
-  });
-  const download=$('#gisReportDownload');if(download)download.insertAdjacentElement('afterend',reset);else report.insertAdjacentElement('afterend',reset);
+  const resetButton=document.createElement('button');resetButton.type='button';resetButton.className='secondary-button';resetButton.textContent='Rimuovi tutti i layer';
+  resetButton.addEventListener('click',reset);
+  report.insertAdjacentElement('afterend',resetButton);
  }
 }
 function fillFilters(){
