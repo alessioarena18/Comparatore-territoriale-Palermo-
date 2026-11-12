@@ -29,32 +29,20 @@ function normalizeTerritoryName(value){return String(value||'').normalize('NFD')
 function syncGeoSelection(level,code,toggle=false){
  const value=String(code||'');
  if(!value){mapSelections=[];mapSelection=null;}
- else{
-  const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);
-  if(toggle&&index>=0)mapSelections.splice(index,1);
-  else if(index<0)mapSelections.push({key,level,code:value});
-  mapSelection=mapSelections[mapSelections.length-1]||null;
- }
+ else{const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);if(toggle&&index>=0)mapSelections.splice(index,1);else if(index<0)mapSelections.push({key,level,code:value});mapSelection=mapSelections[mapSelections.length-1]||null;}
  geoSelection={asc2:'',asc3:'',section:''};
- const circ=$('#circ'),quartSelect=$('#quart'),latest=mapSelection;
- if(latest?.level==='asc1'){
-  const feature=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===latest.code);
-  if(circ)circ.value=feature?'c'+String(feature.properties?.COD_ASC1):'';
-  if(quartSelect)quartSelect.value='';
- }else{
-  if(circ)circ.value='';
-  if(quartSelect){quartSelect.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quartSelect.add(new Option(x.name,x.id)));quartSelect.value='';}
-  if(latest?.level==='asc2'){
-   geoSelection.asc2=latest.code;
-   const feature=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===latest.code);
-   const normalized=normalizeTerritoryName(feature?.properties?.DEN_ASC2||'');
-   let quart=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===normalized);
-   if(!quart&&normalized==='cruillassgiovanniapostolo')quart=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');
-   if(quart&&quartSelect){if(![...quartSelect.options].some(o=>o.value===quart.id))quartSelect.add(new Option(quart.name,quart.id));quartSelect.value=quart.id;}
-  }else if(latest?.level==='asc3'){geoSelection.asc3=latest.code;const el=$('#asc3');if(el)el.value=latest.code;}
-  else if(latest?.level==='section'){geoSelection.section=latest.code;const el=$('#section');if(el)el.value=latest.code;}
- }
- populateGeoSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();
+ const circ=$('#circ'),quart=$('#quart'),asc3=$('#asc3'),section=$('#section'),latest=mapSelection;
+ if(circ)circ.value='';
+ if(quart){quart.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quart.add(new Option(x.name,x.id)));quart.value='';}
+ if(latest?.level==='asc1'){const f=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===latest.code);if(f&&circ)circ.value='c'+String(f.properties?.COD_ASC1);}
+ else if(latest?.level==='asc2'){geoSelection.asc2=latest.code;const f=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===latest.code);const n=normalizeTerritoryName(f?.properties?.DEN_ASC2||'');let q=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===n);if(!q&&n==='cruillassgiovanniapostolo')q=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');if(q&&quart){if(![...quart.options].some(o=>o.value===q.id))quart.add(new Option(q.name,q.id));quart.value=q.id;}}
+ else if(latest?.level==='asc3')geoSelection.asc3=latest.code;
+ else if(latest?.level==='section')geoSelection.section=latest.code;
+ if(asc3)asc3.value=geoSelection.asc3;if(section)section.value=geoSelection.section;
+ populateGeoSelectors();
+ const vals={gisSelectAsc1:latest?.level==='asc1'?latest.code:'',gisSelectAsc2:latest?.level==='asc2'?latest.code:'',gisSelectAsc3:latest?.level==='asc3'?latest.code:'',gisSelectSection:latest?.level==='section'?latest.code:''};
+ Object.entries(vals).forEach(([id,v])=>{const el=$('#'+id);if(el)el.value=v;});
+ render();updateGisSelectionFeedback();applyGisSelectedStyle();
 }
 function updateGisSelectionFeedback(){
  const labels=mapSelections.map(item=>{
