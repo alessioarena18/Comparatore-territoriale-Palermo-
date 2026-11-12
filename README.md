@@ -81,7 +81,21 @@ La popolazione anagrafica comunale 2022, i dati censuari ISTAT 2023 e le geometr
 **Regola di rilascio:** fino al completamento dei controlli e alla registrazione dell'esito, i layer restano non validati e non vengono utilizzati per conteggi, aggregazioni o mappe tematiche. La cartografia di base OpenStreetMap non costituisce una base statistica ufficiale.
 
 ### Stato al 12 novembre 2026
-Sono stati registrati i collegamenti diretti agli archivi ISTAT e aggiunto il protocollo operativo nell'interfaccia GIS. Gli archivi binari non risultano ancora acquisiti e verificati nel repository; pertanto non è dichiarata alcuna geometria pronta all'uso. Il modulo Analisi sociale non è stato modificato.
+
+Gli archivi originali `R19_21.zip` e `ASC_21.zip` sono stati acquisiti ed elaborati localmente. Per il Comune di Palermo (codice ISTAT 082053) sono stati estratti quattro livelli in GeoJSON EPSG:4326:
+
+| Livello | Feature | Popolazione POP21 | Geometrie non valide |
+|---|---:|---:|---:|
+| Sezioni censuarie | 3.600 | 635.439 | 3 |
+| Circoscrizioni (ASC1) | 8 | 635.439 | 0 |
+| Aree subcomunali (ASC2) | 25 | 635.439 | 0 |
+| Aree subcomunali (ASC3) | 55 | 635.439 | 0 |
+
+I codici `COM_ASC1`, `COM_ASC2` e `COM_ASC3` delle sezioni trovano corrispondenza completa nei rispettivi livelli territoriali. Il rapporto dettagliato è versionato in `data/geo/rapporto_controllo_istat_palermo_2021.json`.
+
+**Stato di validazione: preliminare.** Tre geometrie di sezione presentano auto-intersezioni e sono state mantenute senza correzione: `SEZ21 8`, `2119` e `3803`. I layer non sono ancora certificati per analisi topologiche o statistiche. Prima dell'attivazione pubblica occorre la verifica in QGIS delle tre geometrie e delle sovrapposizioni tra livelli.
+
+Il totale `POP21=635.439` è censuario 2021 e resta distinto dall'anagrafe comunale 2022. Il modulo Analisi sociale non è stato modificato.
 
 
 ## Importazione locale GeoJSON nella sezione GIS
