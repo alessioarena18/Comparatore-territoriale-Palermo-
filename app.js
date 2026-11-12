@@ -225,7 +225,8 @@ function initMap(){
    try{
     const data=JSON.parse(reader.result);
     if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('Il file deve contenere una FeatureCollection GeoJSON.');
-    let empty=0,unsupported=0,positions=0,outside=0;
+    let empty=0,unsupported=0,positions=0,outside=0,badRings=0,unknownGeometry=0,missingProperties=0;
+    const ids=new Set();let duplicateIds=0;
     const scan=v=>{
      if(!Array.isArray(v))return;
      if(v.length>=2&&typeof v[0]==='number'&&typeof v[1]==='number'){
@@ -235,11 +236,52 @@ function initMap(){
      }
      v.forEach(scan);
     };
-    data.features.forEach(f=>{if(!f||!f.geometry||!f.geometry.coordinates){empty++;return;}scan(f.geometry.coordinates);});
+    const checkRings=(rings)=>{
+     if(!Array.isArray(rings))return;
+     rings.forEach(r=>{
+      if(!Array.isArray(r)||r.length<4){badRings++;return;}
+      const first=r[0],last=r[r.length-1];
+      if(!Array.isArray(first)||!Array.isArray(last)||first[0]!==last[0]||first[1]!==last[1])badRings++;
+     });
+    };
+    data.features.forEach(f=>{
+     if(!f||f.type!=='Feature'||!f.geometry){empty++;return;}
+     if(!f.properties||typeof f.properties!=='object')missingProperties++;
+     if(f.id!==undefined){const key=String(f.id);if(ids.has(key))duplicateIds++;ids.add(key);}
+     const g=f.geometry;
+     if(!['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon','GeometryCollection'].includes(g.type)){unknownGeometry++;return;}
+     if(g.type==='Polygon')checkRings(g.coordinates);
+     if(g.type==='MultiPolygon'&&Array.isArray(g.coordinates))g.coordinates.forEach(checkRings);
+     if(g.type==='GeometryCollection'){if(!Array.isArray(g.geometries)||!g.geometries.length)empty++;}
+     else if(!g.coordinates||!g.coordinates.length)empty++;
+     scan(g.coordinates);
+    });
     const crs=data.crs?.properties?.name||'non dichiarato (GeoJSON moderno presume WGS 84)';
-    const plausible=positions>0&&unsupported===0&&outside===0&&!empty;
-    const reportText='Controllo preliminare completato. Feature: '+data.features.length+'. Coordinate: '+positions+'. Geometrie vuote: '+empty+'. Coordinate non numeriche: '+unsupported+'. Coordinate fuori dall’area di controllo di Palermo: '+outside+'. CRS dichiarato: '+crs+'. '+(plausible?'Coordinate compatibili con l’area di Palermo e con EPSG:4326: il layer viene visualizzato per ispezione.':'Il file presenta anomalie o coordinate non compatibili: il layer non viene visualizzato.');
+    const issues=empty+unsupported+outside+badRings+unknownGeometry+duplicateIds;
+    const plausible=positions>0&&unsupported===0&&outside===0&&empty===0&&badRings===0&&unknownGeometry===0&&duplicateIds===0;
+    const reportText=[
+     'CONTROLLO PRELIMINARE GEOJSON',
+     'File: '+file.name,
+     'Feature: '+data.features.length,
+     'Coordinate: '+positions,
+     'Geometrie mancanti o vuote: '+empty,
+     'Coordinate non numeriche: '+unsupported,
+     'Coordinate fuori dall’area di controllo di Palermo: '+outside,
+     'Anelli poligonali non chiusi o con meno di 4 vertici: '+badRings,
+     'Tipi geometrici non riconosciuti: '+unknownGeometry,
+     'Feature senza proprietà: '+missingProperties,
+     'Identificativi duplicati: '+duplicateIds,
+     'CRS dichiarato: '+crs,
+     'ESITO: '+(plausible?'controlli preliminari superati, non equivale a validazione topologica o certificazione della fonte':'controlli preliminari non superati, layer non visualizzato')
+    ].join('\n');
     report.textContent=reportText;
+    const oldDownload=$('#gisReportDownload');if(oldDownload)oldDownload.remove();
+    const dl=document.createElement('button');dl.id='gisReportDownload';dl.type='button';dl.className='secondary-button';dl.textContent='Scarica rapporto di controllo';
+    dl.addEventListener('click',()=>{
+     const blob=new Blob([reportText],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);
+     const link=document.createElement('a');link.href=url;link.download='rapporto-controllo-'+file.name.replace(/\.[^.]+$/,'')+'.txt';link.click();URL.revokeObjectURL(url);
+    });
+    report.insertAdjacentElement('afterend',dl);
     if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
     if(plausible){
      gisImportedData=data;
