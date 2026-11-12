@@ -28,7 +28,7 @@ function populateGeoSelectors(){
  [['asc3','asc3','DEN_ASC3','COM_ASC3'],['section','sections','SEZ21_ID','SEZ21_ID']].forEach(([id,key,label,code])=>{
   const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;let features=fc.features;
   if(key==='asc3')features=features.filter(f=>f2?findParentFeature(f,'asc3','asc2')===f2:(!circ||featureBelongsToCirc(f,'asc3',circ)));
-  if(key==='sections')features=features.filter(f=>f3?findParentFeature(f,'section','asc3')===f3:f2?findParentFeature(f,'section','asc2')===f2:(!circ||featureBelongsToCirc(f,'section',circ)));
+  if(key==='sections'){if(circ)features=features.filter(f=>featureBelongsToCirc(f,'section',circ));}
   const current=geoSelection[id]||'';if(current&&!features.some(f=>String(f.properties?.[code]??'')===String(current)))geoSelection[id]='';
   el.innerHTML='<option value="">'+(id==='section'?'Nessuna':'Tutte')+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');
   el.value=geoSelection[id]||'';
@@ -43,7 +43,7 @@ function populateGisSelectors(){
  defs.forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;let features=fc.features;
   if(key==='asc2'&&circ)features=features.filter(f=>featureBelongsToCirc(f,'asc2',circ));
   if(key==='asc3')features=features.filter(f=>f2?findParentFeature(f,'asc3','asc2')===f2:(!circ||featureBelongsToCirc(f,'asc3',circ)));
-  if(key==='sections')features=features.filter(f=>f3?findParentFeature(f,'section','asc3')===f3:f2?findParentFeature(f,'section','asc2')===f2:(!circ||featureBelongsToCirc(f,'section',circ)));
+  if(key==='sections'){if(circ)features=features.filter(f=>featureBelongsToCirc(f,'section',circ));}
   const current=key==='asc1'?(GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===circ)?.properties?.COM_ASC1||''):geoSelection[key==='sections'?'section':key];
   const first=key==='sections'?'Nessuna':key==='asc1'?'Tutte le circoscrizioni':key==='asc2'?'Tutti i quartieri':'Tutte le UPL';
   el.innerHTML='<option value="">'+first+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');
