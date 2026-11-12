@@ -58,25 +58,13 @@ Sono stati registrati i collegamenti diretti agli archivi ISTAT e aggiunto il pr
 
 ## Importazione locale GeoJSON nella sezione GIS
 
-La sezione Cartografia GIS include un controllo preliminare lato browser per file GeoJSON:
-- accetta una `FeatureCollection`;
-- conta le feature e le posizioni coordinate;
-- segnala geometrie senza coordinate e coordinate non numeriche;
-- controlla che le coordinate ricadano nell'area di controllo approssimativa di Palermo;
-- visualizza il layer sulla mappa solo se supera questi controlli preliminari.
-
-Il file deve essere esportato da QGIS in **WGS 84 / EPSG:4326**. L'importazione è temporanea: il file viene letto nel browser dell'utente, non viene caricato su GitHub e non resta disponibile dopo il ricaricamento della pagina.
-
-**Limite importante:** il controllo non sostituisce una validazione GIS completa. Non verifica topologia, autointersezioni, sovrapposizioni, completezza dei poligoni o corrispondenza dei codici ISTAT. Un layer visualizzato è quindi solo ispezionabile, non automaticamente certificato o utilizzabile per calcoli statistici.
-
-
-### Verifica locale dei file GeoJSON nell'applicazione
-
 Nel modulo Cartografia GIS è disponibile un controllo preliminare nel browser:
-- accetta file GeoJSON di tipo `FeatureCollection`;
-- controlla coordinate numeriche e loro compatibilità approssimativa con l'area di Palermo;
-- segnala geometrie mancanti, anelli poligonali non chiusi o troppo brevi, tipi geometrici non riconosciuti, proprietà mancanti e identificativi duplicati;
+- accetta file GeoJSON di tipo `FeatureCollection`, incluse geometrie composte e raccolte di geometrie;
+- controlla le coordinate numeriche e la loro compatibilità approssimativa con l'area di Palermo;
+- segnala geometrie mancanti o vuote, anelli poligonali non chiusi o troppo brevi, tipi geometrici non riconosciuti, proprietà mancanti e identificativi duplicati;
 - visualizza il layer solo se i controlli preliminari non rilevano anomalie;
-- consente di scaricare un rapporto testuale dell'esito.
+- permette di scaricare un rapporto testuale e di rimuovere il layer dalla mappa.
 
-Il file viene elaborato localmente nel browser e non viene caricato sul repository. La verifica è uno screening tecnico iniziale: **non sostituisce** i controlli topologici GIS, la verifica dei metadati/CRS, la corrispondenza dei codici ISTAT, la copertura e la validazione della fonte. I file da sottoporre al controllo devono essere ritagliati sull'area di Palermo ed esportati in GeoJSON WGS 84 (EPSG:4326). Il controllo delle coordinate non trasforma automaticamente il sistema di riferimento.
+Il file viene elaborato localmente nel browser: non viene caricato su GitHub e non resta disponibile dopo il ricaricamento della pagina. I file da sottoporre al controllo devono essere ritagliati sull'area di Palermo ed esportati da QGIS in WGS 84 (EPSG:4326).
+
+**Limiti:** il controllo delle coordinate non trasforma né certifica il sistema di riferimento. Non sostituisce la validazione topologica GIS, la verifica di autointersezioni e sovrapposizioni, la corrispondenza dei codici ISTAT, la verifica della copertura e la validazione della fonte. Un layer visualizzato è quindi solo ispezionabile, non automaticamente certificato o utilizzabile per calcoli statistici.
