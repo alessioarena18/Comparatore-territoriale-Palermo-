@@ -84,6 +84,11 @@ def process_layer(shp_files, kind, output):
         return {"stato": "non_prodotto", "motivo": "Nessuno shapefile ha restituito record con PRO_COM 082053.",
                 "tentativi": attempts}
 
+    crs_values = {str(subset.crs) if subset.crs else None for _, subset, _ in selected}
+    if len(crs_values) != 1 or None in crs_values:
+        return {"stato": "bloccato", "motivo": "Gli shapefile selezionati hanno CRS assenti o differenti. Uniformare e verificare il CRS in QGIS prima dell'unione.",
+                "crs_rilevati": sorted(str(x) for x in crs_values), "tentativi": attempts}
+
     frames = []
     for shp, subset, _ in selected:
         subset = subset.copy()
