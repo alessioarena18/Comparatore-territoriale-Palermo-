@@ -54,3 +54,17 @@ Per le tabelle ASC 2021 documentare almeno: `PRO_COM`, `COM_ASCn`, `COD_ASCn`, `
 
 ### Stato al 12 novembre 2026
 Sono stati registrati i collegamenti diretti agli archivi ISTAT e aggiunto il protocollo operativo nell'interfaccia GIS. Gli archivi binari non risultano ancora acquisiti e verificati nel repository; pertanto non è dichiarata alcuna geometria pronta all'uso. Il modulo Analisi sociale non è stato modificato.
+
+
+## Importazione locale GeoJSON nella sezione GIS
+
+La sezione Cartografia GIS include un controllo preliminare lato browser per file GeoJSON:
+- accetta una `FeatureCollection`;
+- conta le feature e le posizioni coordinate;
+- segnala geometrie senza coordinate e coordinate non numeriche;
+- controlla che le coordinate ricadano nell'area di controllo approssimativa di Palermo;
+- visualizza il layer sulla mappa solo se supera questi controlli preliminari.
+
+Il file deve essere esportato da QGIS in **WGS 84 / EPSG:4326**. L'importazione è temporanea: il file viene letto nel browser dell'utente, non viene caricato su GitHub e non resta disponibile dopo il ricaricamento della pagina.
+
+**Limite importante:** il controllo non sostituisce una validazione GIS completa. Non verifica topologia, autointersezioni, sovrapposizioni, completezza dei poligoni o corrispondenza dei codici ISTAT. Un layer visualizzato è quindi solo ispezionabile, non automaticamente certificato o utilizzabile per calcoli statistici.
