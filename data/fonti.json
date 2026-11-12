@@ -1,6 +1,6 @@
 {
   "titolo": "Registro delle fonti ufficiali",
-  "versione": "1.0",
+  "versione": "1.1",
   "aggiornato_il": "2026-11-12",
   "criterio": "Fonti primarie istituzionali. Ogni indicatore derivato conserva fonte, anno, scala territoriale e metodologia.",
   "fonti": [
@@ -32,6 +32,54 @@
       "nota": "Il disegno delle sezioni 2021 è stato rivisto rispetto al 2011; non si presume corrispondenza uno-a-uno né confrontabilità automatica."
     },
     {
+      "id": "istat-confini-amministrativi-2026",
+      "ente": "ISTAT",
+      "titolo": "Confini delle unità amministrative a fini statistici al 1° gennaio 2026",
+      "url": "https://www.istat.it/notizia/confini-delle-unita-amministrative-a-fini-statistici-al-1-gennaio-2018-2/",
+      "ambito": [
+        "confini comunali",
+        "confini provinciali",
+        "confini regionali"
+      ],
+      "riferimento_temporale": "01/01/2026",
+      "formati": [
+        "SHP"
+      ],
+      "stato": "Fonte ufficiale aggiornata individuata; da acquisire e verificare per Palermo",
+      "nota": "I confini sono validi a fini statistici e possono essere ulteriormente revisionati. Non rappresentano automaticamente le circoscrizioni comunali."
+    },
+    {
+      "id": "istat-censimento-sezioni-2023",
+      "ente": "ISTAT",
+      "titolo": "Censimento permanente al 31/12/2023, dati per sezioni e aree subcomunali",
+      "url": "https://www.istat.it/notizia/dati-per-sezioni-di-censimento/",
+      "ambito": [
+        "popolazione",
+        "sesso",
+        "età",
+        "cittadinanza",
+        "istruzione",
+        "occupazione",
+        "famiglie",
+        "sezioni censuarie",
+        "aree subcomunali"
+      ],
+      "riferimento_temporale": "31/12/2023",
+      "aggiornamento_rilascio": "09/06/2026",
+      "formati": [
+        "ZIP"
+      ],
+      "stato": "Fonte ufficiale aggiornata individuata; acquisizione e verifica della copertura Palermo da completare",
+      "controlli": [
+        "presenza del Comune di Palermo",
+        "codici sezione 2021",
+        "sezioni fittizie 888888x e 999999x",
+        "quadratura con totali comunali ufficiali",
+        "coerenza tra sezioni e aree subcomunali"
+      ],
+      "nota": "Le basi territoriali di riferimento sono quelle del 2021. Le sezioni 888888x includono persone senza tetto e senza fissa dimora; le 999999x riguardano zone in contestazione."
+    },
+    {
       "id": "comune-circoscrizioni-265",
       "ente": "Comune di Palermo",
       "titolo": "Perimetrazione circoscrizioni comunali",
@@ -44,14 +92,15 @@
         "SHP"
       ],
       "licenza": "CC BY 4.0",
-      "stato": "Fonte ufficiale individuata; geometrie non validate",
+      "stato": "Non utilizzabile per analisi fino a validazione tecnica indipendente",
       "controlli": [
         "data effettiva",
         "CRS",
         "topologia",
-        "coerenza amministrativa"
+        "coerenza amministrativa",
+        "verifica della segnalazione pubblica di geometria anomala e assenza del file PRJ"
       ],
-      "nota": "Pubblicazione 22/02/2013, aggiornamento 10/01/2018; il portale segnala assenza di documentazione tecnica. Non è assunta come perimetrazione corrente senza verifica."
+      "nota": "Pubblicazione 22/02/2013, aggiornamento 10/01/2018; documentazione tecnica assente. Una segnalazione pubblica del 2019 ha evidenziato differenze rispetto ai confini ISTAT, assenza del file PRJ e un'anomalia nel poligono della I circoscrizione. La segnalazione è un alert di qualità da verificare, non una certificazione dell'errore."
     },
     {
       "id": "comune-popolazione-quartieri-1693",
@@ -106,6 +155,8 @@
     "Non aggregare anni o unità territoriali differenti senza procedura documentata e verificata.",
     "Non calcolare deficit di standard senza superfici e popolazione riferite a basi compatibili.",
     "Ogni indicatore espone fonte, anno, scala territoriale e formula.",
-    "Le geometrie non validate restano escluse dalle mappe analitiche."
+    "Le geometrie non validate restano escluse dalle mappe analitiche.",
+    "I confini amministrativi ISTAT a fini statistici e le circoscrizioni comunali sono livelli distinti: non devono essere confusi.",
+    "Le sezioni censuarie fittizie (ad esempio 888888x e 999999x) devono essere gestite separatamente secondo le note metodologiche ISTAT."
   ]
 }
