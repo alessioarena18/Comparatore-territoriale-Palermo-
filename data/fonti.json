@@ -1,9 +1,66 @@
 {
   "titolo": "Registro delle fonti ufficiali",
-  "versione": "1.1",
+  "versione": "1.2",
   "aggiornato_il": "2026-11-12",
   "criterio": "Fonti primarie istituzionali. Ogni indicatore derivato conserva fonte, anno, scala territoriale e metodologia.",
   "fonti": [
+    {
+      "id": "istat-asc-2021",
+      "ente": "ISTAT",
+      "titolo": "Aree subcomunali 2021 (municipi, circoscrizioni ecc.)",
+      "url": "https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip",
+      "pagina_metadati": "https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/",
+      "ambito": [
+        "aree subcomunali",
+        "circoscrizioni",
+        "quartieri",
+        "geometrie"
+      ],
+      "riferimento_temporale": "2021",
+      "aggiornamento_file": "14/05/2026",
+      "formati": [
+        "ZIP",
+        "SHP",
+        "XLS"
+      ],
+      "crs": "Da verificare sui metadati dello shapefile",
+      "stato": "URL ufficiale diretto individuato; archivio da acquisire e validare",
+      "controlli": [
+        "presenza di Palermo",
+        "codici e denominazioni ASC",
+        "confronto con circoscrizioni comunali",
+        "geometrie valide",
+        "topologia"
+      ],
+      "nota": "ISTAT segnala la sostituzione del file ASC_21.ZIP il 14 maggio 2026. Non assumere equivalenza automatica con i confini amministrativi comunali correnti."
+    },
+    {
+      "id": "istat-bt-sicilia-2021",
+      "ente": "ISTAT",
+      "titolo": "Basi territoriali 2021 – sezioni censuarie Regione Siciliana",
+      "url": "https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip",
+      "pagina_metadati": "https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/",
+      "ambito": [
+        "sezioni censuarie",
+        "geometrie",
+        "attributi territoriali"
+      ],
+      "riferimento_temporale": "2021",
+      "formati": [
+        "ZIP",
+        "SHP"
+      ],
+      "crs": "WGS 84 / UTM zona 32N (EPSG:32632)",
+      "stato": "URL ufficiale diretto individuato; archivio da acquisire e validare",
+      "controlli": [
+        "estrazione archivio",
+        "codici Comune di Palermo",
+        "codici sezione",
+        "geometrie valide",
+        "copertura e topologia"
+      ],
+      "nota": "Archivio regionale R19_21.zip pubblicato nella pagina ufficiale ISTAT delle basi territoriali definitive."
+    },
     {
       "id": "istat-bt-2021",
       "ente": "ISTAT",
@@ -52,7 +109,7 @@
       "id": "istat-censimento-sezioni-2023",
       "ente": "ISTAT",
       "titolo": "Censimento permanente al 31/12/2023, dati per sezioni e aree subcomunali",
-      "url": "https://www.istat.it/notizia/dati-per-sezioni-di-censimento/",
+      "url": "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip",
       "ambito": [
         "popolazione",
         "sesso",
@@ -69,7 +126,7 @@
       "formati": [
         "ZIP"
       ],
-      "stato": "Fonte ufficiale aggiornata individuata; acquisizione e verifica della copertura Palermo da completare",
+      "stato": "URL ufficiale diretto individuato; archivio da acquisire e validare per copertura Palermo",
       "controlli": [
         "presenza del Comune di Palermo",
         "codici sezione 2021",
@@ -77,7 +134,8 @@
         "quadratura con totali comunali ufficiali",
         "coerenza tra sezioni e aree subcomunali"
       ],
-      "nota": "Le basi territoriali di riferimento sono quelle del 2021. Le sezioni 888888x includono persone senza tetto e senza fissa dimora; le 999999x riguardano zone in contestazione."
+      "nota": "Archivio ZIP ISTAT per sezioni di censimento e aree subcomunali dei capoluoghi delle Città Metropolitane. Basi territoriali di riferimento 2021. Le sezioni fittizie 888888x e 999999x richiedono gestione separata.",
+      "pagina_metadati": "https://www.istat.it/notizia/dati-per-sezioni-di-censimento/"
     },
     {
       "id": "comune-circoscrizioni-265",
@@ -157,6 +215,8 @@
     "Ogni indicatore espone fonte, anno, scala territoriale e formula.",
     "Le geometrie non validate restano escluse dalle mappe analitiche.",
     "I confini amministrativi ISTAT a fini statistici e le circoscrizioni comunali sono livelli distinti: non devono essere confusi.",
-    "Le sezioni censuarie fittizie (ad esempio 888888x e 999999x) devono essere gestite separatamente secondo le note metodologiche ISTAT."
+    "Le sezioni censuarie fittizie (ad esempio 888888x e 999999x) devono essere gestite separatamente secondo le note metodologiche ISTAT.",
+    "Gli archivi ZIP ISTAT sono fonti primarie: prima dell'importazione occorre conservare il file originale, documentare la data di acquisizione e validare il contenuto.",
+    "Per le geometrie delle sezioni di Palermo usare il pacchetto regionale ISTAT R19_21 e non ricostruzioni cartografiche di terze parti."
   ]
 }
