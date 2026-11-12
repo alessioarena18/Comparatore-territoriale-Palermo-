@@ -61,21 +61,21 @@ function syncGeoSelection(level,code,toggle=false){
   const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);
   if(toggle&&index>=0)mapSelections.splice(index,1);else if(index<0)mapSelections.push({key,level,code:value});
   mapSelection=mapSelections[mapSelections.length-1]||null;
-  const active=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
+  const linkedActive=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
   const circ=$('#circ'),quart=$('#quart');
-  if(circ)circ.value=active.asc1?'c'+String(GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===active.asc1)?.properties?.COD_ASC1??''):'';
+  if(circ)circ.value=linkedActive.asc1?'c'+String(GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===linkedActive.asc1)?.properties?.COD_ASC1??''):'';
   if(quart){
    quart.innerHTML='<option value="">Tutti i quartieri</option>';
    DATA.territories.quartieri.filter(q=>!circ?.value||(q.circ_ids||[]).includes(circ.value)).forEach(q=>quart.add(new Option(q.name,q.id)));
-   const asc2Feature=active.asc2?GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===active.asc2):null;
+   const asc2Feature=linkedActive.asc2?GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===linkedActive.asc2):null;
    if(asc2Feature){const n=normalizeTerritoryName(asc2Feature.properties?.DEN_ASC2||'');let q=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===n);if(!q&&n==='cruillassgiovanniapostolo')q=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');if(q&&!Array.from(quart.options).some(o=>o.value===q.id))quart.add(new Option(q.name,q.id));if(q)quart.value=q.id;}
   }
-  geoSelection={asc2:active.asc2||'',asc3:active.asc3||'',section:active.section||''};
+  geoSelection={asc2:linkedActive.asc2||'',asc3:linkedActive.asc3||'',section:linkedActive.section||''};
  }
  const asc3=$('#asc3'),section=$('#section');if(asc3)asc3.value=geoSelection.asc3;if(section)section.value=geoSelection.section;
  populateGeoSelectors();
- const active=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
- const vals={gisSelectAsc1:active.asc1||'',gisSelectAsc2:active.asc2||'',gisSelectAsc3:active.asc3||'',gisSelectSection:active.section||''};
+ const linkedActive=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
+ const vals={gisSelectAsc1:linkedActive.asc1||'',gisSelectAsc2:linkedActive.asc2||'',gisSelectAsc3:linkedActive.asc3||'',gisSelectSection:linkedActive.section||''};
  Object.entries(vals).forEach(([id,v])=>{const el=$('#'+id);if(el)el.value=v;});
  if(active!=='gis')render();updateGisSelectionFeedback();applyGisSelectedStyle();
 }
