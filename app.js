@@ -68,7 +68,7 @@ html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circosc
    const valido=campo.value!==''&&Number.isFinite(disponibile)&&disponibile>=0;
    const fabbisogno=popolazione*parametro;
    document.getElementById('stdNeed'+i).textContent=completo?fmt(fabbisogno):'N.D.';
-   document.getElementById('stdGap'+i).textContent=completo&&valido?fmt(disponibile-fabbisogno):'N.D.';
+   document.getElementById('stdGap'+i).textContent=pop.value!==''&&popolazione>0&&valido?fmt(disponibile-fabbisogno):'N.D.';
    if(!valido)completo=false;
    totaleF+=fabbisogno;
    if(valido)totaleD+=disponibile;
