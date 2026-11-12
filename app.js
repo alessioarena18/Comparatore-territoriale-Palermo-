@@ -557,7 +557,8 @@ function syncMainFilter(id){
  }
  mapSelection=null;mapSelections=[];
  populateGeoSelectors();
- render();
+ if(active==='gis'){applyGisSelectedStyle();focusGeneralSelection();}
+ else render();
 }
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
