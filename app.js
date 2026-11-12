@@ -37,7 +37,7 @@ function render(){
  const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
  const nomeAsc2=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2))?.properties?.DEN_ASC2;
  const nomeTerritorio=s.quart?nomeQuartiere:s.asc2?nomeAsc2:null;
- const righe=(s.quart||s.asc2)?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeTerritorio)):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
+ const righe=quartieri.filter(x=>(!s.circ||(x.circoscrizioni_id||[]).includes(s.circ))&&(!s.quart||normalizza(x.nome)===normalizza(nomeQuartiere))&&(!s.asc2||normalizza(x.nome)===normalizza(nomeAsc2)));
  const aggregato=(s.quart||s.asc2)?righe[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
  const baseTotale=s.circ||s.quart||s.asc2?aggregato:null;
  const somma=campo=>baseTotale?Number(baseTotale[campo])||0:circoscrizioni.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
@@ -206,7 +206,7 @@ if(active==='demography'&&window.Chart){
  const nomeQD=DATA.territories.quartieri.find(x=>x.id===sd.quart)?.name;
  const nomeASC2=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===String(sd.asc2))?.properties?.DEN_ASC2;
  const nomeFiltroDemo=sd.quart?nomeQD:sd.asc2?nomeASC2:null;
- const rd=(sd.quart||sd.asc2)?qd.filter(x=>normGrafico(x.nome)===normGrafico(nomeFiltroDemo)):sd.circ?qd.filter(x=>(x.circoscrizioni_id||[]).includes(sd.circ)):qd;
+ const rd=qd.filter(x=>(!sd.circ||(x.circoscrizioni_id||[]).includes(sd.circ))&&(!sd.quart||normGrafico(x.nome)===normGrafico(nomeQD))&&(!sd.asc2||normGrafico(x.nome)===normGrafico(nomeASC2)));
  const sommaD=k=>rd.reduce((a,x)=>a+(Number(x[k])||0),0);
  const fmtD=n=>Number(n).toLocaleString('it-IT');
  const canvasD=id=>document.getElementById(id);
@@ -417,7 +417,7 @@ function fillFilters(){
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
 async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
-$('#circ').addEventListener('change',()=>{const id=$('#circ').value,q=$('#quart');q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));render();});
+$('#circ').addEventListener('change',()=>{const id=$('#circ').value,q=$('#quart'),previous=q.value;q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));q.value=[...q.options].some(o=>o.value===previous)?previous:'';render();});
 $('#quart').addEventListener('change',render);
 ['asc2','asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>{geoSelection[id]=$('#'+id).value;render();}));
 load();
