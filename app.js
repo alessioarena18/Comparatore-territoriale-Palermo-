@@ -511,7 +511,21 @@ function fillFilters(){
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
 async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
-$('#circ').addEventListener('change',()=>{mapSelection=null;mapSelections=[];const id=$('#circ').value,q=$('#quart'),previous=q.value;q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));q.value=[...q.options].some(o=>o.value===previous)?previous:'';populateGeoSelectors();render();});
-$('#quart').addEventListener('change',()=>{mapSelection=null;mapSelections=[];render();});
-['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>{mapSelection=null;mapSelections=[];geoSelection[id]=$('#'+id).value;render();}));
+function syncMainFilter(id){
+ const value=$('#'+id)?.value||'';
+ if(!value){mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};populateGeoSelectors();populateGisSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();return;}
+ if(id==='circ'){
+  const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===value);
+  if(f)syncGeoSelection('asc1',String(f.properties.COM_ASC1),false);
+  else{mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};populateGeoSelectors();populateGisSelectors();render();}
+ }else if(id==='quart'){
+  const q=DATA.territories.quartieri.find(x=>x.id===value);
+  const f=GEO.asc2?.features.find(x=>normalizeTerritoryName(x.properties?.DEN_ASC2)===normalizeTerritoryName(q?.name));
+  if(f)syncGeoSelection('asc2',String(f.properties.COM_ASC2),false);
+  else{mapSelections=[];mapSelection=null;render();}
+ }else if(id==='asc3'||id==='section')syncGeoSelection(id==='asc3'?'asc3':'section',value,false);
+}
+$('#circ').addEventListener('change',()=>syncMainFilter('circ'));
+$('#quart').addEventListener('change',()=>syncMainFilter('quart'));
+['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>syncMainFilter(id)));
 load();
