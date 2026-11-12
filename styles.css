@@ -26,3 +26,12 @@
 .legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
 .legend-dot.base{background:#8aa4bb}.legend-dot.pending{background:#d5a65a}
 @media(max-width:650px){.service-categories,.workflow-grid{grid-template-columns:1fr}.service-kpis,.standards-kpis,.gis-kpis{grid-template-columns:1fr 1fr}}
+
+/* Simulatore parametrico standard urbanistici */
+.standards-calculator{margin-top:18px}
+.calc-input{max-width:360px;margin:14px 0}
+.calc-input label{display:flex;flex-direction:column;gap:6px;color:#607b95;font-size:12px}
+.calc-input input,.std-area{width:100%;min-width:110px;border:1px solid #cbd8e4;border-radius:7px;padding:9px;background:#fff;color:#243e57;font:inherit}
+.std-area{max-width:150px}
+.standards-calculator td,.standards-calculator th{vertical-align:middle}
+@media(max-width:650px){.std-area{min-width:120px}}
