@@ -44,11 +44,10 @@ function syncGeoSelection(level,code){
   if(!quart&&normalized==='cruillassgiovanniapostolo')quart=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');
   const q=$('#quart');
   if(quart&&q){
-   const circId='c'+String(feature?.properties?.COD_ASC2??'');
    const options=[...q.options];
    if(!options.some(o=>o.value===quart.id)){
-    const circFeature=GEO.asc1?.features.find(f=>String(f.properties?.COD_ASC1)===String(circId.slice(1)));
-    const parentId=circFeature?'c'+String(circFeature.properties?.COD_ASC1):'';
+    const parentCode=feature?findCircParent(feature,'asc2'):'';
+    const parentId=parentCode?'c'+parentCode:'';
     if(parentId&&$('#circ')){$('#circ').value=parentId;$('#circ').dispatchEvent(new Event('change'));}
    }
    q.value=quart.id;
