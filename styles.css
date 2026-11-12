@@ -67,3 +67,8 @@
 .selection-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
 .selection-stats>div{padding:8px 10px;background:#fff;border:1px solid #e0e8ef;border-radius:7px;font-size:11px;color:#536d84}
 .selection-stats strong{color:#244761}
+
+
+/* Etichette cartografiche: testo senza riquadro di sfondo */
+.leaflet-tooltip.gis-polygon-label{background:transparent!important;border:0!important;box-shadow:none!important;color:#183247!important;font-size:11px;font-weight:700;line-height:1.2;padding:0!important;text-align:center;text-shadow:-1px -1px 1px #fff,1px -1px 1px #fff,-1px 1px 1px #fff,1px 1px 1px #fff;white-space:normal;}
+.leaflet-tooltip.gis-polygon-label:before{display:none!important;}
