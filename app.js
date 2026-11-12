@@ -188,31 +188,6 @@ return {...c,italiani,stranieri,totale,percentuale:totale?stranieri/totale*100:0
 const fmtC=n=>Number(n).toLocaleString('it-IT');
 html+=`<div class="card"><h3>Confronto demografico tra le 8 circoscrizioni</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div style="overflow-x:auto"><table><thead><tr><th>Circoscrizione</th><th>Italiani</th><th>Stranieri</th><th>Totale residenti</th><th>Incidenza stranieri</th></tr></thead><tbody>${confronto.map(c=>`<tr><td>${c.name}</td><td>${fmtC(c.italiani)}</td><td>${fmtC(c.stranieri)}</td><td><strong>${fmtC(c.totale)}</strong></td><td>${c.percentuale.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})}%</td></tr>`).join('')}</tbody></table></div></div>`;
 html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circoscrizione</h3><canvas id="chartCircoscrizioni"></canvas></div><div class="card"><h3>Incidenza stranieri per circoscrizione</h3><canvas id="chartStranieriCircoscrizioni"></canvas></div></div>`;
-}else if(active==='standards'){
- const pop=document.getElementById('stdPopulation');
- const aree=[4.5,2,9,2.5];
- const fmt=n=>Number(n).toLocaleString('it-IT',{maximumFractionDigits:2});
- function calcolaStandard(){
-  const popolazione=Number(pop.value);
-  let totaleF=0,totaleD=0,completo=pop.value!==''&&Number.isFinite(popolazione)&&popolazione>0;
-  aree.forEach((parametro,i)=>{
-   const campo=document.querySelector('.std-area[data-index="'+i+'"]');
-   const disponibile=Number(campo.value);
-   const valido=campo.value!==''&&Number.isFinite(disponibile)&&disponibile>=0;
-   const fabbisogno=popolazione*parametro;
-   document.getElementById('stdNeed'+i).textContent=completo?fmt(fabbisogno):'N.D.';
-   document.getElementById('stdGap'+i).textContent=pop.value!==''&&popolazione>0&&valido?fmt(disponibile-fabbisogno):'N.D.';
-   if(!valido)completo=false;
-   totaleF+=fabbisogno;
-   if(valido)totaleD+=disponibile;
-  });
-  document.getElementById('stdTotalNeed').textContent=pop.value!==''&&popolazione>0?fmt(totaleF):'N.D.';
-  const tutteSuperfici=[...document.querySelectorAll('.std-area')].every(x=>x.value!==''&&Number(x.value)>=0);
-  document.getElementById('stdTotalGap').textContent=pop.value!==''&&popolazione>0&&tutteSuperfici?fmt(totaleD-totaleF):'N.D.';
-  document.getElementById('stdCalcStatus').textContent=pop.value!==''&&popolazione>0&&tutteSuperfici?'Simulazione completata. Differenza positiva: superficie inserita superiore al fabbisogno teorico; negativa: superficie inferiore.':'Completa tutti i campi per ottenere il differenziale complessivo. Le celle N.D. indicano dati mancanti.';
- }
- pop.addEventListener('input',calcolaStandard);
- document.querySelectorAll('.std-area').forEach(x=>x.addEventListener('input',calcolaStandard));
 }
 if(active==='social'){
   const aree=[...(DATA.sociale||[])].filter(a=>!s.asc3||String(a.cod_asc)===String(s.asc3)).sort((a,b)=>Number(b.idise)-Number(a.idise));
@@ -309,6 +284,28 @@ if(active==='social'){
  }
  $('#content').innerHTML=html;
  
+if(active==='standards'){
+ const pop=document.getElementById('stdPopulation');
+ const parametri=[4.5,2,9,2.5];
+ const fmt=n=>Number(n).toLocaleString('it-IT',{maximumFractionDigits:2});
+ function calcolaStandard(){
+  const popolazione=Number(pop.value),valida=pop.value!==''&&Number.isFinite(popolazione)&&popolazione>0;
+  let totaleF=0,totaleD=0;
+  parametri.forEach((parametro,i)=>{
+   const campo=document.querySelector('.std-area[data-index="'+i+'"]'),disponibile=Number(campo.value);
+   const valido=campo.value!==''&&Number.isFinite(disponibile)&&disponibile>=0,fabbisogno=popolazione*parametro;
+   document.getElementById('stdNeed'+i).textContent=valida?fmt(fabbisogno):'N.D.';
+   document.getElementById('stdGap'+i).textContent=valida&&valido?fmt(disponibile-fabbisogno):'N.D.';
+   totaleF+=fabbisogno;if(valido)totaleD+=disponibile;
+  });
+  const tutte=[...document.querySelectorAll('.std-area')].every(x=>x.value!==''&&Number.isFinite(Number(x.value))&&Number(x.value)>=0);
+  document.getElementById('stdTotalNeed').textContent=valida?fmt(totaleF):'N.D.';
+  document.getElementById('stdTotalGap').textContent=valida&&tutte?fmt(totaleD-totaleF):'N.D.';
+  document.getElementById('stdCalcStatus').textContent=valida&&tutte?'Simulazione completata. Differenza positiva: superficie inserita superiore al fabbisogno teorico; negativa: superficie inferiore.':'Completa popolazione e tutte le superfici per ottenere il differenziale complessivo. Le celle N.D. indicano dati mancanti.';
+ }
+ pop?.addEventListener('input',calcolaStandard);
+ document.querySelectorAll('.std-area').forEach(x=>x.addEventListener('input',calcolaStandard));
+}
 if(active==='social'){
   const box=document.getElementById('uplConfronto');
   const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
