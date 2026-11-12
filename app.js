@@ -26,21 +26,56 @@ function populateGeoSelectors(){[['asc3','asc3','DEN_ASC3','COM_ASC3'],['section
 function applyGisSelectionVisibility(){if(!gisMap)return;gisImportedLayers.forEach(item=>{if(!item.key||!Array.isArray(item.featureLayers))return;item.featureLayers.forEach(featureLayer=>{if(!item.layer.hasLayer(featureLayer))item.layer.addLayer(featureLayer);});});}
 function populateGisSelectors(){const circ=$('#circ')?.value||'',defs=[['gisSelectAsc1','asc1','DEN_ASC1','COM_ASC1'],['gisSelectAsc2','asc2','DEN_ASC2','COM_ASC2'],['gisSelectAsc3','asc3','DEN_ASC3','COM_ASC3'],['gisSelectSection','sections','SEZ21_ID','SEZ21_ID']];defs.forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;const current=key==='asc1'?(GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===circ)?.properties?.COM_ASC1||''):geoSelection[key==='sections'?'section':key];const features=key==='asc1'?fc.features:fc.features.filter(f=>featureBelongsToCirc(f,key,circ));const validCurrent=features.some(f=>String(f.properties?.[code]??'')===String(current||''));el.innerHTML='<option value="">'+(key==='asc1'?'Tutte le circoscrizioni':key==='asc2'?'Tutti i quartieri':key==='asc3'?'Tutte le UPL':'Tutte le sezioni')+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');el.value=validCurrent?String(current):'';});applyGisSelectionVisibility();}
 function normalizeTerritoryName(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
+function findParentFeature(feature,childLevel,parentLevel){
+ const childKey={asc2:'COM_ASC2',asc3:'COM_ASC3',section:'SEZ21_ID'}[childLevel];
+ const parentKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3'}[parentLevel];
+ const parentData=GEO[parentLevel==='asc1'?'asc1':parentLevel==='asc2'?'asc2':'asc3'];
+ if(!feature?.geometry||!parentData)return null;
+ const bounds=geometryBounds(feature.geometry);if(!bounds)return null;
+ const [minX,minY,maxX,maxY]=bounds;
+ const probes=[[.5,.5],[.25,.25],[.75,.25],[.25,.75],[.75,.75],[.5,.25],[.5,.75],[.25,.5],[.75,.5]];
+ for(const [x,y] of probes){const point=[minX+(maxX-minX)*x,minY+(maxY-minY)*y];if(!pointInGeometry(point,feature.geometry))continue;const parent=parentData.features.find(p=>pointInGeometry(point,p.geometry));if(parent)return parent;}
+ return null;
+}
+function findLinkedTerritory(level,code){
+ const sourceKey=level==='section'?'sections':level,sourceCode={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',section:'SEZ21_ID'}[level];
+ const feature=GEO[sourceKey]?.features.find(f=>String(f.properties?.[sourceCode]??'')===String(code));
+ if(!feature)return {};
+ const linked={};
+ if(level==='asc1'){linked.asc1=code;return linked;}
+ const circCode=findCircParent(feature,level==='section'?'section':level);
+ if(circCode)linked.asc1=String(circCode);
+ if(level==='asc2'){linked.asc2=code;}
+ if(level==='asc3'||level==='section'){
+  const asc2=findParentFeature(feature,level,'asc2');
+  if(asc2)linked.asc2=String(asc2.properties?.COM_ASC2??'');
+ }
+ if(level==='asc3')linked.asc3=code;
+ if(level==='section')linked.section=code;
+ return linked;
+}
 function syncGeoSelection(level,code,toggle=false){
  const value=String(code||'');
- if(!value){mapSelections=[];mapSelection=null;}
- else{const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);if(toggle&&index>=0)mapSelections.splice(index,1);else if(index<0)mapSelections.push({key,level,code:value});mapSelection=mapSelections[mapSelections.length-1]||null;}
- geoSelection={asc2:'',asc3:'',section:''};
- const circ=$('#circ'),quart=$('#quart'),asc3=$('#asc3'),section=$('#section'),latest=mapSelection;
- if(circ)circ.value='';
- if(quart){quart.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quart.add(new Option(x.name,x.id)));quart.value='';}
- if(latest?.level==='asc1'){const f=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===latest.code);if(f&&circ)circ.value='c'+String(f.properties?.COD_ASC1);}
- else if(latest?.level==='asc2'){geoSelection.asc2=latest.code;const f=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===latest.code);const n=normalizeTerritoryName(f?.properties?.DEN_ASC2||'');let q=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===n);if(!q&&n==='cruillassgiovanniapostolo')q=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');if(q&&quart){if(![...quart.options].some(o=>o.value===q.id))quart.add(new Option(q.name,q.id));quart.value=q.id;}}
- else if(latest?.level==='asc3')geoSelection.asc3=latest.code;
- else if(latest?.level==='section')geoSelection.section=latest.code;
- if(asc3)asc3.value=geoSelection.asc3;if(section)section.value=geoSelection.section;
+ if(!value){mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};}
+ else{
+  const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);
+  if(toggle&&index>=0)mapSelections.splice(index,1);else if(index<0)mapSelections.push({key,level,code:value});
+  mapSelection=mapSelections[mapSelections.length-1]||null;
+  const active=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
+  const circ=$('#circ'),quart=$('#quart');
+  if(circ)circ.value=active.asc1?'c'+String(GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===active.asc1)?.properties?.COD_ASC1??''):'';
+  if(quart){
+   quart.innerHTML='<option value="">Tutti i quartieri</option>';
+   DATA.territories.quartieri.filter(q=>!circ?.value||(q.circ_ids||[]).includes(circ.value)).forEach(q=>quart.add(new Option(q.name,q.id)));
+   const asc2Feature=active.asc2?GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===active.asc2):null;
+   if(asc2Feature){const n=normalizeTerritoryName(asc2Feature.properties?.DEN_ASC2||'');let q=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===n);if(!q&&n==='cruillassgiovanniapostolo')q=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');if(q&&!Array.from(quart.options).some(o=>o.value===q.id))quart.add(new Option(q.name,q.id));if(q)quart.value=q.id;}
+  }
+  geoSelection={asc2:active.asc2||'',asc3:active.asc3||'',section:active.section||''};
+ }
+ const asc3=$('#asc3'),section=$('#section');if(asc3)asc3.value=geoSelection.asc3;if(section)section.value=geoSelection.section;
  populateGeoSelectors();
- const vals={gisSelectAsc1:latest?.level==='asc1'?latest.code:'',gisSelectAsc2:latest?.level==='asc2'?latest.code:'',gisSelectAsc3:latest?.level==='asc3'?latest.code:'',gisSelectSection:latest?.level==='section'?latest.code:''};
+ const active=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
+ const vals={gisSelectAsc1:active.asc1||'',gisSelectAsc2:active.asc2||'',gisSelectAsc3:active.asc3||'',gisSelectSection:active.section||''};
  Object.entries(vals).forEach(([id,v])=>{const el=$('#'+id);if(el)el.value=v;});
  render();updateGisSelectionFeedback();applyGisSelectedStyle();
 }
