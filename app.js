@@ -280,7 +280,8 @@ function initMap(){
     const label=props.DEN_ASC1||props.DEN_ASC2||props.DEN_ASC3||props.SEZ21||props.SEZ21_ID||'';
     const details=[['Popolazione censuaria 2021',props.POP21],['Famiglie',props.FAM21],['Abitazioni',props.ABI21],['Edifici',props.EDI21]].filter(x=>x[1]!==undefined&&x[1]!==null).map(x=>'<br><small>'+x[0]+': '+Number(x[1]).toLocaleString('it-IT')+'</small>').join('');
     if(label!=='' )featureLayer.bindPopup('<strong>'+String(label).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))+'</strong>'+details+'<br><small>Fai clic sul poligono per applicare la selezione.</small>');
-    if(item.key==='asc2'||item.key==='asc3'){const areaName=item.key==='asc2'?props.DEN_ASC2:props.DEN_ASC3;if(areaName)featureLayer.bindTooltip(String(areaName).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])),{permanent:true,direction:'center',className:'gis-polygon-label',opacity:0.95});}
+    const areaName=item.key==='asc1'?props.DEN_ASC1:item.key==='asc2'?props.DEN_ASC2:item.key==='asc3'?props.DEN_ASC3:'';
+    if(areaName)featureLayer.bindTooltip(String(areaName).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])),{permanent:true,direction:'center',className:'gis-polygon-label',opacity:1});
    }});
    layer.eachLayer(featureLayer=>featureLayer.on('click',()=>{const p=featureLayer.feature?.properties||{};const fields={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'};const code=p[fields[item.key]];if(code!==undefined&&code!==null)syncGeoSelection(item.key==='sections'?'section':item.key,String(code));}));
    layer.addTo(gisMap);
