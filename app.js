@@ -35,7 +35,7 @@ function syncGeoSelection(level,code){
  if(level==='asc1'){
   const feature=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===value);
   const id=feature?'c'+String(feature.properties?.COD_ASC1):'';
-  if(circ){circ.value=id;circ.dispatchEvent(new Event('change'));}
+  if(circ)circ.value=id;
   if(quartSelect)quartSelect.value='';
  }else{
   if(circ)circ.value='';
@@ -51,13 +51,7 @@ function syncGeoSelection(level,code){
    const normalized=normalizeTerritoryName(name);
    let quart=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===normalized);
    if(!quart&&normalized==='cruillassgiovanniapostolo')quart=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');
-   const parentCode=feature?findCircParent(feature,'asc2'):'';
-   const parentId=parentCode?'c'+parentCode:'';
-   if(parentId&&circ){
-    circ.value=parentId;
-    circ.dispatchEvent(new Event('change'));
-   }
-   if(quart&&quartSelect){
+      if(quart&&quartSelect){
     if(![...quartSelect.options].some(o=>o.value===quart.id))quartSelect.add(new Option(quart.name,quart.id));
     quartSelect.value=quart.id;
    }
