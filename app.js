@@ -77,7 +77,7 @@ function syncGeoSelection(level,code,toggle=false){
  const active=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
  const vals={gisSelectAsc1:active.asc1||'',gisSelectAsc2:active.asc2||'',gisSelectAsc3:active.asc3||'',gisSelectSection:active.section||''};
  Object.entries(vals).forEach(([id,v])=>{const el=$('#'+id);if(el)el.value=v;});
- render();updateGisSelectionFeedback();applyGisSelectedStyle();
+ if(active!=='gis')render();updateGisSelectionFeedback();applyGisSelectedStyle();
 }
 function updateGisSelectionFeedback(){
  const labels=mapSelections.map(item=>{
