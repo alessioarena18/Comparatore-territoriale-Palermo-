@@ -26,12 +26,13 @@ function render(){
 
 }else if(active==='demography'){
  const quartieri=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
-
-const normalizza=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
-const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
-const righe=s.quart?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeQuartiere)):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
-
- const somma=campo=>righe.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
+ const circoscrizioni=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');
+ const normalizza=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
+ const righe=s.quart?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeQuartiere)):s.circ?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)):quartieri;
+ const aggregato=s.quart?righe[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
+ const baseTotale=s.circ||s.quart?aggregato:null;
+ const somma=campo=>baseTotale?Number(baseTotale[campo])||0:circoscrizioni.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
  const italiani=somma('italiani');
  const stranieri=somma('stranieri');
  const totale=somma('totale');
@@ -44,12 +45,12 @@ const righe=s.quart?quartieri.filter(x=>normalizza(x.nome)===normalizza(nomeQuar
  
 html+=`<div class="grid"><div class="card"><h3>Composizione della popolazione</h3><canvas id="chartComposizione"></canvas></div><div class="card"><h3>Popolazione per quartiere</h3><canvas id="chartQuartieri"></canvas></div></div><div class="card"><h3>Incidenza della popolazione straniera</h3><canvas id="chartIncidenza"></canvas></div>`;
 }else if(active==='compare'){
-const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+const datiCirc=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');
 const confronto=DATA.territories.circoscrizioni.map(c=>{
-const rr=qd.filter(x=>(x.circoscrizioni_id||[]).includes(c.id));
-const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
-const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
-const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
+const dato=datiCirc.find(x=>x.territorio_id===c.id);
+const italiani=Number(dato?.italiani)||0;
+const stranieri=Number(dato?.stranieri)||0;
+const totale=Number(dato?.totale)||0;
 return {...c,italiani,stranieri,totale,percentuale:totale?stranieri/totale*100:0};
 });
 const fmtC=n=>Number(n).toLocaleString('it-IT');
@@ -174,12 +175,12 @@ if(active==='demography'&&window.Chart){
  }
 }
 if(active==='compare'&&window.Chart){
-const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+const datiCirc=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');
 const confronto=DATA.territories.circoscrizioni.map(c=>{
-const rr=qd.filter(x=>(x.circoscrizioni_id||[]).includes(c.id));
-const italiani=rr.reduce((a,x)=>a+(Number(x.italiani)||0),0);
-const stranieri=rr.reduce((a,x)=>a+(Number(x.stranieri)||0),0);
-const totale=rr.reduce((a,x)=>a+(Number(x.totale)||0),0);
+const dato=datiCirc.find(x=>x.territorio_id===c.id);
+const italiani=Number(dato?.italiani)||0;
+const stranieri=Number(dato?.stranieri)||0;
+const totale=Number(dato?.totale)||0;
 return {...c,italiani,stranieri,totale,percentuale:totale?stranieri/totale*100:0};
 });
 if(document.getElementById('chartCircoscrizioni')){
