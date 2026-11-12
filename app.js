@@ -298,7 +298,7 @@ function initMap(){
  const updateControl=()=>{
   if(gisLayerControl){gisMap.removeControl(gisLayerControl);gisLayerControl=null;}
   const overlays={};
-  gisImportedLayers.forEach((item)=>{overlays[item.name]=item.layer;});
+  gisImportedLayers.slice().sort((a,b)=>officialLayers.findIndex(x=>x.key===a.key)-officialLayers.findIndex(x=>x.key===b.key)).forEach((item)=>{overlays[item.name]=item.layer;});
   if(gisImportedLayers.length)gisLayerControl=L.control.layers(null,overlays,{collapsed:false}).addTo(gisMap);
  };
  const reset=()=>{
