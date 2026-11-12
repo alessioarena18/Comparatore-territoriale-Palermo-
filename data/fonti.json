@@ -1,0 +1,111 @@
+{
+  "titolo": "Registro delle fonti ufficiali",
+  "versione": "1.0",
+  "aggiornato_il": "2026-11-12",
+  "criterio": "Fonti primarie istituzionali. Ogni indicatore derivato conserva fonte, anno, scala territoriale e metodologia.",
+  "fonti": [
+    {
+      "id": "istat-bt-2021",
+      "ente": "ISTAT",
+      "titolo": "Basi territoriali e variabili censuarie 2021",
+      "url": "https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/",
+      "ambito": [
+        "sezioni censuarie",
+        "aree subcomunali",
+        "geometrie"
+      ],
+      "riferimento_temporale": "2021",
+      "formati": [
+        "SHP",
+        "KMZ",
+        "XLS"
+      ],
+      "crs": "WGS 84 / UTM zona 32N (EPSG:32632)",
+      "stato": "Fonte ufficiale individuata; file comunali da acquisire e validare",
+      "controlli": [
+        "codici territoriali",
+        "copertura Palermo",
+        "validità geometrica",
+        "topologia",
+        "compatibilità temporale"
+      ],
+      "nota": "Il disegno delle sezioni 2021 è stato rivisto rispetto al 2011; non si presume corrispondenza uno-a-uno né confrontabilità automatica."
+    },
+    {
+      "id": "comune-circoscrizioni-265",
+      "ente": "Comune di Palermo",
+      "titolo": "Perimetrazione circoscrizioni comunali",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=265",
+      "ambito": [
+        "confini circoscrizionali"
+      ],
+      "riferimento_temporale": "copertura dichiarata 2013",
+      "formati": [
+        "SHP"
+      ],
+      "licenza": "CC BY 4.0",
+      "stato": "Fonte ufficiale individuata; geometrie non validate",
+      "controlli": [
+        "data effettiva",
+        "CRS",
+        "topologia",
+        "coerenza amministrativa"
+      ],
+      "nota": "Pubblicazione 22/02/2013, aggiornamento 10/01/2018; il portale segnala assenza di documentazione tecnica. Non è assunta come perimetrazione corrente senza verifica."
+    },
+    {
+      "id": "comune-popolazione-quartieri-1693",
+      "ente": "Comune di Palermo",
+      "titolo": "Popolazione residente al 31/12/2022 per quartiere e cittadinanza",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1693",
+      "ambito": [
+        "popolazione",
+        "quartieri",
+        "cittadinanza"
+      ],
+      "riferimento_temporale": "31/12/2022",
+      "stato": "Dato acquisito nel dataset demografico del progetto",
+      "nota": "Non rappresenta la popolazione corrente 2026."
+    },
+    {
+      "id": "comune-popolazione-circoscrizioni-1694",
+      "ente": "Comune di Palermo",
+      "titolo": "Popolazione residente al 31/12/2022 per circoscrizione e cittadinanza",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1694",
+      "ambito": [
+        "popolazione",
+        "circoscrizioni",
+        "cittadinanza"
+      ],
+      "riferimento_temporale": "31/12/2022",
+      "stato": "Dato acquisito nel dataset demografico del progetto",
+      "nota": "Si usano i valori pubblicati direttamente dal Comune, senza sommare quartieri che possono attraversare più circoscrizioni."
+    },
+    {
+      "id": "comune-sezioni-eta-1706",
+      "ente": "Comune di Palermo",
+      "titolo": "Popolazione per sezione censuaria e fasce di età",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706",
+      "ambito": [
+        "popolazione",
+        "sezioni censuarie",
+        "classi di età"
+      ],
+      "riferimento_temporale": "2022",
+      "stato": "Fonte individuata; associazione geografica e compatibilità da verificare",
+      "controlli": [
+        "codifica sezioni",
+        "corrispondenza geografica",
+        "quadratura totali",
+        "assenza duplicazioni"
+      ]
+    }
+  ],
+  "regole_di_pubblicazione": [
+    "Non presentare stime come dati osservati o ufficiali.",
+    "Non aggregare anni o unità territoriali differenti senza procedura documentata e verificata.",
+    "Non calcolare deficit di standard senza superfici e popolazione riferite a basi compatibili.",
+    "Ogni indicatore espone fonte, anno, scala territoriale e formula.",
+    "Le geometrie non validate restano escluse dalle mappe analitiche."
+  ]
+}
