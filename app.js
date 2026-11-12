@@ -236,10 +236,10 @@ if(active==='social'){
     <div class="card"><span class="muted">Maggiore disagio</span><h3>${massimo?esc(massimo.nome):'N.D.'}</h3><div class="metric">${massimo?numero(massimo.idise):'N.D.'}</div></div>
     <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
   </div>
-  <div class="card social-select"><h3>3 - Seleziona le UPL da confrontare</h3>
-    <p class="muted">Seleziona almeno due aree per avviare il confronto.</p>
+  <div class="card social-select"><h3>3 - Confronto degli ambiti territoriali</h3>
+    <p class="muted">Seleziona almeno due UPL per confrontare IDISE e indicatori DIS1-DIS9. L’elenco comprende tutte le 55 UPL di Palermo anche quando il selettore generale è impostato su una singola circoscrizione, quartiere o UPL: in questo modo il confronto mantiene il riferimento all’intero Comune.</p>
     <div id="uplSelezione" class="upl-selector">
-      ${aree.map(a=>'<label class="upl-option"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
+      ${[...(DATA.sociale||[])].sort((a,b)=>a.nome.localeCompare(b.nome,'it')).map(a=>'<label class="upl-option"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
     </div>
   </div>
   <div class="card"><h3>4 - Indice di disagio socio-economico IDISE 2023</h3>
@@ -248,13 +248,13 @@ if(active==='social'){
     ${aree.map(a=>`<tr><td>${esc(a.nome)}</td><td>${numero(a.idise)}</td><td>${numero(a.popolazione)}</td><td>${numero(a.famiglie)}</td></tr>`).join('')}
     </tbody></table></div>
   </div>
-  <div class="card social-compare-section"><h3>5 - Indicatori elementari del disagio e confronto tra UPL</h3>
+  <div class="card social-compare-section"><h3>5 - Confronto territoriale degli indicatori di disagio</h3>
     <p class="muted">Gli indicatori restano affiancati al confronto per consentire la lettura dei risultati senza perdere il riferimento metodologico.</p>
     <div class="social-compare-layout">
       <aside class="indicator-panel"><h3>Indicatori DIS1-DIS9</h3><div class="indicator-list">
         ${Object.entries(descrizioni).map(([codice,descrizione])=>`<div class="indicator-item"><strong>${codice}</strong><span>${descrizione}</span>${codice==='DIS4'?'<small>Interpretazione inversa: un valore più alto indica maggiore occupazione e quindi minore disagio.</small>':''}</div>`).join('')}
       </div></aside>
-      <div id="uplConfronto" class="comparison-panel"><h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare i valori a confronto.</p></div>
+      <div id="uplConfronto" class="comparison-panel"><h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL nel pannello precedente per visualizzare i valori a confronto.</p></div>
     </div>
   </div>`;
 }else if(active==='schools'){
