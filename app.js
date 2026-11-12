@@ -22,41 +22,58 @@ function pointInGeometry(point,geometry){if(!geometry)return false;const polygon
 function geometryBounds(geometry){const coords=[];const walk=a=>{if(Array.isArray(a)&&typeof a[0]==='number'&&typeof a[1]==='number')coords.push(a);else if(Array.isArray(a))a.forEach(walk);};if(geometry)walk(geometry.coordinates);if(!coords.length)return null;return [Math.min(...coords.map(p=>p[0])),Math.min(...coords.map(p=>p[1])),Math.max(...coords.map(p=>p[0])),Math.max(...coords.map(p=>p[1]))];}
 function findCircParent(feature,level){const codeKey=level==='asc2'?'COM_ASC2':level==='asc3'?'COM_ASC3':'SEZ21_ID',code=String(feature?.properties?.[codeKey]??'');if(!code||!GEO.asc1||!feature?.geometry)return '';GEO.parentCache=GEO.parentCache||{};const cacheKey=level+':'+code;if(Object.prototype.hasOwnProperty.call(GEO.parentCache,cacheKey))return GEO.parentCache[cacheKey];const bounds=geometryBounds(feature.geometry);if(!bounds)return GEO.parentCache[cacheKey]='';const [minX,minY,maxX,maxY]=bounds,parents=GEO.asc1.features,steps=12,center=steps/2;for(let radius=0;radius<=center;radius++){for(let iy=Math.max(0,center-radius);iy<=Math.min(steps,center+radius);iy++){for(let ix=Math.max(0,center-radius);ix<=Math.min(steps,center+radius);ix++){if(radius&&Math.abs(ix-center)!==radius&&Math.abs(iy-center)!==radius)continue;const point=[minX+(maxX-minX)*ix/steps,minY+(maxY-minY)*iy/steps];if(!pointInGeometry(point,feature.geometry))continue;for(const parent of parents){const parentCode=String(parent.properties?.COD_ASC1??'');if(parentCode&&pointInGeometry(point,parent.geometry))return GEO.parentCache[cacheKey]=parentCode;}}}}return GEO.parentCache[cacheKey]='';}
 function featureBelongsToCirc(feature,level,circId){if(!circId)return true;const parent=findCircParent(feature,level);return parent?('c'+parent===circId):false;}
-function populateGeoSelectors(){[['asc3','asc3','DEN_ASC3','COM_ASC3'],['section','sections','SEZ21_ID','SEZ21_ID']].forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;const circ=$('#circ')?.value||'',current=geoSelection[id]||'';const features=fc.features.filter(f=>featureBelongsToCirc(f,key,circ));if(current&&!features.some(f=>String(f.properties?.[code]??'')===String(current)))geoSelection[id]='';el.innerHTML='<option value="">Tutte</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');el.value=geoSelection[id]||'';});populateGisSelectors();}
+function populateGeoSelectors(){
+ const circ=$('#circ')?.value||'',asc2=geoSelection.asc2||'',asc3=geoSelection.asc3||'';
+ const f2=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2??'')===String(asc2)),f3=GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3??'')===String(asc3));
+ [['asc3','asc3','DEN_ASC3','COM_ASC3'],['section','sections','SEZ21_ID','SEZ21_ID']].forEach(([id,key,label,code])=>{
+  const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;let features=fc.features;
+  if(key==='asc3')features=features.filter(f=>f2?findParentFeature(f,'asc3','asc2')===f2:(!circ||featureBelongsToCirc(f,'asc3',circ)));
+  if(key==='sections')features=features.filter(f=>f3?findParentFeature(f,'section','asc3')===f3:f2?findParentFeature(f,'section','asc2')===f2:(!circ||featureBelongsToCirc(f,'section',circ)));
+  const current=geoSelection[id]||'';if(current&&!features.some(f=>String(f.properties?.[code]??'')===String(current)))geoSelection[id]='';
+  el.innerHTML='<option value="">'+(id==='section'?'Nessuna':'Tutte')+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');
+  el.value=geoSelection[id]||'';
+ });
+ populateGisSelectors();
+}
 function applyGisSelectionVisibility(){if(!gisMap)return;gisImportedLayers.forEach(item=>{if(!item.key||!Array.isArray(item.featureLayers))return;item.featureLayers.forEach(featureLayer=>{if(!item.layer.hasLayer(featureLayer))item.layer.addLayer(featureLayer);});});}
-function populateGisSelectors(){const circ=$('#circ')?.value||'',defs=[['gisSelectAsc1','asc1','DEN_ASC1','COM_ASC1'],['gisSelectAsc2','asc2','DEN_ASC2','COM_ASC2'],['gisSelectAsc3','asc3','DEN_ASC3','COM_ASC3'],['gisSelectSection','sections','SEZ21_ID','SEZ21_ID']];defs.forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;const current=key==='asc1'?(GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===circ)?.properties?.COM_ASC1||''):geoSelection[key==='sections'?'section':key];const features=key==='asc1'?fc.features:fc.features.filter(f=>featureBelongsToCirc(f,key,circ));const validCurrent=features.some(f=>String(f.properties?.[code]??'')===String(current||''));el.innerHTML='<option value="">'+(key==='asc1'?'Tutte le circoscrizioni':key==='asc2'?'Tutti i quartieri':key==='asc3'?'Tutte le UPL':'Tutte le sezioni')+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');el.value=validCurrent?String(current):'';});applyGisSelectionVisibility();}
+function applyGisSelectionVisibility(){if(!gisMap)return;gisImportedLayers.forEach(item=>{if(!item.key||!Array.isArray(item.featureLayers))return;item.featureLayers.forEach(featureLayer=>{if(!item.layer.hasLayer(featureLayer))item.layer.addLayer(featureLayer);});});}
+function populateGisSelectors(){
+ const circ=$('#circ')?.value||'',f2=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2??'')===String(geoSelection.asc2||'')),f3=GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3??'')===String(geoSelection.asc3||''));
+ const defs=[['gisSelectAsc1','asc1','DEN_ASC1','COM_ASC1'],['gisSelectAsc2','asc2','DEN_ASC2','COM_ASC2'],['gisSelectAsc3','asc3','DEN_ASC3','COM_ASC3'],['gisSelectSection','sections','SEZ21_ID','SEZ21_ID']];
+ defs.forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;let features=fc.features;
+  if(key==='asc2'&&circ)features=features.filter(f=>featureBelongsToCirc(f,'asc2',circ));
+  if(key==='asc3')features=features.filter(f=>f2?findParentFeature(f,'asc3','asc2')===f2:(!circ||featureBelongsToCirc(f,'asc3',circ)));
+  if(key==='sections')features=features.filter(f=>f3?findParentFeature(f,'section','asc3')===f3:f2?findParentFeature(f,'section','asc2')===f2:(!circ||featureBelongsToCirc(f,'section',circ)));
+  const current=key==='asc1'?(GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===circ)?.properties?.COM_ASC1||''):geoSelection[key==='sections'?'section':key];
+  const first=key==='sections'?'Nessuna':key==='asc1'?'Tutte le circoscrizioni':key==='asc2'?'Tutti i quartieri':'Tutte le UPL';
+  el.innerHTML='<option value="">'+first+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');
+  el.value=features.some(f=>String(f.properties?.[code]??'')===String(current||''))?String(current||''):'';
+ });applyGisSelectionVisibility();
+}
 function normalizeTerritoryName(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
 function findParentFeature(feature,childLevel,parentLevel){
- const childKey={asc2:'COM_ASC2',asc3:'COM_ASC3',section:'SEZ21_ID'}[childLevel];
- const parentKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3'}[parentLevel];
- const parentData=GEO[parentLevel==='asc1'?'asc1':parentLevel==='asc2'?'asc2':'asc3'];
- if(!feature?.geometry||!parentData)return null;
+ const parentData=GEO[parentLevel];if(!feature?.geometry||!parentData?.features?.length)return null;
  const bounds=geometryBounds(feature.geometry);if(!bounds)return null;
- const [minX,minY,maxX,maxY]=bounds;
- const probes=[[.5,.5],[.25,.25],[.75,.25],[.25,.75],[.75,.75],[.5,.25],[.5,.75],[.25,.5],[.75,.5]];
- for(const [x,y] of probes){const point=[minX+(maxX-minX)*x,minY+(maxY-minY)*y];if(!pointInGeometry(point,feature.geometry))continue;const parent=parentData.features.find(p=>pointInGeometry(point,p.geometry));if(parent)return parent;}
- return null;
+ const [minX,minY,maxX,maxY]=bounds,counts=new Map(),steps=28;
+ for(let iy=0;iy<=steps;iy++)for(let ix=0;ix<=steps;ix++){const point=[minX+(maxX-minX)*ix/steps,minY+(maxY-minY)*iy/steps];if(!pointInGeometry(point,feature.geometry))continue;const parent=parentData.features.find(f=>pointInGeometry(point,f.geometry));if(parent)counts.set(parent,(counts.get(parent)||0)+1);}
+ return [...counts.entries()].sort((a,b)=>b[1]-a[1])[0]?.[0]||null;
 }
 function findLinkedTerritory(level,code){
  const sourceKey=level==='section'?'sections':level,sourceCode={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',section:'SEZ21_ID'}[level];
- const feature=GEO[sourceKey]?.features.find(f=>String(f.properties?.[sourceCode]??'')===String(code));
- if(!feature)return {};
- const linked={};
- if(level==='asc1'){linked.asc1=code;return linked;}
- const circCode=findCircParent(feature,level==='section'?'section':level);
- if(circCode)linked.asc1=String(circCode);
- if(level==='asc2'){linked.asc2=code;}
- if(level==='asc3'||level==='section'){
-  const asc2=findParentFeature(feature,level,'asc2');
-  if(asc2)linked.asc2=String(asc2.properties?.COM_ASC2??'');
- }
- if(level==='asc3')linked.asc3=code;
- if(level==='section')linked.section=code;
+ const feature=GEO[sourceKey]?.features.find(f=>String(f.properties?.[sourceCode]??'')===String(code));if(!feature)return {};
+ const linked={};if(level==='asc1'){linked.asc1=String(code);return linked;}
+ let asc2=null,asc3=null;
+ if(level==='asc2')asc2=feature;
+ if(level==='asc3'){asc3=feature;asc2=findParentFeature(feature,'asc3','asc2');}
+ if(level==='section'){linked.section=String(code);asc3=findParentFeature(feature,'section','asc3');if(asc3)asc2=findParentFeature(asc3,'asc3','asc2');if(!asc2)asc2=findParentFeature(feature,'section','asc2');}
+ if(asc2){linked.asc2=String(asc2.properties?.COM_ASC2??'');const c=findParentFeature(asc2,'asc2','asc1');if(c)linked.asc1=String(c.properties?.COM_ASC1??'');}
+ if(asc3)linked.asc3=String(asc3.properties?.COM_ASC3??'');
+ if(level==='asc2')linked.asc2=String(code);if(level==='asc3')linked.asc3=String(code);
  return linked;
 }
 function syncGeoSelection(level,code,toggle=false){
  const value=String(code||'');
- if(!value){mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};}
+ if(!value){const order={asc1:0,asc2:1,asc3:2,section:3};mapSelections=mapSelections.filter(x=>order[x.level]<order[level]);mapSelection=mapSelections[mapSelections.length-1]||null;if(level==='asc1')geoSelection={asc2:'',asc3:'',section:''};else if(level==='asc2')geoSelection={asc2:'',asc3:'',section:''};else if(level==='asc3'){geoSelection.asc3='';geoSelection.section='';}else geoSelection.section='';}
  else{
   const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);
   if(toggle&&index>=0)mapSelections.splice(index,1);else if(index<0)mapSelections.push({key,level,code:value});
@@ -528,4 +545,5 @@ function syncMainFilter(id){
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
 ['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>syncMainFilter(id)));
+const sectionMain=$('#section');if(sectionMain&&sectionMain.options.length)sectionMain.options[0].textContent='Nessuna';
 load();
