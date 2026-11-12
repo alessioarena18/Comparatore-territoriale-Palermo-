@@ -29,3 +29,28 @@ Fonti da usare:
 
 ## Limiti e criteri
 La mappa usa Leaflet e cartografia OpenStreetMap via rete. Il sito è statico: non ha database server né autenticazione. Gli aggiornamenti automatici richiedono un flusso GitHub Actions separato e la verifica dei tracciati delle fonti prima di automatizzare la trasformazione.
+
+
+## Integrazione cartografica ISTAT 2021 – protocollo operativo
+
+### Archivi primari
+- Sezioni censuarie Sicilia: [R19_21.zip](https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip)
+- Aree subcomunali: [ASC_21.zip](https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip)
+- Documentazione tecnica: [descrizione dei dati geografici e delle variabili censuarie](https://www.istat.it/wp-content/uploads/2024/07/Descrizione-dei-dati-Basi-territoriali.pdf)
+
+### Campi delle aree subcomunali
+Per le tabelle ASC 2021 documentare almeno: `PRO_COM`, `COM_ASCn`, `COD_ASCn`, `COD_ASCn_T`, `DEN_ASCn`, `TIPO_ASCn`. I livelli ASC1, ASC2 e ASC3 non sono intercambiabili. Per Palermo la documentazione ISTAT contempla anche il livello ASC3, coerente con il perimetro delle UPL utilizzato nell'analisi sociale; la corrispondenza effettiva va comunque verificata sui codici e sulle geometrie.
+
+### Pipeline di validazione prima della pubblicazione
+1. Conservare gli ZIP originali e registrare URL, data di acquisizione, dimensione e impronta SHA-256.
+2. Estrarre gli shapefile e verificare encoding, CRS dichiarato, campi e numero di record.
+3. Filtrare il Comune di Palermo usando il codice ISTAT ufficiale, non il solo nome.
+4. Controllare geometrie nulle/non valide, multipart, duplicati, sovrapposizioni, vuoti e copertura.
+5. Confrontare codici e denominazioni con le tabelle ISTAT e con l'assetto locale, documentando le differenze.
+6. Esportare una copia web in GeoJSON EPSG:4326; conservare separatamente gli originali e i codici.
+7. Eseguire un controllo finale di conteggi, estensione geografica e rendering in Leaflet.
+
+**Regola di rilascio:** fino al completamento dei controlli e alla registrazione dell'esito, i layer restano non validati e non vengono utilizzati per conteggi, aggregazioni o mappe tematiche. La cartografia di base OpenStreetMap non costituisce una base statistica ufficiale.
+
+### Stato al 12 novembre 2026
+Sono stati registrati i collegamenti diretti agli archivi ISTAT e aggiunto il protocollo operativo nell'interfaccia GIS. Gli archivi binari non risultano ancora acquisiti e verificati nel repository; pertanto non è dichiarata alcuna geometria pronta all'uso. Il modulo Analisi sociale non è stato modificato.
