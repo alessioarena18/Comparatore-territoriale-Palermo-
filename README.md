@@ -68,3 +68,15 @@ La sezione Cartografia GIS include un controllo preliminare lato browser per fil
 Il file deve essere esportato da QGIS in **WGS 84 / EPSG:4326**. L'importazione è temporanea: il file viene letto nel browser dell'utente, non viene caricato su GitHub e non resta disponibile dopo il ricaricamento della pagina.
 
 **Limite importante:** il controllo non sostituisce una validazione GIS completa. Non verifica topologia, autointersezioni, sovrapposizioni, completezza dei poligoni o corrispondenza dei codici ISTAT. Un layer visualizzato è quindi solo ispezionabile, non automaticamente certificato o utilizzabile per calcoli statistici.
+
+
+### Verifica locale dei file GeoJSON nell'applicazione
+
+Nel modulo Cartografia GIS è disponibile un controllo preliminare nel browser:
+- accetta file GeoJSON di tipo `FeatureCollection`;
+- controlla coordinate numeriche e loro compatibilità approssimativa con l'area di Palermo;
+- segnala geometrie mancanti, anelli poligonali non chiusi o troppo brevi, tipi geometrici non riconosciuti, proprietà mancanti e identificativi duplicati;
+- visualizza il layer solo se i controlli preliminari non rilevano anomalie;
+- consente di scaricare un rapporto testuale dell'esito.
+
+Il file viene elaborato localmente nel browser e non viene caricato sul repository. La verifica è uno screening tecnico iniziale: **non sostituisce** i controlli topologici GIS, la verifica dei metadati/CRS, la corrispondenza dei codici ISTAT, la copertura e la validazione della fonte. I file da sottoporre al controllo devono essere ritagliati sull'area di Palermo ed esportati in GeoJSON WGS 84 (EPSG:4326). Il controllo delle coordinate non trasforma automaticamente il sistema di riferimento.
