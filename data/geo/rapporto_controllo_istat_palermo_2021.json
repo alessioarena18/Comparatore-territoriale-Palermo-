@@ -1,0 +1,66 @@
+{
+  "titolo": "Rapporto preliminare di acquisizione e controllo cartografia ISTAT Palermo 2021",
+  "data_elaborazione": "2026-11-12",
+  "comune": "Palermo",
+  "codice_comune_istat": "082053",
+  "crs_originale": "EPSG:32632",
+  "crs_output": "EPSG:4326",
+  "risultati": {
+    "sezioni_censimento": {
+      "feature": 3600,
+      "popolazione_POP21": 635439,
+      "geometrie_non_valide": 3
+    },
+    "circoscrizioni_livello_1": {
+      "feature": 8,
+      "popolazione_POP21": 635439,
+      "geometrie_non_valide": 0
+    },
+    "aree_subcomunali_livello_2": {
+      "feature": 25,
+      "popolazione_POP21": 635439,
+      "geometrie_non_valide": 0
+    },
+    "aree_subcomunali_livello_3": {
+      "feature": 55,
+      "popolazione_POP21": 635439,
+      "geometrie_non_valide": 0
+    }
+  },
+  "coerenza_codici": {
+    "COM_ASC1": {
+      "codici": 8,
+      "non_agganciati": 0
+    },
+    "COM_ASC2": {
+      "codici": 25,
+      "non_agganciati": 0
+    },
+    "COM_ASC3": {
+      "codici": 55,
+      "non_agganciati": 0
+    }
+  },
+  "sezioni_non_valide": [
+    {
+      "SEZ21": 8,
+      "SEZ21_ID": "820530000008",
+      "POP21": 130,
+      "motivo": "Ring Self-intersection"
+    },
+    {
+      "SEZ21": 2119,
+      "SEZ21_ID": "820530002119",
+      "POP21": 1252,
+      "motivo": "Ring Self-intersection"
+    },
+    {
+      "SEZ21": 3803,
+      "SEZ21_ID": "820530003803",
+      "POP21": 0,
+      "motivo": "Ring Self-intersection"
+    }
+  ],
+  "stato": "PRELIMINARE",
+  "limiti": "Le geometrie non valide sono mantenute senza correzione. I controlli automatici non sostituiscono verifica topologica, controllo manuale dei confini e validazione amministrativa. POP21 è popolazione censuaria 2021 e resta distinta dall'anagrafe comunale 2022."
+}
