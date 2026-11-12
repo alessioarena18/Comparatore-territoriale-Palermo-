@@ -48,3 +48,6 @@
 .secondary-button{margin-top:10px;border:1px solid #b9cad9;border-radius:8px;background:#f2f6fa;color:#244761;padding:9px 13px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
 .secondary-button:hover{background:#e5eef5}
 #gisReport{white-space:pre-line;overflow-wrap:anywhere}
+
+/* Selettori geografici sincronizzati */
+.filters{flex-wrap:wrap;align-items:end}.filters label{min-width:155px;flex:1}.filters select{min-width:0;width:100%}.territory{min-width:130px}.filters label select{max-width:260px}
