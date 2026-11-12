@@ -45,7 +45,7 @@ function render(){
  const stranieri=somma('stranieri');
  const totale=somma('totale');
  const percentuale=totale?((stranieri/totale)*100).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1}):'0,0';
- const nome=s.quart?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
+ const nome=s.quart||s.asc2?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
  const fmt=n=>Number(n).toLocaleString('it-IT');
  html+=`<div class="card"><h3>Popolazione residente · ${nome}</h3><p class="muted">Dati ufficiali al 31 dicembre 2022 · Fonte: Comune di Palermo</p><div class="grid"><div class="card"><span class="muted">Popolazione totale</span><div class="metric">${fmt(totale)}</div></div><div class="card"><span class="muted">Cittadini italiani</span><div class="metric">${fmt(italiani)}</div></div><div class="card"><span class="muted">Cittadini stranieri</span><div class="metric">${fmt(stranieri)}</div></div><div class="card"><span class="muted">Incidenza stranieri</span><div class="metric">${percentuale}%</div></div></div><p class="muted">La ripartizione per sesso e fasce d’età è in fase di integrazione. Le basi censuarie ISTAT 2021 e i dati anagrafici comunali 2022 hanno date e unità territoriali differenti: l’aggregazione sarà pubblicata solo dopo la verifica della chiave geografica e della compatibilità temporale.</p><p class="muted">Le 609 persone senza fissa dimora (533 italiane e 76 straniere) sono riportate separatamente nella fonte comunale e non vengono attribuite artificialmente ai quartieri o alle circoscrizioni.</p></div>`;
  html+=`<div class="card"><h3>Popolazione per quartiere</h3><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>${[...righe].sort((a,b)=>b.totale-a.totale).map(x=>`<tr><td>${esc(x.nome)}</td><td>${fmt(x.italiani)}</td><td>${fmt(x.stranieri)}</td><td>${fmt(x.totale)}</td><td>${x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0'}%</td></tr>`).join('')}</tbody></table></div></div>`;
@@ -204,7 +204,9 @@ if(active==='demography'&&window.Chart){
  const normGrafico=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
  const nomeQD=DATA.territories.quartieri.find(x=>x.id===sd.quart)?.name;
- const rd=sd.quart?qd.filter(x=>normGrafico(x.nome)===normGrafico(nomeQD)):sd.circ?qd.filter(x=>(x.circoscrizioni_id||[]).includes(sd.circ)):qd;
+ const nomeASC2=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===String(sd.asc2))?.properties?.DEN_ASC2;
+ const nomeFiltroDemo=sd.quart?nomeQD:sd.asc2?nomeASC2:null;
+ const rd=(sd.quart||sd.asc2)?qd.filter(x=>normGrafico(x.nome)===normGrafico(nomeFiltroDemo)):sd.circ?qd.filter(x=>(x.circoscrizioni_id||[]).includes(sd.circ)):qd;
  const sommaD=k=>rd.reduce((a,x)=>a+(Number(x[k])||0),0);
  const fmtD=n=>Number(n).toLocaleString('it-IT');
  const canvasD=id=>document.getElementById(id);
