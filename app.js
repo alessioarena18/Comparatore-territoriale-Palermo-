@@ -16,7 +16,7 @@ compare:['CONFRONTO TERRITORIALE','Confronti','Comparazione tra circoscrizioni, 
 sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, degli aggiornamenti e dei criteri di elaborazione.']
 };
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function selected(){if(mapSelection){if(mapSelection.level==='asc1')return {circ:$('#circ').value,quart:'',asc2:'',asc3:'',section:''};if(mapSelection.level==='asc2')return {circ:'',quart:$('#quart').value,asc2:mapSelection.code,asc3:'',section:''};if(mapSelection.level==='asc3')return {circ:'',quart:'',asc2:'',asc3:mapSelection.code,section:''};if(mapSelection.level==='section')return {circ:'',quart:'',asc2:'',asc3:'',section:mapSelection.code};}return {circ:$('#circ').value,quart:$('#quart').value,asc2:geoSelection.asc2,asc3:geoSelection.asc3,section:geoSelection.section};}
+function selected(){return {circ:$('#circ')?.value||'',quart:$('#quart')?.value||'',asc2:geoSelection.asc2||'',asc3:$('#asc3')?.value||'',section:$('#section')?.value||''};}
 function pointInRing(point,ring){let inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const xi=ring[i][0],yi=ring[i][1],xj=ring[j][0],yj=ring[j][1];const cross=((yi>point[1])!==(yj>point[1]))&&(point[0]<(xj-xi)*(point[1]-yi)/(yj-yi||1e-15)+xi);if(cross)inside=!inside;}return inside;}
 function pointInGeometry(point,geometry){if(!geometry)return false;const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];return polygons.some(poly=>poly.length&&pointInRing(point,poly[0])&&!poly.slice(1).some(hole=>pointInRing(point,hole)));}
 function geometryBounds(geometry){const coords=[];const walk=a=>{if(Array.isArray(a)&&typeof a[0]==='number'&&typeof a[1]==='number')coords.push(a);else if(Array.isArray(a))a.forEach(walk);};if(geometry)walk(geometry.coordinates);if(!coords.length)return null;return [Math.min(...coords.map(p=>p[0])),Math.min(...coords.map(p=>p[1])),Math.max(...coords.map(p=>p[0])),Math.max(...coords.map(p=>p[1]))];}
@@ -122,13 +122,28 @@ function focusGisSelection(level,code){
  }
 }
 function applyGisSelectedStyle(){
- const selectedKeys=new Set(mapSelections.map(x=>x.key));
+ const s=selected(),wanted=[];
+ if(s.section)wanted.push(['sections','SEZ21_ID',s.section]);
+ if(s.asc3)wanted.push(['asc3','COM_ASC3',s.asc3]);
+ if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)wanted.push(['asc1','COM_ASC1',String(f.properties?.COM_ASC1)]);}
+ if(s.quart){const q=DATA.territories.quartieri.find(x=>x.id===s.quart),f=GEO.asc2?.features.find(x=>normalizeTerritoryName(x.properties?.DEN_ASC2)===normalizeTerritoryName(q?.name));if(f)wanted.push(['asc2','COM_ASC2',String(f.properties?.COM_ASC2)]);}
  gisImportedLayers.forEach(item=>(item.featureLayers||[]).forEach(layer=>{
   const p=layer.feature?.properties||{},codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[item.key];
-  const isSelected=selectedKeys.has(item.key+':'+String(p[codeKey]??''));
-  layer.setStyle?.({weight:isSelected?4:1.2,color:isSelected?'#111827':item.key==='asc1'?'#1769aa':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:isSelected?.32:.035});
-  if(isSelected&&layer.bringToFront)layer.bringToFront();
+  const match=wanted.some(([key,field,value])=>key===item.key&&String(p[field]??'')===String(value));
+  layer.setStyle?.({weight:match?4:1.2,color:match?'#111827':item.key==='asc1'?'#1769aa':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:match?.32:.035});
+  if(match)layer.bringToFront?.();
  }));
+}
+function focusGeneralSelection(){
+ if(!gisMap)return;
+ const s=selected();let key,field,value;
+ if(s.section){key='sections';field='SEZ21_ID';value=s.section;}
+ else if(s.asc3){key='asc3';field='COM_ASC3';value=s.asc3;}
+ else if(s.quart){key='asc2';field='COM_ASC2';const q=DATA.territories.quartieri.find(x=>x.id===s.quart);value=GEO.asc2?.features.find(f=>normalizeTerritoryName(f.properties?.DEN_ASC2)===normalizeTerritoryName(q?.name))?.properties?.COM_ASC2;}
+ else if(s.circ){key='asc1';field='COM_ASC1';value=GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===s.circ)?.properties?.COM_ASC1;}
+ if(!key||value===undefined||value===null)return;
+ const item=gisImportedLayers.find(x=>x.key===key),layer=item?.featureLayers?.find(l=>String(l.feature?.properties?.[field]??'')===String(value));
+ const bounds=layer?.getBounds?.();if(bounds?.isValid?.())gisMap.fitBounds(bounds,{padding:[28,28],maxZoom:key==='sections'?17:key==='asc3'?15:key==='asc2'?14:13});
 }
 function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistiche=[];const fmtGeo=v=>Number(v).toLocaleString('it-IT');const dettaglio=(feature,label)=>{if(!feature)return;const x=feature.properties||{};ambiti.push(label+': '+(x.DEN_ASC1||x.DEN_ASC3||x.SEZ21_ID||''));const valori=[['POP21 · ISTAT 2021',x.POP21],['Famiglie',x.FAM21],['Abitazioni',x.ABI21],['Edifici',x.EDI21]].filter(v=>v[1]!==undefined&&v[1]!==null).map(v=>v[0]+': '+fmtGeo(v[1]));if(valori.length)statistiche.push('<div><strong>'+esc(label)+'</strong><br><span>'+valori.map(esc).join(' · ')+'</span></div>');};if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)dettaglio(f,'Circoscrizione');else ambiti.push('Circoscrizione: '+(DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||s.circ));}if(s.quart)ambiti.push('Quartiere: '+(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||s.quart));if(s.asc2){const f=GEO.asc2?.features.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));ambiti.push('Quartiere ASC2: '+(f?.properties?.DEN_ASC2||s.asc2));}if(s.asc3){const f=GEO.asc3?.features.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(f)dettaglio(f,'UPL');else ambiti.push('UPL: '+s.asc3);}if(s.section){const f=GEO.sections?.features.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(f)dettaglio(f,'Sezione censuaria');else ambiti.push('Sezione censuaria: '+s.section);}const contesto=ambiti.length?'<div class="notice-inline selection-context"><strong>Ambiti territoriali attivi:</strong> '+ambiti.map(esc).join(' · ')+(statistiche.length?'<div class="selection-stats">'+statistiche.join('')+'</div>':'')+'<span>I filtri vengono mantenuti passando da una pagina all’altra. POP21, famiglie, abitazioni ed edifici sono riferiti al Censimento ISTAT 2021 e restano distinti dai dati anagrafici comunali 2022 e dall’IDISE 2023. L’elaborazione si applica solo quando la fonte dispone di una corrispondenza geografica verificata alla scala selezionata.</span></div>':'';return `<p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p>${contesto}`;}
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
@@ -353,11 +368,7 @@ $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?
 function initMap(){
  let el=$('#map');if(!el||!window.L)return;
  populateGisSelectors();
- const updateSelectionStatus=()=>{const labels=[];[['asc1','Circoscrizione',$('#circ')?.selectedOptions?.[0]?.text],['asc2','Quartiere ASC2',$('#gisSelectAsc2')?.selectedOptions?.[0]?.text],['asc3','UPL',$('#asc3')?.selectedOptions?.[0]?.text],['section','Sezione',$('#section')?.selectedOptions?.[0]?.text]].forEach(([key,label,value])=>{const activeValue=key==='asc1'?$('#circ')?.value:geoSelection[key];if(activeValue)labels.push(label+': '+(value||activeValue));});const status=$('#gisSelectionStatus');if(status)status.textContent=labels.length?labels.join(' · '):'Nessun ambito selezionato.';};
- const selectorDefs=[['gisSelectAsc1','asc1'],['gisSelectAsc2','asc2'],['gisSelectAsc3','asc3'],['gisSelectSection','section']];
- selectorDefs.forEach(([id,level])=>{const select=$('#'+id);if(select)select.addEventListener('change',()=>syncGeoSelection(level,select.value,false));});
- const clear=$('#gisClearSelection');if(clear)clear.addEventListener('click',()=>{mapSelections=[];mapSelection=null;['asc2','asc3','section'].forEach(k=>{geoSelection[k]='';const el=$('#'+k);if(el)el.value='';});const circ=$('#circ'),quart=$('#quart');if(circ)circ.value='';if(quart){quart.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quart.add(new Option(x.name,x.id)));quart.value='';}populateGisSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();});
- updateSelectionStatus();
+
  if(gisMap){gisMap.remove();gisMap=null;gisImportedLayers=[];gisLayerControl=null;}
  gisMap=L.map(el).setView([38.1157,13.3615],12);
  const autoStatus=$('#gisAutoStatus');
@@ -385,7 +396,7 @@ function initMap(){
     const areaName=item.key==='asc1'?props.DEN_ASC1:item.key==='asc2'?props.DEN_ASC2:item.key==='asc3'?props.DEN_ASC3:'';
     if(areaName)featureLayer.bindTooltip(String(areaName).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])),{permanent:true,direction:'center',className:'gis-polygon-label',opacity:1});
    }});
-   layer.eachLayer(featureLayer=>{featureLayer.on('click',()=>{const p=featureLayer.feature?.properties||{};const fields={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'};const code=p[fields[item.key]];if(code!==undefined&&code!==null)syncGeoSelection(item.key==='sections'?'section':item.key,String(code),true);});featureLayer.on('mouseover',()=>featureLayer.setStyle?.({weight:3,fillOpacity:.16}));featureLayer.on('mouseout',()=>applyGisSelectedStyle());featureLayer.getElement?.()?.style.setProperty('cursor','pointer');});
+   layer.eachLayer(featureLayer=>{featureLayer.on('mouseover',()=>featureLayer.setStyle?.({weight:3,fillOpacity:.16}));featureLayer.on('mouseout',()=>applyGisSelectedStyle());});
    layer.addTo(gisMap);
    gisImportedLayers.push({name:item.name,key:item.key,layer,featureLayers:layer.getLayers()});
    applyGisSelectionVisibility();
@@ -395,7 +406,7 @@ function initMap(){
  })).then(results=>{
   updateControl();
   const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
-  if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}
+  if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}applyGisSelectedStyle();focusGeneralSelection();
   if(autoStatus)autoStatus.textContent=results.join(' · ')+(gisImportedLayers.length?' . Seleziona i livelli dal controllo della mappa.':' . Nessun layer ufficiale caricato.');
  });
 
@@ -530,17 +541,23 @@ async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
- if(!value){mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};populateGeoSelectors();populateGisSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();return;}
  if(id==='circ'){
-  const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===value);
-  if(f)syncGeoSelection('asc1',String(f.properties.COM_ASC1),false);
-  else{mapSelections=[];mapSelection=null;geoSelection={asc2:'',asc3:'',section:''};populateGeoSelectors();populateGisSelectors();render();}
+  const q=$('#quart');if(q){const previous='';q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!value||(x.circ_ids||[]).includes(value)).forEach(x=>q.add(new Option(x.name,x.id)));q.value=previous;}
+  geoSelection={asc2:'',asc3:'',section:''};
+  if($('#asc3'))$('#asc3').value='';if($('#section'))$('#section').value='';
  }else if(id==='quart'){
   const q=DATA.territories.quartieri.find(x=>x.id===value);
   const f=GEO.asc2?.features.find(x=>normalizeTerritoryName(x.properties?.DEN_ASC2)===normalizeTerritoryName(q?.name));
-  if(f)syncGeoSelection('asc2',String(f.properties.COM_ASC2),false);
-  else{mapSelections=[];mapSelection=null;render();}
- }else if(id==='asc3'||id==='section')syncGeoSelection(id==='asc3'?'asc3':'section',value,false);
+  geoSelection.asc2=f?String(f.properties.COM_ASC2):'';geoSelection.asc3='';geoSelection.section='';
+  if($('#asc3'))$('#asc3').value='';if($('#section'))$('#section').value='';
+ }else if(id==='asc3'){
+  geoSelection.asc3=value;geoSelection.section='';if($('#section'))$('#section').value='';
+ }else if(id==='section'){
+  geoSelection.section=value;
+ }
+ mapSelection=null;mapSelections=[];
+ populateGeoSelectors();
+ render();
 }
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
