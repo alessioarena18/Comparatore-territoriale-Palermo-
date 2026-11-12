@@ -77,7 +77,7 @@ function syncGeoSelection(level,code,toggle=false){
  const linkedActive=mapSelection?findLinkedTerritory(mapSelection.level,mapSelection.code):{};
  const vals={gisSelectAsc1:linkedActive.asc1||'',gisSelectAsc2:linkedActive.asc2||'',gisSelectAsc3:linkedActive.asc3||'',gisSelectSection:linkedActive.section||''};
  Object.entries(vals).forEach(([id,v])=>{const el=$('#'+id);if(el)el.value=v;});
- if(active!=='gis')render();updateGisSelectionFeedback();applyGisSelectedStyle();
+ if(active!=='gis')render();updateGisSelectionFeedback();applyGisSelectedStyle();if(mapSelection)focusGisSelection(mapSelection.level,mapSelection.code);
 }
 function updateGisSelectionFeedback(){
  const labels=mapSelections.map(item=>{
@@ -90,6 +90,19 @@ function updateGisSelectionFeedback(){
  });
  const status=$('#gisSelectionStatus');
  if(status)status.textContent=labels.length?labels.length+' poligon'+(labels.length===1?'o selezionato: ':'i selezionati: ')+labels.join(' · '):'Nessun poligono selezionato.';
+}
+function focusGisSelection(level,code){
+ if(!gisMap||!code)return;
+ const key=level==='section'?'sections':level;
+ const codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[key];
+ const item=gisImportedLayers.find(x=>x.key===key);
+ const featureLayer=item?.featureLayers?.find(layer=>String(layer.feature?.properties?.[codeKey]??'')===String(code));
+ if(!featureLayer)return;
+ const bounds=featureLayer.getBounds?.();
+ if(bounds?.isValid?.()){
+  const maxZoom=key==='sections'?17:key==='asc3'?15:key==='asc2'?14:13;
+  gisMap.fitBounds(bounds,{padding:[28,28],maxZoom});
+ }
 }
 function applyGisSelectedStyle(){
  const selectedKeys=new Set(mapSelections.map(x=>x.key));
