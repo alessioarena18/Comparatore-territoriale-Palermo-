@@ -41,6 +41,23 @@ La mappa usa Leaflet e cartografia OpenStreetMap via rete. Il sito è statico: n
 ### Campi delle aree subcomunali
 Per le tabelle ASC 2021 documentare almeno: `PRO_COM`, `COM_ASCn`, `COD_ASCn`, `COD_ASCn_T`, `DEN_ASCn`, `TIPO_ASCn`. I livelli ASC1, ASC2 e ASC3 non sono intercambiabili. Per Palermo la documentazione ISTAT contempla anche il livello ASC3, coerente con il perimetro delle UPL utilizzato nell'analisi sociale; la corrispondenza effettiva va comunque verificata sui codici e sulle geometrie.
 
+### Strumento riproducibile per preparare i layer ISTAT
+
+Nel repository è disponibile `tools/prepara_cartografia_istat.py`. Lo script lavora su shapefile già scaricati ed estratti dall'utente; non scarica gli archivi e non modifica i dati originali.
+
+1. Scaricare gli archivi ufficiali [R19_21.zip](https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip) e [ASC_21.zip](https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip).
+2. Estrarre gli archivi in due cartelle distinte.
+3. Installare Python e le dipendenze: `pip install geopandas pyogrio`.
+4. Dalla cartella principale del repository eseguire, adattando i percorsi:
+
+```bash
+python tools/prepara_cartografia_istat.py --sezioni "/percorso/R19_21" --asc "/percorso/ASC_21" --out "data/geo"
+```
+
+Lo script cerca il codice comunale ISTAT 082053, verifica che il CRS sia dichiarato e coerente tra gli shapefile selezionati, controlla geometrie nulle/vuote/non valide e produce GeoJSON EPSG:4326 più un rapporto JSON. Se il CRS manca o differisce, blocca l'unione. Non ripara geometrie e non certifica topologia, copertura o corrispondenza amministrativa.
+
+**Importante:** i GeoJSON generati sono output tecnici preliminari. Prima di inserirli nella pubblicazione occorre verificare i campi identificativi, le denominazioni, il livello ASC corretto, i duplicati, la copertura e le sovrapposizioni in QGIS. Lo script non modifica né attiva il modulo Analisi sociale.
+
 ### Abbinamento tra geometrie 2021 e dati censuari 2023
 
 Il rilascio ISTAT del 31/12/2023 utilizza le Basi Territoriali 2021. L'abbinamento deve quindi essere effettuato attraverso il codice ufficiale della sezione censuaria, non attraverso il nome del quartiere o una corrispondenza testuale. Prima dell'unione occorre:
