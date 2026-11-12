@@ -2,6 +2,8 @@ const $=s=>document.querySelector(s);
 let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null};
 let active='overview', charts=[];
 let gisMap=null, gisImportedLayers=[], gisLayerControl=null;
+let GEO={asc1:null,asc2:null,asc3:null,sections:null};
+let geoSelection={asc2:'',asc3:'',section:''};
 const pages={
 overview:['QUADRO CONOSCITIVO','Panoramica territoriale','Quadro integrato delle componenti demografiche, scolastiche, urbanistiche e spaziali.'],
 demography:['POPOLAZIONE RESIDENTE','Analisi demografica','Distribuzione per sesso, classi d’età e fasce funzionali.'],
@@ -14,7 +16,9 @@ compare:['CONFRONTO TERRITORIALE','Confronti','Comparazione tra circoscrizioni, 
 sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, degli aggiornamenti e dei criteri di elaborazione.']
 };
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function selected(){return {circ:$('#circ').value,quart:$('#quart').value};}
+function selected(){return {circ:$('#circ').value,quart:$('#quart').value,asc2:geoSelection.asc2,asc3:geoSelection.asc3,section:geoSelection.section};}
+function populateGeoSelectors(){[['asc2','asc2','DEN_ASC2','COM_ASC2'],['asc3','asc3','DEN_ASC3','COM_ASC3'],['section','sections','SEZ21_ID','SEZ21_ID']].forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;const current=geoSelection[id]||'';el.innerHTML='<option value="">Tutte</option>'+fc.features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');el.value=current;});}
+function syncGeoSelection(level,code){if(level==='asc1'){const n=Number(String(code).slice(-2)),id='c'+n,circ=$('#circ');if(circ&&[...circ.options].some(o=>o.value===id)){circ.value=id;circ.dispatchEvent(new Event('change'));return;}}if(['asc2','asc3','section'].includes(level)){geoSelection[level]=String(code||'');const el=$('#'+level);if(el)el.value=geoSelection[level];render();}}
 function pageShell(){let p=pages[active];return `<p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p>`;}
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
 function render(){
@@ -84,7 +88,7 @@ html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circosc
  document.querySelectorAll('.std-area').forEach(x=>x.addEventListener('input',calcolaStandard));
 }
 if(active==='social'){
-  const aree=[...(DATA.sociale||[])].sort((a,b)=>Number(b.idise)-Number(a.idise));
+  const aree=[...(DATA.sociale||[])].filter(a=>!s.asc3||String(a.cod_asc)===String(s.asc3)).sort((a,b)=>Number(b.idise)-Number(a.idise));
   const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:0;
   const massimo=aree[0], minimo=[...aree].sort((a,b)=>Number(a.idise)-Number(b.idise))[0];
   const numero=n=>Number(n||0).toLocaleString('it-IT',{maximumFractionDigits:2});
@@ -243,10 +247,10 @@ function initMap(){
  const palette=['#1769aa','#c05a21','#27834a','#8054a6'];
  const accepted=[];
  const officialLayers=[
-  {name:'Circoscrizioni ISTAT 2021 · ASC1 (8)',file:'data/geo/circoscrizioni_palermo_2021.geojson',color:'#1769aa'},
-  {name:'Aree subcomunali · ASC2 (25)',file:'data/geo/aree_subcomunali_liv2_palermo_2021.geojson',color:'#c05a21'},
-  {name:'Aree subcomunali · ASC3 (55)',file:'data/geo/aree_subcomunali_liv3_palermo_2021.geojson',color:'#27834a'},
-  {name:'Sezioni censuarie ISTAT 2021 (3.600)',file:'data/geo/sezioni_palermo_2021.geojson',color:'#8054a6'}
+  {key:'asc1',name:'Circoscrizioni ISTAT 2021 · ASC1 (8)',file:'data/geo/circoscrizioni_palermo_2021.geojson',color:'#1769aa'},
+  {key:'asc2',name:'Aree subcomunali · ASC2 (25)',file:'data/geo/aree_subcomunali_liv2_palermo_2021.geojson',color:'#c05a21'},
+  {key:'asc3',name:'Aree subcomunali · ASC3 (55)',file:'data/geo/aree_subcomunali_liv3_palermo_2021.geojson',color:'#27834a'},
+  {key:'sections',name:'Sezioni censuarie ISTAT 2021 (3.600)',file:'data/geo/sezioni_palermo_2021.geojson',color:'#8054a6'}
  ];
  Promise.all(officialLayers.map(async item=>{
   try{
@@ -254,13 +258,16 @@ function initMap(){
    if(!response.ok)throw new Error('HTTP '+response.status);
    const data=await response.json();
    if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('GeoJSON non valido');
+   GEO[item.key]=data;
    const layer=L.geoJSON(data,{style:()=>({color:item.color,weight:1.2,fillOpacity:.035}),onEachFeature:(feature,featureLayer)=>{
     const props=feature.properties||{};
     const label=props.DEN_ASC1||props.DEN_ASC2||props.DEN_ASC3||props.SEZ21||props.SEZ21_ID||'';
     if(label!=='' )featureLayer.bindPopup('<strong>'+String(label).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))+'</strong>');
    }});
+   layer.eachLayer(featureLayer=>featureLayer.on('click',()=>{const p=featureLayer.feature?.properties||{};const code=p.COM_ASC1||p.COM_ASC2||p.COM_ASC3||p.SEZ21_ID||'';syncGeoSelection(item.key==='sections'?'section':item.key,String(code));}));
    layer.addTo(gisMap);
    gisImportedLayers.push({name:item.name,layer});
+   populateGeoSelectors();
    return item.name+': '+data.features.length+' elementi caricati';
   }catch(error){return item.name+': errore di caricamento ('+error.message+')';}
  })).then(results=>{
@@ -394,9 +401,11 @@ function initMap(){
 }
 function fillFilters(){
  const c=$('#circ'),q=$('#quart');DATA.territories.circoscrizioni.forEach(x=>c.add(new Option(x.name,x.id)));DATA.territories.quartieri.forEach(x=>q.add(new Option(x.name,x.id)));
+ populateGeoSelectors();
 }
 async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 $('#circ').addEventListener('change',()=>{const id=$('#circ').value,q=$('#quart');q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));render();});
 $('#quart').addEventListener('change',render);
+['asc2','asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>{geoSelection[id]=$('#'+id).value;render();}));
 load();
