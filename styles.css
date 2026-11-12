@@ -12,3 +12,17 @@
 .comparison-table th:first-child{position:sticky;left:0;background:#f7fafc;z-index:1}.comparison-note{margin-top:10px;font-size:11px}
 @media(max-width:850px){.upl-selector{grid-template-columns:repeat(2,minmax(0,1fr))}.social-compare-layout{grid-template-columns:1fr}.indicator-panel{position:relative;top:auto;max-height:340px}}
 @media(max-width:520px){.upl-selector{grid-template-columns:1fr}}
+
+/* Moduli territoriali: servizi, standard e cartografia */
+.service-kpis,.standards-kpis,.gis-kpis{margin:16px 0}
+.service-kpis .card,.standards-kpis .card,.gis-kpis .card{min-height:116px}
+.service-categories,.workflow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.service-categories>div,.workflow-grid>div{display:flex;flex-direction:column;gap:5px;padding:14px;background:#f6f9fc;border:1px solid #e0e8ef;border-radius:9px}
+.service-categories span,.workflow-grid span{font-size:12px;color:#6d8297}
+.data-status{display:inline-block;padding:4px 8px;border-radius:20px;background:#edf3f8;color:#42617c;font-size:11px}
+.notice-inline{margin:16px 0 0;padding:12px 14px;background:#f7fafc;border-left:3px solid #9aafc1;color:#526d86;font-size:12px}
+.map-legend{display:flex;gap:18px;flex-wrap:wrap;padding-top:12px;color:#647d93;font-size:12px}
+.map-legend span{display:flex;align-items:center;gap:7px}
+.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.legend-dot.base{background:#8aa4bb}.legend-dot.pending{background:#d5a65a}
+@media(max-width:650px){.service-categories,.workflow-grid{grid-template-columns:1fr}.service-kpis,.standards-kpis,.gis-kpis{grid-template-columns:1fr 1fr}}
