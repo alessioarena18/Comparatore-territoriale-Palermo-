@@ -41,6 +41,17 @@ La mappa usa Leaflet e cartografia OpenStreetMap via rete. Il sito è statico: n
 ### Campi delle aree subcomunali
 Per le tabelle ASC 2021 documentare almeno: `PRO_COM`, `COM_ASCn`, `COD_ASCn`, `COD_ASCn_T`, `DEN_ASCn`, `TIPO_ASCn`. I livelli ASC1, ASC2 e ASC3 non sono intercambiabili. Per Palermo la documentazione ISTAT contempla anche il livello ASC3, coerente con il perimetro delle UPL utilizzato nell'analisi sociale; la corrispondenza effettiva va comunque verificata sui codici e sulle geometrie.
 
+### Abbinamento tra geometrie 2021 e dati censuari 2023
+
+Il rilascio ISTAT del 31/12/2023 utilizza le Basi Territoriali 2021. L'abbinamento deve quindi essere effettuato attraverso il codice ufficiale della sezione censuaria, non attraverso il nome del quartiere o una corrispondenza testuale. Prima dell'unione occorre:
+- verificare che i codici delle sezioni nei dati 2023 siano riferiti ai Comuni al 31/12/2021;
+- controllare unicità e formato del codice su entrambi i dataset;
+- registrare le righe senza corrispondenza e quelle con più corrispondenze, senza eliminarle automaticamente;
+- mantenere separate le sezioni fittizie `888888x` (persone senza tetto e senza fissa dimora) e `999999x` (zone in contestazione), che non rappresentano normali poligoni territoriali;
+- effettuare la quadratura dei totali dopo l'unione, esplicitando eventuali differenze dovute a sezioni non geografiche o a dati mancanti.
+
+La popolazione anagrafica comunale 2022, i dati censuari ISTAT 2023 e le geometrie 2021 restano tre basi distinte: non vanno fuse in un unico indicatore senza dichiarare anno, fonte, scala e criterio di aggregazione.
+
 ### Pipeline di validazione prima della pubblicazione
 1. Conservare gli ZIP originali e registrare URL, data di acquisizione, dimensione e impronta SHA-256.
 2. Estrarre gli shapefile e verificare encoding, CRS dichiarato, campi e numero di record.
