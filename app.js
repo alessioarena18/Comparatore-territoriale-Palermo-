@@ -217,82 +217,103 @@ function initMap(){
  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap'}).addTo(gisMap);
  if(DATA.geojson){gisImportedLayer=L.geoJSON(DATA.geojson).addTo(gisMap);}
  const fileInput=$('#gisFile'),report=$('#gisReport');
- if(fileInput&&report)fileInput.addEventListener('change',()=>{
-  const file=fileInput.files&&fileInput.files[0];if(!file)return;
-  report.textContent='Lettura e controllo preliminare del file…';
-  const reader=new FileReader();
-  reader.onload=()=>{
-   try{
-    const data=JSON.parse(reader.result);
-    if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('Il file deve contenere una FeatureCollection GeoJSON.');
-    let empty=0,unsupported=0,positions=0,outside=0,badRings=0,unknownGeometry=0,missingProperties=0;
-    const ids=new Set();let duplicateIds=0;
-    const scan=v=>{
-     if(!Array.isArray(v))return;
-     if(v.length>=2&&typeof v[0]==='number'&&typeof v[1]==='number'){
-      positions++;if(!Number.isFinite(v[0])||!Number.isFinite(v[1]))unsupported++;
-      else if(v[0]<13.0||v[0]>13.8||v[1]<37.9||v[1]>38.4)outside++;
-      return;
-     }
-     v.forEach(scan);
-    };
-    const checkRings=(rings)=>{
-     if(!Array.isArray(rings))return;
-     rings.forEach(r=>{
-      if(!Array.isArray(r)||r.length<4){badRings++;return;}
-      const first=r[0],last=r[r.length-1];
-      if(!Array.isArray(first)||!Array.isArray(last)||first[0]!==last[0]||first[1]!==last[1])badRings++;
+ if(fileInput&&report){
+  fileInput.addEventListener('change',()=>{
+   const file=fileInput.files&&fileInput.files[0];if(!file)return;
+   report.textContent='Lettura e controllo preliminare del file…';
+   const reader=new FileReader();
+   reader.onload=()=>{
+    try{
+     const data=JSON.parse(reader.result);
+     if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('Il file deve contenere una FeatureCollection GeoJSON.');
+     let empty=0,invalid=0,positions=0,outside=0,badRings=0,unknownGeometry=0,missingProperties=0;
+     const ids=new Set();let duplicateIds=0;
+     const scanCoordinates=value=>{
+      if(!Array.isArray(value))return;
+      if(value.length>=2&&typeof value[0]==='number'&&typeof value[1]==='number'){
+       positions++;
+       if(!value.every(n=>typeof n==='number'&&Number.isFinite(n)))invalid++;
+       else if(value[0]<13.0||value[0]>13.8||value[1]<37.9||value[1]>38.4)outside++;
+       return;
+      }
+      value.forEach(scanCoordinates);
+     };
+     const checkRings=rings=>{
+      if(!Array.isArray(rings)||!rings.length){badRings++;return;}
+      rings.forEach(r=>{
+       if(!Array.isArray(r)||r.length<4){badRings++;return;}
+       const first=r[0],last=r[r.length-1];
+       if(!Array.isArray(first)||!Array.isArray(last)||first[0]!==last[0]||first[1]!==last[1])badRings++;
+      });
+     };
+     const scanGeometry=g=>{
+      if(!g||typeof g!=='object'){empty++;return;}
+      if(g.type==='GeometryCollection'){
+       if(!Array.isArray(g.geometries)||!g.geometries.length){empty++;return;}
+       g.geometries.forEach(scanGeometry);return;
+      }
+      if(!['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon'].includes(g.type)){unknownGeometry++;return;}
+      if(!Array.isArray(g.coordinates)||!g.coordinates.length){empty++;return;}
+      if(g.type==='Polygon')checkRings(g.coordinates);
+      if(g.type==='MultiPolygon')g.coordinates.forEach(checkRings);
+      scanCoordinates(g.coordinates);
+     };
+     data.features.forEach(feature=>{
+      if(!feature||feature.type!=='Feature'||!feature.geometry){empty++;return;}
+      if(!feature.properties||typeof feature.properties!=='object')missingProperties++;
+      if(feature.id!==undefined){const key=String(feature.id);if(ids.has(key))duplicateIds++;ids.add(key);}
+      scanGeometry(feature.geometry);
      });
-    };
-    data.features.forEach(f=>{
-     if(!f||f.type!=='Feature'||!f.geometry){empty++;return;}
-     if(!f.properties||typeof f.properties!=='object')missingProperties++;
-     if(f.id!==undefined){const key=String(f.id);if(ids.has(key))duplicateIds++;ids.add(key);}
-     const g=f.geometry;
-     if(!['Point','MultiPoint','LineString','MultiLineString','Polygon','MultiPolygon','GeometryCollection'].includes(g.type)){unknownGeometry++;return;}
-     if(g.type==='Polygon')checkRings(g.coordinates);
-     if(g.type==='MultiPolygon'&&Array.isArray(g.coordinates))g.coordinates.forEach(checkRings);
-     if(g.type==='GeometryCollection'){if(!Array.isArray(g.geometries)||!g.geometries.length)empty++;}
-     else if(!g.coordinates||!g.coordinates.length)empty++;
-     scan(g.coordinates);
-    });
-    const crs=data.crs?.properties?.name||'non dichiarato (GeoJSON moderno presume WGS 84)';
-    const issues=empty+unsupported+outside+badRings+unknownGeometry+duplicateIds;
-    const plausible=positions>0&&unsupported===0&&outside===0&&empty===0&&badRings===0&&unknownGeometry===0&&duplicateIds===0;
-    const reportText=[
-     'CONTROLLO PRELIMINARE GEOJSON',
-     'File: '+file.name,
-     'Feature: '+data.features.length,
-     'Coordinate: '+positions,
-     'Geometrie mancanti o vuote: '+empty,
-     'Coordinate non numeriche: '+unsupported,
-     'Coordinate fuori dall’area di controllo di Palermo: '+outside,
-     'Anelli poligonali non chiusi o con meno di 4 vertici: '+badRings,
-     'Tipi geometrici non riconosciuti: '+unknownGeometry,
-     'Feature senza proprietà: '+missingProperties,
-     'Identificativi duplicati: '+duplicateIds,
-     'CRS dichiarato: '+crs,
-     'ESITO: '+(plausible?'controlli preliminari superati, non equivale a validazione topologica o certificazione della fonte':'controlli preliminari non superati, layer non visualizzato')
-    ].join('\n');
-    report.textContent=reportText;
-    const oldDownload=$('#gisReportDownload');if(oldDownload)oldDownload.remove();
-    const dl=document.createElement('button');dl.id='gisReportDownload';dl.type='button';dl.className='secondary-button';dl.textContent='Scarica rapporto di controllo';
-    dl.addEventListener('click',()=>{
-     const blob=new Blob([reportText],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);
-     const link=document.createElement('a');link.href=url;link.download='rapporto-controllo-'+file.name.replace(/\.[^.]+$/,'')+'.txt';link.click();URL.revokeObjectURL(url);
-    });
-    report.insertAdjacentElement('afterend',dl);
-    if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
-    if(plausible){
-     gisImportedData=data;
-     gisImportedLayer=L.geoJSON(data,{style:{color:'#1769aa',weight:1.5,fillOpacity:.12}}).addTo(gisMap);
-     const bounds=gisImportedLayer.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});
-    }else{gisImportedData=null;}
-   }catch(err){report.textContent='File non leggibile: '+err.message;gisImportedData=null;if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}}
-  };
-  reader.onerror=()=>{report.textContent='Errore durante la lettura del file.';};
-  reader.readAsText(file);
- });
+     const crs=data.crs?.properties?.name||'non dichiarato (specifica GeoJSON: WGS 84 / CRS84)';
+     const problems=empty+invalid+outside+badRings+unknownGeometry+duplicateIds;
+     const plausible=positions>0&&problems===0;
+     const reportText=[
+      'CONTROLLO PRELIMINARE GEOJSON',
+      'File: '+file.name,
+      'Feature: '+data.features.length,
+      'Coordinate esaminate: '+positions,
+      'Geometrie mancanti o vuote: '+empty,
+      'Coordinate non valide: '+invalid,
+      'Coordinate fuori dall’area indicativa di Palermo: '+outside,
+      'Anelli poligonali non chiusi o con meno di 4 vertici: '+badRings,
+      'Tipi geometrici non riconosciuti: '+unknownGeometry,
+      'Feature senza proprietà: '+missingProperties,
+      'Identificativi duplicati: '+duplicateIds,
+      'CRS dichiarato: '+crs,
+      'CRS: non verificato automaticamente; controllare l’esportazione EPSG:4326 in QGIS.',
+      'ESITO: '+(plausible?'controlli preliminari superati. Non equivale a validazione topologica, verifica del CRS o certificazione della fonte.':'controlli preliminari non superati. Layer non visualizzato.')
+     ].join('\n');
+     report.textContent=reportText;
+     let dl=$('#gisReportDownload');
+     if(!dl){dl=document.createElement('button');dl.id='gisReportDownload';dl.type='button';dl.className='secondary-button';dl.textContent='Scarica rapporto di controllo';report.insertAdjacentElement('afterend',dl);}
+     dl.onclick=()=>{
+      const blob=new Blob([reportText],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');link.href=url;link.download='rapporto-controllo-'+file.name.replace(/\.[^.]+$/,'')+'.txt';link.click();URL.revokeObjectURL(url);
+     };
+     if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
+     gisImportedData=null;
+     if(plausible){
+      gisImportedData=data;
+      gisImportedLayer=L.geoJSON(data,{style:{color:'#1769aa',weight:1.5,fillOpacity:.12}}).addTo(gisMap);
+      const bounds=gisImportedLayer.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});
+     }
+    }catch(err){
+     report.textContent='File non leggibile: '+err.message;gisImportedData=null;
+     if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
+    }
+   };
+   reader.onerror=()=>{report.textContent='Errore durante la lettura del file.';};
+   reader.readAsText(file);
+  });
+  const reset=document.createElement('button');reset.type='button';reset.className='secondary-button';reset.textContent='Rimuovi layer caricato';
+  reset.addEventListener('click',()=>{
+   if(gisImportedLayer){gisMap.removeLayer(gisImportedLayer);gisImportedLayer=null;}
+   gisImportedData=null;fileInput.value='';report.textContent='Layer rimosso. Nessun dato cartografico locale attivo.';
+   const dl=$('#gisReportDownload');if(dl)dl.remove();
+   gisMap.setView([38.1157,13.3615],12);
+  });
+  const download=$('#gisReportDownload');if(download)download.insertAdjacentElement('afterend',reset);else report.insertAdjacentElement('afterend',reset);
+ }
 }
 function fillFilters(){
  const c=$('#circ'),q=$('#quart');DATA.territories.circoscrizioni.forEach(x=>c.add(new Option(x.name,x.id)));DATA.territories.quartieri.forEach(x=>q.add(new Option(x.name,x.id)));
