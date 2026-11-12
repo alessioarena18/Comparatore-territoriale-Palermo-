@@ -51,3 +51,13 @@
 
 /* Selettori geografici sincronizzati */
 .filters{flex-wrap:wrap;align-items:end}.filters label{min-width:155px;flex:1}.filters select{min-width:0;width:100%}.territory{min-width:130px}.filters label select{max-width:260px}
+
+/* Selezione indipendente dei quattro livelli territoriali GIS */
+.gis-selection-panel{margin-top:16px;background:#fbfdff}
+.gis-selection-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.gis-selection-grid label{display:flex;flex-direction:column;gap:6px;color:#607b95;font-size:12px;font-weight:600;min-width:0}
+.gis-selection-grid select{width:100%;min-width:0;height:40px;border:1px solid #cbd8e4;border-radius:7px;padding:0 9px;background:#fff;color:#243e57;font:inherit}
+.gis-selection-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:12px}
+.gis-selection-actions .secondary-button{margin-top:0}
+@media(max-width:1050px){.gis-selection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.gis-selection-grid{grid-template-columns:1fr}}
