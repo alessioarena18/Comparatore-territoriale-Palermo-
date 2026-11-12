@@ -56,59 +56,49 @@ const fmtC=n=>Number(n).toLocaleString('it-IT');
 html+=`<div class="card"><h3>Confronto demografico tra le 8 circoscrizioni</h3><p class="muted">Dati ufficiali al 31 dicembre 2022</p><div style="overflow-x:auto"><table><thead><tr><th>Circoscrizione</th><th>Italiani</th><th>Stranieri</th><th>Totale residenti</th><th>Incidenza stranieri</th></tr></thead><tbody>${confronto.map(c=>`<tr><td>${c.name}</td><td>${fmtC(c.italiani)}</td><td>${fmtC(c.stranieri)}</td><td><strong>${fmtC(c.totale)}</strong></td><td>${c.percentuale.toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})}%</td></tr>`).join('')}</tbody></table></div></div>`;
 html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circoscrizione</h3><canvas id="chartCircoscrizioni"></canvas></div><div class="card"><h3>Incidenza stranieri per circoscrizione</h3><canvas id="chartStranieriCircoscrizioni"></canvas></div></div>`;
 }else if(active==='social'){
-html+=`<div class="card">
-<h3>Che cos’è l’IDISE?</h3>
-<p>L’Indice di Disagio Socio-Economico (IDISE), elaborato dall’ISTAT, è uno strumento statistico che permette di analizzare e rappresentare le condizioni di svantaggio socio-economico della popolazione a livello territoriale.</p>
-<p>L’indice sintetizza nove indicatori che riguardano le condizioni abitative, il reddito, l’occupazione, la stabilità lavorativa, il livello di istruzione, la presenza di giovani NEET e la dispersione scolastica.</p>
-<h3>Come si interpreta?</h3>
-<ul>
-<li><strong>Valore pari a 100:</strong> corrisponde al valore medio di riferimento del Comune di Palermo.</li>
-<li><strong>Valore superiore a 100:</strong> segnala un livello di disagio socio-economico maggiore rispetto al riferimento comunale.</li>
-<li><strong>Valore inferiore a 100:</strong> segnala un livello di disagio inferiore rispetto al riferimento comunale.</li>
-</ul>
-<p>L’analisi utilizza i dati ISTAT 2023 e considera le 55 Unità di Primo Livello (UPL) individuate nel territorio comunale di Palermo.</p>
-<p class="muted">Fonte: ISTAT, Indice di disagio socio-economico a livello sub-comunale (IDISE), anno 2023.</p>
-</div>`;
   const aree=[...(DATA.sociale||[])].sort((a,b)=>Number(b.idise)-Number(a.idise));
   const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:0;
-  const massimo=aree[0];
-  const minimo=[...aree].sort((a,b)=>Number(a.idise)-Number(b.idise))[0];
+  const massimo=aree[0], minimo=[...aree].sort((a,b)=>Number(a.idise)-Number(b.idise))[0];
   const numero=n=>Number(n||0).toLocaleString('it-IT',{maximumFractionDigits:2});
   const descrizioni={
-    DIS1:'Anziani soli in condizioni di vulnerabilità abitativa',
-    DIS2:'Persone in famiglie senza occupati o pensionati da lavoro',
-    DIS3:'Persone in famiglie con basso reddito equivalente',
-    DIS4:'Tasso di occupazione 25-64 anni',
-    DIS5:'Famiglie con bassa intensità lavorativa',
-    DIS6:'Occupazione instabile 25-64 anni',
-    DIS7:'Basso livello di istruzione 25-64 anni',
-    DIS8:'Giovani NEET 15-29 anni',
-    DIS9:'Dispersione e ripetenza scolastica'
+    DIS1:'Persone di 70 anni e oltre che vivono sole e non sono proprietarie dell’abitazione',
+    DIS2:'Persone che vivono in famiglie senza componenti occupati o titolari di pensione da lavoro',
+    DIS3:'Persone che vivono in famiglie con basso reddito equivalente',
+    DIS4:'Tasso di occupazione della popolazione tra 25 e 64 anni',
+    DIS5:'Persone fino a 64 anni che vivono in famiglie a bassa intensità lavorativa',
+    DIS6:'Persone tra 25 e 64 anni con occupazione instabile nel corso dell’anno',
+    DIS7:'Persone tra 25 e 64 anni con basso livello di istruzione',
+    DIS8:'Giovani tra 15 e 29 anni non occupati e non inseriti in percorsi di istruzione o formazione (NEET)',
+    DIS9:'Studenti che abbandonano il percorso scolastico o ripetono l’anno'
   };
-  html+=`<div class="card">
-<h3>Seleziona le UPL da confrontare</h3>
-<p class="muted">Seleziona almeno due aree per avviare il confronto.</p>
-<div id="uplSelezione" class="grid">
-${aree.map(a=>'<label style="display:block;margin:6px 0"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
-</div>
-</div>`;
-    html+=`<div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
+  html+=`<div class="grid social-kpis">
+    <div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
     <div class="card"><span class="muted">IDISE medio delle UPL</span><div class="metric">${numero(media)}</div></div>
     <div class="card"><span class="muted">Maggiore disagio</span><h3>${massimo?esc(massimo.nome):'N.D.'}</h3><div class="metric">${massimo?numero(massimo.idise):'N.D.'}</div></div>
     <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
   </div>
-  <div class="card"><h3>Indice di disagio socio-economico IDISE 2023</h3>
-  <p class="muted">Fonte: ISTAT. Unità territoriali: 55 UPL di Palermo. Valore comunale di riferimento: 100. Valori più elevati indicano maggiore disagio socio-economico.</p>
-  <div style="overflow-x:auto"><table><thead><tr><th>UPL</th><th>IDISE</th><th>Popolazione</th><th>Famiglie</th></tr></thead><tbody>
-  ${aree.map(a=>`<tr><td>${esc(a.nome)}</td><td>${numero(a.idise)}</td><td>${numero(a.popolazione)}</td><td>${numero(a.famiglie)}</td></tr>`).join('')}
-  </tbody></table></div></div>
-  <div class="card"><h3>Indicatori elementari del disagio</h3>
-  <p class="muted">Il sistema IDISE è composto da nove indicatori. La direzione interpretativa del DIS4 è inversa rispetto agli altri indicatori.</p>
-  <div style="overflow-x:auto"><table><thead><tr><th>Codice</th><th>Indicatore</th></tr></thead><tbody>
-  ${Object.entries(descrizioni).map(([codice,descrizione])=>`<tr><td>${codice}</td><td>${descrizione}</td></tr>`).join('')}
-  </tbody></table></div></div>`;
- html+=empty(hasSchools?'Dati scolastici acquisiti: validazione necessaria':'Inventario scolastico non ancora caricato','Il modulo prevede istituzioni statali e paritarie, ordine e grado, indirizzo, coordinate, bacini di prossimità e anno scolastico di riferimento.');
- }else if(active==='standards'){
+  <div class="card social-select"><h3>3 - Seleziona le UPL da confrontare</h3>
+    <p class="muted">Seleziona almeno due aree per avviare il confronto.</p>
+    <div id="uplSelezione" class="upl-selector">
+      ${aree.map(a=>'<label class="upl-option"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
+    </div>
+  </div>
+  <div class="card"><h3>4 - Indice di disagio socio-economico IDISE 2023</h3>
+    <p class="muted">Fonte: ISTAT. 55 UPL di Palermo. Valore comunale di riferimento: 100. Valori più elevati indicano maggiore disagio socio-economico.</p>
+    <div class="table-wrap"><table><thead><tr><th>UPL</th><th>IDISE</th><th>Popolazione</th><th>Famiglie</th></tr></thead><tbody>
+    ${aree.map(a=>`<tr><td>${esc(a.nome)}</td><td>${numero(a.idise)}</td><td>${numero(a.popolazione)}</td><td>${numero(a.famiglie)}</td></tr>`).join('')}
+    </tbody></table></div>
+  </div>
+  <div class="card social-compare-section"><h3>5 - Indicatori elementari del disagio e confronto tra UPL</h3>
+    <p class="muted">Gli indicatori restano affiancati al confronto per consentire la lettura dei risultati senza perdere il riferimento metodologico.</p>
+    <div class="social-compare-layout">
+      <aside class="indicator-panel"><h3>Indicatori DIS1-DIS9</h3><div class="indicator-list">
+        ${Object.entries(descrizioni).map(([codice,descrizione])=>`<div class="indicator-item"><strong>${codice}</strong><span>${descrizione}</span>${codice==='DIS4'?'<small>Interpretazione inversa: un valore più alto indica maggiore occupazione e quindi minore disagio.</small>':''}</div>`).join('')}
+      </div></aside>
+      <div id="uplConfronto" class="comparison-panel"><h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare i valori a confronto.</p></div>
+    </div>
+  </div>`;
+}else if(active==='standards'){
  html+=empty(hasStandards?'Dotazioni caricate: verifica metodologica necessaria':'Quadro delle dotazioni in attesa dei dati urbanistici','Per calcolare gli standard occorrono superfici, destinazioni, popolazione di riferimento e disciplina urbanistica applicabile. I risultati saranno distinti per tipologia e unità di misura.');
  }else if(active==='gis'||active==='spatial'){
  html+=`<div class="card"><h3>Mappa territoriale di Palermo</h3><div id="map"></div><p class="muted">I perimetri saranno visualizzati dopo l'inserimento dei GeoJSON ufficiali e la verifica del sistema di riferimento.</p></div>`;
@@ -118,40 +108,19 @@ ${aree.map(a=>'<label style="display:block;margin:6px 0"><input type="checkbox" 
  $('#content').innerHTML=html;
  
 if(active==='social'){
-  const box=document.createElement('div');
-  box.id='uplConfronto';
-  box.className='card';
-const avviso=[...document.querySelector('#content').children].find(el=>el.textContent.includes('Inventario scolastico non ancora caricato'));
-if(avviso) document.querySelector('#content').insertBefore(box,avviso);
-else document.querySelector('#content').appendChild(box);
+  const box=document.getElementById('uplConfronto');
   const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
-
   function aggiornaConfronto(){
     const codici=[...document.querySelectorAll('.upl-check:checked')].map(x=>x.value);
-    const aree=DATA.sociale.filter(x=>codici.includes(x.cod_asc));
-
-    if(aree.length<2){
-      box.innerHTML='<h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare il confronto.</p>';
-      return;
-    }
-
-    const numero=v=>Number(v||0).toLocaleString('it-IT',{maximumFractionDigits:2});
-    const righe=[
-      ['IDISE',a=>a.idise],
-      ['Popolazione',a=>a.popolazione],
-      ['Famiglie',a=>a.famiglie],
-      ['Superficie (km²)',a=>a.superficie_km2],
-      ...indicatori.map(k=>[k,a=>a.dis?.[k]])
-    ];
-
-    box.innerHTML='<h3>Confronto tra '+aree.length+' UPL</h3><div style="overflow-x:auto"><table><thead><tr><th>Indicatore</th>'+aree.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+aree.map(a=>'<td>'+numero(fn(a))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+    const selezionate=DATA.sociale.filter(x=>codici.includes(x.cod_asc));
+    if(selezionate.length<2){box.innerHTML='<h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare i valori a confronto.</p>';return;}
+    const numero=v=>v===null||v===undefined||v===''?'N.D.':Number(v).toLocaleString('it-IT',{maximumFractionDigits:2});
+    const righe=[['IDISE',a=>a.idise],['Popolazione',a=>a.popolazione],['Famiglie',a=>a.famiglie],['Superficie (km²)',a=>a.superficie_km2],...indicatori.map(k=>[k,a=>a.dis?.[k]])];
+    box.innerHTML='<h3>Confronto tra '+selezionate.length+' UPL</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+selezionate.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+selezionate.map(a=>'<td>'+numero(fn(a))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">I valori DIS sono indicatori elementari; per DIS4 la relazione con il disagio è inversa.</p>';
   }
-
   document.querySelectorAll('.upl-check').forEach(c=>c.addEventListener('change',aggiornaConfronto));
   aggiornaConfronto();
 }
-
- 
 if(active==='demography'&&window.Chart){
  const sd=selected();
  const normGrafico=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
