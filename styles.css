@@ -61,3 +61,9 @@
 .gis-selection-actions .secondary-button{margin-top:0}
 @media(max-width:1050px){.gis-selection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.gis-selection-grid{grid-template-columns:1fr}}
+
+.selection-context{display:grid;gap:8px;margin:0 0 18px}
+.selection-context>span{font-size:11px;color:#687f94}
+.selection-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}
+.selection-stats>div{padding:8px 10px;background:#fff;border:1px solid #e0e8ef;border-radius:7px;font-size:11px;color:#536d84}
+.selection-stats strong{color:#244761}
