@@ -1,7 +1,7 @@
 const $=s=>document.querySelector(s);
 let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null};
 let active='overview', charts=[];
-let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null;
+let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
 let GEO={asc1:null,asc2:null,asc3:null,sections:null};
 let geoSelection={asc2:'',asc3:'',section:''};
 const pages={
@@ -26,52 +26,57 @@ function populateGeoSelectors(){[['asc3','asc3','DEN_ASC3','COM_ASC3'],['section
 function applyGisSelectionVisibility(){if(!gisMap)return;gisImportedLayers.forEach(item=>{if(!item.key||!Array.isArray(item.featureLayers))return;item.featureLayers.forEach(featureLayer=>{if(!item.layer.hasLayer(featureLayer))item.layer.addLayer(featureLayer);});});}
 function populateGisSelectors(){const circ=$('#circ')?.value||'',defs=[['gisSelectAsc1','asc1','DEN_ASC1','COM_ASC1'],['gisSelectAsc2','asc2','DEN_ASC2','COM_ASC2'],['gisSelectAsc3','asc3','DEN_ASC3','COM_ASC3'],['gisSelectSection','sections','SEZ21_ID','SEZ21_ID']];defs.forEach(([id,key,label,code])=>{const el=$('#'+id),fc=GEO[key];if(!el||!fc)return;const current=key==='asc1'?(GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===circ)?.properties?.COM_ASC1||''):geoSelection[key==='sections'?'section':key];const features=key==='asc1'?fc.features:fc.features.filter(f=>featureBelongsToCirc(f,key,circ));const validCurrent=features.some(f=>String(f.properties?.[code]??'')===String(current||''));el.innerHTML='<option value="">'+(key==='asc1'?'Tutte le circoscrizioni':key==='asc2'?'Tutti i quartieri':key==='asc3'?'Tutte le UPL':'Tutte le sezioni')+'</option>'+features.map(f=>{const p=f.properties||{},v=String(p[code]??'');return '<option value="'+esc(v)+'">'+esc(p[label]??v)+'</option>';}).join('');el.value=validCurrent?String(current):'';});applyGisSelectionVisibility();}
 function normalizeTerritoryName(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');}
-function syncGeoSelection(level,code){
+function syncGeoSelection(level,code,toggle=false){
  const value=String(code||'');
- mapSelection=value?{level,code:value}:null;
- // Una selezione cartografica sostituisce la precedente: non accumula livelli o ambiti.
+ if(!value){mapSelections=[];mapSelection=null;}
+ else{
+  const key=level+':'+value,index=mapSelections.findIndex(x=>x.key===key);
+  if(toggle&&index>=0)mapSelections.splice(index,1);
+  else if(index<0)mapSelections.push({key,level,code:value});
+  mapSelection=mapSelections[mapSelections.length-1]||null;
+ }
  geoSelection={asc2:'',asc3:'',section:''};
- const circ=$('#circ'),quartSelect=$('#quart');
- if(level==='asc1'){
-  const feature=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===value);
-  const id=feature?'c'+String(feature.properties?.COD_ASC1):'';
-  if(circ)circ.value=id;
+ const circ=$('#circ'),quartSelect=$('#quart'),latest=mapSelection;
+ if(latest?.level==='asc1'){
+  const feature=GEO.asc1?.features.find(f=>String(f.properties?.COM_ASC1)===latest.code);
+  if(circ)circ.value=feature?'c'+String(feature.properties?.COD_ASC1):'';
   if(quartSelect)quartSelect.value='';
  }else{
   if(circ)circ.value='';
-  if(quartSelect){
-   quartSelect.innerHTML='<option value="">Tutti i quartieri</option>';
-   DATA.territories.quartieri.forEach(x=>quartSelect.add(new Option(x.name,x.id)));
-   quartSelect.value='';
-  }
-  if(level==='asc2'){
-   geoSelection.asc2=value;
-   const feature=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===value);
-   const name=feature?.properties?.DEN_ASC2||'';
-   const normalized=normalizeTerritoryName(name);
+  if(quartSelect){quartSelect.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quartSelect.add(new Option(x.name,x.id)));quartSelect.value='';}
+  if(latest?.level==='asc2'){
+   geoSelection.asc2=latest.code;
+   const feature=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===latest.code);
+   const normalized=normalizeTerritoryName(feature?.properties?.DEN_ASC2||'');
    let quart=DATA.territories.quartieri.find(x=>normalizeTerritoryName(x.name)===normalized);
    if(!quart&&normalized==='cruillassgiovanniapostolo')quart=DATA.territories.quartieri.find(x=>x.id==='san-giovanni-apostolo');
-      if(quart&&quartSelect){
-    if(![...quartSelect.options].some(o=>o.value===quart.id))quartSelect.add(new Option(quart.name,quart.id));
-    quartSelect.value=quart.id;
-   }
-  }else if(level==='asc3'){
-   geoSelection.asc3=value;
-   const el=$('#asc3');if(el)el.value=value;
-  }else if(level==='section'){
-   geoSelection.section=value;
-   const el=$('#section');if(el)el.value=value;
-  }
+   if(quart&&quartSelect){if(![...quartSelect.options].some(o=>o.value===quart.id))quartSelect.add(new Option(quart.name,quart.id));quartSelect.value=quart.id;}
+  }else if(latest?.level==='asc3'){geoSelection.asc3=latest.code;const el=$('#asc3');if(el)el.value=latest.code;}
+  else if(latest?.level==='section'){geoSelection.section=latest.code;const el=$('#section');if(el)el.value=latest.code;}
  }
- populateGeoSelectors();
- render();
- updateGisSelectionFeedback();
- applyGisSelectedStyle();
+ populateGeoSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();
 }
-
-function updateGisSelectionFeedback(){const labels=[];if(mapSelection){const key=mapSelection.level==='section'?'sections':mapSelection.level;const defs={asc1:['Circoscrizione',$('#gisSelectAsc1')],asc2:['Quartiere ASC2',$('#gisSelectAsc2')],asc3:['UPL',$('#gisSelectAsc3')],sections:['Sezione censuaria',$('#gisSelectSection')]};const def=defs[key];const option=def?.[1]?.selectedOptions?.[0]?.text;labels.push((def?.[0]||'Ambito')+': '+(option||mapSelection.code));}else{const defs=[['asc1','Circoscrizione',$('#gisSelectAsc1')],['asc2','Quartiere ASC2',$('#gisSelectAsc2')],['asc3','UPL',$('#gisSelectAsc3')],['section','Sezione censuaria',$('#gisSelectSection')]];defs.forEach(([key,label,el])=>{const value=key==='asc1'?$('#circ')?.value:geoSelection[key];if(value)labels.push(label+': '+(el?.selectedOptions?.[0]?.text||value));});}const status=$('#gisSelectionStatus');if(status)status.textContent=labels.length?labels.join(' · '):'Nessun ambito selezionato.';}
-function applyGisSelectedStyle(){const activeLevel=mapSelection?(mapSelection.level==='section'?'sections':mapSelection.level):geoSelection.section?'sections':geoSelection.asc3?'asc3':geoSelection.asc2?'asc2':$('#circ')?.value?'asc1':'';gisImportedLayers.forEach(item=>{(item.featureLayers||[]).forEach(layer=>{const p=layer.feature?.properties||{};const codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[item.key];const activeCode=mapSelection?mapSelection.code:activeLevel==='asc1'?GEO.asc1?.features.find(f=>'c'+String(f.properties?.COD_ASC1)===$('#circ')?.value)?.properties?.COM_ASC1:geoSelection[activeLevel==='sections'?'section':activeLevel];const isSelected=!!activeCode&&item.key===activeLevel&&String(p[codeKey]??'')===String(activeCode);layer.setStyle?.({weight:isSelected?4:1.2,color:isSelected?'#111827':item.key==='asc1'?'#1769aa':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:isSelected?.28:.035});if(isSelected&&layer.bringToFront)layer.bringToFront();});});}
-
+function updateGisSelectionFeedback(){
+ const labels=mapSelections.map(item=>{
+  const key=item.level==='section'?'sections':item.level;
+  const fields={asc1:['Circoscrizione','DEN_ASC1'],asc2:['Quartiere ASC2','DEN_ASC2'],asc3:['UPL','DEN_ASC3'],sections:['Sezione censuaria','SEZ21_ID']};
+  const [label,field]=fields[key]||['Ambito',''];
+  const codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[key];
+  const feature=GEO[key]?.features.find(f=>String(f.properties?.[codeKey]??'')===item.code);
+  return label+': '+(feature?.properties?.[field]||item.code);
+ });
+ const status=$('#gisSelectionStatus');
+ if(status)status.textContent=labels.length?labels.length+' poligon'+(labels.length===1?'o selezionato: ':'i selezionati: ')+labels.join(' · '):'Nessun poligono selezionato.';
+}
+function applyGisSelectedStyle(){
+ const selectedKeys=new Set(mapSelections.map(x=>x.key));
+ gisImportedLayers.forEach(item=>(item.featureLayers||[]).forEach(layer=>{
+  const p=layer.feature?.properties||{},codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[item.key];
+  const isSelected=selectedKeys.has(item.key+':'+String(p[codeKey]??''));
+  layer.setStyle?.({weight:isSelected?4:1.2,color:isSelected?'#111827':item.key==='asc1'?'#1769aa':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:isSelected?.32:.035});
+  if(isSelected&&layer.bringToFront)layer.bringToFront();
+ }));
+}
 function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistiche=[];const fmtGeo=v=>Number(v).toLocaleString('it-IT');const dettaglio=(feature,label)=>{if(!feature)return;const x=feature.properties||{};ambiti.push(label+': '+(x.DEN_ASC1||x.DEN_ASC3||x.SEZ21_ID||''));const valori=[['POP21 · ISTAT 2021',x.POP21],['Famiglie',x.FAM21],['Abitazioni',x.ABI21],['Edifici',x.EDI21]].filter(v=>v[1]!==undefined&&v[1]!==null).map(v=>v[0]+': '+fmtGeo(v[1]));if(valori.length)statistiche.push('<div><strong>'+esc(label)+'</strong><br><span>'+valori.map(esc).join(' · ')+'</span></div>');};if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)dettaglio(f,'Circoscrizione');else ambiti.push('Circoscrizione: '+(DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||s.circ));}if(s.quart)ambiti.push('Quartiere: '+(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||s.quart));if(s.asc2){const f=GEO.asc2?.features.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));ambiti.push('Quartiere ASC2: '+(f?.properties?.DEN_ASC2||s.asc2));}if(s.asc3){const f=GEO.asc3?.features.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(f)dettaglio(f,'UPL');else ambiti.push('UPL: '+s.asc3);}if(s.section){const f=GEO.sections?.features.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(f)dettaglio(f,'Sezione censuaria');else ambiti.push('Sezione censuaria: '+s.section);}const contesto=ambiti.length?'<div class="notice-inline selection-context"><strong>Ambiti territoriali attivi:</strong> '+ambiti.map(esc).join(' · ')+(statistiche.length?'<div class="selection-stats">'+statistiche.join('')+'</div>':'')+'<span>I filtri vengono mantenuti passando da una pagina all’altra. POP21, famiglie, abitazioni ed edifici sono riferiti al Censimento ISTAT 2021 e restano distinti dai dati anagrafici comunali 2022 e dall’IDISE 2023. L’elaborazione si applica solo quando la fonte dispone di una corrispondenza geografica verificata alla scala selezionata.</span></div>':'';return `<p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p>${contesto}`;}
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
 function render(){
@@ -297,8 +302,8 @@ function initMap(){
  populateGisSelectors();
  const updateSelectionStatus=()=>{const labels=[];[['asc1','Circoscrizione',$('#circ')?.selectedOptions?.[0]?.text],['asc2','Quartiere ASC2',$('#gisSelectAsc2')?.selectedOptions?.[0]?.text],['asc3','UPL',$('#asc3')?.selectedOptions?.[0]?.text],['section','Sezione',$('#section')?.selectedOptions?.[0]?.text]].forEach(([key,label,value])=>{const activeValue=key==='asc1'?$('#circ')?.value:geoSelection[key];if(activeValue)labels.push(label+': '+(value||activeValue));});const status=$('#gisSelectionStatus');if(status)status.textContent=labels.length?labels.join(' · '):'Nessun ambito selezionato.';};
  const selectorDefs=[['gisSelectAsc1','asc1'],['gisSelectAsc2','asc2'],['gisSelectAsc3','asc3'],['gisSelectSection','section']];
- selectorDefs.forEach(([id,level])=>{const select=$('#'+id);if(select)select.addEventListener('change',()=>syncGeoSelection(level,select.value));});
- const clear=$('#gisClearSelection');if(clear)clear.addEventListener('click',()=>{['asc2','asc3','section'].forEach(k=>{geoSelection[k]='';const el=$('#'+k);if(el)el.value='';});const circ=$('#circ'),quart=$('#quart');if(circ)circ.value='';if(quart){quart.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quart.add(new Option(x.name,x.id)));quart.value='';}populateGisSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();});
+ selectorDefs.forEach(([id,level])=>{const select=$('#'+id);if(select)select.addEventListener('change',()=>syncGeoSelection(level,select.value,false));});
+ const clear=$('#gisClearSelection');if(clear)clear.addEventListener('click',()=>{mapSelections=[];mapSelection=null;['asc2','asc3','section'].forEach(k=>{geoSelection[k]='';const el=$('#'+k);if(el)el.value='';});const circ=$('#circ'),quart=$('#quart');if(circ)circ.value='';if(quart){quart.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.forEach(x=>quart.add(new Option(x.name,x.id)));quart.value='';}populateGisSelectors();render();updateGisSelectionFeedback();applyGisSelectedStyle();});
  updateSelectionStatus();
  if(gisMap){gisMap.remove();gisMap=null;gisImportedLayers=[];gisLayerControl=null;}
  gisMap=L.map(el).setView([38.1157,13.3615],12);
@@ -327,7 +332,7 @@ function initMap(){
     const areaName=item.key==='asc1'?props.DEN_ASC1:item.key==='asc2'?props.DEN_ASC2:item.key==='asc3'?props.DEN_ASC3:'';
     if(areaName)featureLayer.bindTooltip(String(areaName).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])),{permanent:true,direction:'center',className:'gis-polygon-label',opacity:1});
    }});
-   layer.eachLayer(featureLayer=>{featureLayer.on('click',()=>{const p=featureLayer.feature?.properties||{};const fields={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'};const code=p[fields[item.key]];if(code!==undefined&&code!==null)syncGeoSelection(item.key==='sections'?'section':item.key,String(code));});featureLayer.on('mouseover',()=>featureLayer.setStyle?.({weight:3,fillOpacity:.16}));featureLayer.on('mouseout',()=>applyGisSelectedStyle());featureLayer.getElement?.()?.style.setProperty('cursor','pointer');});
+   layer.eachLayer(featureLayer=>{featureLayer.on('click',()=>{const p=featureLayer.feature?.properties||{};const fields={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'};const code=p[fields[item.key]];if(code!==undefined&&code!==null)syncGeoSelection(item.key==='sections'?'section':item.key,String(code),true);});featureLayer.on('mouseover',()=>featureLayer.setStyle?.({weight:3,fillOpacity:.16}));featureLayer.on('mouseout',()=>applyGisSelectedStyle());featureLayer.getElement?.()?.style.setProperty('cursor','pointer');});
    layer.addTo(gisMap);
    gisImportedLayers.push({name:item.name,key:item.key,layer,featureLayers:layer.getLayers()});
    applyGisSelectionVisibility();
@@ -470,7 +475,7 @@ function fillFilters(){
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
 async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
-$('#circ').addEventListener('change',()=>{mapSelection=null;const id=$('#circ').value,q=$('#quart'),previous=q.value;q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));q.value=[...q.options].some(o=>o.value===previous)?previous:'';populateGeoSelectors();render();});
-$('#quart').addEventListener('change',()=>{mapSelection=null;render();});
-['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>{mapSelection=null;geoSelection[id]=$('#'+id).value;render();}));
+$('#circ').addEventListener('change',()=>{mapSelection=null;mapSelections=[];const id=$('#circ').value,q=$('#quart'),previous=q.value;q.innerHTML='<option value="">Tutti i quartieri</option>';DATA.territories.quartieri.filter(x=>!id||(x.circ_ids||[]).includes(id)).forEach(x=>q.add(new Option(x.name,x.id)));q.value=[...q.options].some(o=>o.value===previous)?previous:'';populateGeoSelectors();render();});
+$('#quart').addEventListener('change',()=>{mapSelection=null;mapSelections=[];render();});
+['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>{mapSelection=null;mapSelections=[];geoSelection[id]=$('#'+id).value;render();}));
 load();
