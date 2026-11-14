@@ -222,3 +222,8 @@ Sono stati rimossi due abbinamenti che la verifica degli indirizzi ha smentito: 
 Sono stati aggiunti: Industriale (Via S. Alberto degli Abati, quartiere Sperone), G. Di Vittorio secondaria (Viale Di Vittorio 11), Giuseppe Scelsa secondaria (Via Villani 40, con civico non presente nel KML), Palagonia primaria (Via Principe di Palagonia 46), Verga primaria (Via Uditore 21), P. Borsellino primaria (Largo Camastra 7) e Paladini infanzia (Piazza Benvenuto Cellini 4).
 
 Il punto Michelangelo resta sospeso: il registro scolastico riporta Via Tindari 52, mentre Open Fiber 2022 elenca per lo stesso codice anche Largo Michelangelo 6/11/15. Non si assume una sede univoca finché la possibile multi-sede non è chiarita.
+
+
+## Ottavo lotto di raccordi documentali – 14 novembre 2026
+
+Sono stati collegati: Industriale infanzia (Via S. Alberto degli Abati), G. Di Vittorio secondaria (Viale Di Vittorio 11), Giuseppe Scelsa secondaria (Via Villani 40), Palagonia primaria (Via Principe di Palagonia 46), Verga primaria (Via Uditore 21), P. Borsellino primaria (Largo Camastra 7) e Paladini infanzia (Piazza Benvenuto Cellini 4). È stato inoltre completato il plesso Bonanno con i codici di primaria PAEE85303E e secondaria PAMM85301B, oltre all'infanzia PAAA853028: il PTOF ufficiale 2025-2028 conferma che il plesso di Via Pitrè 183 ospita tutti e tre gli ordini.
