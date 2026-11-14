@@ -208,3 +208,10 @@ Il PTOF ufficiale dell'IC Uditore/Setti Carraro distingue la sede secondaria Set
 ## Quinto lotto di raccordi documentali – 14 novembre 2026
 
 Sono stati aggiunti i collegamenti per Oreto (infanzia e primaria, Via Oreto 106), Nicolò Turrisi (infanzia e primaria, Piazza Vittorio Emanuele Orlando 3), A. Sole (infanzia e primaria, Via Molara 30), Via Villagrazia (infanzia e primaria, Via Villagrazia 298), A.U. Cagni (infanzia e primaria, Via Cagni 40/42) e D'Angelo (infanzia e primaria, Via San Lorenzo 295). Per i primi quattro plessi sono stati utilizzati elenchi Open Fiber, documenti di trasparenza dell'istituto o pagine istituzionali; per Cagni è stata integrata la Carta dei Servizi comunale.
+
+
+## Sesto lotto di raccordi e rimozione di due falsi positivi – 14 novembre 2026
+
+Sono stati aggiunti i collegamenti per Ilaria Alpi (Corso dei Mille 1672), Natoli (Corso dei Mille 1486), Mattarella (Viale Di Vittorio 7), Principessa Elena (Via Ustica 46), Abba-Alighieri (Via Ruggero Marturano 77/79), Sunseri (Via Sunseri 19), Randazzo (Via Sperone 79), Via del Vespro/Rosolino Pilo (Via Augusto Elia 1), Boccone (Via del Vespro 72), Guttuso (Via Galletti 78), San Ciro (Via San Ciro 48/A), Virgilio Marone (Via Valdemone 7), Sferracavallo (Via Tacito 34), Ingrassia (Via Statella 21), Giafar (Via Giafar 17), Medaglie d'Oro (Via Deodato 7), Bonanno (Via Pitrè 183), Centro Sociale (Via Palmerino 1), Cuscinà (Via Cuscina 7) e Via del Fervore-Capuana (Via del Fervore 5).
+
+Sono stati rimossi due abbinamenti che la verifica degli indirizzi ha smentito: il codice PAEE8A003L Michelangelo (Via Tindari 52) non corrisponde al punto KML Michelangelo in Largo Michelangelo 15; i codici Livio Bassi PAAA87101R e PAEE871023 (Via Casalini 65) non corrispondono al punto KML Livio Bassi in Salita Castellana 65. Entrambi i punti restano fuori dal crosswalk statistico fino a un riscontro fisico documentale.
