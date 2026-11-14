@@ -261,3 +261,8 @@ Aggiunti i codici di infanzia e primaria del Plesso Salerno (IC Cruillas), entra
 È stato collegato il codice di infanzia PAAA84802R al punto Don Milani di Via Sferracavallo 132, sulla base dell'elenco ufficiale USR 2025/26. Il codice della primaria PAEE848011 non è stato associato perché le fonti consultate riportano civici discordanti e richiedono un controllo ulteriore.
 
 Nella sezione Standard urbanistici, il grafico a torta è stato reso territoriale e dinamico: mostra la distribuzione dei punti scolastici classificati per ordine, applicando i filtri di circoscrizione, quartiere, UPL e sezione censuaria. La mappa degli standard mantiene i raggi indicativi distinti per ordine: nido 500 m, infanzia 500 m, primaria 800 m, secondaria di I grado 1.000 m, secondaria di II grado 1.500 m. I raggi sono parametri di analisi impostati nell'applicazione, non distanze normative o tempi di percorrenza.
+
+
+## Riepilogo conclusivo del crosswalk – 14 novembre 2026
+
+**113 codici di plesso sono collegati a 82 punti cartografici**, su 401 record statistici USR. Restano 288 record senza un collegamento fisico univoco, che non vengono forzati su edifici per semplice somiglianza del nome. Il crosswalk gestisce due associazioni uno-a-molti per i corpi A e B del campus Turrisi Colonna; le righe statistiche offrono un collegamento separato a ciascun corpo. I candidati con indirizzi discordanti, civici non risolti o codici istituzione anziché codici plesso sono documentati come non associati.
