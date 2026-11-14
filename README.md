@@ -266,3 +266,16 @@ Nella sezione Standard urbanistici, il grafico a torta è stato reso territorial
 ## Riepilogo conclusivo del crosswalk – 14 novembre 2026
 
 **113 codici di plesso sono collegati a 82 punti cartografici**, su 401 record statistici USR. Restano 288 record senza un collegamento fisico univoco, che non vengono forzati su edifici per semplice somiglianza del nome. Il crosswalk gestisce due associazioni uno-a-molti per i corpi A e B del campus Turrisi Colonna; le righe statistiche offrono un collegamento separato a ciascun corpo. I candidati con indirizzi discordanti, civici non risolti o codici istituzione anziché codici plesso sono documentati come non associati.
+
+
+## Avanzamento censimento scolastico V64 – 15 novembre 2026
+
+La ricognizione documentale del catalogo comunale 2021 comprende 271 record. Alla versione V64 risultano:
+
+- **166 documentati** (61,3%);
+- **103 in riserva o da rettificare**;
+- **2 da rivalidare**.
+
+La quota documentata descrive schede con riscontro documentale sufficiente, non il numero totale delle scuole cittadine né la copertura statistica degli alunni. Le riserve e le schede da rivalidare non sono considerate sedi operative certe e non devono alimentare automaticamente i raggi d'influenza.
+
+Il censimento distingue plessi didattici e sedi amministrative, codici di istituzione e codici di plesso, campus con più ordini, edifici storici e servizi integrativi 0-3. I campus multiordine sono mantenuti come singoli punti fisici; i raggi sono attivabili solo dopo la verifica dell'indirizzo e della posizione dell'accesso. Il dataset analitico V64 e il registro delle verifiche sono mantenuti in archivio di lavoro e saranno integrati nel repository insieme alla successiva validazione dei campi e delle coordinate.
