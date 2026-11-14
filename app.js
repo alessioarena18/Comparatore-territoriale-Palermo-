@@ -1,7 +1,8 @@
 const $=s=>document.querySelector(s);
 let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null};
 let active='overview', charts=[];
-let schoolsMap=null;\nlet gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
+let schoolsMap=null;
+let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
 let GEO={asc1:null,asc2:null,asc3:null,sections:null};
 let geoSelection={asc2:'',asc3:'',section:''};
 const pages={
@@ -237,7 +238,8 @@ if(active==='social'){
  const qName=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||'';
  const cName=DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'';
  const normSchool=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
- const uplFeature=s.asc3?GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3)):null;\n const pointsFiltered=pts.filter(x=>(!qName||normSchool(x.quarter)===normSchool(qName))&&(!cName||((DATA.territories.quartieri.find(q=>normSchool(q.name)===normSchool(x.quarter))?.circ_ids||[]).includes(s.circ)))&&(!uplFeature||pointInGeometry([x.lon,x.lat],uplFeature.geometry)));
+ const uplFeature=s.asc3?GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3)):null;
+ const pointsFiltered=pts.filter(x=>(!qName||normSchool(x.quarter)===normSchool(qName))&&(!cName||((DATA.territories.quartieri.find(q=>normSchool(q.name)===normSchool(x.quarter))?.circ_ids||[]).includes(s.circ)))&&(!uplFeature||pointInGeometry([x.lon,x.lat],uplFeature.geometry)));
  const statsFiltered=stats;
  const orders=['Infanzia','Primaria','Secondaria I grado','Secondaria II grado'];
  const totals=orders.map(o=>({order:o,students:statsFiltered.filter(x=>x.order===o).reduce((n,x)=>n+(Number(x.students)||0),0),classes:statsFiltered.filter(x=>x.order===o).reduce((n,x)=>n+(Number(x.classes)||0),0),plessi:statsFiltered.filter(x=>x.order===o).length}));
@@ -575,7 +577,32 @@ function fillFilters(){
  populateGeoSelectors();
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
-async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}let schoolFiles=await Promise.all(['data/scuole_points.json','data/scuole_statistics.json','data/scuole_paritarie.json'].map(async u=>{let q=await fetch(u,{cache:'no-store'});if(!q.ok)throw new Error('Dataset scuole '+u);return q.json();}));DATA.schoolPoints=schoolFiles[0];DATA.schoolStatistics=schoolFiles[1];DATA.schoolParitarie=schoolFiles[2];$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
+async function load(){
+ try{
+  const r=await fetch('data/territoriale.json',{cache:'no-store'});
+  if(!r.ok)throw new Error('territoriale HTTP '+r.status);
+  DATA=await r.json();
+  const d=await fetch('data/demografia.json',{cache:'no-store'});
+  if(d.ok){const dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}
+  const s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});
+  if(s.ok){const soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}
+  fillFilters();
+  await loadGeoCatalog();
+  const optionalSchoolFiles=await Promise.all(['data/scuole_points.json','data/scuole_statistics.json','data/scuole_paritarie.json'].map(async u=>{
+   try{const q=await fetch(u,{cache:'no-store'});if(!q.ok)throw new Error('HTTP '+q.status);return await q.json();}
+   catch(e){console.warn('Archivio scuole non disponibile:',u,e);return [];}
+  }));
+  DATA.schoolPoints=Array.isArray(optionalSchoolFiles[0])?optionalSchoolFiles[0]:[];
+  DATA.schoolStatistics=Array.isArray(optionalSchoolFiles[1])?optionalSchoolFiles[1]:[];
+  DATA.schoolParitarie=Array.isArray(optionalSchoolFiles[2])?optionalSchoolFiles[2]:[];
+  $('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · fonti statistiche parziali';
+ }catch(e){
+  console.error('Errore caricamento comparatore:',e);
+  $('#status').textContent='Dati parziali · verificare le fonti';
+  if(!$('#circ')?.options.length)fillFilters();
+ }
+ render();
+}
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
