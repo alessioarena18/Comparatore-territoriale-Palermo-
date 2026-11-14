@@ -238,7 +238,7 @@ if(active==='social'){
  const totalStudents=stats.reduce((a,x)=>a+(+x.students||0),0);
  const orders=['Infanzia','Primaria','Secondaria I grado','Secondaria II grado'];
  html+=`<style>
- .school-map{height:430px;width:100%;border-radius:10px}.school-controls{display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));gap:12px;margin:12px 0}.school-controls label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#58708a}.school-controls input,.school-controls select{min-height:38px;border:1px solid #cbd8e6;border-radius:7px;padding:7px;background:#fff;color:#173653}.school-table{max-height:420px;overflow:auto}.school-table table{min-width:740px}.school-note{font-size:12px;color:#60758b;line-height:1.5}.school-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.school-kpis .card{margin:0}@media(max-width:800px){.school-controls,.school-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ .school-legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin:12px 0 18px}.school-legend span{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#29445e}.school-legend i{width:12px;height:12px;border-radius:50%;display:inline-block}.school-order-tag{display:inline-block;border-left:4px solid var(--school-color);padding:3px 7px;background:#f1f5f9;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap}.school-map{height:430px;width:100%;border-radius:10px}.school-controls{display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));gap:12px;margin:12px 0}.school-controls label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#58708a}.school-controls input,.school-controls select{min-height:38px;border:1px solid #cbd8e6;border-radius:7px;padding:7px;background:#fff;color:#173653}.school-table{max-height:420px;overflow:auto}.school-table table{min-width:740px}.school-note{font-size:12px;color:#60758b;line-height:1.5}.school-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.school-kpis .card{margin:0}@media(max-width:800px){.school-controls,.school-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
  </style>
  <div class="school-kpis">
  <div class="card"><span class="muted">Sedi comunali georeferenziate</span><div class="metric">${fmt(points.length)}</div><small class="muted">Catalogo KML 2021, plessi e sedi</small></div>
@@ -248,9 +248,10 @@ if(active==='social'){
  </div>
  <div class="card"><h3>Distribuzione territoriale delle sedi</h3>
  <p class="school-note">La mappa mostra le 271 sedi del catalogo comunale 2021. I dati USR 2025/2026 e le paritarie sono tenuti in archivi distinti: non vengono assegnati a coordinate o quartieri senza corrispondenza verificata.</p>
+ <div class="school-legend" aria-label="Legenda ordini scolastici">${[{k:'NIDO',l:'NIDO',c:'#d97706'},{k:'ELEMENTARI',l:'ELEMENTARI',c:'#16845b'},{k:'MEDIE',l:'MEDIE',c:'#2563eb'},{k:'SUPERIORI',l:'SUPERIORI',c:'#7c3aed'},{k:'NON_CLASSIFICATO',l:'ORDINE NON VERIFICATO',c:'#64748b'}].map(x=>'<span><i style="background:'+x.c+'"></i>'+x.l+'</span>').join('')}</div>
  <div class="school-controls">
  <label>Tipologia<select id="schoolKind"><option value="">Tutte</option><option value="Asilo nido">Asili nido</option><option value="Plesso">Plessi</option><option value="Sede">Sedi</option></select></label>
- <label>Categoria KML<select id="schoolOrder"><option value="">Tutte</option><option value="Nido">Nido</option><option value="IC">IC</option><option value="DD">Direzione didattica</option><option value="SMS">Scuola media</option><option value="Non specificato">Non specificato</option></select></label>
+ <label>Ordine scolastico<select id="schoolOrder"><option value="">Tutti gli ordini</option><option value="NIDO">NIDO</option><option value="ELEMENTARI">ELEMENTARI</option><option value="MEDIE">MEDIE</option><option value="SUPERIORI">SUPERIORI</option><option value="NON_CLASSIFICATO">Ordine non verificato</option></select></label>
  <label>Cerca sede<input id="schoolSearch" type="search" placeholder="Nome, istituto, indirizzo"></label>
  </div>
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
@@ -570,6 +571,22 @@ function initSchools(){
  const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const quarterAliases={'MEZZOMONREALE-V.LLA TASCA':'Mezzomonreale-Villa Tasca','MONTEGRAPPA- S.ROSALIA':'S. Rosalia-Montegrappa','PALAZZO REALE - M.TE DI PIETA':'Palazzo Reale-Monte di Pietà','RESUTTANO-S. LORENZO':'Resuttana-San Lorenzo'};
  const g=selected(),kind=$('#schoolKind'),order=$('#schoolOrder'),search=$('#schoolSearch'),rows=$('#schoolPointRows'),status=$('#schoolMapStatus');
+ const orderInfo=[
+  {key:'NIDO',label:'NIDO',color:'#d97706'},
+  {key:'ELEMENTARI',label:'ELEMENTARI',color:'#16845b'},
+  {key:'MEDIE',label:'MEDIE',color:'#2563eb'},
+  {key:'SUPERIORI',label:'SUPERIORI',color:'#7c3aed'},
+  {key:'NON_CLASSIFICATO',label:'ORDINE NON VERIFICATO',color:'#64748b'}
+ ];
+ const orderOf=p=>{
+  if(p.kind==='Asilo nido')return 'NIDO';
+  const matches=stats.filter(s=>norm(s.name)===norm(p.name));
+  const os=[...new Set(matches.map(s=>s.order))];
+  if(os.length===1)return ({'Infanzia':'NON_CLASSIFICATO','Primaria':'ELEMENTARI','Secondaria I grado':'MEDIE','Secondaria II grado':'SUPERIORI'})[os[0]]||'NON_CLASSIFICATO';
+  return 'NON_CLASSIFICATO';
+ };
+ const orderLabel=k=>orderInfo.find(x=>x.key===k)?.label||'ORDINE NON VERIFICATO';
+ const orderColor=k=>orderInfo.find(x=>x.key===k)?.color||'#64748b';
  const belongs=p=>{
   if(g.quart){const target=DATA.territories.quartieri.find(q=>q.id===g.quart)?.name;const alias=quarterAliases[p.quarter]||p.quarter;if(norm(alias)!==norm(target))return false;}
   if(g.circ){const f=GEO.asc1?.features?.find(x=>String(x.properties?.COD_ASC1)==String(g.circ).replace('c',''));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
@@ -577,13 +594,13 @@ function initSchools(){
   if(g.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(g.section));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
   return true;
  };
- const filtered=()=>pts.filter(p=>(!kind.value||p.kind===kind.value)&&(!order.value||p.order===order.value)&&belongs(p)&&(!search.value||norm([p.name,p.institution,p.address].join(' ')).includes(norm(search.value))));
+ const filtered=()=>pts.filter(p=>(!kind.value||p.kind===kind.value)&&(!order.value||orderOf(p)===order.value)&&belongs(p)&&(!search.value||norm([p.name,p.institution,p.address].join(' ')).includes(norm(search.value))));
  let map=null,layer=null;
  const draw=()=>{
   const list=filtered();
-  rows.innerHTML=list.slice(0,250).map(p=>'<tr><td>'+esc(p.name)+'</td><td>'+esc(p.kind)+'</td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(p.year||'2021')+'</td></tr>').join('')||'<tr><td colspan="6">Nessuna sede trovata.</td></tr>';
+  rows.innerHTML=list.slice(0,250).map(p=>'<tr><td>'+esc(p.name)+'</td><td><span class="school-order-tag" style="--school-color:'+orderColor(orderOf(p))+'">'+esc(orderLabel(orderOf(p)))+'</span></td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(p.year||'2021')+'</td></tr>').join('')||'<tr><td colspan="6">Nessuna sede trovata.</td></tr>';
   status.textContent='Sedi mostrate: '+list.length+' su '+pts.length+'. Il filtro territoriale è applicato alle coordinate e ai confini disponibili.';
-  if(layer){layer.clearLayers();list.forEach(p=>{const col=p.kind==='Asilo nido'?'#d97706':p.kind==='Sede'?'#2563eb':'#16845b';L.circleMarker([p.lat,p.lon],{radius:6,color:col,fillColor:col,fillOpacity:.8}).bindPopup('<b>'+esc(p.name)+'</b><br>'+esc(p.kind)+'<br>'+esc(p.address)+'<br>'+esc(p.institution)).addTo(layer);});}
+  if(layer){layer.clearLayers();list.forEach(p=>{const col=orderColor(orderOf(p));L.circleMarker([p.lat,p.lon],{radius:7,color:col,fillColor:col,fillOpacity:.85,weight:2}).bindTooltip(esc(p.name)+' · '+esc(orderLabel(orderOf(p))),{direction:'top',sticky:true}).bindPopup('<b>'+esc(p.name)+'</b><br><b>'+esc(orderLabel(orderOf(p)))+'</b><br>'+esc(p.address)+'<br>'+esc(p.institution)).addTo(layer);});}
  };
  if($('#schoolMap')&&window.L){map=L.map('schoolMap').setView([38.1157,13.3615],11);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap'}).addTo(map);layer=L.layerGroup().addTo(map);draw();setTimeout(()=>map.invalidateSize(),150);}else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
  [kind,order,search].forEach(x=>x?.addEventListener('input',draw));
