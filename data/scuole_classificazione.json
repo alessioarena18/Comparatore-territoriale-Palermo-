@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 74,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale.",
+    "classified_records": 80,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -1509,6 +1509,117 @@
       "source_year": "2025/2026",
       "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
       "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-47",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "De Amicis - Corpo A",
+      "address": "VIA SAURO NAZARIO 11",
+      "school_codes": [],
+      "school_names": [
+        "NAZARIO SAURO"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-26",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "De Gasperi",
+      "address": "VIA BRIUCCIA 89",
+      "school_codes": [],
+      "school_names": [
+        "COLLODI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordini esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-166",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Lombardo Radice - Mazzini",
+      "address": "VIA NAIROBI 5",
+      "school_codes": [],
+      "school_names": [
+        "NAIROBI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-188",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Nuccio - Verga",
+      "address": "PIAZZA DELL'ORIGLIONE 10",
+      "school_codes": [],
+      "school_names": [
+        "VERGA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordini esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-157",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Elena",
+      "address": "VIA BAVIERA GIOVANNI 22",
+      "school_codes": [],
+      "school_names": [
+        "BAVIERA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordini esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-58",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Maneri - Ingrassia",
+      "address": "PASSAGGIO DEI PICCIOTTI 1",
+      "school_codes": [],
+      "school_names": [
+        "PICCIOTTI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
     }
   ]
 }
