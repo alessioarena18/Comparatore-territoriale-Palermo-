@@ -10,7 +10,7 @@
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 92
+    "verified_registry_code_links": 99
   },
   "records": [
     {
@@ -93,11 +93,12 @@
         "GIUSEPPE SCELSA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://gildapalermo.it/wp-content/uploads/2025/05/Scuola-I-grado-organico-di-diritto-25-26.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Organico ufficiale USR Palermo 2025/26: codice PAMM8AR01X, Giuseppe Scelsa, Via Villani 40; punto KML omonimo in Via Villani, senza civico. Corrispondenza di strada, denominazione e istituzione.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-267",
@@ -241,11 +242,12 @@
         "VERGA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.icsuditoresetticarraro.it/wp-content/uploads/2024/12/timbro_PAIC8AQ003-202225-202425-20241227.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "source_year": "2024/2025",
+      "method": "PTOF ufficiale IC Uditore/Setti Carraro: codice PAEE8AQ026, plesso Verga, Via Uditore 21; punto KML Verga allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-22",
@@ -441,11 +443,12 @@
         "PALAGONIA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco Open Fiber 2025: codice PAEE8AM03X, plesso Palagonia, Via Principe di Palagonia 46; punto KML Palagonia allo stesso civico e istituzione Giotto/Cipolla.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-164",
@@ -708,11 +711,12 @@
         "INDUSTRIALE"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "source_year": "2022/2025",
+      "method": "PTOF ufficiale IC G. Di Vittorio: codice PAAA85202C, plesso Industriale, Via S. Alberto degli Abati, quartiere Sperone; punto KML Industriale allo stesso indirizzo, con civico 2.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-205",
@@ -1357,11 +1361,12 @@
         "P.BORSELLINO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2022/2023",
+      "method": "Elenco Open Fiber 2022: codice PAEE8A002G, P. Borsellino, Largo Camastra 7; punto KML Borsellino allo stesso civico e istituzione Rita Levi Montalcini.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-271",
@@ -1442,11 +1447,13 @@
         "VIA PALADINI"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2022/2025",
+      "method": "Dataset ufficiale USR 2021/22 e PTOF IC Giuliana Saladino: codice PAAA897033, plesso Paladini, Piazza Benvenuto Cellini 4; punto KML Paladini allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-214",
@@ -2358,11 +2365,12 @@
       ],
       "source_urls": [
         "https://old.pa.usr.sicilia.it/attachments/article/1523/I%20grado%20HOMS02.PA.HOAZ01.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
+        "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
       ],
-      "source_year": "2022/2023",
-      "method": "Corrispondenza della sede Di Vittorio con l'indirizzo del punto; USR conferma la secondaria di primo grado e la Carta dei Servizi comunale documenta nello stesso indirizzo il plesso Natoli primaria",
-      "confidence": "due ordini distinti documentati allo stesso indirizzo: secondaria di I grado Di Vittorio e primaria Natoli"
+      "source_year": "2022/2025",
+      "method": "PTOF ufficiale IC G. Di Vittorio: codice PAMM85201G, scuola secondaria G. Di Vittorio, Via Di Vittorio 11; punto KML Di Vittorio allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-233",
