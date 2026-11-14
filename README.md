@@ -182,3 +182,10 @@ Fonti metodologiche: D.M. 1444/1968 (standard minimi e criterio dei raggi di inf
 È stato creato `data/crosswalk_plessi_statistici_v1.json`, che documenta i primi collegamenti verificati tra codici meccanografici USR 2025/26 e punti del catalogo comunale 2021. Il lotto comprende 14 codici di plesso associati a 11 punti fisici, con ordini scolastici, alunni, classi, indirizzo cartografico, fonti e metodo di verifica. Sono stati collegati: Castellana (Boccadifalco), Vitali (infanzia e primaria), Castellana (Buonarroti), De Gasperi primaria, Collodi (infanzia e primaria), Trieste (infanzia e primaria), Vivaldi, Oberdan, Montegrappa, Trinacria e Tomaselli.
 
 Le fonti sono i siti ufficiali degli istituti e i documenti USR Sicilia citati nel crosswalk. Per il plesso Vivaldi è segnalata la differenza di suffisso del civico (20/20 B), pur essendo coerenti strada, denominazione e codice; questo caso va considerato con cautela. Non sono stati collegati i punti De Cosmi, Rosmini, Marabitti, Luinetti, Smith, Garzilli o altri candidati quando l'indirizzo non coincideva, era discordante o la sede fisica non risultava univoca. I codici dell'istituzione principale non sono stati propagati ai singoli plessi.
+
+
+## Secondo lotto di raccordi puntuali e correzione del codice Maneri-Ingrassia – 14 novembre 2026
+
+Il crosswalk è stato esteso con ulteriori associazioni documentate: Emanuela Loi, Casa del Fanciullo, Padre Kolbe, De Amicis/Nazario Sauro, Capitano Basile, Largo Ercole, Via Villagrazia 110, Scipione Di Castro, Abba/Calcedonio, Marinella Bragaglia, Vittorino da Feltre, Diaz Nuovo, Pirandello-Borgo Ulivia e Maneri-Ingrassia. Sono stati aggiunti i codici relativi agli ordini distinti solo quando la sede fisica è la stessa e la fonte lo dimostra.
+
+**Correzione importante:** il punto KML Maneri-Ingrassia in Viale dei Picciotti 8 è associato al codice PAEE8BB03V (D.D. C. Maneri-Ingrassia). Il codice PAEE8BB01R identifica invece il Plesso Passaggio, in Passaggio dei Picciotti 5, e non deve essere attribuito al punto di Viale dei Picciotti 8. La classificazione del punto è stata corretta e la motivazione documentata.
