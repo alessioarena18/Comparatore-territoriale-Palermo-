@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 57,
+    "confirmedMapPointMatches": 69,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 40
+    "confirmedMapPoints": 46
   },
   "records": [
     {
@@ -1020,11 +1020,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-270",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documento di trasparenza dell'IC Giuseppe Scelsa: codici PAAA8AR05X e PAEE8AR055 entrambi in Via Molara 30; punto KML A. Sole allo stesso indirizzo e istituzione.",
+      "mapMatchSourceUrl": "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
     },
     {
       "code": "PAAA8AR04V",
@@ -1078,11 +1080,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-271",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documento di trasparenza dell'IC Giuseppe Scelsa: infanzia PAAA8AR01Q e primaria PAEE8AR011 entrambe in Via Villagrazia 298; punto KML Villagrazia allo stesso civico.",
+      "mapMatchSourceUrl": "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
     },
     {
       "code": "PAAA87801G",
@@ -1577,11 +1581,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-98",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025: infanzia PAAA8A1015 e primaria PAEE8A102B, entrambe in Piazza Vittorio Emanuele Orlando 3; punto KML Nicolò Turrisi allo stesso civico e istituzione IC Capuana.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
     },
     {
       "code": "PAAA853028",
@@ -2850,11 +2856,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-84",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2011 e primaria PAEE8A2016, entrambe in Via Oreto 106; punto KML Oreto allo stesso civico.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
     },
     {
       "code": "PAAA8A2044",
@@ -2970,11 +2978,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-276",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Carta dei Servizi del Comune per il plesso Cagni materna al civico 40/42 e dati di sede dell'IC Siragusa per primaria D.D. A. Siragusa-Ammiraglio Cagni allo stesso civico; punto KML Alessandra Siracusa in Via Cagni 40.",
+      "mapMatchSourceUrl": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf"
     },
     {
       "code": "PAAA8BP02Q",
@@ -2999,11 +3009,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-85",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Anagrafica di sede dell'IC Siragusa e schede dei codici PAAA8BP02Q e PAEE8BP021: plessi D'Angelo infanzia e primaria entrambi in Via San Lorenzo 295; punto KML D'Angelo Vecchio allo stesso civico e istituzione Alessandra Siracusa.",
+      "mapMatchSourceUrl": "https://www.icsfalconecarini.edu.it/"
     },
     {
       "code": "PAAA8BP03R",
@@ -4947,11 +4959,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-270",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documento di trasparenza dell'IC Giuseppe Scelsa: codici PAAA8AR05X e PAEE8AR055 entrambi in Via Molara 30; punto KML A. Sole allo stesso indirizzo e istituzione.",
+      "mapMatchSourceUrl": "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
     },
     {
       "code": "PAEE8AR044",
@@ -5005,11 +5019,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-271",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documento di trasparenza dell'IC Giuseppe Scelsa: infanzia PAAA8AR01Q e primaria PAEE8AR011 entrambe in Via Villagrazia 298; punto KML Villagrazia allo stesso civico.",
+      "mapMatchSourceUrl": "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
     },
     {
       "code": "PAEE8AR066",
@@ -5560,11 +5576,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-98",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025: infanzia PAAA8A1015 e primaria PAEE8A102B, entrambe in Piazza Vittorio Emanuele Orlando 3; punto KML Nicolò Turrisi allo stesso civico e istituzione IC Capuana.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
     },
     {
       "code": "PAEE8AP019",
@@ -6871,11 +6889,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-84",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2011 e primaria PAEE8A2016, entrambe in Via Oreto 106; punto KML Oreto allo stesso civico.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
     },
     {
       "code": "PAEE8A2038",
@@ -6929,11 +6949,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-85",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Anagrafica di sede dell'IC Siragusa e schede dei codici PAAA8BP02Q e PAEE8BP021: plessi D'Angelo infanzia e primaria entrambi in Via San Lorenzo 295; punto KML D'Angelo Vecchio allo stesso civico e istituzione Alessandra Siracusa.",
+      "mapMatchSourceUrl": "https://www.icsfalconecarini.edu.it/"
     },
     {
       "code": "PAEE8BP032",
@@ -6958,11 +6980,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-276",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Carta dei Servizi del Comune per il plesso Cagni materna al civico 40/42 e dati di sede dell'IC Siragusa per primaria D.D. A. Siragusa-Ammiraglio Cagni allo stesso civico; punto KML Alessandra Siracusa in Via Cagni 40.",
+      "mapMatchSourceUrl": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf"
     },
     {
       "code": "PAEE8BP01X",
