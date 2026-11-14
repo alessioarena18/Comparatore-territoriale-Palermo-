@@ -239,3 +239,8 @@ Sono stati collegati i codici di plesso PAMM8AQ014 (Setti Carraro, Via Tiepolo 4
 Dopo i lotti successivi di verifica, il raccordo contiene **104 codici di plesso associati a 76 punti cartografici**. Restano 297 record statistici senza un collegamento fisico univoco: non sono forzati su una sede per semplice somiglianza nominale. Il crosswalk conserva anche i candidati non associati e le motivazioni dei conflitti.
 
 Sono stati rimossi dal livello di classificazione i candidati che presentavano discrepanze verificabili tra civici, indirizzi o tipologia istituzionale: Barone Scala, De Cosmi, Impastato, Fondo Petrazzi, Bentivegna, Lambruschini, Conte Federico, Garibaldi, Sacco e Vanzetti e Mancini. Turrisi Colonna resta in sospeso perché un solo codice è riferito a due corpi distinti e il modello deve supportare in modo esplicito le associazioni uno-a-molti.
+
+
+## Gestione dei campus con più corpi – 14 novembre 2026
+
+È stata introdotta la relazione uno-a-molti per i codici di plesso che insistono su più corpi cartografici. Per il campus Turrisi Colonna, il PTOF dell'IC Rita Atria documenta infanzia PAAA8AB022 e primaria PAEE8AB016 in Piazza Gran Cancelliere 1; la cartografia comunale distingue Corpo A e Corpo B. I due codici sono collegati a entrambi i corpi e la tabella statistica presenta due azioni di apertura separate. Per Valverde-Ferrara, il PTOF documenta infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; il punto KML, privo di civico, rappresenta il campus a livello di strada.
