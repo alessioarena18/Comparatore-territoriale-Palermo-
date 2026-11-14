@@ -2143,11 +2143,13 @@
       "source_urls": [
         "https://www.comune.palermo.it/novita/acqua-dei-corsari-giunta-approva-accordo-per-sbloccare-i-lavori-di-manutenzione-dellistituto-scolastico-guttuso/",
         "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf",
-        "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
+        "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf",
+        "https://trasparenza-pa.net/?codcli=SC15633&node=44",
+        "https://trasparenza-pa.net/?codcli=SC15633+&node=295819&subsectionsPage=3"
       ],
       "source_year": "2025/2026",
-      "method": "Organici ufficiali USR 2023/24 e 2025/26: codice PAMM855013, Guttuso Renato, Via Galletti 78; punto KML Galletti allo stesso civico.",
-      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
+      "method": "Organici ufficiali USR 2023/24 e 2025/26: codice PAMM855013, Guttuso Renato, Via Galletti 78; punto KML Galletti allo stesso civico. Verifica aggiornata 2026: atti di trasferimento di alcune attrezzature al Casa del Fanciullo e riorganizzazione del primo piano; punto classificato ma non abilitato a buffer in attesa di conferma assetto.",
+      "confidence": "codice, ordine e indirizzo confermati; coordinate ingresso e configurazione attuale da rivalidare dopo riorganizzazione 2026"
     },
     {
       "point_id": "kml-school-88",
