@@ -227,3 +227,8 @@ Il punto Michelangelo resta sospeso: il registro scolastico riporta Via Tindari 
 ## Ottavo lotto di raccordi documentali – 14 novembre 2026
 
 Sono stati collegati: Industriale infanzia (Via S. Alberto degli Abati), G. Di Vittorio secondaria (Viale Di Vittorio 11), Giuseppe Scelsa secondaria (Via Villani 40), Palagonia primaria (Via Principe di Palagonia 46), Verga primaria (Via Uditore 21), P. Borsellino primaria (Largo Camastra 7) e Paladini infanzia (Piazza Benvenuto Cellini 4). È stato inoltre completato il plesso Bonanno con i codici di primaria PAEE85303E e secondaria PAMM85301B, oltre all'infanzia PAAA853028: il PTOF ufficiale 2025-2028 conferma che il plesso di Via Pitrè 183 ospita tutti e tre gli ordini.
+
+
+## Nono lotto di raccordi e distinzione codice istituzione/codice plesso – 14 novembre 2026
+
+Sono stati collegati i codici di plesso PAMM8AQ014 (Setti Carraro, Via Tiepolo 4), PAMM8BB01Q (Don Milani, Passaggio dei Picciotti 3) e PAMM8BE017 (Raimondo Franchetti, Viale Amedeo d'Aosta 52/54). Nei record di classificazione sono stati rimossi i codici istituzione PAIC8AQ003 e PAIC8BB00P dai campi destinati ai codici di plesso: restano identificativi delle istituzioni comprensive e non devono essere confusi con i codici dei singoli edifici/plessi.
