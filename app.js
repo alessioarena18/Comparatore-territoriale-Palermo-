@@ -568,9 +568,10 @@ async function loadSchoolArchives(){
 function initSchools(){
  const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[];
  const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const quarterAliases={'MEZZOMONREALE-V.LLA TASCA':'Mezzomonreale-Villa Tasca','MONTEGRAPPA- S.ROSALIA':'S. Rosalia-Montegrappa','PALAZZO REALE - M.TE DI PIETA':'Palazzo Reale-Monte di Pietà','RESUTTANO-S. LORENZO':'Resuttana-San Lorenzo'};
  const g=selected(),kind=$('#schoolKind'),order=$('#schoolOrder'),search=$('#schoolSearch'),rows=$('#schoolPointRows'),status=$('#schoolMapStatus');
  const belongs=p=>{
-  if(g.quart&&norm(p.quarter)!==norm(DATA.territories.quartieri.find(q=>q.id===g.quart)?.name))return false;
+  if(g.quart){const target=DATA.territories.quartieri.find(q=>q.id===g.quart)?.name;const alias=quarterAliases[p.quarter]||p.quarter;if(norm(alias)!==norm(target))return false;}
   if(g.circ){const f=GEO.asc1?.features?.find(x=>String(x.properties?.COD_ASC1)==String(g.circ).replace('c',''));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
   if(g.asc3){const f=GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(g.asc3));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
   if(g.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(g.section));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
