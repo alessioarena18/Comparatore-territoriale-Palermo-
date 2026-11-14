@@ -10,7 +10,7 @@
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 104
+    "verified_registry_code_links": 108
   },
   "records": [
     {
@@ -1263,42 +1263,50 @@
     {
       "point_id": "kml-school-214",
       "orders": [
-        "INFANZIA"
+        "INFANZIA",
+        "ELEMENTARI"
       ],
       "institution": "I.C. RITA ATRIA -PA",
       "address": "PIAZZA GRAN CANCELLIERE 1",
       "school_codes": [
-        "PAAA8AB022"
+        "PAAA8AB022",
+        "PAEE8AB016"
       ],
       "school_names": [
-        "TURRISI COLONNA G."
+        "TURRISI COLONNA G.",
+        "I.C  ATRIA-PL. TURRISI COLONNA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2019/2022",
+      "method": "PTOF IC Rita Atria: infanzia PAAA8AB022 e primaria PAEE8AB016 entrambe in Piazza Gran Cancelliere 1; la cartografia comunale rappresenta lo stesso campus con due corpi distinti (A e B), entrambi allo stesso indirizzo. Associazione uno-a-molti esplicita.",
+      "confidence": "campus documentato; rappresentazione cartografica uno-a-molti"
     },
     {
       "point_id": "kml-school-215",
       "orders": [
-        "INFANZIA"
+        "INFANZIA",
+        "ELEMENTARI"
       ],
       "institution": "I.C. RITA ATRIA -PA",
       "address": "PIAZZA GRAN CANCELLIERE 1",
       "school_codes": [
-        "PAAA8AB022"
+        "PAAA8AB022",
+        "PAEE8AB016"
       ],
       "school_names": [
-        "TURRISI COLONNA G."
+        "TURRISI COLONNA G.",
+        "I.C  ATRIA-PL. TURRISI COLONNA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2019/2022",
+      "method": "PTOF IC Rita Atria: infanzia PAAA8AB022 e primaria PAEE8AB016 entrambe in Piazza Gran Cancelliere 1; la cartografia comunale rappresenta lo stesso campus con due corpi distinti (A e B), entrambi allo stesso indirizzo. Associazione uno-a-molti esplicita.",
+      "confidence": "campus documentato; rappresentazione cartografica uno-a-molti"
     },
     {
       "point_id": "kml-school-117",
@@ -1750,16 +1758,21 @@
       ],
       "institution": "Rita Atria",
       "address": "VIA VALVERDE",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8AB033",
+        "PAEE8AB038"
+      ],
       "school_names": [
-        "VALVERDE"
+        "VALVERDE",
+        "VALVERDE - FERRARA"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "fonte comunale identifica Valverde come scuola dell'infanzia e primaria, Via Valverde"
+      "source_year": "2019/2022",
+      "method": "PTOF IC Rita Atria: infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; punto KML Valverde geolocalizzato sulla stessa via senza civico. Collegamento a livello di campus, non di singolo ingresso.",
+      "confidence": "campus documentato; rappresentazione cartografica uno-a-molti"
     },
     {
       "point_id": "kml-school-260",
