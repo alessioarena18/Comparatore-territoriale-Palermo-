@@ -244,3 +244,8 @@ Sono stati rimossi dal livello di classificazione i candidati che presentavano d
 ## Gestione dei campus con più corpi – 14 novembre 2026
 
 È stata introdotta la relazione uno-a-molti per i codici di plesso che insistono su più corpi cartografici. Per il campus Turrisi Colonna, il PTOF dell'IC Rita Atria documenta infanzia PAAA8AB022 e primaria PAEE8AB016 in Piazza Gran Cancelliere 1; la cartografia comunale distingue Corpo A e Corpo B. I due codici sono collegati a entrambi i corpi e la tabella statistica presenta due azioni di apertura separate. Per Valverde-Ferrara, il PTOF documenta infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; il punto KML, privo di civico, rappresenta il campus a livello di strada.
+
+
+## Riepilogo consolidato del raccordo scolastico – 14 novembre 2026
+
+Stato dopo l'ultimo lotto: **108 codici di plesso collegati a 79 punti cartografici**, su 401 record statistici USR. Restano **293 codici** senza collegamento fisico univoco, mantenuti separati per evitare attribuzioni errate. Due codici scolastici sono collegati a due corpi cartografici distinti (Turrisi Colonna Corpo A e Corpo B) tramite il campo `mapPointIds`; la tabella dell'applicazione presenta un'azione separata per ciascun corpo. Il conteggio dei punti fisici è calcolato sull'unione degli identificativi, non sul numero dei codici.
