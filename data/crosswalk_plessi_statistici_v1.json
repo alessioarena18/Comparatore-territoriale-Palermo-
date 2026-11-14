@@ -4,9 +4,9 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 14,
-    "confirmedPhysicalPoints": 11,
-    "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonte ufficiale; nessuna propagazione dal codice dell'istituzione ai suoi plessi. Le sedi con civico discordante o identificazione non univoca restano non associate.",
+    "confirmedCodePointLinks": 30,
+    "confirmedPhysicalPoints": 25,
+    "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14"
   },
   "records": [
@@ -240,6 +240,268 @@
         "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM017, Via Abruzzi = Tomaselli, Via Abruzzi 2, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA85603R",
+      "schoolName": "EMANUELA LOI",
+      "order": "Scuola dell'infanzia",
+      "students": 50,
+      "classes": 2,
+      "pointId": "kml-school-103",
+      "pointAddress": "VIA DOGALI",
+      "institutionCode": "PAIC85600T",
+      "institutionName": "I.C. BOCCADIFALCO/TOMASI DI L.",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icboccadifalcotomasidilampedusa.edu.it/"
+      ],
+      "method": "Sito ufficiale IC Boccadifalco: plesso Emanuela Loi, codice PAAA85603R, Via Dogali 29; punto KML omonimo in Via Dogali."
+    },
+    {
+      "schoolCode": "PAAA85501V",
+      "schoolName": "CASA DEL FANCIULLO",
+      "order": "Scuola dell'infanzia",
+      "students": 42,
+      "classes": 2,
+      "pointId": "kml-school-116",
+      "pointAddress": "VIA MESSINA MARINE 811",
+      "institutionCode": "PAIC855002",
+      "institutionName": "I.C. RENATO GUTTUSO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA85501V, Casa del Fanciullo, Via Messina Marine 811; coincidenza esatta con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA85502X",
+      "schoolName": "PADRE KOLBE",
+      "order": "Scuola dell'infanzia",
+      "students": 73,
+      "classes": 4,
+      "pointId": "kml-school-122",
+      "pointAddress": "VIA PADRE MASSIMILIANO KOLBE 10",
+      "institutionCode": "PAIC855002",
+      "institutionName": "I.C. RENATO GUTTUSO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "Dataset ufficiali USR: codice PAAA85502X, Padre Kolbe, Via Kolbe; il punto KML identifica il plesso Kolbe in Via Padre Massimiliano Kolbe 10 e l'istituzione Renato Guttuso."
+    },
+    {
+      "schoolCode": "PAAA8BF01V",
+      "schoolName": "DE AMICIS = VIA NAZARIO SAURO",
+      "order": "Scuola dell'infanzia",
+      "students": 117,
+      "classes": 6,
+      "pointId": "kml-school-47",
+      "pointAddress": "VIA SAURO NAZARIO 11",
+      "institutionCode": "PAIC8BF002",
+      "institutionName": "IC DE AMICIS - DA VINCI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icdeamicisdavinci.edu.it/images/allegati/A.S._25.26/PTOF_/PAIC8BF002-202528-202526-20260111_compressed.pdf"
+      ],
+      "method": "PTOF ufficiale 2025-2028: plesso De Amicis, codice PAAA8BF01V, Via Nazario Sauro 11; coincidenza esatta con il punto KML Nazario Sauro in Via Sauro Nazario 11."
+    },
+    {
+      "schoolCode": "PAAA8AS033",
+      "schoolName": "CAPITANO BASILE",
+      "order": "Scuola dell'infanzia",
+      "students": 80,
+      "classes": 4,
+      "pointId": "kml-school-249",
+      "pointAddress": "VIA CAPITANO EMANUELE BASILE 54",
+      "institutionCode": "PAIC8AS004",
+      "institutionName": "I.C.  MARGHERITA HACK -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "Dataset ufficiale USR 2021/22: codice PAAA8AS033, Capitano Basile, Via Capitano Basile 54; indirizzo e codice coincidono con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA8AV02D",
+      "schoolName": "LARGO ERCOLE",
+      "order": "Scuola dell'infanzia",
+      "students": 19,
+      "classes": 1,
+      "pointId": "kml-school-171",
+      "pointAddress": "LARGO ERCOLE PIETRO 5",
+      "institutionCode": "PAIC8AV00G",
+      "institutionName": "I.C. MAREDOLCE - PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAEE8AV02P",
+      "schoolName": "LARGO ERCOLE",
+      "order": "Scuola primaria",
+      "students": 97,
+      "classes": 6,
+      "pointId": "kml-school-171",
+      "pointAddress": "LARGO ERCOLE PIETRO 5",
+      "institutionCode": "PAIC8AV00G",
+      "institutionName": "I.C. MAREDOLCE - PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA87301C",
+      "schoolName": "PLESSO VIA VILLAGRAZIA,110",
+      "order": "Scuola dell'infanzia",
+      "students": 77,
+      "classes": 4,
+      "pointId": "kml-school-247",
+      "pointAddress": "VIA VILLAGRAZIA 110",
+      "institutionCode": "PAIC87300G",
+      "institutionName": "I.C. L.PIRANDELLO/B. ULIVIA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA87301C, plesso Via Villagrazia 110, indirizzo coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA85101G",
+      "schoolName": "SCIPIONE DI CASTRO",
+      "order": "Scuola dell'infanzia",
+      "students": 50,
+      "classes": 3,
+      "pointId": "kml-school-139",
+      "pointAddress": "VIA DI CASTRO SCIPIONE 22",
+      "institutionCode": "PAIC85100P",
+      "institutionName": "I.C. G.A.COLOZZA /BONFIGLIO-PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA85101G, Scipione Di Castro; punto KML omonimo in Via Di Castro Scipione 22 e istituzione Colozza/Bonfiglio coerente."
+    },
+    {
+      "schoolCode": "PAAA89901L",
+      "schoolName": "VIA CALCEDONIO, 1",
+      "order": "Scuola dell'infanzia",
+      "students": 179,
+      "classes": 9,
+      "pointId": "kml-school-64",
+      "pointAddress": "VIA GIORDANO CALCEDONIO 1",
+      "institutionCode": "PAIC89900Q",
+      "institutionName": "I.C. ABBA /ALIGHIERI -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
+      ],
+      "method": "Dataset ufficiale USR Sicilia 2025/26: codice PAAA89901L, Via Calcedonio 1; il punto KML Abba-Alighieri è geolocalizzato in Via Giordano Calcedonio 1."
+    },
+    {
+      "schoolCode": "PAAA8AU01L",
+      "schoolName": "MARINELLA BRAGAGLIA",
+      "order": "Scuola dell'infanzia",
+      "students": 54,
+      "classes": 3,
+      "pointId": "kml-school-193",
+      "pointAddress": "VIA BRAGAGLIA MARINELLA 23",
+      "institutionCode": "PAIC8AU00Q",
+      "institutionName": "I.C. PESTALOZZI/CAVOUR-PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "Dataset ufficiale USR: codice PAAA8AU01L, Marinella Bragaglia; il punto KML omonimo riporta Via Bragaglia Marinella 23, stessa sede e istituzione Pestalozzi/Cavour."
+    },
+    {
+      "schoolCode": "PAAA8AU03P",
+      "schoolName": "VITTORINO DA FELTRE",
+      "order": "Scuola dell'infanzia",
+      "students": 20,
+      "classes": 1,
+      "pointId": "kml-school-189",
+      "pointAddress": "CORSO CALATAFIMI 1035",
+      "institutionCode": "PAIC8AU00Q",
+      "institutionName": "I.C. PESTALOZZI/CAVOUR-PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2022_23/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni.pdf"
+      ],
+      "method": "Dataset ufficiale USR 2022/23: codice PAAA8AU03P, Vittorino da Feltre; punto KML omonimo in Corso Calatafimi 1035 e istituzione Pestalozzi/Cavour coerente."
+    },
+    {
+      "schoolCode": "PAAA8BE035",
+      "schoolName": "DIAZ NUOVO",
+      "order": "Scuola dell'infanzia",
+      "students": 262,
+      "classes": 10,
+      "pointId": "kml-school-35",
+      "pointAddress": "VIA FERRARI ORSI FEDERICO 89",
+      "institutionCode": "PAIC8BE006",
+      "institutionName": "I.C. SARA CAMPANELLA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+      ],
+      "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente."
+    },
+    {
+      "schoolCode": "PAEE8BE06D",
+      "schoolName": "DIAZ NUOVO",
+      "order": "Scuola primaria",
+      "students": 78,
+      "classes": 5,
+      "pointId": "kml-school-35",
+      "pointAddress": "VIA FERRARI ORSI FEDERICO 89",
+      "institutionCode": "PAIC8BE006",
+      "institutionName": "I.C. SARA CAMPANELLA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+      ],
+      "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente."
+    },
+    {
+      "schoolCode": "PAMM87301L",
+      "schoolName": "PIRANDELLO -BORGO ULIVIA",
+      "order": "Scuola secondaria di I grado",
+      "students": 154,
+      "classes": 8,
+      "pointId": "kml-school-243",
+      "pointAddress": "VIA ORTIGIA 19",
+      "institutionCode": "PAIC87300G",
+      "institutionName": "I.C. L.PIRANDELLO/B. ULIVIA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "method": "Codice di plesso e denominazione Pirandello-Borgo Ulivia già documentati nell'archivio USR; punto KML omonimo in Via Ortigia 19 e istituzione coerente."
+    },
+    {
+      "schoolCode": "PAEE8BB03V",
+      "schoolName": "D.D. C. MANERI-INGRASSIA",
+      "order": "Scuola primaria",
+      "students": 197,
+      "classes": 11,
+      "pointId": "kml-school-48",
+      "pointAddress": "VIALE DEI PICCIOTTI 8",
+      "institutionCode": "PAIC8BB00P",
+      "institutionName": "MANERI INGRASSIA-DON MILANI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
+      ],
+      "method": "Correzione del codice precedentemente attribuito: il codice corretto è PAEE8BB03V (D.D. C. Maneri-Ingrassia), documentato da USR 2025/26 e indirizzo Via dei Picciotti 8; PAEE8BB01R è invece Plesso Passaggio, Via Passaggio dei Picciotti 5, e non appartiene a questo punto."
     }
   ]
 }
