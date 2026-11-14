@@ -587,21 +587,28 @@ async function load(){
   const s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});
   if(s.ok){const soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}
   fillFilters();
-  await loadGeoCatalog();
-  const optionalSchoolFiles=await Promise.all(['data/scuole_points.json','data/scuole_statistics.json','data/scuole_paritarie.json'].map(async u=>{
+  $('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · fonti statistiche parziali';
+  render();
+
+  // I layer GIS sono opzionali: non devono bloccare l'avvio delle pagine.
+  loadGeoCatalog().catch(e=>console.warn('Catalogo GIS non disponibile:',e));
+
+  // Gli archivi scolastici sono caricati in parallelo e non bloccano la piattaforma.
+  Promise.all(['data/scuole_points.json','data/scuole_statistics.json','data/scuole_paritarie.json'].map(async u=>{
    try{const q=await fetch(u,{cache:'no-store'});if(!q.ok)throw new Error('HTTP '+q.status);return await q.json();}
    catch(e){console.warn('Archivio scuole non disponibile:',u,e);return [];}
-  }));
-  DATA.schoolPoints=Array.isArray(optionalSchoolFiles[0])?optionalSchoolFiles[0]:[];
-  DATA.schoolStatistics=Array.isArray(optionalSchoolFiles[1])?optionalSchoolFiles[1]:[];
-  DATA.schoolParitarie=Array.isArray(optionalSchoolFiles[2])?optionalSchoolFiles[2]:[];
-  $('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · fonti statistiche parziali';
+  })).then(optionalSchoolFiles=>{
+   DATA.schoolPoints=Array.isArray(optionalSchoolFiles[0])?optionalSchoolFiles[0]:[];
+   DATA.schoolStatistics=Array.isArray(optionalSchoolFiles[1])?optionalSchoolFiles[1]:[];
+   DATA.schoolParitarie=Array.isArray(optionalSchoolFiles[2])?optionalSchoolFiles[2]:[];
+   if(active==='schools')render();
+  }).catch(e=>console.warn('Caricamento archivi scolastici incompleto:',e));
  }catch(e){
   console.error('Errore caricamento comparatore:',e);
   $('#status').textContent='Dati parziali · verificare le fonti';
   if(!$('#circ')?.options.length)fillFilters();
+  render();
  }
- render();
 }
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
