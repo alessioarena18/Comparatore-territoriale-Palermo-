@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 92,
+    "confirmedMapPointMatches": 99,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 66
+    "confirmedMapPoints": 73
   },
   "records": [
     {
@@ -666,11 +666,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-128",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC G. Di Vittorio: codice PAAA85202C, plesso Industriale, Via S. Alberto degli Abati, quartiere Sperone; punto KML Industriale allo stesso indirizzo, con civico 2.",
+      "mapMatchSourceUrl": "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
     },
     {
       "code": "PAAA85203D",
@@ -964,11 +966,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-240",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR 2021/22 e PTOF IC Giuliana Saladino: codice PAAA897033, plesso Paladini, Piazza Benvenuto Cellini 4; punto KML Paladini allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA897011",
@@ -4884,11 +4888,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-143",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025: codice PAEE8AM03X, plesso Palagonia, Via Principe di Palagonia 46; punto KML Palagonia allo stesso civico e istituzione Giotto/Cipolla.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
     },
     {
       "code": "PAEE8AL012",
@@ -6528,11 +6534,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-185",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2022: codice PAEE8A002G, P. Borsellino, Largo Camastra 7; punto KML Borsellino allo stesso civico e istituzione Rita Levi Montalcini.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
     },
     {
       "code": "PAEE8AZ022",
@@ -7217,11 +7225,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-232",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC Uditore/Setti Carraro: codice PAEE8AQ026, plesso Verga, Via Uditore 21; punto KML Verga allo stesso civico.",
+      "mapMatchSourceUrl": "https://www.icsuditoresetticarraro.it/wp-content/uploads/2024/12/timbro_PAIC8AQ003-202225-202425-20241227.pdf"
     },
     {
       "code": "PAEE813023",
@@ -8337,11 +8347,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-115",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC G. Di Vittorio: codice PAMM85201G, scuola secondaria G. Di Vittorio, Via Di Vittorio 11; punto KML Di Vittorio allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
     },
     {
       "code": "PAMM89301T",
@@ -8511,11 +8523,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-252",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Organico ufficiale USR Palermo 2025/26: codice PAMM8AR01X, Giuseppe Scelsa, Via Villani 40; punto KML omonimo in Via Villani, senza civico. Corrispondenza di strada, denominazione e istituzione.",
+      "mapMatchSourceUrl": "https://gildapalermo.it/wp-content/uploads/2025/05/Scuola-I-grado-organico-di-diritto-25-26.pdf"
     },
     {
       "code": "PAMM87801Q",
