@@ -301,3 +301,6 @@ Nota operativa sui raggi: al momento il registro non abilita buffer automatici. 
 
 
 Censimento scolastico V64: 271 punti cartografici, 166 documentati, 103 in riserva/rettifica e 2 da rivalidare. Il registro è pubblicato in `data/censimento_scolastico_v64.json` e collegato alla pagina Servizi e dotazioni. Il campus Alberico Gentili (via Francesco Lo Jacono 1) è stato completato con codici primaria PAEE8AN01N e secondaria I grado PAMM8AN01L, GPS ufficiale dell'istituto e un unico buffer fisico. Al 15/11/2026 i campus abilitati sono Gentili e Buonarroti; i casi condizionati restano esclusi fino alla verifica delle coordinate e degli accessi. Il campus ICS Michelangelo Buonarroti, Via Tembien 1, è stato aggiunto ai buffer: infanzia PAAA8AX025 e secondaria I grado confermate sul sito ufficiale; coordinate aggiornate al collegamento Google Maps ufficiale 38.1247608, 13.3085383. Il codice PAIC87100X è trattato come codice istituzione, non codice plesso.
+
+
+Aggiornamento 15/11/2026: abilitato anche il plesso Setti Carraro, Via G.B. Tiepolo 4, secondaria I grado PAMM8AQ014. Coordinate aggiornate al link Google Maps ufficiale dell'istituto (38.1349991, 13.3223511). Un solo buffer per la sede.
