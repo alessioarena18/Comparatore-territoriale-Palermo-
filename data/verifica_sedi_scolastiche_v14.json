@@ -1427,6 +1427,24 @@
       "candidateCodes": "",
       "candidateOrders": "Primaria",
       "bufferEligible": false
+    },
+    {
+      "pointId": "kml-school-233",
+      "pointName": "Setti Carraro",
+      "originalInstitution": "Uditore - Setti Carraro",
+      "address": "VIA GIOVAN BATTISTA TIEPOLO 4",
+      "quarter": "UDITORE- PASSO DI RIGANO",
+      "circumscription": "5",
+      "institutionCode": "PAIC8AQ003",
+      "institutionName": "I.C. UDITORE /SETTI CARRARO -PA",
+      "institutionType": "ISTITUTO COMPRENSIVO",
+      "institutionAddress": "VIA TIEPOLO 4",
+      "status": "CONFERMATO_CON_GPS_UFFICIALE",
+      "sourceUrl": "https://www.icsuditoresetticarraro.it/luogo/sede-centrale/; https://www.icsuditoresetticarraro.it/iscrizioni-as-2026-2027/",
+      "note": "Sede ufficiale centrale Via G.B. Tiepolo 4, ospita i plessi della secondaria di I grado. Circolare iscrizioni 2026/27: codice PAMM8AQ014 per plesso Setti Carraro. Link Google Maps ufficiale dalla scheda sede centrale: 38.1349991,13.3223511. Un solo punto e un solo buffer.",
+      "candidateCodes": "PAMM8AQ014",
+      "candidateOrders": "Scuola secondaria di I grado",
+      "bufferEligible": true
     }
   ]
 }
