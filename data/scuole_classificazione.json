@@ -10,7 +10,7 @@
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 108
+    "verified_registry_code_links": 112
   },
   "records": [
     {
@@ -2068,20 +2068,27 @@
     {
       "point_id": "kml-school-40",
       "orders": [
-        "ELEMENTARI"
+        "ELEMENTARI",
+        "INFANZIA"
       ],
       "institution": "Garzilli",
       "address": "VIA ISONZO 7",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA89302P",
+        "PAEE89302X"
+      ],
       "school_names": [
-        "GARZILLI"
+        "GARZILLI",
+        "VIA ISONZO= GARZILLI",
+        "D.D. N. GARZILLI - PA"
       ],
       "source_urls": [
-        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.cdgarzilli.edu.it/"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
-      "confidence": "il Comune identifica Garzilli come scuola primaria in Via Isonzo 7"
+      "method": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria.",
+      "confidence": "codici meccanografici, ordini e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-216",
@@ -2991,6 +2998,30 @@
       "source_year": "2025/2026",
       "method": "Elenco ufficiale USR 2025/26 e Open Fiber: codice PAEE872063, San Ciro, Via San Ciro 48/A; punto KML San Ciro 48/A allo stesso indirizzo. La denominazione amministrativa KML Orestano è mantenuta come nota storica.",
       "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
+    },
+    {
+      "point_id": "kml-school-142",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Cruillas",
+      "address": "VIA SALERNO 19",
+      "school_codes": [
+        "PAAA8AA015",
+        "PAEE8AA03C"
+      ],
+      "school_names": [
+        "PLESSO SALERNO",
+        "I.C. CRUILLAS- PLESSO SALERNO"
+      ],
+      "source_urls": [
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
+        "https://www.iccruillas.edu.it/"
+      ],
+      "source_year": "2025/2026",
+      "method": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo.",
+      "confidence": "codici meccanografici, ordini e sede verificati in fonti ufficiali"
     }
   ]
 }
