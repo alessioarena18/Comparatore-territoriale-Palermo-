@@ -196,3 +196,10 @@ Il crosswalk è stato esteso con ulteriori associazioni documentate: Emanuela Lo
 Sono stati aggiunti i collegamenti di infanzia e primaria per Riso (Via Mondello 5), Pascoli (Via Nettuno 6), Rosario Gregorio (Via Euridice 24), Santocanale (Via Santocanale 23/B) e Ragusa Moleti (Via Ragusa Moleti 8), oltre a Antonino Agostino (Via Sacco e Vanzetti 42) e Paulsen (Piazzale Cardinale Francesco Carpino 3/5). I codici e gli indirizzi sono riportati nei documenti USR Sicilia 2025/26 e, per Ragusa Moleti, nel PTOF ufficiale 2022-2025.
 
 È stato rimosso il collegamento errato di PAEE8BN03A dal punto KML di Piazza Zisa 21: il documento USR 2025/26 colloca il plesso Pascoli di quel codice in Via Nettuno 6, corrispondente al punto KML kml-school-65. Il punto di Piazza Zisa 21 resta non classificato finché non sarà chiarita documentalmente la co-localizzazione fra la scuola Pascoli dell'IC Antonio Ugo e la sede Gabelli indicata nel KML.
+
+
+## Quarto lotto di raccordi documentali – 14 novembre 2026
+
+Sono stati aggiunti i plessi Nuccio (infanzia e primaria, Via Mongitore 4), Pertini (infanzia e primaria, Via Felice Cavallotti 1), Buttitta (infanzia e primaria, Via Cimabue 20), Bernini (infanzia e primaria, Via Papaleo 8), Titone (infanzia, Via Titone 45), San Lorenzo (infanzia, primaria e secondaria, Via San Lorenzo 89), Rosolino Pilo (infanzia e primaria, Via Sebastiano La Franca 70) e Via Maestri del Lavoro/Rosolino Pilo (infanzia, Via Maestri del Lavoro 42).
+
+Il PTOF ufficiale dell'IC Uditore/Setti Carraro distingue la sede secondaria Setti Carraro in Via Tiepolo 4 dalla sede Buttitta in Via Cimabue 20; pertanto il codice PAMM8AQ014 non è stato associato al punto cartografico di Via Cimabue 20. La scuola secondaria è mantenuta separata dalla sede di infanzia e primaria.
