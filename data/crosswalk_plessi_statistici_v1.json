@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 57,
-    "confirmedPhysicalPoints": 40,
+    "confirmedCodePointLinks": 69,
+    "confirmedPhysicalPoints": 46,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -1010,6 +1010,216 @@
         "https://www.icfloriosanlorenzo.edu.it/struttura/plesso-san-lorenzo-infanzia/"
       ],
       "method": "Sito ufficiale IC Florio-San Lorenzo: plesso in Via San Lorenzo 89, codice infanzia PAAA8AX014; descrive nello stesso edificio 2 sezioni di infanzia al piano terra, 8 classi primarie al primo piano e 5 classi secondarie al secondo. I codici primario PAEE8AX019 e secondaria PAMM8AX018 sono collegati allo stesso punto fisico."
+    },
+    {
+      "schoolCode": "PAAA8AR05X",
+      "schoolName": "A.SOLE",
+      "order": "Scuola dell'infanzia",
+      "students": 49,
+      "classes": 2,
+      "pointId": "kml-school-270",
+      "pointAddress": "VIA MOLARA 30",
+      "institutionCode": "PAIC8AR00V",
+      "institutionName": "I.C. GIUSEPPE SCELSA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download",
+        "https://www.icscelsa.edu.it/"
+      ],
+      "method": "Documento di trasparenza dell'IC Giuseppe Scelsa: codici PAAA8AR05X e PAEE8AR055 entrambi in Via Molara 30; punto KML A. Sole allo stesso indirizzo e istituzione."
+    },
+    {
+      "schoolCode": "PAAA8AR01Q",
+      "schoolName": "VIA VILLAGRAZIA",
+      "order": "Scuola dell'infanzia",
+      "students": 88,
+      "classes": 4,
+      "pointId": "kml-school-271",
+      "pointAddress": "VIA VILLAGRAZIA 298",
+      "institutionCode": "PAIC8AR00V",
+      "institutionName": "I.C. GIUSEPPE SCELSA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
+      ],
+      "method": "Documento di trasparenza dell'IC Giuseppe Scelsa: infanzia PAAA8AR01Q e primaria PAEE8AR011 entrambe in Via Villagrazia 298; punto KML Villagrazia allo stesso civico."
+    },
+    {
+      "schoolCode": "PAAA8A1015",
+      "schoolName": "N. TURRISI",
+      "order": "Scuola dell'infanzia",
+      "students": 88,
+      "classes": 4,
+      "pointId": "kml-school-98",
+      "pointAddress": "PIAZZA ORLANDO VITTORIO EMANUELE 3",
+      "institutionCode": "PAIC8A1008",
+      "institutionName": "I.C. LUIGI CAPUANA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
+      ],
+      "method": "Elenco Open Fiber 2025: infanzia PAAA8A1015 e primaria PAEE8A102B, entrambe in Piazza Vittorio Emanuele Orlando 3; punto KML Nicolò Turrisi allo stesso civico e istituzione IC Capuana."
+    },
+    {
+      "schoolCode": "PAAA8A2011",
+      "schoolName": "ORETO",
+      "order": "Scuola dell'infanzia",
+      "students": 86,
+      "classes": 4,
+      "pointId": "kml-school-84",
+      "pointAddress": "VIA ORETO 106",
+      "institutionCode": "PAIC8A2004",
+      "institutionName": "I.C. SILVIO BOCCONE -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf",
+        "https://www.icsboccone.edu.it/index.php/libri-di-testo"
+      ],
+      "method": "Elenco Open Fiber 2025 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2011 e primaria PAEE8A2016, entrambe in Via Oreto 106; punto KML Oreto allo stesso civico."
+    },
+    {
+      "schoolCode": "PAAA8BP01P",
+      "schoolName": "A.U.CAGNI",
+      "order": "Scuola dell'infanzia",
+      "students": 74,
+      "classes": 4,
+      "pointId": "kml-school-276",
+      "pointAddress": "VIA CAGNI UMBERTO AMMIRAGLIO 40",
+      "institutionCode": "PAIC8BP00T",
+      "institutionName": "I.C. SIRAGUSA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
+        "https://www.icsfalconecarini.edu.it/"
+      ],
+      "method": "Carta dei Servizi del Comune per il plesso Cagni materna al civico 40/42 e dati di sede dell'IC Siragusa per primaria D.D. A. Siragusa-Ammiraglio Cagni allo stesso civico; punto KML Alessandra Siracusa in Via Cagni 40."
+    },
+    {
+      "schoolCode": "PAAA8BP02Q",
+      "schoolName": "D'ANGELO",
+      "order": "Scuola dell'infanzia",
+      "students": 56,
+      "classes": 3,
+      "pointId": "kml-school-85",
+      "pointAddress": "VIA S. LORENZO 295",
+      "institutionCode": "PAIC8BP00T",
+      "institutionName": "I.C. SIRAGUSA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icsfalconecarini.edu.it/",
+        "https://www.classificascuole.it/it/scuola/d-angelo-paaa8bp02q",
+        "https://www.classificascuole.it/it/scuola/d-angelo-e-p-paee8bp021"
+      ],
+      "method": "Anagrafica di sede dell'IC Siragusa e schede dei codici PAAA8BP02Q e PAEE8BP021: plessi D'Angelo infanzia e primaria entrambi in Via San Lorenzo 295; punto KML D'Angelo Vecchio allo stesso civico e istituzione Alessandra Siracusa."
+    },
+    {
+      "schoolCode": "PAEE8AR055",
+      "schoolName": "A.SOLE",
+      "order": "Scuola primaria",
+      "students": 77,
+      "classes": 5,
+      "pointId": "kml-school-270",
+      "pointAddress": "VIA MOLARA 30",
+      "institutionCode": "PAIC8AR00V",
+      "institutionName": "I.C. GIUSEPPE SCELSA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download",
+        "https://www.icscelsa.edu.it/"
+      ],
+      "method": "Documento di trasparenza dell'IC Giuseppe Scelsa: codici PAAA8AR05X e PAEE8AR055 entrambi in Via Molara 30; punto KML A. Sole allo stesso indirizzo e istituzione."
+    },
+    {
+      "schoolCode": "PAEE8AR011",
+      "schoolName": "I.C. GIUSEPPE SCELSA",
+      "order": "Scuola primaria",
+      "students": 158,
+      "classes": 10,
+      "pointId": "kml-school-271",
+      "pointAddress": "VIA VILLAGRAZIA 298",
+      "institutionCode": "PAIC8AR00V",
+      "institutionName": "I.C. GIUSEPPE SCELSA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://amministrazionetrasparente.org/public/attachments/ad374e11-3785-43bf-afc0-e4d14da7056f/download"
+      ],
+      "method": "Documento di trasparenza dell'IC Giuseppe Scelsa: infanzia PAAA8AR01Q e primaria PAEE8AR011 entrambe in Via Villagrazia 298; punto KML Villagrazia allo stesso civico."
+    },
+    {
+      "schoolCode": "PAEE8A102B",
+      "schoolName": "PLESSO N. TURRISI",
+      "order": "Scuola primaria",
+      "students": 217,
+      "classes": 12,
+      "pointId": "kml-school-98",
+      "pointAddress": "PIAZZA ORLANDO VITTORIO EMANUELE 3",
+      "institutionCode": "PAIC8A1008",
+      "institutionName": "I.C. LUIGI CAPUANA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf"
+      ],
+      "method": "Elenco Open Fiber 2025: infanzia PAAA8A1015 e primaria PAEE8A102B, entrambe in Piazza Vittorio Emanuele Orlando 3; punto KML Nicolò Turrisi allo stesso civico e istituzione IC Capuana."
+    },
+    {
+      "schoolCode": "PAEE8A2016",
+      "schoolName": "I.C. SILVIO BOCCONE  - ORETO",
+      "order": "Scuola primaria",
+      "students": 183,
+      "classes": 10,
+      "pointId": "kml-school-84",
+      "pointAddress": "VIA ORETO 106",
+      "institutionCode": "PAIC8A2004",
+      "institutionName": "I.C. SILVIO BOCCONE -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/05/Elenco-Scuole-Connesse_14052025.pdf",
+        "https://www.icsboccone.edu.it/index.php/libri-di-testo"
+      ],
+      "method": "Elenco Open Fiber 2025 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2011 e primaria PAEE8A2016, entrambe in Via Oreto 106; punto KML Oreto allo stesso civico."
+    },
+    {
+      "schoolCode": "PAEE8BP021",
+      "schoolName": "D'ANGELO E.P.",
+      "order": "Scuola primaria",
+      "students": 146,
+      "classes": 10,
+      "pointId": "kml-school-85",
+      "pointAddress": "VIA S. LORENZO 295",
+      "institutionCode": "PAIC8BP00T",
+      "institutionName": "I.C. SIRAGUSA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icsfalconecarini.edu.it/",
+        "https://www.classificascuole.it/it/scuola/d-angelo-paaa8bp02q",
+        "https://www.classificascuole.it/it/scuola/d-angelo-e-p-paee8bp021"
+      ],
+      "method": "Anagrafica di sede dell'IC Siragusa e schede dei codici PAAA8BP02Q e PAEE8BP021: plessi D'Angelo infanzia e primaria entrambi in Via San Lorenzo 295; punto KML D'Angelo Vecchio allo stesso civico e istituzione Alessandra Siracusa."
+    },
+    {
+      "schoolCode": "PAEE8BP032",
+      "schoolName": "D.D. A. SIRAGUSA - AMMIR. CAGNI",
+      "order": "Scuola primaria",
+      "students": 173,
+      "classes": 10,
+      "pointId": "kml-school-276",
+      "pointAddress": "VIA CAGNI UMBERTO AMMIRAGLIO 40",
+      "institutionCode": "PAIC8BP00T",
+      "institutionName": "I.C. SIRAGUSA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
+        "https://www.icsfalconecarini.edu.it/"
+      ],
+      "method": "Carta dei Servizi del Comune per il plesso Cagni materna al civico 40/42 e dati di sede dell'IC Siragusa per primaria D.D. A. Siragusa-Ammiraglio Cagni allo stesso civico; punto KML Alessandra Siracusa in Via Cagni 40."
     }
   ]
 }
