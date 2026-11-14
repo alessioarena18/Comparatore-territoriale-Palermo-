@@ -1,0 +1,1353 @@
+{
+  "meta": {
+    "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
+    "created": "2026-11-14",
+    "points_total": 271,
+    "classified_records": 66,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale.",
+    "sources": [
+      "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
+      "USR Sicilia, Open Data scuole a.s. 2025/2026"
+    ]
+  },
+  "records": [
+    {
+      "point_id": "kml-school-270",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. GIUSEPPE SCELSA -PA",
+      "address": "VIA MOLARA 30",
+      "school_codes": [
+        "PAAA8AR05X",
+        "PAEE8AR055"
+      ],
+      "school_names": [
+        "A.SOLE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-189",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. PESTALOZZI/CAVOUR-PA",
+      "address": "CORSO CALATAFIMI 1035",
+      "school_codes": [
+        "PAAA8AU03P"
+      ],
+      "school_names": [
+        "VITTORINO DA FELTRE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-186",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. RITA LEVI MONTALCINI -PA",
+      "address": "LARGO MICHELANGELO 15",
+      "school_codes": [
+        "PAEE8A003L"
+      ],
+      "school_names": [
+        "MICHELANGELO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-97",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. MICHELANGELO BUONARROTI-PA",
+      "address": "SALITA CASTELLANA 65",
+      "school_codes": [
+        "PAAA87101R",
+        "PAEE871023"
+      ],
+      "school_names": [
+        "LIVIO BASSI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-253",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. MARGHERITA HACK -PA",
+      "address": "PIAZZALE CARPINO FRANCESCO CARDINALE 3",
+      "school_codes": [
+        "PAAA8AS011"
+      ],
+      "school_names": [
+        "PAULSEN"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-252",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "I.C. GIUSEPPE SCELSA -PA",
+      "address": "VIA VILLANI GIOVANNI",
+      "school_codes": [
+        "PAMM8AR01X"
+      ],
+      "school_names": [
+        "GIUSEPPE SCELSA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-267",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. GIUSEPPE SCELSA -PA",
+      "address": "BAGLIO BARONE DELLA SCALA 7",
+      "school_codes": [
+        "PAEE8AR044"
+      ],
+      "school_names": [
+        "BARONE SCALA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-182",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. MONTEGRAPPA /R. SANZIO-PA",
+      "address": "VIA DEODATO PIER LUIGI 7",
+      "school_codes": [
+        "PAAA8AY021",
+        "PAEE8AY026"
+      ],
+      "school_names": [
+        "MEDAGLIE D'ORO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-193",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. PESTALOZZI/CAVOUR-PA",
+      "address": "VIA BRAGAGLIA MARINELLA 23",
+      "school_codes": [
+        "PAAA8AU01L"
+      ],
+      "school_names": [
+        "MARINELLA BRAGAGLIA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-249",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. MARGHERITA HACK -PA",
+      "address": "VIA CAPITANO EMANUELE BASILE 54",
+      "school_codes": [
+        "PAAA8AS033"
+      ],
+      "school_names": [
+        "CAPITANO BASILE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-266",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. MANTEGNA /BONANNO -PA",
+      "address": "VIA PITRE' GIUSEPPE 183",
+      "school_codes": [
+        "PAAA853028"
+      ],
+      "school_names": [
+        "BONANNO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-106",
+      "orders": [
+        "SUPERIORI"
+      ],
+      "institution": "DE COSMI",
+      "address": "VIA RUGGERI LEONARDO 35",
+      "school_codes": [
+        "PAPM02000N"
+      ],
+      "school_names": [
+        "DE COSMI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-232",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. UDITORE /SETTI CARRARO -PA",
+      "address": "VIA UDITORE 21",
+      "school_codes": [
+        "PAEE8AQ026"
+      ],
+      "school_names": [
+        "VERGA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-22",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C.S. ARCULEO-GRAMSCI",
+      "address": "VIA CUSCINA' ALFREDO 7",
+      "school_codes": [
+        "PAEE8BQ02R"
+      ],
+      "school_names": [
+        "CUSCINA'"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-30",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C.S. ARCULEO-GRAMSCI",
+      "address": "VIA PALMERINO 1",
+      "school_codes": [
+        "PAAA8BQ02G"
+      ],
+      "school_names": [
+        "CENTRO SOCIALE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-39",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. BORGESE-PARTANNA MONDELLO",
+      "address": "PIAZZA ZISA 21",
+      "school_codes": [
+        "PAEE8BN03A"
+      ],
+      "school_names": [
+        "PASCOLI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-139",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. G.A.COLOZZA /BONFIGLIO-PA",
+      "address": "VIA DI CASTRO SCIPIONE 22",
+      "school_codes": [
+        "PAAA85101G"
+      ],
+      "school_names": [
+        "SCIPIONE DI CASTRO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-150",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. MANZONI /IMPASTATO - PA",
+      "address": "VIA DI MARTINO GIROLAMO 48",
+      "school_codes": [
+        "PAAA87901B",
+        "PAEE87901L"
+      ],
+      "school_names": [
+        "IMPASTATO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-221",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. GIULIANA SALADINO - PA",
+      "address": "VIA DELL'AQUILA PIETRO",
+      "school_codes": [
+        "PAAA897022"
+      ],
+      "school_names": [
+        "FONDO PETRAZZI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-231",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. UDITORE /SETTI CARRARO -PA",
+      "address": "VIA PAPALEO PIETRO 8",
+      "school_codes": [
+        "PAAA8AQ021",
+        "PAEE8AQ015"
+      ],
+      "school_names": [
+        "BERNINI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-110",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. I. FLORIO - S. LORENZO -PA",
+      "address": "VIA S. LORENZO 89",
+      "school_codes": [
+        "PAEE8AX019"
+      ],
+      "school_names": [
+        "SAN LORENZO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-127",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. I. FLORIO - S. LORENZO -PA",
+      "address": "VIA S. LORENZO 89",
+      "school_codes": [
+        "PAAA8AX025",
+        "PAEE8AX03B"
+      ],
+      "school_names": [
+        "BENTIVEGNA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-143",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. GIOTTO /CIPOLLA",
+      "address": "VIA PRINCIPE DI PALAGONIA 46",
+      "school_codes": [
+        "PAEE8AM03X"
+      ],
+      "school_names": [
+        "PALAGONIA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-164",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. G. MARCONI-GARZILLI",
+      "address": "VIA DON GIOVANNI MINZONI 3",
+      "school_codes": [
+        "PAAA89301N"
+      ],
+      "school_names": [
+        "LAMBRUSCHINI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-65",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. BORGESE-PARTANNA MONDELLO",
+      "address": "VIA NETTUNO 6",
+      "school_codes": [
+        "PAEE8BN03A"
+      ],
+      "school_names": [
+        "PASCOLI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-243",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "I.C. L.PIRANDELLO/B. ULIVIA -PA",
+      "address": "VIA ORTIGIA 19",
+      "school_codes": [
+        "PAMM87301L"
+      ],
+      "school_names": [
+        "PIRANDELLO -BORGO ULIVIA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-73",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. PADRE PUGLISI - ORESTANO",
+      "address": "VIA CONTE FEDERICO 1 B",
+      "school_codes": [
+        "PAEE872052"
+      ],
+      "school_names": [
+        "CONTE FEDERICO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-35",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. SAURO-FRANCHETTI-CAVALLARI",
+      "address": "VIA FERRARI ORSI FEDERICO 89",
+      "school_codes": [
+        "PAAA8BE035",
+        "PAEE8BE06D"
+      ],
+      "school_names": [
+        "DIAZ NUOVO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-25",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. SAURO-FRANCHETTI-CAVALLARI",
+      "address": "VIA GIAFAR EMIRO 17",
+      "school_codes": [
+        "PAEE8BE04B"
+      ],
+      "school_names": [
+        "GIAFAR"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-140",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. SILVIO BOCCONE -PA",
+      "address": "VIA ELIA AUGUSTO 1",
+      "school_codes": [
+        "PAAA8A2044"
+      ],
+      "school_names": [
+        "VIA DEL VESPRO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-84",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. SILVIO BOCCONE -PA",
+      "address": "VIA ORETO 106",
+      "school_codes": [
+        "PAAA8A2011"
+      ],
+      "school_names": [
+        "ORETO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-171",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. MAREDOLCE - PA",
+      "address": "LARGO ERCOLE PIETRO 5",
+      "school_codes": [
+        "PAAA8AV02D",
+        "PAEE8AV02P"
+      ],
+      "school_names": [
+        "LARGO ERCOLE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-179",
+      "orders": [
+        "SUPERIORI"
+      ],
+      "institution": "GARIBALDI",
+      "address": "VIA DELLE CROCI 5",
+      "school_codes": [
+        "PAPC04000P"
+      ],
+      "school_names": [
+        "GARIBALDI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-61",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "MANERI INGRASSIA-DON MILANI",
+      "address": "VIA STATELLA VINCENZO 21",
+      "school_codes": [
+        "PAEE8BB02T"
+      ],
+      "school_names": [
+        "INGRASSIA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-128",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. G. DI VITTORIO -PA",
+      "address": "VIA S. ALBERTO DEGLI ABATI 2",
+      "school_codes": [
+        "PAAA85202C"
+      ],
+      "school_names": [
+        "INDUSTRIALE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-205",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. SPERONE / PERTINI -PA",
+      "address": "VIA GIANNOTTA NICOLO' 2",
+      "school_codes": [
+        "PAAA8AT02T"
+      ],
+      "school_names": [
+        "SACCO E VANZETTI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-239",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. PADRE PUGLISI - ORESTANO",
+      "address": "CORSO DEI MILLE 1672",
+      "school_codes": [
+        "PAEE87202V"
+      ],
+      "school_names": [
+        "ILARIA ALPI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-120",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. G. DI VITTORIO -PA",
+      "address": "CORSO DEI MILLE 1486",
+      "school_codes": [
+        "PAAA85203D",
+        "PAEE85201L"
+      ],
+      "school_names": [
+        "NATOLI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-63",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "I.C. ABBA /ALIGHIERI -PA",
+      "address": "VIA MARTURANO RUGGERO 77",
+      "school_codes": [
+        "PAMM89901R"
+      ],
+      "school_names": [
+        "ABBA - ALIGHIERI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-school-219",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "I.C. SFERRACAVALLO /ONORATO -PA",
+      "address": "VIA TACITO 34",
+      "school_codes": [
+        "PAMM84801X"
+      ],
+      "school_names": [
+        "SFERRACAVALLO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
+      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+    },
+    {
+      "point_id": "kml-nido-31",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA CRISTODULO AMMIRAGLIO 1",
+      "school_codes": [],
+      "school_names": [
+        "Sabrina e Loredana lLa Malfa"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-14",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA TEMBIEN 1",
+      "school_codes": [],
+      "school_names": [
+        "Filastrocca"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-24",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA SALERNITANO ROMUALDO 45",
+      "school_codes": [],
+      "school_names": [
+        "Masih Iqbal"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-13",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA ACIREALE 1",
+      "school_codes": [],
+      "school_names": [
+        "Papavero"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-30",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA BARISANO DA TRANI",
+      "school_codes": [],
+      "school_names": [
+        "Peter Pan"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-23",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA PELLIGRA SALVATORE 4",
+      "school_codes": [],
+      "school_names": [
+        "Maricò"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-28",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA CORTIGIANI 43",
+      "school_codes": [],
+      "school_names": [
+        "Pantera Rosa"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-32",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA SILVESTRI IGNAZIO 10",
+      "school_codes": [],
+      "school_names": [
+        "Santangelo"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-10",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA PERPIGNANO 287",
+      "school_codes": [],
+      "school_names": [
+        "Girasole"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-34",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA EUGENIO L'EMIRO",
+      "school_codes": [],
+      "school_names": [
+        "Topolino"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-35",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA BRAMANTE DONATO 17",
+      "school_codes": [],
+      "school_names": [
+        "Tornatore"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-33",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIALE LEONARDO DA VINCI 83 A",
+      "school_codes": [],
+      "school_names": [
+        "Tom & Jerry"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-15",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "PIAZZA NOVIZIATO 20",
+      "school_codes": [],
+      "school_names": [
+        "Maria Pia di Savoia"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-17",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA TOSELLI PIETRO MAGG. 85 A",
+      "school_codes": [],
+      "school_names": [
+        "Aquilone"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-22",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA D'ALVISE PIETRO 2",
+      "school_codes": [],
+      "school_names": [
+        "La Coccinella"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-26",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA MONTE S. CALOGERO 8",
+      "school_codes": [],
+      "school_names": [
+        "Melograno"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-20",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA CADUTI SENZA CROCE 22",
+      "school_codes": [],
+      "school_names": [
+        "Grillo Parlante"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-18",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "PIAZZA FERRINI CONTARDO",
+      "school_codes": [],
+      "school_names": [
+        "Domino"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-5",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA DELL'ALLODOLA 36",
+      "school_codes": [],
+      "school_names": [
+        "Allodola"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-29",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA ROSSA GUIDO 8",
+      "school_codes": [],
+      "school_names": [
+        "Pellicano"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-19",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA DELL'ERMELLINO 33 A",
+      "school_codes": [],
+      "school_names": [
+        "Ermellino"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-21",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA PARATORE GIUSEPPE 28",
+      "school_codes": [],
+      "school_names": [
+        "Il Faro"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-12",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA FICHIDINDIA",
+      "school_codes": [],
+      "school_names": [
+        "Libellula"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-16",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VICOLO PALAGONIA ALL'ALLORO",
+      "school_codes": [],
+      "school_names": [
+        "Aziendale Palagonia"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-36",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA RALLO ALBERTO",
+      "school_codes": [],
+      "school_names": [
+        "Rallo"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-nido-27",
+      "orders": [
+        "NIDO"
+      ],
+      "classification": "Nido 0-3",
+      "institution": "",
+      "address": "VIA PEGASO 29",
+      "school_codes": [],
+      "school_names": [
+        "Morvillo"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/",
+        "https://portalescuola.comune.palermo.it/"
+      ],
+      "source_year": "2021",
+      "method": "Tipologia esplicita nel dataset comunale KML",
+      "confidence": "tipologia da fonte comunale"
+    }
+  ]
+}
