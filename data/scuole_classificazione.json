@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 88,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati.",
+    "classified_records": 97,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -1766,6 +1766,171 @@
       "source_year": "2025",
       "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
       "confidence": "fonte comunale indica scuola dell'infanzia Oberdan in Via Pietro Spica 5"
+    },
+    {
+      "point_id": "kml-school-91",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Buonarroti",
+      "address": "VIA CASTELLANA 40",
+      "school_codes": [],
+      "school_names": [
+        "CASTELLANA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Castellana come scuola dell'infanzia, Via Castellana 40"
+    },
+    {
+      "point_id": "kml-school-180",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Montegrappa - Sanzio",
+      "address": "VIA ROCCELLA GUSTAVO 37",
+      "school_codes": [],
+      "school_names": [
+        "MONTEGRAPPA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Montegrappa come scuola dell'infanzia, Via Roccella 37"
+    },
+    {
+      "point_id": "kml-school-75",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Amari Roncalli - Ferrara",
+      "address": "PIAZZA MAGIONE 1",
+      "school_codes": [],
+      "school_names": [
+        "FERRARA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Ferrara come scuola dell'infanzia e primaria, Piazza Magione 1"
+    },
+    {
+      "point_id": "kml-school-151",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "La Masa",
+      "address": "VIA PIER DELLE VIGNE 8",
+      "school_codes": [],
+      "school_names": [
+        "SERPOTTA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo; variante ortografica del nome nel KML",
+      "confidence": "fonte comunale identifica Serpotta come scuola dell'infanzia, Via Pier delle Vigne 8"
+    },
+    {
+      "point_id": "kml-school-211",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Costa",
+      "address": "VIA LAZZARO CARMELO 1",
+      "school_codes": [],
+      "school_names": [
+        "GIOBERTI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Gioberti come scuola dell'infanzia, Via C. Lazzaro 1"
+    },
+    {
+      "point_id": "kml-school-204",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Sperone - Pertini",
+      "address": "VIA SACCO E VANZETTI 42",
+      "school_codes": [],
+      "school_names": [
+        "A. AGOSTINO"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo; alias del plesso",
+      "confidence": "fonte comunale identifica A. Agostino come scuola dell'infanzia, Via Sacco e Vanzetti 42"
+    },
+    {
+      "point_id": "kml-school-53",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Salgari",
+      "address": "VIA ALONGI NICOLO' 8",
+      "school_codes": [],
+      "school_names": [
+        "ALONGI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Alongi come scuola dell'infanzia, Via Alongi 8"
+    },
+    {
+      "point_id": "kml-school-213",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Rita Atria",
+      "address": "VIA VALVERDE",
+      "school_codes": [],
+      "school_names": [
+        "VALVERDE"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale identifica Valverde come scuola dell'infanzia e primaria, Via Valverde"
+    },
+    {
+      "point_id": "kml-school-260",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Pecoraro",
+      "address": "VIALE DE GASPERI ALCIDE 110",
+      "school_codes": [],
+      "school_names": [
+        "DE GASPERI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e sede con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica il plesso De Gasperi come scuola dell'infanzia e sede primaria in Piazza Papa Giovanni Paolo II; civico KML da verifica cartografica"
     }
   ]
 }
