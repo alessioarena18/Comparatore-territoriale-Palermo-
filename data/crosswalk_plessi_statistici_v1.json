@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 92,
-    "confirmedPhysicalPoints": 66,
+    "confirmedCodePointLinks": 99,
+    "confirmedPhysicalPoints": 73,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -28,7 +28,7 @@
           "PAEE8A003L"
         ],
         "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
-        "reason": "Il codice PAEE8A003L è documentato in Via Tindari 52, mentre il punto KML Michelangelo è in Largo Michelangelo 15. La sola coincidenza del nome non prova la stessa sede."
+        "reason": "Fonti non concordi: il registro scolastico/Comune riporta Via Tindari 52, mentre l'elenco Open Fiber 2022 associa il codice PAEE8A003L anche a Largo Michelangelo 6/11/15. Il punto KML è in Largo Michelangelo 15; il collegamento resta sospeso fino a conferma della sede fisica e dell'eventuale multi-sede."
       },
       {
         "pointId": "kml-school-97",
@@ -1648,6 +1648,127 @@
         "https://www.icsboccone.edu.it/"
       ],
       "method": "Elenco Open Fiber 2025: codice PAMM8A2015, Boccone Silvio, Via del Vespro 72; punto KML Boccone allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAAA85202C",
+      "schoolName": "INDUSTRIALE",
+      "order": "Scuola dell'infanzia",
+      "students": 77,
+      "classes": 4,
+      "pointId": "kml-school-128",
+      "pointAddress": "VIA S. ALBERTO DEGLI ABATI 2",
+      "institutionCode": "PAIC85200E",
+      "institutionName": "I.C. G. DI VITTORIO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
+      ],
+      "method": "PTOF ufficiale IC G. Di Vittorio: codice PAAA85202C, plesso Industriale, Via S. Alberto degli Abati, quartiere Sperone; punto KML Industriale allo stesso indirizzo, con civico 2."
+    },
+    {
+      "schoolCode": "PAAA897033",
+      "schoolName": "VIA PALADINI",
+      "order": "Scuola dell'infanzia",
+      "students": 52,
+      "classes": 3,
+      "pointId": "kml-school-240",
+      "pointAddress": "PIAZZA CELLINI BENVENUTO 4",
+      "institutionCode": "PAIC897004",
+      "institutionName": "I.C. GIULIANA SALADINO - PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+      ],
+      "method": "Dataset ufficiale USR 2021/22 e PTOF IC Giuliana Saladino: codice PAAA897033, plesso Paladini, Piazza Benvenuto Cellini 4; punto KML Paladini allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE8AM03X",
+      "schoolName": "PALAGONIA",
+      "order": "Scuola primaria",
+      "students": 69,
+      "classes": 4,
+      "pointId": "kml-school-143",
+      "pointAddress": "VIA PRINCIPE DI PALAGONIA 46",
+      "institutionCode": "PAIC8AM00Q",
+      "institutionName": "I.C. GIOTTO /CIPOLLA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
+      ],
+      "method": "Elenco Open Fiber 2025: codice PAEE8AM03X, plesso Palagonia, Via Principe di Palagonia 46; punto KML Palagonia allo stesso civico e istituzione Giotto/Cipolla."
+    },
+    {
+      "schoolCode": "PAEE8A002G",
+      "schoolName": "P.BORSELLINO",
+      "order": "Scuola primaria",
+      "students": 160,
+      "classes": 11,
+      "pointId": "kml-school-185",
+      "pointAddress": "LARGO CAMASTRA 7",
+      "institutionCode": "PAIC8A000C",
+      "institutionName": "I.C. RITA LEVI MONTALCINI -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
+      ],
+      "method": "Elenco Open Fiber 2022: codice PAEE8A002G, P. Borsellino, Largo Camastra 7; punto KML Borsellino allo stesso civico e istituzione Rita Levi Montalcini."
+    },
+    {
+      "schoolCode": "PAEE8AQ026",
+      "schoolName": "VERGA",
+      "order": "Scuola primaria",
+      "students": 68,
+      "classes": 4,
+      "pointId": "kml-school-232",
+      "pointAddress": "VIA UDITORE 21",
+      "institutionCode": "PAIC8AQ003",
+      "institutionName": "I.C. UDITORE /SETTI CARRARO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.icsuditoresetticarraro.it/wp-content/uploads/2024/12/timbro_PAIC8AQ003-202225-202425-20241227.pdf"
+      ],
+      "method": "PTOF ufficiale IC Uditore/Setti Carraro: codice PAEE8AQ026, plesso Verga, Via Uditore 21; punto KML Verga allo stesso civico."
+    },
+    {
+      "schoolCode": "PAMM85201G",
+      "schoolName": "G. DI VITTORIO",
+      "order": "Scuola secondaria di I grado",
+      "students": 215,
+      "classes": 13,
+      "pointId": "kml-school-115",
+      "pointAddress": "VIALE DI VITTORIO GIUSEPPE 11",
+      "institutionCode": "PAIC85200E",
+      "institutionName": "I.C. G. DI VITTORIO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.pa.usr.sicilia.it/attachments/article/1523/I%20grado%20HOMS02.PA.HOAZ01.pdf",
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
+        "https://www.icsdivittorio.edu.it/attachments/article/1304/PTOF_PAIC85200E-202225-202223-20230104.pdf"
+      ],
+      "method": "PTOF ufficiale IC G. Di Vittorio: codice PAMM85201G, scuola secondaria G. Di Vittorio, Via Di Vittorio 11; punto KML Di Vittorio allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAMM8AR01X",
+      "schoolName": "GIUSEPPE SCELSA",
+      "order": "Scuola secondaria di I grado",
+      "students": 261,
+      "classes": 13,
+      "pointId": "kml-school-252",
+      "pointAddress": "VIA VILLANI GIOVANNI",
+      "institutionCode": "PAIC8AR00V",
+      "institutionName": "I.C. GIUSEPPE SCELSA -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/open-data/",
+        "https://gildapalermo.it/wp-content/uploads/2025/05/Scuola-I-grado-organico-di-diritto-25-26.pdf"
+      ],
+      "method": "Organico ufficiale USR Palermo 2025/26: codice PAMM8AR01X, Giuseppe Scelsa, Via Villani 40; punto KML omonimo in Via Villani, senza civico. Corrispondenza di strada, denominazione e istituzione."
     }
   ]
 }
