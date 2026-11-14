@@ -129,3 +129,8 @@ Esito del controllo di join del registro:
 La tabella statistica della sezione scuole mostra ora anche codice, denominazione e indirizzo dell'istituzione 2026/27, oltre all'esito del collegamento. La mappa e l'elenco delle sedi espongono la verifica documentale e la relativa fonte quando disponibile.
 
 Fonte statistica: USR Sicilia, Organico di fatto 2025/26, IODL 2.0. Fonti cartografiche: Comune di Palermo, catalogo scuole 2021. Verifiche istituzionali: siti ufficiali scolastici e documentazione pubblica riportata nel crosswalk v13.
+
+
+## Raccordo documentale delle istituzioni annesse – 14 novembre 2026
+
+I sei record che non trovavano corrispondenza automatica nel registro delle istituzioni 2026/27 appartengono a due complessi scolastici: Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide. Il raccordo è stato completato sulla base delle pagine e dei documenti ufficiali dei due istituti. Per i plessi del Convitto è stato usato il codice dell'istituzione principale PAVC010006; per quelli dell'Educandato PAVE010005. I codici di plesso e i codici storici di settore restano distinti e conservati. I sei record sono marcati `ASSOCIAZIONE_DOCUMENTALE_CONFERMATA`, non come match automatici per codice esatto. Fonti: [Convitto Nazionale, iscrizioni 2026/27](https://www.convittonazionalepalermo.edu.it/avviso-iscrizioni-a-s-2026-2027/); [Educandato, PTOF 2025-2028](https://www.educandatomariadelaide.it/wp-content/uploads/2026/01/PTOF-2025-2028.pdf).
