@@ -4,10 +4,23 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 30,
-    "confirmedPhysicalPoints": 25,
+    "confirmedCodePointLinks": 31,
+    "confirmedPhysicalPoints": 26,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
-    "updated": "2026-11-14"
+    "updated": "2026-11-14",
+    "unresolvedCandidates": [
+      {
+        "pointId": "kml-school-39",
+        "pointName": "Pascoli",
+        "pointAddress": "PIAZZA ZISA 21",
+        "candidateCodes": [
+          "PAAA87702R",
+          "PAEE877022"
+        ],
+        "status": "NON_ASSOCIATO_IN_ATTESA_DI_VERIFICA",
+        "reason": "Il punto KML riporta istituzione Gabelli; i codici candidati appartengono all'IC Antonio Ugo. La corrispondenza di nome/indirizzo non basta a risolvere la co-localizzazione. Il codice PAEE8BN03A è stato rimosso perché l'USR lo colloca in Via Nettuno 6."
+      }
+    ]
   },
   "records": [
     {
@@ -502,6 +515,25 @@
         "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
       ],
       "method": "Correzione del codice precedentemente attribuito: il codice corretto è PAEE8BB03V (D.D. C. Maneri-Ingrassia), documentato da USR 2025/26 e indirizzo Via dei Picciotti 8; PAEE8BB01R è invece Plesso Passaggio, Via Passaggio dei Picciotti 5, e non appartiene a questo punto."
-    }
+    },
+    [
+      "PAAA8AS011",
+      {
+        "schoolCode": "PAAA8AS011",
+        "schoolName": "PAULSEN",
+        "order": "Scuola dell'infanzia",
+        "students": 75,
+        "classes": 3,
+        "pointId": "kml-school-253",
+        "pointAddress": "PIAZZALE CARPINO FRANCESCO CARDINALE 3",
+        "institutionCode": "PAIC8AS004",
+        "institutionName": "I.C.  MARGHERITA HACK -PA",
+        "status": "CONFERMATO_DOCUMENTALMENTE",
+        "sourceUrls": [
+          "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+        ],
+        "method": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack."
+      }
+    ]
   ]
 }
