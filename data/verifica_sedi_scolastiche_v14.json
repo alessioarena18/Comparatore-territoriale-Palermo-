@@ -72,11 +72,11 @@
       "institutionType": "ISTITUTO COMPRENSIVO",
       "institutionAddress": "VIA TEMBIEN,1",
       "status": "CONFERMATO_CON_CAMPUS_MULTIORDINE",
-      "sourceUrl": "https://www.icsbuonarroti.edu.it/struttura/sede-centrale-via-tembien/; https://www.icsbuonarroti.edu.it/luogo/viatembien/; https://www.icsbuonarroti.edu.it/wp-content/uploads/2024/09/timbro_03b_DVR-Buonarroti-L.-Bassi-rev.-03.06.2025-def-signed.pdf",
-      "note": "Campus di via Tembien 1: sede centrale di secondaria di I grado, codice PAIC87100X, e plesso di scuola dell’infanzia PAAA8AX025. Un solo punto fisico e un solo buffer di campus, non duplicare per ordine.",
-      "candidateCodes": "PAAA8AX025 | PAIC87100X",
+      "sourceUrl": "https://www.icsbuonarroti.edu.it/struttura/sede-centrale-via-tembien/; https://www.icsbuonarroti.edu.it/luogo/viatembien/; https://www.icsbuonarroti.edu.it/wp-content/uploads/2024/09/timbro_03b_DVR-Buonarroti-L.-Bassi-rev.-03.06.2025-def-signed.pdf; https://www.icsbuonarroti.edu.it/luogo/ic-buonarroti/; https://www.icsbuonarroti.edu.it/luogo/viatembien/",
+      "note": "Campus multiordine via Tembien 1: scheda ufficiale del plesso infanzia PAAA8AX025 e scheda sede centrale secondaria I grado allo stesso indirizzo. Collegamento Google Maps ufficiale: 38.1247608,13.3085383. PAIC87100X è codice istituzione, non codice specifico del plesso secondaria. Un solo buffer fisico.",
+      "candidateCodes": "PAAA8AX025; PAIC87100X (codice istituzione, non plesso)",
       "candidateOrders": "Infanzia | Secondaria I grado",
-      "bufferEligible": false
+      "bufferEligible": true
     },
     {
       "pointId": "kml-school-103",
