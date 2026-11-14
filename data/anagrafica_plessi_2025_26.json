@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 69,
+    "confirmedMapPointMatches": 92,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 46
+    "confirmedMapPoints": 66
   },
   "records": [
     {
@@ -695,11 +695,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-120",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR per infanzia e primaria: plesso Natoli in Corso dei Mille 1486; codice e indirizzo coincidono con il punto KML Natoli e l'istituzione Di Vittorio.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA85204E",
@@ -724,11 +726,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-117",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR 2021/22: codice PAAA85204E, P. Mattarella, Viale Giuseppe Di Vittorio 7; punto KML Mattarella allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA89301N",
@@ -1612,11 +1616,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-266",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26 e sito IC Mantegna-Bonanno: codice PAAA853028, plesso Bonanno; punto KML Bonanno in Via Pitrè 183, coerente con l'indirizzo del plesso e l'istituzione.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA853017",
@@ -1941,11 +1947,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-182",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR/organico e elenco dei plessi: infanzia PAAA8AY021 e primaria PAEE8AY026, Medaglie d'Oro, Via Deodato Pier Luigi 7; punto KML allo stesso civico e istituzione Montegrappa-Sanzio.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AY01X",
@@ -2887,11 +2895,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-140",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR e Open Fiber: infanzia PAAA8A2044 e primaria PAEE8A2038, plesso Via del Vespro = Rosolino Pilo, sede in Via Augusto Elia 1; punto KML Via del Vespro allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA8A2033",
@@ -3454,11 +3464,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-30",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26 per codice e istituzione; indirizzo Via Palmerino 1 confermato da elenco delle sedi e dal punto KML Centro Sociale allo stesso civico.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA8BQ01E",
@@ -4667,11 +4679,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-120",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR per infanzia e primaria: plesso Natoli in Corso dei Mille 1486; codice e indirizzo coincidono con il punto KML Natoli e l'istituzione Di Vittorio.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE89302X",
@@ -5928,11 +5942,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-182",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR/organico e elenco dei plessi: infanzia PAAA8AY021 e primaria PAEE8AY026, Medaglie d'Oro, Via Deodato Pier Luigi 7; punto KML allo stesso civico e istituzione Montegrappa-Sanzio.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE8AY037",
@@ -6131,11 +6147,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-239",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR Sicilia 2025/26: codice PAEE87202V, Ilaria Alpi, Corso dei Mille 1672; punto KML omonimo allo stesso civico.",
+      "mapMatchSourceUrl": "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
     },
     {
       "code": "PAEE87203X",
@@ -6189,11 +6207,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-79",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26 e Open Fiber: codice PAEE872063, San Ciro, Via San Ciro 48/A; punto KML San Ciro 48/A allo stesso indirizzo. La denominazione amministrativa KML Orestano è mantenuta come nota storica.",
+      "mapMatchSourceUrl": "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
     },
     {
       "code": "PAEE8AU03X",
@@ -6684,11 +6704,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-25",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documento scolastico ufficiale 2025/26: codice PAEE8BE04B, plesso Giafar, Via Emiro Giafar 17; punto KML Giafar allo stesso civico. La denominazione dell'istituzione è aggiornata rispetto al KML storico Cavallari.",
+      "mapMatchSourceUrl": "https://www.ddcavallaripalermo.edu.it/accessibile/images/2024-25/timbro_StampeClassePDF_-_Giafar_-signed-signed.pdf"
     },
     {
       "code": "PAEE8BE029",
@@ -6920,11 +6942,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-140",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR e Open Fiber: infanzia PAAA8A2044 e primaria PAEE8A2038, plesso Via del Vespro = Rosolino Pilo, sede in Via Augusto Elia 1; punto KML Via del Vespro allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAEE8BP021",
@@ -7100,11 +7124,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-207",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR Sicilia 2025/26: codice PAEE8AT023, plesso Randazzo, Via Sperone 79; punto KML Randazzo allo stesso civico.",
+      "mapMatchSourceUrl": "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
     },
     {
       "code": "PAEE8AQ015",
@@ -7423,11 +7449,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-22",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26: codice PAEE8BQ02R, Cuscinà, Via Cuscina 7; punto KML Cuscinà allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://tp.usr.sicilia.it/download/1900/14241/14244/scuola-attiva-kids_adesione-plessi_m_pi-aoodrsi-registro-ufficialee-0059365-24-11-2025.pdf"
     },
     {
       "code": "PAEE8BQ01Q",
@@ -7657,11 +7685,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-76",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC Ragusa Moleti: codice PAEE8BR03N, plesso Via Sunseri, Via Sunseri 19; punto KML Sunseri allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.ddragusamoleti.edu.it/images/allegati/24-25/FEBBR25/PAIC8BR00D-202225-202425-20241207_1.pdf"
     },
     {
       "code": "PAEE8BF014",
@@ -7862,11 +7892,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-61",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber e organico USR 2025/26: codice PAEE8BB02T, Ingrassia, Via Vincenzo Statella 21; punto KML Ingrassia allo stesso civico e istituzione Maneri-Ingrassia.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
     },
     {
       "code": "PAEE8BB01R",
@@ -7982,11 +8014,13 @@
       "extendedTimeClasses": 3,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-155",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Organico ufficiale USR Palermo 2023/24: codice PAMM87401C, Principessa Elena di Napoli, Via Ustica 46; coincidenza esatta con il punto KML Elena.",
+      "mapMatchSourceUrl": "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
     },
     {
       "code": "PAMM8AS015",
@@ -8040,11 +8074,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-63",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC Abba-Alighieri e lista Open Fiber: codice PAMM89901R, Via Ruggero Marturano 77/79; punto KML Abba-Alighieri al civico 77.",
+      "mapMatchSourceUrl": "https://www.abbaalighieri.edu.it/wp-content/uploads/PTOF-Triennio-2022-2025.pdf"
     },
     {
       "code": "PAMM8AN01L",
@@ -8711,11 +8747,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-105",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber e scheda scuola: codice PAMM8A1019, Via del Fervore 5; punto KML Via del Fervore allo stesso civico e istituzione Capuana.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
     },
     {
       "code": "PAMM8AP018",
@@ -8914,11 +8952,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-259",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Organico ufficiale USR 2025/26 e inventario patrimoniale comunale: Publio Virgilio Marone in Via Valdemone 7; codice PAMM8BM01B e punto KML coincidono.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf"
     },
     {
       "code": "PAMM87201R",
@@ -9030,11 +9070,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-119",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Organici ufficiali USR 2023/24 e 2025/26: codice PAMM855013, Guttuso Renato, Via Galletti 78; punto KML Galletti allo stesso civico.",
+      "mapMatchSourceUrl": "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
     },
     {
       "code": "PAMM8AB015",
@@ -9204,11 +9246,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-219",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Organico ufficiale USR e sito dell'IC Sferracavallo/Onorato: codice PAMM84801X, scuola secondaria Sferracavallo, Via Tacito 34; punto KML allo stesso civico.",
+      "mapMatchSourceUrl": "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
     },
     {
       "code": "PAMM8A2015",
@@ -9233,11 +9277,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-81",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco Open Fiber 2025: codice PAMM8A2015, Boccone Silvio, Via del Vespro 72; punto KML Boccone allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
     },
     {
       "code": "PAMM8BP01V",
