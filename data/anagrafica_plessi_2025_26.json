@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 42,
+    "confirmedMapPointMatches": 57,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 32
+    "confirmedMapPoints": 40
   },
   "records": [
     {
@@ -1194,11 +1194,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-110",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale IC Florio-San Lorenzo: plesso in Via San Lorenzo 89, codice infanzia PAAA8AX014; descrive nello stesso edificio 2 sezioni di infanzia al piano terra, 8 classi primarie al primo piano e 5 classi secondarie al secondo. I codici primario PAEE8AX019 e secondaria PAMM8AX018 sono collegati allo stesso punto fisico.",
+      "mapMatchSourceUrl": "https://www.icfloriosanlorenzo.edu.it/struttura/plesso-san-lorenzo-infanzia/"
     },
     {
       "code": "PAAA854046",
@@ -1399,11 +1401,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-192",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Fonti USR 2021/22 e USR 2025/26: infanzia PAAA8AD03P e primaria PAEE8AD063, entrambe in Via Mongitore 4; punto KML Nuccio allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AD05R",
@@ -2904,11 +2908,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-141",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26: codice PAAA8A2033, plesso Via Maestri del Lavoro = Rosolino Pilo; punto KML Maestri del Lavoro in Via Maestri del Lavoro 42, con istituzione/sede Rosolino Pilo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA8A2022",
@@ -2933,11 +2939,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-138",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Fonti USR 2025/26 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2022 e primaria PAEE8A2027 in Via Sebastiano La Franca 70; punto KML Rosolino Pilo allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA8BP01P",
@@ -3080,11 +3088,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-209",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR e pagina scolastica: infanzia PAAA8AT03V e primaria PAEE8AT034, entrambe in Via Felice Cavallotti 1; punto KML Pertini allo stesso civico.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AT02T",
@@ -3138,11 +3148,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-231",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale: Bernini, infanzia PAAA8AQ021 e primaria PAEE8AQ015, entrambe in Via Papaleo 8; punto KML Bernini allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AQ01X",
@@ -3167,11 +3179,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-224",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e USR: Buttitta Ignazio (infanzia PAAA8AQ01X e primaria PAEE8AQ037) in Via Cimabue 20; punto KML Uditore in Via Cimabue 20. Il codice secondaria PAMM8AQ014 è escluso perché il PTOF lo colloca in Via Tiepolo 4.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA81301R",
@@ -3720,11 +3734,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-92",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale 2022-2025: plesso Via Titone, codice PAAA8BR03C, Via Titone 45; punto KML Titone allo stesso civico.",
+      "mapMatchSourceUrl": "https://www.ddragusamoleti.edu.it/images/allegati/24-25/FEBBR25/PAIC8BR00D-202225-202425-20241207_1.pdf"
     },
     {
       "code": "PAAA8BF02X",
@@ -5134,11 +5150,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-110",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale IC Florio-San Lorenzo: plesso in Via San Lorenzo 89, codice infanzia PAAA8AX014; descrive nello stesso edificio 2 sezioni di infanzia al piano terra, 8 classi primarie al primo piano e 5 classi secondarie al secondo. I codici primario PAEE8AX019 e secondaria PAMM8AX018 sono collegati allo stesso punto fisico.",
+      "mapMatchSourceUrl": "https://www.icfloriosanlorenzo.edu.it/struttura/plesso-san-lorenzo-infanzia/"
     },
     {
       "code": "PAEE85406D",
@@ -5337,11 +5355,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-192",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Fonti USR 2021/22 e USR 2025/26: infanzia PAAA8AD03P e primaria PAEE8AD063, entrambe in Via Mongitore 4; punto KML Nuccio allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE8AD01T",
@@ -6820,11 +6840,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-138",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Fonti USR 2025/26 e sito ufficiale IC Silvio Boccone: infanzia PAAA8A2022 e primaria PAEE8A2027 in Via Sebastiano La Franca 70; punto KML Rosolino Pilo allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAEE8A2016",
@@ -6994,11 +7016,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-209",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti USR e pagina scolastica: infanzia PAAA8AT03V e primaria PAEE8AT034, entrambe in Via Felice Cavallotti 1; punto KML Pertini allo stesso civico.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE8AT012",
@@ -7081,11 +7105,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-231",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale: Bernini, infanzia PAAA8AQ021 e primaria PAEE8AQ015, entrambe in Via Papaleo 8; punto KML Bernini allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE8AQ037",
@@ -7110,11 +7136,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-224",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e USR: Buttitta Ignazio (infanzia PAAA8AQ01X e primaria PAEE8AQ037) in Via Cimabue 20; punto KML Uditore in Via Cimabue 20. Il codice secondaria PAMM8AQ014 è escluso perché il PTOF lo colloca in Via Tiepolo 4.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAEE8AQ026",
@@ -8481,11 +8509,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-110",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale IC Florio-San Lorenzo: plesso in Via San Lorenzo 89, codice infanzia PAAA8AX014; descrive nello stesso edificio 2 sezioni di infanzia al piano terra, 8 classi primarie al primo piano e 5 classi secondarie al secondo. I codici primario PAEE8AX019 e secondaria PAMM8AX018 sono collegati allo stesso punto fisico.",
+      "mapMatchSourceUrl": "https://www.icfloriosanlorenzo.edu.it/struttura/plesso-san-lorenzo-infanzia/"
     },
     {
       "code": "PAMM854017",
