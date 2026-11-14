@@ -158,3 +158,8 @@ Fonti: [Carta dei Servizi Educativi del Comune di Palermo, agosto 2024](https://
 ## Integrazione della rete scolastica con i filtri territoriali – 14 novembre 2026
 
 La pagina Servizi e dotazioni urbane include un riepilogo dinamico della rete scolastica che risponde alla selezione territoriale condivisa: circoscrizione, quartiere, UPL/ASC3 e sezione censuaria. Il conteggio distingue i punti cartografici totali dai punti per cui è documentato almeno un ordine scolastico; il dettaglio per ordine è una presenza di servizi e può sovrapporsi nello stesso edificio. Non viene presentato come numero di istituzioni né come numero di alunni. È stato inoltre corretto il filtro spaziale ASC2 (quartiere) nella mappa scolastica, che prima non applicava quel livello geografico. Il punto Nazario Sauro non verificato resta senza ordine attribuito.
+
+
+## Controllo di qualità del collegamento statistico-cartografico – 14 novembre 2026
+
+Un controllo incrociato ha individuato quattro associazioni erronee tra record USR 2025/26 e punti KML: Liceo Galilei ↔ Gabelli, Liceo Garibaldi ↔ Garzilli, Liceo Danilo Dolci ↔ Maredolce e Liceo Vittorio Emanuele II ↔ punto Vittorio Emanuele/Capitano Basile. I codici erano presenti come candidati storici nel crosswalk, ma non identificano i plessi fisici rappresentati dai punti. I quattro `mapPointId` sono stati azzerati e marcati `NON_ASSOCIATO_CON_CERTEZZA`, con motivazione puntuale. Non viene quindi presentato alcun join statistico-cartografico come certo finché il codice del singolo plesso non è documentato. Il dato statistico 2025/26 resta consultabile per codice meccanografico, separato dal catalogo cartografico comunale 2021.
