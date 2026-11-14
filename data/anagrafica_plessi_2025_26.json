@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 30,
+    "confirmedMapPointMatches": 42,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 25
+    "confirmedMapPoints": 32
   },
   "records": [
     {
@@ -335,11 +335,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-62",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8BN024",
@@ -364,11 +366,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-65",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8BN035",
@@ -393,11 +397,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-54",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN035 (infanzia) e PAEE8BN04B (primaria), Rosario Gregorio, Via Euridice 24; punto KML R. Gregorio allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8BN046",
@@ -422,11 +428,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-32",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN046 (infanzia) e PAEE8BN018 (primaria), Santocanale, Via Santocanale 23/B; punto KML allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8AA026",
@@ -1832,11 +1840,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-253",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA87101R",
@@ -3039,11 +3049,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-204",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR 2021/22: codice PAAA8AT01R, Antonino Agostino, Via Sacco e Vanzetti 42; punto KML Agostino allo stesso indirizzo e istituzione Sperone-Pertini.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AT03V",
@@ -3677,11 +3689,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-69",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e documenti USR: codice PAAA8BR01A (infanzia) e PAEE8BR01G (primaria), sede Ragusa Moleti in Via Ragusa Moleti 8; punto KML omonimo allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8BR03C",
@@ -4263,11 +4277,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-65",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAEE8BN029",
@@ -4292,11 +4308,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-62",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAEE8BN04B",
@@ -4321,11 +4339,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-54",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN035 (infanzia) e PAEE8BN04B (primaria), Rosario Gregorio, Via Euridice 24; punto KML R. Gregorio allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAEE8BN018",
@@ -4350,11 +4370,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-32",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Documenti ufficiali USR 2025/26: codici PAAA8BN046 (infanzia) e PAEE8BN018 (primaria), Santocanale, Via Santocanale 23/B; punto KML allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAEE8AA03C",
@@ -7523,11 +7545,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-69",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e documenti USR: codice PAAA8BR01A (infanzia) e PAEE8BR01G (primaria), sede Ragusa Moleti in Via Ragusa Moleti 8; punto KML omonimo allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAEE8BR02L",
