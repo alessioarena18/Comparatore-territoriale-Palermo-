@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "title": "Crosswalk tra plessi statistici USR e punti scolastici comunali",
+    "year": "2025/2026",
+    "scope": "Comune di Palermo",
+    "registryRecords": 401,
+    "confirmedCodePointLinks": 14,
+    "confirmedPhysicalPoints": 11,
+    "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonte ufficiale; nessuna propagazione dal codice dell'istituzione ai suoi plessi. Le sedi con civico discordante o identificazione non univoca restano non associate.",
+    "updated": "2026-11-14"
+  },
+  "records": [
+    {
+      "schoolCode": "PAAA85602Q",
+      "schoolName": "PLESSO CASTELLANA",
+      "order": "Scuola dell'infanzia",
+      "students": 65,
+      "classes": 3,
+      "pointId": "kml-school-107",
+      "pointAddress": "VIA CASTELLANA 85",
+      "institutionCode": "PAIC85600T",
+      "institutionName": "I.C. BOCCADIFALCO/TOMASI DI L.",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icboccadifalcotomasidilampedusa.edu.it/"
+      ],
+      "method": "Sito ufficiale dell'istituto: codice meccanografico PAAA85602Q e indirizzo Via Castellana 85, coincidenti con il punto KML comunale."
+    },
+    {
+      "schoolCode": "PAAA8AA037",
+      "schoolName": "PLESSO V. VITALI",
+      "order": "Scuola dell'infanzia",
+      "students": 35,
+      "classes": 2,
+      "pointId": "kml-school-156",
+      "pointAddress": "VIA INSERRA 1",
+      "institutionCode": "PAIC8AA008",
+      "institutionName": "I.C. CRUILLAS -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
+        "https://www.iccruillas.edu.it/"
+      ],
+      "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAEE8AA01A",
+      "schoolName": "PLESSO VITALI V.",
+      "order": "Scuola primaria",
+      "students": 109,
+      "classes": 7,
+      "pointId": "kml-school-156",
+      "pointAddress": "VIA INSERRA 1",
+      "institutionCode": "PAIC8AA008",
+      "institutionName": "I.C. CRUILLAS -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
+        "https://www.iccruillas.edu.it/"
+      ],
+      "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA87102T",
+      "schoolName": "SC.MATERNA VIA CASTELLANA",
+      "order": "Scuola dell'infanzia",
+      "students": 101,
+      "classes": 5,
+      "pointId": "kml-school-91",
+      "pointAddress": "VIA CASTELLANA 40",
+      "institutionCode": "PAIC87100X",
+      "institutionName": "I.C. MICHELANGELO BUONARROTI-PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
+      ],
+      "method": "Record USR 2025/26 con codice e denominazione del plesso; punto KML comunale con denominazione Castellana e indirizzo Via Castellana 40. Codice attribuito al plesso infantile Buonarroti, non al vicino Castellana 85 del diverso istituto."
+    },
+    {
+      "schoolCode": "PAEE8BT01L",
+      "schoolName": "D.D. A. DE GASPERI- PA",
+      "order": "Scuola primaria",
+      "students": 436,
+      "classes": 21,
+      "pointId": "kml-school-23",
+      "pointAddress": "PIAZZA PAPA GIOVANNI PAOLO II 24",
+      "institutionCode": "PAIC8BT00E",
+      "institutionName": "I.C. DE GASPERI-PECORARO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/",
+        "https://www.icsdegasperipecoraro.edu.it/luogo/"
+      ],
+      "method": "Sito ufficiale dell'istituto: codice PAEE8BT01L per la primaria De Gasperi; sede centrale in Piazza Papa Giovanni Paolo II 24, coincidente con il punto KML. Non viene attribuito il codice infanzia, che l'istituto colloca in Via Croce Rossa 129."
+    },
+    {
+      "schoolCode": "PAAA8BT02C",
+      "schoolName": "C. COLLODI",
+      "order": "Scuola dell'infanzia",
+      "students": 65,
+      "classes": 3,
+      "pointId": "kml-school-26",
+      "pointAddress": "VIA BRIUCCIA 89",
+      "institutionCode": "PAIC8BT00E",
+      "institutionName": "I.C. DE GASPERI-PECORARO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
+      ],
+      "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale."
+    },
+    {
+      "schoolCode": "PAEE8BT02N",
+      "schoolName": "C.COLLODI",
+      "order": "Scuola primaria",
+      "students": 197,
+      "classes": 10,
+      "pointId": "kml-school-26",
+      "pointAddress": "VIA BRIUCCIA 89",
+      "institutionCode": "PAIC8BT00E",
+      "institutionName": "I.C. DE GASPERI-PECORARO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
+      ],
+      "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale."
+    },
+    {
+      "schoolCode": "PAAA8AL01R",
+      "schoolName": "TRIESTE",
+      "order": "Scuola dell'infanzia",
+      "students": 76,
+      "classes": 3,
+      "pointId": "kml-school-114",
+      "pointAddress": "VIA SAMPOLO 63",
+      "institutionCode": "PAIC8AL00X",
+      "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+      ],
+      "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAEE8AL012",
+      "schoolName": "I.C. GIOV. XXIII/PIAZZI-TRIESTE",
+      "order": "Scuola primaria",
+      "students": 574,
+      "classes": 29,
+      "pointId": "kml-school-114",
+      "pointAddress": "VIA SAMPOLO 63",
+      "institutionCode": "PAIC8AL00X",
+      "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+      ],
+      "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA897011",
+      "schoolName": "VIVALDI ANTONIO",
+      "order": "Scuola dell'infanzia",
+      "students": 53,
+      "classes": 3,
+      "pointId": "kml-school-241",
+      "pointAddress": "VIA CAMMARANO GIUSEPPE 20 B",
+      "institutionCode": "PAIC897004",
+      "institutionName": "I.C. GIULIANA SALADINO - PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+      ],
+      "method": "PTOF ufficiale: plesso Vivaldi Antonio, codice PAAA897011, Via G. Cammarano 20. Punto KML Via Cammarano 20 B; coincidenza di strada e civico con suffisso da verificare."
+    },
+    {
+      "schoolCode": "PAAA8AV01C",
+      "schoolName": "S.P.S. E I. GUGLIELMO OBERDAN",
+      "order": "Scuola dell'infanzia",
+      "students": 110,
+      "classes": 5,
+      "pointId": "kml-school-170",
+      "pointAddress": "VIA SPICA PIETRO 5",
+      "institutionCode": "PAIC8AV00G",
+      "institutionName": "I.C. MAREDOLCE - PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
+      ],
+      "method": "PTOF ufficiale dell'IC Maredolce: plesso Oberdan, codice PAAA8AV01C, Via Pietro Spica 5, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA8AY032",
+      "schoolName": "PLESSO MONTEGRAPPA",
+      "order": "Scuola dell'infanzia",
+      "students": 85,
+      "classes": 6,
+      "pointId": "kml-school-180",
+      "pointAddress": "VIA ROCCELLA GUSTAVO 37",
+      "institutionCode": "PAIC8AY003",
+      "institutionName": "I.C. MONTEGRAPPA /R. SANZIO-PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "Dataset ufficiale USR Sicilia: codice PAAA8AY032, plesso Montegrappa, Via Roccella 37, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA8BM028",
+      "schoolName": "TRINACRIA = GARZILLI",
+      "order": "Scuola dell'infanzia",
+      "students": 113,
+      "classes": 5,
+      "pointId": "kml-school-42",
+      "pointAddress": "VIA TRINACRIA 1",
+      "institutionCode": "PAIC8BM00A",
+      "institutionName": "I.C. P VIRGILIO MARONE TOMASELL",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM028, Trinacria = Garzilli, Via Trinacria 1, coincidente con il punto KML."
+    },
+    {
+      "schoolCode": "PAAA8BM017",
+      "schoolName": "VIA ABRUZZI = TOMASELLI",
+      "order": "Scuola dell'infanzia",
+      "students": 79,
+      "classes": 4,
+      "pointId": "kml-school-88",
+      "pointAddress": "VIA ABRUZZI 2",
+      "institutionCode": "PAIC8BM00A",
+      "institutionName": "I.C. P VIRGILIO MARONE TOMASELL",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM017, Via Abruzzi = Tomaselli, Via Abruzzi 2, coincidente con il punto KML."
+    }
+  ]
+}
