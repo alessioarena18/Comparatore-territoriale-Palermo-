@@ -10,7 +10,7 @@
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 112
+    "verified_registry_code_links": 113
   },
   "records": [
     {
@@ -3022,6 +3022,26 @@
       "source_year": "2025/2026",
       "method": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo.",
       "confidence": "codici meccanografici, ordini e sede verificati in fonti ufficiali"
+    },
+    {
+      "point_id": "kml-school-220",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Sferracavallo",
+      "address": "VIA SFERRACAVALLO 132",
+      "school_codes": [
+        "PAAA84802R"
+      ],
+      "school_names": [
+        "DON MILANI = SFERRACAVALLO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA84802R, plesso Don Milani, Via Sferracavallo 132; il punto KML Don Milani riporta lo stesso civico. Non è stato associato il codice della primaria PAEE848011, per il quale le fonti consultate riportano un indirizzo discordante (122/132).",
+      "confidence": "codice di plesso e indirizzo corrispondenti in elenco USR e punto cartografico comunale"
     }
   ]
 }
