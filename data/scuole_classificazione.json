@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 107,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito.",
+    "classified_records": 113,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -2116,6 +2116,120 @@
       "source_year": "2025/2026",
       "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
       "confidence": "il Comune identifica Cavallari come scuola primaria in Corso dei Mille 793"
+    },
+    {
+      "point_id": "kml-school-191",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Russo",
+      "address": "LARGO GIBILMANNA 10",
+      "school_codes": [],
+      "school_names": [
+        "MARITAIN"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "la Carta dei Servizi identifica il plesso Maritain come scuola dell'infanzia statale in Largo Gibilmanna 10"
+    },
+    {
+      "point_id": "kml-school-23",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "De Gasperi",
+      "address": "PIAZZA PAPA GIOVANNI PAOLO II 24",
+      "school_codes": [],
+      "school_names": [
+        "DE GASPERI"
+      ],
+      "source_urls": [
+        "https://www.icsdegasperipecoraro.edu.it/fdsfdsfdsfds/",
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con il sito ufficiale dell'istituto e la Carta dei Servizi Educativi comunale",
+      "confidence": "le fonti identificano il plesso De Gasperi all'indirizzo indicato e documentano la presenza di scuola dell'infanzia e primaria"
+    },
+    {
+      "point_id": "kml-school-155",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Elena",
+      "address": "VIA USTICA 46",
+      "school_codes": [
+        "PAMM87401C"
+      ],
+      "school_names": [
+        "PRINCIPESSA ELENA DI NAPOLI"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di indirizzo con la sede ufficiale e codice meccanografico USR della scuola secondaria di I grado",
+      "confidence": "il Comune e l'USR identificano Principessa Elena di Napoli come scuola secondaria di I grado in Via Ustica 46"
+    },
+    {
+      "point_id": "kml-school-40",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Garzilli",
+      "address": "VIA ISONZO 7",
+      "school_codes": [],
+      "school_names": [
+        "GARZILLI"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Garzilli come scuola primaria in Via Isonzo 7"
+    },
+    {
+      "point_id": "kml-school-216",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Padre Puglisi",
+      "address": "VIA CASSARO 2",
+      "school_codes": [],
+      "school_names": [
+        "NINO BIXIO 1"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.comune.palermo.it/wp-content/uploads/2025/10/7bb2ae67-4cfe-4de5-9486-28e6e2e9baa5.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza del plesso Nino Bixio 1 e dell'indirizzo con le fonti ufficiali comunali",
+      "confidence": "il Comune identifica la scuola primaria Bixio in Via Cassaro Bonanno 2 e il plesso Nino Bixio 1 allo stesso civico"
+    },
+    {
+      "point_id": "kml-school-78",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Orestano",
+      "address": "VIA S. CIRO 48",
+      "school_codes": [],
+      "school_names": [
+        "ORESTANO - PLESSO SAN CIRO"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione del plesso e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica il plesso San Ciro dell'Orestano come scuola primaria in Via San Ciro 48"
     }
   ]
 }
