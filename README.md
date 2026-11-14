@@ -163,3 +163,6 @@ La pagina Servizi e dotazioni urbane include un riepilogo dinamico della rete sc
 ## Controllo di qualità del collegamento statistico-cartografico – 14 novembre 2026
 
 Un controllo incrociato ha individuato quattro associazioni erronee tra record USR 2025/26 e punti KML: Liceo Galilei ↔ Gabelli, Liceo Garibaldi ↔ Garzilli, Liceo Danilo Dolci ↔ Maredolce e Liceo Vittorio Emanuele II ↔ punto Vittorio Emanuele/Capitano Basile. I codici erano presenti come candidati storici nel crosswalk, ma non identificano i plessi fisici rappresentati dai punti. I quattro `mapPointId` sono stati azzerati e marcati `NON_ASSOCIATO_CON_CERTEZZA`, con motivazione puntuale. Non viene quindi presentato alcun join statistico-cartografico come certo finché il codice del singolo plesso non è documentato. Il dato statistico 2025/26 resta consultabile per codice meccanografico, separato dal catalogo cartografico comunale 2021.
+
+
+**Limite esplicito dell'integrazione statistico-cartografica:** i 401 record USR 2025/26 non sono ancora associati in modo univoco ai 271 punti comunali 2021. Per questo motivo l'applicazione mostra la rete fisica georeferenziata e il registro statistico in pannelli distinti; non attribuisce conteggi di alunni o classi a quartieri, UPL o sezioni censuarie sulla base di corrispondenze nominali o istituzionali non dimostrate.
