@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 108,
-    "confirmedPhysicalPoints": 79,
+    "confirmedCodePointLinks": 112,
+    "confirmedPhysicalPoints": 80,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -188,8 +188,8 @@
       "institutionName": "I.C. CRUILLAS -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
-        "https://www.iccruillas.edu.it/"
+        "https://www.iccruillas.edu.it/",
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
       ],
       "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML.",
       "pointIds": [
@@ -208,8 +208,8 @@
       "institutionName": "I.C. CRUILLAS -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
-        "https://www.iccruillas.edu.it/"
+        "https://www.iccruillas.edu.it/",
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
       ],
       "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML.",
       "pointIds": [
@@ -228,8 +228,8 @@
       "institutionName": "I.C. MICHELANGELO BUONARROTI-PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
       ],
       "method": "Record USR 2025/26 con codice e denominazione del plesso; punto KML comunale con denominazione Castellana e indirizzo Via Castellana 40. Codice attribuito al plesso infantile Buonarroti, non al vicino Castellana 85 del diverso istituto.",
       "pointIds": [
@@ -248,9 +248,9 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/la-storia/",
         "https://www.icsdegasperipecoraro.edu.it/fdsfdsfdsfds/",
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/",
         "https://www.icsdegasperipecoraro.edu.it/luogo/"
       ],
       "method": "Sito ufficiale dell'istituto: codice PAEE8BT01L per la primaria De Gasperi; sede centrale in Piazza Papa Giovanni Paolo II 24, coincidente con il punto KML. Non viene attribuito il codice infanzia, che l'istituto colloca in Via Croce Rossa 129.",
@@ -270,8 +270,8 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
         "https://www.icsdegasperipecoraro.edu.it/la-storia/"
       ],
       "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale.",
@@ -291,8 +291,8 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
         "https://www.icsdegasperipecoraro.edu.it/la-storia/"
       ],
       "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale.",
@@ -312,8 +312,8 @@
       "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
         "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
       ],
       "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML.",
@@ -333,8 +333,8 @@
       "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
         "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
       ],
       "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML.",
@@ -373,8 +373,8 @@
       "institutionName": "I.C. MAREDOLCE - PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
       ],
       "method": "PTOF ufficiale dell'IC Maredolce: plesso Oberdan, codice PAAA8AV01C, Via Pietro Spica 5, coincidente con il punto KML.",
       "pointIds": [
@@ -393,8 +393,8 @@
       "institutionName": "I.C. MONTEGRAPPA /R. SANZIO-PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "Dataset ufficiale USR Sicilia: codice PAAA8AY032, plesso Montegrappa, Via Roccella 37, coincidente con il punto KML.",
       "pointIds": [
@@ -413,8 +413,8 @@
       "institutionName": "I.C. P VIRGILIO MARONE TOMASELL",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM028, Trinacria = Garzilli, Via Trinacria 1, coincidente con il punto KML.",
       "pointIds": [
@@ -433,9 +433,9 @@
       "institutionName": "I.C. P VIRGILIO MARONE TOMASELL",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
-        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf"
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM017, Via Abruzzi = Tomaselli, Via Abruzzi 2, coincidente con il punto KML.",
       "pointIds": [
@@ -512,8 +512,8 @@
       "institutionName": "IC DE AMICIS - DA VINCI",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icdeamicisdavinci.edu.it/images/allegati/A.S._25.26/PTOF_/PAIC8BF002-202528-202526-20260111_compressed.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icdeamicisdavinci.edu.it/images/allegati/A.S._25.26/PTOF_/PAIC8BF002-202528-202526-20260111_compressed.pdf"
       ],
       "method": "PTOF ufficiale 2025-2028: plesso De Amicis, codice PAAA8BF01V, Via Nazario Sauro 11; coincidenza esatta con il punto KML Nazario Sauro in Via Sauro Nazario 11.",
       "pointIds": [
@@ -532,8 +532,8 @@
       "institutionName": "I.C.  MARGHERITA HACK -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "Dataset ufficiale USR 2021/22: codice PAAA8AS033, Capitano Basile, Via Capitano Basile 54; indirizzo e codice coincidono con il punto KML.",
       "pointIds": [
@@ -552,8 +552,8 @@
       "institutionName": "I.C. MAREDOLCE - PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
         "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML.",
@@ -573,8 +573,8 @@
       "institutionName": "I.C. MAREDOLCE - PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
         "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML.",
@@ -613,8 +613,8 @@
       "institutionName": "I.C. G.A.COLOZZA /BONFIGLIO-PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA85101G, Scipione Di Castro; punto KML omonimo in Via Di Castro Scipione 22 e istituzione Colozza/Bonfiglio coerente.",
       "pointIds": [
@@ -633,8 +633,8 @@
       "institutionName": "I.C. ABBA /ALIGHIERI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
-        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf"
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
       ],
       "method": "Dataset ufficiale USR Sicilia 2025/26: codice PAAA89901L, Via Calcedonio 1; il punto KML Abba-Alighieri è geolocalizzato in Via Giordano Calcedonio 1.",
       "pointIds": [
@@ -653,8 +653,8 @@
       "institutionName": "I.C. PESTALOZZI/CAVOUR-PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "Dataset ufficiale USR: codice PAAA8AU01L, Marinella Bragaglia; il punto KML omonimo riporta Via Bragaglia Marinella 23, stessa sede e istituzione Pestalozzi/Cavour.",
       "pointIds": [
@@ -673,8 +673,8 @@
       "institutionName": "I.C. PESTALOZZI/CAVOUR-PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2022_23/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni.pdf",
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2022_23/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni.pdf"
       ],
       "method": "Dataset ufficiale USR 2022/23: codice PAAA8AU03P, Vittorino da Feltre; punto KML omonimo in Corso Calatafimi 1035 e istituzione Pestalozzi/Cavour coerente.",
       "pointIds": [
@@ -693,8 +693,8 @@
       "institutionName": "I.C. SARA CAMPANELLA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
         "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
       ],
       "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente.",
@@ -714,8 +714,8 @@
       "institutionName": "I.C. SARA CAMPANELLA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
         "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
       ],
       "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente.",
@@ -754,9 +754,9 @@
       "institutionName": "MANERI INGRASSIA-DON MILANI",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
         "https://docs.comune.palermo.it/wp-content/uploads/2025/10/7bb2ae67-4cfe-4de5-9486-28e6e2e9baa5.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
         "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
       ],
       "method": "Correzione del codice precedentemente attribuito: il codice corretto è PAEE8BB03V (D.D. C. Maneri-Ingrassia), documentato da USR 2025/26 e indirizzo Via dei Picciotti 8; PAEE8BB01R è invece Plesso Passaggio, Via Passaggio dei Picciotti 5, e non appartiene a questo punto.",
@@ -776,8 +776,8 @@
       "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo.",
@@ -797,8 +797,8 @@
       "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21.",
@@ -858,8 +858,8 @@
       "institutionName": "I.C.  MARGHERITA HACK -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack.",
       "pointIds": [
@@ -878,8 +878,8 @@
       "institutionName": "I.C. SPERONE / PERTINI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
       "method": "Dataset ufficiale USR 2021/22: codice PAAA8AT01R, Antonino Agostino, Via Sacco e Vanzetti 42; punto KML Agostino allo stesso indirizzo e istituzione Sperone-Pertini.",
       "pointIds": [
@@ -919,8 +919,8 @@
       "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21.",
@@ -940,8 +940,8 @@
       "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
         "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo.",
@@ -2304,10 +2304,10 @@
         "kml-school-214",
         "kml-school-215"
       ],
-      "pointAddress": "PIAZZA GRAN CANCELLIERE 1 | PIAZZA GRAN CANCELLIERE 1",
+      "pointAddress": "PIAZZA GRAN CANCELLIERE 1",
       "institutionCode": "PAIC8AB004",
       "institutionName": "I.C. RITA ATRIA -PA",
-      "status": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
         "https://www.usr.sicilia.it/open-data/",
         "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
@@ -2345,10 +2345,10 @@
         "kml-school-214",
         "kml-school-215"
       ],
-      "pointAddress": "PIAZZA GRAN CANCELLIERE 1 | PIAZZA GRAN CANCELLIERE 1",
+      "pointAddress": "PIAZZA GRAN CANCELLIERE 1",
       "institutionCode": "PAIC8AB004",
       "institutionName": "I.C. RITA ATRIA -PA",
-      "status": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
         "https://www.usr.sicilia.it/open-data/",
         "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
@@ -2374,6 +2374,74 @@
         "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
       ],
       "method": "PTOF IC Rita Atria: infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; punto KML Valverde geolocalizzato sulla stessa via senza civico. Collegamento a livello di campus, non di singolo ingresso."
+    },
+    {
+      "schoolCode": "PAAA8AA015",
+      "schoolName": "PLESSO SALERNO",
+      "order": "Scuola dell'infanzia",
+      "students": 130,
+      "classes": 7,
+      "pointId": "kml-school-142",
+      "pointAddress": "VIA SALERNO 19",
+      "institutionCode": "PAIC8AA008",
+      "institutionName": "I.C. CRUILLAS -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
+        "https://www.iccruillas.edu.it/"
+      ],
+      "method": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAAA89302P",
+      "schoolName": "VIA ISONZO= GARZILLI",
+      "order": "Scuola dell'infanzia",
+      "students": 106,
+      "classes": 5,
+      "pointId": "kml-school-40",
+      "pointAddress": "VIA ISONZO 7",
+      "institutionCode": "PAIC89300R",
+      "institutionName": "I.C. G. MARCONI-GARZILLI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.cdgarzilli.edu.it/"
+      ],
+      "method": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria."
+    },
+    {
+      "schoolCode": "PAEE8AA03C",
+      "schoolName": "I.C. CRUILLAS- PLESSO SALERNO",
+      "order": "Scuola primaria",
+      "students": 263,
+      "classes": 14,
+      "pointId": "kml-school-142",
+      "pointAddress": "VIA SALERNO 19",
+      "institutionCode": "PAIC8AA008",
+      "institutionName": "I.C. CRUILLAS -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
+        "https://www.iccruillas.edu.it/"
+      ],
+      "method": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE89302X",
+      "schoolName": "D.D. N. GARZILLI - PA",
+      "order": "Scuola primaria",
+      "students": 377,
+      "classes": 20,
+      "pointId": "kml-school-40",
+      "pointAddress": "VIA ISONZO 7",
+      "institutionCode": "PAIC89300R",
+      "institutionName": "I.C. G. MARCONI-GARZILLI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.cdgarzilli.edu.it/"
+      ],
+      "method": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria."
     }
   ]
 }
