@@ -203,3 +203,8 @@ Sono stati aggiunti i collegamenti di infanzia e primaria per Riso (Via Mondello
 Sono stati aggiunti i plessi Nuccio (infanzia e primaria, Via Mongitore 4), Pertini (infanzia e primaria, Via Felice Cavallotti 1), Buttitta (infanzia e primaria, Via Cimabue 20), Bernini (infanzia e primaria, Via Papaleo 8), Titone (infanzia, Via Titone 45), San Lorenzo (infanzia, primaria e secondaria, Via San Lorenzo 89), Rosolino Pilo (infanzia e primaria, Via Sebastiano La Franca 70) e Via Maestri del Lavoro/Rosolino Pilo (infanzia, Via Maestri del Lavoro 42).
 
 Il PTOF ufficiale dell'IC Uditore/Setti Carraro distingue la sede secondaria Setti Carraro in Via Tiepolo 4 dalla sede Buttitta in Via Cimabue 20; pertanto il codice PAMM8AQ014 non è stato associato al punto cartografico di Via Cimabue 20. La scuola secondaria è mantenuta separata dalla sede di infanzia e primaria.
+
+
+## Quinto lotto di raccordi documentali – 14 novembre 2026
+
+Sono stati aggiunti i collegamenti per Oreto (infanzia e primaria, Via Oreto 106), Nicolò Turrisi (infanzia e primaria, Piazza Vittorio Emanuele Orlando 3), A. Sole (infanzia e primaria, Via Molara 30), Via Villagrazia (infanzia e primaria, Via Villagrazia 298), A.U. Cagni (infanzia e primaria, Via Cagni 40/42) e D'Angelo (infanzia e primaria, Via San Lorenzo 295). Per i primi quattro plessi sono stati utilizzati elenchi Open Fiber, documenti di trasparenza dell'istituto o pagine istituzionali; per Cagni è stata integrata la Carta dei Servizi comunale.
