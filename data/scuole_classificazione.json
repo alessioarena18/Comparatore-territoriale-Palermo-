@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 80,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata.",
+    "classified_records": 88,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -1620,6 +1620,152 @@
       "source_year": "2025",
       "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
       "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-156",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Cruillas",
+      "address": "VIA INSERRA 1",
+      "school_codes": [],
+      "school_names": [
+        "VITALI"
+      ],
+      "source_urls": [
+        "https://www.iccruillas.edu.it/"
+      ],
+      "source_year": "2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con il sito ufficiale dell'istituto",
+      "confidence": "sito ufficiale indica scuola dell'infanzia e primaria in Via Inserra 1"
+    },
+    {
+      "point_id": "kml-school-169",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Cruillas",
+      "address": "VIA CRUILLAS 2",
+      "school_codes": [],
+      "school_names": [
+        "ROSMINI"
+      ],
+      "source_urls": [
+        "https://www.iccruillas.edu.it/"
+      ],
+      "source_year": "2026",
+      "method": "Corrispondenza di denominazione e indirizzo con il sito ufficiale dell'istituto",
+      "confidence": "sito ufficiale indica scuola dell'infanzia e primaria in Via Cruillas 2C; civico cartografico 2"
+    },
+    {
+      "point_id": "kml-school-31",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Monti Iblei",
+      "address": "VIA MONTI IBLEI 49",
+      "school_codes": [],
+      "school_names": [
+        "MALAGUZZI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola dell'infanzia in Via Monti Iblei 49/53"
+    },
+    {
+      "point_id": "kml-school-27",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Monti Iblei",
+      "address": "VIA SARDEGNA 55",
+      "school_codes": [],
+      "school_names": [
+        "GANDHI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola dell'infanzia Gandhi in Via Sardegna 55"
+    },
+    {
+      "point_id": "kml-school-94",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Tomaselli",
+      "address": "VIA DAIDONE 24",
+      "school_codes": [],
+      "school_names": [
+        "U. GIORDANO"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola dell'infanzia U. Giordano in Via Daidone 24"
+    },
+    {
+      "point_id": "kml-school-42",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Garzilli",
+      "address": "VIA TRINACRIA 1",
+      "school_codes": [],
+      "school_names": [
+        "TRINACRIA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola dell'infanzia Trinacria in Via Trinacria 1"
+    },
+    {
+      "point_id": "kml-school-130",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Falcone Zen 2",
+      "address": "VIA MARCHESE NICOLO' PENSABENE 28",
+      "school_codes": [],
+      "school_names": [
+        "EX SCIASCIA"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola primaria Ex Sciascia al civico 28"
+    },
+    {
+      "point_id": "kml-school-170",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Mare Dolce ex Quasimodo-Oberdan",
+      "address": "VIA SPICA PIETRO 5",
+      "school_codes": [],
+      "school_names": [
+        "OBERDAN"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+      ],
+      "source_year": "2025",
+      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
+      "confidence": "fonte comunale indica scuola dell'infanzia Oberdan in Via Pietro Spica 5"
     }
   ]
 }
