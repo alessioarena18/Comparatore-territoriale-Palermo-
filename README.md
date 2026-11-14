@@ -110,3 +110,22 @@ Nel modulo Cartografia GIS è disponibile un controllo preliminare nel browser:
 Il file viene elaborato localmente nel browser: non viene caricato su GitHub e non resta disponibile dopo il ricaricamento della pagina. I file da sottoporre al controllo devono essere ritagliati sull'area di Palermo ed esportati da QGIS in WGS 84 (EPSG:4326).
 
 **Limiti:** il controllo delle coordinate non trasforma né certifica il sistema di riferimento. Non sostituisce la validazione topologica GIS, la verifica di autointersezioni e sovrapposizioni, la corrispondenza dei codici ISTAT, la verifica della copertura e la validazione della fonte. Un layer visualizzato è quindi solo ispezionabile, non automaticamente certificato o utilizzabile per calcoli statistici.
+
+
+## Aggiornamento anagrafica scolastica – 14 novembre 2026
+
+La sezione **Servizi e dotazioni** integra ora due archivi aggiuntivi:
+
+- `data/anagrafica_plessi_2025_26.json`: 401 record, uno per codice meccanografico di plesso, con ordine scolastico, denominazione, consistenza alunni/classi e collegamento al registro delle istituzioni 2026/27 effettuato esclusivamente per codice istituzione esatto.
+- `data/verifica_sedi_scolastiche_v13.json`: crosswalk documentale delle 73 sedi comunali incluse nella verifica v13, con istituzione candidata corretta, stato della verifica, fonte ufficiale e nota istruttoria.
+
+I dati statistici USR e i punti cartografici comunali restano distinti. La verifica dell'istituzione non viene utilizzata per attribuire automaticamente tutti gli ordini scolastici al singolo edificio. I codici di plesso e quelli di istituzione sono campi separati.
+
+Esito del controllo di join del registro:
+- 401 codici di plesso distinti;
+- 395 record con codice istituzione coincidente nel registro 2026/27;
+- 6 record mantenuti e segnalati per riallineamento.
+
+La tabella statistica della sezione scuole mostra ora anche codice, denominazione e indirizzo dell'istituzione 2026/27, oltre all'esito del collegamento. La mappa e l'elenco delle sedi espongono la verifica documentale e la relativa fonte quando disponibile.
+
+Fonte statistica: USR Sicilia, Organico di fatto 2025/26, IODL 2.0. Fonti cartografiche: Comune di Palermo, catalogo scuole 2021. Verifiche istituzionali: siti ufficiali scolastici e documentazione pubblica riportata nel crosswalk v13.
