@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 31,
-    "confirmedPhysicalPoints": 26,
+    "confirmedCodePointLinks": 42,
+    "confirmedPhysicalPoints": 32,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -51,8 +51,7 @@
       "institutionName": "I.C. CRUILLAS -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
-        "https://www.iccruillas.edu.it/"
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
       ],
       "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML."
     },
@@ -68,8 +67,7 @@
       "institutionName": "I.C. CRUILLAS -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf",
-        "https://www.iccruillas.edu.it/"
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
       ],
       "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML."
     },
@@ -101,8 +99,7 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/la-storia/",
-        "https://www.icsdegasperipecoraro.edu.it/luogo/"
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
       ],
       "method": "Sito ufficiale dell'istituto: codice PAEE8BT01L per la primaria De Gasperi; sede centrale in Piazza Papa Giovanni Paolo II 24, coincidente con il punto KML. Non viene attribuito il codice infanzia, che l'istituto colloca in Via Croce Rossa 129."
     },
@@ -118,8 +115,7 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
-        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/"
       ],
       "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale."
     },
@@ -135,8 +131,7 @@
       "institutionName": "I.C. DE GASPERI-PECORARO",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
-        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/"
       ],
       "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale."
     },
@@ -152,8 +147,7 @@
       "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
-        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/"
       ],
       "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML."
     },
@@ -169,8 +163,7 @@
       "institutionName": "I.C. GIOVANNI XXIII /PIAZZI -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
-        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/"
       ],
       "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML."
     },
@@ -298,8 +291,7 @@
       "institutionName": "I.C. RENATO GUTTUSO -PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf",
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
       "method": "Dataset ufficiali USR: codice PAAA85502X, Padre Kolbe, Via Kolbe; il punto KML identifica il plesso Kolbe in Via Padre Massimiliano Kolbe 10 e l'istituzione Renato Guttuso."
     },
@@ -347,8 +339,7 @@
       "institutionName": "I.C. MAREDOLCE - PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
       ],
       "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML."
     },
@@ -364,8 +355,7 @@
       "institutionName": "I.C. MAREDOLCE - PA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf",
-        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
       ],
       "method": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML."
     },
@@ -461,8 +451,7 @@
       "institutionName": "I.C. SARA CAMPANELLA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
       ],
       "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente."
     },
@@ -478,8 +467,7 @@
       "institutionName": "I.C. SARA CAMPANELLA",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
       ],
       "method": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente."
     },
@@ -511,29 +499,201 @@
       "institutionName": "MANERI INGRASSIA-DON MILANI",
       "status": "CONFERMATO_DOCUMENTALMENTE",
       "sourceUrls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
-        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
       ],
       "method": "Correzione del codice precedentemente attribuito: il codice corretto è PAEE8BB03V (D.D. C. Maneri-Ingrassia), documentato da USR 2025/26 e indirizzo Via dei Picciotti 8; PAEE8BB01R è invece Plesso Passaggio, Via Passaggio dei Picciotti 5, e non appartiene a questo punto."
     },
-    [
-      "PAAA8AS011",
-      {
-        "schoolCode": "PAAA8AS011",
-        "schoolName": "PAULSEN",
-        "order": "Scuola dell'infanzia",
-        "students": 75,
-        "classes": 3,
-        "pointId": "kml-school-253",
-        "pointAddress": "PIAZZALE CARPINO FRANCESCO CARDINALE 3",
-        "institutionCode": "PAIC8AS004",
-        "institutionName": "I.C.  MARGHERITA HACK -PA",
-        "status": "CONFERMATO_DOCUMENTALMENTE",
-        "sourceUrls": [
-          "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
-        ],
-        "method": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack."
-      }
-    ]
+    {
+      "schoolCode": "PAAA8BN013",
+      "schoolName": "F. RISO- INFANZIA",
+      "order": "Scuola dell'infanzia",
+      "students": 23,
+      "classes": 1,
+      "pointId": "kml-school-62",
+      "pointAddress": "VIA MONDELLO 5",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAAA8BN024",
+      "schoolName": "PASCOLI - INFANZIA",
+      "order": "Scuola dell'infanzia",
+      "students": 23,
+      "classes": 1,
+      "pointId": "kml-school-65",
+      "pointAddress": "VIA NETTUNO 6",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21."
+    },
+    {
+      "schoolCode": "PAAA8BN035",
+      "schoolName": "ROSARIO GREGORIO - INFANZIA",
+      "order": "Scuola dell'infanzia",
+      "students": 70,
+      "classes": 4,
+      "pointId": "kml-school-54",
+      "pointAddress": "VIA EURIDICE 24",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN035 (infanzia) e PAEE8BN04B (primaria), Rosario Gregorio, Via Euridice 24; punto KML R. Gregorio allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAAA8BN046",
+      "schoolName": "SANTOCANALE - INFANZIA",
+      "order": "Scuola dell'infanzia",
+      "students": 147,
+      "classes": 7,
+      "pointId": "kml-school-32",
+      "pointAddress": "VIA SANTOCANALE 23 B",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN046 (infanzia) e PAEE8BN018 (primaria), Santocanale, Via Santocanale 23/B; punto KML allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAAA8AS011",
+      "schoolName": "PAULSEN",
+      "order": "Scuola dell'infanzia",
+      "students": 75,
+      "classes": 3,
+      "pointId": "kml-school-253",
+      "pointAddress": "PIAZZALE CARPINO FRANCESCO CARDINALE 3",
+      "institutionCode": "PAIC8AS004",
+      "institutionName": "I.C.  MARGHERITA HACK -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack."
+    },
+    {
+      "schoolCode": "PAAA8AT01R",
+      "schoolName": "ANTONINO AGOSTINO",
+      "order": "Scuola dell'infanzia",
+      "students": 110,
+      "classes": 5,
+      "pointId": "kml-school-204",
+      "pointAddress": "VIA SACCO E VANZETTI 42",
+      "institutionCode": "PAIC8AT00X",
+      "institutionName": "I.C. SPERONE / PERTINI -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "method": "Dataset ufficiale USR 2021/22: codice PAAA8AT01R, Antonino Agostino, Via Sacco e Vanzetti 42; punto KML Agostino allo stesso indirizzo e istituzione Sperone-Pertini."
+    },
+    {
+      "schoolCode": "PAAA8BR01A",
+      "schoolName": "RAGUSA MOLETI",
+      "order": "Scuola dell'infanzia",
+      "students": 55,
+      "classes": 3,
+      "pointId": "kml-school-69",
+      "pointAddress": "VIA RAGUSA MOLETI 8",
+      "institutionCode": "PAIC8BR00D",
+      "institutionName": "I.C.S. RAGUSA MOLETI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "PTOF ufficiale e documenti USR: codice PAAA8BR01A (infanzia) e PAEE8BR01G (primaria), sede Ragusa Moleti in Via Ragusa Moleti 8; punto KML omonimo allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE8BN03A",
+      "schoolName": "PASCOLI",
+      "order": "Scuola primaria",
+      "students": 157,
+      "classes": 8,
+      "pointId": "kml-school-65",
+      "pointAddress": "VIA NETTUNO 6",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN024 (infanzia) e PAEE8BN03A (primaria), entrambi in Via Nettuno 6; punto KML Pascoli allo stesso indirizzo. Il codice primario è rimosso dal diverso punto di Piazza Zisa 21."
+    },
+    {
+      "schoolCode": "PAEE8BN029",
+      "schoolName": "RISO",
+      "order": "Scuola primaria",
+      "students": 85,
+      "classes": 5,
+      "pointId": "kml-school-62",
+      "pointAddress": "VIA MONDELLO 5",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN013 (infanzia) e PAEE8BN029 (primaria), entrambi in Via Mondello 5; punto KML Riso allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE8BN04B",
+      "schoolName": "ROSARIO GREGORIO",
+      "order": "Scuola primaria",
+      "students": 85,
+      "classes": 5,
+      "pointId": "kml-school-54",
+      "pointAddress": "VIA EURIDICE 24",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN035 (infanzia) e PAEE8BN04B (primaria), Rosario Gregorio, Via Euridice 24; punto KML R. Gregorio allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE8BN018",
+      "schoolName": "SANTOCANALE",
+      "order": "Scuola primaria",
+      "students": 305,
+      "classes": 17,
+      "pointId": "kml-school-32",
+      "pointAddress": "VIA SANTOCANALE 23 B",
+      "institutionCode": "PAIC8BN006",
+      "institutionName": "I.C. BORGESE-PARTANNA MONDELLO",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Documenti ufficiali USR 2025/26: codici PAAA8BN046 (infanzia) e PAEE8BN018 (primaria), Santocanale, Via Santocanale 23/B; punto KML allo stesso indirizzo."
+    },
+    {
+      "schoolCode": "PAEE8BR01G",
+      "schoolName": "D.D. RAGUSA MOLETI - PA",
+      "order": "Scuola primaria",
+      "students": 298,
+      "classes": 17,
+      "pointId": "kml-school-69",
+      "pointAddress": "VIA RAGUSA MOLETI 8",
+      "institutionCode": "PAIC8BR00D",
+      "institutionName": "I.C.S. RAGUSA MOLETI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "PTOF ufficiale e documenti USR: codice PAAA8BR01A (infanzia) e PAEE8BR01G (primaria), sede Ragusa Moleti in Via Ragusa Moleti 8; punto KML omonimo allo stesso indirizzo."
+    }
   ]
 }
