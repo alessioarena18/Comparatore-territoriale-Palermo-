@@ -166,3 +166,12 @@ Un controllo incrociato ha individuato quattro associazioni erronee tra record U
 
 
 **Limite esplicito dell'integrazione statistico-cartografica:** i 401 record USR 2025/26 non sono ancora associati in modo univoco ai 271 punti comunali 2021. Per questo motivo l'applicazione mostra la rete fisica georeferenziata e il registro statistico in pannelli distinti; non attribuisce conteggi di alunni o classi a quartieri, UPL o sezioni censuarie sulla base di corrispondenze nominali o istituzionali non dimostrate.
+
+
+## Grafici territoriali e raggi di influenza scolastici – 14 novembre 2026
+
+È stato aggiunto un grafico a torta in ciascuna sezione del comparatore. La composizione del grafico è specifica della pagina: popolazione italiana/straniera, classi IDISE delle UPL, distribuzione dei punti scolastici per ordine prevalente, parametri minimi degli standard, livelli cartografici, stato delle analisi spaziali e confronto demografico. Il grafico è descrittivo e non sostituisce gli indicatori tabellari; le categorie scolastiche sono rese mutuamente esclusive usando il primo ordine documentato per il singolo punto, mentre gli edifici con più ordini restano esplicitati nella mappa e nei dati di classificazione.
+
+Nella sezione Standard urbanistici è stata aggiunta una mappa Leaflet con buffer circolari per le sedi scolastiche georeferenziate e classificate: nidi/infanzia 500 m, primaria 800 m, secondaria di I grado 1.000 m e secondaria di II grado 1.500 m. I raggi sono soglie analitiche di prossimità configurate per il confronto, non prescrizioni normative, non isocrone pedonali e non misure di accessibilità effettiva. I buffer non considerano rete stradale, barriere, pendenze o attraversamenti. Le sedi senza ordine scolastico documentato non ricevono buffer; gli edifici con più ordini possono generare buffer sovrapposti. Il riferimento ai 1,5 km per la primaria è coerente con una specifica elaborazione Openpolis sull'accessibilità alle scuole primarie a tempo pieno, ma non è assunto come raggio legale generale.
+
+Fonti metodologiche: D.M. 1444/1968 (standard minimi e criterio dei raggi di influenza nel contesto specifico previsto dall'art. 4); D.M. 18/12/1975 (localizzazione scolastica in rapporto a età, modalità e tempi di percorrenza); Openpolis, analisi sulla prossimità alle scuole primarie a tempo pieno a Palermo (soglia di 1,5 km). I buffer visualizzati sono esplicitamente distinti da una verifica normativa di conformità.
