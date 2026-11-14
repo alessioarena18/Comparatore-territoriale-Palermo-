@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 14,
+    "confirmedMapPointMatches": 30,
     "falseCandidateLinksRemoved": 4,
-    "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice meccanografico del plesso e indirizzo del singolo edificio risultano documentati in fonte ufficiale scolastica/USR e coerenti con il punto comunale. I casi con civico discordante restano esclusi.",
-    "confirmedMapPoints": 11
+    "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
+    "confirmedMapPoints": 25
   },
   "records": [
     {
@@ -68,11 +68,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-64",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR Sicilia 2025/26: codice PAAA89901L, Via Calcedonio 1; il punto KML Abba-Alighieri è geolocalizzato in Via Giordano Calcedonio 1.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA847021",
@@ -271,11 +273,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-103",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale IC Boccadifalco: plesso Emanuela Loi, codice PAAA85603R, Via Dogali 29; punto KML omonimo in Via Dogali.",
+      "mapMatchSourceUrl": "https://www.icboccadifalcotomasidilampedusa.edu.it/"
     },
     {
       "code": "PAAA85602Q",
@@ -828,11 +832,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-139",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA85101G, Scipione Di Castro; punto KML omonimo in Via Di Castro Scipione 22 e istituzione Colozza/Bonfiglio coerente.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8AM01L",
@@ -1296,11 +1302,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-247",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA87301C, plesso Via Villagrazia 110, indirizzo coincidente con il punto KML.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA87302D",
@@ -1731,11 +1739,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-171",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML.",
+      "mapMatchSourceUrl": "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
     },
     {
       "code": "PAAA8AV01C",
@@ -1791,11 +1801,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-249",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR 2021/22: codice PAAA8AS033, Capitano Basile, Via Capitano Basile 54; indirizzo e codice coincidono con il punto KML.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AS011",
@@ -2234,11 +2246,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-193",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR: codice PAAA8AU01L, Marinella Bragaglia; il punto KML omonimo riporta Via Bragaglia Marinella 23, stessa sede e istituzione Pestalozzi/Cavour.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
     },
     {
       "code": "PAAA8AU03P",
@@ -2263,11 +2277,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-189",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiale USR 2022/23: codice PAAA8AU03P, Vittorino da Feltre; punto KML omonimo in Corso Calatafimi 1035 e istituzione Pestalozzi/Cavour coerente.",
+      "mapMatchSourceUrl": "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2022_23/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni.pdf"
     },
     {
       "code": "PAAA890027",
@@ -2350,11 +2366,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-116",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA85501V, Casa del Fanciullo, Via Messina Marine 811; coincidenza esatta con il punto KML.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA85502X",
@@ -2379,11 +2397,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-122",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Dataset ufficiali USR: codice PAAA85502X, Padre Kolbe, Via Kolbe; il punto KML identifica il plesso Kolbe in Via Padre Massimiliano Kolbe 10 e l'istituzione Renato Guttuso.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
     },
     {
       "code": "PAAA8AB022",
@@ -2640,11 +2660,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-35",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAAA8BE013",
@@ -3742,11 +3764,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-47",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale 2025-2028: plesso De Amicis, codice PAAA8BF01V, Via Nazario Sauro 11; coincidenza esatta con il punto KML Nazario Sauro in Via Sauro Nazario 11.",
+      "mapMatchSourceUrl": "https://www.icdeamicisdavinci.edu.it/images/allegati/A.S._25.26/PTOF_/PAIC8BF002-202528-202526-20260111_compressed.pdf"
     },
     {
       "code": "PAAA89803V",
@@ -5726,11 +5750,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-171",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale e dataset USR: Largo Ercole, codice infanzia PAAA8AV02D e primaria PAEE8AV02P; indirizzo Largo Ercole 5 coincidente con il punto KML.",
+      "mapMatchSourceUrl": "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
     },
     {
       "code": "PAEE871012",
@@ -6567,11 +6593,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-35",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Record USR 2025/26 per infanzia e primaria Diaz Nuovo, codici PAAA8BE035 e PAEE8BE06D; punto KML Diaz Nuovo in Via Federico Orsi Ferrari 89 e istituzione Sauro-Franchetti-Cavallari coerente.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
     },
     {
       "code": "PAEE8BE04B",
@@ -7727,11 +7755,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-48",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Correzione del codice precedentemente attribuito: il codice corretto è PAEE8BB03V (D.D. C. Maneri-Ingrassia), documentato da USR 2025/26 e indirizzo Via dei Picciotti 8; PAEE8BB01R è invece Plesso Passaggio, Via Passaggio dei Picciotti 5, e non appartiene a questo punto.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
     },
     {
       "code": "PAEE8BB02T",
@@ -8514,11 +8544,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-243",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Codice di plesso e denominazione Pirandello-Borgo Ulivia già documentati nell'archivio USR; punto KML omonimo in Via Ortigia 19 e istituzione coerente.",
+      "mapMatchSourceUrl": "https://www.usr.sicilia.it/open-data/"
     },
     {
       "code": "PAMM870015",
