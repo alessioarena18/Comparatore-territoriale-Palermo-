@@ -3,13 +3,14 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 138,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico.",
+    "classified_records": 140,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico. Undicesimo lotto: aggiunti collegamenti puntuali tra codice meccanografico e punto comunale solo per plessi con indirizzo coincidente e codice esplicitato in sito scolastico o documento USR. Per i casi di civico discordante o sede non univoca il collegamento non viene attribuito.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
-    "updated": "2026-11-14"
+    "updated": "2026-11-14",
+    "verified_registry_code_links": 14
   },
   "records": [
     {
@@ -1536,16 +1537,23 @@
       ],
       "institution": "De Gasperi",
       "address": "VIA BRIUCCIA 89",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8BT02C",
+        "PAEE8BT02N"
+      ],
       "school_names": [
-        "COLLODI"
+        "COLLODI",
+        "C. COLLODI",
+        "C.COLLODI"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icsdegasperipecoraro.edu.it/luogo/plesso-carlo-collodi/",
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "indirizzo e ordini esplicitati nella fonte comunale"
+      "source_year": "2026",
+      "method": "Sito ufficiale dell'istituto: plesso Carlo Collodi in Via Briuccia 89 con sezioni di infanzia e classi di primaria; codici distinti confermati nella pagina istituzionale.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-166",
@@ -1629,16 +1637,22 @@
       ],
       "institution": "Cruillas",
       "address": "VIA INSERRA 1",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8AA037",
+        "PAEE8AA01A"
+      ],
       "school_names": [
-        "VITALI"
+        "VITALI",
+        "PLESSO V. VITALI",
+        "PLESSO VITALI V."
       ],
       "source_urls": [
-        "https://www.iccruillas.edu.it/"
+        "https://www.iccruillas.edu.it/",
+        "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
       ],
-      "source_year": "2026",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con il sito ufficiale dell'istituto",
-      "confidence": "sito ufficiale indica scuola dell'infanzia e primaria in Via Inserra 1"
+      "source_year": "2025/2026",
+      "method": "PTOF ufficiale 2025-2028: codici di infanzia e primaria entrambi associati a Via Inserra 1, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-169",
@@ -1720,16 +1734,20 @@
       ],
       "institution": "Garzilli",
       "address": "VIA TRINACRIA 1",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8BM028"
+      ],
       "school_names": [
-        "TRINACRIA"
+        "TRINACRIA",
+        "TRINACRIA = GARZILLI"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "fonte comunale indica scuola dell'infanzia Trinacria in Via Trinacria 1"
+      "source_year": "2025/2026",
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM028, Trinacria = Garzilli, Via Trinacria 1, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-130",
@@ -1756,16 +1774,20 @@
       ],
       "institution": "Mare Dolce ex Quasimodo-Oberdan",
       "address": "VIA SPICA PIETRO 5",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8AV01C"
+      ],
       "school_names": [
-        "OBERDAN"
+        "OBERDAN",
+        "S.P.S. E I. GUGLIELMO OBERDAN"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "fonte comunale indica scuola dell'infanzia Oberdan in Via Pietro Spica 5"
+      "source_year": "2022/2025",
+      "method": "PTOF ufficiale dell'IC Maredolce: plesso Oberdan, codice PAAA8AV01C, Via Pietro Spica 5, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-91",
@@ -1774,16 +1796,20 @@
       ],
       "institution": "Buonarroti",
       "address": "VIA CASTELLANA 40",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA87102T"
+      ],
       "school_names": [
-        "CASTELLANA"
+        "CASTELLANA",
+        "SC.MATERNA VIA CASTELLANA"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "fonte comunale identifica Castellana come scuola dell'infanzia, Via Castellana 40"
+      "source_year": "2025/2026",
+      "method": "Record USR 2025/26 con codice e denominazione del plesso; punto KML comunale con denominazione Castellana e indirizzo Via Castellana 40. Codice attribuito al plesso infantile Buonarroti, non al vicino Castellana 85 del diverso istituto.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-180",
@@ -1792,16 +1818,20 @@
       ],
       "institution": "Montegrappa - Sanzio",
       "address": "VIA ROCCELLA GUSTAVO 37",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8AY032"
+      ],
       "school_names": [
-        "MONTEGRAPPA"
+        "MONTEGRAPPA",
+        "PLESSO MONTEGRAPPA"
       ],
       "source_urls": [
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
-      "confidence": "fonte comunale identifica Montegrappa come scuola dell'infanzia, Via Roccella 37"
+      "source_year": "2021/2022",
+      "method": "Dataset ufficiale USR Sicilia: codice PAAA8AY032, plesso Montegrappa, Via Roccella 37, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-75",
@@ -2048,20 +2078,28 @@
     {
       "point_id": "kml-school-114",
       "orders": [
-        "ELEMENTARI"
+        "ELEMENTARI",
+        "INFANZIA"
       ],
       "institution": "Giovanni XXIII - Piazzi",
       "address": "VIA SAMPOLO 63",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8AL01R",
+        "PAEE8AL012"
+      ],
       "school_names": [
-        "GIOVANNI XXIII"
+        "GIOVANNI XXIII",
+        "TRIESTE",
+        "I.C. GIOV. XXIII/PIAZZI-TRIESTE"
       ],
       "source_urls": [
-        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.icgiovanni23piazzi.edu.it/pn-21-27-conoscere-valutare-decidere/",
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
-      "confidence": "il Comune identifica Giovanni XXIII come scuola primaria in Via Sampolo 63"
+      "method": "Sito ufficiale dell'istituto: scuola dell'infanzia e primaria, codici PAAA8AL01R e PAEE8AL012, entrambe in Via Sampolo 63, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-148",
@@ -2143,17 +2181,22 @@
       ],
       "institution": "De Gasperi",
       "address": "PIAZZA PAPA GIOVANNI PAOLO II 24",
-      "school_codes": [],
+      "school_codes": [
+        "PAEE8BT01L"
+      ],
       "school_names": [
-        "DE GASPERI"
+        "DE GASPERI",
+        "D.D. A. DE GASPERI- PA"
       ],
       "source_urls": [
         "https://www.icsdegasperipecoraro.edu.it/fdsfdsfdsfds/",
-        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf"
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_30052025103452.pdf",
+        "https://www.icsdegasperipecoraro.edu.it/la-storia/",
+        "https://www.icsdegasperipecoraro.edu.it/luogo/"
       ],
-      "source_year": "2025",
-      "method": "Corrispondenza esatta di denominazione e indirizzo con il sito ufficiale dell'istituto e la Carta dei Servizi Educativi comunale",
-      "confidence": "le fonti identificano il plesso De Gasperi all'indirizzo indicato e documentano la presenza di scuola dell'infanzia e primaria"
+      "source_year": "2026",
+      "method": "Sito ufficiale dell'istituto: codice PAEE8BT01L per la primaria De Gasperi; sede centrale in Piazza Papa Giovanni Paolo II 24, coincidente con il punto KML. Non viene attribuito il codice infanzia, che l'istituto colloca in Via Croce Rossa 129.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-155",
@@ -2255,21 +2298,26 @@
     {
       "point_id": "kml-school-88",
       "orders": [
-        "ELEMENTARI"
+        "ELEMENTARI",
+        "INFANZIA"
       ],
       "institution": "Tomaselli",
       "address": "VIA ABRUZZI 2",
-      "school_codes": [],
+      "school_codes": [
+        "PAAA8BM017"
+      ],
       "school_names": [
-        "S. TOMASELLI"
+        "S. TOMASELLI",
+        "VIA ABRUZZI = TOMASELLI"
       ],
       "source_urls": [
         "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
-        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf"
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf",
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
       ],
-      "source_year": "2024; 2016",
-      "method": "Corrispondenza esatta dell'indirizzo con la sede della Direzione Didattica Tomaselli; inventario patrimoniale comunale la identifica come scuola elementare",
-      "confidence": "indirizzo esatto e ordine esplicitato nell'inventario comunale"
+      "source_year": "2025/2026",
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA8BM017, Via Abruzzi = Tomaselli, Via Abruzzi 2, coincidente con il punto KML.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     },
     {
       "point_id": "kml-school-115",
@@ -2709,6 +2757,46 @@
       "source_year": "2025/2026",
       "method": "Il prospetto USR 2025/2026 identifica Publio Virgilio Marone come scuola secondaria di primo grado; l'inventario patrimoniale comunale riporta la scuola Marone in Via Valdemone 7, corrispondente al punto KML.",
       "confidence": "ordine, denominazione e indirizzo confermati da fonti USR e Comune"
+    },
+    {
+      "point_id": "kml-school-107",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "T. Lampedusa",
+      "address": "VIA CASTELLANA 85",
+      "school_codes": [
+        "PAAA85602Q"
+      ],
+      "school_names": [
+        "PLESSO CASTELLANA"
+      ],
+      "source_urls": [
+        "https://www.icboccadifalcotomasidilampedusa.edu.it/"
+      ],
+      "source_year": "2026",
+      "method": "Sito ufficiale dell'istituto: codice meccanografico PAAA85602Q e indirizzo Via Castellana 85, coincidenti con il punto KML comunale.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
+    },
+    {
+      "point_id": "kml-school-241",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Giuliana - Saladino",
+      "address": "VIA CAMMARANO GIUSEPPE 20 B",
+      "school_codes": [
+        "PAAA897011"
+      ],
+      "school_names": [
+        "VIVALDI ANTONIO"
+      ],
+      "source_urls": [
+        "https://www.icgiulianasaladino.edu.it/accessibile/images/allegati/2022-23/varie/PTOF_2022-2025_compressed.pdf"
+      ],
+      "source_year": "2022/2025",
+      "method": "PTOF ufficiale: plesso Vivaldi Antonio, codice PAAA897011, Via G. Cammarano 20. Punto KML Via Cammarano 20 B; coincidenza di strada e civico con suffisso da verificare.",
+      "confidence": "codice meccanografico e indirizzo del plesso verificati in fonte ufficiale"
     }
   ]
 }
