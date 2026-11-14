@@ -254,3 +254,10 @@ Stato dopo l'ultimo lotto: **108 codici di plesso collegati a 79 punti cartograf
 ## Quinto lotto di collegamenti documentali – 14 novembre 2026
 
 Aggiunti i codici di infanzia e primaria del Plesso Salerno (IC Cruillas), entrambi in Via Salerno 19, e i codici di infanzia e primaria della sede centrale Garzilli in Via Isonzo 7. La fonte ufficiale Garzilli distingue la sede centrale dal plesso Trinacria, pertanto i codici sono associati esclusivamente alla sede centrale.
+
+
+## Sesto lotto e grafico territoriale degli standard – 14 novembre 2026
+
+È stato collegato il codice di infanzia PAAA84802R al punto Don Milani di Via Sferracavallo 132, sulla base dell'elenco ufficiale USR 2025/26. Il codice della primaria PAEE848011 non è stato associato perché le fonti consultate riportano civici discordanti e richiedono un controllo ulteriore.
+
+Nella sezione Standard urbanistici, il grafico a torta è stato reso territoriale e dinamico: mostra la distribuzione dei punti scolastici classificati per ordine, applicando i filtri di circoscrizione, quartiere, UPL e sezione censuaria. La mappa degli standard mantiene i raggi indicativi distinti per ordine: nido 500 m, infanzia 500 m, primaria 800 m, secondaria di I grado 1.000 m, secondaria di II grado 1.500 m. I raggi sono parametri di analisi impostati nell'applicazione, non distanze normative o tempi di percorrenza.
