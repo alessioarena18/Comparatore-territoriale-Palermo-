@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 112,
-    "confirmedPhysicalPoints": 80,
+    "confirmedCodePointLinks": 113,
+    "confirmedPhysicalPoints": 81,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -2442,6 +2442,22 @@
         "https://www.cdgarzilli.edu.it/"
       ],
       "method": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria."
+    },
+    {
+      "schoolCode": "PAAA84802R",
+      "schoolName": "DON MILANI = SFERRACAVALLO",
+      "order": "Scuola dell'infanzia",
+      "students": 30,
+      "classes": 2,
+      "pointId": "kml-school-220",
+      "pointAddress": "VIA SFERRACAVALLO 132",
+      "institutionCode": "PAIC84800V",
+      "institutionName": "I.C. SFERRACAVALLO /ONORATO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAAA84802R, plesso Don Milani, Via Sferracavallo 132; il punto KML Don Milani riporta lo stesso civico. Non è stato associato il codice della primaria PAEE848011, per il quale le fonti consultate riportano un indirizzo discordante (122/132)."
     }
   ]
 }
