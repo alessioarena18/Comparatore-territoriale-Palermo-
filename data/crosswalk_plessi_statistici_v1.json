@@ -40,6 +40,118 @@
         ],
         "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
         "reason": "Il plesso Livio Bassi risulta documentato in Via Casalini 65; il punto KML con denominazione Livio Bassi è in Salita Castellana 65. I codici non vengono attribuiti al punto."
+      },
+      {
+        "pointId": "kml-school-267",
+        "pointName": "Barone Scala",
+        "pointAddress": "BAGLIO BARONE DELLA SCALA 7",
+        "candidateCodes": [
+          "PAEE8AR044"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "Il punto comunale è al civico 7, mentre la sede del codice PAEE8AR044 risulta al civico 3. Non si assume che i due civici siano lo stesso edificio."
+      },
+      {
+        "pointId": "kml-school-106",
+        "pointName": "De Cosmi",
+        "pointAddress": "VIA RUGGERI LEONARDO 35",
+        "candidateCodes": [
+          "PAPM02000N"
+        ],
+        "status": "NON_ASSOCIATO_TIPO_ISTITUZIONE_DA_CHIARIRE",
+        "reason": "Il codice PAPM02000N identifica il liceo De Cosmi; il punto KML riporta istituzione Tomasi di Lampedusa. La coincidenza di denominazione e indirizzo non basta a dimostrare che si tratti dello stesso plesso."
+      },
+      {
+        "pointId": "kml-school-150",
+        "pointName": "Impastato",
+        "pointAddress": "VIA DI MARTINO GIROLAMO 48",
+        "candidateCodes": [
+          "PAAA87901B",
+          "PAEE87901L"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "Le fonti scolastiche ufficiali collocano il plesso Impastato in Via Girolamo Di Martino 42, mentre il punto KML è al civico 48."
+      },
+      {
+        "pointId": "kml-school-221",
+        "pointName": "Fondo Petrazzi",
+        "pointAddress": "VIA DELL'AQUILA PIETRO",
+        "candidateCodes": [
+          "PAAA897022"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "Il codice PAAA897022 risulta riferito al plesso Fondo Petrazzi in Via Barisano da Trani 7; il punto KML è in Via dell'Aquila Pietro."
+      },
+      {
+        "pointId": "kml-school-127",
+        "pointName": "Bentivegna",
+        "pointAddress": "VIA S. LORENZO 89",
+        "candidateCodes": [
+          "PAAA8AX025",
+          "PAEE8AX03B"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "Le fonti scolastiche riportano il plesso Bentivegna in Via San Lorenzo 85; il punto KML riporta il civico 89."
+      },
+      {
+        "pointId": "kml-school-164",
+        "pointName": "Lambruschini",
+        "pointAddress": "VIA DON GIOVANNI MINZONI 3",
+        "candidateCodes": [
+          "PAAA89301N"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "La sede Lambruschini è documentata in Via Don Giovanni Minzoni 1; il punto KML riporta il civico 3."
+      },
+      {
+        "pointId": "kml-school-73",
+        "pointName": "Conte Federico",
+        "pointAddress": "VIA CONTE FEDERICO 1 B",
+        "candidateCodes": [
+          "PAEE872052"
+        ],
+        "status": "NON_ASSOCIATO_CIVICO_DA_CHIARIRE",
+        "reason": "Il codice PAEE872052 è associato a Via Conte Federico 1; il punto KML riporta 1/B. La differenza di sub-civico richiede verifica catastale o del plesso."
+      },
+      {
+        "pointId": "kml-school-179",
+        "pointName": "Garibaldi",
+        "pointAddress": "VIA DELLE CROCI 5",
+        "candidateCodes": [
+          "PAPC04000P"
+        ],
+        "status": "NON_ASSOCIATO_TIPO_ISTITUZIONE_DA_CHIARIRE",
+        "reason": "PAPC04000P identifica il Liceo Classico Garibaldi; il punto KML appartiene alla rete Rapisardi-Garibaldi e non è stato dimostrato che sia la sede del liceo."
+      },
+      {
+        "pointId": "kml-school-205",
+        "pointName": "Sacco e Vanzetti",
+        "pointAddress": "VIA GIANNOTTA NICOLO' 2",
+        "candidateCodes": [
+          "PAAA8AT02T"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "Il codice PAAA8AT02T è documentato in Via Sacco e Vanzetti, mentre il punto KML è in Via Nicolò Giannotta 2."
+      },
+      {
+        "pointId": "kml-school-269",
+        "pointName": "Mancini",
+        "pointAddress": "PIAZZA PAGLIARELLI 2",
+        "candidateCodes": [
+          "PAAA8AR04V"
+        ],
+        "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
+        "reason": "La sede del codice PAAA8AR04V risulta in Piazza Pagliarelli 1; il punto KML riporta il civico 2."
+      },
+      {
+        "pointId": "kml-school-214|kml-school-215",
+        "pointName": "Turrisi Colonna Corpo A e Corpo B",
+        "pointAddress": "PIAZZA GRAN CANCELLIERE 1",
+        "candidateCodes": [
+          "PAAA8AB022"
+        ],
+        "status": "NON_ASSOCIATO_MULTIPOINT",
+        "reason": "Il codice PAAA8AB022 è candidato a due corpi scolastici distinti nello stesso indirizzo. Il modello attuale del crosswalk ammette un solo punto per codice; il collegamento è sospeso finché non viene gestita esplicitamente la relazione uno-a-molti."
       }
     ]
   },
