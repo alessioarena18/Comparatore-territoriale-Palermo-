@@ -237,8 +237,8 @@ if(active==='social'){
  const qName=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||'';
  const cName=DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'';
  const normSchool=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
- const pointsFiltered=pts.filter(x=>(!qName||normSchool(x.quarter)===normSchool(qName))&&(!cName||((DATA.territories.quartieri.find(q=>normSchool(q.name)===normSchool(x.quarter))?.circ_ids||[]).includes(s.circ))));
- const statsFiltered=stats.filter(x=>(!s.circ||true)&&(!s.quart||true));
+ const uplFeature=s.asc3?GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3)):null;\n const pointsFiltered=pts.filter(x=>(!qName||normSchool(x.quarter)===normSchool(qName))&&(!cName||((DATA.territories.quartieri.find(q=>normSchool(q.name)===normSchool(x.quarter))?.circ_ids||[]).includes(s.circ)))&&(!uplFeature||pointInGeometry([x.lon,x.lat],uplFeature.geometry)));
+ const statsFiltered=stats;
  const orders=['Infanzia','Primaria','Secondaria I grado','Secondaria II grado'];
  const totals=orders.map(o=>({order:o,students:statsFiltered.filter(x=>x.order===o).reduce((n,x)=>n+(Number(x.students)||0),0),classes:statsFiltered.filter(x=>x.order===o).reduce((n,x)=>n+(Number(x.classes)||0),0),plessi:statsFiltered.filter(x=>x.order===o).length}));
  const students=totals.reduce((n,x)=>n+x.students,0), classes=totals.reduce((n,x)=>n+x.classes,0);
@@ -396,7 +396,7 @@ function initSchoolsMap(){
  let layer=L.layerGroup().addTo(schoolsMap);
  const draw=()=>{
   layer.clearLayers();const k=kind?.value||'',q=norm(search?.value||'');
-  const rows=pts.filter(x=>(!q||norm(x.name+' '+x.address+' '+x.institution).includes(q))&&(!k||x.kind===k)&&(!qName||norm(x.quarter)===norm(qName))&&(!cName||(DATA.territories.quartieri.find(t=>norm(t.name)===norm(x.quarter))?.circ_ids||[]).includes(s0.circ)));
+  const rows=pts.filter(x=>(!q||norm(x.name+' '+x.address+' '+x.institution).includes(q))&&(!k||x.kind===k)&&(!qName||norm(x.quarter)===norm(qName))&&(!cName||(DATA.territories.quartieri.find(t=>norm(t.name)===norm(x.quarter))?.circ_ids||[]).includes(s0.circ))&&(!uplFeature||pointInGeometry([x.lon,x.lat],uplFeature.geometry)));
   rows.forEach(x=>{const color=x.kind==='Asilo nido'?'#d97706':x.kind==='Sede'?'#1769aa':'#27834a';const marker=L.circleMarker([x.lat,x.lon],{radius:x.kind==='Sede'?6:5,color,fillColor:color,fillOpacity:.82,weight:1.3}).addTo(layer);marker.bindPopup('<strong>'+esc(x.name)+'</strong><br>'+esc(x.kind)+'<br>'+esc(x.address)+'<br>'+esc(x.quarter||'Quartiere non attribuito')+'<br><small>'+esc(x.source)+'</small>');});
   status.textContent=rows.length+' elementi visualizzati · '+rows.filter(x=>x.kind==='Asilo nido').length+' asili nido · fonte cartografica comunale 2021';
   if(table)table.innerHTML=rows.slice(0,80).map(x=>'<tr><td>'+esc(x.name)+'</td><td>'+esc(x.kind)+'</td><td>'+esc(x.address)+'</td><td>'+esc(x.quarter||'Non attribuito')+'</td><td>Comune, 2021</td></tr>').join('');
