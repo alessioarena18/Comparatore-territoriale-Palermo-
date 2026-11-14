@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 118,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale.",
+    "classified_records": 121,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado).",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -2328,6 +2328,61 @@
       ],
       "source_year": "2016",
       "method": "Corrispondenza esatta di denominazione e indirizzo nell'inventario patrimoniale comunale, che qualifica la sede come scuola elementare",
+      "confidence": "denominazione, indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-172",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Mare Dolce ex Quasimodo-Oberdan",
+      "address": "VIA VILLAGRAZIA 40",
+      "school_codes": [],
+      "school_names": [
+        "ANGELO CUSTODE"
+      ],
+      "source_urls": [
+        "https://web.comune.palermo.it/js/server/uploads/gare/_25092013092905.pdf"
+      ],
+      "source_year": "2013",
+      "method": "Corrispondenza esatta di denominazione e indirizzo nell'elenco comunale degli edifici scolastici, che identifica il plesso Angelo Custode come scuola elementare",
+      "confidence": "denominazione, indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-51",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Salgari",
+      "address": "VIA PARATORE GIUSEPPE 34",
+      "school_codes": [],
+      "school_names": [
+        "SALGARI"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://repository.comune.palermo.it/js/server/uploads/_22032017113301.pdf"
+      ],
+      "source_year": "2026; 2017",
+      "method": "Corrispondenza esatta della sede Salgari in Via Paratore 34; il Comune la identifica come scuola primaria",
+      "confidence": "denominazione, indirizzo e ordine confermati da fonte comunale"
+    },
+    {
+      "point_id": "kml-school-248",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Cesareo - Salgari",
+      "address": "VIA PARATORE GIUSEPPE 36",
+      "school_codes": [],
+      "school_names": [
+        "CESAREO"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/grandiopere/MPA1PPGPRINRT040.pdf"
+      ],
+      "source_year": "2013",
+      "method": "Corrispondenza esatta dell'indirizzo e della denominazione Cesareo; documento comunale identifica la sede come scuola media statale",
       "confidence": "denominazione, indirizzo e ordine esplicitati nella fonte comunale"
     }
   ]
