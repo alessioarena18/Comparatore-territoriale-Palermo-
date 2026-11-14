@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 104,
+    "confirmedMapPointMatches": 108,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 76
+    "confirmedMapPoints": 79
   },
   "records": [
     {
@@ -2460,11 +2460,17 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-214",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapPointIds": [
+        "kml-school-214",
+        "kml-school-215"
+      ],
+      "mapMatchNote": "PTOF IC Rita Atria: infanzia PAAA8AB022 e primaria PAEE8AB016 entrambe in Piazza Gran Cancelliere 1; la cartografia comunale rappresenta lo stesso campus con due corpi distinti (A e B), entrambi allo stesso indirizzo. Associazione uno-a-molti esplicita.",
+      "mapMatchSourceUrl": "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
     },
     {
       "code": "PAAA8AB033",
@@ -2489,11 +2495,16 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-213",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapPointIds": [
+        "kml-school-213"
+      ],
+      "mapMatchNote": "PTOF IC Rita Atria: infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; punto KML Valverde geolocalizzato sulla stessa via senza civico. Collegamento a livello di campus, non di singolo ingresso.",
+      "mapMatchSourceUrl": "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
     },
     {
       "code": "PAAA8A002A",
@@ -6420,11 +6431,17 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-214",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapPointIds": [
+        "kml-school-214",
+        "kml-school-215"
+      ],
+      "mapMatchNote": "PTOF IC Rita Atria: infanzia PAAA8AB022 e primaria PAEE8AB016 entrambe in Piazza Gran Cancelliere 1; la cartografia comunale rappresenta lo stesso campus con due corpi distinti (A e B), entrambi allo stesso indirizzo. Associazione uno-a-molti esplicita.",
+      "mapMatchSourceUrl": "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
     },
     {
       "code": "PAEE8AB038",
@@ -6449,11 +6466,16 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-213",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE_MULTIPOINT",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapPointIds": [
+        "kml-school-213"
+      ],
+      "mapMatchNote": "PTOF IC Rita Atria: infanzia PAAA8AB033 in Via Valverde 1 e primaria PAEE8AB038 in Via Valverde 2; punto KML Valverde geolocalizzato sulla stessa via senza civico. Collegamento a livello di campus, non di singolo ingresso.",
+      "mapMatchSourceUrl": "https://it.readkong.com/page/piano-triennale-offerta-formativa-i-c-rita-atria-pa-2501560"
     },
     {
       "code": "PAEE8A001E",
