@@ -307,3 +307,6 @@ Aggiornamento 15/11/2026: abilitato anche il plesso Setti Carraro, Via G.B. Tiep
 
 
 Verifica Galletti (15/11/2026): il plesso secondaria PAMM855013 in Via Galletti 78 resta documentato, ma gli atti dell'istituto del 02/05/2026 attestano il trasferimento di attrezzature al Casa del Fanciullo e quelli del 14/05/2026 la riorganizzazione del primo piano. Non è provata la chiusura; il buffer resta disabilitato fino a conferma dell'assetto operativo, GPS e accesso.
+
+
+Verifica Galletti (15/11/2026): il plesso secondaria PAMM855013 in Via Galletti 78 resta documentato, ma gli atti dell'istituto del 02/05/2026 attestano il trasferimento di attrezzature al Casa del Fanciullo e quelli del 14/05/2026 la riorganizzazione del primo piano. Non è provata la chiusura; il buffer resta disabilitato fino a conferma dell'assetto operativo, GPS e accesso.
