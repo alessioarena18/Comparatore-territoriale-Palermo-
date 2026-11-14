@@ -295,3 +295,6 @@ Pubblicato `data/censimento_scolastico_v64.json`, archivio strutturato di tutti 
 La pagina Servizi e dotazioni offre filtri per esito V64 e idoneità ai raggi, ricerca per nome/indirizzo/codice, colonne per stato documentale, ordine operativo, codice plesso e idoneità. Le schede mostrano anche le note e la prima fonte documentale nel popup cartografico. Gli indicatori di avanzamento sono calcolati direttamente dal JSON V64: 271 schede, 166 documentate, 103 in riserva/rettifica e 2 da rivalidare.
 
 La mappa degli standard legge il campo booleano `bufferEligible` del V64 e non più il crosswalk ridotto come fonte di autorizzazione. Il flag è deliberatamente conservativo: i valori condizionati (per esempio coordinate/accesso da validare) non abilitano buffer. L'ordine scolastico deve essere documentato per scegliere correttamente il raggio; la sola identificazione generica dell'istituzione non basta.
+
+
+Nota operativa sui raggi: al momento il registro non abilita buffer automatici. La scheda che nel campo sorgente V64 riporta IDONEO non ha ancora un ordine del singolo plesso esplicitamente verificato, necessario per scegliere il raggio corretto. Il sistema la mantiene quindi esclusa finché ordine e accesso non risultano entrambi validati.
