@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 97,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare.",
+    "classified_records": 107,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -1931,6 +1931,191 @@
       "source_year": "2025",
       "method": "Corrispondenza di denominazione e sede con la Carta dei Servizi Educativi del Comune di Palermo",
       "confidence": "fonte comunale indica il plesso De Gasperi come scuola dell'infanzia e sede primaria in Piazza Papa Giovanni Paolo II; civico KML da verifica cartografica"
+    },
+    {
+      "point_id": "kml-school-236",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Antonio Ugo - Annessa",
+      "address": "VIA SALEMI FRANCESCO GEN. 22",
+      "school_codes": [],
+      "school_names": [
+        "SALEMI"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Salemi come scuola secondaria di I grado in Via Salemi Francesco Gen. 22"
+    },
+    {
+      "point_id": "kml-school-98",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Capuana",
+      "address": "PIAZZA ORLANDO VITTORIO EMANUELE 3",
+      "school_codes": [
+        "PAEE8A102B"
+      ],
+      "school_names": [
+        "NICOLO' TURRISI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza del plesso con il dataset USR Sicilia 2025/2026 e indirizzo confermato dal Comune",
+      "confidence": "codice PAEE8A102B classificato come scuola primaria; indirizzo Piazza Vittorio Emanuele Orlando 3"
+    },
+    {
+      "point_id": "kml-school-105",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Capuana",
+      "address": "VIA DEL FERVORE 5",
+      "school_codes": [
+        "PAMM8A1019"
+      ],
+      "school_names": [
+        "VIA DEL FERVORE - CAPUANA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza del plesso e codice meccanografico nel dataset USR Sicilia 2025/2026",
+      "confidence": "codice PAMM8A1019 identifica una scuola secondaria di I grado in Via del Fervore 5"
+    },
+    {
+      "point_id": "kml-school-134",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Gentili",
+      "address": "VIA DAMIANI ALMEYDA 27",
+      "school_codes": [],
+      "school_names": [
+        "ALMEJDA - PITRE'"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Almejda-Pitrè come scuola primaria in Via Damiani Almejda 27"
+    },
+    {
+      "point_id": "kml-school-192",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI"
+      ],
+      "institution": "Nuccio - Verga",
+      "address": "VIA MONGITORE ANTONINO 4",
+      "school_codes": [],
+      "school_names": [
+        "NUCCIO"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Nuccio come scuola primaria e dell'infanzia in Via Mongitore 4"
+    },
+    {
+      "point_id": "kml-school-36",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Gabelli",
+      "address": "VIA PALAZZOTTO F.P. E G.B. 3",
+      "school_codes": [],
+      "school_names": [
+        "ZS 10"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza di plesso e indirizzo con la Carta dei Servizi Educativi e l'elenco comunale delle sedi",
+      "confidence": "ZS 10 è indicata come scuola dell'infanzia in Via Palazzotto 3"
+    },
+    {
+      "point_id": "kml-school-114",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Giovanni XXIII - Piazzi",
+      "address": "VIA SAMPOLO 63",
+      "school_codes": [],
+      "school_names": [
+        "GIOVANNI XXIII"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Giovanni XXIII come scuola primaria in Via Sampolo 63"
+    },
+    {
+      "point_id": "kml-school-148",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "La Masa",
+      "address": "VIA LA MASA GIUSEPPE 17",
+      "school_codes": [],
+      "school_names": [
+        "LA MASA"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica La Masa come scuola primaria in Via La Masa 17"
+    },
+    {
+      "point_id": "kml-school-126",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Karol Wojtyla",
+      "address": "VIA RALLO ALBERTO 9",
+      "school_codes": [],
+      "school_names": [
+        "MARVUGLIA"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Marvuglia come scuola primaria in Via Rallo 9"
+    },
+    {
+      "point_id": "kml-school-17",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Cavallari",
+      "address": "CORSO DEI MILLE 793",
+      "school_codes": [],
+      "school_names": [
+        "CAVALLARI"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo con l'elenco ufficiale delle sedi scolastiche del Comune di Palermo",
+      "confidence": "il Comune identifica Cavallari come scuola primaria in Corso dei Mille 793"
     }
   ]
 }
