@@ -3,7 +3,7 @@
     "records": 79,
     "version": "v14",
     "date": "2026-11-15",
-    "method": "Crosswalk di verifica documentale aggiornato alla ricognizione V64. Il crosswalk comprende i record precedentemente verificati e i sei nuovi record del lotto V64; per le restanti schede del catalogo 271 punti l’esito è riportato nel dataset consolidato di censimento, non va inferito da questo crosswalk. Non estendere ordini scolastici dell’istituzione al singolo punto senza codice di plesso o fonte puntuale."
+    "method": "Crosswalk di verifica documentale aggiornato alla ricognizione V64. Il crosswalk comprende i record precedentemente verificati e i sei nuovi record del lotto V64; per le restanti schede del catalogo 271 punti l’esito è riportato nel dataset consolidato di censimento, non va inferito da questo crosswalk. Non estendere ordini scolastici dell’istituzione al singolo punto senza codice di plesso o fonte puntuale. Galletti: aggiunto controllo specifico sugli atti dell'istituto del 02/05/2026 e 14/05/2026. Mantenuto fuori dai buffer fino a conferma dell'assetto operativo e delle coordinate/accesso."
   },
   "records": [
     {
@@ -1445,6 +1445,24 @@
       "candidateCodes": "PAMM8AQ014",
       "candidateOrders": "Scuola secondaria di I grado",
       "bufferEligible": true
+    },
+    {
+      "pointId": "kml-school-119",
+      "pointName": "Galletti",
+      "originalInstitution": "R. Guttuso",
+      "address": "VIA GALLETTI 78",
+      "quarter": "SETTECANNOLI",
+      "circumscription": "2",
+      "institutionCode": "PAIC855002",
+      "institutionName": "I.C. RENATO GUTTUSO -PA",
+      "institutionType": "ISTITUTO COMPRENSIVO",
+      "institutionAddress": "VIA MESSINA MARINE 811",
+      "status": "ORDINE_CONFERMATO_MA_ASSETTO_SEDE_DA_RICONFERMARE_2026",
+      "sourceUrl": "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf; https://trasparenza-pa.net/?codcli=SC15633&node=44; https://trasparenza-pa.net/?codcli=SC15633+&node=295819&subsectionsPage=3; https://www.comune.palermo.it/novita/seconda-circoscrizione-richiesta-la-presenza-della-polizia-municipale-davanti-al-plesso-renato-guttuso-dichiarazione-consigliere-guaresi/",
+      "note": "Secondaria I grado, codice plesso PAMM855013, Via Galletti 78, confermati da fonti USR/Comune e istituto. Atti 02/05/2026: trasferimento attrezzature dal plesso Galletti al Casa del Fanciullo; 14/05/2026: riorganizzazione primo piano. Non dimostrano chiusura o trasferimento integrale delle classi, ma rendono necessaria una verifica aggiornata di sede, accesso e GPS. Non creare buffer finché non risolto.",
+      "candidateCodes": "PAMM855013",
+      "candidateOrders": "Scuola secondaria di I grado",
+      "bufferEligible": false
     }
   ]
 }
