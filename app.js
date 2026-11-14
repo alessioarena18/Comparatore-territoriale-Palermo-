@@ -599,7 +599,7 @@ function initStandardSchoolMap(){
 async function loadSchoolArchives(){
  const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json'],['schoolRegister','data/anagrafica_plessi_2025_26.json'],['schoolSiteVerification','data/verifica_sedi_scolastiche_v13.json']];
  await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
- if(active==='schools')render();
+ if(active==='schools'||active==='standards')render();
 }
 function initSchools(){
  const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[],classification=DATA.schoolClassification?.records||[],register=DATA.schoolRegister?.records||[],siteVerification=DATA.schoolSiteVerification?.records||[];
