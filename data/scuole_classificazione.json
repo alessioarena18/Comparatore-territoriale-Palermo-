@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 114,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026.",
+    "classified_records": 118,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -2251,6 +2251,84 @@
       "source_year": "2025/2026",
       "method": "Corrispondenza del plesso Renato Guttuso con l'immobile scolastico comunale di Via Galletti e identificazione del codice USR per la scuola secondaria di I grado",
       "confidence": "il Comune conferma l'uso scolastico dell'immobile Renato Guttuso in Via Galletti; l'USR identifica Guttuso Renato come scuola secondaria di I grado"
+    },
+    {
+      "point_id": "kml-school-88",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Tomaselli",
+      "address": "VIA ABRUZZI 2",
+      "school_codes": [],
+      "school_names": [
+        "S. TOMASELLI"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf",
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf"
+      ],
+      "source_year": "2024; 2016",
+      "method": "Corrispondenza esatta dell'indirizzo con la sede della Direzione Didattica Tomaselli; inventario patrimoniale comunale la identifica come scuola elementare",
+      "confidence": "indirizzo esatto e ordine esplicitato nell'inventario comunale"
+    },
+    {
+      "point_id": "kml-school-115",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Di Vittorio",
+      "address": "VIALE DI VITTORIO GIUSEPPE 11",
+      "school_codes": [
+        "PAMM85201G"
+      ],
+      "school_names": [
+        "G. DI VITTORIO"
+      ],
+      "source_urls": [
+        "https://old.pa.usr.sicilia.it/attachments/article/1523/I%20grado%20HOMS02.PA.HOAZ01.pdf"
+      ],
+      "source_year": "2022/2023",
+      "method": "Corrispondenza esatta di denominazione e indirizzo nel prospetto ufficiale USR dell'organico della secondaria di primo grado",
+      "confidence": "codice meccanografico, denominazione e indirizzo coincidenti"
+    },
+    {
+      "point_id": "kml-school-233",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Uditore - Setti Carraro",
+      "address": "VIA TIEPOLO GIOVAN BATTISTA 4",
+      "school_codes": [
+        "PAIC8AQ003"
+      ],
+      "school_names": [
+        "EMANUELA SETTI CARRARO"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.comune.palermo.it/novita/sport-pubblicato-avviso-uso-spazi-a-fasce-orarie-palestre-scolastiche/"
+      ],
+      "source_year": "2026",
+      "method": "Corrispondenza esatta del plesso e dell'indirizzo; portale elettorale comunale identifica la sede come scuola secondaria di primo grado",
+      "confidence": "denominazione e indirizzo esatti; ordine esplicitato dal Comune"
+    },
+    {
+      "point_id": "kml-school-64",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Abba - Alighieri",
+      "address": "VIA GIORDANO CALCEDONIO 1",
+      "school_codes": [],
+      "school_names": [
+        "CESARE ABBA"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_14062016125554.pdf"
+      ],
+      "source_year": "2016",
+      "method": "Corrispondenza esatta di denominazione e indirizzo nell'inventario patrimoniale comunale, che qualifica la sede come scuola elementare",
+      "confidence": "denominazione, indirizzo e ordine esplicitati nella fonte comunale"
     }
   ]
 }
