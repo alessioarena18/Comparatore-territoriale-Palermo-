@@ -249,3 +249,8 @@ Sono stati rimossi dal livello di classificazione i candidati che presentavano d
 ## Riepilogo consolidato del raccordo scolastico – 14 novembre 2026
 
 Stato dopo l'ultimo lotto: **108 codici di plesso collegati a 79 punti cartografici**, su 401 record statistici USR. Restano **293 codici** senza collegamento fisico univoco, mantenuti separati per evitare attribuzioni errate. Due codici scolastici sono collegati a due corpi cartografici distinti (Turrisi Colonna Corpo A e Corpo B) tramite il campo `mapPointIds`; la tabella dell'applicazione presenta un'azione separata per ciascun corpo. Il conteggio dei punti fisici è calcolato sull'unione degli identificativi, non sul numero dei codici.
+
+
+## Quinto lotto di collegamenti documentali – 14 novembre 2026
+
+Aggiunti i codici di infanzia e primaria del Plesso Salerno (IC Cruillas), entrambi in Via Salerno 19, e i codici di infanzia e primaria della sede centrale Garzilli in Via Isonzo 7. La fonte ufficiale Garzilli distingue la sede centrale dal plesso Trinacria, pertanto i codici sono associati esclusivamente alla sede centrale.
