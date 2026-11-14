@@ -10,7 +10,7 @@
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 99
+    "verified_registry_code_links": 101
   },
   "records": [
     {
@@ -189,24 +189,32 @@
     {
       "point_id": "kml-school-266",
       "orders": [
-        "INFANZIA"
+        "INFANZIA",
+        "ELEMENTARI",
+        "MEDIE"
       ],
       "institution": "I.C. MANTEGNA /BONANNO -PA",
       "address": "VIA PITRE' GIUSEPPE 183",
       "school_codes": [
-        "PAAA853028"
+        "PAAA853028",
+        "PAEE85303E",
+        "PAMM85301B"
       ],
       "school_names": [
-        "BONANNO"
+        "BONANNO",
+        "BONANNO G.",
+        "SC. MEDIA BORSELLINO"
       ],
       "source_urls": [
         "https://www.usr.sicilia.it/open-data/",
         "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
-        "https://www.icsmantegnabonanno.edu.it/"
+        "https://www.icsmantegnabonanno.edu.it/",
+        "https://www.icsmantegnabonanno.edu.it/media/attachments/2025/03/17/ptof_mantegna_bonanno.pdf",
+        "https://www.icsmantegnabonanno.edu.it/accessibile/images/2025-26/PTOF_25-28.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Elenco ufficiale USR 2025/26 e sito IC Mantegna-Bonanno: codice PAAA853028, plesso Bonanno; punto KML Bonanno in Via Pitrè 183, coerente con l'indirizzo del plesso e l'istituzione.",
-      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
+      "method": "PTOF ufficiali IC Mantegna-Bonanno 2022-25 e 2025-28: il plesso Bonanno in Via Pitrè 183 ospita infanzia, primaria e secondaria; codici PAEE85303E e PAMM85301B. Il punto KML Bonanno è in Via Pitrè 183.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
       "point_id": "kml-school-106",
@@ -1362,7 +1370,8 @@
       ],
       "source_urls": [
         "https://www.usr.sicilia.it/open-data/",
-        "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
+        "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf",
+        "https://openfiber.it/app/uploads/sites/2/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
       ],
       "source_year": "2022/2023",
       "method": "Elenco Open Fiber 2022: codice PAEE8A002G, P. Borsellino, Largo Camastra 7; punto KML Borsellino allo stesso civico e istituzione Rita Levi Montalcini.",
