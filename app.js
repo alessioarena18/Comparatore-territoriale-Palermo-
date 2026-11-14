@@ -248,10 +248,10 @@ if(active==='social'){
  </div>
  <div class="card"><h3>Distribuzione territoriale delle sedi</h3>
  <p class="school-note">La mappa mostra le 271 sedi del catalogo comunale 2021. I dati USR 2025/2026 e le paritarie sono tenuti in archivi distinti: non vengono assegnati a coordinate o quartieri senza corrispondenza verificata.</p>
- <div class="school-legend" aria-label="Legenda ordini scolastici">${[{k:'NIDO',l:'NIDO',c:'#d97706'},{k:'ELEMENTARI',l:'ELEMENTARI',c:'#16845b'},{k:'MEDIE',l:'MEDIE',c:'#2563eb'},{k:'SUPERIORI',l:'SUPERIORI',c:'#7c3aed'},{k:'NON_CLASSIFICATO',l:'ORDINE NON VERIFICATO',c:'#64748b'}].map(x=>'<span><i style="background:'+x.c+'"></i>'+x.l+'</span>').join('')}</div>
+ <div class="school-legend" aria-label="Legenda ordini scolastici">${[{k:'NIDO',l:'NIDO',c:'#d97706'},{k:'INFANZIA',l:'INFANZIA',c:'#db2777'},{k:'ELEMENTARI',l:'ELEMENTARI',c:'#16845b'},{k:'MEDIE',l:'MEDIE',c:'#2563eb'},{k:'SUPERIORI',l:'SUPERIORI',c:'#7c3aed'},{k:'NON_CLASSIFICATO',l:'DA VERIFICARE',c:'#64748b'}].map(x=>'<span><i style="background:'+x.c+'"></i>'+x.l+'</span>').join('')}</div>
  <div class="school-controls">
  <label>Tipologia<select id="schoolKind"><option value="">Tutte</option><option value="Asilo nido">Asili nido</option><option value="Plesso">Plessi</option><option value="Sede">Sedi</option></select></label>
- <label>Ordine scolastico<select id="schoolOrder"><option value="">Tutti gli ordini</option><option value="NIDO">NIDO</option><option value="ELEMENTARI">ELEMENTARI</option><option value="MEDIE">MEDIE</option><option value="SUPERIORI">SUPERIORI</option><option value="NON_CLASSIFICATO">Ordine non verificato</option></select></label>
+ <label>Ordine scolastico<select id="schoolOrder"><option value="">Tutti gli ordini</option><option value="NIDO">NIDO</option><option value="INFANZIA">INFANZIA</option><option value="ELEMENTARI">ELEMENTARI</option><option value="MEDIE">MEDIE</option><option value="SUPERIORI">SUPERIORI</option><option value="NON_CLASSIFICATO">Ordine non verificato</option></select></label>
  <label>Cerca sede<input id="schoolSearch" type="search" placeholder="Nome, istituto, indirizzo"></label>
  </div>
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
@@ -573,16 +573,20 @@ function initSchools(){
  const g=selected(),kind=$('#schoolKind'),order=$('#schoolOrder'),search=$('#schoolSearch'),rows=$('#schoolPointRows'),status=$('#schoolMapStatus');
  const orderInfo=[
   {key:'NIDO',label:'NIDO',color:'#d97706'},
+  {key:'INFANZIA',label:'INFANZIA',color:'#db2777'},
   {key:'ELEMENTARI',label:'ELEMENTARI',color:'#16845b'},
   {key:'MEDIE',label:'MEDIE',color:'#2563eb'},
   {key:'SUPERIORI',label:'SUPERIORI',color:'#7c3aed'},
-  {key:'NON_CLASSIFICATO',label:'ORDINE NON VERIFICATO',color:'#64748b'}
+  {key:'NON_CLASSIFICATO',label:'DA VERIFICARE',color:'#64748b'}
  ];
+ const orderMap={'Infanzia':'INFANZIA','Primaria':'ELEMENTARI','Secondaria I grado':'MEDIE','Secondaria II grado':'SUPERIORI'};
+ const statsByName=new Map();
+ stats.forEach(s=>{const k=norm(s.name);if(!statsByName.has(k))statsByName.set(k,[]);statsByName.get(k).push(s);});
  const orderOf=p=>{
   if(p.kind==='Asilo nido')return 'NIDO';
-  const matches=stats.filter(s=>norm(s.name)===norm(p.name));
-  const os=[...new Set(matches.map(s=>s.order))];
-  if(os.length===1)return ({'Infanzia':'NON_CLASSIFICATO','Primaria':'ELEMENTARI','Secondaria I grado':'MEDIE','Secondaria II grado':'SUPERIORI'})[os[0]]||'NON_CLASSIFICATO';
+  const exact=statsByName.get(norm(p.name))||[];
+  const orders=[...new Set(exact.map(s=>orderMap[s.order]).filter(Boolean))];
+  if(orders.length===1)return orders[0];
   return 'NON_CLASSIFICATO';
  };
  const orderLabel=k=>orderInfo.find(x=>x.key===k)?.label||'ORDINE NON VERIFICATO';
