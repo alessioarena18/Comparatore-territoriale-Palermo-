@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 108,
+    "confirmedMapPointMatches": 112,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 79
+    "confirmedMapPoints": 80
   },
   "records": [
     {
@@ -488,11 +488,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-142",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
     },
     {
       "code": "PAAA8AA037",
@@ -788,11 +790,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-40",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria.",
+      "mapMatchSourceUrl": "https://www.cdgarzilli.edu.it/"
     },
     {
       "code": "PAAA85102L",
@@ -4456,11 +4460,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-142",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale 2025-2028 e sito dell'IC Cruillas: PAAA8AA015 (infanzia) e PAEE8AA03C (primaria), entrambe nel Plesso Salerno, Via Salerno 19; punto KML allo stesso indirizzo.",
+      "mapMatchSourceUrl": "https://www.iccruillas.edu.it/images/allegati/2025-26/varie/PTOF_PAIC8AA008_2025_2028.pdf"
     },
     {
       "code": "PAEE8AA02B",
@@ -4725,11 +4731,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-40",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale Direzione Didattica Nicolò Garzilli: sede centrale in Via Isonzo 7, scuola dell'infanzia e primaria; i codici USR PAAA89302P (infanzia) e PAEE89302X (primaria) sono riferiti alla sede Garzilli e non al plesso Trinacria.",
+      "mapMatchSourceUrl": "https://www.cdgarzilli.edu.it/"
     },
     {
       "code": "PAEE89301V",
