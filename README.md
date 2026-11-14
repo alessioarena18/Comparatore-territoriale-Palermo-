@@ -189,3 +189,10 @@ Le fonti sono i siti ufficiali degli istituti e i documenti USR Sicilia citati n
 Il crosswalk è stato esteso con ulteriori associazioni documentate: Emanuela Loi, Casa del Fanciullo, Padre Kolbe, De Amicis/Nazario Sauro, Capitano Basile, Largo Ercole, Via Villagrazia 110, Scipione Di Castro, Abba/Calcedonio, Marinella Bragaglia, Vittorino da Feltre, Diaz Nuovo, Pirandello-Borgo Ulivia e Maneri-Ingrassia. Sono stati aggiunti i codici relativi agli ordini distinti solo quando la sede fisica è la stessa e la fonte lo dimostra.
 
 **Correzione importante:** il punto KML Maneri-Ingrassia in Viale dei Picciotti 8 è associato al codice PAEE8BB03V (D.D. C. Maneri-Ingrassia). Il codice PAEE8BB01R identifica invece il Plesso Passaggio, in Passaggio dei Picciotti 5, e non deve essere attribuito al punto di Viale dei Picciotti 8. La classificazione del punto è stata corretta e la motivazione documentata.
+
+
+## Terzo lotto di collegamenti e controllo dei falsi positivi – 14 novembre 2026
+
+Sono stati aggiunti i collegamenti di infanzia e primaria per Riso (Via Mondello 5), Pascoli (Via Nettuno 6), Rosario Gregorio (Via Euridice 24), Santocanale (Via Santocanale 23/B) e Ragusa Moleti (Via Ragusa Moleti 8), oltre a Antonino Agostino (Via Sacco e Vanzetti 42) e Paulsen (Piazzale Cardinale Francesco Carpino 3/5). I codici e gli indirizzi sono riportati nei documenti USR Sicilia 2025/26 e, per Ragusa Moleti, nel PTOF ufficiale 2022-2025.
+
+È stato rimosso il collegamento errato di PAEE8BN03A dal punto KML di Piazza Zisa 21: il documento USR 2025/26 colloca il plesso Pascoli di quel codice in Via Nettuno 6, corrispondente al punto KML kml-school-65. Il punto di Piazza Zisa 21 resta non classificato finché non sarà chiarita documentalmente la co-localizzazione fra la scuola Pascoli dell'IC Antonio Ugo e la sede Gabelli indicata nel KML.
