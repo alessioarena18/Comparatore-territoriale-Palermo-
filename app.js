@@ -562,12 +562,12 @@ function initMap(){
 }
 
 async function loadSchoolArchives(){
- const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json']];
+ const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json']];
  await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
  if(active==='schools')render();
 }
 function initSchools(){
- const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[];
+ const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[],classification=DATA.schoolClassification?.records||[];
  const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const quarterAliases={'MEZZOMONREALE-V.LLA TASCA':'Mezzomonreale-Villa Tasca','MONTEGRAPPA- S.ROSALIA':'S. Rosalia-Montegrappa','PALAZZO REALE - M.TE DI PIETA':'Palazzo Reale-Monte di Pietà','RESUTTANO-S. LORENZO':'Resuttana-San Lorenzo'};
  const g=selected(),kind=$('#schoolKind'),order=$('#schoolOrder'),search=$('#schoolSearch'),rows=$('#schoolPointRows'),status=$('#schoolMapStatus');
@@ -579,16 +579,9 @@ function initSchools(){
   {key:'SUPERIORI',label:'SUPERIORI',color:'#7c3aed'},
   
  ];
- const orderMap={'Infanzia':'INFANZIA','Primaria':'ELEMENTARI','Secondaria I grado':'MEDIE','Secondaria II grado':'SUPERIORI'};
- const statsByName=new Map();
- stats.forEach(s=>{const k=norm(s.name);if(!statsByName.has(k))statsByName.set(k,[]);statsByName.get(k).push(s);});
- const orderOf=p=>{
-  if(p.kind==='Asilo nido')return 'NIDO';
-  const exact=statsByName.get(norm(p.name))||[];
-  const orders=[...new Set(exact.map(s=>orderMap[s.order]).filter(Boolean))];
-  if(orders.length===1)return orders[0];
-  return '';
- };
+ const classificationById=new Map(classification.map(x=>[String(x.point_id),x]));
+ const ordersOf=p=>classificationById.get(String(p.id))?.orders||[];
+ const orderOf=p=>ordersOf(p)[0]||'';
  const orderLabel=k=>orderInfo.find(x=>x.key===k)?.label||'';
  const orderColor=k=>orderInfo.find(x=>x.key===k)?.color||'#64748b';
  const belongs=p=>{
@@ -598,13 +591,13 @@ function initSchools(){
   if(g.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(g.section));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
   return true;
  };
- const filtered=()=>pts.filter(p=>(!kind.value||p.kind===kind.value)&&(!order.value||orderOf(p)===order.value)&&belongs(p)&&(!search.value||norm([p.name,p.institution,p.address].join(' ')).includes(norm(search.value))));
+ const filtered=()=>pts.filter(p=>(!kind.value||p.kind===kind.value)&&(!order.value||ordersOf(p).includes(order.value))&&belongs(p)&&(!search.value||norm([p.name,p.institution,p.address].join(' ')).includes(norm(search.value))));
  let map=null,layer=null;const markersById=new Map();let selectedPointId=null;
  const draw=()=>{
   const list=filtered();
-  rows.innerHTML=list.slice(0,250).map(p=>'<tr data-school-id="'+esc(p.id)+'" tabindex="0" class="'+(p.id===selectedPointId?'school-row-selected':'')+'"><td>'+esc(p.name)+'</td><td><span class="school-order-tag" style="--school-color:'+orderColor(orderOf(p))+'">'+esc(orderLabel(orderOf(p)))+'</span></td><td>'+esc(p.kind)+'</td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(p.year||'2021')+'</td></tr>').join('')||'<tr><td colspan="7">Nessuna sede trovata.</td></tr>';
+  rows.innerHTML=list.map(p=>'<tr data-school-id="'+esc(p.id)+'" tabindex="0" class="'+(p.id===selectedPointId?'school-row-selected':'')+'"><td>'+esc(p.name)+'</td><td><span class="school-order-tag" style="--school-color:'+orderColor(orderOf(p))+'">'+esc(orderLabel(orderOf(p)))+'</span></td><td>'+esc(p.kind)+'</td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(p.year||'2021')+'</td></tr>').join('')||'<tr><td colspan="7">Nessuna sede trovata.</td></tr>';
   status.textContent='Sedi mostrate: '+list.length+' su '+pts.length+'. Il filtro territoriale è applicato alle coordinate e ai confini disponibili.';
-  if(layer){layer.clearLayers();markersById.clear();list.forEach(p=>{const col=orderColor(orderOf(p));const marker=L.circleMarker([p.lat,p.lon],{radius:p.id===selectedPointId?11:7,color:p.id===selectedPointId?'#111827':col,fillColor:col,fillOpacity:p.id===selectedPointId?1:.85,weight:p.id===selectedPointId?4:2});const popup='<div class="school-popup"><strong>'+esc(p.name)+'</strong><br><b>'+esc(orderLabel(orderOf(p)))+'</b><br>'+esc(p.kind)+'<br>'+esc(p.address||'Indirizzo non disponibile')+'<br>'+esc(p.institution||'Istituto non indicato')+'<br>'+esc(p.quarter||'Quartiere non indicato')+'<br><small>Fonte localizzazione: '+esc(p.source||'Comune di Palermo, KML 2021')+'</small></div>';marker.bindPopup(popup);marker.on('click',()=>selectSchool(p.id,false));marker.addTo(layer);markersById.set(String(p.id),marker);});}
+  if(layer){layer.clearLayers();markersById.clear();list.forEach(p=>{const schoolOrders=ordersOf(p);const col=orderColor(schoolOrders[0]);const marker=L.circleMarker([p.lat,p.lon],{radius:p.id===selectedPointId?11:7,color:p.id===selectedPointId?'#111827':col,fillColor:col,fillOpacity:p.id===selectedPointId?1:.85,weight:p.id===selectedPointId?4:2});const classificationRecord=classificationById.get(String(p.id));const orderText=schoolOrders.length?schoolOrders.map(orderLabel).join(' · '):(p.kind==='Asilo nido'?'NIDO':'Classificazione non ancora documentata');const codeText=classificationRecord?.school_codes?.length?'Codici meccanografici: '+classificationRecord.school_codes.join(', '):'';const popup='<div class="school-popup"><strong>'+esc(p.name)+'</strong><br><b>'+esc(orderText)+'</b><br>'+esc(p.kind)+'<br>'+esc(p.address||'Indirizzo non disponibile')+'<br>'+esc(p.institution||'Istituto non indicato')+'<br>'+esc(p.quarter||'Quartiere non indicato')+'<br>'+esc(codeText)+'<br><small>Fonte localizzazione: '+esc(p.source||'Comune di Palermo, KML 2021')+'</small>'+(classificationRecord?'<br><small>Classificazione: '+esc(classificationRecord.method)+' · '+esc(classificationRecord.source_year)+'</small>':'')+'</div>';marker.bindPopup(popup);marker.on('click',()=>selectSchool(p.id,false));marker.addTo(layer);markersById.set(String(p.id),marker);});}
  };
  const selectSchool=(id,fromList)=>{const p=pts.find(x=>String(x.id)===String(id));if(!p)return;selectedPointId=String(id);rows.querySelectorAll('tr[data-school-id]').forEach(row=>row.classList.toggle('school-row-selected',row.dataset.schoolId===selectedPointId));const marker=markersById.get(selectedPointId);if(marker){marker.setStyle({radius:11,color:'#111827',fillOpacity:1,weight:4});if(fromList){map.setView([p.lat,p.lon],Math.max(map.getZoom(),15),{animate:true});marker.openPopup();}else marker.openPopup();}rows.querySelector('tr[data-school-id="'+CSS.escape(selectedPointId)+'"]')?.scrollIntoView({block:'nearest',behavior:'smooth'});};
  rows.addEventListener('click',e=>{const row=e.target.closest('tr[data-school-id]');if(row)selectSchool(row.dataset.schoolId,true);});
