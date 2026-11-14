@@ -4,8 +4,8 @@
     "year": "2025/2026",
     "scope": "Comune di Palermo",
     "registryRecords": 401,
-    "confirmedCodePointLinks": 101,
-    "confirmedPhysicalPoints": 73,
+    "confirmedCodePointLinks": 104,
+    "confirmedPhysicalPoints": 76,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -1812,6 +1812,61 @@
         "https://www.icsmantegnabonanno.edu.it/accessibile/images/2025-26/PTOF_25-28.pdf"
       ],
       "method": "PTOF ufficiali IC Mantegna-Bonanno 2022-25 e 2025-28: il plesso Bonanno in Via Pitrè 183 ospita infanzia, primaria e secondaria; codici PAEE85303E e PAMM85301B. Il punto KML Bonanno è in Via Pitrè 183."
+    },
+    {
+      "schoolCode": "PAMM8BE017",
+      "schoolName": "S.M.S.  RAIMONDO FRANCHETTI",
+      "order": "Scuola secondaria di I grado",
+      "students": 288,
+      "classes": 18,
+      "pointId": "kml-school-251",
+      "pointAddress": "VIA AMEDEO D'AOSTA 52",
+      "institutionCode": "PAIC8BE006",
+      "institutionName": "I.C. SARA CAMPANELLA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://pa.usr.sicilia.it/download/649/6680/6683/bollettino_totalenomine.pdf",
+        "https://www.icsaurofranchetti.edu.it/attachments/article/88/0_PTOF_PAIC8BE006-2022-25.pdf",
+        "https://www.icsaurofranchetti.edu.it/attachments/article/158/adozioni%20scuola%20media%2023-24.pdf"
+      ],
+      "method": "PTOF ufficiale IC Nazario Sauro-R. Franchetti e adozioni libri 2023/24: codice PAMM8BE017, scuola secondaria Raimondo Franchetti, Viale Amedeo d'Aosta 52/54; punto KML Franchetti in Via Amedeo d'Aosta 52."
+    },
+    {
+      "schoolCode": "PAMM8AQ014",
+      "schoolName": "SETTI CARRARO (EX 48)-UDITORE",
+      "order": "Scuola secondaria di I grado",
+      "students": 291,
+      "classes": 15,
+      "pointId": "kml-school-233",
+      "pointAddress": "VIA TIEPOLO GIOVAN BATTISTA 4",
+      "institutionCode": "PAIC8AQ003",
+      "institutionName": "I.C. UDITORE /SETTI CARRARO -PA",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.comune.palermo.it/novita/sport-pubblicato-avviso-uso-spazi-a-fasce-orarie-palestre-scolastiche/",
+        "https://www.icsuditoresetticarraro.it/wp-content/uploads/2024/12/timbro_PAIC8AQ003-202225-202425-20241227.pdf"
+      ],
+      "method": "PTOF ufficiale IC Uditore/Setti Carraro: codice plesso PAMM8AQ014, scuola secondaria Setti Carraro, Via Tiepolo 4; punto KML Setti Carraro allo stesso civico. Il codice PAIC8AQ003 è l'istituzione comprensiva e non è usato come codice di plesso."
+    },
+    {
+      "schoolCode": "PAMM8BB01Q",
+      "schoolName": "SMS DON LORENZO MILANI",
+      "order": "Scuola secondaria di I grado",
+      "students": 486,
+      "classes": 29,
+      "pointId": "kml-school-250",
+      "pointAddress": "PASSAGGIO DEI PICCIOTTI 3",
+      "institutionCode": "PAIC8BB00P",
+      "institutionName": "MANERI INGRASSIA-DON MILANI",
+      "status": "CONFERMATO_DOCUMENTALMENTE",
+      "sourceUrls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_22082024092637.pdf",
+        "https://netcrm.netsenseweb.com/public/attachments/102192/download",
+        "https://www.icsrussoraciti.edu.it/",
+        "https://www.flc-cgilcuneo.it/wp-content/uploads/2022/07/palermo2.htm"
+      ],
+      "method": "Sito ufficiale IC Maneri-Ingrassia-Don Milani e elenco delle sedi: codice plesso PAMM8BB01Q, scuola secondaria Don Milani, Passaggio dei Picciotti 3; punto KML Don Milani allo stesso civico. PAIC8BB00P è il codice dell'istituzione e non viene usato come plesso."
     }
   ]
 }
