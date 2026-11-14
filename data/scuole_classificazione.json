@@ -3,8 +3,8 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 134,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria.",
+    "classified_records": 138,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
@@ -2628,6 +2628,87 @@
       "source_year": "2026",
       "method": "Il portale elettorale comunale identifica la scuola De Amicis primaria in Via Rosso di San Secondo 1; i quattro punti KML rappresentano i corpi A-D dello stesso complesso e condividono indirizzo",
       "confidence": "indirizzo e ordine confermati dal Comune; attribuzione ai corpi A-D coerente con il complesso scolastico mappato"
+    },
+    {
+      "point_id": "kml-school-247",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Pirandello - Borgo Ulivia",
+      "address": "VIA VILLAGRAZIA 110",
+      "school_codes": [
+        "PAAA87301C"
+      ],
+      "school_names": [
+        "PLESSO VIA VILLAGRAZIA 110"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/download/4650/28939/28963/elenco-istituti-scolastic-iregione-sicilia_scuola-attiva-infanzia_m_pi-aoodrsi-registro-ufficialeu-0061221-02-12-2025.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza esatta di denominazione e indirizzo nel prospetto ufficiale USR Sicilia dei plessi della scuola dell'infanzia; il codice appartiene all'IC Pirandello/Borgo Ulivia indicato nel punto KML.",
+      "confidence": "denominazione, indirizzo, ordine e istituzione confermati da fonte USR"
+    },
+    {
+      "point_id": "kml-school-207",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Sperone - Pertini",
+      "address": "VIA SPERONE 79",
+      "school_codes": [
+        "PAEE8AT023"
+      ],
+      "school_names": [
+        "SPERONE-PERTINI PLESSO RANDAZZO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Il prospetto USR Sicilia 2025/2026 identifica il plesso Randazzo dell'IC Sperone/Pertini come scuola primaria; denominazione del punto KML e istituzione di riferimento coincidono.",
+      "confidence": "denominazione del plesso, ordine e istituzione confermati da fonte USR; civico del punto KML non presente nel prospetto"
+    },
+    {
+      "point_id": "kml-school-251",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Franchetti",
+      "address": "VIA AMEDEO D'AOSTA 52",
+      "school_codes": [
+        "PAMM8BE017"
+      ],
+      "school_names": [
+        "S.M.S. RAIMONDO FRANCHETTI"
+      ],
+      "source_urls": [
+        "https://pa.usr.sicilia.it/download/649/6680/6683/bollettino_totalenomine.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Il codice meccanografico PAMM8BE017 è associato dall'USR alla scuola secondaria di primo grado Raimondo Franchetti; il punto KML identifica la sede Franchetti in Via Amedeo d'Aosta 52.",
+      "confidence": "denominazione, ordine e codice confermati da fonte USR; indirizzo della sede da dataset KML comunale"
+    },
+    {
+      "point_id": "kml-school-259",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Virgilio Marone",
+      "address": "VIA VALDEMONE 7",
+      "school_codes": [
+        "PAMM8BM01B"
+      ],
+      "school_names": [
+        "PUBLIO VIRGILIO MARONE"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf",
+        "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_07052014193658.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Il prospetto USR 2025/2026 identifica Publio Virgilio Marone come scuola secondaria di primo grado; l'inventario patrimoniale comunale riporta la scuola Marone in Via Valdemone 7, corrispondente al punto KML.",
+      "confidence": "ordine, denominazione e indirizzo confermati da fonti USR e Comune"
     }
   ]
 }
