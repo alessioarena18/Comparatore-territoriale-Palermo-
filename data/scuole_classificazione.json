@@ -4,13 +4,13 @@
     "created": "2026-11-14",
     "points_total": 271,
     "classified_records": 151,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico. Undicesimo lotto: aggiunti collegamenti puntuali tra codice meccanografico e punto comunale solo per plessi con indirizzo coincidente e codice esplicitato in sito scolastico o documento USR. Per i casi di civico discordante o sede non univoca il collegamento non viene attribuito. Dodicesimo lotto: ulteriori codici di plesso collegati a punti cartografici con riscontro del codice e della sede in documenti USR, PTOF scolastici o elenchi pubblici infrastrutturali. È stata inoltre corretta una classificazione: il punto Maneri-Ingrassia di Viale dei Picciotti 8 corrisponde a PAEE8BB03V; PAEE8BB01R è il diverso Plesso Passaggio di Passaggio dei Picciotti 5. Tredicesimo lotto: raccordati i plessi dell'IC Borgese-Partanna Mondello (Riso, Pascoli, Rosario Gregorio, Santocanale), Ragusa Moleti, Antonino Agostino e Paulsen sulla base di codici e indirizzi riportati in documenti USR 2025/26 e PTOF. È stato corretto il falso abbinamento del codice primario PAEE8BN03A al punto di Piazza Zisa 21: l'USR lo localizza in Via Nettuno 6. Il punto di Piazza Zisa 21 resta non classificato in attesa di risolvere la co-localizzazione tra Pascoli (IC Antonio Ugo) e Gabelli. Quarto lotto: ulteriori sedi verificate tramite documenti USR, PTOF e pagine ufficiali: Nuccio, Pertini, Buttitta, Bernini, Titone, San Lorenzo, Rosolino Pilo e Maestri del Lavoro. La sede Setti Carraro secondaria PAMM8AQ014 non è stata associata al punto Cimabue 20, poiché il PTOF la colloca in Via Tiepolo 4. Quinto lotto: collegati i plessi Oreto, Nicolò Turrisi, A. Sole, Via Villagrazia, A.U. Cagni e D'Angelo con codici distinti per infanzia e primaria dove il codice e l'indirizzo coincidono. Per Cagni è stata utilizzata anche la Carta dei Servizi comunale; per D'Angelo le schede dei codici di plesso riportano entrambe Via San Lorenzo 295.",
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico. Undicesimo lotto: aggiunti collegamenti puntuali tra codice meccanografico e punto comunale solo per plessi con indirizzo coincidente e codice esplicitato in sito scolastico o documento USR. Per i casi di civico discordante o sede non univoca il collegamento non viene attribuito. Dodicesimo lotto: ulteriori codici di plesso collegati a punti cartografici con riscontro del codice e della sede in documenti USR, PTOF scolastici o elenchi pubblici infrastrutturali. È stata inoltre corretta una classificazione: il punto Maneri-Ingrassia di Viale dei Picciotti 8 corrisponde a PAEE8BB03V; PAEE8BB01R è il diverso Plesso Passaggio di Passaggio dei Picciotti 5. Tredicesimo lotto: raccordati i plessi dell'IC Borgese-Partanna Mondello (Riso, Pascoli, Rosario Gregorio, Santocanale), Ragusa Moleti, Antonino Agostino e Paulsen sulla base di codici e indirizzi riportati in documenti USR 2025/26 e PTOF. È stato corretto il falso abbinamento del codice primario PAEE8BN03A al punto di Piazza Zisa 21: l'USR lo localizza in Via Nettuno 6. Il punto di Piazza Zisa 21 resta non classificato in attesa di risolvere la co-localizzazione tra Pascoli (IC Antonio Ugo) e Gabelli. Quarto lotto: ulteriori sedi verificate tramite documenti USR, PTOF e pagine ufficiali: Nuccio, Pertini, Buttitta, Bernini, Titone, San Lorenzo, Rosolino Pilo e Maestri del Lavoro. La sede Setti Carraro secondaria PAMM8AQ014 non è stata associata al punto Cimabue 20, poiché il PTOF la colloca in Via Tiepolo 4. Quinto lotto: collegati i plessi Oreto, Nicolò Turrisi, A. Sole, Via Villagrazia, A.U. Cagni e D'Angelo con codici distinti per infanzia e primaria dove il codice e l'indirizzo coincidono. Per Cagni è stata utilizzata anche la Carta dei Servizi comunale; per D'Angelo le schede dei codici di plesso riportano entrambe Via San Lorenzo 295. Sesto lotto: ulteriori raccordi con indirizzi esatti per Ilaria Alpi, Natoli, Mattarella, Principessa Elena, Abba-Alighieri, Sunseri, Randazzo, Via del Vespro/Rosolino Pilo, Boccone, Guttuso, San Ciro, Virgilio Marone, Sferracavallo, Ingrassia, Giafar, Medaglie d'Oro, Bonanno, Centro Sociale, Cuscinà e Via del Fervore. Sono stati inoltre rimossi due falsi abbinamenti basati sulla sola denominazione: Michelangelo (Largo Michelangelo 15 vs Via Tindari 52) e Livio Bassi (Salita Castellana 65 vs Via Casalini 65).",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
     ],
     "updated": "2026-11-14",
-    "verified_registry_code_links": 69
+    "verified_registry_code_links": 92
   },
   "records": [
     {
@@ -57,48 +57,6 @@
       "source_year": "2022/2023",
       "method": "Dataset ufficiale USR 2022/23: codice PAAA8AU03P, Vittorino da Feltre; punto KML omonimo in Corso Calatafimi 1035 e istituzione Pestalozzi/Cavour coerente.",
       "confidence": "codice meccanografico e indirizzo della sede verificati in fonte ufficiale"
-    },
-    {
-      "point_id": "kml-school-186",
-      "orders": [
-        "ELEMENTARI"
-      ],
-      "institution": "I.C. RITA LEVI MONTALCINI -PA",
-      "address": "LARGO MICHELANGELO 15",
-      "school_codes": [
-        "PAEE8A003L"
-      ],
-      "school_names": [
-        "MICHELANGELO"
-      ],
-      "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
-      ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
-    },
-    {
-      "point_id": "kml-school-97",
-      "orders": [
-        "INFANZIA",
-        "ELEMENTARI"
-      ],
-      "institution": "I.C. MICHELANGELO BUONARROTI-PA",
-      "address": "SALITA CASTELLANA 65",
-      "school_codes": [
-        "PAAA87101R",
-        "PAEE871023"
-      ],
-      "school_names": [
-        "LIVIO BASSI"
-      ],
-      "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
-      ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
     },
     {
       "point_id": "kml-school-253",
@@ -177,11 +135,13 @@
         "MEDAGLIE D'ORO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
+        "https://www.flc-cgilcuneo.it/wp-content/uploads/2022/07/palermo2.htm"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Documenti USR/organico e elenco dei plessi: infanzia PAAA8AY021 e primaria PAEE8AY026, Medaglie d'Oro, Via Deodato Pier Luigi 7; punto KML allo stesso civico e istituzione Montegrappa-Sanzio.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-193",
@@ -239,11 +199,13 @@
         "BONANNO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
+        "https://www.icsmantegnabonanno.edu.it/"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco ufficiale USR 2025/26 e sito IC Mantegna-Bonanno: codice PAAA853028, plesso Bonanno; punto KML Bonanno in Via Pitrè 183, coerente con l'indirizzo del plesso e l'istituzione.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-106",
@@ -299,11 +261,13 @@
         "CUSCINA'"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://tp.usr.sicilia.it/download/1900/14241/14244/scuola-attiva-kids_adesione-plessi_m_pi-aoodrsi-registro-ufficialee-0059365-24-11-2025.pdf",
+        "https://www.classificascuole.it/it/scuola/cuscina-paee8bq02r"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco ufficiale USR 2025/26: codice PAEE8BQ02R, Cuscinà, Via Cuscina 7; punto KML Cuscinà allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-30",
@@ -319,11 +283,13 @@
         "CENTRO SOCIALE"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
+        "https://comune.info/comune-palermo/asili/"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco ufficiale USR 2025/26 per codice e istituzione; indirizzo Via Palmerino 1 confermato da elenco delle sedi e dal punto KML Centro Sociale allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-139",
@@ -604,31 +570,38 @@
         "GIAFAR"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.ddcavallaripalermo.edu.it/accessibile/images/2024-25/timbro_StampeClassePDF_-_Giafar_-signed-signed.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Documento scolastico ufficiale 2025/26: codice PAEE8BE04B, plesso Giafar, Via Emiro Giafar 17; punto KML Giafar allo stesso civico. La denominazione dell'istituzione è aggiornata rispetto al KML storico Cavallari.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-140",
       "orders": [
-        "INFANZIA"
+        "INFANZIA",
+        "ELEMENTARI"
       ],
       "institution": "I.C. SILVIO BOCCONE -PA",
       "address": "VIA ELIA AUGUSTO 1",
       "school_codes": [
-        "PAAA8A2044"
+        "PAAA8A2044",
+        "PAEE8A2038"
       ],
       "school_names": [
-        "VIA DEL VESPRO"
+        "VIA DEL VESPRO",
+        "VIA DEL VESPRO = R. PILO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31634/organico-di-fatto-scuole-dellinfanzia-bambini-e-sezioni-2025-26-pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
+        "https://openfiber.it/app/uploads/sites/2/2023/07/Scuole_Vendibili_17Luglio2023.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Documenti USR e Open Fiber: infanzia PAAA8A2044 e primaria PAEE8A2038, plesso Via del Vespro = Rosolino Pilo, sede in Via Augusto Elia 1; punto KML Via del Vespro allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-84",
@@ -713,11 +686,13 @@
         "INGRASSIA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco Open Fiber e organico USR 2025/26: codice PAEE8BB02T, Ingrassia, Via Vincenzo Statella 21; punto KML Ingrassia allo stesso civico e istituzione Maneri-Ingrassia.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-128",
@@ -773,11 +748,12 @@
         "ILARIA ALPI"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAEE87202V, Ilaria Alpi, Corso dei Mille 1672; punto KML omonimo allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-120",
@@ -795,11 +771,13 @@
         "NATOLI"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf",
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "method": "Documenti USR per infanzia e primaria: plesso Natoli in Corso dei Mille 1486; codice e indirizzo coincidono con il punto KML Natoli e l'istituzione Di Vittorio.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-63",
@@ -815,11 +793,13 @@
         "ABBA - ALIGHIERI"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.abbaalighieri.edu.it/wp-content/uploads/PTOF-Triennio-2022-2025.pdf",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "source_year": "2024/2025",
+      "method": "PTOF ufficiale IC Abba-Alighieri e lista Open Fiber: codice PAMM89901R, Via Ruggero Marturano 77/79; punto KML Abba-Alighieri al civico 77.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-219",
@@ -835,11 +815,13 @@
         "SFERRACAVALLO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf",
+        "https://www.icsferracavallo.edu.it/"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta della denominazione normalizzata tra punto cartografico e anagrafica USR",
-      "confidence": "denominazione esatta; indirizzo da riscontro ulteriore"
+      "source_year": "2023/2024",
+      "method": "Organico ufficiale USR e sito dell'IC Sferracavallo/Onorato: codice PAMM84801X, scuola secondaria Sferracavallo, Via Tacito 34; punto KML allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-nido-31",
@@ -1439,11 +1421,12 @@
         "VIA SUNSERI"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://www.ddragusamoleti.edu.it/images/allegati/24-25/FEBBR25/PAIC8BR00D-202225-202425-20241207_1.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2024/2025",
+      "method": "PTOF ufficiale IC Ragusa Moleti: codice PAEE8BR03N, plesso Via Sunseri, Via Sunseri 19; punto KML Sunseri allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-240",
@@ -1519,11 +1502,12 @@
         "P.MATTARELLA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
-      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+      "source_year": "2021/2022",
+      "method": "Dataset ufficiale USR 2021/22: codice PAAA85204E, P. Mattarella, Viale Giuseppe Di Vittorio 7; punto KML Mattarella allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-47",
@@ -2038,14 +2022,17 @@
         "PAMM8A1019"
       ],
       "school_names": [
-        "VIA DEL FERVORE - CAPUANA"
+        "VIA DEL FERVORE - CAPUANA",
+        "VIA DEL FERVORE- CAPUANA"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/open-data/"
+        "https://www.usr.sicilia.it/open-data/",
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf",
+        "https://www.ascuoladiopencoesione.it/it/scuola/22219"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza del plesso e codice meccanografico nel dataset USR Sicilia 2025/2026",
-      "confidence": "codice PAMM8A1019 identifica una scuola secondaria di I grado in Via del Fervore 5"
+      "method": "Elenco Open Fiber e scheda scuola: codice PAMM8A1019, Via del Fervore 5; punto KML Via del Fervore allo stesso civico e istituzione Capuana.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-134",
@@ -2249,9 +2236,9 @@
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
         "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
       ],
-      "source_year": "2025/2026",
-      "method": "Corrispondenza esatta di indirizzo con la sede ufficiale e codice meccanografico USR della scuola secondaria di I grado",
-      "confidence": "il Comune e l'USR identificano Principessa Elena di Napoli come scuola secondaria di I grado in Via Ustica 46"
+      "source_year": "2023/2024",
+      "method": "Organico ufficiale USR Palermo 2023/24: codice PAMM87401C, Principessa Elena di Napoli, Via Ustica 46; coincidenza esatta con il punto KML Elena.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-40",
@@ -2323,11 +2310,12 @@
       ],
       "source_urls": [
         "https://www.comune.palermo.it/novita/acqua-dei-corsari-giunta-approva-accordo-per-sbloccare-i-lavori-di-manutenzione-dellistituto-scolastico-guttuso/",
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf"
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31622/organico-di-fatto-scuole-secondarie-di-i-grado-alunni-e-classi-2025-26-pdf",
+        "https://old.pa.usr.sicilia.it/attachments/article/1705/I%20grado%20organici%2023-24.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Corrispondenza del plesso Renato Guttuso con l'immobile scolastico comunale di Via Galletti e identificazione del codice USR per la scuola secondaria di I grado",
-      "confidence": "il Comune conferma l'uso scolastico dell'immobile Renato Guttuso in Via Galletti; l'USR identifica Guttuso Renato come scuola secondaria di I grado"
+      "method": "Organici ufficiali USR 2023/24 e 2025/26: codice PAMM855013, Guttuso Renato, Via Galletti 78; punto KML Galletti allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-88",
@@ -2767,11 +2755,12 @@
         "SPERONE-PERTINI PLESSO RANDAZZO"
       ],
       "source_urls": [
-        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf"
+        "https://www.usr.sicilia.it/download/3598/a-s-2025-26/31647/organico-di-fatto-scuole-primarie-alunni-e-classi-2025-26-primaria-pdf",
+        "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Il prospetto USR Sicilia 2025/2026 identifica il plesso Randazzo dell'IC Sperone/Pertini come scuola primaria; denominazione del punto KML e istituzione di riferimento coincidono.",
-      "confidence": "denominazione del plesso, ordine e istituzione confermati da fonte USR; civico del punto KML non presente nel prospetto"
+      "method": "Elenco ufficiale USR Sicilia 2025/26: codice PAEE8AT023, plesso Randazzo, Via Sperone 79; punto KML Randazzo allo stesso civico.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-251",
@@ -2811,8 +2800,8 @@
         "https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_07052014193658.pdf"
       ],
       "source_year": "2025/2026",
-      "method": "Il prospetto USR 2025/2026 identifica Publio Virgilio Marone come scuola secondaria di primo grado; l'inventario patrimoniale comunale riporta la scuola Marone in Via Valdemone 7, corrispondente al punto KML.",
-      "confidence": "ordine, denominazione e indirizzo confermati da fonti USR e Comune"
+      "method": "Organico ufficiale USR 2025/26 e inventario patrimoniale comunale: Publio Virgilio Marone in Via Valdemone 7; codice PAMM8BM01B e punto KML coincidono.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     },
     {
       "point_id": "kml-school-107",
@@ -3126,6 +3115,48 @@
       "source_year": "2025/2026",
       "method": "Anagrafica di sede dell'IC Siragusa e schede dei codici PAAA8BP02Q e PAEE8BP021: plessi D'Angelo infanzia e primaria entrambi in Via San Lorenzo 295; punto KML D'Angelo Vecchio allo stesso civico e istituzione Alessandra Siracusa.",
       "confidence": "codice meccanografico, ordine e sede verificati in fonti istituzionali"
+    },
+    {
+      "point_id": "kml-school-81",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Boccone",
+      "address": "VIA DEL VESPRO 72",
+      "school_codes": [
+        "PAMM8A2015"
+      ],
+      "school_names": [
+        "BOCCONE SILVIO"
+      ],
+      "source_urls": [
+        "https://openfiber.it/app/uploads/sites/2/2025/10/Scuole_Vendibili_Ottobre.pdf",
+        "https://www.icsboccone.edu.it/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Elenco Open Fiber 2025: codice PAMM8A2015, Boccone Silvio, Via del Vespro 72; punto KML Boccone allo stesso indirizzo.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
+    },
+    {
+      "point_id": "kml-school-79",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Orestano",
+      "address": "VIA S. CIRO 48 A",
+      "school_codes": [
+        "PAEE872063"
+      ],
+      "school_names": [
+        "SAN CIRO"
+      ],
+      "source_urls": [
+        "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf",
+        "https://openfiber.it/app/uploads/sites/2/2023/07/Scuole_Vendibili_17Luglio2023.pdf"
+      ],
+      "source_year": "2025/2026",
+      "method": "Elenco ufficiale USR 2025/26 e Open Fiber: codice PAEE872063, San Ciro, Via San Ciro 48/A; punto KML San Ciro 48/A allo stesso indirizzo. La denominazione amministrativa KML Orestano è mantenuta come nota storica.",
+      "confidence": "codice meccanografico, ordine e sede verificati in fonti scolastiche/USR"
     }
   ]
 }
