@@ -232,3 +232,10 @@ Sono stati collegati: Industriale infanzia (Via S. Alberto degli Abati), G. Di V
 ## Nono lotto di raccordi e distinzione codice istituzione/codice plesso – 14 novembre 2026
 
 Sono stati collegati i codici di plesso PAMM8AQ014 (Setti Carraro, Via Tiepolo 4), PAMM8BB01Q (Don Milani, Passaggio dei Picciotti 3) e PAMM8BE017 (Raimondo Franchetti, Viale Amedeo d'Aosta 52/54). Nei record di classificazione sono stati rimossi i codici istituzione PAIC8AQ003 e PAIC8BB00P dai campi destinati ai codici di plesso: restano identificativi delle istituzioni comprensive e non devono essere confusi con i codici dei singoli edifici/plessi.
+
+
+## Stato consolidato del crosswalk – 14 novembre 2026
+
+Dopo i lotti successivi di verifica, il raccordo contiene **104 codici di plesso associati a 76 punti cartografici**. Restano 297 record statistici senza un collegamento fisico univoco: non sono forzati su una sede per semplice somiglianza nominale. Il crosswalk conserva anche i candidati non associati e le motivazioni dei conflitti.
+
+Sono stati rimossi dal livello di classificazione i candidati che presentavano discrepanze verificabili tra civici, indirizzi o tipologia istituzionale: Barone Scala, De Cosmi, Impastato, Fondo Petrazzi, Bentivegna, Lambruschini, Conte Federico, Garibaldi, Sacco e Vanzetti e Mancini. Turrisi Colonna resta in sospeso perché un solo codice è riferito a due corpi distinti e il modello deve supportare in modo esplicito le associazioni uno-a-molti.
