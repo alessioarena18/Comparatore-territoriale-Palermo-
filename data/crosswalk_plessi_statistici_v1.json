@@ -5,7 +5,7 @@
     "scope": "Comune di Palermo",
     "registryRecords": 401,
     "confirmedCodePointLinks": 113,
-    "confirmedPhysicalPoints": 81,
+    "confirmedPhysicalPoints": 82,
     "method": "Corrispondenza del codice di plesso, ordine e indirizzo della singola sede documentati in fonti ufficiali o istituzionali indipendenti; nessuna propagazione dal codice dell'istituzione ai suoi plessi. I casi con civico discordante o identificazione non univoca restano non associati.",
     "updated": "2026-11-14",
     "unresolvedCandidates": [
@@ -142,16 +142,6 @@
         ],
         "status": "NON_ASSOCIATO_INDIRIZZO_DISCORDANTE",
         "reason": "La sede del codice PAAA8AR04V risulta in Piazza Pagliarelli 1; il punto KML riporta il civico 2."
-      },
-      {
-        "pointId": "kml-school-214|kml-school-215",
-        "pointName": "Turrisi Colonna Corpo A e Corpo B",
-        "pointAddress": "PIAZZA GRAN CANCELLIERE 1",
-        "candidateCodes": [
-          "PAAA8AB022"
-        ],
-        "status": "NON_ASSOCIATO_MULTIPOINT",
-        "reason": "Il codice PAAA8AB022 è candidato a due corpi scolastici distinti nello stesso indirizzo. Il modello attuale del crosswalk ammette un solo punto per codice; il collegamento è sospeso finché non viene gestita esplicitamente la relazione uno-a-molti."
       }
     ],
     "multiPointCodeLinks": 2
