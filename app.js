@@ -233,9 +233,38 @@ if(active==='social'){
     </div>
   </div>`;
 }else if(active==='schools'){
- const fontiScuole=[{titolo:'Scuole comunali',ente:'Comune di Palermo',anno:'aggiornamento catalogo 2021',url:'https://opendata.comune.palermo.it/opendata-dataset.php?dataset=328',nota:'Dataset KML: asili nido, scuole dell’infanzia, primarie e secondarie di primo grado.'}];
- html+=`<div class="grid service-kpis"><div class="card"><span class="muted">Plessi georeferenziati</span><div class="metric">${DATA.scuole.length||'N.D.'}</div><small class="muted">Inventario validato non ancora caricato</small></div><div class="card"><span class="muted">Circoscrizioni</span><div class="metric">8</div><small class="muted">Unità territoriali di riferimento</small></div><div class="card"><span class="muted">Categorie in analisi</span><div class="metric">4</div><small class="muted">Istruzione, verde, sport, servizi comuni</small></div><div class="card"><span class="muted">Stato dei dati</span><div class="metric">Da integrare</div><small class="muted">Nessun conteggio non verificato</small></div></div><div class="card"><h3>Rete dei servizi e delle dotazioni</h3><p class="muted">Inventario georeferenziato con tipologia, indirizzo, coordinate, circoscrizione, quartiere, fonte e data di aggiornamento.</p><div class="service-categories"><div><b>Istruzione</b><span>Asili nido, scuole dell’infanzia, primarie, secondarie e istituti superiori</span></div><div><b>Verde pubblico</b><span>Parchi, giardini, ville e aree verdi attrezzate</span></div><div><b>Sport</b><span>Impianti sportivi, palestre e campi pubblici</span></div><div><b>Attrezzature collettive</b><span>Servizi sanitari, sociali, culturali e amministrativi</span></div></div></div><div class="card"><h3>Fonti individuate</h3><div class="table-wrap"><table><thead><tr><th>Dataset</th><th>Ente</th><th>Riferimento</th><th>Stato</th></tr></thead><tbody>${fontiScuole.map(f=>`<tr><td><a href="${f.url}" target="_blank" rel="noopener">${f.titolo}</a><br><small class="muted">${f.nota}</small></td><td>${f.ente}</td><td>${f.anno}</td><td><span class="data-status">Fonte individuata</span></td></tr>`).join('')}</tbody></table></div><p class="muted">Il dataset comunale è in formato KML e risulta aggiornato nel catalogo al 6 settembre 2021: occorre verificarne attualità e completezza prima dell’analisi.</p></div>`;
- }else if(active==='standards'){
+ const points=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],par=DATA.schoolParitarie||[];
+ const fmt=n=>Number(n||0).toLocaleString('it-IT');
+ const totalStudents=stats.reduce((a,x)=>a+(+x.students||0),0);
+ const orders=['Infanzia','Primaria','Secondaria I grado','Secondaria II grado'];
+ html+=`<style>
+ .school-map{height:430px;width:100%;border-radius:10px}.school-controls{display:grid;grid-template-columns:repeat(3,minmax(140px,1fr));gap:12px;margin:12px 0}.school-controls label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#58708a}.school-controls input,.school-controls select{min-height:38px;border:1px solid #cbd8e6;border-radius:7px;padding:7px;background:#fff;color:#173653}.school-table{max-height:420px;overflow:auto}.school-table table{min-width:740px}.school-note{font-size:12px;color:#60758b;line-height:1.5}.school-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.school-kpis .card{margin:0}@media(max-width:800px){.school-controls,.school-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ </style>
+ <div class="school-kpis">
+ <div class="card"><span class="muted">Sedi comunali georeferenziate</span><div class="metric">${fmt(points.length)}</div><small class="muted">Catalogo KML 2021, plessi e sedi</small></div>
+ <div class="card"><span class="muted">Plessi statali con dati USR</span><div class="metric">${fmt(stats.length)}</div><small class="muted">Anno scolastico 2025/2026</small></div>
+ <div class="card"><span class="muted">Alunni nei plessi censiti</span><div class="metric">${fmt(totalStudents)}</div><small class="muted">Dato USR 2025/2026</small></div>
+ <div class="card"><span class="muted">Scuole paritarie in elenco</span><div class="metric">${fmt(par.length)}</div><small class="muted">USR 2025/2026, senza coordinate</small></div>
+ </div>
+ <div class="card"><h3>Distribuzione territoriale delle sedi</h3>
+ <p class="school-note">La mappa mostra le 271 sedi del catalogo comunale 2021. I dati USR 2025/2026 e le paritarie sono tenuti in archivi distinti: non vengono assegnati a coordinate o quartieri senza corrispondenza verificata.</p>
+ <div class="school-controls">
+ <label>Tipologia<select id="schoolKind"><option value="">Tutte</option><option value="Asilo nido">Asili nido</option><option value="Plesso">Plessi</option><option value="Sede">Sedi</option></select></label>
+ <label>Categoria KML<select id="schoolOrder"><option value="">Tutte</option><option value="Nido">Nido</option><option value="IC">IC</option><option value="DD">Direzione didattica</option><option value="SMS">Scuola media</option><option value="Non specificato">Non specificato</option></select></label>
+ <label>Cerca sede<input id="schoolSearch" type="search" placeholder="Nome, istituto, indirizzo"></label>
+ </div>
+ <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
+ <div class="school-table"><table><thead><tr><th>Sede</th><th>Tipologia</th><th>Istituto</th><th>Indirizzo</th><th>Quartiere KML</th><th>Anno</th></tr></thead><tbody id="schoolPointRows"></tbody></table></div>
+ </div>
+ <div class="card"><h3>Dati USR per ordine scolastico</h3><p class="school-note">401 record di plesso con codice meccanografico. Sono separati dalle sedi KML per evitare duplicazioni o abbinamenti geografici non verificati.</p>
+ <div class="school-kpis">${orders.map(o=>{const x=stats.filter(z=>z.order===o);return '<div class="card"><span class="muted">'+esc(o)+'</span><div class="metric">'+fmt(x.length)+'</div><small class="muted">'+fmt(x.reduce((n,z)=>n+(+z.students||0),0))+' alunni</small></div>';}).join('')}</div>
+ <div class="school-controls"><label>Ordine<select id="schoolStatsOrder"><option value="">Tutti</option>${orders.map(o=>'<option>'+esc(o)+'</option>').join('')}</select></label><label>Cerca plesso/istituto<input id="schoolStatsSearch" type="search" placeholder="Denominazione o codice"></label></div>
+ <div class="school-table"><table><thead><tr><th>Codice</th><th>Plesso</th><th>Ordine</th><th>Istituto</th><th>Alunni</th><th>Classi/sezioni</th><th>Alunni con disabilità</th></tr></thead><tbody id="schoolStatsRows"></tbody></table></div><p id="schoolStatsStatus" class="school-note"></p></div>
+ <div class="card"><h3>Scuole paritarie</h3><p class="school-note">Elenco USR Sicilia 2025/2026. L'archivio disponibile non contiene coordinate né ordine scolastico normalizzato.</p>
+ <label class="school-controls">Cerca scuola<input id="schoolParSearch" type="search" placeholder="Nome, codice o indirizzo"></label>
+ <div class="school-table"><table><thead><tr><th>Codice</th><th>Denominazione</th><th>Indirizzo</th><th>Gestione</th><th>Anno</th></tr></thead><tbody id="schoolParRows"></tbody></table></div><p id="schoolParStatus" class="school-note"></p></div>
+ <div class="card"><h3>Fonti e metodologia</h3><ul><li><a href="https://opendata.comune.palermo.it/opendata-dataset.php?dataset=328" target="_blank" rel="noopener">Comune di Palermo, catalogo KML scuole</a>, aggiornamento 2021.</li><li><a href="https://www.usr.sicilia.it/open-data/" target="_blank" rel="noopener">USR Sicilia, Open Data</a>, organico di fatto e paritarie 2025/2026.</li></ul><p class="school-note">I dati KML descrivono localizzazioni, quelli USR consistenza scolastica. Non vengono sommati. La copertura per quartiere e UPL dei dati USR sarà calcolata dopo geocodifica verificata. Non sono ancora disponibili analisi di bacino pedonale.</p></div>`;
+}else if(active==='standards'){
  const standard=[['Istruzione','4,50','Asili nido, scuole dell’infanzia e dell’obbligo'],['Attrezzature di interesse comune','2,00','Servizi religiosi, culturali, sociali, assistenziali, sanitari e amministrativi'],['Verde, gioco e sport','9,00','Aree pubbliche attrezzate ed effettivamente fruibili'],['Parcheggi','2,50','Aree per parcheggi, oltre alle sedi viarie']];
  html+=`<div class="card standards-calculator"><h3>Simulatore del fabbisogno di standard</h3><p class="muted">Inserisci la popolazione di riferimento e le superfici effettivamente disponibili. Il calcolo è una simulazione parametrica, non una certificazione urbanistica.</p><div class="calc-input"><label>Popolazione di riferimento<input id="stdPopulation" type="number" min="0" step="1" placeholder="Inserisci numero abitanti"></label></div><div class="table-wrap"><table><thead><tr><th>Categoria</th><th>Standard (m²/ab)</th><th>Superficie disponibile (m²)</th><th>Fabbisogno teorico (m²)</th><th>Differenza (m²)</th></tr></thead><tbody>${standard.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td><input class="std-area" data-index="${i}" type="number" min="0" step="0.01" placeholder="Da inserire" aria-label="Superficie disponibile ${x[0]}"></td><td id="stdNeed${i}">N.D.</td><td id="stdGap${i}">N.D.</td></tr>`).join('')}</tbody><tfoot><tr><th colspan="3">Totale</th><th id="stdTotalNeed">N.D.</th><th id="stdTotalGap">N.D.</th></tr></tfoot></table></div><p id="stdCalcStatus" class="muted comparison-note">Inserisci popolazione e superfici per calcolare fabbisogno e differenziali.</p></div>`;
  html+=`<div class="grid standards-kpis"><div class="card"><span class="muted">Dotazione complessiva di riferimento</span><div class="metric">18,00 <small>m²/ab</small></div><small class="muted">D.M. 1444/1968, art. 3</small></div><div class="card"><span class="muted">Categorie di standard</span><div class="metric">4</div><small class="muted">Ripartizione ordinaria</small></div><div class="card"><span class="muted">Superfici validate</span><div class="metric">N.D.</div><small class="muted">Da acquisire e verificare</small></div><div class="card"><span class="muted">Verifica di conformità</span><div class="metric">Non calcolabile</div><small class="muted">Mancano superfici georeferenziate</small></div></div><div class="card"><h3>Parametri di riferimento del D.M. 1444/1968</h3><p class="muted">Dotazioni minime di norma per gli insediamenti residenziali. I parametri non descrivono la dotazione effettivamente presente a Palermo.</p><div class="table-wrap"><table><thead><tr><th>Categoria</th><th>Parametro</th><th>Contenuto</th></tr></thead><tbody>${standard.map(x=>`<tr><td><b>${x[0]}</b></td><td><b>${x[1]} m²/ab</b></td><td>${x[2]}</td></tr>`).join('')}</tbody><tfoot><tr><th>Totale</th><th>18,00 m²/ab</th><th>Escluse le sedi viarie</th></tr></tfoot></table></div></div><div class="card"><h3>Procedura di verifica territoriale</h3><div class="workflow-grid"><div><b>1. Inventario</b><span>Acquisizione dei poligoni e delle superfici per categoria.</span></div><div><b>2. Validazione</b><span>Controllo di geometrie, destinazioni, fruibilità e aggiornamento.</span></div><div><b>3. Attribuzione</b><span>Associazione delle superfici a quartieri e circoscrizioni tramite overlay GIS.</span></div><div><b>4. Calcolo</b><span>m² per abitante, fabbisogno teorico e differenziale per categoria.</span></div></div><p class="notice-inline">Non viene calcolato alcun deficit o surplus finché non saranno disponibili superfici attendibili e popolazione coerente per territorio e anno.</p></div>`;
@@ -283,6 +312,7 @@ if(active==='social'){
 
  }
  $('#content').innerHTML=html;
+ if(active==='schools')initSchools();
  
 if(active==='standards'){
  const pop=document.getElementById('stdPopulation');
@@ -529,12 +559,46 @@ function initMap(){
   report.insertAdjacentElement('afterend',resetButton);
  }
 }
+
+async function loadSchoolArchives(){
+ const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json']];
+ await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
+ if(active==='schools')render();
+}
+function initSchools(){
+ const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[];
+ const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const g=selected(),kind=$('#schoolKind'),order=$('#schoolOrder'),search=$('#schoolSearch'),rows=$('#schoolPointRows'),status=$('#schoolMapStatus');
+ const belongs=p=>{
+  if(g.quart&&norm(p.quarter)!==norm(DATA.territories.quartieri.find(q=>q.id===g.quart)?.name))return false;
+  if(g.circ){const f=GEO.asc1?.features?.find(x=>String(x.properties?.COD_ASC1)==String(g.circ).replace('c',''));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
+  if(g.asc3){const f=GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(g.asc3));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
+  if(g.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(g.section));if(!f||!pointInGeometry([p.lon,p.lat],f.geometry))return false;}
+  return true;
+ };
+ const filtered=()=>pts.filter(p=>(!kind.value||p.kind===kind.value)&&(!order.value||p.order===order.value)&&belongs(p)&&(!search.value||norm([p.name,p.institution,p.address].join(' ')).includes(norm(search.value))));
+ let map=null,layer=null;
+ const draw=()=>{
+  const list=filtered();
+  rows.innerHTML=list.slice(0,250).map(p=>'<tr><td>'+esc(p.name)+'</td><td>'+esc(p.kind)+'</td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(p.year||'2021')+'</td></tr>').join('')||'<tr><td colspan="6">Nessuna sede trovata.</td></tr>';
+  status.textContent='Sedi mostrate: '+list.length+' su '+pts.length+'. Il filtro territoriale è applicato alle coordinate e ai confini disponibili.';
+  if(layer){layer.clearLayers();list.forEach(p=>{const col=p.kind==='Asilo nido'?'#d97706':p.kind==='Sede'?'#2563eb':'#16845b';L.circleMarker([p.lat,p.lon],{radius:6,color:col,fillColor:col,fillOpacity:.8}).bindPopup('<b>'+esc(p.name)+'</b><br>'+esc(p.kind)+'<br>'+esc(p.address)+'<br>'+esc(p.institution)).addTo(layer);});}
+ };
+ if($('#schoolMap')&&window.L){map=L.map('schoolMap').setView([38.1157,13.3615],11);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap'}).addTo(map);layer=L.layerGroup().addTo(map);draw();setTimeout(()=>map.invalidateSize(),150);}else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
+ [kind,order,search].forEach(x=>x?.addEventListener('input',draw));
+ const so=$('#schoolStatsOrder'),ss=$('#schoolStatsSearch'),sr=$('#schoolStatsRows'),st=$('#schoolStatsStatus');
+ const drawStats=()=>{const a=stats.filter(x=>(!so.value||x.order===so.value)&&(!ss.value||norm([x.code,x.name,x.institution].join(' ')).includes(norm(ss.value))));sr.innerHTML=a.slice(0,300).map(x=>'<tr><td>'+esc(x.code)+'</td><td>'+esc(x.name)+'</td><td>'+esc(x.order)+'</td><td>'+esc(x.institution)+'</td><td>'+Number(x.students||0).toLocaleString('it-IT')+'</td><td>'+Number(x.classes||0).toLocaleString('it-IT')+'</td><td>'+Number(x.students_disability||0).toLocaleString('it-IT')+'</td></tr>').join('')||'<tr><td colspan="7">Nessun record.</td></tr>';st.textContent='Record visualizzati: '+Math.min(a.length,300)+' su '+a.length+'. Fonte USR 2025/2026.';};
+ so?.addEventListener('change',drawStats);ss?.addEventListener('input',drawStats);drawStats();
+ const ps=$('#schoolParSearch'),pr=$('#schoolParRows'),pt=$('#schoolParStatus');
+ const drawPar=()=>{const a=pars.filter(x=>!ps.value||norm([x.code,x.name,x.address].join(' ')).includes(norm(ps.value)));pr.innerHTML=a.slice(0,300).map(x=>'<tr><td>'+esc(x.code)+'</td><td>'+esc(x.name)+'</td><td>'+esc(x.address)+'</td><td>'+esc(x.management)+'</td><td>'+esc(x.year)+'</td></tr>').join('')||'<tr><td colspan="5">Nessun record.</td></tr>';pt.textContent='Record visualizzati: '+Math.min(a.length,300)+' su '+a.length+'. Coordinate non disponibili.';};
+ ps?.addEventListener('input',drawPar);drawPar();
+}
 function fillFilters(){
  const c=$('#circ'),q=$('#quart');DATA.territories.circoscrizioni.forEach(x=>c.add(new Option(x.name,x.id)));DATA.territories.quartieri.forEach(x=>q.add(new Option(x.name,x.id)));
  populateGeoSelectors();
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
-async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();} 
+async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();loadSchoolArchives();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
