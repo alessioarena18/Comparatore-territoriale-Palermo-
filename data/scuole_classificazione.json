@@ -3,12 +3,13 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 271,
-    "classified_records": 66,
-    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale.",
+    "classified_records": 74,
+    "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
       "USR Sicilia, Open Data scuole a.s. 2025/2026"
-    ]
+    ],
+    "updated": "2026-11-14"
   },
   "records": [
     {
@@ -1348,6 +1349,166 @@
       "source_year": "2021",
       "method": "Tipologia esplicita nel dataset comunale KML",
       "confidence": "tipologia da fonte comunale"
+    },
+    {
+      "point_id": "kml-school-185",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C. RITA LEVI MONTALCINI -PA",
+      "address": "LARGO CAMASTRA 7",
+      "school_codes": [
+        "PAEE8A002G"
+      ],
+      "school_names": [
+        "P.BORSELLINO"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-271",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. GIUSEPPE SCELSA -PA",
+      "address": "VIA VILLAGRAZIA 298",
+      "school_codes": [
+        "PAAA8AR01Q"
+      ],
+      "school_names": [
+        "VIA VILLAGRAZIA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-269",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. GIUSEPPE SCELSA -PA",
+      "address": "PIAZZA PAGLIARELLI 2",
+      "school_codes": [
+        "PAAA8AR04V"
+      ],
+      "school_names": [
+        "G. MANCINI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-76",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "I.C.S. RAGUSA MOLETI",
+      "address": "VIA SUNSERI GIUSEPPE 19",
+      "school_codes": [
+        "PAEE8BR03N"
+      ],
+      "school_names": [
+        "VIA SUNSERI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-240",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. GIULIANA SALADINO - PA",
+      "address": "PIAZZA CELLINI BENVENUTO 4",
+      "school_codes": [
+        "PAAA897033"
+      ],
+      "school_names": [
+        "VIA PALADINI"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-214",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. RITA ATRIA -PA",
+      "address": "PIAZZA GRAN CANCELLIERE 1",
+      "school_codes": [
+        "PAAA8AB022"
+      ],
+      "school_names": [
+        "TURRISI COLONNA G."
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-215",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. RITA ATRIA -PA",
+      "address": "PIAZZA GRAN CANCELLIERE 1",
+      "school_codes": [
+        "PAAA8AB022"
+      ],
+      "school_names": [
+        "TURRISI COLONNA G."
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
+    },
+    {
+      "point_id": "kml-school-117",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "I.C. G. DI VITTORIO -PA",
+      "address": "VIALE DI VITTORIO GIUSEPPE 7",
+      "school_codes": [
+        "PAAA85204E"
+      ],
+      "school_names": [
+        "P.MATTARELLA"
+      ],
+      "source_urls": [
+        "https://www.usr.sicilia.it/open-data/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Corrispondenza per denominazione/alias e istituzione scolastica coerente con il record USR; codice meccanografico del plesso",
+      "confidence": "buona, da verifica puntuale dell'indirizzo sul sito ufficiale"
     }
   ]
 }
