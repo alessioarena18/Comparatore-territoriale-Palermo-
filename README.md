@@ -298,3 +298,6 @@ La mappa degli standard legge il campo booleano `bufferEligible` del V64 e non p
 
 
 Nota operativa sui raggi: al momento il registro non abilita buffer automatici. La scheda che nel campo sorgente V64 riporta IDONEO non ha ancora un ordine del singolo plesso esplicitamente verificato, necessario per scegliere il raggio corretto. Il sistema la mantiene quindi esclusa finché ordine e accesso non risultano entrambi validati.
+
+
+Censimento scolastico V64: 271 punti cartografici, 166 documentati, 103 in riserva/rettifica e 2 da rivalidare. Il registro è pubblicato in `data/censimento_scolastico_v64.json` e collegato alla pagina Servizi e dotazioni. Il campus Alberico Gentili (via Francesco Lo Jacono 1) è stato completato con codici primaria PAEE8AN01N e secondaria I grado PAMM8AN01L, GPS ufficiale dell'istituto e un unico buffer fisico. Al 15/11/2026 è l'unico punto con `bufferEligible=true`; i casi condizionati restano esclusi fino alla verifica delle coordinate e degli accessi.
