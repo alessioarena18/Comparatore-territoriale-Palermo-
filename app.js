@@ -314,6 +314,20 @@ if(active==='social'){
  <div class="card"><h3>Stato di validazione</h3><p><strong>Dati demografici 2022 per quartiere e circoscrizione:</strong> acquisiti e utilizzati con riferimento al 31/12/2022.</p><p><strong>Dati per sezione censuaria e classi d’età:</strong> fonte ufficiale individuata, associazione geografica ancora da completare.</p><p><strong>Cartografia e inventari dei servizi:</strong> fonti individuate, geometrie e aggiornamento da verificare prima di attivare analisi spaziali e conteggi.</p><p class="notice-inline">Nessun valore derivato da fonti non verificate sarà presentato come dato ufficiale o risultato definitivo.</p></div>`;
 
  }
+  const pieCanvasId='sectionTerritoryPie';
+ const pieTitle={overview:'Composizione del quadro territoriale',demography:'Composizione della popolazione residente',social:'Distribuzione delle UPL per classi IDISE',schools:'Distribuzione dei punti scolastici per ordine prevalente',standards:'Ripartizione dei parametri minimi di standard',gis:'Articolazione dei livelli territoriali',spatial:'Stato delle analisi spaziali',compare:'Popolazione per circoscrizione',sources:'Fonti documentali per archivio'}[active]||'Analisi territoriale';
+ let pieLabels=[],pieValues=[];
+ const pieNorm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ if(active==='overview'){pieLabels=['Circoscrizioni','Quartieri','UPL','Sezioni censuarie'];pieValues=[DATA.territories.circoscrizioni.length,DATA.territories.quartieri.length,GEO.asc3?.features?.length||55,GEO.sections?.features?.length||3600];}
+ else if(active==='demography'){const q=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;const rows=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere'&&(!s.circ||(x.circoscrizioni_id||[]).includes(s.circ))&&(!s.quart||pieNorm(x.nome)===pieNorm(q)));const row=s.quart?rows[0]:s.circ?DATA.demografia.find(x=>x.tipo_territorio==='circoscrizione'&&x.territorio_id===s.circ):null;const sum=k=>row?Number(row[k])||0:rows.reduce((n,x)=>n+(Number(x[k])||0),0);pieLabels=['Italiani','Stranieri'];pieValues=[sum('italiani'),sum('stranieri')];}
+ else if(active==='social'){const a=(DATA.sociale||[]).filter(x=>!s.asc3||String(x.cod_asc)===String(s.asc3));pieLabels=['IDISE < 90','IDISE 90-100','IDISE > 100'];pieValues=[a.filter(x=>Number(x.idise)<90).length,a.filter(x=>Number(x.idise)>=90&&Number(x.idise)<=100).length,a.filter(x=>Number(x.idise)>100).length];}
+ else if(active==='schools'){const cl=DATA.schoolClassification?.records||[],pt=DATA.schoolPoints||[],byId=new Map(cl.map(x=>[String(x.point_id),x]));const counts={NIDO:0,INFANZIA:0,ELEMENTARI:0,MEDIE:0,SUPERIORI:0,'Non classificati':0};pt.forEach(p=>{const os=byId.get(String(p.id))?.orders||[];const first=os[0]||(p.kind==='Asilo nido'?'NIDO':'Non classificati');counts[first]=(counts[first]||0)+1;});pieLabels=Object.keys(counts);pieValues=Object.values(counts);}
+ else if(active==='standards'){pieLabels=['Istruzione','Interesse comune','Verde e sport','Parcheggi'];pieValues=[4.5,2,9,2.5];}
+ else if(active==='gis'){pieLabels=['Circoscrizioni ASC1','Quartieri ASC2','UPL ASC3','Sezioni censuarie'];pieValues=[GEO.asc1?.features?.length||8,GEO.asc2?.features?.length||25,GEO.asc3?.features?.length||55,GEO.sections?.features?.length||3600];}
+ else if(active==='spatial'){pieLabels=['Base territoriale disponibile','Analisi da completare'];pieValues=[1,3];}
+ else if(active==='compare'){const ds=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');const rows=DATA.territories.circoscrizioni.map(c=>({name:c.name,value:Number(ds.find(x=>x.territorio_id===c.id)?.totale)||0}));pieLabels=rows.map(x=>x.name);pieValues=rows.map(x=>x.value);}
+ else if(active==='sources'){pieLabels=['Comune di Palermo','ISTAT','USR Sicilia','Cartografia comunale'];pieValues=[4,3,2,1];}
+ html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">Il grafico si aggiorna in base alla sezione e ai filtri territoriali. Le quote rappresentano esclusivamente le categorie e i dati indicati, non una stima di copertura.</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  $('#content').innerHTML=html;
  if(active==='schools')initSchools();
  
@@ -392,6 +406,9 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
 }
 }
 
+ if(window.Chart&&document.getElementById('sectionTerritoryPie')&&pieValues.some(v=>Number(v)>0)){
+  charts.push(new Chart(document.getElementById('sectionTerritoryPie'),{type:'pie',data:{labels:pieLabels,datasets:[{data:pieValues}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw||0).toLocaleString('it-IT')}}}}}));
+ }
  if(active==='gis') initMap();
 $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Palermo').replace(/(^|[\s-])(\p{L})/gu,(_,sep,letter)=>sep+letter.toLocaleUpperCase('it-IT'));
 }
