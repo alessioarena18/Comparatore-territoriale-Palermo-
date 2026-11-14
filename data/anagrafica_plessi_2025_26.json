@@ -10,7 +10,7 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 99,
+    "confirmedMapPointMatches": 101,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
     "confirmedMapPoints": 73
@@ -5656,11 +5656,13 @@
       "extendedTimeClasses": null,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-266",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiali IC Mantegna-Bonanno 2022-25 e 2025-28: il plesso Bonanno in Via Pitrè 183 ospita infanzia, primaria e secondaria; codici PAEE85303E e PAMM85301B. Il punto KML Bonanno è in Via Pitrè 183.",
+      "mapMatchSourceUrl": "https://www.icsmantegnabonanno.edu.it/media/attachments/2025/03/17/ptof_mantegna_bonanno.pdf"
     },
     {
       "code": "PAEE85301C",
@@ -6540,7 +6542,7 @@
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
       "license": "IODL 2.0",
       "mapMatchNote": "Elenco Open Fiber 2022: codice PAEE8A002G, P. Borsellino, Largo Camastra 7; punto KML Borsellino allo stesso civico e istituzione Rita Levi Montalcini.",
-      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
+      "mapMatchSourceUrl": "https://openfiber.it/app/uploads/sites/2/2022/06/Elenco_Scuole_Connesse_Open_Fiber_07062022.pdf"
     },
     {
       "code": "PAEE8AZ022",
@@ -8821,11 +8823,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-266",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiali IC Mantegna-Bonanno 2022-25 e 2025-28: il plesso Bonanno in Via Pitrè 183 ospita infanzia, primaria e secondaria; codici PAEE85303E e PAMM85301B. Il punto KML Bonanno è in Via Pitrè 183.",
+      "mapMatchSourceUrl": "https://www.icsmantegnabonanno.edu.it/media/attachments/2025/03/17/ptof_mantegna_bonanno.pdf"
     },
     {
       "code": "PAMM87901G",
