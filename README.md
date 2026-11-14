@@ -215,3 +215,10 @@ Sono stati aggiunti i collegamenti per Oreto (infanzia e primaria, Via Oreto 106
 Sono stati aggiunti i collegamenti per Ilaria Alpi (Corso dei Mille 1672), Natoli (Corso dei Mille 1486), Mattarella (Viale Di Vittorio 7), Principessa Elena (Via Ustica 46), Abba-Alighieri (Via Ruggero Marturano 77/79), Sunseri (Via Sunseri 19), Randazzo (Via Sperone 79), Via del Vespro/Rosolino Pilo (Via Augusto Elia 1), Boccone (Via del Vespro 72), Guttuso (Via Galletti 78), San Ciro (Via San Ciro 48/A), Virgilio Marone (Via Valdemone 7), Sferracavallo (Via Tacito 34), Ingrassia (Via Statella 21), Giafar (Via Giafar 17), Medaglie d'Oro (Via Deodato 7), Bonanno (Via Pitrè 183), Centro Sociale (Via Palmerino 1), Cuscinà (Via Cuscina 7) e Via del Fervore-Capuana (Via del Fervore 5).
 
 Sono stati rimossi due abbinamenti che la verifica degli indirizzi ha smentito: il codice PAEE8A003L Michelangelo (Via Tindari 52) non corrisponde al punto KML Michelangelo in Largo Michelangelo 15; i codici Livio Bassi PAAA87101R e PAEE871023 (Via Casalini 65) non corrispondono al punto KML Livio Bassi in Salita Castellana 65. Entrambi i punti restano fuori dal crosswalk statistico fino a un riscontro fisico documentale.
+
+
+## Settimo lotto di collegamenti documentali – 14 novembre 2026
+
+Sono stati aggiunti: Industriale (Via S. Alberto degli Abati, quartiere Sperone), G. Di Vittorio secondaria (Viale Di Vittorio 11), Giuseppe Scelsa secondaria (Via Villani 40, con civico non presente nel KML), Palagonia primaria (Via Principe di Palagonia 46), Verga primaria (Via Uditore 21), P. Borsellino primaria (Largo Camastra 7) e Paladini infanzia (Piazza Benvenuto Cellini 4).
+
+Il punto Michelangelo resta sospeso: il registro scolastico riporta Via Tindari 52, mentre Open Fiber 2022 elenca per lo stesso codice anche Largo Michelangelo 6/11/15. Non si assume una sede univoca finché la possibile multi-sede non è chiarita.
