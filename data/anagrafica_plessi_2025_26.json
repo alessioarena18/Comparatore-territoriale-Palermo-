@@ -10,10 +10,10 @@
     "method": "Join per codice esatto per le istituzioni ordinarie. Per Convitto Nazionale Giovanni Falcone ed Educandato Statale Maria Adelaide, raccordo documentale dei plessi e dei codici di settore alla rispettiva istituzione principale 2026/27; il codice del plesso resta distinto.",
     "documentedAnnexMatches": 6,
     "unresolvedInstitutionCodes": 0,
-    "confirmedMapPointMatches": 101,
+    "confirmedMapPointMatches": 104,
     "falseCandidateLinksRemoved": 4,
     "mapJoinMethod": "Collegamenti puntuali ammessi solo quando codice di plesso, ordine e indirizzo della singola sede sono documentati in fonte scolastica/USR o altra fonte istituzionale indipendente e coerenti con il punto comunale. Le sedi con civico discordante, denominazione ambigua o istituzione incoerente restano escluse.",
-    "confirmedMapPoints": 73
+    "confirmedMapPoints": 76
   },
   "records": [
     {
@@ -9206,11 +9206,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-251",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC Nazario Sauro-R. Franchetti e adozioni libri 2023/24: codice PAMM8BE017, scuola secondaria Raimondo Franchetti, Viale Amedeo d'Aosta 52/54; punto KML Franchetti in Via Amedeo d'Aosta 52.",
+      "mapMatchSourceUrl": "https://www.icsaurofranchetti.edu.it/attachments/article/88/0_PTOF_PAIC8BE006-2022-25.pdf"
     },
     {
       "code": "PAMM8AC011",
@@ -9384,11 +9386,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-233",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "PTOF ufficiale IC Uditore/Setti Carraro: codice plesso PAMM8AQ014, scuola secondaria Setti Carraro, Via Tiepolo 4; punto KML Setti Carraro allo stesso civico. Il codice PAIC8AQ003 è l'istituzione comprensiva e non è usato come codice di plesso.",
+      "mapMatchSourceUrl": "https://www.icsuditoresetticarraro.it/wp-content/uploads/2024/12/timbro_PAIC8AQ003-202225-202425-20241227.pdf"
     },
     {
       "code": "PAMM813011",
@@ -9645,11 +9649,13 @@
       "extendedTimeClasses": 0,
       "year": "2025/2026",
       "registryMatch": "CODICE_COINCIDENTE",
-      "mapPointId": null,
-      "mapMatchStatus": "NON_ASSOCIATO_CON_CERTEZZA",
+      "mapPointId": "kml-school-250",
+      "mapMatchStatus": "CONFERMATO_DOCUMENTALMENTE",
       "source": "USR Sicilia - Organico di fatto 2025/26",
       "sourceUrl": "https://www.usr.sicilia.it/open-data/",
-      "license": "IODL 2.0"
+      "license": "IODL 2.0",
+      "mapMatchNote": "Sito ufficiale IC Maneri-Ingrassia-Don Milani e elenco delle sedi: codice plesso PAMM8BB01Q, scuola secondaria Don Milani, Passaggio dei Picciotti 3; punto KML Don Milani allo stesso civico. PAIC8BB00P è il codice dell'istituzione e non viene usato come plesso.",
+      "mapMatchSourceUrl": "https://www.icsrussoraciti.edu.it/"
     },
     {
       "code": "PARI02701N",
