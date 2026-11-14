@@ -286,3 +286,12 @@ Il censimento distingue plessi didattici e sedi amministrative, codici di istitu
 Il repository carica ora il crosswalk data/verifica_sedi_scolastiche_v14.json nella sezione Servizi e dotazioni. Il registro contiene 79 schede: 78 con esito documentale e una non verificata. Sono stati aggiornati otto record già presenti e aggiunti sei record del lotto V64: La Cittadella, Saetta, Ex Internazionale Corpo B, De Stefano, Armonia e Rampolla.
 
 Le schede riportano denominazione, indirizzo, istituzione, stato di verifica, nota e fonte. Per i casi non riconciliati o da rivalidare è mantenuta l’esclusione dai raggi. La mappa degli standard utilizza ora il flag esplicito bufferEligible e non genera buffer per punti privi di tale autorizzazione documentale. Al momento, un solo punto ha superato il criterio esplicito nel registro V14: Alberico Gentili, via Francesco Lo Jacono 1. Il filtro sarà esteso man mano che saranno verificate le coordinate e gli accessi delle altre sedi.
+
+
+## Integrazione completa inventario V64 nel comparatore – 15 novembre 2026
+
+Pubblicato `data/censimento_scolastico_v64.json`, archivio strutturato di tutti i 271 record del censimento. Ogni scheda conserva identificativo KML, tipologia, denominazione, indirizzo, coordinate, quartiere, circoscrizione, istituzione candidata, fonti, note di riconciliazione, stato di affidabilità, ordine e codice meccanografico verificati, stato operativo e criterio di idoneità ai raggi. I dati sono collegati ai punti della mappa tramite ID univoco, senza alterare il dataset USR 2025/26 da 401 record.
+
+La pagina Servizi e dotazioni offre filtri per esito V64 e idoneità ai raggi, ricerca per nome/indirizzo/codice, colonne per stato documentale, ordine operativo, codice plesso e idoneità. Le schede mostrano anche le note e la prima fonte documentale nel popup cartografico. Gli indicatori di avanzamento sono calcolati direttamente dal JSON V64: 271 schede, 166 documentate, 103 in riserva/rettifica e 2 da rivalidare.
+
+La mappa degli standard legge il campo booleano `bufferEligible` del V64 e non più il crosswalk ridotto come fonte di autorizzazione. Il flag è deliberatamente conservativo: i valori condizionati (per esempio coordinate/accesso da validare) non abilitano buffer. L'ordine scolastico deve essere documentato per scegliere correttamente il raggio; la sola identificazione generica dell'istituzione non basta.
