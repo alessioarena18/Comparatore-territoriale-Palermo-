@@ -330,7 +330,7 @@ Sono stati aggiunti al registro V81 e alla cartografia due raccordi con coordina
 - **Galileo Galilei, Via G. Galilei 36:** coordinate estratte dal collegamento Google Maps presente nella scheda luogo del Comune di Palermo (38.1313979, 13.3340165). La pagina comunale specifica l'accesso dal civico 36. Il punto è stato aggiunto a `data/scuole_points.json` e classificato come scuola dell'infanzia comunale in `data/scuole_classificazione.json`.
 - **Palmerino, Via Palmerino 1:** coordinate riprese dal punto del catalogo KML comunale già presente allo stesso indirizzo. Il collegamento è marcato come corrispondenza di indirizzo, non come co-localizzazione fisica certa: la scheda KML esistente presenta una discrepanza documentale rispetto alla sede dichiarata dall'istituto Arculeo-Gramsci. Non viene creato un secondo marker né abilitato alcun buffer.
 
-Il controllo point-in-polygon sui layer ISTAT 2021 colloca entrambi i riferimenti nei perimetri comunali: Palmerino in circoscrizione 4 / ASC2 14 / ASC3 19; Galileo Galilei in circoscrizione 8 / ASC2 8 / ASC3 33. Il totale passa a **288 record con coordinate** e **17 senza coordinate**; i punti fisici unici in mappa sono 288. Nessuno dei due nuovi riferimenti è abilitato ai raggi d'influenza, perché la georeferenziazione dell'indirizzo non equivale alla validazione dell'ingresso e dell'assetto operativo.
+Il controllo point-in-polygon sui layer ISTAT 2021 colloca entrambi i riferimenti nei perimetri comunali: Palmerino in circoscrizione 4 / ASC2 14 / ASC3 19; Galileo Galilei in circoscrizione 8 / ASC2 8 / ASC3 33. Il totale passa a **288 record con coordinate** e **17 senza coordinate**; i punti fisici unici in mappa sono 291. Nessuno dei due nuovi riferimenti è abilitato ai raggi d'influenza, perché la georeferenziazione dell'indirizzo non equivale alla validazione dell'ingresso e dell'assetto operativo.
 
 Fonti: [Comune di Palermo, scheda Via Galileo Galilei 36](https://www.comune.palermo.it/vivere-il-comune/luoghi/via-galileo-galilei-n-36/); [elenco comunale scuole dell'infanzia 2026/27](https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf).
 
@@ -342,7 +342,7 @@ Sono state aggiunte due sedi scolastiche al catalogo cartografico usando esclusi
 - Liceo Classico Giuseppe Garibaldi, succursale, Via Generale Arimondi 38: 38.1375064, 13.352974. Fonte: [scheda ufficiale della succursale](https://www.liceogaribaldi.edu.it/luogo/succursale/).
 - IISS Enrico Medi, sede centrale, Via Leonardo da Vinci 364: 38.12615347796719, 13.319126844144195. Fonte: [scheda ufficiale della sede centrale](https://www.iissenricomedi.edu.it/luogo/sede-centrale/).
 
-Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **290 record georeferenziati** e **15 senza coordinate**. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
+Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **292 record georeferenziati** e **13 senza coordinate**; i punti fisici unici sono 291. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
 
 
 ## Georeferenziazione delle sedi superiori – secondo lotto – 15 novembre 2026
@@ -354,7 +354,7 @@ Sono state aggiunte due sedi superiori usando i collegamenti Google Maps incorpo
 
 Entrambi i punti ricadono nei perimetri amministrativi ISTAT 2021 e sono stati inseriti in `data/scuole_points.json`, `data/scuole_classificazione.json` e nel registro V81. I buffer restano disabilitati: il collegamento cartografico ufficiale documenta il punto indicato dalla scuola ma non sostituisce il sopralluogo dell'accesso effettivo.
 
-Il totale aggiornato è **290 record con coordinate** e **15 senza coordinate**; i punti fisici georeferenziati sono 290.
+Il totale aggiornato è **292 record con coordinate** e **13 senza coordinate**; i punti fisici georeferenziati sono 291. Il differenziale record/punti dipende dal riferimento Palmerino, collegato per indirizzo coincidente a un punto KML esistente senza duplicare il marker.
 
 
 ## Georeferenziazione sedi scolastiche – secondo lotto – 15 novembre 2026
