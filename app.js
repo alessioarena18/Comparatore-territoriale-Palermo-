@@ -489,7 +489,7 @@ function initMap(){
    ]);
    if(!pointResponse.ok||!censusResponse.ok||!classificationResponse.ok)throw new Error('Archivi scolastici non disponibili');
    const [schoolPoints,schoolCensus,schoolClassification]=await Promise.all([pointResponse.json(),censusResponse.json(),classificationResponse.json()]);
-   const censusById=new Map((schoolCensus.records||[]).map(x=>[String(x.id),x]));
+   const censusById=new Map();(schoolCensus.records||[]).forEach(x=>{censusById.set(String(x.id),x);if(x.mapPointId)censusById.set(String(x.mapPointId),x);});
    const orderById=new Map((schoolClassification.records||[]).map(x=>[String(x.point_id),x.orders||[]]));
    const schoolLayer=L.layerGroup(),schoolFeatureLayers=[];
    const orderColors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
@@ -686,7 +686,7 @@ function initSchools(){
  ];
  const classificationById=new Map(classification.map(x=>[String(x.point_id),x]));
  const verificationById=new Map(siteVerification.map(x=>[String(x.pointId),x]));
- const censusById=new Map(schoolCensus.map(x=>[String(x.id),x]));
+ const censusById=new Map();schoolCensus.forEach(x=>{censusById.set(String(x.id),x);if(x.mapPointId)censusById.set(String(x.mapPointId),x);});
  const registerByCode=new Map(register.map(x=>[String(x.code),x]));
  const ordersOf=p=>classificationById.get(String(p.id))?.orders||[];
  const orderOf=p=>ordersOf(p)[0]||'';
