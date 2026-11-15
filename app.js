@@ -193,9 +193,9 @@ html+=`<div class="grid"><div class="card"><h3>Popolazione residente per circosc
 }
 if(active==='social'){
   const aree=(s.section?[]:[...(DATA.sociale||[])].filter(a=>!s.asc3||String(a.cod_asc)===String(s.asc3))).sort((a,b)=>Number(b.idise)-Number(a.idise));
-  const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:0;
+  const media=aree.length?aree.reduce((s,x)=>s+Number(x.idise||0),0)/aree.length:null;
   const massimo=aree[0], minimo=[...aree].sort((a,b)=>Number(a.idise)-Number(b.idise))[0];
-  const numero=n=>Number(n||0).toLocaleString('it-IT',{maximumFractionDigits:2});
+  const numero=n=>n===null||n===undefined?'N.D.':Number(n).toLocaleString('it-IT',{maximumFractionDigits:2});
   if(s.section)html+='<div class="notice-inline">L’indice IDISE è disponibile per le 55 UPL, non per le singole sezioni censuarie. Per evitare attribuzioni improprie, i valori IDISE non vengono mostrati per la sezione selezionata.</div>';
   const descrizioni={
     DIS1:'Persone di 70 anni e oltre che vivono sole e non sono proprietarie dell’abitazione',
