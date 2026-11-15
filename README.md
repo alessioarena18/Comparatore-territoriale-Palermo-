@@ -321,3 +321,15 @@ Sono state rettificate due sedi comunali che riportavano indirizzi non aggiornat
 **Stato georeferenziazione invariato:** 287 record con coordinate e 18 senza coordinate. Non sono state inserite coordinate stimate o derivate da un semplice centro strada. Le 18 sedi restano escluse dalla mappa e dai buffer finché non è disponibile un riferimento puntuale verificabile per edificio/accesso. Il punto anomalo di Via Altofonte (kml-school-264) resta non attribuito a Belpasso.
 
 L'aggiornamento è tracciato in `data/censimento_scolastico_v81.json`, nei campi `url_fonte_indirizzo`, `fonte_verifica_documentale` e `meta.address_verification_update`.
+
+
+## Georeferenziazione delle sedi comunali – primo lotto – 15 novembre 2026
+
+Sono stati aggiunti al registro V81 e alla cartografia due raccordi con coordinate documentate:
+
+- **Galileo Galilei, Via G. Galilei 36:** coordinate estratte dal collegamento Google Maps presente nella scheda luogo del Comune di Palermo (38.1313979, 13.3340165). La pagina comunale specifica l'accesso dal civico 36. Il punto è stato aggiunto a `data/scuole_points.json` e classificato come scuola dell'infanzia comunale in `data/scuole_classificazione.json`.
+- **Palmerino, Via Palmerino 1:** coordinate riprese dal punto del catalogo KML comunale già presente allo stesso indirizzo. Il collegamento è marcato come corrispondenza di indirizzo, non come co-localizzazione fisica certa: la scheda KML esistente presenta una discrepanza documentale rispetto alla sede dichiarata dall'istituto Arculeo-Gramsci. Non viene creato un secondo marker né abilitato alcun buffer.
+
+Il controllo point-in-polygon sui layer ISTAT 2021 colloca entrambi i riferimenti nei perimetri comunali: Palmerino in circoscrizione 4 / ASC2 14 / ASC3 19; Galileo Galilei in circoscrizione 8 / ASC2 8 / ASC3 33. Il totale passa a **288 record con coordinate** e **17 senza coordinate**; i punti fisici unici in mappa sono 288. Nessuno dei due nuovi riferimenti è abilitato ai raggi d'influenza, perché la georeferenziazione dell'indirizzo non equivale alla validazione dell'ingresso e dell'assetto operativo.
+
+Fonti: [Comune di Palermo, scheda Via Galileo Galilei 36](https://www.comune.palermo.it/vivere-il-comune/luoghi/via-galileo-galilei-n-36/); [elenco comunale scuole dell'infanzia 2026/27](https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf).
