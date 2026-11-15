@@ -342,7 +342,7 @@ Sono state aggiunte due sedi scolastiche al catalogo cartografico usando esclusi
 - Liceo Classico Giuseppe Garibaldi, succursale, Via Generale Arimondi 38: 38.1375064, 13.352974. Fonte: [scheda ufficiale della succursale](https://www.liceogaribaldi.edu.it/luogo/succursale/).
 - IISS Enrico Medi, sede centrale, Via Leonardo da Vinci 364: 38.12615347796719, 13.319126844144195. Fonte: [scheda ufficiale della sede centrale](https://www.iissenricomedi.edu.it/luogo/sede-centrale/).
 
-Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **293 record georeferenziati** e **12 senza coordinate**; i punti fisici unici sono 291. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
+Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **294 record georeferenziati** e **11 senza coordinate**; i punti fisici unici sono 291. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
 
 
 ## Georeferenziazione delle sedi superiori – secondo lotto – 15 novembre 2026
@@ -354,7 +354,7 @@ Sono state aggiunte due sedi superiori usando i collegamenti Google Maps incorpo
 
 Entrambi i punti ricadono nei perimetri amministrativi ISTAT 2021 e sono stati inseriti in `data/scuole_points.json`, `data/scuole_classificazione.json` e nel registro V81. I buffer restano disabilitati: il collegamento cartografico ufficiale documenta il punto indicato dalla scuola ma non sostituisce il sopralluogo dell'accesso effettivo.
 
-Il totale aggiornato è **293 record con coordinate** e **12 senza coordinate**; i punti fisici georeferenziati sono 291. Il differenziale record/punti dipende dal riferimento Palmerino, collegato per indirizzo coincidente a un punto KML esistente senza duplicare il marker.
+Il totale aggiornato è **294 record con coordinate** e **11 senza coordinate**; i punti fisici georeferenziati sono 291. Il differenziale record/punti dipende dal riferimento Palmerino, collegato per indirizzo coincidente a un punto KML esistente senza duplicare il marker.
 
 
 ## Georeferenziazione sedi scolastiche – secondo lotto – 15 novembre 2026
@@ -364,19 +364,19 @@ Sono state georeferenziate altre due sedi tramite le coordinate presenti nei lin
 - **Istituto Superiore Majorana, Plesso Olimpo, Viale dell'Olimpo 20/22:** 38.188701570014935, 13.317049741744997. Fonte: [scheda ufficiale Plesso Olimpo](https://majoranapa.edu.it/luogo/plessoolimpo/).
 - **IISS Enrico Medi, sede succursale, Via Monsignor Serio 6/A:** 38.13170670404379, 13.323050379949564. Fonte: [scheda ufficiale sede succursale](https://www.iissenricomedi.edu.it/luogo/sede-succursale/).
 
-Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **293 record con coordinate** e **12 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
+Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **294 record con coordinate** e **12 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
 
 
 ## Avanzamento georeferenziazione V81 – aggiornamento 15 novembre 2026
 
-Dopo i lotti successivi di verifica, il registro V81 contiene **293 schede georeferenziate su 305**, con **12 sedi ancora prive di coordinate**. I punti aggiunti tramite coordinate Google Maps ufficiali degli istituti sono: Liceo Garibaldi succursale (Via Generale Arimondi 38), IISS Enrico Medi sede centrale (Via Leonardo da Vinci 364) e succursale (Via Monsignor Serio 6/A), Istituto Majorana Plesso Olimpo (Viale dell'Olimpo 20/22), oltre al plesso comunale Galileo Galilei (Via G. Galilei 36). Le coordinate sono state sottoposte a point-in-polygon sui layer ISTAT 2021 e risultano interne ai perimetri comunali.
+Dopo i lotti successivi di verifica, il registro V81 contiene **294 schede georeferenziate su 305**, con **11 sedi ancora prive di coordinate**. I punti aggiunti tramite coordinate Google Maps ufficiali degli istituti sono: Liceo Garibaldi succursale (Via Generale Arimondi 38), IISS Enrico Medi sede centrale (Via Leonardo da Vinci 364) e succursale (Via Monsignor Serio 6/A), Istituto Majorana Plesso Olimpo (Viale dell'Olimpo 20/22), oltre al plesso comunale Galileo Galilei (Via G. Galilei 36). Le coordinate sono state sottoposte a point-in-polygon sui layer ISTAT 2021 e risultano interne ai perimetri comunali.
 
 Il punto comunale Palmerino (Via Palmerino 1) è raccordato al punto KML con indirizzo coincidente, ma la co-localizzazione fisica resta da confermare: non è duplicato e non abilita buffer. Le 13 sedi senza coordinate non vengono geocodificate con centroidi stradali o posizioni approssimative. Il pannello di avanzamento della pagina Servizi e dotazioni legge ora dinamicamente il numero di coordinate dal JSON V81. La mappa rappresenta 292 punti fisici: il record Palmerino è collegato a un indirizzo coincidente senza creare un marker duplicato.
 
 
 ### Rettifica contatori V81 – 15 novembre 2026
 
-Il controllo incrociato tra registro e punti cartografici distingue correttamente **293 record con coordinate** da **292 punti fisici distinti**: un record aggiuntivo (scuola comunale Palmerino) condivide il riferimento di indirizzo con un punto KML già esistente, ma la co-localizzazione non è ancora confermata. Restano **12 record senza coordinate**. La mappa scolastica contiene 292 marker fisici; i buffer restano limitati ai tre plessi con abilitazione esplicita. Il conteggio del pannello e la label del layer GIS sono ora dinamici/coerenti con questi valori.
+Il controllo incrociato tra registro e punti cartografici distingue correttamente **294 record con coordinate** da **292 punti fisici distinti**: un record aggiuntivo (scuola comunale Palmerino) condivide il riferimento di indirizzo con un punto KML già esistente, ma la co-localizzazione non è ancora confermata. Restano **12 record senza coordinate**. La mappa scolastica contiene 292 marker fisici; i buffer restano limitati ai tre plessi con abilitazione esplicita. Il conteggio del pannello e la label del layer GIS sono ora dinamici/coerenti con questi valori.
 
 
 ## Controllo finale del lotto georeferenziazione – 15 novembre 2026
@@ -392,7 +392,7 @@ Audit automatico del repository dopo gli aggiornamenti:
 
 Le 12 schede ancora prive di coordinate sono: Benedetto Croce sede centrale, succursale Corazza e succursale Imera; scuole comunali M. Carollo, Oberdan, Altarello, G. Di Matteo, Primavera, Whitaker, Germania, Peralta e Strauss. Gli indirizzi sono documentati, ma non è stato trovato un collegamento cartografico puntuale sufficientemente verificabile per assegnare coordinate. Non vengono quindi creati centroidi di strada o punti stimati.
 
-La differenza tra 293 record georeferenziati e 292 punti fisici deriva dal record comunale Palmerino, che condivide un indirizzo con un punto KML esistente: la relazione è dichiarata come indirizzo coincidente, senza affermare una co-localizzazione fisica certa e senza creare un marker duplicato.
+La differenza tra 294 record georeferenziati e 292 punti fisici deriva dal record comunale Palmerino, che condivide un indirizzo con un punto KML esistente: la relazione è dichiarata come indirizzo coincidente, senza affermare una co-localizzazione fisica certa e senza creare un marker duplicato.
 
 
 ## Raccordo del Liceo Benedetto Croce con l'edificio Bonfiglio – 15 novembre 2026
