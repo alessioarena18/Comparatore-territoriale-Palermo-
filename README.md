@@ -312,7 +312,7 @@ Verifica Galletti (15/11/2026): il plesso secondaria PAMM855013 in Via Galletti 
 Verifica Galletti (15/11/2026): il plesso secondaria PAMM855013 in Via Galletti 78 resta documentato, ma gli atti dell'istituto del 02/05/2026 attestano il trasferimento di attrezzature al Casa del Fanciullo e quelli del 14/05/2026 la riorganizzazione del primo piano. Non è provata la chiusura; il buffer resta disabilitato fino a conferma dell'assetto operativo, GPS e accesso.
 
 
-## Verifica indirizzi delle 18 sedi senza coordinate – 15 novembre 2026
+## Verifica indirizzi delle sedi originariamente prive di coordinate – 15 novembre 2026
 
 Nel dataset V81 sono stati ricontrollati gli indirizzi delle 11 scuole dell'infanzia comunali e delle 7 sedi di istituti superiori che risultano ancora prive di coordinate. Per le scuole comunali è stato assunto come riferimento il [Portale Scuola del Comune di Palermo](https://portalescuola.comune.palermo.it/?page_id=4375); per le sedi superiori sono stati registrati i collegamenti alle pagine ufficiali dei rispettivi istituti nel JSON V81.
 
@@ -342,7 +342,7 @@ Sono state aggiunte due sedi scolastiche al catalogo cartografico usando esclusi
 - Liceo Classico Giuseppe Garibaldi, succursale, Via Generale Arimondi 38: 38.1375064, 13.352974. Fonte: [scheda ufficiale della succursale](https://www.liceogaribaldi.edu.it/luogo/succursale/).
 - IISS Enrico Medi, sede centrale, Via Leonardo da Vinci 364: 38.12615347796719, 13.319126844144195. Fonte: [scheda ufficiale della sede centrale](https://www.iissenricomedi.edu.it/luogo/sede-centrale/).
 
-Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **292 record georeferenziati** e **13 senza coordinate**; i punti fisici unici sono 291. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
+Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **293 record georeferenziati** e **12 senza coordinate**; i punti fisici unici sono 291. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
 
 
 ## Georeferenziazione delle sedi superiori – secondo lotto – 15 novembre 2026
@@ -354,7 +354,7 @@ Sono state aggiunte due sedi superiori usando i collegamenti Google Maps incorpo
 
 Entrambi i punti ricadono nei perimetri amministrativi ISTAT 2021 e sono stati inseriti in `data/scuole_points.json`, `data/scuole_classificazione.json` e nel registro V81. I buffer restano disabilitati: il collegamento cartografico ufficiale documenta il punto indicato dalla scuola ma non sostituisce il sopralluogo dell'accesso effettivo.
 
-Il totale aggiornato è **292 record con coordinate** e **13 senza coordinate**; i punti fisici georeferenziati sono 291. Il differenziale record/punti dipende dal riferimento Palmerino, collegato per indirizzo coincidente a un punto KML esistente senza duplicare il marker.
+Il totale aggiornato è **293 record con coordinate** e **12 senza coordinate**; i punti fisici georeferenziati sono 291. Il differenziale record/punti dipende dal riferimento Palmerino, collegato per indirizzo coincidente a un punto KML esistente senza duplicare il marker.
 
 
 ## Georeferenziazione sedi scolastiche – secondo lotto – 15 novembre 2026
@@ -364,11 +364,11 @@ Sono state georeferenziate altre due sedi tramite le coordinate presenti nei lin
 - **Istituto Superiore Majorana, Plesso Olimpo, Viale dell'Olimpo 20/22:** 38.188701570014935, 13.317049741744997. Fonte: [scheda ufficiale Plesso Olimpo](https://majoranapa.edu.it/luogo/plessoolimpo/).
 - **IISS Enrico Medi, sede succursale, Via Monsignor Serio 6/A:** 38.13170670404379, 13.323050379949564. Fonte: [scheda ufficiale sede succursale](https://www.iissenricomedi.edu.it/luogo/sede-succursale/).
 
-Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **292 record con coordinate** e **13 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
+Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **293 record con coordinate** e **12 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
 
 
 ## Avanzamento georeferenziazione V81 – aggiornamento 15 novembre 2026
 
-Dopo i lotti successivi di verifica, il registro V81 contiene **292 schede georeferenziate su 305**, con **13 sedi ancora prive di coordinate**. I punti aggiunti tramite coordinate Google Maps ufficiali degli istituti sono: Liceo Garibaldi succursale (Via Generale Arimondi 38), IISS Enrico Medi sede centrale (Via Leonardo da Vinci 364) e succursale (Via Monsignor Serio 6/A), Istituto Majorana Plesso Olimpo (Viale dell'Olimpo 20/22), oltre al plesso comunale Galileo Galilei (Via G. Galilei 36). Le coordinate sono state sottoposte a point-in-polygon sui layer ISTAT 2021 e risultano interne ai perimetri comunali.
+Dopo i lotti successivi di verifica, il registro V81 contiene **293 schede georeferenziate su 305**, con **12 sedi ancora prive di coordinate**. I punti aggiunti tramite coordinate Google Maps ufficiali degli istituti sono: Liceo Garibaldi succursale (Via Generale Arimondi 38), IISS Enrico Medi sede centrale (Via Leonardo da Vinci 364) e succursale (Via Monsignor Serio 6/A), Istituto Majorana Plesso Olimpo (Viale dell'Olimpo 20/22), oltre al plesso comunale Galileo Galilei (Via G. Galilei 36). Le coordinate sono state sottoposte a point-in-polygon sui layer ISTAT 2021 e risultano interne ai perimetri comunali.
 
-Il punto comunale Palmerino (Via Palmerino 1) è raccordato al punto KML con indirizzo coincidente, ma la co-localizzazione fisica resta da confermare: non è duplicato e non abilita buffer. Le 13 sedi senza coordinate non vengono geocodificate con centroidi stradali o posizioni approssimative. Il pannello di avanzamento della pagina Servizi e dotazioni legge ora dinamicamente il numero di coordinate dal JSON V81, evitando il precedente valore statico 287.
+Il punto comunale Palmerino (Via Palmerino 1) è raccordato al punto KML con indirizzo coincidente, ma la co-localizzazione fisica resta da confermare: non è duplicato e non abilita buffer. Le 13 sedi senza coordinate non vengono geocodificate con centroidi stradali o posizioni approssimative. Il pannello di avanzamento della pagina Servizi e dotazioni legge ora dinamicamente il numero di coordinate dal JSON V81. La mappa rappresenta 292 punti fisici: il record Palmerino è collegato a un indirizzo coincidente senza creare un marker duplicato.
