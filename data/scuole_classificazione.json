@@ -3463,6 +3463,27 @@
       "source_year": "2026/2027",
       "method": "Coordinate estratte dal collegamento Google Maps pubblicato nella scheda ufficiale della sede succursale; indirizzo e funzione della sede confermati dalla stessa scheda.",
       "confidence": "indirizzo, sede, ordine e coordinate da link Google Maps ufficiale dell'istituto"
+    },
+    {
+      "point_id": "kml-school-137",
+      "orders": [
+        "MEDIE",
+        "SUPERIORI"
+      ],
+      "institution": "I.C. Colozza - Bonfiglio / Liceo Scientifico Benedetto Croce",
+      "address": "VIA IMERA 145/146",
+      "school_codes": [],
+      "school_names": [
+        "BONFIGLIO",
+        "LICEO SCIENTIFICO BENEDETTO CROCE · SUCCURSALE IMERA"
+      ],
+      "source_urls": [
+        "https://www.iccolozzabonfiglio.edu.it/luogo/plesso-bonfiglio/",
+        "https://www.liceocroce.it/index/images/allegati/2024-2025/_Documento_del_Consiglio_di_Classe_5B_2024_2025_Omissis-signed.pdf"
+      ],
+      "source_year": "2024/2025",
+      "method": "Il Liceo Croce occupa una porzione dell'edificio Bonfiglio in Via Imera 145; le fonti riportano 145 e 146, da rivalidare.",
+      "confidence": "edificio condiviso documentato; civico e accesso specifico da rivalidare"
     }
   ]
 }
