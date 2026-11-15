@@ -392,7 +392,7 @@ Audit automatico del repository dopo gli aggiornamenti:
 
 Le 11 schede ancora prive di coordinate sono: Benedetto Croce sede centrale e succursale Corazza; scuole comunali M. Carollo, Oberdan, Altarello, G. Di Matteo, Primavera, Whitaker, Germania, Peralta e Strauss. La succursale Imera del Croce è stata collegata al punto condiviso con l'edificio Bonfiglio, mantenendo la riserva sul civico e sull'accesso. Gli indirizzi sono documentati, ma non è stato trovato un collegamento cartografico puntuale sufficientemente verificabile per assegnare coordinate. Non vengono quindi creati centroidi di strada o punti stimati.
 
-La differenza tra 294 record georeferenziati e 292 punti fisici deriva dal record comunale Palmerino, che condivide un indirizzo con un punto KML esistente: la relazione è dichiarata come indirizzo coincidente, senza affermare una co-localizzazione fisica certa e senza creare un marker duplicato.
+La differenza tra 294 record georeferenziati e 292 punti fisici deriva da due raccordi senza marker duplicati: Palmerino, collegata per indirizzo coincidente con co-localizzazione non confermata, e la succursale Imera del Liceo Croce, co-localizzata nell'edificio Bonfiglio con civico/accesso da rivalidare.
 
 
 ## Raccordo del Liceo Benedetto Croce con l'edificio Bonfiglio – 15 novembre 2026
