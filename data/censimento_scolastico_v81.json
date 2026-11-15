@@ -45,40 +45,9 @@
     "address_verification_update": {
       "date": "2026-11-15",
       "records_checked": 11,
-      "source": "Comune di Palermo, Portale Scuola, https://portalescuola.comune.palermo.it/?page_id=4375",
-      "corrected_addresses": 3,
-      "note": "Indirizzi ricontrollati per 11 scuole dell'infanzia comunali e 7 sedi di istituti superiori. Le sedi Giuseppe Di Matteo e Altarello sono state rettificate rispettivamente a Via Enea Rossi 6 e Via Carlo Del Prete 23. Nessuna coordinata è stata inventata o aggiunta; le 18 sedi prive di coordinate restano senza georeferenziazione.",
-      "secondary_schools_checked": 7,
-      "secondary_school_sources": [
-        {
-          "id": "sup2-003",
-          "url": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/"
-        },
-        {
-          "id": "sup2-013",
-          "url": "https://majoranapa.edu.it/struttura/istituto-superiore-majorana/"
-        },
-        {
-          "id": "sup2-016",
-          "url": "https://www.liceocroce.it/croce1/index.html"
-        },
-        {
-          "id": "sup2-017",
-          "url": "https://www.liceocroce.it/croce1/index.html"
-        },
-        {
-          "id": "sup2-018",
-          "url": "https://www.liceocroce.it/croce1/index.html"
-        },
-        {
-          "id": "sup2-019",
-          "url": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/"
-        },
-        {
-          "id": "sup2-020",
-          "url": "https://www.iissenricomedi.edu.it/luogo/sede-succursale/"
-        }
-      ]
+      "additional_secondary_schools_checked": 7,
+      "source_2026_27": "https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf",
+      "note": "Il controllo ha dato priorità all'elenco comunale 2026/27. Sono state corrette le incongruenze precedenti: Altarello resta Via C. Del Prete senza civico nell'elenco 2026/27; G. Di Matteo è Via Di Bella 2136, mentre Via Enea Rossi 6 è un riferimento storico. Le altre sedi comunali sono state mantenute secondo il PDF 2026/27. Le 7 sedi superiori hanno fonti ufficiali o riferimenti documentali registrati. Nessuna coordinata è stata aggiunta senza riscontro puntuale."
     }
   },
   "records": [
@@ -15418,7 +15387,7 @@
       "tipo_record": "Plesso",
       "nome_sede_o_plesso": "Altarello",
       "ordine_scolastico_catalogo_2021": "SCUOLA_INFANZIA",
-      "indirizzo": "VIA CARLO DEL PRETE, 23",
+      "indirizzo": "VIA C. DEL PRETE",
       "istituzione": "Comune di Palermo - Scuole dell’infanzia comunali",
       "tipologia_istituzione": "Scuola dell’infanzia comunale",
       "latitudine": null,
@@ -15436,8 +15405,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
-      "nota_verifica_documentale": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
+      "fonte_verifica_documentale": "Comune di Palermo, Elenco scuole dell'infanzia a.s. 2026/2027",
+      "nota_verifica_documentale": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026). | RETTIFICA 15/11/2026: L'elenco ufficiale comunale a.s. 2026/27 riporta Via C. Del Prete senza numero civico. Il civico 23 compare in schede comunali precedenti e nella scheda dettagliata del Portale Scuola, ma non viene assunto come dato 2026/27 certo.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15455,14 +15424,14 @@
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
       "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
-      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
+      "url_fonte_indirizzo": "https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf"
     },
     {
       "id": "comune-infanzia-2026-27-04",
       "tipo_record": "Plesso",
       "nome_sede_o_plesso": "G. Di Matteo",
       "ordine_scolastico_catalogo_2021": "SCUOLA_INFANZIA",
-      "indirizzo": "VIA ENEA ROSSI, 6",
+      "indirizzo": "VIA DI BELLA, 2136",
       "istituzione": "Comune di Palermo - Scuole dell’infanzia comunali",
       "tipologia_istituzione": "Scuola dell’infanzia comunale",
       "latitudine": null,
@@ -15480,8 +15449,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
-      "nota_verifica_documentale": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
+      "fonte_verifica_documentale": "Comune di Palermo, Elenco scuole dell'infanzia a.s. 2026/2027",
+      "nota_verifica_documentale": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026). | RETTIFICA 15/11/2026: L'elenco ufficiale comunale a.s. 2026/27 riporta Via Di Bella, 2136. La precedente attribuzione a Via Enea Rossi 6 deriva da elenchi e schede storiche; mantenuta come alias storico, non come indirizzo primario corrente.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15499,7 +15468,7 @@
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
       "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
-      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
+      "url_fonte_indirizzo": "https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf"
     },
     {
       "id": "comune-infanzia-2026-27-05",
