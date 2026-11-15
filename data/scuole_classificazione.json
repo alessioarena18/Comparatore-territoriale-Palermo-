@@ -3388,7 +3388,7 @@
     {
       "point_id": "sup2-003",
       "orders": [
-        "SECONDARIA_II_GRADO"
+        "SUPERIORI"
       ],
       "institution": "Liceo Classico Statale Giuseppe Garibaldi",
       "address": "Via Generale Arimondi 38",
@@ -3408,7 +3408,7 @@
     {
       "point_id": "sup2-019",
       "orders": [
-        "SECONDARIA_II_GRADO"
+        "SUPERIORI"
       ],
       "institution": "I.I.S.S. Enrico Medi",
       "address": "Via Leonardo da Vinci 364",
@@ -3428,7 +3428,7 @@
     {
       "point_id": "sup2-013",
       "orders": [
-        "SECONDARIA_II_GRADO"
+        "SUPERIORI"
       ],
       "institution": "Majorana · Plesso Olimpo",
       "address": "VIALE DELL'OLIMPO 20/22",
@@ -3447,7 +3447,7 @@
     {
       "point_id": "sup2-020",
       "orders": [
-        "SECONDARIA_II_GRADO"
+        "SUPERIORI"
       ],
       "institution": "I.I.S.S. Enrico Medi",
       "address": "Via Monsignor Serio 6/A",
