@@ -456,7 +456,32 @@ function initMap(){
    populateGeoSelectors();
    return item.name+': '+data.features.length+' elementi caricati';
   }catch(error){return item.name+': errore di caricamento ('+error.message+')';}
- })).then(results=>{
+ })).then(async results=>{
+  try{
+   const [pointResponse,censusResponse,classificationResponse]=await Promise.all([
+    fetch('data/scuole_points.json',{cache:'no-store'}),
+    fetch('data/censimento_scolastico_v81.json',{cache:'no-store'}),
+    fetch('data/scuole_classificazione.json',{cache:'no-store'})
+   ]);
+   if(!pointResponse.ok||!censusResponse.ok||!classificationResponse.ok)throw new Error('Archivi scolastici non disponibili');
+   const [schoolPoints,schoolCensus,schoolClassification]=await Promise.all([pointResponse.json(),censusResponse.json(),classificationResponse.json()]);
+   const censusById=new Map((schoolCensus.records||[]).map(x=>[String(x.id),x]));
+   const orderById=new Map((schoolClassification.records||[]).map(x=>[String(x.point_id),x.orders||[]]));
+   const schoolLayer=L.layerGroup();
+   const orderColors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
+   schoolPoints.forEach(point=>{
+    const record=censusById.get(String(point.id)),orders=orderById.get(String(point.id))||[];
+    const out=point.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES';
+    const color=out?'#dc2626':(orderColors[orders[0]]||'#64748b');
+    const marker=L.circleMarker([point.lat,point.lon],{radius:5,color,fillColor:color,fillOpacity:.9,weight:1.5});
+    const orderLabel=orders.join(' · ')||'Ordine non classificato';
+    marker.bindPopup('<div class="school-popup"><b>'+esc(point.name)+'</b><br>'+esc(orderLabel)+'<br>'+esc(point.institution||'')+'<br>'+esc(point.address||'')+'<br><b>Stato V81:</b> '+esc(record?.classe_affidabilita_finale||'Non disponibile')+(out?'<br><b style="color:#dc2626">Fuori dai perimetri ISTAT 2021</b>':'')+'<br><b>Raggi:</b> '+(record?.bufferEligible===true?'abilitato':'non abilitato')+'</div>');
+    marker.addTo(schoolLayer);
+   });
+   schoolLayer.addTo(gisMap);
+   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 (287)',key:'schools',layer:schoolLayer});
+   results.push('Sedi scolastiche: '+schoolPoints.length+' punti caricati');
+  }catch(error){results.push('Sedi scolastiche: errore di caricamento ('+error.message+')');}
   updateControl();
   const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
   if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}applyGisSelectedStyle();focusGeneralSelection();
@@ -466,7 +491,7 @@ function initMap(){
  const updateControl=()=>{
   if(gisLayerControl){gisMap.removeControl(gisLayerControl);gisLayerControl=null;}
   const overlays={};
-  gisImportedLayers.slice().sort((a,b)=>officialLayers.findIndex(x=>x.key===a.key)-officialLayers.findIndex(x=>x.key===b.key)).forEach((item)=>{overlays[item.name]=item.layer;});
+  gisImportedLayers.slice().sort((a,b)=>{const ai=officialLayers.findIndex(x=>x.key===a.key),bi=officialLayers.findIndex(x=>x.key===b.key);return (ai<0?999:ai)-(bi<0?999:bi);}).forEach((item)=>{overlays[item.name]=item.layer;});
   if(gisImportedLayers.length)gisLayerControl=L.control.layers(null,overlays,{collapsed:false}).addTo(gisMap);
  };
  const reset=()=>{
