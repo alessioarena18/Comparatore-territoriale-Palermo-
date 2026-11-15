@@ -236,7 +236,7 @@ if(active==='social'){
     </div>
   </div>`;
 }else if(active==='schools'){
- const points=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],par=DATA.schoolParitarie||[];
+ const points=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],par=DATA.schoolParitarie||[],siteVerification=DATA.schoolSiteVerification?.records||[];
  const fmt=n=>Number(n||0).toLocaleString('it-IT');
  const totalStudents=stats.reduce((a,x)=>a+(+x.students||0),0);
  const orders=['Infanzia','Primaria','Secondaria I grado','Secondaria II grado'];
