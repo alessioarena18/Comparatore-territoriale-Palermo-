@@ -11,7 +11,7 @@
     ],
     "updated": "2026-11-15",
     "verified_registry_code_links": 116,
-    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi."
+    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi. Due sedi superiori integrate da link Google Maps presenti nelle rispettive pagine ufficiali: Garibaldi succursale e Majorana plesso Olimpo."
   },
   "records": [
     {
@@ -3424,6 +3424,25 @@
       "source_year": "2025/2026",
       "method": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della sede centrale; indirizzo e funzione di sede centrale confermati dalla stessa scheda.",
       "confidence": "indirizzo, ordine e coordinate da link Google Maps ufficiale dell'istituto"
+    },
+    {
+      "point_id": "sup2-013",
+      "orders": [
+        "SECONDARIA_II_GRADO"
+      ],
+      "institution": "Majorana · Plesso Olimpo",
+      "address": "VIALE DELL'OLIMPO 20/22",
+      "school_codes": [],
+      "school_names": [
+        "MAJORANA · PLESSO OLIMPO"
+      ],
+      "source_urls": [
+        "https://majoranapa.edu.it/luogo/plessoolimpo/",
+        "https://www.google.com/maps/dir/'38.188701570014935,13.317049741744997'/@38.188701570014935,13.317049741744997,15z?hl=it"
+      ],
+      "source_year": "2026/2027",
+      "method": "Indirizzo e denominazione della sede confermati sulla pagina ufficiale del plesso; coordinate estratte dal link Google Maps della stessa pagina.",
+      "confidence": "sede documentata e coordinate tratte da link cartografico ufficiale; accesso da validare sul posto"
     }
   ]
 }
