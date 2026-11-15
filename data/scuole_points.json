@@ -7274,5 +7274,30 @@
       "status": "WITHIN_PALERMO_ADMIN_AREAS",
       "checked_at": "2026-11-15"
     }
+  },
+  {
+    "id": "sup2-013",
+    "name": "Majorana · Plesso Olimpo",
+    "kind": "Plesso",
+    "order": "SECONDARIA_II_GRADO",
+    "address": "VIALE DELL'OLIMPO 20/22",
+    "quarter": "Partanna Mondello",
+    "quarter_number": "22",
+    "lat": 38.188701570014935,
+    "lon": 13.317049741744997,
+    "institution": "Majorana · Plesso Olimpo",
+    "institution_type": "Istituto superiore",
+    "source": "Sito ufficiale dell'istituto, collegamento Google Maps",
+    "year": "2026/27",
+    "georeferenced": true,
+    "spatial_validation": {
+      "method": "point-in-polygon GeoJSON ISTAT 2021",
+      "crs": "OGC:CRS84 / EPSG:4326",
+      "asc1": "82053007",
+      "asc2": "82053022",
+      "asc3": "82053050",
+      "status": "WITHIN_PALERMO_ADMIN_AREAS",
+      "checked_at": "2026-11-15"
+    }
   }
 ]
