@@ -377,3 +377,19 @@ Il punto comunale Palmerino (Via Palmerino 1) è raccordato al punto KML con ind
 ### Rettifica contatori V81 – 15 novembre 2026
 
 Il controllo incrociato tra registro e punti cartografici distingue correttamente **293 record con coordinate** da **292 punti fisici distinti**: un record aggiuntivo (scuola comunale Palmerino) condivide il riferimento di indirizzo con un punto KML già esistente, ma la co-localizzazione non è ancora confermata. Restano **12 record senza coordinate**. La mappa scolastica contiene 292 marker fisici; i buffer restano limitati ai tre plessi con abilitazione esplicita. Il conteggio del pannello e la label del layer GIS sono ora dinamici/coerenti con questi valori.
+
+
+## Controllo finale del lotto georeferenziazione – 15 novembre 2026
+
+Audit automatico del repository dopo gli aggiornamenti:
+
+- 305 schede V81 complessive;
+- 293 schede con coordinate, 12 ancora senza coordinate;
+- 292 punti fisici unici nella cartografia;
+- 291 punti interni ai perimetri ISTAT 2021;
+- 1 punto storico fuori perimetro, `kml-school-264` (Belpasso, Via Altofonte), mantenuto in riserva e non spostato automaticamente;
+- 3 soli punti abilitati ai buffer, secondo il flag esplicito V81.
+
+Le 12 schede ancora prive di coordinate sono: Benedetto Croce sede centrale, succursale Corazza e succursale Imera; scuole comunali M. Carollo, Oberdan, Altarello, G. Di Matteo, Primavera, Whitaker, Germania, Peralta e Strauss. Gli indirizzi sono documentati, ma non è stato trovato un collegamento cartografico puntuale sufficientemente verificabile per assegnare coordinate. Non vengono quindi creati centroidi di strada o punti stimati.
+
+La differenza tra 293 record georeferenziati e 292 punti fisici deriva dal record comunale Palmerino, che condivide un indirizzo con un punto KML esistente: la relazione è dichiarata come indirizzo coincidente, senza affermare una co-localizzazione fisica certa e senza creare un marker duplicato.
