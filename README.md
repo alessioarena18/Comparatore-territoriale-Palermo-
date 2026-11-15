@@ -365,3 +365,10 @@ Sono state georeferenziate altre due sedi tramite le coordinate presenti nei lin
 - **IISS Enrico Medi, sede succursale, Via Monsignor Serio 6/A:** 38.13170670404379, 13.323050379949564. Fonte: [scheda ufficiale sede succursale](https://www.iissenricomedi.edu.it/luogo/sede-succursale/).
 
 Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **292 record con coordinate** e **13 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
+
+
+## Avanzamento georeferenziazione V81 – aggiornamento 15 novembre 2026
+
+Dopo i lotti successivi di verifica, il registro V81 contiene **292 schede georeferenziate su 305**, con **13 sedi ancora prive di coordinate**. I punti aggiunti tramite coordinate Google Maps ufficiali degli istituti sono: Liceo Garibaldi succursale (Via Generale Arimondi 38), IISS Enrico Medi sede centrale (Via Leonardo da Vinci 364) e succursale (Via Monsignor Serio 6/A), Istituto Majorana Plesso Olimpo (Viale dell'Olimpo 20/22), oltre al plesso comunale Galileo Galilei (Via G. Galilei 36). Le coordinate sono state sottoposte a point-in-polygon sui layer ISTAT 2021 e risultano interne ai perimetri comunali.
+
+Il punto comunale Palmerino (Via Palmerino 1) è raccordato al punto KML con indirizzo coincidente, ma la co-localizzazione fisica resta da confermare: non è duplicato e non abilita buffer. Le 13 sedi senza coordinate non vengono geocodificate con centroidi stradali o posizioni approssimative. Il pannello di avanzamento della pagina Servizi e dotazioni legge ora dinamicamente il numero di coordinate dal JSON V81, evitando il precedente valore statico 287.
