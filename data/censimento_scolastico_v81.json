@@ -47,7 +47,38 @@
       "records_checked": 11,
       "source": "Comune di Palermo, Portale Scuola, https://portalescuola.comune.palermo.it/?page_id=4375",
       "corrected_addresses": 3,
-      "note": "Sono stati verificati gli indirizzi di tutte le 11 scuole dell'infanzia comunali incluse nel lotto. Le sedi Giuseppe Di Matteo e Altarello sono state rettificate rispettivamente a Via Enea Rossi 6 e Via Carlo Del Prete 23. Nessuna coordinata è stata inventata o aggiunta; le 18 sedi prive di coordinate restano senza georeferenziazione."
+      "note": "Indirizzi ricontrollati per 11 scuole dell'infanzia comunali e 7 sedi di istituti superiori. Le sedi Giuseppe Di Matteo e Altarello sono state rettificate rispettivamente a Via Enea Rossi 6 e Via Carlo Del Prete 23. Nessuna coordinata è stata inventata o aggiunta; le 18 sedi prive di coordinate restano senza georeferenziazione.",
+      "secondary_schools_checked": 7,
+      "secondary_school_sources": [
+        {
+          "id": "sup2-003",
+          "url": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/"
+        },
+        {
+          "id": "sup2-013",
+          "url": "https://majoranapa.edu.it/struttura/istituto-superiore-majorana/"
+        },
+        {
+          "id": "sup2-016",
+          "url": "https://www.liceocroce.it/croce1/index.html"
+        },
+        {
+          "id": "sup2-017",
+          "url": "https://www.liceocroce.it/croce1/index.html"
+        },
+        {
+          "id": "sup2-018",
+          "url": "https://www.liceocroce.it/croce1/index.html"
+        },
+        {
+          "id": "sup2-019",
+          "url": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/"
+        },
+        {
+          "id": "sup2-020",
+          "url": "https://www.iissenricomedi.edu.it/luogo/sede-succursale/"
+        }
+      ]
     }
   },
   "records": [
@@ -14281,8 +14312,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE",
-      "fonte_verifica_documentale": "https://www.liceogaribaldi.edu.it/",
-      "nota_verifica_documentale": "Succursale; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Succursale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Succursale; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -14299,7 +14330,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/"
     },
     {
       "id": "sup2-004",
@@ -14792,8 +14824,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE",
-      "fonte_verifica_documentale": "https://www.majoranapa.edu.it/",
-      "nota_verifica_documentale": "Plesso Olimpo; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Plesso Olimpo; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Plesso Olimpo; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -14810,7 +14842,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://majoranapa.edu.it/struttura/istituto-superiore-majorana/"
     },
     {
       "id": "sup2-014",
@@ -14939,8 +14972,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE_CON_RISERVA",
-      "fonte_verifica_documentale": "https://www.liceocroce.edu.it/",
-      "nota_verifica_documentale": "Sede centrale; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Sede centrale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "CONSOLIDATO_CON_RISERVE",
       "nota_riconciliazione": "Sede centrale; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -14957,7 +14990,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.liceocroce.it/croce1/index.html"
     },
     {
       "id": "sup2-017",
@@ -14982,8 +15016,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE_CON_RISERVA",
-      "fonte_verifica_documentale": "https://www.liceocroce.edu.it/",
-      "nota_verifica_documentale": "Succursale Corazza; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Succursale Corazza; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "CONSOLIDATO_CON_RISERVE",
       "nota_riconciliazione": "Succursale Corazza; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -15000,7 +15034,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.liceocroce.it/croce1/index.html"
     },
     {
       "id": "sup2-018",
@@ -15025,8 +15060,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE_CON_RISERVA",
-      "fonte_verifica_documentale": "https://www.liceocroce.edu.it/",
-      "nota_verifica_documentale": "Indirizzo documentato con discordanza tra civico 145 e 146 nelle fonti ufficiali; non georeferenziare fino a risoluzione.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Indirizzo documentato con discordanza tra civico 145 e 146 nelle fonti ufficiali; non georeferenziare fino a risoluzione. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "CONSOLIDATO_CON_RISERVE",
       "nota_riconciliazione": "Indirizzo documentato con discordanza tra civico 145 e 146 nelle fonti ufficiali; non georeferenziare fino a risoluzione.",
       "coordinate_presenti": false,
@@ -15043,7 +15078,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.liceocroce.it/croce1/index.html"
     },
     {
       "id": "sup2-019",
@@ -15068,8 +15104,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE",
-      "fonte_verifica_documentale": "https://www.iismedi.edu.it/",
-      "nota_verifica_documentale": "Sede centrale; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Sede centrale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Sede centrale; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -15086,7 +15122,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/"
     },
     {
       "id": "sup2-020",
@@ -15111,8 +15148,8 @@
       "tipo_istituzione_2026_27": "Scuola secondaria di II grado",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_DOCUMENTALMENTE",
-      "fonte_verifica_documentale": "https://www.iismedi.edu.it/",
-      "nota_verifica_documentale": "Succursale; indirizzo verificato documentalmente.",
+      "fonte_verifica_documentale": "Sito ufficiale dell'istituto scolastico",
+      "nota_verifica_documentale": "Succursale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Succursale; indirizzo verificato documentalmente.",
       "coordinate_presenti": false,
@@ -15129,7 +15166,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
+      "url_fonte_indirizzo": "https://www.iissenricomedi.edu.it/luogo/sede-succursale/"
     },
     {
       "id": "sup2-021",
