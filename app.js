@@ -598,8 +598,8 @@ function initStandardSchoolMap(){
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const bounds=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(bounds.isValid())map.fitBounds(bounds,{padding:[20,20],maxZoom:13});}
 }
-async async function loadSchoolArchives(){
- const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json'],['schoolRegister','data/anagrafica_plessi_2025_26.json'],['schoolSiteVerification','data/verifica_sedi_scolastiche_v14.json'],['schoolCensus','data/censimento_scolastico_v66.json']];
+async function loadSchoolArchives(){
+ const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json'],['schoolRegister','data/anagrafica_plessi_2025_26.json'],['schoolSiteVerification','data/verifica_sedi_scolastiche_v14.json'],['schoolCensus','data/censimento_scolastico_v64.json']];
  await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
  if(active==='overview'||active==='schools'||active==='standards')render();
 }
@@ -617,7 +617,8 @@ function initSchools(){
   
  ];
  const classificationById=new Map(classification.map(x=>[String(x.point_id),x]));
- const verificationById=new Map(siteVerification.map(x=>[String(x.pointId),x]));\n const censusById=new Map(schoolCensus.map(x=>[String(x.id),x]));
+ const verificationById=new Map(siteVerification.map(x=>[String(x.pointId),x]));
+ const censusById=new Map(schoolCensus.map(x=>[String(x.id),x]));
  const registerByCode=new Map(register.map(x=>[String(x.code),x]));
  const ordersOf=p=>classificationById.get(String(p.id))?.orders||[];
  const orderOf=p=>ordersOf(p)[0]||'';
