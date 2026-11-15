@@ -7224,5 +7224,55 @@
       "status": "WITHIN_PALERMO_ADMIN_AREAS",
       "checked_at": "2026-11-15"
     }
+  },
+  {
+    "id": "sup2-003",
+    "name": "Garibaldi · Succursale",
+    "kind": "Plesso",
+    "order": "SCUOLA_SECONDARIA_II_GRADO",
+    "address": "Via Generale Arimondi 38",
+    "quarter": "Liberta'",
+    "quarter_number": "9",
+    "lat": 38.1375064,
+    "lon": 13.352974,
+    "institution": "Liceo Classico Statale Giuseppe Garibaldi",
+    "institution_type": "Scuola secondaria di II grado",
+    "source": "Liceo Classico Giuseppe Garibaldi, scheda ufficiale Succursale, link Naviga su Google Map",
+    "year": "2026",
+    "georeferenced": true,
+    "spatial_validation": {
+      "method": "point-in-polygon GeoJSON ISTAT 2021",
+      "crs": "OGC:CRS84 / EPSG:4326",
+      "asc1": "82053008",
+      "asc2": "82053009",
+      "asc3": "82053042",
+      "status": "WITHIN_PALERMO_ADMIN_AREAS",
+      "checked_at": "2026-11-15"
+    }
+  },
+  {
+    "id": "sup2-019",
+    "name": "Enrico Medi · Sede centrale",
+    "kind": "Plesso",
+    "order": "SCUOLA_SECONDARIA_II_GRADO",
+    "address": "Via Leonardo da Vinci 364",
+    "quarter": "Uditore-Passo Di Rigano",
+    "quarter_number": "17",
+    "lat": 38.12615347796719,
+    "lon": 13.319126844144195,
+    "institution": "I.I.S.S. Enrico Medi",
+    "institution_type": "Scuola secondaria di II grado",
+    "source": "IISS Enrico Medi, scheda ufficiale Sede centrale, link Naviga su Google Map",
+    "year": "2026",
+    "georeferenced": true,
+    "spatial_validation": {
+      "method": "point-in-polygon GeoJSON ISTAT 2021",
+      "crs": "OGC:CRS84 / EPSG:4326",
+      "asc1": "82053005",
+      "asc2": "82053017",
+      "asc3": "82053031",
+      "status": "WITHIN_PALERMO_ADMIN_AREAS",
+      "checked_at": "2026-11-15"
+    }
   }
 ]
