@@ -41,6 +41,13 @@
         "nota_georeferenziazione"
       ],
       "note": "La corrispondenza degli identificativi è stata verificata su tutte le 305 schede. Gli otto campi elencati sono presenti nel CSV sorgente V80 ma non sono stati trasferiti come proprietà dei record nel JSON V81; restano quindi da reintegrare in una successiva migrazione. I campi bufferEligible e spatial_validation sono aggiornamenti V81 e non vengono sostituiti dai valori del CSV."
+    },
+    "address_verification_update": {
+      "date": "2026-11-15",
+      "records_checked": 11,
+      "source": "Comune di Palermo, Portale Scuola, https://portalescuola.comune.palermo.it/?page_id=4375",
+      "corrected_addresses": 3,
+      "note": "Sono stati verificati gli indirizzi di tutte le 11 scuole dell'infanzia comunali incluse nel lotto. Le sedi Giuseppe Di Matteo e Altarello sono state rettificate rispettivamente a Via Enea Rossi 6 e Via Carlo Del Prete 23. Nessuna coordinata è stata inventata o aggiunta; le 18 sedi prive di coordinate restano senza georeferenziazione."
     }
   },
   "records": [
@@ -15303,8 +15310,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "M. Carollo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "M. Carollo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "M. Carollo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15321,7 +15328,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-02",
@@ -15346,8 +15354,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Oberdan; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Oberdan; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Oberdan; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15364,14 +15372,15 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-03",
       "tipo_record": "Plesso",
       "nome_sede_o_plesso": "Altarello",
       "ordine_scolastico_catalogo_2021": "SCUOLA_INFANZIA",
-      "indirizzo": "VIA C. DEL PRETE",
+      "indirizzo": "VIA CARLO DEL PRETE, 23",
       "istituzione": "Comune di Palermo - Scuole dell’infanzia comunali",
       "tipologia_istituzione": "Scuola dell’infanzia comunale",
       "latitudine": null,
@@ -15389,8 +15398,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Altarello; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15407,14 +15416,15 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-04",
       "tipo_record": "Plesso",
       "nome_sede_o_plesso": "G. Di Matteo",
       "ordine_scolastico_catalogo_2021": "SCUOLA_INFANZIA",
-      "indirizzo": "VIA DI BELLA, 2136",
+      "indirizzo": "VIA ENEA ROSSI, 6",
       "istituzione": "Comune di Palermo - Scuole dell’infanzia comunali",
       "tipologia_istituzione": "Scuola dell’infanzia comunale",
       "latitudine": null,
@@ -15432,8 +15442,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "G. Di Matteo; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15450,7 +15460,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-05",
@@ -15475,8 +15486,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Palmerino; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Palmerino; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Palmerino; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15493,7 +15504,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-06",
@@ -15518,8 +15530,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Primavera; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Primavera; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Primavera; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15536,7 +15548,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-07",
@@ -15561,8 +15574,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Whitaker; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Whitaker; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Whitaker; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15579,7 +15592,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-08",
@@ -15604,8 +15618,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Germania; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Germania; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Germania; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15622,7 +15636,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-09",
@@ -15647,8 +15662,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Galileo Galilei; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Galileo Galilei; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Galileo Galilei; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15665,14 +15680,15 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-10",
       "tipo_record": "Plesso",
       "nome_sede_o_plesso": "Peralta",
       "ordine_scolastico_catalogo_2021": "SCUOLA_INFANZIA",
-      "indirizzo": "VIA FILETI, 13",
+      "indirizzo": "VIA ENRICO FILETI, 13",
       "istituzione": "Comune di Palermo - Scuole dell’infanzia comunali",
       "tipologia_istituzione": "Scuola dell’infanzia comunale",
       "latitudine": null,
@@ -15690,8 +15706,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Peralta; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Peralta; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Peralta; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15708,7 +15724,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     },
     {
       "id": "comune-infanzia-2026-27-11",
@@ -15733,8 +15750,8 @@
       "tipo_istituzione_2026_27": "Scuola dell’infanzia comunale",
       "stato_abbinamento_automatico": "VERIFICATO_DOCUMENTALMENTE",
       "stato_verifica_documentale": "VERIFICATO_SU_PORTALE_UFFICIALE_COMUNE_2026_27",
-      "fonte_verifica_documentale": "https://portalescuola.comune.palermo.it/?p=17378",
-      "nota_verifica_documentale": "Strauss; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
+      "fonte_verifica_documentale": "Comune di Palermo, Portale Scuola, elenco ufficiale scuole dell'infanzia comunali: https://portalescuola.comune.palermo.it/?page_id=4375",
+      "nota_verifica_documentale": "Strauss; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale. | Indirizzo ricontrollato sul Portale Scuola ufficiale del Comune di Palermo (elenco scuole dell'infanzia comunali, consultato il 15/11/2026).",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Strauss; indirizzo pubblicato dal Comune. Coordinate non estratte da link cartografico ufficiale.",
       "coordinate_presenti": false,
@@ -15751,7 +15768,8 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer."
+      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio V81 e non rappresentato come punto GIS. Rilevare ingresso e coordinate prima di analisi spaziali o buffer.",
+      "url_fonte_indirizzo": "https://portalescuola.comune.palermo.it/?page_id=4375"
     }
   ]
 }
