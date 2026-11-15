@@ -1,6 +1,6 @@
 {
   "meta": {
-    "records": 79,
+    "records": 81,
     "version": "v14",
     "date": "2026-11-15",
     "method": "Crosswalk di verifica documentale aggiornato alla ricognizione V64. Il crosswalk comprende i record precedentemente verificati e i sei nuovi record del lotto V64; per le restanti schede del catalogo 271 punti l’esito è riportato nel dataset consolidato di censimento, non va inferito da questo crosswalk. Non estendere ordini scolastici dell’istituzione al singolo punto senza codice di plesso o fonte puntuale. Galletti: aggiunto controllo specifico sugli atti dell'istituto del 02/05/2026 e 14/05/2026. Mantenuto fuori dai buffer fino a conferma dell'assetto operativo e delle coordinate/accesso. Galletti: aggiunto controllo specifico sugli atti dell'istituto del 02/05/2026 e 14/05/2026. Mantenuto fuori dai buffer fino a conferma dell'assetto operativo e delle coordinate/accesso."
