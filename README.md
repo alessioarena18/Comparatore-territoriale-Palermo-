@@ -343,3 +343,15 @@ Sono state aggiunte due sedi scolastiche al catalogo cartografico usando esclusi
 - IISS Enrico Medi, sede centrale, Via Leonardo da Vinci 364: 38.12615347796719, 13.319126844144195. Fonte: [scheda ufficiale della sede centrale](https://www.iissenricomedi.edu.it/luogo/sede-centrale/).
 
 Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **290 record georeferenziati** e **15 senza coordinate**. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
+
+
+## Georeferenziazione delle sedi superiori – secondo lotto – 15 novembre 2026
+
+Sono state aggiunte due sedi superiori usando i collegamenti Google Maps incorporati nelle pagine ufficiali dei rispettivi plessi:
+
+- **Liceo Garibaldi, succursale di Via Generale Arimondi 38:** 38.1375064, 13.352974. Fonte: [scheda ufficiale della succursale](https://www.liceogaribaldi.edu.it/luogo/succursale/).
+- **Istituto Majorana, Plesso Olimpo, Viale dell'Olimpo 20/22:** 38.1887015700, 13.3170497417. Fonte: [scheda ufficiale del Plesso Olimpo](https://majoranapa.edu.it/luogo/plessoolimpo/).
+
+Entrambi i punti ricadono nei perimetri amministrativi ISTAT 2021 e sono stati inseriti in `data/scuole_points.json`, `data/scuole_classificazione.json` e nel registro V81. I buffer restano disabilitati: il collegamento cartografico ufficiale documenta il punto indicato dalla scuola ma non sostituisce il sopralluogo dell'accesso effettivo.
+
+Il totale aggiornato è **290 record con coordinate** e **15 senza coordinate**; i punti fisici georeferenziati sono 290.
