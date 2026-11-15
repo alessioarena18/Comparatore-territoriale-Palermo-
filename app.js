@@ -504,7 +504,7 @@ function initMap(){
     marker._schoolPoint=point;schoolFeatureLayers.push(marker);marker.addTo(schoolLayer);
    });
    schoolLayer.addTo(gisMap);
-   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 (291)',key:'schools',layer:schoolLayer,featureLayers:schoolFeatureLayers});applyGisSelectionVisibility();
+   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 (292)',key:'schools',layer:schoolLayer,featureLayers:schoolFeatureLayers});applyGisSelectionVisibility();
    results.push('Sedi scolastiche: '+schoolPoints.length+' punti caricati');
   }catch(error){results.push('Sedi scolastiche: errore di caricamento ('+error.message+')');}
   updateControl();
