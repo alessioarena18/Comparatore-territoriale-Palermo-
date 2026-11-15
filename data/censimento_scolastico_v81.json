@@ -12,8 +12,8 @@
     },
     "buffer_eligible_count": 3,
     "methodology": "Archivio strutturato su 305 schede del censimento V81, con aggiornamenti puntuali successivi alla versione CSV per la riconciliazione documentale, l'allineamento delle coordinate GPS ufficiali e il controllo point-in-polygon sulle geometrie ISTAT 2021. I campi originali di provenienza e verifica sono conservati. Il campo bufferEligible rappresenta l'esito operativo finale della revisione V81 e non deve essere dedotto dalla sola stringa idoneita_raggi_influenza del CSV, che conserva anche stati condizionati e valori precedenti alla validazione finale. Sono abilitati soltanto tre punti fisici: kml-school-90 (Buonarroti), kml-school-133 (Alberico Gentili) e kml-school-233 (Setti Carraro). Il flag non sostituisce la verifica sul posto dell'accesso e dell'assetto operativo. I punti senza coordinate restano nell'archivio e non vengono geocodificati in modo approssimativo. Il controllo spaziale verifica l'appartenenza amministrativa, non la posizione dell'ingresso o del corpo edilizio. Tracciabilità della sorgente: il CSV V80 disponibile nella Libreria contiene 305 record e 287 coordinate; tutti i 305 identificativi coincidono con quelli del JSON V81. Quattro valori storici con refuso RISERVA_O_RETIFICA sono stati normalizzati nella categoria RISERVA_O_RETTIFICA. Otto campi aggiuntivi del CSV V80 relativi a coerenza istituzionale e georeferenziazione non risultano migrati nel JSON e sono esplicitamente elencati in meta.source_reconciliation.source_fields_not_migrated; non vengono considerati disponibili nell'interfaccia.",
-    "coordinate_count": 288,
-    "without_coordinates": 17,
+    "coordinate_count": 290,
+    "without_coordinates": 15,
     "source_reconciliation": {
       "source_file": "censimento_scuole_palermo_v80.csv",
       "source_records": 305,
@@ -70,8 +70,23 @@
           "lon": 13.3340165,
           "mapPointId": "comune-infanzia-2026-27-09",
           "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
+        },
+        {
+          "id": "sup2-003",
+          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+          "lat": 38.1375064,
+          "lon": 13.352974,
+          "mapPointId": "sup2-003"
+        },
+        {
+          "id": "sup2-019",
+          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+          "lat": 38.12615347796719,
+          "lon": 13.319126844144195,
+          "mapPointId": "sup2-019"
         }
-      ]
+      ],
+      "additional_official_map_coordinates": 2
     }
   },
   "records": [
@@ -14290,12 +14305,12 @@
       "indirizzo": "Via Generale Arimondi, 38, 90143 Palermo",
       "istituzione": "Garibaldi · Succursale",
       "tipologia_istituzione": "Scuola secondaria di II grado",
-      "latitudine": null,
-      "longitudine": null,
+      "latitudine": 38.1375064,
+      "longitudine": 13.352974,
       "quartiere_catalogo_2021": null,
-      "quartiere_verifica_spaziale": null,
-      "numero_quartiere": null,
-      "circoscrizione_verifica_spaziale": null,
+      "quartiere_verifica_spaziale": "Liberta'",
+      "numero_quartiere": 9,
+      "circoscrizione_verifica_spaziale": "Ottava",
       "esito_verifica": "VERIFICA_DOCUMENTALE",
       "fonte": "Comune di Palermo, Portale Scuola e fonti ufficiali degli istituti",
       "anno_fonte": "2026",
@@ -14309,7 +14324,7 @@
       "nota_verifica_documentale": "Succursale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Succursale; indirizzo verificato documentalmente.",
-      "coordinate_presenti": false,
+      "coordinate_presenti": true,
       "id_univoco": true,
       "coordinate_duplicate_esatte": false,
       "classe_affidabilita_finale": "DOCUMENTATO",
@@ -14323,8 +14338,22 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
-      "url_fonte_indirizzo": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/"
+      "coordinate_validation_note": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della succursale; indirizzo e funzione di succursale confermati dalla stessa scheda.",
+      "url_fonte_indirizzo": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/",
+      "fonte_geocodifica": "Liceo Classico Giuseppe Garibaldi, scheda ufficiale Succursale, link Naviga su Google Map",
+      "tipo_geocodifica": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+      "url_fonte_geocodifica": "https://www.liceogaribaldi.edu.it/luogo/succursale/",
+      "stato_georeferenziazione": "COORDINATA_DA_LINK_MAPPA_UFFICIALE",
+      "mapPointId": "sup2-003",
+      "spatial_validation": {
+        "method": "point-in-polygon GeoJSON ISTAT 2021",
+        "crs": "OGC:CRS84 / EPSG:4326",
+        "asc1": "82053008",
+        "asc2": "82053009",
+        "asc3": "82053042",
+        "status": "WITHIN_PALERMO_ADMIN_AREAS",
+        "checked_at": "2026-11-15"
+      }
     },
     {
       "id": "sup2-004",
@@ -15082,12 +15111,12 @@
       "indirizzo": "Via Leonardo da Vinci, 364, 90135 Palermo",
       "istituzione": "Enrico Medi · Sede centrale",
       "tipologia_istituzione": "Scuola secondaria di II grado",
-      "latitudine": null,
-      "longitudine": null,
+      "latitudine": 38.12615347796719,
+      "longitudine": 13.319126844144195,
       "quartiere_catalogo_2021": null,
-      "quartiere_verifica_spaziale": null,
-      "numero_quartiere": null,
-      "circoscrizione_verifica_spaziale": null,
+      "quartiere_verifica_spaziale": "Uditore-Passo Di Rigano",
+      "numero_quartiere": 17,
+      "circoscrizione_verifica_spaziale": "Quinta",
       "esito_verifica": "VERIFICA_DOCUMENTALE",
       "fonte": "Comune di Palermo, Portale Scuola e fonti ufficiali degli istituti",
       "anno_fonte": "2026",
@@ -15101,7 +15130,7 @@
       "nota_verifica_documentale": "Sede centrale; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Sede centrale; indirizzo verificato documentalmente.",
-      "coordinate_presenti": false,
+      "coordinate_presenti": true,
       "id_univoco": true,
       "coordinate_duplicate_esatte": false,
       "classe_affidabilita_finale": "DOCUMENTATO",
@@ -15115,8 +15144,22 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
-      "url_fonte_indirizzo": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/"
+      "coordinate_validation_note": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della sede centrale; indirizzo e funzione di sede centrale confermati dalla stessa scheda.",
+      "url_fonte_indirizzo": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/",
+      "fonte_geocodifica": "IISS Enrico Medi, scheda ufficiale Sede centrale, link Naviga su Google Map",
+      "tipo_geocodifica": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+      "url_fonte_geocodifica": "https://www.iissenricomedi.edu.it/luogo/sede-centrale/",
+      "stato_georeferenziazione": "COORDINATA_DA_LINK_MAPPA_UFFICIALE",
+      "mapPointId": "sup2-019",
+      "spatial_validation": {
+        "method": "point-in-polygon GeoJSON ISTAT 2021",
+        "crs": "OGC:CRS84 / EPSG:4326",
+        "asc1": "82053005",
+        "asc2": "82053017",
+        "asc3": "82053031",
+        "status": "WITHIN_PALERMO_ADMIN_AREAS",
+        "checked_at": "2026-11-15"
+      }
     },
     {
       "id": "sup2-020",
