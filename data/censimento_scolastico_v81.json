@@ -86,7 +86,23 @@
           "mapPointId": "sup2-019"
         }
       ],
-      "additional_official_map_coordinates": 2
+      "additional_official_map_coordinates": 2,
+      "secondary_sites_added": [
+        {
+          "id": "sup2-003",
+          "lat": 38.1375064,
+          "lon": 13.352974,
+          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
+          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
+        },
+        {
+          "id": "sup2-013",
+          "lat": 38.188701570014935,
+          "lon": 13.317049741744997,
+          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
+          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
+        }
+      ]
     }
   },
   "records": [
@@ -14338,12 +14354,12 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della succursale; indirizzo e funzione di succursale confermati dalla stessa scheda.",
+      "coordinate_validation_note": "Coordinate estratte dal collegamento Google Maps presente nella scheda ufficiale del plesso. Coordinate del punto mappa, non rilievo sul posto dell'accesso.",
       "url_fonte_indirizzo": "https://www.liceogaribaldi.edu.it/struttura/liceo-classico-g-garibaldi/",
-      "fonte_geocodifica": "Liceo Classico Giuseppe Garibaldi, scheda ufficiale Succursale, link Naviga su Google Map",
-      "tipo_geocodifica": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
-      "url_fonte_geocodifica": "https://www.liceogaribaldi.edu.it/luogo/succursale/",
-      "stato_georeferenziazione": "COORDINATA_DA_LINK_MAPPA_UFFICIALE",
+      "fonte_geocodifica": "Sito ufficiale dell'istituto, collegamento Naviga su Google Map",
+      "tipo_geocodifica": "LINK_GOOGLE_MAPS_ISTITUTO",
+      "url_fonte_geocodifica": "https://www.google.com/maps/dir/'38.1375064,13.352974'/@38.1375064,13.352974,15z?hl=it",
+      "stato_georeferenziazione": "COORDINATA_DA_LINK_GOOGLE_MAPS_UFFICIALE",
       "mapPointId": "sup2-003",
       "spatial_validation": {
         "method": "point-in-polygon GeoJSON ISTAT 2021",
@@ -14831,12 +14847,12 @@
       "indirizzo": "Viale dell’Olimpo, 20/22, 90149 Palermo",
       "istituzione": "Majorana · Plesso Olimpo",
       "tipologia_istituzione": "Scuola secondaria di II grado",
-      "latitudine": null,
-      "longitudine": null,
+      "latitudine": 38.188701570014935,
+      "longitudine": 13.317049741744997,
       "quartiere_catalogo_2021": null,
-      "quartiere_verifica_spaziale": null,
-      "numero_quartiere": null,
-      "circoscrizione_verifica_spaziale": null,
+      "quartiere_verifica_spaziale": "Partanna Mondello",
+      "numero_quartiere": 22,
+      "circoscrizione_verifica_spaziale": "Settima",
       "esito_verifica": "VERIFICA_DOCUMENTALE",
       "fonte": "Comune di Palermo, Portale Scuola e fonti ufficiali degli istituti",
       "anno_fonte": "2026",
@@ -14850,7 +14866,7 @@
       "nota_verifica_documentale": "Plesso Olimpo; indirizzo verificato documentalmente. | Indirizzo e denominazione della sede ricontrollati sul sito ufficiale dell'istituto; la verifica dell'indirizzo non costituisce geocodifica né conferma dell'ingresso.",
       "stato_riconciliazione": "SEDE_E_INDIRIZZO_DOCUMENTATI",
       "nota_riconciliazione": "Plesso Olimpo; indirizzo verificato documentalmente.",
-      "coordinate_presenti": false,
+      "coordinate_presenti": true,
       "id_univoco": true,
       "coordinate_duplicate_esatte": false,
       "classe_affidabilita_finale": "DOCUMENTATO",
@@ -14864,8 +14880,22 @@
       "stato_verifica_ordine": "VERIFICATO_DOCUMENTALMENTE",
       "gruppo_plesso_condiviso": "",
       "bufferEligible": false,
-      "coordinate_validation_note": "Coordinate non disponibili: record conservato nell'archivio e non rappresentato come punto GIS.",
-      "url_fonte_indirizzo": "https://majoranapa.edu.it/struttura/istituto-superiore-majorana/"
+      "coordinate_validation_note": "Coordinate estratte dal collegamento Google Maps presente nella scheda ufficiale del plesso. Coordinate del punto mappa, non rilievo sul posto dell'accesso.",
+      "url_fonte_indirizzo": "https://majoranapa.edu.it/struttura/istituto-superiore-majorana/",
+      "fonte_geocodifica": "Sito ufficiale dell'istituto, collegamento Naviga su Google Map",
+      "tipo_geocodifica": "LINK_GOOGLE_MAPS_ISTITUTO",
+      "url_fonte_geocodifica": "https://www.google.com/maps/dir/'38.188701570014935,13.317049741744997'/@38.188701570014935,13.317049741744997,15z?hl=it",
+      "stato_georeferenziazione": "COORDINATA_DA_LINK_GOOGLE_MAPS_UFFICIALE",
+      "mapPointId": "sup2-013",
+      "spatial_validation": {
+        "method": "point-in-polygon GeoJSON ISTAT 2021",
+        "crs": "OGC:CRS84 / EPSG:4326",
+        "asc1": "82053007",
+        "asc2": "82053022",
+        "asc3": "82053050",
+        "status": "WITHIN_PALERMO_ADMIN_AREAS",
+        "checked_at": "2026-11-15"
+      }
     },
     {
       "id": "sup2-014",
