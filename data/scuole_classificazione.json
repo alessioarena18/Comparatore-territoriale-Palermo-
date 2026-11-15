@@ -11,7 +11,7 @@
     ],
     "updated": "2026-11-15",
     "verified_registry_code_links": 116,
-    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione."
+    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi."
   },
   "records": [
     {
@@ -3384,6 +3384,46 @@
       "source_year": "2026/2027",
       "method": "Sede comunale identificata nell'elenco ufficiale 2026/27; coordinate estratte dal link Google Maps della scheda ufficiale comunale; accesso dal civico 36.",
       "confidence": "indirizzo, ordine e coordinate collegati a fonti ufficiali del Comune"
+    },
+    {
+      "point_id": "sup2-003",
+      "orders": [
+        "SECONDARIA_II_GRADO"
+      ],
+      "institution": "Liceo Classico Statale Giuseppe Garibaldi",
+      "address": "Via Generale Arimondi 38",
+      "school_codes": [
+        "PAPC04000P"
+      ],
+      "school_names": [
+        "Garibaldi · Succursale"
+      ],
+      "source_urls": [
+        "https://www.liceogaribaldi.edu.it/luogo/succursale/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della succursale; indirizzo e funzione di succursale confermati dalla stessa scheda.",
+      "confidence": "indirizzo, ordine e coordinate da link Google Maps ufficiale dell'istituto"
+    },
+    {
+      "point_id": "sup2-019",
+      "orders": [
+        "SECONDARIA_II_GRADO"
+      ],
+      "institution": "I.I.S.S. Enrico Medi",
+      "address": "Via Leonardo da Vinci 364",
+      "school_codes": [
+        "PAIS02400E"
+      ],
+      "school_names": [
+        "Enrico Medi · Sede centrale"
+      ],
+      "source_urls": [
+        "https://www.iissenricomedi.edu.it/luogo/sede-centrale/"
+      ],
+      "source_year": "2025/2026",
+      "method": "Coordinate copiate dal collegamento Google Maps presente nella scheda ufficiale della sede centrale; indirizzo e funzione di sede centrale confermati dalla stessa scheda.",
+      "confidence": "indirizzo, ordine e coordinate da link Google Maps ufficiale dell'istituto"
     }
   ]
 }
