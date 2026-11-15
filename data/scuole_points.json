@@ -1674,12 +1674,13 @@
       "status": "WITHIN_PALERMO_ADMIN_AREAS",
       "checked_at": "2026-11-15"
     },
-    "shared_sites": [
+    "address_matches": [
       {
         "name": "Palmerino (scuola dell'infanzia comunale)",
         "address": "Via Palmerino 1",
-        "source": "Portale Scuola Comune di Palermo 2026/27",
-        "record_id": "comune-infanzia-2026-27-05"
+        "source": "Elenco ufficiale Comune di Palermo 2026/27",
+        "record_id": "comune-infanzia-2026-27-05",
+        "relationship": "INDIRIZZO_IDENTICO_COLOCALIZZAZIONE_NON_CONFERMATA"
       }
     ]
   },
