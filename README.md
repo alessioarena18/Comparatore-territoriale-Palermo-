@@ -333,3 +333,13 @@ Sono stati aggiunti al registro V81 e alla cartografia due raccordi con coordina
 Il controllo point-in-polygon sui layer ISTAT 2021 colloca entrambi i riferimenti nei perimetri comunali: Palmerino in circoscrizione 4 / ASC2 14 / ASC3 19; Galileo Galilei in circoscrizione 8 / ASC2 8 / ASC3 33. Il totale passa a **288 record con coordinate** e **17 senza coordinate**; i punti fisici unici in mappa sono 288. Nessuno dei due nuovi riferimenti è abilitato ai raggi d'influenza, perché la georeferenziazione dell'indirizzo non equivale alla validazione dell'ingresso e dell'assetto operativo.
 
 Fonti: [Comune di Palermo, scheda Via Galileo Galilei 36](https://www.comune.palermo.it/vivere-il-comune/luoghi/via-galileo-galilei-n-36/); [elenco comunale scuole dell'infanzia 2026/27](https://www.comune.palermo.it/wp-content/uploads/2026/02/6868b17e-fb2b-4f59-ae91-920450845284.pdf).
+
+
+## Georeferenziazione sedi superiori da link ufficiali – 15 novembre 2026
+
+Sono state aggiunte due sedi scolastiche al catalogo cartografico usando esclusivamente le coordinate contenute nei collegamenti Google Maps pubblicati nelle schede ufficiali degli istituti:
+
+- Liceo Classico Giuseppe Garibaldi, succursale, Via Generale Arimondi 38: 38.1375064, 13.352974. Fonte: [scheda ufficiale della succursale](https://www.liceogaribaldi.edu.it/luogo/succursale/).
+- IISS Enrico Medi, sede centrale, Via Leonardo da Vinci 364: 38.12615347796719, 13.319126844144195. Fonte: [scheda ufficiale della sede centrale](https://www.iissenricomedi.edu.it/luogo/sede-centrale/).
+
+Entrambe le coordinate sono state controllate con point-in-polygon sulle geometrie ISTAT 2021 e risultano interne ai perimetri amministrativi di Palermo. Il censimento sale a **290 record georeferenziati** e **15 senza coordinate**. La presenza del punto non abilita automaticamente il buffer: il flag operativo resta subordinato alla verifica documentale e dell'accesso.
