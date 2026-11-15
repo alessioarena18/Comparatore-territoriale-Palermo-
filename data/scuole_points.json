@@ -2111,15 +2111,15 @@
   },
   {
     "id": "kml-school-137",
-    "name": "Bonfiglio",
+    "name": "Bonfiglio / Liceo Benedetto Croce Imera",
     "kind": "Plesso",
-    "order": "Non specificato",
+    "order": "MEDIE / SUPERIORI",
     "address": "VIA IMERA 145",
     "quarter": "CUBA-CALATAFIMI",
     "quarter_number": "5",
     "lat": 38.1132885986168,
     "lon": 13.3496388810094,
-    "institution": "Colozza - Bonfiglio",
+    "institution": "Colozza - Bonfiglio / Liceo Benedetto Croce",
     "institution_type": "IC",
     "source": "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
     "year": "2021",
@@ -2132,7 +2132,16 @@
       "asc3": "82053018",
       "status": "WITHIN_PALERMO_ADMIN_AREAS",
       "checked_at": "2026-11-15"
-    }
+    },
+    "address_matches": [
+      {
+        "name": "Liceo Scientifico Benedetto Croce · succursale Imera",
+        "address": "Via Imera 145/146",
+        "source": "Liceo Croce, documento del Consiglio di Classe 2024/25: la succursale occupa una porzione dell'edificio scolastico sede Bonfiglio",
+        "record_id": "sup2-018",
+        "relationship": "COLOCALIZZAZIONE_EDIFICIO_CONFERMATA_CIVICO_DA_RIVALIDARE"
+      }
+    ]
   },
   {
     "id": "kml-school-123",
