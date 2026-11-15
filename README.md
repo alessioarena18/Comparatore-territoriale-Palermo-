@@ -390,7 +390,7 @@ Audit automatico del repository dopo gli aggiornamenti:
 - 1 punto storico fuori perimetro, `kml-school-264` (Belpasso, Via Altofonte), mantenuto in riserva e non spostato automaticamente;
 - 3 soli punti abilitati ai buffer, secondo il flag esplicito V81.
 
-Le 12 schede ancora prive di coordinate sono: Benedetto Croce sede centrale, succursale Corazza e succursale Imera; scuole comunali M. Carollo, Oberdan, Altarello, G. Di Matteo, Primavera, Whitaker, Germania, Peralta e Strauss. Gli indirizzi sono documentati, ma non è stato trovato un collegamento cartografico puntuale sufficientemente verificabile per assegnare coordinate. Non vengono quindi creati centroidi di strada o punti stimati.
+Le 11 schede ancora prive di coordinate sono: Benedetto Croce sede centrale e succursale Corazza; scuole comunali M. Carollo, Oberdan, Altarello, G. Di Matteo, Primavera, Whitaker, Germania, Peralta e Strauss. La succursale Imera del Croce è stata collegata al punto condiviso con l'edificio Bonfiglio, mantenendo la riserva sul civico e sull'accesso. Gli indirizzi sono documentati, ma non è stato trovato un collegamento cartografico puntuale sufficientemente verificabile per assegnare coordinate. Non vengono quindi creati centroidi di strada o punti stimati.
 
 La differenza tra 294 record georeferenziati e 292 punti fisici deriva dal record comunale Palmerino, che condivide un indirizzo con un punto KML esistente: la relazione è dichiarata come indirizzo coincidente, senza affermare una co-localizzazione fisica certa e senza creare un marker duplicato.
 
