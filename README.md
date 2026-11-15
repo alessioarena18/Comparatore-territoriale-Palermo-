@@ -355,3 +355,13 @@ Sono state aggiunte due sedi superiori usando i collegamenti Google Maps incorpo
 Entrambi i punti ricadono nei perimetri amministrativi ISTAT 2021 e sono stati inseriti in `data/scuole_points.json`, `data/scuole_classificazione.json` e nel registro V81. I buffer restano disabilitati: il collegamento cartografico ufficiale documenta il punto indicato dalla scuola ma non sostituisce il sopralluogo dell'accesso effettivo.
 
 Il totale aggiornato è **290 record con coordinate** e **15 senza coordinate**; i punti fisici georeferenziati sono 290.
+
+
+## Georeferenziazione sedi scolastiche – secondo lotto – 15 novembre 2026
+
+Sono state georeferenziate altre due sedi tramite le coordinate presenti nei link Google Maps incorporati nelle schede ufficiali degli istituti:
+
+- **Istituto Superiore Majorana, Plesso Olimpo, Viale dell'Olimpo 20/22:** 38.188701570014935, 13.317049741744997. Fonte: [scheda ufficiale Plesso Olimpo](https://majoranapa.edu.it/luogo/plessoolimpo/).
+- **IISS Enrico Medi, sede succursale, Via Monsignor Serio 6/A:** 38.13170670404379, 13.323050379949564. Fonte: [scheda ufficiale sede succursale](https://www.iissenricomedi.edu.it/luogo/sede-succursale/).
+
+Entrambe le coordinate superano il controllo point-in-polygon sui layer ISTAT 2021 e ricadono nei perimetri comunali. Il registro V81 raggiunge **292 record con coordinate** e **13 ancora privi di coordinate**. Le nuove sedi non abilitano automaticamente i buffer, che restano subordinati alla verifica degli accessi e dell'operatività.
