@@ -51,17 +51,20 @@
     },
     "address_geocoding_update": {
       "date": "2026-11-15",
-      "records_added_or_linked": 2,
-      "new_physical_points": 1,
-      "shared_address_links": 1,
+      "georeferenced_records": 292,
+      "physical_points": 291,
+      "without_coordinates": 13,
+      "records_linked_to_existing_point": 1,
+      "new_physical_points": 3,
       "details": [
         {
           "id": "comune-infanzia-2026-27-05",
-          "method": "RIUSO_PUNTO_KML_STESSO_INDIRIZZO",
+          "method": "INDIRIZZO_COINCIDENTE_CON_PUNTO_KML",
           "lat": 38.1006825384476,
           "lon": 13.3374146884866,
           "mapPointId": "kml-school-30",
-          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
+          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS",
+          "note": "Indirizzo coincidente; co-localizzazione fisica non confermata."
         },
         {
           "id": "comune-infanzia-2026-27-09",
@@ -73,51 +76,31 @@
         },
         {
           "id": "sup2-003",
-          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
           "lat": 38.1375064,
           "lon": 13.352974,
-          "mapPointId": "sup2-003"
+          "mapPointId": "sup2-003",
+          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
+        },
+        {
+          "id": "sup2-013",
+          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
+          "lat": 38.188701570014935,
+          "lon": 13.317049741744997,
+          "mapPointId": "sup2-013",
+          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
         },
         {
           "id": "sup2-019",
-          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
+          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
           "lat": 38.12615347796719,
           "lon": 13.319126844144195,
-          "mapPointId": "sup2-019"
-        },
-        {
-          "id": "sup2-013",
-          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
-          "lat": 38.188701570014935,
-          "lon": 13.317049741744997,
-          "mapPointId": "sup2-013"
-        },
-        {
-          "id": "sup2-020",
-          "method": "LINK_GOOGLE_MAPS_UFFICIALE_ISTITUTO",
-          "lat": 38.13170670404379,
-          "lon": 13.323050379949564,
-          "mapPointId": "sup2-020"
-        }
-      ],
-      "additional_official_map_coordinates": 4,
-      "secondary_sites_added": [
-        {
-          "id": "sup2-003",
-          "lat": 38.1375064,
-          "lon": 13.352974,
-          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
-          "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
-        },
-        {
-          "id": "sup2-013",
-          "lat": 38.188701570014935,
-          "lon": 13.317049741744997,
-          "method": "LINK_GOOGLE_MAPS_ISTITUTO",
+          "mapPointId": "sup2-019",
           "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
         }
       ]
-    }
+    },
+    "physical_point_count": 291
   },
   "records": [
     {
