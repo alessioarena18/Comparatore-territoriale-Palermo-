@@ -54,7 +54,8 @@
       "georeferenced_records": 293,
       "physical_points": 292,
       "without_coordinates": 12,
-      "shared_address_links": 1,
+      "records_linked_to_existing_point": 1,
+      "new_physical_points": 5,
       "details": [
         {
           "id": "comune-infanzia-2026-27-05",
@@ -63,7 +64,7 @@
           "lon": 13.3374146884866,
           "mapPointId": "kml-school-30",
           "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS",
-          "note": "Indirizzo coincidente; co-localizzazione fisica non confermata."
+          "note": "Indirizzo coincidente; co-localizzazione fisica non confermata, nessun buffer."
         },
         {
           "id": "comune-infanzia-2026-27-09",
@@ -105,7 +106,8 @@
           "mapPointId": "sup2-020",
           "spatial_status": "WITHIN_PALERMO_ADMIN_AREAS"
         }
-      ]
+      ],
+      "note": "293 record del censimento hanno coordinate: 292 punti fisici distinti più un record comunale associato a un punto KML per coincidenza di indirizzo, con co-localizzazione ancora da confermare. Le 12 sedi senza coordinate restano non rappresentate in mappa. Cinque nuovi punti fisici sono stati aggiunti con link Google Maps ufficiali; il controllo point-in-polygon è conservato per ogni record."
     },
     "physical_point_count": 292
   },
