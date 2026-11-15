@@ -1,0 +1,78 @@
+{
+  "title": "Rapporto di riconciliazione sorgente V80 e archivio V81",
+  "updated": "2026-11-15",
+  "source": "censimento_scuole_palermo_v80.csv",
+  "target": "data/censimento_scolastico_v81.json",
+  "checks": {
+    "source_records": 305,
+    "source_unique_ids": 305,
+    "target_records": 305,
+    "target_unique_ids": 305,
+    "matching_ids": 305,
+    "mismatched_or_missing_ids": 0,
+    "source_georeferenced_records": 287,
+    "target_georeferenced_records": 287,
+    "buffer_eligible_target_records": 3,
+    "buffer_eligible_ids": [
+      "kml-school-90",
+      "kml-school-133",
+      "kml-school-233"
+    ]
+  },
+  "source_status_counts": {
+    "DOCUMENTATO": 196,
+    "RISERVA_O_RETTIFICA": 103,
+    "RISERVA_O_RETIFICA": 4,
+    "CONFERMATO_DA_RIVALIDARE": 2
+  },
+  "normalization": {
+    "from": "RISERVA_O_RETIFICA",
+    "to": "RISERVA_O_RETTIFICA",
+    "records": 4
+  },
+  "source_fields_not_migrated": [
+    {
+      "field": "controllo_coerenza_tipo_istituzione",
+      "description": "Esito del controllo di coerenza tra tipologia istituzione e codici/denominazioni"
+    },
+    {
+      "field": "nota_controllo_coerenza",
+      "description": "Motivazione e nota del controllo di coerenza"
+    },
+    {
+      "field": "inclusione_gis_richiesta",
+      "description": "Flag di richiesta inclusione nel GIS"
+    },
+    {
+      "field": "fonte_geocodifica",
+      "description": "Fonte usata per la geocodifica"
+    },
+    {
+      "field": "tipo_geocodifica",
+      "description": "Metodo o tipologia di geocodifica"
+    },
+    {
+      "field": "stato_georeferenziazione",
+      "description": "Stato della verifica delle coordinate"
+    },
+    {
+      "field": "url_fonte_geocodifica",
+      "description": "URL della fonte di geocodifica"
+    },
+    {
+      "field": "nota_georeferenziazione",
+      "description": "Nota tecnica sulla georeferenziazione"
+    }
+  ],
+  "limitations": [
+    "La coincidenza degli identificativi non certifica l'attualità di ogni sede o indirizzo.",
+    "Il controllo delle coordinate verifica l'appartenenza ai perimetri amministrativi, non l'ingresso fisico o il corpo edilizio.",
+    "Gli otto campi sorgente elencati non sono ancora presenti nei singoli record del JSON V81.",
+    "I valori bufferEligible sono mantenuti come revisione operativa V81 e non vengono dedotti dalle stringhe storiche di idoneita_raggi_influenza."
+  ],
+  "next_actions": [
+    "Reintegrare gli otto campi sorgente nei 305 record mediante join per id.",
+    "Verificare le 18 schede senza coordinate e distinguere assenza documentale da esclusione GIS.",
+    "Rivalidare indirizzo, ingresso e stato operativo prima di abilitare nuovi raggi."
+  ]
+}
