@@ -11,7 +11,7 @@
     ],
     "updated": "2026-11-15",
     "verified_registry_code_links": 116,
-    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi. Due sedi superiori integrate da link Google Maps presenti nelle rispettive pagine ufficiali: Garibaldi succursale e Majorana plesso Olimpo."
+    "notes": " Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi. Due sedi superiori integrate da link Google Maps presenti nelle rispettive pagine ufficiali: Garibaldi succursale e Majorana plesso Olimpo. Aggiunti Plesso Olimpo Majorana e sede succursale IISS Enrico Medi con coordinate da link Google Maps ufficiali."
   },
   "records": [
     {
@@ -3443,6 +3443,26 @@
       "source_year": "2026/2027",
       "method": "Indirizzo e denominazione della sede confermati sulla pagina ufficiale del plesso; coordinate estratte dal link Google Maps della stessa pagina.",
       "confidence": "sede documentata e coordinate tratte da link cartografico ufficiale; accesso da validare sul posto"
+    },
+    {
+      "point_id": "sup2-020",
+      "orders": [
+        "SECONDARIA_II_GRADO"
+      ],
+      "institution": "I.I.S.S. Enrico Medi",
+      "address": "Via Monsignor Serio 6/A",
+      "school_codes": [
+        "PAIS02400E"
+      ],
+      "school_names": [
+        "Enrico Medi · Succursale"
+      ],
+      "source_urls": [
+        "https://www.iissenricomedi.edu.it/luogo/sede-succursale/"
+      ],
+      "source_year": "2026/2027",
+      "method": "Coordinate estratte dal collegamento Google Maps pubblicato nella scheda ufficiale della sede succursale; indirizzo e funzione della sede confermati dalla stessa scheda.",
+      "confidence": "indirizzo, sede, ordine e coordinate da link Google Maps ufficiale dell'istituto"
     }
   ]
 }
