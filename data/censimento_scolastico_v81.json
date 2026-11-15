@@ -116,7 +116,8 @@
           "note": "Il Liceo Croce occupa una porzione dell'edificio Bonfiglio; civico 145/146 e ingresso specifico da rivalidare."
         }
       ],
-      "note": "293 record del censimento hanno coordinate: 292 punti fisici distinti più un record comunale associato a un punto KML per coincidenza di indirizzo, con co-localizzazione ancora da confermare. Le 12 sedi senza coordinate restano non rappresentate in mappa. Cinque nuovi punti fisici sono stati aggiunti con link Google Maps ufficiali; il controllo point-in-polygon è conservato per ogni record."
+      "note": "Due schede aggiuntive sono state collegate a punti fisici già presenti: Palmerino per indirizzo coincidente con riserva sulla co-localizzazione; Liceo Croce succursale Imera per co-localizzazione documentata nell'edificio Bonfiglio, con civico/accesso da rivalidare.",
+      "shared_address_links": 2
     },
     "physical_point_count": 292,
     "spatial_validation_counts": {
