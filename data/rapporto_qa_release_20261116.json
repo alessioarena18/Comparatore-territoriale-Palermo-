@@ -1,8 +1,8 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA18",
+  "version": "V82-QA19",
   "date": "2026-11-16",
-  "scope": "Aggiornamento classificazione scolastica, verifica ordini e sedi, registrazione alias e controllo integrità degli archivi su 218 punti classificati.",
+  "scope": "Aggiornamento classificazione scolastica, verifica ordini e sedi, registrazione alias e incongruenze anagrafiche e controllo integrità degli archivi su 219 punti classificati.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
@@ -159,13 +159,13 @@
     },
     "school_classification": {
       "physical_map_points": 292,
-      "points_with_classification": 218,
-      "points_without_classification": 74,
-      "coverage_percent": 74.7,
+      "points_with_classification": 219,
+      "points_without_classification": 73,
+      "coverage_percent": 75,
       "order_assignments": {
         "INFANZIA": 90,
         "NIDO": 26,
-        "ELEMENTARI": 100,
+        "ELEMENTARI": 101,
         "MEDIE": 38,
         "SUPERIORI": 21
       },
@@ -174,13 +174,13 @@
       "classification_records_without_map_point": 0,
       "classification_records_without_census_record": 0,
       "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
-      "note": "Conteggi per ordine come presenze, sovrapposti nei 52 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 218 classificati, 74 non classificati, copertura 74.7%. Ultima integrazione: Sede Di Bartolo, infanzia e primaria, con alias KML Arenella.",
+      "note": "Conteggi per ordine come presenze, sovrapposti nei 52 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 219 classificati, 73 non classificati, copertura 75%. De Stefano è classificato per ordine e indirizzo documentati; l'incongruenza dell'istituzione KML è registrata separatamente.",
       "metadata_reconciliation": {
         "physical_map_points": 292,
-        "classification_records": 218,
-        "unique_classification_point_ids": 218,
-        "points_without_classification": 74,
-        "coverage_percent": 74.7,
+        "classification_records": 219,
+        "unique_classification_point_ids": 219,
+        "points_without_classification": 73,
+        "coverage_percent": 75,
         "crosswalk_records": 81,
         "crosswalk_scope": "verifica_sedi_scolastiche_v14 è un crosswalk documentale parziale di 81 record, non un archivio esaustivo dei 292 punti; non va usato per dedurre la classificazione dei record assenti.",
         "status": "PASS"
@@ -287,7 +287,9 @@
     "https://www.atsonline.it/iccaponnetto/root/accessibile/index.php/dove-siamo.html",
     "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_12012023131256.pdf",
     "https://old.usr.sicilia.it/attachments/article/5690/PALERMO.pdf",
-    "https://www.icwojtylapalermo.edu.it/luogo/sede-di-bartolo/"
+    "https://www.icwojtylapalermo.edu.it/luogo/sede-di-bartolo/",
+    "https://web.comune.palermo.it/js/server/uploads/gare/_25092013092905.pdf",
+    "https://openfiber.it/app/uploads/2021/06/Elenco-scuole-connesse-FTTH_Open-Fiber_1506.xlsx.pdf"
   ],
   "address_source_crosscheck": {
     "date": "2026-11-16",
@@ -421,6 +423,21 @@
       "status": "ALIAS_DENOMINAZIONE_KML_DA_RICONCILIARE",
       "source_url": "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
       "note": "Il portale comunale identifica D'Angelo Paolo Emilio come primaria al civico 295; il punto KML è denominato D'Angelo Nuovo e condivide la localizzazione del complesso."
+    },
+    {
+      "point_id": "kml-school-82",
+      "name": "De Stefano",
+      "kml_institution": "Alessandra Siracusa",
+      "official_institution": "D.D. Pallavicino",
+      "kml_address": "Via De Stefano 5",
+      "official_address": "Via De Stefano 5",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "ORDINE_E_SEDE_CONFERMATI_ISTITUZIONE_KML_DISCORDANTE",
+      "source_urls": [
+        "https://web.comune.palermo.it/js/server/uploads/gare/_25092013092905.pdf",
+        "https://openfiber.it/app/uploads/2021/06/Elenco-scuole-connesse-FTTH_Open-Fiber_1506.xlsx.pdf"
+      ],
+      "note": "Denominazione, indirizzo e ordine coincidono; il campo istituzione del KML è discordante con la D.D. Pallavicino riportata dalle fonti. La classificazione è mantenuta con anomalia esplicita."
     }
   ]
 }
