@@ -174,7 +174,7 @@
       "classification_records_without_map_point": 0,
       "classification_records_without_census_record": 0,
       "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
-      "note": "I conteggi per ordine sono presenze e possono sovrapporsi nei 43 punti multi-ordine; non sono un totale di edifici distinti. Metadati del file scuole_classificazione.json riallineati: 292 punti fisici, 167 classificati, 125 non classificati, copertura 57,2%. Lotto 2026-11-16: aggiunti due plessi con codice, ordine e indirizzo coincidenti nel PTOF ufficiale dell'I.C. Leonardo da Vinci-Giosuè Carducci (Leonardo da Vinci primaria, Carducci secondaria I grado).",
+      "note": "I conteggi per ordine sono presenze e possono sovrapporsi nei 43 punti multi-ordine; non sono un totale di edifici distinti. Stato aggiornato al 16/11/2026: 292 punti fisici, 169 classificati, 123 non classificati, copertura 57,9%.",
       "metadata_reconciliation": {
         "physical_map_points": 292,
         "classification_records": 169,
