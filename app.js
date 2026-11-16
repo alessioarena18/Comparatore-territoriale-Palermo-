@@ -280,16 +280,17 @@ if(active==='social'){
   const numero=n=>n===null||n===undefined?'N.D.':Number(n).toLocaleString('it-IT',{maximumFractionDigits:2});
   if(s.section)html+='<div class="notice-inline">L’indice IDISE è disponibile per le 55 UPL, non per le singole sezioni censuarie. Per evitare attribuzioni improprie, i valori IDISE non vengono mostrati per la sezione selezionata.</div>';
   const descrizioni={
-    DIS1:'Persone di 70 anni e oltre che vivono sole e non sono proprietarie dell’abitazione',
-    DIS2:'Persone che vivono in famiglie senza componenti occupati o titolari di pensione da lavoro',
-    DIS3:'Persone che vivono in famiglie con basso reddito equivalente',
-    DIS4:'Tasso di occupazione della popolazione tra 25 e 64 anni',
-    DIS5:'Persone fino a 64 anni che vivono in famiglie a bassa intensità lavorativa',
-    DIS6:'Persone tra 25 e 64 anni con occupazione instabile nel corso dell’anno',
-    DIS7:'Persone tra 25 e 64 anni con basso livello di istruzione',
-    DIS8:'Giovani tra 15 e 29 anni non occupati e non inseriti in percorsi di istruzione o formazione (NEET)',
-    DIS9:'Studenti che abbandonano il percorso scolastico o ripetono l’anno'
+    DIS1:'Incidenza di persone di 70 anni e oltre che vivono sole e non possiedono una casa di proprietà sul totale dei residenti in famiglia di 70 anni e oltre.',
+    DIS2:'Incidenza di persone che vivono in famiglie in cui nessun componente è occupato o percepisce una pensione da lavoro, sul totale della popolazione residente in famiglia.',
+    DIS3:'Incidenza di persone che vivono in famiglie con reddito disponibile equivalente inferiore al 60% della mediana nazionale, sul totale della popolazione residente in famiglia.',
+    DIS4:'Tasso di occupazione: persone occupate di 25-64 anni sul totale della popolazione residente in famiglia della stessa fascia d’età.',
+    DIS5:'Incidenza di persone di 0-64 anni che vivono in famiglie con bassa intensità lavorativa (rapporto tra settimane lavorate e settimane teoricamente disponibili inferiore a 0,20).',
+    DIS6:'Incidenza di occupati di 25-64 anni con occupazione non stabile sul totale dei residenti in famiglia di 25-64 anni con un segnale di lavoro nell’anno.',
+    DIS7:'Incidenza di persone di 25-64 anni con livello di istruzione non superiore alla scuola secondaria di primo grado sul totale dei residenti in famiglia della stessa fascia d’età.',
+    DIS8:'Incidenza di giovani di 15-29 anni non occupati e non iscritti ad alcun corso di studi sul totale dei residenti in famiglia della stessa fascia d’età (NEET).',
+    DIS9:'Rapporto percentuale tra studenti della scuola secondaria di I e II grado che abbandonano o non superano l’anno e studenti con segnali di frequenza nell’anno scolastico di riferimento.'
   };
+  html+='<div class="notice-inline"><strong>Unità di misura:</strong> DIS1-DIS9 sono tutti indicatori percentuali (%), non conteggi assoluti. Il valore indica la quota della popolazione del denominatore specifico definito da ISTAT. I valori sono riportati in punti percentuali: ad esempio 14,8 significa 14,8 persone ogni 100 del gruppo di riferimento. <strong>Eccezione interpretativa: DIS4</strong> è il tasso di occupazione, quindi un valore più alto indica maggiore occupazione e, in questa dimensione, minore disagio. Gli altri DIS hanno polarità concorde al disagio: valori più alti indicano maggiore criticità.</div>';
   html+=`<div class="grid social-kpis">
     <div class="card"><span class="muted">UPL analizzate</span><div class="metric">${aree.length}</div></div>
     <div class="card"><span class="muted">IDISE medio delle UPL</span><div class="metric">${numero(media)}</div></div>
@@ -303,16 +304,16 @@ if(active==='social'){
     </div>
   </div>
   <div class="card"><h3>4 - Indice di disagio socio-economico IDISE 2023</h3>
-    <p class="muted">Fonte: ISTAT. 55 UPL di Palermo. Valore comunale di riferimento: 100. Valori più elevati indicano maggiore disagio socio-economico.</p>
+    <p class="muted">Fonte: ISTAT, anno 2023. L’IDISE è un indice composito AMPI+, non una percentuale: il riferimento medio comunale è 100. I valori sono confrontabili tra UPL dello stesso Comune e dello stesso anno; valori superiori a 100 indicano un disagio sopra il riferimento comunale, valori inferiori un disagio sotto il riferimento.</p>
     <div class="table-wrap"><table><thead><tr><th>UPL</th><th>IDISE</th><th>Popolazione</th><th>Famiglie</th></tr></thead><tbody>
     ${aree.map(a=>`<tr><td>${esc(a.nome)}</td><td>${numero(a.idise)}</td><td>${numero(a.popolazione)}</td><td>${numero(a.famiglie)}</td></tr>`).join('')}
     </tbody></table></div>
   </div>
   <div class="card social-compare-section"><h3>5 - Confronto territoriale degli indicatori di disagio</h3>
-    <p class="muted">Gli indicatori restano affiancati al confronto per consentire la lettura dei risultati senza perdere il riferimento metodologico.</p>
+    <p class="muted">Tutti i valori DIS sono espressi in percentuale (%). La percentuale non usa un denominatore unico: ciascun indicatore si riferisce alla fascia d’età o al gruppo indicato nella descrizione a sinistra. Non si tratta di punti percentuali di IDISE.</p>
     <div class="social-compare-layout">
       <aside class="indicator-panel"><h3>Indicatori DIS1-DIS9</h3><div class="indicator-list">
-        ${Object.entries(descrizioni).map(([codice,descrizione])=>`<div class="indicator-item"><strong>${codice}</strong><span>${descrizione}</span>${codice==='DIS4'?'<small>Interpretazione inversa: un valore più alto indica maggiore occupazione e quindi minore disagio.</small>':''}</div>`).join('')}
+        ${Object.entries(descrizioni).map(([codice,descrizione])=>`<div class="indicator-item"><strong>${codice} · %</strong><span>${descrizione}</span>${codice==='DIS4'?'<small>Polarità inversa: un valore più alto indica maggiore occupazione e quindi minore disagio.</small>':'<small>Polarità: un valore più alto indica maggiore incidenza del fenomeno di disagio descritto.</small>'}</div>`).join('')}
       </div></aside>
       <div id="uplConfronto" class="comparison-panel"><h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL nel pannello precedente per visualizzare i valori a confronto.</p></div>
     </div>
@@ -457,7 +458,7 @@ if(active==='social'){
     if(selezionate.length<2){box.innerHTML='<h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare i valori a confronto.</p>';return;}
     const numero=v=>v===null||v===undefined||v===''?'N.D.':Number(v).toLocaleString('it-IT',{maximumFractionDigits:2});
     const righe=[['IDISE',a=>a.idise],['Popolazione',a=>a.popolazione],['Famiglie',a=>a.famiglie],['Superficie (km²)',a=>a.superficie_km2],...indicatori.map(k=>[k,a=>a.dis?.[k]])];
-    box.innerHTML='<h3>Confronto tra '+selezionate.length+' UPL</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+selezionate.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+selezionate.map(a=>'<td>'+numero(fn(a))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">I valori DIS sono indicatori elementari; per DIS4 la relazione con il disagio è inversa.</p>';
+    box.innerHTML='<h3>Confronto tra '+selezionate.length+' UPL</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+selezionate.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+selezionate.map(a=>'<td>'+numero(fn(a))+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">DIS1-DIS9 sono percentuali (%). Il denominatore varia in base all’indicatore ed è specificato nella scheda descrittiva. DIS4 ha polarità inversa rispetto al disagio. IDISE è invece un indice composito con riferimento comunale pari a 100.</p>';
   }
   document.querySelectorAll('.upl-check').forEach(c=>c.addEventListener('change',aggiornaConfronto));
   aggiornaConfronto();
