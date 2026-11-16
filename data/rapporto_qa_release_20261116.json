@@ -1,8 +1,8 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA19",
+  "version": "V82-QA20",
   "date": "2026-11-16",
-  "scope": "Aggiornamento classificazione scolastica, verifica ordini e sedi, registrazione alias e incongruenze anagrafiche e controllo integrità degli archivi su 219 punti classificati.",
+  "scope": "Correzione della classificazione delle due sedi I.C. Giuseppe Verdi, aggiornamento degli ordini e verifica integrità degli archivi su 220 punti classificati.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
@@ -159,9 +159,9 @@
     },
     "school_classification": {
       "physical_map_points": 292,
-      "points_with_classification": 219,
-      "points_without_classification": 73,
-      "coverage_percent": 75,
+      "points_with_classification": 220,
+      "points_without_classification": 72,
+      "coverage_percent": 75.3,
       "order_assignments": {
         "INFANZIA": 90,
         "NIDO": 26,
@@ -169,18 +169,18 @@
         "MEDIE": 38,
         "SUPERIORI": 21
       },
-      "points_with_multiple_orders": 52,
+      "points_with_multiple_orders": 51,
       "duplicate_point_ids": 0,
       "classification_records_without_map_point": 0,
       "classification_records_without_census_record": 0,
       "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
-      "note": "Conteggi per ordine come presenze, sovrapposti nei 52 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 219 classificati, 73 non classificati, copertura 75%. De Stefano è classificato per ordine e indirizzo documentati; l'incongruenza dell'istituzione KML è registrata separatamente.",
+      "note": "Conteggi per ordine come presenze, sovrapposti nei 51 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 220 classificati, 72 non classificati, copertura 75.3%. I due punti Verdi sono separati correttamente: primaria in Via Casella 33/35 e secondaria I in Via Fermi 2.",
       "metadata_reconciliation": {
         "physical_map_points": 292,
-        "classification_records": 219,
-        "unique_classification_point_ids": 219,
-        "points_without_classification": 73,
-        "coverage_percent": 75,
+        "classification_records": 220,
+        "unique_classification_point_ids": 220,
+        "points_without_classification": 72,
+        "coverage_percent": 75.3,
         "crosswalk_records": 81,
         "crosswalk_scope": "verifica_sedi_scolastiche_v14 è un crosswalk documentale parziale di 81 record, non un archivio esaustivo dei 292 punti; non va usato per dedurre la classificazione dei record assenti.",
         "status": "PASS"
@@ -289,7 +289,10 @@
     "https://old.usr.sicilia.it/attachments/article/5690/PALERMO.pdf",
     "https://www.icwojtylapalermo.edu.it/luogo/sede-di-bartolo/",
     "https://web.comune.palermo.it/js/server/uploads/gare/_25092013092905.pdf",
-    "https://openfiber.it/app/uploads/2021/06/Elenco-scuole-connesse-FTTH_Open-Fiber_1506.xlsx.pdf"
+    "https://openfiber.it/app/uploads/2021/06/Elenco-scuole-connesse-FTTH_Open-Fiber_1506.xlsx.pdf",
+    "https://pa.usr.sicilia.it/download/772/7387/7390/elenco-sedi-per-immissione-in-ruolo-seconda-rettifica.pdf",
+    "https://www.unilibro.it/scolastici/adozioni?MIUR=PAEE87801R",
+    "https://www.unilibro.it/scolastici/adozioni?MIUR=PAMM87801Q"
   ],
   "address_source_crosscheck": {
     "date": "2026-11-16",
@@ -438,6 +441,26 @@
         "https://openfiber.it/app/uploads/2021/06/Elenco-scuole-connesse-FTTH_Open-Fiber_1506.xlsx.pdf"
       ],
       "note": "Denominazione, indirizzo e ordine coincidono; il campo istituzione del KML è discordante con la D.D. Pallavicino riportata dalle fonti. La classificazione è mantenuta con anomalia esplicita."
+    },
+    {
+      "point_id": "kml-school-237",
+      "name": "Giuseppe Verdi primaria",
+      "kml_address": "Via Casella 33",
+      "official_address": "Via A. Casella 33/35",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "MATCH_INDIRIZZO_CIVICO_VARIANTE_33_33-35",
+      "source_url": "https://pa.usr.sicilia.it/download/772/7387/7390/elenco-sedi-per-immissione-in-ruolo-seconda-rettifica.pdf",
+      "note": "Plesso primario PAEE87801R; l'indirizzo MIM/USR è 33/35, il punto KML riporta 33."
+    },
+    {
+      "point_id": "kml-school-238",
+      "name": "Giuseppe Verdi secondaria I",
+      "kml_address": "Via Enrico Fermi 2",
+      "official_address": "Via E. Fermi 2",
+      "official_order": "SCUOLA_SECONDARIA_I_GRADO",
+      "status": "MATCH_ESATTO",
+      "source_url": "https://gildapalermo.it/wp-content/uploads/2025/05/Scuola-I-grado-organico-di-diritto-25-26.pdf",
+      "note": "PAMM87801Q è secondaria I in Via E. Fermi 2; la primaria è distinta in Via Casella 33/35."
     }
   ]
 }
