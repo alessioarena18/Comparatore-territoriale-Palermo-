@@ -400,3 +400,8 @@ La differenza tra 294 record georeferenziati e 292 punti fisici deriva da due ra
 La succursale del Liceo Scientifico Benedetto Croce in Via Imera è stata collegata al punto cartografico del plesso Bonfiglio (KML comunale, Via Imera 145). Il documento ufficiale del Liceo Croce descrive la succursale come una porzione dell'edificio scolastico che ospita l'I.C. Bonfiglio; il punto fisico è quindi condiviso e non viene duplicato. Le fonti riportano il civico 145 e, in altre pagine, 146: la scheda resta in riserva per la verifica dell'ingresso specifico. Il buffer non è abilitato.
 
 Il raccordo porta il registro a **294 record con coordinate** e **11 senza coordinate**, mantenendo **292 punti fisici unici**. La scheda Croce Imera è associata a un punto edificio già presente, con co-localizzazione documentata ma civico/accesso da rivalidare.
+
+
+## Aggiornamento analisi spaziale · 16 novembre 2026
+
+La sezione Analisi spaziale presenta la distribuzione della popolazione censuaria 2021 (POP21) sulle 55 UPL/aree ASC3: grafico a barre delle prime dieci UPL, grafico a torta delle prime otto più quota residua e tabella con popolazione, famiglie, superficie SHAPE_Area e densità preliminare. I filtri territoriali sono applicati tramite codici e geometrie ASC; quando è selezionata una sezione censuaria, viene mostrato il dato dell’UPL di appartenenza, senza stimare la popolazione della singola sezione. La somma POP21 delle 55 UPL è 635.439. La densità è preliminare e non sostituisce la validazione topologica in QGIS. Dettagli: `data/rapporto_analisi_spaziale_20261116.json`.
