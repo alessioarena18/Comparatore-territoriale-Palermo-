@@ -1,0 +1,26 @@
+{
+  "title": "Integrazione analisi spaziale POP21 per UPL",
+  "date": "2026-11-16",
+  "repository": "alessioarena18/Comparatore-territoriale-Palermo-",
+  "branch": "main",
+  "source": "data/geo/aree_subcomunali_liv3_palermo_2021.geojson",
+  "features": 55,
+  "population_field": "POP21",
+  "population_total": 635439,
+  "outputs": [
+    "Grafico a barre delle prime dieci UPL per popolazione",
+    "Grafico a torta delle prime otto UPL e quota residua",
+    "Tabella POP21, famiglie, SHAPE_Area e densità preliminare"
+  ],
+  "filters": [
+    "circoscrizione",
+    "quartiere tramite ASC2 parent",
+    "UPL ASC3",
+    "sezione censuaria tramite UPL di appartenenza"
+  ],
+  "method_notes": [
+    "La selezione di una sezione mostra il dato aggregato dell'UPL di appartenenza e non una stima della popolazione della sezione.",
+    "La densità è preliminare e usa SHAPE_Area delle geometrie ASC3.",
+    "La validazione topologica di tre geometrie censuarie e le analisi di accessibilità su rete restano attività separate."
+  ]
+}
