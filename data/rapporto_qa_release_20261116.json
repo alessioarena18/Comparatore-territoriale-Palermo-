@@ -1,8 +1,8 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA17",
+  "version": "V82-QA18",
   "date": "2026-11-16",
-  "scope": "Aggiornamento classificazione scolastica, verifica ordini e sedi, registrazione alias e controllo integrità degli archivi su 217 punti classificati.",
+  "scope": "Aggiornamento classificazione scolastica, verifica ordini e sedi, registrazione alias e controllo integrità degli archivi su 218 punti classificati.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
@@ -159,28 +159,28 @@
     },
     "school_classification": {
       "physical_map_points": 292,
-      "points_with_classification": 217,
-      "points_without_classification": 75,
-      "coverage_percent": 74.3,
+      "points_with_classification": 218,
+      "points_without_classification": 74,
+      "coverage_percent": 74.7,
       "order_assignments": {
-        "INFANZIA": 89,
+        "INFANZIA": 90,
         "NIDO": 26,
-        "ELEMENTARI": 99,
+        "ELEMENTARI": 100,
         "MEDIE": 38,
         "SUPERIORI": 21
       },
-      "points_with_multiple_orders": 51,
+      "points_with_multiple_orders": 52,
       "duplicate_point_ids": 0,
       "classification_records_without_map_point": 0,
       "classification_records_without_census_record": 0,
       "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
-      "note": "Conteggi per ordine come presenze, sovrapposti nei 51 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 217 classificati, 75 non classificati, copertura 74.3%. Ultimo lotto: Capuana, Tommaso Natale, Jack London, Guzzardi/Maneri, E. Basile e Monti Iblei, con varianti esplicitate.",
+      "note": "Conteggi per ordine come presenze, sovrapposti nei 52 punti multi-ordine. Stato 16/11/2026: 292 punti fisici, 218 classificati, 74 non classificati, copertura 74.7%. Ultima integrazione: Sede Di Bartolo, infanzia e primaria, con alias KML Arenella.",
       "metadata_reconciliation": {
         "physical_map_points": 292,
-        "classification_records": 217,
-        "unique_classification_point_ids": 217,
-        "points_without_classification": 75,
-        "coverage_percent": 74.3,
+        "classification_records": 218,
+        "unique_classification_point_ids": 218,
+        "points_without_classification": 74,
+        "coverage_percent": 74.7,
         "crosswalk_records": 81,
         "crosswalk_scope": "verifica_sedi_scolastiche_v14 è un crosswalk documentale parziale di 81 record, non un archivio esaustivo dei 292 punti; non va usato per dedurre la classificazione dei record assenti.",
         "status": "PASS"
@@ -286,7 +286,8 @@
     "https://www.icsluigicapuana.edu.it/indirizzo-di-studio/scuola-primaria/",
     "https://www.atsonline.it/iccaponnetto/root/accessibile/index.php/dove-siamo.html",
     "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_12012023131256.pdf",
-    "https://old.usr.sicilia.it/attachments/article/5690/PALERMO.pdf"
+    "https://old.usr.sicilia.it/attachments/article/5690/PALERMO.pdf",
+    "https://www.icwojtylapalermo.edu.it/luogo/sede-di-bartolo/"
   ],
   "address_source_crosscheck": {
     "date": "2026-11-16",
