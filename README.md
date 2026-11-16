@@ -405,3 +405,12 @@ Il raccordo porta il registro a **294 record con coordinate** e **11 senza coord
 ## Aggiornamento analisi spaziale · 16 novembre 2026
 
 La sezione Analisi spaziale presenta la distribuzione della popolazione censuaria 2021 (POP21) sulle 55 UPL/aree ASC3: grafico a barre delle prime dieci UPL, grafico a torta delle prime otto più quota residua e tabella con popolazione, famiglie, superficie SHAPE_Area e densità preliminare. I filtri territoriali sono applicati tramite codici e geometrie ASC; quando è selezionata una sezione censuaria, viene mostrato il dato dell’UPL di appartenenza, senza stimare la popolazione della singola sezione. La somma POP21 delle 55 UPL è 635.439. La densità è preliminare e non sostituisce la validazione topologica in QGIS. Dettagli: `data/rapporto_analisi_spaziale_20261116.json`.
+
+
+## Correzione filtri quartiere / ASC2 – 16 novembre 2026
+
+I filtri territoriali associano ora i quartieri alle geometrie ISTAT ASC2 tramite codice geografico, non solo tramite confronto testuale:
+- **S. Giovanni Apostolo** → ASC2 **Cruillas - S.Giovanni Apostolo**, codice `82053019`. La geometria comprende anche Cruillas e non rappresenta un perimetro autonomo del solo S. Giovanni Apostolo.
+- **Resuttana-San Lorenzo** → ASC2 **Resuttana - S.Lorenzo**, codice `82053020`.
+
+La risoluzione per codice è applicata alla Cartografia GIS, all'Analisi spaziale, al riepilogo scolastico e alla distribuzione IDISE. I dati sociali originali non sono stati modificati. Il rapporto tecnico è disponibile in `data/rapporto_audit_filtri_asc2_20261116.json`.
