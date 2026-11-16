@@ -3,7 +3,7 @@
     "title": "Classificazione ordini scolastici dei punti cartografici di Palermo",
     "created": "2026-11-14",
     "points_total": 292,
-    "classified_records": 191,
+    "classified_records": 204,
     "methodology": "Sono inclusi i nidi esplicitamente tipizzati nel dataset comunale e i plessi con corrispondenza esatta della denominazione normalizzata con i record USR Sicilia 2025/2026. Le corrispondenze per sola istituzione non sono state estese automaticamente ai singoli plessi, perché non provano che ogni ordine sia erogato in quella sede. Le sedi non presenti in questo archivio restano da verificare tramite indirizzo e sito ufficiale. Secondo lotto: aggiunte corrispondenze per alias e istituzione coerente, con codice meccanografico USR del plesso; queste voci sono marcate come da verifica puntuale dell'indirizzo sul sito ufficiale. Terzo lotto: aggiunti sei plessi con corrispondenza di denominazione e indirizzo esplicitata nella Carta dei Servizi Educativi del Comune di Palermo (aggiornata a febbraio 2025); non sono stati assegnati codici meccanografici in assenza di una corrispondenza verificata. Quarto lotto: aggiunti otto plessi con denominazione e indirizzo riscontrati nella Carta dei Servizi Educativi comunale o nel sito ufficiale dell'IC Cruillas. I civici con differenze minime sono stati mantenuti solo quando la denominazione e la sede risultano coerenti; non sono stati attribuiti codici meccanografici non verificati. Quinto lotto: aggiunti nove plessi/sedi didattiche con corrispondenza documentata nella Carta dei Servizi Educativi del Comune di Palermo aggiornata a febbraio 2025. Per De Gasperi la fonte documenta esplicitamente infanzia e primaria nella sede scolastica, ma il civico del punto KML resta da riscontrare. Sesto lotto: aggiunti dieci plessi con ordine scolastico documentato nell'elenco ufficiale delle sedi scolastiche del Comune di Palermo o nei dataset USR Sicilia 2025/2026. Sono stati associati codici meccanografici solo dove il match del plesso è esplicito. Settimo lotto: aggiunti sei plessi/sedi con corrispondenza esatta di denominazione e indirizzo o identificazione ufficiale del plesso nelle fonti comunali e scolastiche. Per i casi senza codice meccanografico verificato non sono stati inseriti codici. Ottavo lotto: aggiunto il plesso Renato Guttuso di Via Galletti, con riscontro dell'immobile scolastico da parte del Comune e ordine scolastico confermato dal dataset USR 2025/2026. Nono lotto: aggiunte quattro corrispondenze con denominazione e indirizzo verificati in fonti comunali e USR; per Tomaselli e Abba l'ordine è esplicitato nell'inventario patrimoniale comunale, per Di Vittorio nel prospetto USR e per Setti Carraro nel portale elettorale comunale. Decimo lotto: aggiunte tre sedi con ordine esplicitato in documentazione comunale: Angelo Custode (primaria), Salgari (primaria) e Cesareo (secondaria di primo grado). Undicesimo lotto: aggiunti tre punti con ordine documentato dal portale elettorale e dalla Carta dei Servizi Educativi comunale; per il punto Cagni è stata associata esclusivamente la scuola dell'infanzia attestata allo stesso indirizzo, senza estendere l'ordine agli altri plessi della direzione didattica. Dodicesimo lotto: integrata la sede Di Vittorio con l'ordine primaria Natoli, documentato allo stesso indirizzo oltre alla secondaria di primo grado, e aggiunto il plesso Leonardo da Vinci di Via Serradifalco 190 come primaria secondo la Carta dei Servizi Educativi comunale. Tredicesimo lotto: aggiunti Don Milani (secondaria di primo grado), Maneri (primaria) e Orestano sede centrale (primaria), con indirizzo e ordine verificati in fonti comunali e documentazione scolastica. Quattordicesimo lotto: aggiunti Raciti (primaria) e Tomasi di Lampedusa (secondaria di primo grado) sulla base del portale elettorale comunale; classificati inoltre i quattro corpi A-D del complesso De Amicis, tutti al civico 1 di Via Rosso di San Secondo, come primaria. Quindicesimo lotto: aggiunti quattro punti con ordine scolastico verificato su fonti USR Sicilia 2025/2026; per Virgilio Marone è stato verificato anche l'indirizzo nell'inventario patrimoniale comunale. Per i casi in cui il prospetto USR non riporta il civico, la verifica è limitata a denominazione, istituzione e codice meccanografico. Undicesimo lotto: aggiunti collegamenti puntuali tra codice meccanografico e punto comunale solo per plessi con indirizzo coincidente e codice esplicitato in sito scolastico o documento USR. Per i casi di civico discordante o sede non univoca il collegamento non viene attribuito. Dodicesimo lotto: ulteriori codici di plesso collegati a punti cartografici con riscontro del codice e della sede in documenti USR, PTOF scolastici o elenchi pubblici infrastrutturali. È stata inoltre corretta una classificazione: il punto Maneri-Ingrassia di Viale dei Picciotti 8 corrisponde a PAEE8BB03V; PAEE8BB01R è il diverso Plesso Passaggio di Passaggio dei Picciotti 5. Tredicesimo lotto: raccordati i plessi dell'IC Borgese-Partanna Mondello (Riso, Pascoli, Rosario Gregorio, Santocanale), Ragusa Moleti, Antonino Agostino e Paulsen sulla base di codici e indirizzi riportati in documenti USR 2025/26 e PTOF. È stato corretto il falso abbinamento del codice primario PAEE8BN03A al punto di Piazza Zisa 21: l'USR lo localizza in Via Nettuno 6. Il punto di Piazza Zisa 21 resta non classificato in attesa di risolvere la co-localizzazione tra Pascoli (IC Antonio Ugo) e Gabelli. Quarto lotto: ulteriori sedi verificate tramite documenti USR, PTOF e pagine ufficiali: Nuccio, Pertini, Buttitta, Bernini, Titone, San Lorenzo, Rosolino Pilo e Maestri del Lavoro. La sede Setti Carraro secondaria PAMM8AQ014 non è stata associata al punto Cimabue 20, poiché il PTOF la colloca in Via Tiepolo 4. Quinto lotto: collegati i plessi Oreto, Nicolò Turrisi, A. Sole, Via Villagrazia, A.U. Cagni e D'Angelo con codici distinti per infanzia e primaria dove il codice e l'indirizzo coincidono. Per Cagni è stata utilizzata anche la Carta dei Servizi comunale; per D'Angelo le schede dei codici di plesso riportano entrambe Via San Lorenzo 295. Sesto lotto: ulteriori raccordi con indirizzi esatti per Ilaria Alpi, Natoli, Mattarella, Principessa Elena, Abba-Alighieri, Sunseri, Randazzo, Via del Vespro/Rosolino Pilo, Boccone, Guttuso, San Ciro, Virgilio Marone, Sferracavallo, Ingrassia, Giafar, Medaglie d'Oro, Bonanno, Centro Sociale, Cuscinà e Via del Fervore. Sono stati inoltre rimossi due falsi abbinamenti basati sulla sola denominazione: Michelangelo (Largo Michelangelo 15 vs Via Tindari 52) e Livio Bassi (Salita Castellana 65 vs Via Casalini 65). Nono lotto: completati i raccordi delle sedi secondarie Setti Carraro (Via Tiepolo 4), Don Milani (Passaggio dei Picciotti 3) e Raimondo Franchetti (Viale Amedeo d'Aosta 52/54). Rimossi dai campi dei codici di plesso i codici istituzione PAIC8AQ003 e PAIC8BB00P, mantenuti nei campi istituzionali/anagrafici e non confusi con i codici dei singoli plessi. Sedicesimo lotto: aggiunto il campus Alberico Gentili, via Francesco Lo Jacono 1, con ordini primaria e secondaria I grado e codici PAEE8AN01N e PAMM8AN01L verificati in circolare ufficiale dell'istituto; coordinate aggiornate al GPS pubblicato nella scheda della sede principale. Un solo punto fisico e un solo buffer campus. Aggiornamento: campus Buonarroti Via Tembien 1 ricontrollato con schede ufficiali infanzia e secondaria e coordinate GPS Google Maps pubblicate dal sito. Il codice PAIC87100X è mantenuto come codice istituzione, non codice plesso. Aggiornamento: plesso Setti Carraro secondaria PAMM8AQ014 verificato nella circolare ufficiale iscrizioni 2026/27; scheda sede centrale Via Tiepolo 4 e link Google Maps ufficiale forniscono coordinate 38.1349991,13.3223511. Aggiornamento V81: aggiunte le sedi di scuola secondaria di II grado con localizzazione cartografica disponibile; 16 punti georeferenziati, 7 sedi prive di coordinate non sono rappresentate in mappa.",
     "sources": [
       "Comune di Palermo, dataset KML scuole (catalogo aggiornato 2021)",
@@ -11,10 +11,10 @@
     ],
     "updated": "2026-11-16",
     "verified_registry_code_links": 116,
-    "notes": "Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi. Due sedi superiori integrate da link Google Maps presenti nelle rispettive pagine ufficiali: Garibaldi succursale e Majorana plesso Olimpo. Aggiunti Plesso Olimpo Majorana e sede succursale IISS Enrico Medi con coordinate da link Google Maps ufficiali. Aggiornamento QA 2026-11-16: metadati riallineati al dataset scuole_points.json V81, che contiene 292 punti fisici; le 167 schede presenti in records corrispondono a 167 punti distinti, mentre 125 punti restano senza classificazione puntuale. I valori precedenti 287/161 erano riferiti a una versione antecedente e non descrivevano il contenuto effettivo del file. Lotto documentale successivo 2026-11-16: classificati i punti kml-school-108 (Leonardo da Vinci, primaria, PAEE8AK016, Via Di Giorgi 48) e kml-school-111 (Giosuè Carducci, secondaria I grado, PAMM8AK015, Via Di Giorgi 5) sulla base del PTOF ufficiale dell'I.C. Leonardo da Vinci-Giosuè Carducci 2024/25. Entrambi gli indirizzi coincidono con i punti KML. Non estesi altri ordini o codici a sedi diverse. Lotto documentale aggiuntivo 2026-11-16: classificato kml-school-198 (Pestalozzi-Cavour-T. Marcel., primaria, PAEE8AU03X, Via T. Marcellini 2) sulla base del PTOF ufficiale dell'I.C. Pestalozzi/Cavour 2022-2025. Ordine, codice e indirizzo coincidono con il punto KML; non sono stati estesi altri ordini. Ulteriore lotto documentale 2026-11-16: classificato kml-school-262 (I.C. Mantegna/Bonanno-M. Nunzio, primaria, PAEE85301C, Via Bologni 4) sulla base del PTOF ufficiale 2025-2028 e della pagina sede centrale dell'istituto. Il punto KML coincide con l'indirizzo della sede; non estesa la classificazione al punto adiacente Via Bologni 2 perché il PTOF non identifica autonomamente un ordine per quel punto. Lotto documentale 2026-11-16: classificato kml-school-99 (Castellana-Zaire 21, primaria, Via Zaire 21) tramite documentazione ufficiale dell'I.C. Michelangelo Buonarroti 2024/25 e DVR 2025 che conferma la sede al civico 21. Non assegnato codice meccanografico di plesso per assenza di associazione univoca nelle fonti. Lotto documentale aggiuntivo 2026-11-16: classificato kml-school-123 (Colozza - Bonfiglio, scuola primaria, Via Imera 32) sulla base del portale elettorale ufficiale del Comune di Palermo, che identifica esplicitamente la Scuola Primaria Colozza allo stesso indirizzo. Nessun codice meccanografico attribuito in assenza di collegamento univoco alla sede. Ulteriore lotto documentale 2026-11-16: classificato kml-school-18 (Arculeo, scuola primaria, Via Vito Schifani 3) tramite portale elettorale ufficiale del Comune di Palermo, che riporta esplicitamente la Scuola Primaria E. Arculeo allo stesso indirizzo. Lotto documentale aggiuntivo 2026-11-16: ulteriori plessi classificati tramite il portale elettorale ufficiale del Comune di Palermo, limitando gli ordini alle tipologie esplicitamente riportate e mantenendo i codici meccanografici vuoti in assenza di associazione univoca: La Pira, Caponnetto, Marconi, Borgese, Falcone Zen 2, San Domenico Savio, Costa, Mancino, Tomasino Bartolomeo, Archimede, Garibaldi e A. Gramsci. Revisione di controllo incrociato 2026-11-16: rimossi gli abbinamenti non supportati per kml-school-150 (Impastato, indirizzo civico discordante), kml-school-153 (Archimede, indirizzo non coincidente con la sede elettorale) e kml-school-161 (Marconi, sede non sufficientemente verificata); la sede La Pira è stata correttamente associata a kml-school-152 in Via Pietro Merenda 18. Aggiunto kml-school-33 Gabelli, primaria, Via Eugenio L'Emiro 30, con corrispondenza puntuale nel portale elettorale comunale. Lotto documentale successivo: aggiunte corrispondenze esatte del portale elettorale comunale per Archimede (Piazza Castelnuovo 40), Marconi (Via Di Giorgio 4), Garibaldi (Via delle Croci 5), Verdi (Via Fermi 2), L. Sciascia (Via Adamo Smith 19) e D'Angelo Paolo Emilio (Via San Lorenzo 295). Per i punti con denominazione KML diversa, l'alias resta esplicitato nel metodo e non viene alterata la denominazione cartografica.",
+    "notes": "Integrazione puntuale: scuola comunale Galileo Galilei aggiunta come punto fisico distinto con coordinate estratte dalla scheda luogo ufficiale; Palmerino collegata al punto KML Centro Sociale già presente allo stesso indirizzo, senza duplicazione. Aggiunte due sedi superiori con coordinate ricavate dai link Google Maps ufficiali: succursale Liceo Garibaldi e sede centrale IISS Enrico Medi. Due sedi superiori integrate da link Google Maps presenti nelle rispettive pagine ufficiali: Garibaldi succursale e Majorana plesso Olimpo. Aggiunti Plesso Olimpo Majorana e sede succursale IISS Enrico Medi con coordinate da link Google Maps ufficiali. Aggiornamento QA 2026-11-16: metadati riallineati al dataset scuole_points.json V81, che contiene 292 punti fisici; le 167 schede presenti in records corrispondono a 167 punti distinti, mentre 125 punti restano senza classificazione puntuale. I valori precedenti 287/161 erano riferiti a una versione antecedente e non descrivevano il contenuto effettivo del file. Lotto documentale successivo 2026-11-16: classificati i punti kml-school-108 (Leonardo da Vinci, primaria, PAEE8AK016, Via Di Giorgi 48) e kml-school-111 (Giosuè Carducci, secondaria I grado, PAMM8AK015, Via Di Giorgi 5) sulla base del PTOF ufficiale dell'I.C. Leonardo da Vinci-Giosuè Carducci 2024/25. Entrambi gli indirizzi coincidono con i punti KML. Non estesi altri ordini o codici a sedi diverse. Lotto documentale aggiuntivo 2026-11-16: classificato kml-school-198 (Pestalozzi-Cavour-T. Marcel., primaria, PAEE8AU03X, Via T. Marcellini 2) sulla base del PTOF ufficiale dell'I.C. Pestalozzi/Cavour 2022-2025. Ordine, codice e indirizzo coincidono con il punto KML; non sono stati estesi altri ordini. Ulteriore lotto documentale 2026-11-16: classificato kml-school-262 (I.C. Mantegna/Bonanno-M. Nunzio, primaria, PAEE85301C, Via Bologni 4) sulla base del PTOF ufficiale 2025-2028 e della pagina sede centrale dell'istituto. Il punto KML coincide con l'indirizzo della sede; non estesa la classificazione al punto adiacente Via Bologni 2 perché il PTOF non identifica autonomamente un ordine per quel punto. Lotto documentale 2026-11-16: classificato kml-school-99 (Castellana-Zaire 21, primaria, Via Zaire 21) tramite documentazione ufficiale dell'I.C. Michelangelo Buonarroti 2024/25 e DVR 2025 che conferma la sede al civico 21. Non assegnato codice meccanografico di plesso per assenza di associazione univoca nelle fonti. Lotto documentale aggiuntivo 2026-11-16: classificato kml-school-123 (Colozza - Bonfiglio, scuola primaria, Via Imera 32) sulla base del portale elettorale ufficiale del Comune di Palermo, che identifica esplicitamente la Scuola Primaria Colozza allo stesso indirizzo. Nessun codice meccanografico attribuito in assenza di collegamento univoco alla sede. Ulteriore lotto documentale 2026-11-16: classificato kml-school-18 (Arculeo, scuola primaria, Via Vito Schifani 3) tramite portale elettorale ufficiale del Comune di Palermo, che riporta esplicitamente la Scuola Primaria E. Arculeo allo stesso indirizzo. Lotto documentale aggiuntivo 2026-11-16: ulteriori plessi classificati tramite il portale elettorale ufficiale del Comune di Palermo, limitando gli ordini alle tipologie esplicitamente riportate e mantenendo i codici meccanografici vuoti in assenza di associazione univoca: La Pira, Caponnetto, Marconi, Borgese, Falcone Zen 2, San Domenico Savio, Costa, Mancino, Tomasino Bartolomeo, Archimede, Garibaldi e A. Gramsci. Revisione di controllo incrociato 2026-11-16: rimossi gli abbinamenti non supportati per kml-school-150 (Impastato, indirizzo civico discordante), kml-school-153 (Archimede, indirizzo non coincidente con la sede elettorale) e kml-school-161 (Marconi, sede non sufficientemente verificata); la sede La Pira è stata correttamente associata a kml-school-152 in Via Pietro Merenda 18. Aggiunto kml-school-33 Gabelli, primaria, Via Eugenio L'Emiro 30, con corrispondenza puntuale nel portale elettorale comunale. Lotto documentale successivo: aggiunte corrispondenze esatte del portale elettorale comunale per Archimede (Piazza Castelnuovo 40), Marconi (Via Di Giorgio 4), Garibaldi (Via delle Croci 5), Verdi (Via Fermi 2), L. Sciascia (Via Adamo Smith 19) e D'Angelo Paolo Emilio (Via San Lorenzo 295). Per i punti con denominazione KML diversa, l'alias resta esplicitato nel metodo e non viene alterata la denominazione cartografica. Lotto documentale aggiuntivo: integrate sedi con riscontro puntuale su siti istituzionali, PTOF, Carta dei Servizi comunale e documenti USR: Li Bassi, Ex Internazionale/Mario Francese, Maredolce-Oberdan/Quasimodo, succursale Lionti, Gramsci-La Loggia, Via del Bassotto, Carmelo Onorato, Sacco e Vanzetti, Nino Bixio 3, Corrao, Padre Puglisi, G. Alagna e Picciotti. Per Nino Bixio 3 è esplicitato che la conferma USR dell'ordine è riferita all'a.s. 2021/22, con sede riconfermata dal prospetto comunale 2025.",
     "physical_map_points": 292,
-    "unclassified_records": 101,
-    "coverage_percent": 65.4
+    "unclassified_records": 88,
+    "coverage_percent": 69.9
   },
   "records": [
     {
@@ -1011,6 +1011,24 @@
       "confidence": "codice e indirizzo verificati in fonti USR e di infrastruttura scolastica"
     },
     {
+      "point_id": "kml-school-49",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Nazario Sauro",
+      "address": "VIA BAZZANO DOMENICO 4",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Primaria G. Alagna"
+      ],
+      "source_urls": [
+        "https://www.icsaurofranchetti.edu.it/attachments/article/88/0_PTOF_PAIC8BE006-2022-25.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il PTOF ufficiale dell'I.C. Nazario Sauro-R. Franchetti identifica il plesso G. Alagna come scuola primaria in Via Domenico Bazzano, corrispondente al punto cartografico al civico 4.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
       "point_id": "kml-school-51",
       "orders": [
         "ELEMENTARI"
@@ -1072,6 +1090,24 @@
       "confidence": "codice meccanografico, ordine e indirizzo del plesso verificati in fonti ufficiali"
     },
     {
+      "point_id": "kml-school-55",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Nazario Sauro",
+      "address": "VIALE DEI PICCIOTTI 5",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Primaria Picciotti"
+      ],
+      "source_urls": [
+        "https://www.icsaurofranchetti.edu.it/attachments/article/88/0_PTOF_PAIC8BE006-2022-25.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il PTOF ufficiale dell'I.C. Nazario Sauro-R. Franchetti identifica il plesso di Viale dei Picciotti 5 come scuola primaria; indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
       "point_id": "kml-school-56",
       "orders": [
         "ELEMENTARI"
@@ -1106,6 +1142,24 @@
       "source_year": "2025",
       "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
       "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-59",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "T. Bartolomeo",
+      "address": "VIA DEL BASSOTTO 17",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia Via del Bassotto"
+      ],
+      "source_urls": [
+        "https://icmattarellabonagia.it/images/cwattachments/45_98a05621d23024f771fb5e242a8076d2.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il documento ufficiale dell'I.C. Mattarella-Bonagia elenca il plesso Via del Bassotto 17 tra le sedi di scuola dell'infanzia; indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-60",
@@ -2403,6 +2457,45 @@
       "confidence": "ordine e indirizzo coincidenti in fonte ufficiale comunale"
     },
     {
+      "point_id": "kml-school-162",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Marconi",
+      "address": "PIAZZA PAPA GIOVANNI PAOLO II 17 A",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Secondaria di I Grado Mario Francese (Ex Internazionale)"
+      ],
+      "source_urls": [
+        "https://www.icsmarconipalermo.edu.it/luogo/plesso-ex-internazionale-succursale/",
+        "https://www.icsmarconipalermo.edu.it/la-scuola/presentazione/"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il sito ufficiale dell'I.C. Marconi identifica il plesso Mario Francese, già Ex Internazionale, come sede di scuola secondaria di I grado in Piazza Papa Giovanni Paolo II 17/A, coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
+      "point_id": "kml-school-165",
+      "orders": [
+        "INFANZIA",
+        "ELEMENTARI",
+        "MEDIE"
+      ],
+      "institution": "Mare Dolce ex Quasimodo-Oberdan",
+      "address": "VIA FICHIDINDIA 6",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia e Primaria Guglielmo Oberdan; Scuola Secondaria di I Grado Salvatore Quasimodo"
+      ],
+      "source_urls": [
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Maredolce-opuscolo-inf-art36-agg2025-26-rev-dic-2025a.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Documento ufficiale I.C. Maredolce aggiornato a dicembre 2025: nella sede Via Fichidindia 6 sono presenti infanzia e primaria Guglielmo Oberdan e secondaria I grado Salvatore Quasimodo.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
       "point_id": "kml-school-166",
       "orders": [
         "ELEMENTARI"
@@ -2419,6 +2512,24 @@
       "source_year": "2025",
       "method": "Corrispondenza di denominazione e indirizzo con la Carta dei Servizi Educativi del Comune di Palermo",
       "confidence": "indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-168",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Mare Dolce ex Quasimodo-Oberdan",
+      "address": "LARGO LIONTI FERDINANDO 7",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Secondaria di I Grado Salvatore Quasimodo"
+      ],
+      "source_urls": [
+        "https://icsmaredolce.edu.it/wp-content/uploads/sites/980/Piano-triennale-offerta-formativa-PAIC8AV00G-202225-202425-20250120.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il PTOF ufficiale dell'I.C. Maredolce identifica la succursale di Largo Lionti 7 come sede della scuola secondaria di I grado Salvatore Quasimodo, indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-169",
@@ -2502,6 +2613,42 @@
       "source_year": "2013",
       "method": "Corrispondenza esatta di denominazione e indirizzo nell'elenco comunale degli edifici scolastici, che identifica il plesso Angelo Custode come scuola elementare",
       "confidence": "denominazione, indirizzo e ordine esplicitati nella fonte comunale"
+    },
+    {
+      "point_id": "kml-school-173",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Lombardo Radice - Mazzini",
+      "address": "VIA GENUARDI LUIGI 5",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia Carmelo Onorato"
+      ],
+      "source_urls": [
+        "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_09092024085419.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "La Carta dei Servizi Educativi del Comune di Palermo identifica il plesso Carmelo Onorato in Via Genuardi 5 come sede di scuola dell'infanzia statale; indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
+      "point_id": "kml-school-176",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Montegrappa - Sanzio",
+      "address": "VIA LI BASSI GIUSEPPE 22",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia Li Bassi"
+      ],
+      "source_urls": [
+        "https://www.montegrappa-sanzio.edu.it/indirizzo-di-studio/scuola-dellinfanzia/"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il sito ufficiale dell'I.C. Montegrappa-Sanzio elenca il plesso Li Bassi tra le sedi di scuola dell'infanzia in Via Giuseppe Li Bassi 22, indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-177",
@@ -2770,6 +2917,25 @@
       "confidence": "ordini e indirizzo coincidenti in fonte ufficiale comunale; denominazione KML differente"
     },
     {
+      "point_id": "kml-school-203",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Sperone - Pertini",
+      "address": "VIA GIANNOTTA NICOLO' 4",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Primaria Padre Puglisi"
+      ],
+      "source_urls": [
+        "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+        "https://www.openfiber.it/app/uploads/2023/07/Scuole_Vendibili_17Luglio2023.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il Portale Elezioni del Comune identifica la Scuola Primaria Padre Puglisi in Via Nicolò Giannotta 4; la documentazione di plesso associa la sede al codice PAEE8AT012. Il punto KML conserva la denominazione Sperone-Pertini, mentre il nome ufficiale della sede è Padre Puglisi.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
       "point_id": "kml-school-204",
       "orders": [
         "INFANZIA"
@@ -2790,6 +2956,24 @@
       "source_year": "2021/2022",
       "method": "Dataset ufficiale USR 2021/22: codice PAAA8AT01R, Antonino Agostino, Via Sacco e Vanzetti 42; punto KML Agostino allo stesso indirizzo e istituzione Sperone-Pertini.",
       "confidence": "codice meccanografico, ordine e indirizzo del plesso verificati in fonti ufficiali"
+    },
+    {
+      "point_id": "kml-school-205",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Sperone - Pertini",
+      "address": "VIA GIANNOTTA NICOLO' 2",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia Sacco e Vanzetti"
+      ],
+      "source_urls": [
+        "https://www.icssperonepertini.edu.it/sedi.html"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il sito ufficiale dell'I.C. Sperone-Pertini identifica il plesso Sacco e Vanzetti in Via Nicolò Giannotta 2 come sede di scuola dell'infanzia; indirizzo coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-207",
@@ -3031,6 +3215,25 @@
       "confidence": "codice meccanografico, ordine e sede verificati in fonti ufficiali"
     },
     {
+      "point_id": "kml-school-230",
+      "orders": [
+        "INFANZIA"
+      ],
+      "institution": "Padre Puglisi",
+      "address": "VIA BOZZO STEFANO VITTORIO 16",
+      "school_codes": [],
+      "school_names": [
+        "Scuola dell'Infanzia Nino Bixio 3"
+      ],
+      "source_urls": [
+        "https://www.comune.palermo.it/wp-content/uploads/2025/10/7bb2ae67-4cfe-4de5-9486-28e6e2e9baa5.pdf",
+        "https://old.usr.sicilia.it/images/dati_delle_scuole/as_2021_22/Organico_di_fatto_scuole_dellinfanzia_-_Bambini_e_Sezioni_2021-2022.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il prospetto comunale 2025 distingue Nino Bixio 3 in Via S. Bozzo 16; il prospetto USR associa il codice PAAA87202N alla scuola dell'infanzia Via S. Bozzo. Civico coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
+    },
+    {
       "point_id": "kml-school-231",
       "orders": [
         "INFANZIA",
@@ -3098,6 +3301,24 @@
       "source_year": "2026/2027",
       "method": "Scheda ufficiale della sede centrale: edificio Via G.B. Tiepolo 4 ospita i plessi della secondaria di I grado. Circolare ufficiale iscrizioni 2026/27: codice PAMM8AQ014 per il plesso Setti Carraro. Collegamento Google Maps dalla scheda ufficiale: coordinate 38.1349991,13.3223511.",
       "confidence": "indirizzo, ordine, codice e GPS collegato dal sito ufficiale dell'istituto"
+    },
+    {
+      "point_id": "kml-school-235",
+      "orders": [
+        "ELEMENTARI"
+      ],
+      "institution": "Padre Puglisi",
+      "address": "VIA CONTE FEDERICO 267 A",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Primaria Corrao"
+      ],
+      "source_urls": [
+        "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il prospetto USR Sicilia 2025/26 associa il plesso primario PAEE87201T all'I.C. P. Puglisi-G. Corrao in Via Conte Federico 267/A, coincidente con il punto cartografico Corrao.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-236",
@@ -3385,6 +3606,24 @@
       "source_year": "2025/2026",
       "method": "Elenco ufficiale USR 2025/26: codice PAAA8AS011, Paulsen, Piazzale Cardinale Francesco Carpino 3/5; punto KML Paulsen al civico 3. La denominazione dell'istituzione è stata aggiornata da Vittorio Emanuele III a Margherita Hack.",
       "confidence": "codice meccanografico, ordine e indirizzo del plesso verificati in fonti ufficiali"
+    },
+    {
+      "point_id": "kml-school-254",
+      "orders": [
+        "MEDIE"
+      ],
+      "institution": "Gramsci",
+      "address": "VIA LA LOGGIA GAETANO 214",
+      "school_codes": [],
+      "school_names": [
+        "Scuola Secondaria di I Grado Gramsci"
+      ],
+      "source_urls": [
+        "https://www.icarculeogramsci.edu.it/indirizzo-di-studio/scuola-secondaria-di-i-grado/"
+      ],
+      "source_year": "2025-2026",
+      "method": "Il sito istituzionale dell'I.C. Arculeo-Gramsci conferma la scuola secondaria di I grado nel plesso di Via Gaetano La Loggia 214, coincidente con il punto cartografico.",
+      "confidence": "ordine e indirizzo documentati in fonte istituzionale o scolastica; nessun codice non verificato attribuito"
     },
     {
       "point_id": "kml-school-257",
