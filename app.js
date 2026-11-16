@@ -502,6 +502,11 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
  if(window.Chart&&document.getElementById('sectionTerritoryPie')&&pieValues.some(v=>Number(v)>0)){
   charts.push(new Chart(document.getElementById('sectionTerritoryPie'),{type:'pie',data:{labels:pieLabels,datasets:[{data:pieValues}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw||0).toLocaleString('it-IT')}}}}}));
  }
+ if(active==='overview'&&window.Chart&&document.getElementById('overviewSchoolChart')){
+  const cl=DATA.schoolClassification?.records||[],pt=filteredSchoolPoints(s),byId=new Map(cl.map(x=>[String(x.point_id),x])),orderKeys=['NIDO','INFANZIA','ELEMENTARI','MEDIE','SUPERIORI','Non classificati'],orderColors=['#d97706','#db2777','#16845b','#2563eb','#7c3aed','#64748b'],counts=Object.fromEntries(orderKeys.map(k=>[k,0]));
+  pt.forEach(p=>{const k=(byId.get(String(p.id))?.orders||[])[0]||'Non classificati';counts[counts[k]!==undefined?k:'Non classificati']++;});
+  charts.push(new Chart(document.getElementById('overviewSchoolChart'),{type:'doughnut',data:{labels:orderKeys,datasets:[{data:orderKeys.map(k=>counts[k]),backgroundColor:orderColors,borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));
+ }
  if(active==='gis') initMap();
 $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Palermo').replace(/(^|[\s-])(\p{L})/gu,(_,sep,letter)=>sep+letter.toLocaleUpperCase('it-IT'));
 }
