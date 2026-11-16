@@ -1,8 +1,8 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA7",
+  "version": "V82-QA8",
   "date": "2026-11-16",
-  "scope": "Verifica dei file del pacchetto aggiornato e confronto con i dati pubblicati nel repository main.",
+  "scope": "Verifica dei file del pacchetto aggiornato e confronto con i dati pubblicati nel repository main. Aggiornamento classificazione puntuale kml-school-123.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
@@ -159,9 +159,9 @@
     },
     "school_classification": {
       "physical_map_points": 292,
-      "points_with_classification": 172,
-      "points_without_classification": 120,
-      "coverage_percent": 58.9,
+      "points_with_classification": 173,
+      "points_without_classification": 119,
+      "coverage_percent": 59.2,
       "order_assignments": {
         "INFANZIA": 75,
         "ELEMENTARI": 73,
@@ -174,21 +174,13 @@
       "classification_records_without_map_point": 0,
       "classification_records_without_census_record": 0,
       "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
-      "note": "I conteggi per ordine sono presenze e possono sovrapporsi nei 43 punti multi-ordine; non sono un totale di edifici distinti. Stato aggiornato al 16/11/2026: 292 punti fisici, 172 classificati, 120 non classificati, copertura 58.9%.",
+      "note": "I conteggi per ordine sono presenze e possono sovrapporsi nei punti multi-ordine; non sono un totale di edifici distinti. Stato aggiornato al 16/11/2026: 292 punti fisici, 173 classificati, 119 non classificati, copertura 59.2%. Ultima integrazione: Colozza - Bonfiglio, scuola primaria, Via Imera 32, da portale elettorale ufficiale comunale.",
       "metadata_reconciliation": {
         "physical_map_points": 292,
-        "classification_records": 172,
-        "unique_classification_point_ids": 172,
-        "points_without_classification": 120,
-        "coverage_percent": 58.9,
-        "metadata_before": {
-          "points_total": 292,
-          "classified_records": 171
-        },
-        "metadata_after": {
-          "points_total": 292,
-          "classified_records": 172
-        },
+        "classification_records": 173,
+        "unique_classification_point_ids": 173,
+        "points_without_classification": 119,
+        "coverage_percent": 59.2,
         "crosswalk_records": 81,
         "crosswalk_scope": "verifica_sedi_scolastiche_v14 è un crosswalk documentale parziale di 81 record, non un archivio esaustivo dei 292 punti; non va usato per dedurre la classificazione dei record assenti.",
         "status": "PASS"
