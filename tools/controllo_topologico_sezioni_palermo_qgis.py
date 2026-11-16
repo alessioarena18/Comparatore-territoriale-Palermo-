@@ -65,6 +65,8 @@ def main():
     # Lavorare sempre su una copia GeoPackage: il layer originale non viene
     # mai messo in editing e non può essere sovrascritto da questo script.
     working = OUTPUT_DIR / "sezioni_palermo_2021_working.gpkg"
+    if working.exists():
+        working.unlink()
     copy_options = QgsVectorFileWriter.SaveVectorOptions()
     copy_options.driverName = "GPKG"
     copy_options.fileEncoding = "UTF-8"
@@ -148,6 +150,8 @@ def main():
         raise RuntimeError("Commit del layer temporaneo fallito: " + "; ".join(errors))
 
     output = OUTPUT_DIR / "sezioni_palermo_2021_candidate.geojson"
+    if output.exists():
+        output.unlink()
     options = QgsVectorFileWriter.SaveVectorOptions()
     options.driverName = "GeoJSON"
     options.fileEncoding = "UTF-8"
