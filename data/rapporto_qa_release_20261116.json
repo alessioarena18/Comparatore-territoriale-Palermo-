@@ -2,7 +2,7 @@
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
   "version": "V82-QA13",
   "date": "2026-11-16",
-  "scope": "Aggiornamento classificazione scolastica, verifica codici e indirizzi e controllo integrità degli archivi su 209 punti classificati.",
+  "scope": "Aggiornamento classificazione scolastica, verifica codici e indirizzi e controllo integrità degli archivi su 209 punti classificati. Sono registrate esplicitamente le varianti di denominazione e il civico 1/1B per i punti classificati con riserva.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
@@ -364,6 +364,56 @@
       "status": "DA_VERIFICARE_CIVICO_PRIMA_DI_CLASSIFICARE",
       "source_url": "https://www.icsritalevimontalcini.edu.it/luogo/plesso-largo-michelangelo/",
       "note": "Il sito ufficiale conferma l'ordine infanzia ma non la coincidenza del civico con il punto KML; classificazione non aggiunta."
+    },
+    {
+      "point_id": "kml-school-73",
+      "name": "Conte Federico",
+      "kml_address": "Via Conte Federico 1/B",
+      "official_address": "Via Conte Federico 1 (USR Sicilia, prospetto 2025/26)",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "VARIANTE_SUFFISSO_CIVICO_DA_RICONCILIARE",
+      "source_url": "https://pa.usr.sicilia.it/download/878/8117/8119/abbinamenti-plessi_scuola-attiva-kids2025_26.pdf",
+      "note": "Ordine e via confermati dal prospetto USR; il punto KML riporta 1/B mentre il prospetto riporta 1. La differenza è conservata esplicitamente."
+    },
+    {
+      "point_id": "kml-school-136",
+      "name": "Borsellino / Cipolla",
+      "kml_address": "Via Giotto 41",
+      "official_address": "Via Giotto 41",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "ALIAS_DENOMINAZIONE_KML_DA_RICONCILIARE",
+      "source_url": "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+      "note": "Il Portale Elezioni identifica la primaria Borsellino al civico 41; il punto KML si chiama Cipolla ma il censimento lo riconcilia con Borsellino allo stesso indirizzo."
+    },
+    {
+      "point_id": "kml-school-203",
+      "name": "Padre Puglisi / Sperone-Pertini",
+      "kml_address": "Via Nicolò Giannotta 4",
+      "official_address": "Via Nicolò Giannotta 4",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "ALIAS_DENOMINAZIONE_KML_DA_RICONCILIARE",
+      "source_url": "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+      "note": "Il portale comunale identifica la scuola primaria Padre Puglisi; il punto KML conserva la denominazione organizzativa Sperone-Pertini. Indirizzo coincidente."
+    },
+    {
+      "point_id": "kml-school-201",
+      "name": "L. Sciascia / Smith",
+      "kml_address": "Via Adamo Smith 19",
+      "official_address": "Via Adamo Smith 19",
+      "official_order": "SCUOLA_PRIMARIA_E_INFANZIA",
+      "status": "ALIAS_DENOMINAZIONE_KML_DA_RICONCILIARE",
+      "source_url": "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+      "note": "Il portale comunale identifica L. Sciascia, primaria e infanzia, al civico 19; il catalogo KML denomina il punto Smith."
+    },
+    {
+      "point_id": "kml-school-86",
+      "name": "D'Angelo Paolo Emilio / D'Angelo Nuovo",
+      "kml_address": "Via San Lorenzo 295",
+      "official_address": "Via San Lorenzo 295",
+      "official_order": "SCUOLA_PRIMARIA",
+      "status": "ALIAS_DENOMINAZIONE_KML_DA_RICONCILIARE",
+      "source_url": "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php",
+      "note": "Il portale comunale identifica D'Angelo Paolo Emilio come primaria al civico 295; il punto KML è denominato D'Angelo Nuovo e condivide la localizzazione del complesso."
     }
   ]
 }
