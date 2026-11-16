@@ -14,7 +14,113 @@
       "physical_map_points": 292,
       "map_points_without_census_record": 0,
       "census_records_without_dedicated_map_point": 13,
-      "buffer_eligible": 3
+      "buffer_eligible": 3,
+      "records_without_dedicated_map_point_details": [
+        {
+          "id": "sup2-016",
+          "name": "Benedetto Croce · Sede centrale",
+          "address": "Via Benfratelli, 4, 90134 Palermo",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "sup2-017",
+          "name": "Benedetto Croce · Succursale Corazza",
+          "address": "Via Corazza, 41, 90124 Palermo",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "sup2-018",
+          "name": "Benedetto Croce · Succursale Imera",
+          "address": "Via Imera, 145/146, 90138 Palermo",
+          "mapping_status": "COORDINATE_PRESENTI_MA_PUNTO_CONDIVISO_O_NON_DEDICATO",
+          "coordinate_recorded": true,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-01",
+          "name": "M. Carollo",
+          "address": "LARGO DELLO STORNO, 11",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-02",
+          "name": "Oberdan",
+          "address": "VIA G. PARATORE, 13",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-03",
+          "name": "Altarello",
+          "address": "VIA C. DEL PRETE",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-04",
+          "name": "G. Di Matteo",
+          "address": "VIA DI BELLA, 2136",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-05",
+          "name": "Palmerino",
+          "address": "VIA PALMERINO, 1",
+          "mapping_status": "COORDINATE_PRESENTI_MA_PUNTO_CONDIVISO_O_NON_DEDICATO",
+          "coordinate_recorded": true,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-06",
+          "name": "Primavera",
+          "address": "VIALE REGIONE SICILIANA, 2257",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-07",
+          "name": "Whitaker",
+          "address": "VIA ZISA, 17",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-08",
+          "name": "Germania",
+          "address": "VIA GERMANIA, 8",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-10",
+          "name": "Peralta",
+          "address": "VIA ENRICO FILETI, 13",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        },
+        {
+          "id": "comune-infanzia-2026-27-11",
+          "name": "Strauss",
+          "address": "VIA RAFFAELLO, 1/3",
+          "mapping_status": "COORDINATE_NON_ASSEGNATE",
+          "coordinate_recorded": false,
+          "bufferEligible": false
+        }
+      ]
     },
     "spatial_validation": {
       "points_checked": 292,
@@ -126,5 +232,63 @@
     "https://portalescuola.comune.palermo.it/?p=17378",
     "https://www.liceocroce.it/croce1/index.html",
     "https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/"
-  ]
+  ],
+  "address_source_crosscheck": {
+    "date": "2026-11-16",
+    "findings": [
+      {
+        "id": "comune-infanzia-2026-27-04",
+        "name": "G. Di Matteo",
+        "current_address_in_2026_27_list": "Via Di Bella 2136",
+        "legacy_address_in_general_portal": "Via Enea Rossi 6",
+        "resolution": "Use the 2026/27 list as the current reference; retain Via Enea Rossi 6 only as historical alias. Do not geocode either address without an exact location source.",
+        "sources": [
+          "https://portalescuola.comune.palermo.it/?p=17378",
+          "https://portalescuola.comune.palermo.it/?page_id=4375",
+          "https://www.comune.palermo.it/novita/open-day-dellinfanzia-comunale/"
+        ]
+      },
+      {
+        "id": "comune-infanzia-2026-27-03",
+        "name": "Altarello",
+        "current_address_in_2026_27_list": "Via C. Del Prete (no civic number)",
+        "historical_or_detail_address": "Via Carlo Del Prete 23",
+        "resolution": "Keep the 2026/27 address without civic number as primary; preserve civic 23 as a secondary historical/detail reference, not as a verified geocoding anchor.",
+        "sources": [
+          "https://portalescuola.comune.palermo.it/?p=17378",
+          "https://portalescuola.comune.palermo.it/?page_id=4375",
+          "https://www.comune.palermo.it/novita/open-day-dellinfanzia-comunale/"
+        ]
+      },
+      {
+        "id": "sup2-016",
+        "name": "Benedetto Croce sede centrale",
+        "official_address": "Via Benfratelli 4",
+        "resolution": "Address confirmed on the institute's official site; coordinates remain unassigned.",
+        "sources": [
+          "https://www.liceocroce.it/croce1/index.html"
+        ]
+      },
+      {
+        "id": "sup2-017",
+        "name": "Benedetto Croce succursale Corazza",
+        "official_address": "Via Filippo Corazza 41",
+        "resolution": "Address confirmed on the institute's official site; coordinates remain unassigned.",
+        "sources": [
+          "https://www.liceocroce.it/croce1/index.html"
+        ]
+      },
+      {
+        "id": "sup2-018",
+        "name": "Benedetto Croce succursale Imera",
+        "official_address": "Via Imera 146 (official institute site)",
+        "other_documentary_reference": "Via Imera 145",
+        "resolution": "Address/civic discrepancy remains unresolved; existing shared coordinate is not promoted to a dedicated map point and no buffer is enabled.",
+        "sources": [
+          "https://www.liceocroce.it/croce1/index.html"
+        ]
+      }
+    ],
+    "note": "The official 2026/27 municipal notice takes precedence for current preschool addresses over the general portal directory where the two conflict. Address confirmation is not coordinate verification. No coordinates were added or changed in this update."
+  }
 }
