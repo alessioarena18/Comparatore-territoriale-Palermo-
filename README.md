@@ -414,3 +414,12 @@ I filtri territoriali associano ora i quartieri alle geometrie ISTAT ASC2 tramit
 - **Resuttana-San Lorenzo** → ASC2 **Resuttana - S.Lorenzo**, codice `82053020`.
 
 La risoluzione per codice è applicata alla Cartografia GIS, all'Analisi spaziale, al riepilogo scolastico e alla distribuzione IDISE. I dati sociali originali non sono stati modificati. Il rapporto tecnico è disponibile in `data/rapporto_audit_filtri_asc2_20261116.json`.
+
+
+## Audit-5, 16 novembre 2026
+
+- Verificata la corrispondenza di tutti i 25 quartieri con le geometrie ISTAT ASC2 tramite codice geografico: 25/25, nessuna associazione mancante.
+- Il dataset scolastico V81 contiene 305 record univoci, 294 record con coordinate e 11 senza coordinate; il layer cartografico contiene 292 punti fisici.
+- Il dataset dell'Analisi sociale mantiene lo stesso SHA-256 della versione audit-3.
+- Il workflow GitHub Pages relativo al commit `11ca77367a32b3347a4c72e13609bdc7b85af143` è terminato con esito positivo.
+- Il collaudo interattivo completo nel browser e il controllo topologico delle tre geometrie censuarie anomale restano aperti.
