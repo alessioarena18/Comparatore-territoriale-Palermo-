@@ -423,3 +423,11 @@ La risoluzione per codice è applicata alla Cartografia GIS, all'Analisi spazial
 - Il dataset dell'Analisi sociale mantiene lo stesso SHA-256 della versione audit-3.
 - Il workflow GitHub Pages relativo al commit `11ca77367a32b3347a4c72e13609bdc7b85af143` è terminato con esito positivo.
 - Il collaudo interattivo completo nel browser e il controllo topologico delle tre geometrie censuarie anomale restano aperti.
+
+
+## Audit-6, 16 novembre 2026
+
+- Il simulatore degli Standard urbanistici precompila la popolazione quando è disponibile per il territorio selezionato: Comune 2022, circoscrizione 2022, quartiere 2022 o UPL ISTAT 2023.
+- La popolazione resta modificabile per simulazioni; la fonte e l'anno sono indicati nell'interfaccia.
+- Per la singola sezione censuaria non viene attribuita una popolazione non disponibile.
+- Il grafico degli standard mostra il fabbisogno teorico per categoria quando è disponibile la popolazione, senza rappresentare superfici effettivamente presenti.
