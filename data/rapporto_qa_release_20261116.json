@@ -1,6 +1,6 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA6",
+  "version": "V82-QA7",
   "date": "2026-11-16",
   "scope": "Verifica dei file del pacchetto aggiornato e confronto con i dati pubblicati nel repository main.",
   "checks": {
@@ -347,5 +347,17 @@
       "820530003803"
     ],
     "note": "La procedura è stata aggiunta al repository e collegata nella pagina Cartografia GIS. Non è stata eseguita perché richiede QGIS e il controllo visivo dei poligoni; nessuna geometria pubblicata è stata modificata."
-  }
+  },
+  "school_address_discrepancies": [
+    {
+      "point_id": "kml-school-186",
+      "name": "Michelangelo",
+      "kml_address": "LARGO MICHELANGELO 15",
+      "official_address": "Largo Michelangelo 20, Palermo",
+      "official_order": "INFANZIA",
+      "status": "DA_VERIFICARE_CIVICO_PRIMA_DI_CLASSIFICARE",
+      "source_url": "https://www.icsritalevimontalcini.edu.it/luogo/plesso-largo-michelangelo/",
+      "note": "Il sito ufficiale conferma l'ordine infanzia ma non la coincidenza del civico con il punto KML; classificazione non aggiunta."
+    }
+  ]
 }
