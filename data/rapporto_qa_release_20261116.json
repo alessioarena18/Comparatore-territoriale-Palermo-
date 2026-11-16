@@ -290,5 +290,19 @@
       }
     ],
     "note": "The official 2026/27 municipal notice takes precedence for current preschool addresses over the general portal directory where the two conflict. Address confirmation is not coordinate verification. No coordinates were added or changed in this update."
+  },
+  "topology_remediation": {
+    "date": "2026-11-16",
+    "status": "PROCEDURA_QGIS_PREDISPOSTA_NON_ESEGUITA",
+    "source_file": "data/geo/sezioni_palermo_2021.geojson",
+    "candidate_script": "tools/controllo_topologico_sezioni_palermo_qgis.py",
+    "method": "Copia preventiva del GeoJSON in GeoPackage; makeValid() sui soli tre SEZ21_ID segnalati; esportazione di un GeoJSON candidato e rapporto con confronto aree in EPSG:32632.",
+    "protected_source": true,
+    "target_ids": [
+      "820530000008",
+      "820530002119",
+      "820530003803"
+    ],
+    "note": "La procedura è stata aggiunta al repository e collegata nella pagina Cartografia GIS. Non è stata eseguita perché richiede QGIS e il controllo visivo dei poligoni; nessuna geometria pubblicata è stata modificata."
   }
 }
