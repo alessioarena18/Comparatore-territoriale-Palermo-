@@ -1,0 +1,1089 @@
+{
+  "meta": {
+    "titolo": "Base territoriale Palermo: circoscrizioni, quartieri e UPL",
+    "anno": 2021,
+    "fonte": "ISTAT, aree subcomunali livello 2 e 3, basi territoriali 2021",
+    "conteggi": {
+      "circoscrizioni": 8,
+      "quartieri": 25,
+      "upl": 55,
+      "upl_associazione_preliminare": 53,
+      "upl_da_verificare": 2
+    },
+    "metodo": "Popolazioni e superfici da proprietà ufficiali ISTAT. Associazione UPL-quartiere preliminare mediante centroide geometrico; non equivale a intersezione topologica. Non aggregare le circoscrizioni finché non è disponibile/verificata la geometria ufficiale dei loro confini. Oreto-Stazione è ripartito tra II e III Circoscrizione.",
+    "fonti": [
+      {
+        "file": "data/geo/aree_subcomunali_liv2_palermo_2021.geojson",
+        "descrizione": "25 quartieri"
+      },
+      {
+        "file": "data/geo/aree_subcomunali_liv3_palermo_2021.geojson",
+        "descrizione": "55 UPL"
+      },
+      {
+        "url": "https://repository.comune.palermo.it/palermo-statistica.php?cap=2&per=2024&sel=7&sez=181",
+        "descrizione": "Comune di Palermo, Palermo Statistica, assetto amministrativo"
+      }
+    ]
+  },
+  "circoscrizioni": [
+    {
+      "id": "c1",
+      "name": "I Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c2",
+      "name": "II Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c3",
+      "name": "III Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c4",
+      "name": "IV Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c5",
+      "name": "V Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c6",
+      "name": "VI Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c7",
+      "name": "VII Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    },
+    {
+      "id": "c8",
+      "name": "VIII Circoscrizione",
+      "stato_dati": "anagrafica verificata; aggregati da completare"
+    }
+  ],
+  "quartieri": [
+    {
+      "cod_istat": 82053001,
+      "nome_istat": "Tribunali-Castellammare",
+      "popolazione_2021": 13201,
+      "superficie_m2": 1375001.52832,
+      "superficie_km2": 1.375002,
+      "famiglie": 6748,
+      "abitazioni": 10729,
+      "edifici": 1678
+    },
+    {
+      "cod_istat": 82053002,
+      "nome_istat": "Palazzo Reale - Monte Di Pieta'",
+      "popolazione_2021": 13609,
+      "superficie_m2": 1145836.05524,
+      "superficie_km2": 1.145836,
+      "famiglie": 6187,
+      "abitazioni": 10863,
+      "edifici": 1860
+    },
+    {
+      "cod_istat": 82053003,
+      "nome_istat": "Oreto- Stazione",
+      "popolazione_2021": 37587,
+      "superficie_m2": 2910501.2039,
+      "superficie_km2": 2.910501,
+      "famiglie": 16198,
+      "abitazioni": 20498,
+      "edifici": 1985
+    },
+    {
+      "cod_istat": 82053004,
+      "nome_istat": "S. Rosalia - Montegrappa",
+      "popolazione_2021": 21062,
+      "superficie_m2": 2683724.33704,
+      "superficie_km2": 2.683724,
+      "famiglie": 9103,
+      "abitazioni": 11586,
+      "edifici": 1075
+    },
+    {
+      "cod_istat": 82053005,
+      "nome_istat": "Cuba-Calatafimi",
+      "popolazione_2021": 19780,
+      "superficie_m2": 1778434.90847,
+      "superficie_km2": 1.778435,
+      "famiglie": 8480,
+      "abitazioni": 10644,
+      "edifici": 1105
+    },
+    {
+      "cod_istat": 82053006,
+      "nome_istat": "Zisa",
+      "popolazione_2021": 32704,
+      "superficie_m2": 1638652.77677,
+      "superficie_km2": 1.638653,
+      "famiglie": 13676,
+      "abitazioni": 16680,
+      "edifici": 1983
+    },
+    {
+      "cod_istat": 82053007,
+      "nome_istat": "Noce",
+      "popolazione_2021": 26410,
+      "superficie_m2": 1054503.48138,
+      "superficie_km2": 1.054503,
+      "famiglie": 11302,
+      "abitazioni": 13460,
+      "edifici": 1675
+    },
+    {
+      "cod_istat": 82053008,
+      "nome_istat": "Malaspina -Palagonia",
+      "popolazione_2021": 19032,
+      "superficie_m2": 1379413.27951,
+      "superficie_km2": 1.379413,
+      "famiglie": 8552,
+      "abitazioni": 10186,
+      "edifici": 671
+    },
+    {
+      "cod_istat": 82053009,
+      "nome_istat": "Liberta'",
+      "popolazione_2021": 40186,
+      "superficie_m2": 2510852.95168,
+      "superficie_km2": 2.510853,
+      "famiglie": 18304,
+      "abitazioni": 23222,
+      "edifici": 1589
+    },
+    {
+      "cod_istat": 82053010,
+      "nome_istat": "Politeama",
+      "popolazione_2021": 30957,
+      "superficie_m2": 2382035.74289,
+      "superficie_km2": 2.382036,
+      "famiglie": 13971,
+      "abitazioni": 20136,
+      "edifici": 1993
+    },
+    {
+      "cod_istat": 82053011,
+      "nome_istat": "Settecannoli",
+      "popolazione_2021": 47427,
+      "superficie_m2": 8136055.51376,
+      "superficie_km2": 8.136056,
+      "famiglie": 17843,
+      "abitazioni": 20436,
+      "edifici": 3390
+    },
+    {
+      "cod_istat": 82053012,
+      "nome_istat": "Brancaccio-Ciaculli",
+      "popolazione_2021": 16254,
+      "superficie_m2": 12506959.3626,
+      "superficie_km2": 12.506959,
+      "famiglie": 5972,
+      "abitazioni": 7025,
+      "edifici": 2239
+    },
+    {
+      "cod_istat": 82053013,
+      "nome_istat": "Villagrazia-Falsomiele",
+      "popolazione_2021": 39791,
+      "superficie_m2": 18284357.3489,
+      "superficie_km2": 18.284357,
+      "famiglie": 14989,
+      "abitazioni": 17001,
+      "edifici": 3889
+    },
+    {
+      "cod_istat": 82053014,
+      "nome_istat": "Mezzomonreale -Villa Tasca",
+      "popolazione_2021": 35257,
+      "superficie_m2": 8290718.29494,
+      "superficie_km2": 8.290718,
+      "famiglie": 14017,
+      "abitazioni": 16082,
+      "edifici": 3401
+    },
+    {
+      "cod_istat": 82053015,
+      "nome_istat": "Altarello",
+      "popolazione_2021": 14858,
+      "superficie_m2": 1771338.59576,
+      "superficie_km2": 1.771339,
+      "famiglie": 5792,
+      "abitazioni": 6864,
+      "edifici": 1449
+    },
+    {
+      "cod_istat": 82053016,
+      "nome_istat": "Boccadifalco",
+      "popolazione_2021": 7731,
+      "superficie_m2": 11712194.4546,
+      "superficie_km2": 11.712194,
+      "famiglie": 3025,
+      "abitazioni": 4039,
+      "edifici": 1413
+    },
+    {
+      "cod_istat": 82053017,
+      "nome_istat": "Uditore-Passo Di Rigano",
+      "popolazione_2021": 30255,
+      "superficie_m2": 3995833.53265,
+      "superficie_km2": 3.995834,
+      "famiglie": 12310,
+      "abitazioni": 14088,
+      "edifici": 2123
+    },
+    {
+      "cod_istat": 82053018,
+      "nome_istat": "Borgo Nuovo",
+      "popolazione_2021": 18624,
+      "superficie_m2": 10858874.5078,
+      "superficie_km2": 10.858875,
+      "famiglie": 6933,
+      "abitazioni": 7468,
+      "edifici": 1206
+    },
+    {
+      "cod_istat": 82053019,
+      "nome_istat": "Cruillas - S.Giovanni Apostolo",
+      "popolazione_2021": 29939,
+      "superficie_m2": 10682268.9677,
+      "superficie_km2": 10.682269,
+      "famiglie": 11517,
+      "abitazioni": 12576,
+      "edifici": 2515
+    },
+    {
+      "cod_istat": 82053020,
+      "nome_istat": "Resuttana - S.Lorenzo",
+      "popolazione_2021": 40171,
+      "superficie_m2": 13468500.6132,
+      "superficie_km2": 13.468501,
+      "famiglie": 17694,
+      "abitazioni": 20817,
+      "edifici": 2449
+    },
+    {
+      "cod_istat": 82053021,
+      "nome_istat": "Tommaso Natale - Sferracavallo",
+      "popolazione_2021": 21862,
+      "superficie_m2": 9144488.71408,
+      "superficie_km2": 9.144489,
+      "famiglie": 8643,
+      "abitazioni": 10231,
+      "edifici": 3499
+    },
+    {
+      "cod_istat": 82053022,
+      "nome_istat": "Partanna Mondello",
+      "popolazione_2021": 19536,
+      "superficie_m2": 16760341.9831,
+      "superficie_km2": 16.760342,
+      "famiglie": 8399,
+      "abitazioni": 12477,
+      "edifici": 5341
+    },
+    {
+      "cod_istat": 82053023,
+      "nome_istat": "Pallavicino",
+      "popolazione_2021": 24337,
+      "superficie_m2": 4876277.75941,
+      "superficie_km2": 4.876278,
+      "famiglie": 8983,
+      "abitazioni": 10646,
+      "edifici": 1866
+    },
+    {
+      "cod_istat": 82053024,
+      "nome_istat": "Montepellegrino",
+      "popolazione_2021": 26538,
+      "superficie_m2": 9006662.56762,
+      "superficie_km2": 9.006663,
+      "famiglie": 11218,
+      "abitazioni": 13330,
+      "edifici": 1410
+    },
+    {
+      "cod_istat": 82053025,
+      "nome_istat": "Arenella - Vergine Maria",
+      "popolazione_2021": 8331,
+      "superficie_m2": 2313821.03007,
+      "superficie_km2": 2.313821,
+      "famiglie": 3262,
+      "abitazioni": 3996,
+      "edifici": 958
+    }
+  ],
+  "upl": [
+    {
+      "cod_istat": 82053001,
+      "popolazione_2021": 8478,
+      "superficie_m2": 817915.039541,
+      "superficie_km2": 0.817915,
+      "famiglie": 4357,
+      "abitazioni": 6421,
+      "edifici": 1074,
+      "quartiere_istat": {
+        "cod_istat": 82053001,
+        "nome_istat": "Tribunali-Castellammare"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053002,
+      "popolazione_2021": 7505,
+      "superficie_m2": 599192.1452,
+      "superficie_km2": 0.599192,
+      "famiglie": 3361,
+      "abitazioni": 5857,
+      "edifici": 900,
+      "quartiere_istat": {
+        "cod_istat": 82053002,
+        "nome_istat": "Palazzo Reale - Monte Di Pieta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053003,
+      "popolazione_2021": 6104,
+      "superficie_m2": 546643.910042,
+      "superficie_km2": 0.546644,
+      "famiglie": 2826,
+      "abitazioni": 5006,
+      "edifici": 960,
+      "quartiere_istat": {
+        "cod_istat": 82053002,
+        "nome_istat": "Palazzo Reale - Monte Di Pieta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053004,
+      "popolazione_2021": 4723,
+      "superficie_m2": 557086.48878,
+      "superficie_km2": 0.557086,
+      "famiglie": 2391,
+      "abitazioni": 4308,
+      "edifici": 604,
+      "quartiere_istat": {
+        "cod_istat": 82053001,
+        "nome_istat": "Tribunali-Castellammare"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053005,
+      "popolazione_2021": 5650,
+      "superficie_m2": 844558.790493,
+      "superficie_km2": 0.844559,
+      "famiglie": 2466,
+      "abitazioni": 3089,
+      "edifici": 281,
+      "quartiere_istat": {
+        "cod_istat": 82053003,
+        "nome_istat": "Oreto- Stazione"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053006,
+      "popolazione_2021": 18774,
+      "superficie_m2": 1619913.43579,
+      "superficie_km2": 1.619913,
+      "famiglie": 7226,
+      "abitazioni": 8394,
+      "edifici": 1031,
+      "quartiere_istat": {
+        "cod_istat": 82053011,
+        "nome_istat": "Settecannoli"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053007,
+      "popolazione_2021": 28653,
+      "superficie_m2": 6516142.07797,
+      "superficie_km2": 6.516142,
+      "famiglie": 10617,
+      "abitazioni": 12042,
+      "edifici": 2359,
+      "quartiere_istat": {
+        "cod_istat": 82053011,
+        "nome_istat": "Settecannoli"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053008,
+      "popolazione_2021": 8999,
+      "superficie_m2": 1688790.6253,
+      "superficie_km2": 1.688791,
+      "famiglie": 3415,
+      "abitazioni": 4055,
+      "edifici": 902,
+      "quartiere_istat": {
+        "cod_istat": 82053012,
+        "nome_istat": "Brancaccio-Ciaculli"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053009,
+      "popolazione_2021": 7255,
+      "superficie_m2": 10818168.7373,
+      "superficie_km2": 10.818169,
+      "famiglie": 2557,
+      "abitazioni": 2970,
+      "edifici": 1337,
+      "quartiere_istat": {
+        "cod_istat": 82053012,
+        "nome_istat": "Brancaccio-Ciaculli"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053010,
+      "popolazione_2021": 20659,
+      "superficie_m2": 1134558.44343,
+      "superficie_km2": 1.134558,
+      "famiglie": 9178,
+      "abitazioni": 12233,
+      "edifici": 1172,
+      "quartiere_istat": {
+        "cod_istat": 82053003,
+        "nome_istat": "Oreto- Stazione"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053011,
+      "popolazione_2021": 11278,
+      "superficie_m2": 931383.969979,
+      "superficie_km2": 0.931384,
+      "famiglie": 4554,
+      "abitazioni": 5176,
+      "edifici": 532,
+      "quartiere_istat": {
+        "cod_istat": 82053003,
+        "nome_istat": "Oreto- Stazione"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053012,
+      "popolazione_2021": 14033,
+      "superficie_m2": 1807930.70038,
+      "superficie_km2": 1.807931,
+      "famiglie": 5471,
+      "abitazioni": 5902,
+      "edifici": 613,
+      "quartiere_istat": {
+        "cod_istat": 82053013,
+        "nome_istat": "Villagrazia-Falsomiele"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053013,
+      "popolazione_2021": 7376,
+      "superficie_m2": 591255.079808,
+      "superficie_km2": 0.591255,
+      "famiglie": 2962,
+      "abitazioni": 3177,
+      "edifici": 110,
+      "quartiere_istat": {
+        "cod_istat": 82053013,
+        "nome_istat": "Villagrazia-Falsomiele"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053014,
+      "popolazione_2021": 11745,
+      "superficie_m2": 7501406.82373,
+      "superficie_km2": 7.501407,
+      "famiglie": 4170,
+      "abitazioni": 4854,
+      "edifici": 1817,
+      "quartiere_istat": {
+        "cod_istat": 82053013,
+        "nome_istat": "Villagrazia-Falsomiele"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053015,
+      "popolazione_2021": 6637,
+      "superficie_m2": 8383764.74496,
+      "superficie_km2": 8.383765,
+      "famiglie": 2386,
+      "abitazioni": 3068,
+      "edifici": 1349,
+      "quartiere_istat": {
+        "cod_istat": 82053013,
+        "nome_istat": "Villagrazia-Falsomiele"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053016,
+      "popolazione_2021": 11600,
+      "superficie_m2": 772624.638864,
+      "superficie_km2": 0.772625,
+      "famiglie": 5166,
+      "abitazioni": 7206,
+      "edifici": 704,
+      "quartiere_istat": {
+        "cod_istat": 82053004,
+        "nome_istat": "S. Rosalia - Montegrappa"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053017,
+      "popolazione_2021": 9462,
+      "superficie_m2": 1911099.69818,
+      "superficie_km2": 1.9111,
+      "famiglie": 3937,
+      "abitazioni": 4380,
+      "edifici": 371,
+      "quartiere_istat": {
+        "cod_istat": 82053004,
+        "nome_istat": "S. Rosalia - Montegrappa"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053018,
+      "popolazione_2021": 19780,
+      "superficie_m2": 1778434.90847,
+      "superficie_km2": 1.778435,
+      "famiglie": 8480,
+      "abitazioni": 10644,
+      "edifici": 1105,
+      "quartiere_istat": {
+        "cod_istat": 82053005,
+        "nome_istat": "Cuba-Calatafimi"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053019,
+      "popolazione_2021": 8721,
+      "superficie_m2": 492192.372465,
+      "superficie_km2": 0.492192,
+      "famiglie": 3822,
+      "abitazioni": 4343,
+      "edifici": 258,
+      "quartiere_istat": {
+        "cod_istat": 82053014,
+        "nome_istat": "Mezzomonreale -Villa Tasca"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053020,
+      "popolazione_2021": 26536,
+      "superficie_m2": 7798525.92248,
+      "superficie_km2": 7.798526,
+      "famiglie": 10195,
+      "abitazioni": 11739,
+      "edifici": 3143,
+      "quartiere_istat": {
+        "cod_istat": 82053014,
+        "nome_istat": "Mezzomonreale -Villa Tasca"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053021,
+      "popolazione_2021": 14012,
+      "superficie_m2": 592428.802418,
+      "superficie_km2": 0.592429,
+      "famiglie": 5695,
+      "abitazioni": 6897,
+      "edifici": 886,
+      "quartiere_istat": {
+        "cod_istat": 82053006,
+        "nome_istat": "Zisa"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053022,
+      "popolazione_2021": 7698,
+      "superficie_m2": 631111.129191,
+      "superficie_km2": 0.631111,
+      "famiglie": 3138,
+      "abitazioni": 3508,
+      "edifici": 359,
+      "quartiere_istat": {
+        "cod_istat": 82053006,
+        "nome_istat": "Zisa"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053023,
+      "popolazione_2021": 14858,
+      "superficie_m2": 1771338.59576,
+      "superficie_km2": 1.771339,
+      "famiglie": 5792,
+      "abitazioni": 6864,
+      "edifici": 1449,
+      "quartiere_istat": {
+        "cod_istat": 82053015,
+        "nome_istat": "Altarello"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053024,
+      "popolazione_2021": 7731,
+      "superficie_m2": 11712194.4546,
+      "superficie_km2": 11.712194,
+      "famiglie": 3025,
+      "abitazioni": 4039,
+      "edifici": 1413,
+      "quartiere_istat": null,
+      "stato_associazione": "da_verificare"
+    },
+    {
+      "cod_istat": 82053025,
+      "popolazione_2021": 12648,
+      "superficie_m2": 1050168.28235,
+      "superficie_km2": 1.050168,
+      "famiglie": 5454,
+      "abitazioni": 7714,
+      "edifici": 908,
+      "quartiere_istat": {
+        "cod_istat": 82053010,
+        "nome_istat": "Politeama"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053026,
+      "popolazione_2021": 5637,
+      "superficie_m2": 529222.488311,
+      "superficie_km2": 0.529222,
+      "famiglie": 2666,
+      "abitazioni": 4408,
+      "edifici": 357,
+      "quartiere_istat": {
+        "cod_istat": 82053010,
+        "nome_istat": "Politeama"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053027,
+      "popolazione_2021": 12672,
+      "superficie_m2": 802644.972232,
+      "superficie_km2": 0.802645,
+      "famiglie": 5851,
+      "abitazioni": 8014,
+      "edifici": 728,
+      "quartiere_istat": {
+        "cod_istat": 82053010,
+        "nome_istat": "Politeama"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053028,
+      "popolazione_2021": 10994,
+      "superficie_m2": 415112.845161,
+      "superficie_km2": 0.415113,
+      "famiglie": 4843,
+      "abitazioni": 6275,
+      "edifici": 738,
+      "quartiere_istat": {
+        "cod_istat": 82053006,
+        "nome_istat": "Zisa"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053029,
+      "popolazione_2021": 9548,
+      "superficie_m2": 435731.374771,
+      "superficie_km2": 0.435731,
+      "famiglie": 4310,
+      "abitazioni": 5256,
+      "edifici": 530,
+      "quartiere_istat": {
+        "cod_istat": 82053007,
+        "nome_istat": "Noce"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053030,
+      "popolazione_2021": 16862,
+      "superficie_m2": 618772.106607,
+      "superficie_km2": 0.618772,
+      "famiglie": 6992,
+      "abitazioni": 8204,
+      "edifici": 1145,
+      "quartiere_istat": {
+        "cod_istat": 82053007,
+        "nome_istat": "Noce"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053031,
+      "popolazione_2021": 8219,
+      "superficie_m2": 1118716.54281,
+      "superficie_km2": 1.118717,
+      "famiglie": 3441,
+      "abitazioni": 3870,
+      "edifici": 327,
+      "quartiere_istat": {
+        "cod_istat": 82053017,
+        "nome_istat": "Uditore-Passo Di Rigano"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053032,
+      "popolazione_2021": 9797,
+      "superficie_m2": 543812.928671,
+      "superficie_km2": 0.543813,
+      "famiglie": 4432,
+      "abitazioni": 5161,
+      "edifici": 224,
+      "quartiere_istat": {
+        "cod_istat": 82053008,
+        "nome_istat": "Malaspina -Palagonia"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053033,
+      "popolazione_2021": 9235,
+      "superficie_m2": 835600.350834,
+      "superficie_km2": 0.8356,
+      "famiglie": 4120,
+      "abitazioni": 5025,
+      "edifici": 447,
+      "quartiere_istat": {
+        "cod_istat": 82053008,
+        "nome_istat": "Malaspina -Palagonia"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053034,
+      "popolazione_2021": 9615,
+      "superficie_m2": 1386775.02927,
+      "superficie_km2": 1.386775,
+      "famiglie": 4009,
+      "abitazioni": 4685,
+      "edifici": 805,
+      "quartiere_istat": {
+        "cod_istat": 82053017,
+        "nome_istat": "Uditore-Passo Di Rigano"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053035,
+      "popolazione_2021": 12421,
+      "superficie_m2": 1490341.96058,
+      "superficie_km2": 1.490342,
+      "famiglie": 4860,
+      "abitazioni": 5533,
+      "edifici": 991,
+      "quartiere_istat": {
+        "cod_istat": 82053017,
+        "nome_istat": "Uditore-Passo Di Rigano"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053036,
+      "popolazione_2021": 18624,
+      "superficie_m2": 10858874.5078,
+      "superficie_km2": 10.858875,
+      "famiglie": 6933,
+      "abitazioni": 7468,
+      "edifici": 1206,
+      "quartiere_istat": {
+        "cod_istat": 82053018,
+        "nome_istat": "Borgo Nuovo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053037,
+      "popolazione_2021": 12296,
+      "superficie_m2": 1154383.543,
+      "superficie_km2": 1.154384,
+      "famiglie": 4806,
+      "abitazioni": 5072,
+      "edifici": 574,
+      "quartiere_istat": {
+        "cod_istat": 82053019,
+        "nome_istat": "Cruillas - S.Giovanni Apostolo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053038,
+      "popolazione_2021": 17643,
+      "superficie_m2": 9527885.42466,
+      "superficie_km2": 9.527885,
+      "famiglie": 6711,
+      "abitazioni": 7504,
+      "edifici": 1941,
+      "quartiere_istat": {
+        "cod_istat": 82053019,
+        "nome_istat": "Cruillas - S.Giovanni Apostolo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053039,
+      "popolazione_2021": 5611,
+      "superficie_m2": 463891.405919,
+      "superficie_km2": 0.463891,
+      "famiglie": 2609,
+      "abitazioni": 3443,
+      "edifici": 217,
+      "quartiere_istat": {
+        "cod_istat": 82053009,
+        "nome_istat": "Liberta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053040,
+      "popolazione_2021": 10124,
+      "superficie_m2": 648383.75376,
+      "superficie_km2": 0.648384,
+      "famiglie": 4649,
+      "abitazioni": 6101,
+      "edifici": 365,
+      "quartiere_istat": {
+        "cod_istat": 82053009,
+        "nome_istat": "Liberta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053041,
+      "popolazione_2021": 10330,
+      "superficie_m2": 667140.998092,
+      "superficie_km2": 0.667141,
+      "famiglie": 4592,
+      "abitazioni": 5745,
+      "edifici": 517,
+      "quartiere_istat": {
+        "cod_istat": 82053009,
+        "nome_istat": "Liberta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053042,
+      "popolazione_2021": 14121,
+      "superficie_m2": 731436.793904,
+      "superficie_km2": 0.731437,
+      "famiglie": 6454,
+      "abitazioni": 7933,
+      "edifici": 490,
+      "quartiere_istat": {
+        "cod_istat": 82053009,
+        "nome_istat": "Liberta'"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053043,
+      "popolazione_2021": 24893,
+      "superficie_m2": 4077923.35224,
+      "superficie_km2": 4.077923,
+      "famiglie": 11225,
+      "abitazioni": 13422,
+      "edifici": 1053,
+      "quartiere_istat": {
+        "cod_istat": 82053020,
+        "nome_istat": "Resuttana - S.Lorenzo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053044,
+      "popolazione_2021": 15278,
+      "superficie_m2": 9390577.26095,
+      "superficie_km2": 9.390577,
+      "famiglie": 6469,
+      "abitazioni": 7395,
+      "edifici": 1396,
+      "quartiere_istat": {
+        "cod_istat": 82053020,
+        "nome_istat": "Resuttana - S.Lorenzo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053045,
+      "popolazione_2021": 3910,
+      "superficie_m2": 1329248.07963,
+      "superficie_km2": 1.329248,
+      "famiglie": 1573,
+      "abitazioni": 2197,
+      "edifici": 472,
+      "quartiere_istat": {
+        "cod_istat": 82053023,
+        "nome_istat": "Pallavicino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053046,
+      "popolazione_2021": 8137,
+      "superficie_m2": 2296276.72086,
+      "superficie_km2": 2.296277,
+      "famiglie": 3355,
+      "abitazioni": 3860,
+      "edifici": 1119,
+      "quartiere_istat": {
+        "cod_istat": 82053023,
+        "nome_istat": "Pallavicino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053047,
+      "popolazione_2021": 12290,
+      "superficie_m2": 1250752.95893,
+      "superficie_km2": 1.250753,
+      "famiglie": 4055,
+      "abitazioni": 4589,
+      "edifici": 275,
+      "quartiere_istat": {
+        "cod_istat": 82053023,
+        "nome_istat": "Pallavicino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053048,
+      "popolazione_2021": 16104,
+      "superficie_m2": 7772359.08384,
+      "superficie_km2": 7.772359,
+      "famiglie": 6244,
+      "abitazioni": 7032,
+      "edifici": 2188,
+      "quartiere_istat": {
+        "cod_istat": 82053021,
+        "nome_istat": "Tommaso Natale - Sferracavallo"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053049,
+      "popolazione_2021": 5758,
+      "superficie_m2": 1372129.63024,
+      "superficie_km2": 1.37213,
+      "famiglie": 2399,
+      "abitazioni": 3199,
+      "edifici": 1311,
+      "quartiere_istat": null,
+      "stato_associazione": "da_verificare"
+    },
+    {
+      "cod_istat": 82053050,
+      "popolazione_2021": 19536,
+      "superficie_m2": 16760341.9831,
+      "superficie_km2": 16.760342,
+      "famiglie": 8399,
+      "abitazioni": 12477,
+      "edifici": 5341,
+      "quartiere_istat": {
+        "cod_istat": 82053022,
+        "nome_istat": "Partanna Mondello"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053051,
+      "popolazione_2021": 7877,
+      "superficie_m2": 994174.077661,
+      "superficie_km2": 0.994174,
+      "famiglie": 3308,
+      "abitazioni": 4139,
+      "edifici": 498,
+      "quartiere_istat": {
+        "cod_istat": 82053024,
+        "nome_istat": "Montepellegrino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053052,
+      "popolazione_2021": 15602,
+      "superficie_m2": 7568907.18061,
+      "superficie_km2": 7.568907,
+      "famiglie": 6633,
+      "abitazioni": 7514,
+      "edifici": 637,
+      "quartiere_istat": {
+        "cod_istat": 82053024,
+        "nome_istat": "Montepellegrino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053053,
+      "popolazione_2021": 3059,
+      "superficie_m2": 443581.309355,
+      "superficie_km2": 0.443581,
+      "famiglie": 1277,
+      "abitazioni": 1677,
+      "edifici": 275,
+      "quartiere_istat": {
+        "cod_istat": 82053024,
+        "nome_istat": "Montepellegrino"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053054,
+      "popolazione_2021": 6598,
+      "superficie_m2": 1363803.57052,
+      "superficie_km2": 1.363804,
+      "famiglie": 2576,
+      "abitazioni": 3073,
+      "edifici": 614,
+      "quartiere_istat": {
+        "cod_istat": 82053025,
+        "nome_istat": "Arenella - Vergine Maria"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    },
+    {
+      "cod_istat": 82053055,
+      "popolazione_2021": 1733,
+      "superficie_m2": 950017.45955,
+      "superficie_km2": 0.950017,
+      "famiglie": 686,
+      "abitazioni": 923,
+      "edifici": 344,
+      "quartiere_istat": {
+        "cod_istat": 82053025,
+        "nome_istat": "Arenella - Vergine Maria"
+      },
+      "stato_associazione": "preliminare_centroidale"
+    }
+  ]
+}
