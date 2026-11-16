@@ -2267,6 +2267,7 @@
     {
       "point_id": "kml-school-152",
       "orders": [
+        "INFANZIA",
         "MEDIE"
       ],
       "institution": "Manzoni - P. Impastato",
@@ -2279,8 +2280,8 @@
         "https://elezioni.comune.palermo.it/portale-elezioni-sezioni-elettorali.php"
       ],
       "source_year": "2026",
-      "method": "La corrispondenza puntuale è tra il punto cartografico kml-school-152, Via Pietro Merenda 18, e la sede indicata dal Portale Elezioni del Comune come Scuola Secondaria di I Grado e dell'Infanzia Giorgio La Pira allo stesso indirizzo. Il punto è classificato per il solo ordine secondaria di I grado; l'infanzia comunale è un servizio distinto e non viene trasferita al punto scolastico statale senza una corrispondenza documentale specifica.",
-      "confidence": "indirizzo coincidente con fonte ufficiale comunale; ordine secondaria I esplicito"
+      "method": "Il Portale Elezioni del Comune di Palermo identifica la Scuola Secondaria di I Grado e dell'Infanzia Giorgio La Pira in Via Pietro Merenda 18, indirizzo coincidente con il punto cartografico kml-school-152. Entrambi gli ordini sono riportati esplicitamente nella denominazione ufficiale della sede.",
+      "confidence": "indirizzo coincidente e ordini espliciti in fonte ufficiale comunale"
     },
     {
       "point_id": "kml-school-155",
