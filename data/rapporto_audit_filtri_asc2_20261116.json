@@ -1,41 +1,65 @@
 {
-  "title": "Rapporto audit: coerenza filtri quartiere e geometrie ASC2",
+  "title": "Rapporto audit-5: verifica filtri territoriali e consistenza dati",
   "date": "2026-11-16",
-  "release": "v82-spatial3",
-  "scope": "Controllo statico dei collegamenti tra quartieri comunali e geometrie ISTAT ASC2; non equivale a collaudo browser o verifica sul campo.",
-  "quartier_to_asc2": {
-    "san-giovanni-apostolo": {
-      "name": "Cruillas - S.Giovanni Apostolo",
-      "COM_ASC2": "82053019",
-      "note": "Il poligono include anche Cruillas; non è un perimetro autonomo del solo S. Giovanni Apostolo."
-    },
-    "resuttana-san-lorenzo": {
-      "name": "Resuttana - S.Lorenzo",
-      "COM_ASC2": "82053020"
-    }
-  },
-  "implementation": [
-    "La selezione del quartiere risolve la geometria ASC2 tramite COM_ASC2.",
-    "La medesima relazione per codice è usata nei filtri GIS, nell'analisi spaziale, nei conteggi scolastici e nel grafico IDISE.",
-    "Il contesto territoriale mostra il nome del quartiere selezionato e la denominazione del poligono ASC2 associato."
-  ],
-  "verification": {
-    "quartieri_mappati": 25,
-    "quartieri_senza_corrispondenza": 0,
-    "census_records": 305,
-    "census_unique_ids": 305,
-    "census_records_with_coordinates": 294,
+  "release": "audit-5",
+  "scope": "Verifica statica del pacchetto ZIP audit-4 caricato e delle corrispondenze quartiere-ASC2. Non equivale a collaudo interattivo browser.",
+  "checks": {
+    "javascript_syntax": "PASS",
+    "json_files_parsed": 24,
+    "json_parse": "PASS",
+    "quartieri_with_asc2_link": 25,
+    "quartieri_without_asc2_link": [],
+    "quartiere_mapping_verified_against_geojson": true,
+    "school_census_records": 305,
+    "school_census_unique_ids": 305,
+    "school_records_with_coordinates": 294,
+    "school_records_without_coordinates": 11,
     "physical_school_map_points": 292,
-    "ASC2_features": 25,
-    "ASC3_features": 55,
+    "asc1_features": 8,
+    "asc2_features": 25,
+    "asc3_features": 55,
     "census_section_features": 3600,
-    "POP21_total_ASC3": 635439,
-    "social_dataset_modified": false
+    "social_dataset_sha256": "5ff6336f339ad0aafa473423ce3de7b60fac98ee33db5ae55a9349b51d037e87",
+    "social_dataset_unchanged_from_audit3": true,
+    "cache_busting_version": "20261116-v81-audit5"
   },
+  "quartier_to_asc2": {
+    "tribunali-castellammare": "82053001",
+    "palazzo-reale-monte-di-pieta": "82053002",
+    "brancaccio-ciaculli": "82053012",
+    "sette-cannoli": "82053011",
+    "oreto-stazione": "82053003",
+    "villagrazia-falsomiele": "82053013",
+    "cuba-calatafimi": "82053005",
+    "santa-rosalia-montegrappa": "82053004",
+    "altarello": "82053015",
+    "mezzomonreale-villa-tasca": "82053014",
+    "boccadifalco": "82053016",
+    "zisa": "82053006",
+    "uditore-passo-di-rigano": "82053017",
+    "borgo-nuovo": "82053018",
+    "noce": "82053007",
+    "san-giovanni-apostolo": "82053019",
+    "resuttana-san-lorenzo": "82053020",
+    "arenella-vergine-maria": "82053025",
+    "pallavicino": "82053023",
+    "tommaso-natale-sferracavallo": "82053021",
+    "partanna-mondello": "82053022",
+    "politeama": "82053010",
+    "liberta": "82053009",
+    "montepellegrino": "82053024",
+    "malaspina-palagonia": "82053008"
+  },
+  "notes": [
+    "La risoluzione quartiere-ASC2 è basata su COM_ASC2 e non sul solo confronto testuale.",
+    "S. Giovanni Apostolo è associato al poligono Cruillas - S.Giovanni Apostolo (82053019), che include anche Cruillas.",
+    "Resuttana-San Lorenzo è associato al poligono Resuttana - S.Lorenzo (82053020).",
+    "La versione V82 nel repository GitHub contiene la correzione dei filtri quartiere applicata in precedenza."
+  ],
   "limitations": [
-    "Il collaudo interattivo nel browser non è stato completato.",
-    "La pubblicazione GitHub Pages non è stata verificata tramite apertura del sito.",
-    "Tre geometrie di sezione censuaria richiedono controllo topologico in QGIS.",
+    "Il collaudo interattivo nel browser non è stato completato in questo ambiente.",
+    "Il workflow GitHub Pages del commit 11ca77367a32b3347a4c72e13609bdc7b85af143 è terminato con successo.",
+    "Le tre geometrie di sezione censuaria già segnalate richiedono controllo topologico in QGIS.",
     "Le superfici urbanistiche effettive non sono disponibili: non si calcolano deficit o surplus reali."
   ]
 }
