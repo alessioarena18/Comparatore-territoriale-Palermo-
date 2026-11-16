@@ -333,7 +333,8 @@
         "cod_istat": 82053001,
         "nome_istat": "Tribunali-Castellammare"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Tribunali o Kalsa"
     },
     {
       "cod_istat": 82053002,
@@ -347,7 +348,8 @@
         "cod_istat": 82053002,
         "nome_istat": "Palazzo Reale - Monte Di Pieta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Palazzo Reale o Albergaria"
     },
     {
       "cod_istat": 82053003,
@@ -361,7 +363,8 @@
         "cod_istat": 82053002,
         "nome_istat": "Palazzo Reale - Monte Di Pieta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Monte di PietÃ  o Seralcadi"
     },
     {
       "cod_istat": 82053004,
@@ -375,7 +378,8 @@
         "cod_istat": 82053001,
         "nome_istat": "Tribunali-Castellammare"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Castellammare o Loggia"
     },
     {
       "cod_istat": 82053005,
@@ -389,7 +393,8 @@
         "cod_istat": 82053003,
         "nome_istat": "Oreto- Stazione"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Corso dei Mille - S.Erasmo"
     },
     {
       "cod_istat": 82053006,
@@ -403,7 +408,8 @@
         "cod_istat": 82053011,
         "nome_istat": "Settecannoli"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Settecannoli"
     },
     {
       "cod_istat": 82053007,
@@ -417,7 +423,8 @@
         "cod_istat": 82053011,
         "nome_istat": "Settecannoli"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Roccella Acqua dei Corsari"
     },
     {
       "cod_istat": 82053008,
@@ -431,7 +438,8 @@
         "cod_istat": 82053012,
         "nome_istat": "Brancaccio-Ciaculli"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Brancaccio Conte Federico"
     },
     {
       "cod_istat": 82053009,
@@ -445,7 +453,8 @@
         "cod_istat": 82053012,
         "nome_istat": "Brancaccio-Ciaculli"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Ciaculli Croce Verde"
     },
     {
       "cod_istat": 82053010,
@@ -459,7 +468,8 @@
         "cod_istat": 82053003,
         "nome_istat": "Oreto- Stazione"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Oreto Perez"
     },
     {
       "cod_istat": 82053011,
@@ -473,7 +483,8 @@
         "cod_istat": 82053003,
         "nome_istat": "Oreto- Stazione"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Oreto Guadagna"
     },
     {
       "cod_istat": 82053012,
@@ -487,7 +498,8 @@
         "cod_istat": 82053013,
         "nome_istat": "Villagrazia-Falsomiele"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Falsomiele Borgo Ulivia"
     },
     {
       "cod_istat": 82053013,
@@ -501,7 +513,8 @@
         "cod_istat": 82053013,
         "nome_istat": "Villagrazia-Falsomiele"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Bonagia"
     },
     {
       "cod_istat": 82053014,
@@ -515,7 +528,8 @@
         "cod_istat": 82053013,
         "nome_istat": "Villagrazia-Falsomiele"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Chiavelli - S.Maria di GesÃ¹"
     },
     {
       "cod_istat": 82053015,
@@ -529,7 +543,8 @@
         "cod_istat": 82053013,
         "nome_istat": "Villagrazia-Falsomiele"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Villagrazia"
     },
     {
       "cod_istat": 82053016,
@@ -543,7 +558,8 @@
         "cod_istat": 82053004,
         "nome_istat": "S. Rosalia - Montegrappa"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Montegrappa"
     },
     {
       "cod_istat": 82053017,
@@ -557,7 +573,8 @@
         "cod_istat": 82053004,
         "nome_istat": "S. Rosalia - Montegrappa"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "S.Rosalia"
     },
     {
       "cod_istat": 82053018,
@@ -571,7 +588,8 @@
         "cod_istat": 82053005,
         "nome_istat": "Cuba-Calatafimi"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Cuba - Calatafimi"
     },
     {
       "cod_istat": 82053019,
@@ -585,7 +603,8 @@
         "cod_istat": 82053014,
         "nome_istat": "Mezzomonreale -Villa Tasca"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Villa Tasca"
     },
     {
       "cod_istat": 82053020,
@@ -599,7 +618,8 @@
         "cod_istat": 82053014,
         "nome_istat": "Mezzomonreale -Villa Tasca"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Mezzomonreale"
     },
     {
       "cod_istat": 82053021,
@@ -613,7 +633,8 @@
         "cod_istat": 82053006,
         "nome_istat": "Zisa"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Zisa - Ingastone"
     },
     {
       "cod_istat": 82053022,
@@ -627,7 +648,8 @@
         "cod_istat": 82053006,
         "nome_istat": "Zisa"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Zisa - 4 Camere"
     },
     {
       "cod_istat": 82053023,
@@ -641,7 +663,8 @@
         "cod_istat": 82053015,
         "nome_istat": "Altarello"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Altarello - Tasca Lanza"
     },
     {
       "cod_istat": 82053024,
@@ -652,7 +675,8 @@
       "abitazioni": 4039,
       "edifici": 1413,
       "quartiere_istat": null,
-      "stato_associazione": "da_verificare"
+      "stato_associazione": "da_verificare",
+      "nome_istat": "Boccadifalco - Baida"
     },
     {
       "cod_istat": 82053025,
@@ -666,7 +690,8 @@
         "cod_istat": 82053010,
         "nome_istat": "Politeama"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Borgo Vecchio - Principe Scordia"
     },
     {
       "cod_istat": 82053026,
@@ -680,7 +705,8 @@
         "cod_istat": 82053010,
         "nome_istat": "Politeama"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Croci - Ruggiero Settimo"
     },
     {
       "cod_istat": 82053027,
@@ -694,7 +720,8 @@
         "cod_istat": 82053010,
         "nome_istat": "Politeama"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "S.Francesco di Paola - Terrasanta"
     },
     {
       "cod_istat": 82053028,
@@ -708,7 +735,8 @@
         "cod_istat": 82053006,
         "nome_istat": "Zisa"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Olivuzza"
     },
     {
       "cod_istat": 82053029,
@@ -722,7 +750,8 @@
         "cod_istat": 82053007,
         "nome_istat": "Noce"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Parlatore - Serradifalco"
     },
     {
       "cod_istat": 82053030,
@@ -736,7 +765,8 @@
         "cod_istat": 82053007,
         "nome_istat": "Noce"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Noce"
     },
     {
       "cod_istat": 82053031,
@@ -750,7 +780,8 @@
         "cod_istat": 82053017,
         "nome_istat": "Uditore-Passo Di Rigano"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Leonardo da Vinci - Di Blasi"
     },
     {
       "cod_istat": 82053032,
@@ -764,7 +795,8 @@
         "cod_istat": 82053008,
         "nome_istat": "Malaspina -Palagonia"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Malaspina - Leonardo da Vinci"
     },
     {
       "cod_istat": 82053033,
@@ -778,7 +810,8 @@
         "cod_istat": 82053008,
         "nome_istat": "Malaspina -Palagonia"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Principe di Palagonia"
     },
     {
       "cod_istat": 82053034,
@@ -792,7 +825,8 @@
         "cod_istat": 82053017,
         "nome_istat": "Uditore-Passo Di Rigano"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Uditore"
     },
     {
       "cod_istat": 82053035,
@@ -806,7 +840,8 @@
         "cod_istat": 82053017,
         "nome_istat": "Uditore-Passo Di Rigano"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Passo di Rigano"
     },
     {
       "cod_istat": 82053036,
@@ -820,7 +855,8 @@
         "cod_istat": 82053018,
         "nome_istat": "Borgo Nuovo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Borgo Nuovo"
     },
     {
       "cod_istat": 82053037,
@@ -834,7 +870,8 @@
         "cod_istat": 82053019,
         "nome_istat": "Cruillas - S.Giovanni Apostolo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "San Giovanni Apostolo"
     },
     {
       "cod_istat": 82053038,
@@ -848,7 +885,8 @@
         "cod_istat": 82053019,
         "nome_istat": "Cruillas - S.Giovanni Apostolo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Cruillas"
     },
     {
       "cod_istat": 82053039,
@@ -862,7 +900,8 @@
         "cod_istat": 82053009,
         "nome_istat": "Liberta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Notarbartolo - Giardino Inglese"
     },
     {
       "cod_istat": 82053040,
@@ -876,7 +915,8 @@
         "cod_istat": 82053009,
         "nome_istat": "Liberta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Villa Sperlinga"
     },
     {
       "cod_istat": 82053041,
@@ -890,7 +930,8 @@
         "cod_istat": 82053009,
         "nome_istat": "Liberta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Vittorio Veneto"
     },
     {
       "cod_istat": 82053042,
@@ -904,7 +945,8 @@
         "cod_istat": 82053009,
         "nome_istat": "Liberta'"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Marchese di Villabianca - Sampolo"
     },
     {
       "cod_istat": 82053043,
@@ -918,7 +960,8 @@
         "cod_istat": 82053020,
         "nome_istat": "Resuttana - S.Lorenzo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Resuttana"
     },
     {
       "cod_istat": 82053044,
@@ -932,7 +975,8 @@
         "cod_istat": 82053020,
         "nome_istat": "Resuttana - S.Lorenzo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "San Lorenzo"
     },
     {
       "cod_istat": 82053045,
@@ -946,7 +990,8 @@
         "cod_istat": 82053023,
         "nome_istat": "Pallavicino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Patti - Villaggio Ruffini"
     },
     {
       "cod_istat": 82053046,
@@ -960,7 +1005,8 @@
         "cod_istat": 82053023,
         "nome_istat": "Pallavicino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Pallavicino"
     },
     {
       "cod_istat": 82053047,
@@ -974,7 +1020,8 @@
         "cod_istat": 82053023,
         "nome_istat": "Pallavicino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "San Filippo Neri"
     },
     {
       "cod_istat": 82053048,
@@ -988,7 +1035,8 @@
         "cod_istat": 82053021,
         "nome_istat": "Tommaso Natale - Sferracavallo"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Tommaso Natale - Sant'Ambrogio - Cardillo"
     },
     {
       "cod_istat": 82053049,
@@ -999,7 +1047,8 @@
       "abitazioni": 3199,
       "edifici": 1311,
       "quartiere_istat": null,
-      "stato_associazione": "da_verificare"
+      "stato_associazione": "da_verificare",
+      "nome_istat": "Sferracavallo"
     },
     {
       "cod_istat": 82053050,
@@ -1013,7 +1062,8 @@
         "cod_istat": 82053022,
         "nome_istat": "Partanna Mondello"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Partanna Mondello"
     },
     {
       "cod_istat": 82053051,
@@ -1027,7 +1077,8 @@
         "cod_istat": 82053024,
         "nome_istat": "Montepellegrino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Cantieri"
     },
     {
       "cod_istat": 82053052,
@@ -1041,7 +1092,8 @@
         "cod_istat": 82053024,
         "nome_istat": "Montepellegrino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Montepellegrino"
     },
     {
       "cod_istat": 82053053,
@@ -1055,7 +1107,8 @@
         "cod_istat": 82053024,
         "nome_istat": "Montepellegrino"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Acquasanta"
     },
     {
       "cod_istat": 82053054,
@@ -1069,7 +1122,8 @@
         "cod_istat": 82053025,
         "nome_istat": "Arenella - Vergine Maria"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Arenella"
     },
     {
       "cod_istat": 82053055,
@@ -1083,7 +1137,8 @@
         "cod_istat": 82053025,
         "nome_istat": "Arenella - Vergine Maria"
       },
-      "stato_associazione": "preliminare_centroidale"
+      "stato_associazione": "preliminare_centroidale",
+      "nome_istat": "Vergine Maria"
     }
   ]
 }
