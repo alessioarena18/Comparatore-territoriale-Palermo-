@@ -431,3 +431,5 @@ La risoluzione per codice è applicata alla Cartografia GIS, all'Analisi spazial
 - La popolazione resta modificabile per simulazioni; la fonte e l'anno sono indicati nell'interfaccia.
 - Per la singola sezione censuaria non viene attribuita una popolazione non disponibile.
 - Il grafico degli standard mostra il fabbisogno teorico per categoria quando è disponibile la popolazione, senza rappresentare superfici effettivamente presenti.
+
+- Il fabbisogno teorico degli standard viene calcolato automaticamente all'apertura della sezione, senza attendere una modifica manuale dell'input.
