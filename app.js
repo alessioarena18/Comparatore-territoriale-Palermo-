@@ -414,6 +414,7 @@ if(active==='standards'){
  }
  pop?.addEventListener('input',calcolaStandard);
  document.querySelectorAll('.std-area').forEach(x=>x.addEventListener('input',calcolaStandard));
+ calcolaStandard();
 }
 if(active==='social'){
   const box=document.getElementById('uplConfronto');
