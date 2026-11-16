@@ -242,7 +242,7 @@ function render(){
  const normalizza=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
  const unsupportedResolution=!!(s.asc3||s.section);
- const righe=unsupportedResolution?[]:quartieri.filter(x=>(!s.circ||(x.circoscrizioni_id||[]).includes(s.circ))&&(!s.quart||normalizza(x.nome)===normalizza(nomeQuartiere)));
+ const righe=unsupportedResolution?[]:quartieri.filter(x=>(!s.circ||((x.circoscrizioni_id||[]).includes(s.circ)&&(s.quart||(x.circoscrizioni_id||[]).length===1)))&&(!s.quart||normalizza(x.nome)===normalizza(nomeQuartiere)));
  const aggregato=s.quart?righe[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
  const baseTotale=s.circ||s.quart?aggregato:null;
  const somma=campo=>unsupportedResolution?null:baseTotale?Number(baseTotale[campo])||0:circoscrizioni.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
@@ -253,6 +253,8 @@ function render(){
  const nome=unsupportedResolution?(s.section?'Sezione censuaria selezionata':'UPL selezionata'):s.quart?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
  const fmt=n=>n===null?'N.D.':Number(n).toLocaleString('it-IT');
  if(unsupportedResolution)html+='<div class="notice-inline">I dati demografici disponibili sono aggregati per circoscrizione e quartiere. Non sono attribuiti a UPL o sezioni censuarie perché manca una corrispondenza geografica verificata.</div>';
+ const quartieriConfinanti=s.circ&&!s.quart?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)&&(x.circoscrizioni_id||[]).length>1):[];
+ if(quartieriConfinanti.length)html+='<div class="notice-inline">'+quartieriConfinanti.map(x=>esc(x.nome)).join(', ')+' interessa più circoscrizioni. Il dato demografico è disponibile solo per il quartiere intero e non viene attribuito integralmente alla circoscrizione selezionata; per questo è escluso dalla tabella e dai grafici dei quartieri. Il totale della circoscrizione resta quello ufficiale comunale.</div>';
  html+=`<div class="card"><h3>Popolazione residente · ${nome}</h3><p class="muted">Dati ufficiali al 31 dicembre 2022 · Fonte: Comune di Palermo</p><div class="grid"><div class="card"><span class="muted">Popolazione totale</span><div class="metric">${fmt(totale)}</div></div><div class="card"><span class="muted">Cittadini italiani</span><div class="metric">${fmt(italiani)}</div></div><div class="card"><span class="muted">Cittadini stranieri</span><div class="metric">${fmt(stranieri)}</div></div><div class="card"><span class="muted">Incidenza stranieri</span><div class="metric">${percentuale}%</div></div></div><p class="muted">La ripartizione per sesso e fasce d’età è in fase di integrazione. Le basi censuarie ISTAT 2021 e i dati anagrafici comunali 2022 hanno date e unità territoriali differenti: l’aggregazione sarà pubblicata solo dopo la verifica della chiave geografica e della compatibilità temporale.</p><p class="muted">Le 609 persone senza fissa dimora (533 italiane e 76 straniere) sono riportate separatamente nella fonte comunale e non vengono attribuite artificialmente ai quartieri o alle circoscrizioni.</p></div>`;
  html+=`<div class="card"><h3>Popolazione per quartiere</h3><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>${[...righe].sort((a,b)=>b.totale-a.totale).map(x=>`<tr><td>${esc(x.nome)}</td><td>${fmt(x.italiani)}</td><td>${fmt(x.stranieri)}</td><td>${fmt(x.totale)}</td><td>${x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0'}%</td></tr>`).join('')}</tbody></table></div></div>`;
 
@@ -466,12 +468,14 @@ if(active==='demography'&&window.Chart){
  const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
  const nomeQD=DATA.territories.quartieri.find(x=>x.id===sd.quart)?.name;
  const nomeFiltroDemo=sd.quart?nomeQD:null;
- const rd=(sd.asc3||sd.section)?[]:qd.filter(x=>(!sd.circ||(x.circoscrizioni_id||[]).includes(sd.circ))&&(!sd.quart||normGrafico(x.nome)===normGrafico(nomeQD)));
+ const rd=(sd.asc3||sd.section)?[]:qd.filter(x=>(!sd.circ||((x.circoscrizioni_id||[]).includes(sd.circ)&&(sd.quart||(x.circoscrizioni_id||[]).length===1)))&&(!sd.quart||normGrafico(x.nome)===normGrafico(nomeQD)));
  const sommaD=k=>rd.reduce((a,x)=>a+(Number(x[k])||0),0);
  const fmtD=n=>Number(n).toLocaleString('it-IT');
  const canvasD=id=>document.getElementById(id);
  if(canvasD('chartComposizione')){
-  charts.push(new Chart(canvasD('chartComposizione'),{type:'doughnut',data:{labels:['Italiani','Stranieri'],datasets:[{data:[sommaD('italiani'),sommaD('stranieri')]}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}));
+  const composizioneDemo=sd.quart?qd.find(x=>x.territorio_id===sd.quart):sd.circ?DATA.demografia.find(x=>x.tipo_territorio==='circoscrizione'&&x.territorio_id===sd.circ):null;
+   const composizioneValori=composizioneDemo?[Number(composizioneDemo.italiani)||0,Number(composizioneDemo.stranieri)||0]:[sommaD('italiani'),sommaD('stranieri')];
+   charts.push(new Chart(canvasD('chartComposizione'),{type:'doughnut',data:{labels:['Italiani','Stranieri'],datasets:[{data:composizioneValori}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}));
  }
  const topD=[...rd].sort((a,b)=>b.totale-a.totale).slice(0,10);
  if(canvasD('chartQuartieri')){
