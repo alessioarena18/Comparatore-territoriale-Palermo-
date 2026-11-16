@@ -156,6 +156,25 @@
           "820530003803"
         ]
       }
+    },
+    "school_classification": {
+      "physical_map_points": 292,
+      "points_with_classification": 167,
+      "points_without_classification": 125,
+      "coverage_percent": 57.2,
+      "order_assignments": {
+        "INFANZIA": 75,
+        "ELEMENTARI": 69,
+        "MEDIE": 21,
+        "NIDO": 26,
+        "SUPERIORI": 21
+      },
+      "points_with_multiple_orders": 43,
+      "duplicate_point_ids": 0,
+      "classification_records_without_map_point": 0,
+      "classification_records_without_census_record": 0,
+      "chart_rule": "Una sola categoria prevalente (primo ordine dichiarato) per punto; i punti senza ordine classificato restano Non classificati. Nessuna deduzione di NIDO dalla sola tipologia Asilo nido.",
+      "note": "I conteggi per ordine sono presenze e possono sovrapporsi nei 43 punti multi-ordine; non sono un totale di edifici distinti."
     }
   },
   "coordinate_pending_records": [
