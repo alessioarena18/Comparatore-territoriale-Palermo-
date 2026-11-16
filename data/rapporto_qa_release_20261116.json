@@ -1,0 +1,130 @@
+{
+  "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
+  "version": "V82-QA1",
+  "date": "2026-11-16",
+  "scope": "Verifica dei file del pacchetto aggiornato e confronto con i dati pubblicati nel repository main.",
+  "checks": {
+    "javascript_syntax": "PASS",
+    "json_parse": "PASS",
+    "json_files_checked": 20,
+    "school_census": {
+      "records": 305,
+      "records_with_coordinates": 294,
+      "records_without_coordinates": 11,
+      "physical_map_points": 292,
+      "map_points_without_census_record": 0,
+      "census_records_without_dedicated_map_point": 13,
+      "buffer_eligible": 3
+    },
+    "spatial_validation": {
+      "points_checked": 292,
+      "within_all_three_ISTAT_2021_levels": 291,
+      "outside_all_three_levels": [
+        {
+          "id": "kml-school-264",
+          "name": "Belpasso"
+        }
+      ],
+      "ambiguous": 0,
+      "method": "Shapely covers(point) sui GeoJSON ISTAT 2021 ASC1, ASC2 e ASC3 in WGS84 (EPSG:4326); nessuna coordinata modificata."
+    },
+    "geojson_topology": {
+      "ASC1": {
+        "features": 8,
+        "invalid_geometries": 0
+      },
+      "ASC2": {
+        "features": 25,
+        "invalid_geometries": 0
+      },
+      "ASC3": {
+        "features": 55,
+        "invalid_geometries": 0
+      },
+      "census_sections": {
+        "features": 3600,
+        "invalid_geometries": 3,
+        "invalid_section_ids": [
+          "820530000008",
+          "820530002119",
+          "820530003803"
+        ]
+      }
+    }
+  },
+  "coordinate_pending_records": [
+    {
+      "id": "sup2-016",
+      "name": "Benedetto Croce - Sede centrale",
+      "address": "Via Benfratelli 4",
+      "note": "Indirizzo presente; coordinate non assegnate."
+    },
+    {
+      "id": "sup2-017",
+      "name": "Benedetto Croce - Succursale Corazza",
+      "address": "Via Filippo Corazza 41",
+      "note": "Indirizzo presente; coordinate non assegnate."
+    },
+    {
+      "id": "comune-infanzia-2026-27-01",
+      "name": "M. Carollo",
+      "address": "Largo dello Storno 11"
+    },
+    {
+      "id": "comune-infanzia-2026-27-02",
+      "name": "Oberdan",
+      "address": "Via G. Paratore 13"
+    },
+    {
+      "id": "comune-infanzia-2026-27-03",
+      "name": "Altarello",
+      "address": "Via Carlo Del Prete",
+      "note": "Portale comunale: civico 23; coordinate da verificare."
+    },
+    {
+      "id": "comune-infanzia-2026-27-04",
+      "name": "G. Di Matteo",
+      "address": "Via Di Bella 2136",
+      "note": "Il portale comunale riporta anche Via Enea Rossi 6 in una scheda generale: conflitto documentale da chiarire."
+    },
+    {
+      "id": "comune-infanzia-2026-27-06",
+      "name": "Primavera",
+      "address": "Viale Regione Siciliana 2257"
+    },
+    {
+      "id": "comune-infanzia-2026-27-07",
+      "name": "Whitaker",
+      "address": "Via Zisa 17"
+    },
+    {
+      "id": "comune-infanzia-2026-27-08",
+      "name": "Germania",
+      "address": "Via Germania 8"
+    },
+    {
+      "id": "comune-infanzia-2026-27-10",
+      "name": "Peralta",
+      "address": "Via Enrico Fileti 13"
+    },
+    {
+      "id": "comune-infanzia-2026-27-11",
+      "name": "Strauss",
+      "address": "Via Raffaello 1/3"
+    }
+  ],
+  "limitations": [
+    "Il controllo point-in-polygon verifica l'appartenenza amministrativa, non l'ingresso o il corpo edilizio.",
+    "Le 11 schede senza coordinate restano nel censimento ma non vengono collocate in mappa.",
+    "Le tre geometrie censuarie non valide richiedono verifica topologica in QGIS prima di eventuali correzioni.",
+    "I raggi d'influenza restano abilitati soltanto per tre sedi con flag esplicito V81.",
+    "Non sono disponibili superfici urbanistiche effettive sufficienti a calcolare deficit o surplus reali.",
+    "Il precedente rapporto V81-QA1 pubblicato nel repository verificava 287 punti; questo rapporto aggiorna il controllo sui 292 punti fisici presenti nel pacchetto."
+  ],
+  "sources": [
+    "https://portalescuola.comune.palermo.it/?page_id=4375",
+    "https://portalescuola.comune.palermo.it/?p=17378",
+    "https://www.liceocroce.it/croce1/index.html",
+    "https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/"
+  ]
+}
