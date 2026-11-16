@@ -1,7 +1,7 @@
 {
   "title": "Rapporto audit-5: verifica filtri territoriali e consistenza dati",
   "date": "2026-11-16",
-  "release": "audit-5",
+  "release": "audit-6",
   "scope": "Verifica statica del pacchetto ZIP audit-4 caricato e delle corrispondenze quartiere-ASC2. Non equivale a collaudo interattivo browser.",
   "checks": {
     "javascript_syntax": "PASS",
@@ -21,7 +21,13 @@
     "census_section_features": 3600,
     "social_dataset_sha256": "5ff6336f339ad0aafa473423ce3de7b60fac98ee33db5ae55a9349b51d037e87",
     "social_dataset_unchanged_from_audit3": true,
-    "cache_busting_version": "20261116-v81-audit5"
+    "cache_busting_version": "20261116-v82-standards1",
+    "standards_population_autofill": "PASS",
+    "standards_population_sources": [
+      "Comune di Palermo 2022: quartieri e circoscrizioni",
+      "ISTAT IDISE 2023: UPL"
+    ],
+    "standards_section_level_population": "NOT_AVAILABLE_NO_IMPUTATION"
   },
   "quartier_to_asc2": {
     "tribunali-castellammare": "82053001",
@@ -54,7 +60,9 @@
     "La risoluzione quartiere-ASC2 è basata su COM_ASC2 e non sul solo confronto testuale.",
     "S. Giovanni Apostolo è associato al poligono Cruillas - S.Giovanni Apostolo (82053019), che include anche Cruillas.",
     "Resuttana-San Lorenzo è associato al poligono Resuttana - S.Lorenzo (82053020).",
-    "La versione V82 nel repository GitHub contiene la correzione dei filtri quartiere applicata in precedenza."
+    "La versione V82 nel repository GitHub contiene la correzione dei filtri quartiere applicata in precedenza.",
+    "Il simulatore Standard urbanistici precompila il campo popolazione con il dato territoriale disponibile e ne esplicita fonte e anno.",
+    "Il fabbisogno teorico per categoria è calcolato come popolazione per parametro normativo; non è una misura delle superfici effettive."
   ],
   "limitations": [
     "Il collaudo interattivo nel browser non è stato completato in questo ambiente.",
