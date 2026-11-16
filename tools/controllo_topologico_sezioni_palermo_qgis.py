@@ -60,17 +60,34 @@ def main():
     if not source_crs.isValid():
         raise RuntimeError("CRS sorgente non valido: nessuna trasformazione o riparazione eseguita.")
 
-    transform = QgsCoordinateTransform(source_crs, AREA_CRS, QgsProject.instance())
-    features_by_id = {str(f[ID_FIELD]): f for f in layer.getFeatures()}
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    # Lavorare sempre su una copia GeoPackage: il layer originale non viene
+    # mai messo in editing e non può essere sovrascritto da questo script.
+    working = OUTPUT_DIR / "sezioni_palermo_2021_working.gpkg"
+    copy_options = QgsVectorFileWriter.SaveVectorOptions()
+    copy_options.driverName = "GPKG"
+    copy_options.fileEncoding = "UTF-8"
+    copy_result = QgsVectorFileWriter.writeAsVectorFormatV3(
+        layer, str(working), QgsProject.instance().transformContext(), copy_options
+    )
+    if copy_result[0] != QgsVectorFileWriter.NoError:
+        raise RuntimeError("Creazione copia di lavoro fallita: " + str(copy_result))
+
+    working_layer = QgsVectorLayer(str(working), "Sezioni ISTAT 2021 - copia di lavoro", "ogr")
+    if not working_layer.isValid():
+        raise RuntimeError("La copia GeoPackage non è ricaricabile.")
+    transform = QgsCoordinateTransform(working_layer.crs(), AREA_CRS, QgsProject.instance())
+    features_by_id = {str(f[ID_FIELD]): f for f in working_layer.getFeatures()}
     missing = sorted(TARGET_IDS - set(features_by_id))
     if missing:
         raise RuntimeError("ID attesi non trovati: " + ", ".join(missing))
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     report = {
         "title": "Verifica topologica candidata delle sezioni censuarie Palermo 2021",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "source": str(SOURCE),
+        "working_copy": str(working),
         "source_crs": source_crs.authid(),
         "area_comparison_crs": "EPSG:32632",
         "method": "QgsGeometry.makeValid() applicato esclusivamente ai tre ID segnalati; originale conservato.",
@@ -85,8 +102,8 @@ def main():
         ],
     }
 
-    if not layer.startEditing():
-        raise RuntimeError("Impossibile avviare la modifica del layer in memoria.")
+    if not working_layer.startEditing():
+        raise RuntimeError("Impossibile avviare la modifica della copia GeoPackage.")
 
     for section_id in sorted(TARGET_IDS):
         feature = features_by_id[section_id]
@@ -109,7 +126,7 @@ def main():
         delta = candidate_area - original_area
         delta_pct = (delta / original_area * 100.0) if original_area else None
 
-        if not layer.changeGeometry(feature.id(), candidate):
+        if not working_layer.changeGeometry(feature.id(), candidate):
             raise RuntimeError(f"Impossibile sostituire la geometria in memoria: {section_id}")
 
         report["features"].append({
@@ -125,9 +142,9 @@ def main():
             "review_required": True,
         })
 
-    if not layer.commitChanges():
-        errors = layer.commitErrors()
-        layer.rollBack()
+    if not working_layer.commitChanges():
+        errors = working_layer.commitErrors()
+        working_layer.rollBack()
         raise RuntimeError("Commit del layer temporaneo fallito: " + "; ".join(errors))
 
     output = OUTPUT_DIR / "sezioni_palermo_2021_candidate.geojson"
@@ -135,7 +152,7 @@ def main():
     options.driverName = "GeoJSON"
     options.fileEncoding = "UTF-8"
     result = QgsVectorFileWriter.writeAsVectorFormatV3(
-        layer, str(output), QgsProject.instance().transformContext(), options
+        working_layer, str(output), QgsProject.instance().transformContext(), options
     )
     if result[0] != QgsVectorFileWriter.NoError:
         raise RuntimeError("Esportazione GeoJSON fallita: " + str(result))
@@ -143,6 +160,7 @@ def main():
     candidate_layer = QgsVectorLayer(str(output), "Sezioni ISTAT 2021 - candidata makeValid", "ogr")
     if not candidate_layer.isValid():
         raise RuntimeError("Il GeoJSON candidato è stato scritto ma non è ricaricabile.")
+    QgsProject.instance().addMapLayer(working_layer)
     QgsProject.instance().addMapLayer(candidate_layer)
 
     report["candidate_valid"] = all(item["valid_after"] for item in report["features"])
