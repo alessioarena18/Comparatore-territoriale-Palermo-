@@ -218,6 +218,7 @@ function render(){
  const hasDemo=DATA.demografia.length>0, hasSchools=DATA.scuole.length>0, hasStandards=DATA.standard.length>0;
  if(active==='overview'){
  const overviewPopulation=standardPopulationContext(s),overviewPoints=filteredSchoolPoints(s);
+ const fmt=n=>Number(n??0).toLocaleString('it-IT');
  const overviewClass=DATA.schoolClassification?.records||[],overviewClassById=new Map(overviewClass.map(x=>[String(x.point_id),x]));
  const overviewCounts={NIDO:0,INFANZIA:0,ELEMENTARI:0,MEDIE:0,SUPERIORI:0,'Non classificati':0};
  overviewPoints.forEach(p=>{const k=(overviewClassById.get(String(p.id))?.orders||[])[0]||'Non classificati';overviewCounts[overviewCounts[k]!==undefined?k:'Non classificati']++;});
