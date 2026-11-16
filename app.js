@@ -478,13 +478,13 @@ if(active==='demography'&&window.Chart){
    const composizioneValori=composizioneDemo?[Number(composizioneDemo.italiani)||0,Number(composizioneDemo.stranieri)||0]:[sommaD('italiani'),sommaD('stranieri')];
    charts.push(new Chart(canvasD('chartComposizione'),{type:'doughnut',data:{labels:['Italiani','Stranieri'],datasets:[{data:composizioneValori}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}));
  }
- const topD=[...rd].sort((a,b)=>b.totale-a.totale).slice(0,10);
+ const topD=[...rd].sort((a,b)=>b.totale-a.totale); // Tutti i quartieri disponibili nel filtro corrente, fino a 25 nel quadro comunale.
  if(canvasD('chartQuartieri')){
   charts.push(new Chart(canvasD('chartQuartieri'),{type:'bar',data:{labels:topD.map(x=>x.nome),datasets:[{label:'Residenti',data:topD.map(x=>x.totale)}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));
  }
  if(canvasD('chartIncidenza')){
   const incD=[...rd].sort((a,b)=>(b.stranieri/b.totale)-(a.stranieri/a.totale)).map(x=>({nome:x.nome,valore:x.totale?x.stranieri/x.totale*100:0}));
-  charts.push(new Chart(canvasD('chartIncidenza'),{type:'bar',data:{labels:incD.map(x=>x.nome),datasets:[{label:'Stranieri (%)',data:incD.map(x=>Number(x.valore.toFixed(2)))}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
+  charts.push(new Chart(canvasD('chartIncidenza'),{type:'bar',data:{labels:incD.map(x=>x.nome),datasets:[{label:'Stranieri (%)',data:incD.map(x=>Number(x.valore.toFixed(2))),backgroundColor:'#dc2626',borderColor:'#991b1b',borderWidth:1}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));
  }
 }
 if(active==='spatial'&&window.Chart){const rows=asc3Sorted.slice(0,10),bar=document.getElementById('spatialUplChart');if(bar)charts.push(new Chart(bar,{type:'bar',data:{labels:rows.map(x=>x.name),datasets:[{label:'Popolazione POP21',data:rows.map(x=>x.pop)}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));}
