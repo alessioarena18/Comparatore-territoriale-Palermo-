@@ -824,6 +824,11 @@ function syncMainFilter(id){
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
 ['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>syncMainFilter(id)));
-[['gisSelectAsc1','asc1'],['gisSelectAsc2','asc2'],['gisSelectAsc3','asc3'],['gisSelectSection','section']].forEach(([id,level])=>$('#'+id)?.addEventListener('change',e=>syncGeoSelection(level,e.target.value)));
+$('#content').addEventListener('change',e=>{
+ const target=e.target.closest('#gisSelectAsc1,#gisSelectAsc2,#gisSelectAsc3,#gisSelectSection');
+ if(!target)return;
+ const level={gisSelectAsc1:'asc1',gisSelectAsc2:'asc2',gisSelectAsc3:'asc3',gisSelectSection:'section'}[target.id];
+ syncGeoSelection(level,target.value);
+});
 const sectionMain=$('#section');if(sectionMain&&sectionMain.options.length)sectionMain.options[0].textContent='Nessuna';
 load();
