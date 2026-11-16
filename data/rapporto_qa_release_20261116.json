@@ -1,8 +1,8 @@
 {
   "title": "Rapporto QA tecnico e documentale - Comparatore Territoriale Palermo",
-  "version": "V82-QA13",
+  "version": "V82-QA14",
   "date": "2026-11-16",
-  "scope": "Aggiornamento classificazione scolastica, verifica codici e indirizzi e controllo integrità degli archivi su 209 punti classificati. Sono registrate esplicitamente le varianti di denominazione e il civico 1/1B per i punti classificati con riserva.",
+  "scope": "Aggiornamento classificazione scolastica, verifica codici e indirizzi, registrazione esplicita degli alias e delle varianti civiche e controllo integrità degli archivi su 209 punti classificati.",
   "checks": {
     "javascript_syntax": "PASS",
     "json_parse": "PASS",
