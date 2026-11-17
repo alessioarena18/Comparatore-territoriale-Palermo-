@@ -102,3 +102,5 @@
 .school-map.leaflet-container{height:560px;min-height:420px}
 .school-map .leaflet-control-layers{max-width:min(300px,calc(100% - 20px));max-height:70%;overflow:auto}
 @media(max-width:650px){.school-map,.school-map.leaflet-container{height:470px;min-height:390px}}
+
+.green-map{display:block;width:100%;height:590px;min-height:420px;background:#e8eef3;border:1px solid #dce5ed;border-radius:10px;overflow:hidden;position:relative;z-index:0}.green-map-legend{margin:8px 0 14px}.green-map-legend span{display:flex;align-items:center;gap:7px}.green-map-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid #ffffff;box-shadow:0 0 0 1px #b8c6d2}.green-kpis{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:12px}.green-kpis .metric{font-size:22px}.green-chart-wrap{height:360px;position:relative}@media(max-width:950px){.green-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.green-map{height:480px;min-height:390px}.green-kpis{grid-template-columns:1fr 1fr}.green-chart-wrap{height:430px}}
