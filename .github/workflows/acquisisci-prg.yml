@@ -24,6 +24,10 @@ jobs:
           sudo apt-get install -y gdal-bin unzip
       - name: Download and convert official datasets
         run: python3 tools/acquisisci_prg_comune.py
+      - name: Syntax checks
+        run: |
+          node --check app.js
+          python3 -m py_compile tools/acquisisci_prg_comune.py tools/convert_prg_shapefiles.py tools/qa_prg_geojson.py
       - name: Structural and geographic QA
         run: python3 tools/qa_prg_geojson.py
       - name: Upload source layers and QA report
