@@ -112,3 +112,16 @@ Prossimi passi:
 2. Verificare che il layer integrale 320 e i due layer 321 siano effettivamente caricati nella mappa Standard urbanistici, e che i layer GIS iniziali restino limitati alle circoscrizioni.
 3. Eseguire una verifica funzionale delle pagine Servizi e dotazioni e Standard urbanistici, con attenzione ai grafici a torta e ai raggi d'influenza scolastici.
 4. Continuare l'audit giuridico delle varianti successive con perimetri e stato di efficacia, senza sovrapporre automaticamente gli atti parziali alla zonizzazione comunale.
+
+## Stato verificato dopo acquisizione PRG (17/11/2026)
+
+- Workflow PRG run **#6 / 44096133160** concluso con esito `success`: download dei dataset 320/321, conversione, controlli di sintassi, QA, upload artifact e commit automatico su `main`.
+- Commit dati: `fb33c2b` (successivamente incluso nella storia del branch principale).
+- Artifact: [prg-palermo-geojson-6](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/44096133160/artifacts/14333997178), SHA-256 ZIP `642d60411dde16590c204db18e06405251b5ac706a2ea235538da41a1f2efbc5`.
+- Cartella `data/geo/prg/` su `main`: `prg_320_vg_zonizzazione.geojson` (5.879 feature), `prg_vincoli_areali.geojson` (662), `prg_vincoli_lineari.geojson` (100), `metadata.json`, `layers.json`, `qa_prg.json` e README.
+- QA: superati i controlli strutturali e geografici preliminari su tre layer. Una feature del dataset 320 senza geometria è stata esclusa e conteggiata. Una GeometryCollection del dataset 321 è stata scomposta in componenti areali e lineari, mantenendo la provenienza.
+- La mappa Standard urbanistici carica i vincoli areali e lineari e offre la zonizzazione integrale dataset 320 come overlay separato. I livelli si riferiscono alla Variante Generale DCC 7/2004, non attestano da soli la disciplina vigente.
+- PR #12 integrata: corretta la nota della mappa sui vincoli 321 e gli errori di caricamento dei layer ora vengono esposti nello stato della mappa.
+- La pubblicazione Pages era già riuscita per il commit `610f119`; la nuova pubblicazione conseguente alla PR #12 è stata avviata e va verificata separatamente.
+
+Restano da completare: verifica della pubblicazione Pages successiva alla PR #12; verifica visuale del caricamento dei layer nel browser; audit documentale della vigenza delle varianti urbanistiche successive; QA topologica e semantica delle geometrie PRG; completamento dei grafici e degli indicatori territoriali nelle sezioni.
