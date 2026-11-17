@@ -1434,7 +1434,7 @@ function initSchools(){
   draw();
   const mapNote=$('#schoolMapStatus');
   if(mapNote)mapNote.textContent+=' Cartografia unificata: sedi scolastiche, circoscrizioni, quartieri e UPL. '+(missingSections?'Il layer delle sezioni censuarie non è disponibile perché il relativo GeoJSON nel repository è vuoto; resta escluso finché non viene ripristinato.':'Sezioni censuarie ISTAT 2021 disponibili nel controllo livelli.');
-  setTimeout(()=>{map.invalidateSize(true);layer.bringToFront();Object.values(influenceLayers).forEach(group=>group.eachLayer(item=>item.bringToFront?.()));},180);
+  setTimeout(()=>{map.invalidateSize(true);layer.eachLayer(item=>item.bringToFront?.());Object.values(influenceLayers).forEach(group=>group.eachLayer(item=>item.bringToFront?.()));},180);
  }else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
  [kind,order,search,$('#schoolVerificationFilter'),$('#schoolBufferFilter')].forEach(x=>x?.addEventListener('input',draw));
  const so=$('#schoolStatsOrder'),ss=$('#schoolStatsSearch'),sr=$('#schoolStatsRows'),st=$('#schoolStatsStatus');
