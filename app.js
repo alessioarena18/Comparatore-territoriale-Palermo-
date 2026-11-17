@@ -921,7 +921,7 @@ function initStandardSchoolMap(){
    const panel=$('#standardPrgStats');
    if(panel)panel.innerHTML='<div class="grid standards-kpis">'+order.map(k=>{const g=prgSummary[k];return g?'<div class="card"><span class="muted">'+esc(prgZoneStyles[k].label)+'</span><div class="metric">'+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' <small>ha</small></div><small class="muted">'+g.features+' poligoni PRG</small></div>':'';}).join('')+'</div><p class="muted">Superfici geometriche lorde dei poligoni per gruppo; i codici combinati e le sovrapposizioni sono mantenuti come negli elaborati sorgente. Non sommare automaticamente le categorie né confondere F con gli standard ordinari dell’art. 3 del D.M. 1444/1968.</p>';
    const prgStatus=$('#standardPrgStatus');
-   if(prgStatus)prgStatus.textContent='Zonizzazione PRG caricata correttamente: '+fc.features.length.toLocaleString('it-IT')+' poligoni. I riepiloghi delle superfici sono riportati qui sotto.';
+   if(prgStatus)prgStatus.textContent='Zonizzazione PRG caricata correttamente: '+Number(fc.features.length).toLocaleString('it-IT')+' poligoni. I riepiloghi delle superfici sono riportati qui sotto.';
   }catch(err){
    const prgStatus=$('#standardPrgStatus');if(prgStatus)prgStatus.textContent='Errore nel caricamento della zonizzazione PRG: '+String(err.message||err);
   }
@@ -1068,7 +1068,21 @@ function initSchools(){
   });
   layer=L.layerGroup().addTo(map);
   territoryOverlays['Sedi scolastiche georeferenziate · '+pts.length+' punti']=layer;
-  L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
+  const territoryControl=L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
+  const serviceCategoryStyles={IC:{color:'#d97706',label:'Interesse comune'},V:{color:'#16845b',label:'Verde e sport'},P:{color:'#475569',label:'Parcheggi'},F:{color:'#7c3aed',label:'Interesse generale'}};
+  loadPublicFacilities().then(facilities=>{
+   const groups={IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
+   facilities.forEach(item=>{
+    const style=serviceCategoryStyles[item.category];if(!style)return;
+    const marker=L.circleMarker([item.lat,item.lon],{radius:6,color:style.color,fillColor:style.color,fillOpacity:.88,weight:1.5});
+    marker.bindPopup('<div class="school-popup"><b>'+esc(item.name)+'</b><br>'+esc(style.label)+'<br>'+esc(item.subtype||'')+(item.address?'<br>'+esc(item.address):'')+'<br><small>Fonte: OpenStreetMap. Punto di servizio da verificare per titolarità pubblica, stato operativo e corrispondenza PRG.</small></div>');
+    marker.addTo(groups[item.category]);
+   });
+   map.removeControl(territoryControl);
+   Object.entries(groups).forEach(([key,group])=>{territoryOverlays['Servizi e dotazioni · '+serviceCategoryStyles[key].label+' (OSM)']=group;});
+   L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
+   const note=$('#schoolMapStatus');if(note)note.textContent+=' Archivio condiviso: '+facilities.length+' luoghi e servizi OSM classificati per categoria; verifica di proprietà e destinazione PRG separata.';
+  }).catch(error=>{const note=$('#schoolMapStatus');if(note)note.textContent+=' Archivio dei servizi OSM non disponibile: '+String(error.message||error)+'. Il censimento scolastico resta disponibile.';});
   const missingSections=!GEO.sections||!Array.isArray(GEO.sections.features)||!GEO.sections.features.length;
   draw();
   const mapNote=$('#schoolMapStatus');
