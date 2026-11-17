@@ -1005,10 +1005,10 @@ function initStandardSchoolMap(){
 
  const loadPrgConstraints=async()=>{
   const specs=[
-   {key:'areali',file:'data/geo/prg/prg_vincoli_areali.geojson',label:'Vincoli areali · dataset 321',color:'#0f766e',fill:'#5eead4',weight:1.2},
-   {key:'lineari',file:'data/geo/prg/prg_vincoli_lineari.geojson',label:'Vincoli lineari · dataset 321',color:'#be123c',fill:'#fb7185',weight:2.5},
-   {key:'puntuali',file:'data/geo/prg/prg_vincoli_puntuali.geojson',label:'Vincoli puntuali · dataset 321',color:'#7e22ce',fill:'#c4b5fd',weight:1.8},
-   {key:'misti',file:'data/geo/prg/prg_vincoli_misti.geojson',label:'Geometrie miste · dataset 321',color:'#a16207',fill:'#fde68a',weight:1.8}
+   {key:'areali',file:'data/geo/prg/prg_vincoli_areali.geojson',label:'Vincoli areali · Variante Generale 2004',color:'#0f766e',fill:'#5eead4',weight:1.2},
+   {key:'lineari',file:'data/geo/prg/prg_vincoli_lineari.geojson',label:'Vincoli lineari · Variante Generale 2004',color:'#be123c',fill:'#fb7185',weight:2.5},
+   {key:'puntuali',file:'data/geo/prg/prg_vincoli_puntuali.geojson',label:'Vincoli puntuali · Variante Generale 2004',color:'#7e22ce',fill:'#c4b5fd',weight:1.8},
+   {key:'misti',file:'data/geo/prg/prg_vincoli_misti.geojson',label:'Geometrie miste · Variante Generale 2004',color:'#a16207',fill:'#fde68a',weight:1.8}
   ];
   const loaded=[];
   for(const spec of specs){
@@ -1090,10 +1090,10 @@ function initStandardSchoolMap(){
   'PRG 2004 · V Verde pubblico':prgZoneGroups.V,
   'PRG 2004 · P Parcheggi':prgZoneGroups.P,
   'PRG 2004 · F Interesse generale':prgZoneGroups.F,
-  'PRG · Vincoli areali (dataset 321)':prgConstraintGroups.areali,
-  'PRG · Vincoli lineari (dataset 321)':prgConstraintGroups.lineari,
-  'PRG · Vincoli puntuali (dataset 321)':prgConstraintGroups.puntuali,
-  'PRG · Geometrie miste (dataset 321)':prgConstraintGroups.misti,
+  'PRG 2004 · Vincoli areali':prgConstraintGroups.areali,
+  'PRG 2004 · Vincoli lineari':prgConstraintGroups.lineari,
+  'PRG 2004 · Vincoli puntuali':prgConstraintGroups.puntuali,
+  'PRG 2004 · Geometrie miste':prgConstraintGroups.misti,
   'Luoghi/servizi OpenStreetMap · IC':prgGroups.IC,
   'Aree verdi/sport OpenStreetMap · V':prgGroups.V,
   'Parcheggi OpenStreetMap · P':prgGroups.P,
