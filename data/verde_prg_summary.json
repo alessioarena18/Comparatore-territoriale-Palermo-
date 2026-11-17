@@ -190,6 +190,53 @@
     "Le zone E1 sono agricole; le E2 sono prevalentemente collinari, con vegetazione spontanea, boschi e riforestazione, e funzione di salvaguardia idrogeologica e paesaggistica.",
     "I poligoni VS identificano verde storico e pertinenziale, non la titolarità pubblica o privata. L’elenco del verde storico include anche aree classificate A1; l’intera zona A1 non è stata conteggiata come verde.",
     "V1, V2 e V5 sono gioco e sport; non sono assimilati automaticamente a superfici verdi permeabili. F4 è una destinazione distinta per parchi urbani e territoriali.",
-    "Il perimetro PRG 2004 è un riferimento storico di piano: le varianti successive vanno verificate per singolo ambito e non sono automaticamente recepite da questo layer."
-  ]
+    "Il perimetro PRG 2004 è un riferimento storico di piano: le varianti successive vanno verificate per singolo ambito e non sono automaticamente recepite da questo layer.",
+    "La quota di 9 m²/abitante per verde pubblico, gioco e sport è il riferimento dell'art. 3 del D.M. 1444/1968; la sua verifica richiede superfici pubbliche o riservate all'uso collettivo effettivamente disponibili, non la semplice estensione delle zone verdi di PRG."
+  ],
+  "legal_framework": {
+    "nta_source": "Comune di Palermo, Variante Generale PRG DCC 7/2004, NTA adeguate ai D.Dir. 558/02 e 124/DRU/02",
+    "nta_url": "https://trasparenza.comune.palermo.it/media/palermo/file_archive/utente2/Strument%20Urbanistici%20Generali/Piano%20Regolatore%20Generale/Norme%20tecniche%20di%20attuazione/NORME%20TECNICHE%20DI%20ATTUAZIONE%20-%20ADEGUATE%20AL%20D.DIR.%20558%3A02%2C%20DI%20RETTIFICA%20DEL%20DIR%20124%3ADRU%3A02%20DI%20APPROVAZIONE%20-%20ADEGUATE%20ALLA%20ERRATA%20CORRIGE.pdf",
+    "controlling_graphic_sheets": [
+      "P2a",
+      "P2b"
+    ],
+    "articles": {
+      "16": "Zone E: E1 agricola pianeggiante/residuale; E2 collinare con vegetazione spontanea, boschi e riforestazione; la destinazione non dimostra automaticamente uso pubblico.",
+      "17": "Zone E1: tutela speciale delle aree individuate come parchi urbani; rinvio all'art. 23.",
+      "18": "Zone E2: tutela e limitazioni alla trasformazione; il comma 3 contiene nel testo pubblicato un richiamo finale a E1 da verificare con errata corrige/atti applicativi.",
+      "21": "Aree a verde storico, privato e pubblico: il codice VS non certifica la proprietà e non va trattato come verde privato per definizione.",
+      "23": "Parchi urbani: il perimetro può comprendere aree agricole, attrezzature, servizi e residenza; non coincide integralmente con superficie verde.",
+      "24": "Classificazione funzionale V1 campi gioco, V2 campi sportivi, V3 spazi pubblici a verde, V4 aree attrezzate a parco, V5 impianti sportivi.",
+      "23bis": "Tutela della vegetazione e alberature."
+    },
+    "standard_accounting": {
+      "dm_1444_1968_art_3_green_m2_per_resident": 9,
+      "candidate_codes": [
+        "V3",
+        "V4",
+        "V1",
+        "V2",
+        "F4"
+      ],
+      "conditional_codes": [
+        "V1",
+        "V2",
+        "F4"
+      ],
+      "not_automatically_eligible": [
+        "E1",
+        "E2",
+        "VS",
+        "V5"
+      ],
+      "conditions": [
+        "titolo di proprietà pubblica o vincolo/convenzione d'uso collettivo verificabile",
+        "attuazione effettiva",
+        "accessibilità e fruibilità",
+        "superficie netta pertinente alla funzione",
+        "eliminazione dei doppi conteggi e delle sovrapposizioni"
+      ],
+      "note": "Il bilancio degli standard non viene calcolato sulle sole previsioni di PRG. E1/E2, VS e V5 non entrano automaticamente nella quota dei 9 m²/ab. Per F4 si conteggiano solo le porzioni effettivamente pertinenti, non l'intero perimetro."
+    }
+  }
 }
