@@ -33,7 +33,7 @@ function housingRows(data,s,requestedLevel){
  }
  if(level==='quartieri'){
   if(qFeature)return data.quartieri.filter(x=>x.code===qCode);
-  if(s.circ)return data.quartieri.filter(x=>{const q=DATA.territories.quartieri.find(z=>{const f=findAsc2FeatureForQuartiere(z);return f&&String(f.properties?.COM_ASC2)===x.code;});return q&&(q.circ_ids||[]).includes(s.circ)&&(q.circ_ids||[]).length===1;});
+   if(s.circ){const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');return data.quartieri.filter(x=>{const q=DATA.territories.quartieri.find(z=>{const f=findAsc2FeatureForQuartiere(z);return (f&&String(f.properties?.COM_ASC2)===x.code)||norm(z.name)===norm(x.name);});return q&&(q.circ_ids||[]).includes(s.circ)&&(q.circ_ids||[]).length===1;});}
   if(s.asc3){const f=GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3)),p=f?findParentFeature(f,'asc3','asc2'):null;return data.quartieri.filter(x=>p&&x.code===String(p.properties?.COM_ASC2));}
   return data.quartieri;
  }
