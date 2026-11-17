@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""QA strutturale e geografica preliminare dei due layer vincoli PRG dataset 321."""
+"""QA strutturale e geografica preliminare dei due layer vincoli PRG dataset 321.
+
+Areali e lineari sono mantenuti separati per evitare fusioni semantiche delle geometrie.
+"""
 import json,pathlib,sys
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 META=ROOT/"data/geo/prg_vincoli_2021_metadata.json"
