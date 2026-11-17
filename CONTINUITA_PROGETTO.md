@@ -37,3 +37,26 @@ La pipeline controlla struttura GeoJSON, presenza delle geometrie, coordinate WG
 ## Continuità tra conversazioni
 
 In una nuova conversazione, riprendere dal presente documento e dal repository main. Non usare copie ZIP precedenti come fonte di verità se il branch main è più aggiornato.
+
+## Aggiornamento tecnico del 17 novembre 2026
+
+Pull request successive integrate in `main`:
+- #2: correzione del nome artifact GitHub Actions.
+- #3: lettura robusta dei testi degli shapefile, con fallback CP1252 quando il GeoJSON temporaneo non è UTF-8 valido.
+- #4: suddivisione del dataset 321 per geometria effettiva e aggiunta del layer cartografico per geometrie miste.
+- #5: esplosione delle GeometryCollection in geometrie semplici, tracciamento delle feature prive di geometria nei metadati e nel report QA; etichette dei vincoli esplicitamente riferite alla Variante Generale 2004.
+
+Esecuzioni osservate:
+- Run 44094740706: pubblicazione GitHub Pages completata con esito success.
+- Run 44094709168: acquisizione bloccata da caratteri legacy non UTF-8.
+- Run 44095082400: stesso errore di codifica, prima della correzione.
+- Run 44095171998: download, conversione e controlli di sintassi superati; QA fermata da una feature sorgente priva di geometria.
+- Run 44095279686: stessa QA pre-normalizzazione.
+- Run 44095465462: nuova esecuzione dopo la normalizzazione geometrica, ancora in corso al momento dell'aggiornamento.
+
+Riscontro preliminare sui dati sorgente:
+- Dataset 320: 5.880 feature lette in conversione; una feature è risultata priva di geometria ed è stata esclusa dall'output cartografico, con conteggio nei metadati.
+- Dataset 321: presenti geometrie miste; la conversione aggiornata separa le componenti di GeometryCollection e conserva il riferimento allo shapefile e all'indice della parte.
+- La conversione precedente aveva già prodotto 99 geometrie lineari e 662 feature nel gruppo misto proveniente da `Vincoli_Ariali.shp`; tali conteggi vanno verificati nel run definitivo dopo l'esplosione.
+
+Stato attuale: i GeoJSON finali non vanno considerati pubblicati finché il run 44095465462 non conclude QA e upload/commit. Le verifiche strutturali e geografiche preliminari non certificano la topologia né la vigenza urbanistica. La denominazione cartografica deve restare riferita alla Variante Generale 2004 e accompagnata dall'avvertenza sulle varianti successive.
