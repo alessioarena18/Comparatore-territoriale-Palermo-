@@ -272,7 +272,7 @@ Fonte: https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015
 
 - Aggiunta la sezione **Verde urbano** con cartografia tematica e quadro quantitativo delle destinazioni E1, E2, VS, V1-V5 e F4.
 - Nuovo layer derivato da 679 geometrie filtrate dal dataset comunale 320 e dal layer tematico PRG standard 2004: `data/geo/verde_prg.geojson`; riepilogo: `data/verde_prg_summary.json`.
-- Superfici geodetiche preliminari: E1 2.280,07 ha (107 poligoni); E2 5.840,02 ha (10); VS 627,11 ha (166); V3 157,20 ha (241); V4 59,04 ha (23); F4 228,06 ha (4). V1 13,86 ha, V2 70,33 ha, V5 21,08 ha. 26 geometrie V con codici misti/non univoci per 29,04 ha.
+- Superfici geometriche sferiche approssimate: E1 2.280,07 ha (107 poligoni); E2 5.840,02 ha (10); VS 627,11 ha (166); V3 157,20 ha (241); V4 59,04 ha (23); F4 228,06 ha (4). V1 13,86 ha, V2 70,33 ha, V5 21,08 ha. 26 geometrie V con codici misti/non univoci per 29,04 ha.
 - Le superfici non vanno sommate in un totale: perimetri di parchi e destinazioni interne possono sovrapporsi. I codici misti non vengono ripartiti.
 - Distinzione normativa: NTA PRG 2004 artt. 16-18 per E1/E2, art. 21 per verde storico/privato/pubblico, art. 23 per parchi urbani, art. 24 per servizi V1-V5 e art. 19 per F4. Il vecchio schema V1-V4 del PRG 1962 non viene applicato alla classificazione 2004.
 - Il PRG non fornisce un layer autonomo che certifichi proprietà privata: VS e registro del verde storico non sono una prova di proprietà. Superficie privata indicata N.D. fino a verifica catastale e patrimoniale. Le zone A1 non sono conteggiate integralmente come verde.
