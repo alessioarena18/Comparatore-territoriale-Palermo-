@@ -95,3 +95,10 @@
 
 /* Controlli espliciti dei layer in Servizi e Dotazioni */
 .services-layer-switches{display:flex;flex-wrap:wrap;gap:9px 18px;margin:12px 0 16px;padding:12px 14px;background:#f6f9fc;border:1px solid #dce5ed;border-radius:9px}.services-layer-switches label{display:inline-flex;align-items:center;gap:7px;color:#29445e;font-size:12px;font-weight:650;cursor:pointer}.services-layer-switches input{width:16px;height:16px;accent-color:#1769aa}.services-layer-switches label:has(input:checked){color:#1769aa}
+
+
+/* Cartografia della pagina Standard urbanistici: altezza esplicita necessaria a Leaflet */
+.school-map{display:block;width:100%;height:560px;min-height:420px;background:#e8eef3;border:1px solid #dce5ed;border-radius:10px;overflow:hidden;position:relative;z-index:0}
+.school-map.leaflet-container{height:560px;min-height:420px}
+.school-map .leaflet-control-layers{max-width:min(300px,calc(100% - 20px));max-height:70%;overflow:auto}
+@media(max-width:650px){.school-map,.school-map.leaflet-container{height:470px;min-height:390px}}
