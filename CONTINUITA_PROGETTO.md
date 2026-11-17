@@ -164,3 +164,33 @@ Le varianti parziali individuate sono localizzate e non autorizzano a sostituire
 3. Confrontare i codici PRG e le categorie S/IC/V/P/F con legenda, NTA e tavole comunali, in particolare per le codifiche combinate.
 4. Georiferire le varianti localizzate solo dopo aver acquisito gli allegati ufficiali e ricostruito il perimetro catastale, senza alterare la base generale.
 5. Verificare nel browser il rendering delle pagine e dei layer; il successo del deployment non equivale a verifica visiva dell'interfaccia.
+
+
+## Audit topologico e correzione standard urbanistici (17/11/2026, aggiornamento pomeridiano)
+
+### PR #13 integrata: diagnostica topologica PRG
+- PR #13: https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/pull/13, merge commit `ef4dd4b27ed4ef3c3e5c94fd54afe37ecfa82c35`.
+- Il workflow `audit-prg-standard.yml` installa Shapely 2.1.2 e pyproj 3.7.2 e verifica validità, duplicati e intersezioni geometriche sul layer tematico di 1.628 poligoni.
+- Run main #44099016039: SUCCESS. Artifact `audit-zonizzazione-prg-palermo` ID `14336095142`.
+- Risultati: 0 geometrie invalide; 4 geometrie duplicate; 16 coppie con sovrapposizione superiore a 1 m². Somma delle intersezioni a coppie 265.564,13 m² (può contare più volte porzioni interessate da intersezioni multiple).
+- I duplicati comprendono due geometrie IC coincidenti (IC3/IC4, 27.697,51 m²), una S2 coincidente con F1 (14.198,03 m²), una S2 coincidente con F1-S2 (14.639,51 m²) e una V3 coincidente con F11 (148.692,74 m²). La diagnostica riporta ID, codici e descrizioni. Non correggere o eliminare automaticamente: verificare NTA, tavole e natura delle sovrapposizioni.
+- Le 16 coppie di sovrapposizione sono documentate nell'artifact con attributi dei due poligoni. Gli overlap tra categorie diverse restano distinti e non vanno sommati come superficie univoca.
+- Il QA topologico è diagnostico: 0 invalidi non certifica correttezza giuridica, completezza o attuazione. Le sovrapposizioni richiedono revisione semantica.
+
+### PR #14 integrata: standard locali e generali, calcolo senza doppi conteggi interni
+- PR #14: https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/pull/14, merge commit `17bd4eb9885bf5b61513ae3157c000e1549570d3`.
+- La funzione di analisi calcola ora l'unione geometrica delle intersezioni per ciascuna categoria e unità territoriale. Questo evita di sommare due volte geometrie sovrapposte all'interno della stessa categoria.
+- Standard locali: S 4,5; IC 2; V 9; P 2,5 m²/abitante, totale 18 m²/abitante.
+- Standard di interesse generale distinti: F1 1,5; F2 1; F4 15 m²/abitante, secondo la ricognizione riportata nella Relazione generale PRG2.0 2025. La categoria F aggregata resta visibile solo come dato descrittivo e non entra in un rapporto normativo.
+- Il riconoscimento F1/F2/F4 avviene solo quando il codice contiene il token esatto. I codici combinati non vengono ripartiti arbitrariamente. Le sovrapposizioni tra categorie diverse restano separate: i rapporti per categoria non vanno sommati senza una verifica delle funzioni e delle geometrie.
+- Registro fonti aggiornato a versione 1.4: aggiunte la pagina comunale delle NTA/tavole PRG e la Relazione generale dello Schema di massima PRG2.0 2025.
+- Cache key di app.js aggiornata in index.html per evitare il riuso della precedente versione lato browser.
+- Run verifica applicazione e dati #44099231584: SUCCESS (sintassi JS/Python, whitespace, presenza dei layer PRG).
+- Deploy GitHub Pages #44099231321: SUCCESS per il commit `17bd4eb9885bf5b61513ae3157c000e1549570d3`.
+
+### Prossime verifiche obbligatorie
+1. Verificare visivamente nel browser la tabella standard per circoscrizioni, quartieri, UPL e sezioni, con particolare attenzione a performance e righe con unione non riuscita.
+2. Esaminare le 4 geometrie duplicate e le 16 coppie sovrapposte sulle tavole ufficiali; non eliminare feature finché non sia chiaro se rappresentano duplicazioni, funzioni compresenti o livelli di piano sovrapposti.
+3. Controllare la corrispondenza di tutti i codici PRG con art. 24 NTA, tavole P2A e disposizioni speciali, soprattutto i codici combinati e le zone F diverse da F1/F2/F4.
+4. Georiferire gli atti di variante parziale 2025-2026 sui rispettivi perimetri catastali solo dopo aver acquisito gli allegati e verificato l'efficacia.
+5. Non considerare il progetto concluso prima della verifica visiva dell'interfaccia e della revisione semantico-giuridica delle geometrie.
