@@ -1104,7 +1104,7 @@ function initStandardSchoolMap(){
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const b=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(b.isValid())map.fitBounds(b,{padding:[20,20],maxZoom:13});}
  window.__standardAmenitiesMap=map;window.__stdAmenities=[];
- loadPrgZones();loadPrgConstraints();loadAmenities().then(()=>{});
+ loadPrgZones().then(()=>loadPrgConstraints());loadAmenities().then(()=>{});
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function loadSchoolArchives(){
