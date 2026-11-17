@@ -33,9 +33,11 @@ def ha(m2):return round(m2/10000,4)
 def summary_area(g):return {"m2":round(g.area,2),"ha":ha(g.area)}
 def main():
     h=load(HIST); p=load(PRG)
-    hist=[];types=Counter();invalid_h=0
+    hist=[];types=Counter();invalid_h=0;repaired_h=0
     for f in h.get("features",[]):
         try:
+            original=shape(f['geometry']); repaired=not original.is_valid
+            if repaired:repaired_h+=1
             g=geom(f)
             if g and g.area>0:
                 typ=str((f.get("properties") or {}).get("TIPO") or "N.D.")
@@ -52,6 +54,18 @@ def main():
     if not hist or not byclass:raise RuntimeError("Layer storici o PRG senza geometrie utilizzabili")
     h_union=unary_union([x[0] for x in hist])
     p_union=unary_union([g for group in byclass.values() for g in group])
+    urban_keys={'pubblico','gioco','sport','attrezzato','impianti','storico','parco_urbano','misto'}
+    standard_keys={'pubblico','gioco','sport','attrezzato'}
+    natural_keys={'agricolo','collinare'}
+    urban_union=unary_union([g for c,group in byclass.items() if c in urban_keys for g in group])
+    standard_union=unary_union([g for c,group in byclass.items() if c in standard_keys for g in group])
+    natural_union=unary_union([g for c,group in byclass.items() if c in natural_keys for g in group])
+    def group_stats(u):
+        i=h_union.intersection(u)
+        return {'superficie_prg':summary_area(u),'intersezione_inventario_2013':summary_area(i),
+                'inventario_2013_fuori_gruppo':summary_area(h_union.difference(u)),
+                'prg_non_censito_2013':summary_area(u.difference(h_union)),
+                'quota_inventario_2013_intersecata_pct':round(i.area/h_union.area*100,2) if h_union.area else None}
     overlap=h_union.intersection(p_union)
     outside=h_union.difference(p_union)
     prg_without=p_union.difference(h_union)
@@ -77,7 +91,7 @@ def main():
                 rows.append({"codice":props.get(codekey),"nome":props.get(namekey) or str(props.get(codekey) or "N.D."),
                   "verde_comunale_2013":summary_area(hi),"verde_prg_classificato":summary_area(pi),
                   "intersezione":summary_area(oi),"inventario_2013_fuori_prg":summary_area(hi.difference(pi)),
-                  "prg_non_censito_2013":summary_area(pi.difference(hi))})
+                  "prg_non_censito_2013":summary_area(pi.difference(hi)),\n                  "classi_urbane_prg":group_stats(urban_union.intersection(b)),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b)),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b))})
             except Exception:continue
         territorial[level]=rows
     result={
@@ -89,7 +103,7 @@ def main():
         "quota_inventario_2013_intersecata_pct":round(overlap.area/h_union.area*100,2) if h_union.area else None,
         "quota_prg_intersecata_inventario_2013_pct":round(overlap.area/p_union.area*100,2) if p_union.area else None},
       "per_tipo_inventario_2013":hist_by_type,"per_classe_prg":class_rows,"perimetri_territoriali":territorial,
-      "qa":{"geometrie_storiche_scartate":invalid_h,"geometrie_prg_scartate":invalid_p,"geometrie_storiche_non_valide_riparate_con_buffer0":sum(1 for g,_ in hist if not g.is_valid)}
+      "qa":{"geometrie_storiche_scartate":invalid_h,"geometrie_prg_scartate":invalid_p,"geometrie_storiche_non_valide_riparate_con_buffer0":repaired_h}
     }
     OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"status":"completed","global":result["global"],"counts":{k:len(v) for k,v in territorial.items()}},ensure_ascii=False,indent=2))
