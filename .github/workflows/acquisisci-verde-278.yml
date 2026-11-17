@@ -1,0 +1,58 @@
+name: Acquisizione aree verdi comunali storiche · dataset 278
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/acquisisci_verde_comunale_278.py'
+      - 'green-census-overlay.js'
+      - 'index.html'
+      - '.github/workflows/acquisisci-verde-278.yml'
+concurrency:
+  group: verde-comunale-278
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  acquire-convert-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GDAL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gdal-bin
+      - name: Acquire and convert official green inventory
+        run: python3 tools/acquisisci_verde_comunale_278.py
+      - name: Validate JavaScript and metadata
+        run: |
+          node --check app.js
+          node --check green-census-overlay.js
+          python3 -m py_compile tools/acquisisci_verde_comunale_278.py
+          python3 - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('data/geo/verde_comunale_2013.geojson')
+          m=json.loads(pathlib.Path('data/geo/verde_comunale_2013_metadata.json').read_text())
+          g=json.loads(p.read_text())
+          assert g['type']=='FeatureCollection' and len(g['features'])==m['feature_count']>0
+          assert m['dataset']==278 and m['temporal_coverage'].startswith('2013')
+          print('Dataset 278 validato:',m['feature_count'],'geometrie')
+          PY
+      - name: Upload historical green layer
+        uses: actions/upload-artifact@v4
+        with:
+          name: verde-comunale-2013-dataset-278
+          path: data/geo/verde_comunale_2013*
+          if-no-files-found: error
+          retention-days: 30
+      - name: Commit validated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/geo/verde_comunale_2013.geojson data/geo/verde_comunale_2013_metadata.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Add historical municipal green inventory dataset 278"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
