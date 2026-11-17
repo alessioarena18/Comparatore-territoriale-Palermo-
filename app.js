@@ -587,7 +587,7 @@ function initMap(){
     if(areaName)featureLayer.bindTooltip(String(areaName).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c])),{permanent:true,direction:'center',className:'gis-polygon-label',opacity:1});
    }});
    layer.eachLayer(featureLayer=>{featureLayer.on('mouseover',()=>featureLayer.setStyle?.({weight:3,fillOpacity:.16}));featureLayer.on('mouseout',()=>applyGisSelectedStyle());});
-   layer.addTo(gisMap);
+   if(item.key==='asc1')layer.addTo(gisMap);
    gisImportedLayers.push({name:item.name,key:item.key,layer,featureLayers:layer.getLayers()});
    applyGisSelectionVisibility();
    populateGeoSelectors();
