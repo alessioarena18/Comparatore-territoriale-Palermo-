@@ -229,3 +229,16 @@ La Relazione generale PRG2.0 Palermo 2025, pp. 78-82, è stata riletta direttame
 - È stato predisposto il branch `feat/mostra-qa-prg-standard` per aggiungere il rapporto QA topologico persistente e mostrare nella pagina Standard urbanistici il numero di geometrie invalide, coincidenze esatte e coppie sovrapposte. Rapporto: `data/geo/qa_prg_standard_2004.json`.
 - I risultati QA esposti sono: 0 geometrie invalide, 4 coincidenze esatte, 16 coppie sovrapposte oltre 1 m². Sono diagnostiche e non autorizzano correzioni automatiche.
 - Prossimo step: verificare il branch e integrare il pannello QA, poi passare alla revisione semantica dei 4 duplicati e delle sovrapposizioni.
+
+
+## Stato finale ciclo correttivo F3/F4 e pubblicazione rapporto QA (17/11/2026)
+
+- PR #15 integrata con commit `f007f1b82212d3d2db005c7a2bf84a4ff0e0f8f6`: rettifica il gruppo F3+F4 a 15 m²/ab e distingue i valori storici dai minimi normativi.
+- PR #16 integrata con commit `edeb72e66e28401f76cd70061e961711ea6ee5d4`: aggiunge il rapporto persistente `data/geo/qa_prg_standard_2004.json` e mostra il riepilogo QA nella pagina Standard urbanistici.
+- Il rapporto QA è una fotografia dell'audit del 17/11/2026: 1.628 poligoni, 0 geometrie invalide, 4 coincidenze esatte, 16 coppie sovrapposte oltre 1 m². Include ID e codici dei poligoni interessati; non modifica la geometria sorgente.
+- Workflow verifica app #44100381799: SUCCESS. Deployment Pages #44100380369: SUCCESS.
+- La pagina standard dichiara esplicitamente le anomalie geometriche e la necessità di verifica su NTA/tavole. Il rendering visivo non è stato verificato via browser automatizzato; il sito è stato pubblicato correttamente.
+- Il codice F1-S2 e altre codifiche composte che includono categorie estranee al gruppo F1/F2/F3+F4 non vengono attribuite automaticamente ai rapporti normativi. F3 e F4 sono accorpate nel gruppo F34 ai fini del confronto del parametro da 15 m²/ab.
+
+### Prossima attività
+Avviare la verifica semantica delle geometrie duplicate e sovrapposte, con priorità a IC3/IC4 (ID 899/948), S2/F1 (ID 4652/3083), S2/F1-S2 (ID 4653/3084), V3/F11 (ID 4630/3260), e confrontare le tavole P2A ufficiali con gli attributi del layer derivato. Nessuna correzione va applicata senza riscontro documentale.
