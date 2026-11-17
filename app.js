@@ -1436,7 +1436,7 @@ async function initGreenBalance(){
  document.getElementById('greenBalanceQuart')?.addEventListener('click',()=>run('quart'));
  document.getElementById('greenBalanceUpl')?.addEventListener('click',()=>run('upl'));
 }
-function initGreenMap(){
+async function initGreenMap(){
  const el=document.getElementById('greenMap');if(!el||!window.L)return;
  if(greenMapInstance){greenMapInstance.remove();greenMapInstance=null;}
  const status=document.getElementById('greenMapStatus');
