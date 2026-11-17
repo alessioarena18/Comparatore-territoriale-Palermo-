@@ -21,6 +21,12 @@
       "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320",
       "date": "2015-02-16",
       "catalog_update": "2018-01-10"
+    },
+    {
+      "name": "Bilancio sociale del Comune di Palermo 2023 - Sistema Informativo Comunale Ambientale (SIAC)",
+      "url": "https://repository.comune.palermo.it/bilancio-sociale.php?anno=2023&indice=2",
+      "date": "2023",
+      "note": "Il Comune descrive il SIAC come piattaforma ambientale e cita l'Atlante dei suoli, della flora e della vegetazione, la valutazione NDVI e il censimento del patrimonio arbustivo e dei giardini storici. La fonte documenta il programma e le finalità, non prova che i layer siano pubblicamente scaricabili."
     }
   ],
   "classification": {
@@ -158,5 +164,12 @@
     "Le tavole dell'Allegato B sono scansioni cartografiche per circoscrizione e non forniscono direttamente geometrie GIS o coordinate per i simboli.",
     "Non associare automaticamente i simboli delle tavole a poligoni PRG senza georeferenziazione, controllo topologico e verifica catastale/atti.",
     "Il dataset 278 è del 2013 e il catalogo dichiara assenza di documentazione tecnica; non è prova dello stato attuale."
+  ],
+  "next_actions": [
+    "Richiedere al Settore competente un export GIS dell'Atlante del Verde/SIAC per aree V3 e giardini comunali.",
+    "Acquisire l'eventuale tabella digitale che associa i codici delle tavole Allegato B alle aree V3.",
+    "Recuperare gli atti di acquisizione, cessione, convenzione o disponibilità delle aree classificate G2 e G4.",
+    "Verificare in sopralluogo apertura, accessibilità, manutenzione e superficie effettivamente fruibile.",
+    "Georeferenziare le tavole Allegato B solo se manca un archivio vettoriale ufficiale, conservando l'errore di georeferenziazione e il livello di affidabilità."
   ]
 }
