@@ -1,0 +1,38 @@
+name: Acquisizione vincoli PRG Palermo (dataset 321)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tools/acquisisci_vincoli_prg.py"
+      - "tools/qa_vincoli_prg.py"
+      - ".github/workflows/acquisisci-vincoli-prg.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  acquisisci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Installa GDAL
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gdal-bin unzip
+      - name: Scarica e converte il dataset comunale 321
+        run: python3 tools/acquisisci_vincoli_prg.py
+      - name: Controllo strutturale e geografico
+        run: python3 tools/qa_vincoli_prg.py
+      - name: Conserva GeoJSON, metadati e QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: prg-palermo-vincoli-dataset-321
+          path: |
+            data/geo/prg_vincoli_2021.geojson
+            data/geo/prg_vincoli_2021_metadata.json
+            data/geo/qa_prg_vincoli_2021.json
+          if-no-files-found: error
+          retention-days: 30
