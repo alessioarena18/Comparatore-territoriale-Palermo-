@@ -277,3 +277,21 @@ Fonte: https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015
 - Distinzione normativa: NTA PRG 2004 artt. 16-18 per E1/E2, art. 21 per verde storico/privato/pubblico, art. 23 per parchi urbani, art. 24 per servizi V1-V5 e art. 19 per F4. Il vecchio schema V1-V4 del PRG 1962 non viene applicato alla classificazione 2004.
 - Il PRG non fornisce un layer autonomo che certifichi proprietà privata: VS e registro del verde storico non sono una prova di proprietà. Superficie privata indicata N.D. fino a verifica catastale e patrimoniale. Le zone A1 non sono conteggiate integralmente come verde.
 - CI e Pages da eseguire; controllo visivo Leaflet ancora necessario dopo il deploy.
+
+
+## Analisi tematica del verde PRG – 17 novembre 2026
+
+Integrazione cartografica del verde sulla Variante Generale PRG DCC 7/2004, con il dataset comunale 320 come fonte ufficiale.
+
+- V3: spazi pubblici a verde.
+- V1, V2, V4 e V5: campi gioco, campi sportivi, parchi attrezzati e impianti sportivi, mantenuti distinti da V3.
+- E1/E2: zone agricole, quando il codice è esplicito.
+- Verde privato e sistema collinare: riconoscimento soltanto in presenza di codici o descrizioni esplicite. Non si trasferisce la legenda del PRG 1962 alla Variante Generale 2004.
+- Le categorie possono sovrapporsi; le superfici lorde non sono additive. La destinazione urbanistica non certifica proprietà, attuazione, accessibilità o uso effettivo.
+- La mappa Standard include layer tematici separati, popup e riepilogo di geometrie/superfici per categoria, estratti dinamicamente dal dataset comunale 320.
+
+Fonti:
+- Comune di Palermo, dataset 320: https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320
+- Comune di Palermo, NTA e tavole P2A/P2B: https://repository.comune.palermo.it/amministrazione-trasparente.php?grp=3&lev=4&id=111
+- Legenda V1-V5 della Variante Generale 2004: https://www.periferie.concorrimi.it/allegati/7_PRGC.pdf
+- La legenda V1 pubblico/V2 privato/V3 attrezzato/V4 agricolo consultata in un allegato del PRG 1962 è esclusa dalla classificazione del PRG 2004.
