@@ -242,3 +242,18 @@ La Relazione generale PRG2.0 Palermo 2025, pp. 78-82, è stata riletta direttame
 
 ### Prossima attività
 Avviare la verifica semantica delle geometrie duplicate e sovrapposte, con priorità a IC3/IC4 (ID 899/948), S2/F1 (ID 4652/3083), S2/F1-S2 (ID 4653/3084), V3/F11 (ID 4630/3260), e confrontare le tavole P2A ufficiali con gli attributi del layer derivato. Nessuna correzione va applicata senza riscontro documentale.
+
+
+## Correzione classificazione F3+F4 e trasparenza QA (17/11/2026)
+
+### Chiarimento normativo
+La Relazione generale comunale PRG2.0 2025 (pp. 78-81) riporta per le attrezzature di interesse generale i parametri F1 1,5 m²/ab, F2 1 m²/ab e F3+F4 15 m²/ab. Il parametro di 15 m²/ab va quindi riferito alla famiglia congiunta F3+F4, non a F4 isolatamente. Le precedenti note di continuità che citavano solo F4 sono da leggere come rettificate da questo chiarimento.
+Fonte: https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015084706.pdf (Relazione generale PRG2.0 2025); risultati di ricerca del documento ufficiale e relativa tabella riepilogativa.
+
+### Correzione tecnica
+- Il parser dei codici ora riconosce F3, F4 e F34 e li aggrega nella sola famiglia analitica F3+F4 (F34).
+- F1 e F2 restano famiglie autonome.
+- I codici misti con ulteriori destinazioni (ad esempio F1-S2 o F1F3F15) non vengono ripartiti arbitrariamente.
+- La pagina Standard urbanistici espone l'esito QA: 0 geometrie invalide, 4 duplicati esatti, 16 coppie con sovrapposizione >1 m². È esplicitato che le sovrapposizioni sono segnalazioni da verificare e che non sono state eliminate geometrie.
+- Registro fonti aggiornato a versione 1.5.
+- Le modifiche richiedono test automatico, deployment Pages e verifica visiva della tabella.
