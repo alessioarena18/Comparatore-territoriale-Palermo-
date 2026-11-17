@@ -260,6 +260,68 @@
         "prg_non_censito_2013": {
           "m2": 4896.29,
           "ha": 0.4896
+        },
+        "quota_inventario_2013_intersecata_pct": 10.48,
+        "quota_prg_intersecata_inventario_2013_pct": 67.76,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 87935.94,
+            "ha": 8.7936
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 10.48,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 87935.94,
+            "ha": 8.7936
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 10.48,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 98228.93,
+            "ha": 9.8229
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -284,6 +346,68 @@
         "prg_non_censito_2013": {
           "m2": 11686805.11,
           "ha": 1168.6805
+        },
+        "quota_inventario_2013_intersecata_pct": 70.44,
+        "quota_prg_intersecata_inventario_2013_pct": 0.64,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1072492.18,
+            "ha": 107.2492
+          },
+          "intersezione_inventario_2013": {
+            "m2": 75678.29,
+            "ha": 7.5678
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 31779.88,
+            "ha": 3.178
+          },
+          "prg_non_censito_2013": {
+            "m2": 996813.89,
+            "ha": 99.6814
+          },
+          "quota_inventario_2013_intersecata_pct": 70.43,
+          "quota_prg_intersecata_inventario_2013_pct": 7.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 527716.81,
+            "ha": 52.7717
+          },
+          "intersezione_inventario_2013": {
+            "m2": 75367.59,
+            "ha": 7.5368
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 32090.58,
+            "ha": 3.2091
+          },
+          "prg_non_censito_2013": {
+            "m2": 452349.23,
+            "ha": 45.2349
+          },
+          "quota_inventario_2013_intersecata_pct": 70.14,
+          "quota_prg_intersecata_inventario_2013_pct": 14.28
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 10690017.62,
+            "ha": 1069.0018
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18.63,
+            "ha": 0.0019
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 107439.54,
+            "ha": 10.744
+          },
+          "prg_non_censito_2013": {
+            "m2": 10689998.99,
+            "ha": 1068.9999
+          },
+          "quota_inventario_2013_intersecata_pct": 0.02,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -308,6 +432,68 @@
         "prg_non_censito_2013": {
           "m2": 14963870.03,
           "ha": 1496.387
+        },
+        "quota_inventario_2013_intersecata_pct": 15.26,
+        "quota_prg_intersecata_inventario_2013_pct": 0.03,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 488947.16,
+            "ha": 48.8947
+          },
+          "intersezione_inventario_2013": {
+            "m2": 4633.84,
+            "ha": 0.4634
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 26083.77,
+            "ha": 2.6084
+          },
+          "prg_non_censito_2013": {
+            "m2": 484313.32,
+            "ha": 48.4313
+          },
+          "quota_inventario_2013_intersecata_pct": 15.09,
+          "quota_prg_intersecata_inventario_2013_pct": 0.95
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 325760.95,
+            "ha": 32.5761
+          },
+          "intersezione_inventario_2013": {
+            "m2": 4447.6,
+            "ha": 0.4448
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 26270.01,
+            "ha": 2.627
+          },
+          "prg_non_censito_2013": {
+            "m2": 321313.35,
+            "ha": 32.1313
+          },
+          "quota_inventario_2013_intersecata_pct": 14.48,
+          "quota_prg_intersecata_inventario_2013_pct": 1.37
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 14479611.45,
+            "ha": 1447.9611
+          },
+          "intersezione_inventario_2013": {
+            "m2": 54.74,
+            "ha": 0.0055
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 30662.88,
+            "ha": 3.0663
+          },
+          "prg_non_censito_2013": {
+            "m2": 14479556.71,
+            "ha": 1447.9557
+          },
+          "quota_inventario_2013_intersecata_pct": 0.18,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -332,6 +518,68 @@
         "prg_non_censito_2013": {
           "m2": 14097981.61,
           "ha": 1409.7982
+        },
+        "quota_inventario_2013_intersecata_pct": 19.11,
+        "quota_prg_intersecata_inventario_2013_pct": 0.15,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1574988.91,
+            "ha": 157.4989
+          },
+          "intersezione_inventario_2013": {
+            "m2": 20938.97,
+            "ha": 2.0939
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 88774.27,
+            "ha": 8.8774
+          },
+          "prg_non_censito_2013": {
+            "m2": 1554049.94,
+            "ha": 155.405
+          },
+          "quota_inventario_2013_intersecata_pct": 19.09,
+          "quota_prg_intersecata_inventario_2013_pct": 1.33
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 367353.07,
+            "ha": 36.7353
+          },
+          "intersezione_inventario_2013": {
+            "m2": 7307.21,
+            "ha": 0.7307
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 102406.03,
+            "ha": 10.2406
+          },
+          "prg_non_censito_2013": {
+            "m2": 360045.86,
+            "ha": 36.0046
+          },
+          "quota_inventario_2013_intersecata_pct": 6.66,
+          "quota_prg_intersecata_inventario_2013_pct": 1.99
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 12543954.69,
+            "ha": 1254.3955
+          },
+          "intersezione_inventario_2013": {
+            "m2": 23.02,
+            "ha": 0.0023
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 109690.22,
+            "ha": 10.969
+          },
+          "prg_non_censito_2013": {
+            "m2": 12543931.68,
+            "ha": 1254.3932
+          },
+          "quota_inventario_2013_intersecata_pct": 0.02,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -356,6 +604,68 @@
         "prg_non_censito_2013": {
           "m2": 8715667.2,
           "ha": 871.5667
+        },
+        "quota_inventario_2013_intersecata_pct": 23.32,
+        "quota_prg_intersecata_inventario_2013_pct": 0.14,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 618563.81,
+            "ha": 61.8564
+          },
+          "intersezione_inventario_2013": {
+            "m2": 12013.52,
+            "ha": 1.2014
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 39515.49,
+            "ha": 3.9515
+          },
+          "prg_non_censito_2013": {
+            "m2": 606550.29,
+            "ha": 60.655
+          },
+          "quota_inventario_2013_intersecata_pct": 23.31,
+          "quota_prg_intersecata_inventario_2013_pct": 1.94
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 386169.53,
+            "ha": 38.617
+          },
+          "intersezione_inventario_2013": {
+            "m2": 12013.52,
+            "ha": 1.2014
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 39515.49,
+            "ha": 3.9515
+          },
+          "prg_non_censito_2013": {
+            "m2": 374156.02,
+            "ha": 37.4156
+          },
+          "quota_inventario_2013_intersecata_pct": 23.31,
+          "quota_prg_intersecata_inventario_2013_pct": 3.11
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 8109119.08,
+            "ha": 810.9119
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1.63,
+            "ha": 0.0002
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 51527.38,
+            "ha": 5.1527
+          },
+          "prg_non_censito_2013": {
+            "m2": 8109117.45,
+            "ha": 810.9117
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -380,6 +690,68 @@
         "prg_non_censito_2013": {
           "m2": 15224346.0,
           "ha": 1522.4346
+        },
+        "quota_inventario_2013_intersecata_pct": 7.64,
+        "quota_prg_intersecata_inventario_2013_pct": 0.02,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1731925.14,
+            "ha": 173.1925
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3489.93,
+            "ha": 0.349
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 42178.67,
+            "ha": 4.2179
+          },
+          "prg_non_censito_2013": {
+            "m2": 1728435.22,
+            "ha": 172.8435
+          },
+          "quota_inventario_2013_intersecata_pct": 7.64,
+          "quota_prg_intersecata_inventario_2013_pct": 0.2
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 239723.4,
+            "ha": 23.9723
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3224.41,
+            "ha": 0.3224
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 42444.18,
+            "ha": 4.2444
+          },
+          "prg_non_censito_2013": {
+            "m2": 236498.98,
+            "ha": 23.6499
+          },
+          "quota_inventario_2013_intersecata_pct": 7.06,
+          "quota_prg_intersecata_inventario_2013_pct": 1.35
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 13501780.64,
+            "ha": 1350.1781
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 45668.59,
+            "ha": 4.5669
+          },
+          "prg_non_censito_2013": {
+            "m2": 13501780.64,
+            "ha": 1350.1781
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -404,6 +776,68 @@
         "prg_non_censito_2013": {
           "m2": 18316285.95,
           "ha": 1831.6286
+        },
+        "quota_inventario_2013_intersecata_pct": 16.72,
+        "quota_prg_intersecata_inventario_2013_pct": 0.11,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 3081423.26,
+            "ha": 308.1423
+          },
+          "intersezione_inventario_2013": {
+            "m2": 19525.96,
+            "ha": 1.9526
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 101968.99,
+            "ha": 10.1969
+          },
+          "prg_non_censito_2013": {
+            "m2": 3061897.3,
+            "ha": 306.1897
+          },
+          "quota_inventario_2013_intersecata_pct": 16.07,
+          "quota_prg_intersecata_inventario_2013_pct": 0.63
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 714167.69,
+            "ha": 71.4168
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18790.0,
+            "ha": 1.879
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 102704.95,
+            "ha": 10.2705
+          },
+          "prg_non_censito_2013": {
+            "m2": 695377.69,
+            "ha": 69.5378
+          },
+          "quota_inventario_2013_intersecata_pct": 15.47,
+          "quota_prg_intersecata_inventario_2013_pct": 2.63
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 15257369.7,
+            "ha": 1525.737
+          },
+          "intersezione_inventario_2013": {
+            "m2": 788.23,
+            "ha": 0.0788
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 120706.72,
+            "ha": 12.0707
+          },
+          "prg_non_censito_2013": {
+            "m2": 15256581.47,
+            "ha": 1525.6581
+          },
+          "quota_inventario_2013_intersecata_pct": 0.65,
+          "quota_prg_intersecata_inventario_2013_pct": 0.01
         }
       },
       {
@@ -428,6 +862,68 @@
         "prg_non_censito_2013": {
           "m2": 6862273.25,
           "ha": 686.2273
+        },
+        "quota_inventario_2013_intersecata_pct": 62.41,
+        "quota_prg_intersecata_inventario_2013_pct": 0.99,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 922349.01,
+            "ha": 92.2349
+          },
+          "intersezione_inventario_2013": {
+            "m2": 68395.12,
+            "ha": 6.8395
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 41605.08,
+            "ha": 4.1605
+          },
+          "prg_non_censito_2013": {
+            "m2": 853953.89,
+            "ha": 85.3954
+          },
+          "quota_inventario_2013_intersecata_pct": 62.18,
+          "quota_prg_intersecata_inventario_2013_pct": 7.42
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 429087.72,
+            "ha": 42.9088
+          },
+          "intersezione_inventario_2013": {
+            "m2": 59275.01,
+            "ha": 5.9275
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 50725.19,
+            "ha": 5.0725
+          },
+          "prg_non_censito_2013": {
+            "m2": 369812.72,
+            "ha": 36.9813
+          },
+          "quota_inventario_2013_intersecata_pct": 53.89,
+          "quota_prg_intersecata_inventario_2013_pct": 13.81
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6008963.61,
+            "ha": 600.8964
+          },
+          "intersezione_inventario_2013": {
+            "m2": 256.34,
+            "ha": 0.0256
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 109743.86,
+            "ha": 10.9744
+          },
+          "prg_non_censito_2013": {
+            "m2": 6008707.27,
+            "ha": 600.8707
+          },
+          "quota_inventario_2013_intersecata_pct": 0.23,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       }
     ],
@@ -454,6 +950,68 @@
         "prg_non_censito_2013": {
           "m2": 0.0,
           "ha": 0.0
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": null,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 59415.15,
+            "ha": 5.9415
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 59415.15,
+            "ha": 5.9415
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 59415.15,
+            "ha": 5.9415
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -478,6 +1036,68 @@
         "prg_non_censito_2013": {
           "m2": 4896.29,
           "ha": 0.4896
+        },
+        "quota_inventario_2013_intersecata_pct": 26.52,
+        "quota_prg_intersecata_inventario_2013_pct": 67.76,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 28520.79,
+            "ha": 2.8521
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 26.52,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 28520.79,
+            "ha": 2.8521
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 26.52,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 38813.78,
+            "ha": 3.8814
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -502,6 +1122,68 @@
         "prg_non_censito_2013": {
           "m2": 434555.32,
           "ha": 43.4555
+        },
+        "quota_inventario_2013_intersecata_pct": 75.68,
+        "quota_prg_intersecata_inventario_2013_pct": 13.6,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 386083.9,
+            "ha": 38.6084
+          },
+          "intersezione_inventario_2013": {
+            "m2": 68392.15,
+            "ha": 6.8392
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 21976.88,
+            "ha": 2.1977
+          },
+          "prg_non_censito_2013": {
+            "m2": 317691.75,
+            "ha": 31.7692
+          },
+          "quota_inventario_2013_intersecata_pct": 75.68,
+          "quota_prg_intersecata_inventario_2013_pct": 17.71
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 362078.0,
+            "ha": 36.2078
+          },
+          "intersezione_inventario_2013": {
+            "m2": 68392.15,
+            "ha": 6.8392
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 21976.88,
+            "ha": 2.1977
+          },
+          "prg_non_censito_2013": {
+            "m2": 293685.85,
+            "ha": 29.3686
+          },
+          "quota_inventario_2013_intersecata_pct": 75.68,
+          "quota_prg_intersecata_inventario_2013_pct": 18.89
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 116863.57,
+            "ha": 11.6864
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 90369.02,
+            "ha": 9.0369
+          },
+          "prg_non_censito_2013": {
+            "m2": 116863.57,
+            "ha": 11.6864
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -526,6 +1208,68 @@
         "prg_non_censito_2013": {
           "m2": 662500.23,
           "ha": 66.25
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 326428.94,
+            "ha": 32.6429
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 45588.51,
+            "ha": 4.5589
+          },
+          "prg_non_censito_2013": {
+            "m2": 326428.94,
+            "ha": 32.6429
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 64330.21,
+            "ha": 6.433
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 45588.51,
+            "ha": 4.5589
+          },
+          "prg_non_censito_2013": {
+            "m2": 64330.21,
+            "ha": 6.433
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 336071.29,
+            "ha": 33.6071
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 45588.51,
+            "ha": 4.5589
+          },
+          "prg_non_censito_2013": {
+            "m2": 336071.29,
+            "ha": 33.6071
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -550,6 +1294,68 @@
         "prg_non_censito_2013": {
           "m2": 173089.47,
           "ha": 17.3089
+        },
+        "quota_inventario_2013_intersecata_pct": 59.63,
+        "quota_prg_intersecata_inventario_2013_pct": 10.06,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 192452.71,
+            "ha": 19.2453
+          },
+          "intersezione_inventario_2013": {
+            "m2": 19363.24,
+            "ha": 1.9363
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13106.43,
+            "ha": 1.3106
+          },
+          "prg_non_censito_2013": {
+            "m2": 173089.47,
+            "ha": 17.3089
+          },
+          "quota_inventario_2013_intersecata_pct": 59.63,
+          "quota_prg_intersecata_inventario_2013_pct": 10.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 109529.6,
+            "ha": 10.953
+          },
+          "intersezione_inventario_2013": {
+            "m2": 6076.0,
+            "ha": 0.6076
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 26393.67,
+            "ha": 2.6394
+          },
+          "prg_non_censito_2013": {
+            "m2": 103453.6,
+            "ha": 10.3454
+          },
+          "quota_inventario_2013_intersecata_pct": 18.71,
+          "quota_prg_intersecata_inventario_2013_pct": 5.55
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 32469.67,
+            "ha": 3.247
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -574,6 +1380,68 @@
         "prg_non_censito_2013": {
           "m2": 120699.31,
           "ha": 12.0699
+        },
+        "quota_inventario_2013_intersecata_pct": 7.76,
+        "quota_prg_intersecata_inventario_2013_pct": 1.32,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 122315.91,
+            "ha": 12.2316
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1616.59,
+            "ha": 0.1617
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 19214.83,
+            "ha": 1.9215
+          },
+          "prg_non_censito_2013": {
+            "m2": 120699.31,
+            "ha": 12.0699
+          },
+          "quota_inventario_2013_intersecata_pct": 7.76,
+          "quota_prg_intersecata_inventario_2013_pct": 1.32
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 72958.27,
+            "ha": 7.2958
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1616.59,
+            "ha": 0.1617
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 19214.83,
+            "ha": 1.9215
+          },
+          "prg_non_censito_2013": {
+            "m2": 71341.67,
+            "ha": 7.1342
+          },
+          "quota_inventario_2013_intersecata_pct": 7.76,
+          "quota_prg_intersecata_inventario_2013_pct": 2.22
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 20831.42,
+            "ha": 2.0831
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -598,6 +1466,68 @@
         "prg_non_censito_2013": {
           "m2": 32289.58,
           "ha": 3.229
+        },
+        "quota_inventario_2013_intersecata_pct": 39.84,
+        "quota_prg_intersecata_inventario_2013_pct": 6.06,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 34371.56,
+            "ha": 3.4372
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2081.98,
+            "ha": 0.2082
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3143.25,
+            "ha": 0.3143
+          },
+          "prg_non_censito_2013": {
+            "m2": 32289.58,
+            "ha": 3.229
+          },
+          "quota_inventario_2013_intersecata_pct": 39.84,
+          "quota_prg_intersecata_inventario_2013_pct": 6.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 16044.27,
+            "ha": 1.6044
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2081.98,
+            "ha": 0.2082
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3143.25,
+            "ha": 0.3143
+          },
+          "prg_non_censito_2013": {
+            "m2": 13962.29,
+            "ha": 1.3962
+          },
+          "quota_inventario_2013_intersecata_pct": 39.84,
+          "quota_prg_intersecata_inventario_2013_pct": 12.98
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5225.24,
+            "ha": 0.5225
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -622,6 +1552,68 @@
         "prg_non_censito_2013": {
           "m2": 54982.2,
           "ha": 5.4982
+        },
+        "quota_inventario_2013_intersecata_pct": 18.57,
+        "quota_prg_intersecata_inventario_2013_pct": 6.72,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 58944.46,
+            "ha": 5.8944
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3962.27,
+            "ha": 0.3962
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17371.99,
+            "ha": 1.7372
+          },
+          "prg_non_censito_2013": {
+            "m2": 54982.2,
+            "ha": 5.4982
+          },
+          "quota_inventario_2013_intersecata_pct": 18.57,
+          "quota_prg_intersecata_inventario_2013_pct": 6.72
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 44714.57,
+            "ha": 4.4715
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3617.63,
+            "ha": 0.3618
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17716.62,
+            "ha": 1.7717
+          },
+          "prg_non_censito_2013": {
+            "m2": 41096.94,
+            "ha": 4.1097
+          },
+          "quota_inventario_2013_intersecata_pct": 16.96,
+          "quota_prg_intersecata_inventario_2013_pct": 8.09
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 21334.25,
+            "ha": 2.1334
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -646,6 +1638,68 @@
         "prg_non_censito_2013": {
           "m2": 263773.82,
           "ha": 26.3774
+        },
+        "quota_inventario_2013_intersecata_pct": 83.31,
+        "quota_prg_intersecata_inventario_2013_pct": 12.47,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 301340.74,
+            "ha": 30.1341
+          },
+          "intersezione_inventario_2013": {
+            "m2": 37566.92,
+            "ha": 3.7567
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7527.91,
+            "ha": 0.7528
+          },
+          "prg_non_censito_2013": {
+            "m2": 263773.82,
+            "ha": 26.3774
+          },
+          "quota_inventario_2013_intersecata_pct": 83.31,
+          "quota_prg_intersecata_inventario_2013_pct": 12.47
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 133413.64,
+            "ha": 13.3414
+          },
+          "intersezione_inventario_2013": {
+            "m2": 32574.34,
+            "ha": 3.2574
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12520.49,
+            "ha": 1.252
+          },
+          "prg_non_censito_2013": {
+            "m2": 100839.3,
+            "ha": 10.0839
+          },
+          "quota_inventario_2013_intersecata_pct": 72.24,
+          "quota_prg_intersecata_inventario_2013_pct": 24.42
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 45094.83,
+            "ha": 4.5095
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -670,6 +1724,68 @@
         "prg_non_censito_2013": {
           "m2": 78824.63,
           "ha": 7.8825
+        },
+        "quota_inventario_2013_intersecata_pct": 70.12,
+        "quota_prg_intersecata_inventario_2013_pct": 21.32,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 100181.39,
+            "ha": 10.0181
+          },
+          "intersezione_inventario_2013": {
+            "m2": 21356.76,
+            "ha": 2.1357
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9098.76,
+            "ha": 0.9099
+          },
+          "prg_non_censito_2013": {
+            "m2": 78824.63,
+            "ha": 7.8825
+          },
+          "quota_inventario_2013_intersecata_pct": 70.12,
+          "quota_prg_intersecata_inventario_2013_pct": 21.32
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 93825.35,
+            "ha": 9.3825
+          },
+          "intersezione_inventario_2013": {
+            "m2": 21356.76,
+            "ha": 2.1357
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9098.76,
+            "ha": 0.9099
+          },
+          "prg_non_censito_2013": {
+            "m2": 72468.59,
+            "ha": 7.2469
+          },
+          "quota_inventario_2013_intersecata_pct": 70.12,
+          "quota_prg_intersecata_inventario_2013_pct": 22.76
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 30455.52,
+            "ha": 3.0456
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -694,6 +1810,68 @@
         "prg_non_censito_2013": {
           "m2": 1651808.67,
           "ha": 165.1809
+        },
+        "quota_inventario_2013_intersecata_pct": 27.96,
+        "quota_prg_intersecata_inventario_2013_pct": 0.49,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 772791.74,
+            "ha": 77.2792
+          },
+          "intersezione_inventario_2013": {
+            "m2": 8153.02,
+            "ha": 0.8153
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 21002.78,
+            "ha": 2.1003
+          },
+          "prg_non_censito_2013": {
+            "m2": 764638.72,
+            "ha": 76.4639
+          },
+          "quota_inventario_2013_intersecata_pct": 27.96,
+          "quota_prg_intersecata_inventario_2013_pct": 1.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 261771.4,
+            "ha": 26.1771
+          },
+          "intersezione_inventario_2013": {
+            "m2": 8153.02,
+            "ha": 0.8153
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 21002.78,
+            "ha": 2.1003
+          },
+          "prg_non_censito_2013": {
+            "m2": 253618.38,
+            "ha": 25.3618
+          },
+          "quota_inventario_2013_intersecata_pct": 27.96,
+          "quota_prg_intersecata_inventario_2013_pct": 3.11
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 887169.95,
+            "ha": 88.717
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 29155.79,
+            "ha": 2.9156
+          },
+          "prg_non_censito_2013": {
+            "m2": 887169.95,
+            "ha": 88.717
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -718,6 +1896,68 @@
         "prg_non_censito_2013": {
           "m2": 9930842.39,
           "ha": 993.0842
+        },
+        "quota_inventario_2013_intersecata_pct": 26.38,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 128331.83,
+            "ha": 12.8332
+          },
+          "intersezione_inventario_2013": {
+            "m2": 310.71,
+            "ha": 0.0311
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 937.55,
+            "ha": 0.0938
+          },
+          "prg_non_censito_2013": {
+            "m2": 128021.12,
+            "ha": 12.8021
+          },
+          "quota_inventario_2013_intersecata_pct": 24.89,
+          "quota_prg_intersecata_inventario_2013_pct": 0.24
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 99900.54,
+            "ha": 9.9901
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1248.26,
+            "ha": 0.1248
+          },
+          "prg_non_censito_2013": {
+            "m2": 99900.54,
+            "ha": 9.9901
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 9802847.67,
+            "ha": 980.2848
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18.63,
+            "ha": 0.0019
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1229.62,
+            "ha": 0.123
+          },
+          "prg_non_censito_2013": {
+            "m2": 9802829.04,
+            "ha": 980.2829
+          },
+          "quota_inventario_2013_intersecata_pct": 1.49,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -742,6 +1982,68 @@
         "prg_non_censito_2013": {
           "m2": 14633468.76,
           "ha": 1463.3469
+        },
+        "quota_inventario_2013_intersecata_pct": 20.18,
+        "quota_prg_intersecata_inventario_2013_pct": 0.02,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 274231.88,
+            "ha": 27.4232
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3456.26,
+            "ha": 0.3456
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13946.45,
+            "ha": 1.3946
+          },
+          "prg_non_censito_2013": {
+            "m2": 270775.62,
+            "ha": 27.0776
+          },
+          "quota_inventario_2013_intersecata_pct": 19.86,
+          "quota_prg_intersecata_inventario_2013_pct": 1.26
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 129727.83,
+            "ha": 12.9728
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3270.03,
+            "ha": 0.327
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 14132.68,
+            "ha": 1.4133
+          },
+          "prg_non_censito_2013": {
+            "m2": 126457.8,
+            "ha": 12.6458
+          },
+          "quota_inventario_2013_intersecata_pct": 18.79,
+          "quota_prg_intersecata_inventario_2013_pct": 2.52
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 14362747.88,
+            "ha": 1436.2748
+          },
+          "intersezione_inventario_2013": {
+            "m2": 54.74,
+            "ha": 0.0055
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17347.97,
+            "ha": 1.7348
+          },
+          "prg_non_censito_2013": {
+            "m2": 14362693.14,
+            "ha": 1436.2693
+          },
+          "quota_inventario_2013_intersecata_pct": 0.31,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -766,6 +2068,68 @@
         "prg_non_censito_2013": {
           "m2": 3732709.02,
           "ha": 373.2709
+        },
+        "quota_inventario_2013_intersecata_pct": 7.83,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 426754.39,
+            "ha": 42.6754
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1575.73,
+            "ha": 0.1576
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 18539.56,
+            "ha": 1.854
+          },
+          "prg_non_censito_2013": {
+            "m2": 425178.66,
+            "ha": 42.5179
+          },
+          "quota_inventario_2013_intersecata_pct": 7.83,
+          "quota_prg_intersecata_inventario_2013_pct": 0.37
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 143637.73,
+            "ha": 14.3638
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1231.21,
+            "ha": 0.1231
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 18884.08,
+            "ha": 1.8884
+          },
+          "prg_non_censito_2013": {
+            "m2": 142406.52,
+            "ha": 14.2407
+          },
+          "quota_inventario_2013_intersecata_pct": 6.12,
+          "quota_prg_intersecata_inventario_2013_pct": 0.86
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 3307530.35,
+            "ha": 330.753
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 20115.29,
+            "ha": 2.0115
+          },
+          "prg_non_censito_2013": {
+            "m2": 3307530.35,
+            "ha": 330.753
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -790,6 +2154,68 @@
         "prg_non_censito_2013": {
           "m2": 789692.28,
           "ha": 78.9692
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 558996.15,
+            "ha": 55.8996
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 558996.15,
+            "ha": 55.8996
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 35754.62,
+            "ha": 3.5755
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 35754.62,
+            "ha": 3.5755
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 230696.13,
+            "ha": 23.0696
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 230696.13,
+            "ha": 23.0696
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -814,6 +2240,68 @@
         "prg_non_censito_2013": {
           "m2": 8739990.62,
           "ha": 873.9991
+        },
+        "quota_inventario_2013_intersecata_pct": 0.23,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 70356.72,
+            "ha": 7.0357
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10189.69,
+            "ha": 1.019
+          },
+          "prg_non_censito_2013": {
+            "m2": 70356.72,
+            "ha": 7.0357
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 14100.91,
+            "ha": 1.4101
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10189.69,
+            "ha": 1.019
+          },
+          "prg_non_censito_2013": {
+            "m2": 14100.91,
+            "ha": 1.4101
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 8669656.92,
+            "ha": 866.9657
+          },
+          "intersezione_inventario_2013": {
+            "m2": 23.02,
+            "ha": 0.0023
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10166.68,
+            "ha": 1.0167
+          },
+          "prg_non_censito_2013": {
+            "m2": 8669633.9,
+            "ha": 866.9634
+          },
+          "quota_inventario_2013_intersecata_pct": 0.23,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -838,6 +2326,68 @@
         "prg_non_censito_2013": {
           "m2": 687787.03,
           "ha": 68.7787
+        },
+        "quota_inventario_2013_intersecata_pct": 35.47,
+        "quota_prg_intersecata_inventario_2013_pct": 0.76,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 321613.15,
+            "ha": 32.1613
+          },
+          "intersezione_inventario_2013": {
+            "m2": 5291.09,
+            "ha": 0.5291
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9625.24,
+            "ha": 0.9625
+          },
+          "prg_non_censito_2013": {
+            "m2": 316322.06,
+            "ha": 31.6322
+          },
+          "quota_inventario_2013_intersecata_pct": 35.47,
+          "quota_prg_intersecata_inventario_2013_pct": 1.65
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 218752.22,
+            "ha": 21.8752
+          },
+          "intersezione_inventario_2013": {
+            "m2": 5291.09,
+            "ha": 0.5291
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9625.24,
+            "ha": 0.9625
+          },
+          "prg_non_censito_2013": {
+            "m2": 213461.13,
+            "ha": 21.3461
+          },
+          "quota_inventario_2013_intersecata_pct": 35.47,
+          "quota_prg_intersecata_inventario_2013_pct": 2.42
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 371464.97,
+            "ha": 37.1465
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 14916.34,
+            "ha": 1.4916
+          },
+          "prg_non_censito_2013": {
+            "m2": 371464.97,
+            "ha": 37.1465
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -862,6 +2412,68 @@
         "prg_non_censito_2013": {
           "m2": 7874891.28,
           "ha": 787.4891
+        },
+        "quota_inventario_2013_intersecata_pct": 28.66,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 140263.19,
+            "ha": 14.0263
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3023.85,
+            "ha": 0.3024
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7532.16,
+            "ha": 0.7532
+          },
+          "prg_non_censito_2013": {
+            "m2": 137239.34,
+            "ha": 13.7239
+          },
+          "quota_inventario_2013_intersecata_pct": 28.65,
+          "quota_prg_intersecata_inventario_2013_pct": 2.16
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 78414.77,
+            "ha": 7.8415
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3023.85,
+            "ha": 0.3024
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7532.16,
+            "ha": 0.7532
+          },
+          "prg_non_censito_2013": {
+            "m2": 75390.92,
+            "ha": 7.5391
+          },
+          "quota_inventario_2013_intersecata_pct": 28.65,
+          "quota_prg_intersecata_inventario_2013_pct": 3.86
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 7737654.11,
+            "ha": 773.7654
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1.63,
+            "ha": 0.0002
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10554.38,
+            "ha": 1.0554
+          },
+          "prg_non_censito_2013": {
+            "m2": 7737652.48,
+            "ha": 773.7652
+          },
+          "quota_inventario_2013_intersecata_pct": 0.02,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -886,6 +2498,68 @@
         "prg_non_censito_2013": {
           "m2": 6676320.69,
           "ha": 667.6321
+        },
+        "quota_inventario_2013_intersecata_pct": 2.74,
+        "quota_prg_intersecata_inventario_2013_pct": 0.01,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 170655.48,
+            "ha": 17.0655
+          },
+          "intersezione_inventario_2013": {
+            "m2": 354.34,
+            "ha": 0.0354
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12559.04,
+            "ha": 1.2559
+          },
+          "prg_non_censito_2013": {
+            "m2": 170301.14,
+            "ha": 17.0301
+          },
+          "quota_inventario_2013_intersecata_pct": 2.74,
+          "quota_prg_intersecata_inventario_2013_pct": 0.21
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 98583.83,
+            "ha": 9.8584
+          },
+          "intersezione_inventario_2013": {
+            "m2": 354.34,
+            "ha": 0.0354
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12559.04,
+            "ha": 1.2559
+          },
+          "prg_non_censito_2013": {
+            "m2": 98229.49,
+            "ha": 9.8229
+          },
+          "quota_inventario_2013_intersecata_pct": 2.74,
+          "quota_prg_intersecata_inventario_2013_pct": 0.36
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6506019.55,
+            "ha": 650.602
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12913.38,
+            "ha": 1.2913
+          },
+          "prg_non_censito_2013": {
+            "m2": 6506019.55,
+            "ha": 650.602
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -910,6 +2584,68 @@
         "prg_non_censito_2013": {
           "m2": 8548025.32,
           "ha": 854.8025
+        },
+        "quota_inventario_2013_intersecata_pct": 9.57,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1561269.66,
+            "ha": 156.127
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3135.58,
+            "ha": 0.3136
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 29619.63,
+            "ha": 2.962
+          },
+          "prg_non_censito_2013": {
+            "m2": 1558134.08,
+            "ha": 155.8134
+          },
+          "quota_inventario_2013_intersecata_pct": 9.57,
+          "quota_prg_intersecata_inventario_2013_pct": 0.2
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 141139.57,
+            "ha": 14.114
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2870.07,
+            "ha": 0.287
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 29885.14,
+            "ha": 2.9885
+          },
+          "prg_non_censito_2013": {
+            "m2": 138269.5,
+            "ha": 13.8269
+          },
+          "quota_inventario_2013_intersecata_pct": 8.76,
+          "quota_prg_intersecata_inventario_2013_pct": 2.03
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6995761.09,
+            "ha": 699.5761
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 32755.21,
+            "ha": 3.2755
+          },
+          "prg_non_censito_2013": {
+            "m2": 6995761.09,
+            "ha": 699.5761
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -934,6 +2670,68 @@
         "prg_non_censito_2013": {
           "m2": 5336375.45,
           "ha": 533.6375
+        },
+        "quota_inventario_2013_intersecata_pct": 0.17,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 624952.93,
+            "ha": 62.4953
+          },
+          "intersezione_inventario_2013": {
+            "m2": 38.66,
+            "ha": 0.0039
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 23225.36,
+            "ha": 2.3225
+          },
+          "prg_non_censito_2013": {
+            "m2": 624914.27,
+            "ha": 62.4914
+          },
+          "quota_inventario_2013_intersecata_pct": 0.17,
+          "quota_prg_intersecata_inventario_2013_pct": 0.01
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 189584.09,
+            "ha": 18.9584
+          },
+          "intersezione_inventario_2013": {
+            "m2": 38.66,
+            "ha": 0.0039
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 23225.36,
+            "ha": 2.3225
+          },
+          "prg_non_censito_2013": {
+            "m2": 189545.43,
+            "ha": 18.9545
+          },
+          "quota_inventario_2013_intersecata_pct": 0.17,
+          "quota_prg_intersecata_inventario_2013_pct": 0.02
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 4711461.45,
+            "ha": 471.1461
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 23264.02,
+            "ha": 2.3264
+          },
+          "prg_non_censito_2013": {
+            "m2": 4711461.45,
+            "ha": 471.1461
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -958,6 +2756,68 @@
         "prg_non_censito_2013": {
           "m2": 9528065.92,
           "ha": 952.8066
+        },
+        "quota_inventario_2013_intersecata_pct": 6.29,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 683161.11,
+            "ha": 68.3161
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3049.53,
+            "ha": 0.305
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 57999.39,
+            "ha": 5.7999
+          },
+          "prg_non_censito_2013": {
+            "m2": 680111.59,
+            "ha": 68.0112
+          },
+          "quota_inventario_2013_intersecata_pct": 5.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.45
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 295292.34,
+            "ha": 29.5292
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2938.95,
+            "ha": 0.2939
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 58109.97,
+            "ha": 5.811
+          },
+          "prg_non_censito_2013": {
+            "m2": 292353.39,
+            "ha": 29.2353
+          },
+          "quota_inventario_2013_intersecata_pct": 4.81,
+          "quota_prg_intersecata_inventario_2013_pct": 1.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 8848742.56,
+            "ha": 884.8743
+          },
+          "intersezione_inventario_2013": {
+            "m2": 788.23,
+            "ha": 0.0788
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 60260.69,
+            "ha": 6.0261
+          },
+          "prg_non_censito_2013": {
+            "m2": 8847954.33,
+            "ha": 884.7954
+          },
+          "quota_inventario_2013_intersecata_pct": 1.29,
+          "quota_prg_intersecata_inventario_2013_pct": 0.01
         }
       },
       {
@@ -982,6 +2842,68 @@
         "prg_non_censito_2013": {
           "m2": 2290712.56,
           "ha": 229.0713
+        },
+        "quota_inventario_2013_intersecata_pct": 47.4,
+        "quota_prg_intersecata_inventario_2013_pct": 0.71,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1665451.33,
+            "ha": 166.5451
+          },
+          "intersezione_inventario_2013": {
+            "m2": 16437.78,
+            "ha": 1.6438
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 18242.93,
+            "ha": 1.8243
+          },
+          "prg_non_censito_2013": {
+            "m2": 1649013.55,
+            "ha": 164.9014
+          },
+          "quota_inventario_2013_intersecata_pct": 47.4,
+          "quota_prg_intersecata_inventario_2013_pct": 0.99
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 136781.31,
+            "ha": 13.6781
+          },
+          "intersezione_inventario_2013": {
+            "m2": 15812.39,
+            "ha": 1.5812
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 18868.32,
+            "ha": 1.8868
+          },
+          "prg_non_censito_2013": {
+            "m2": 120968.92,
+            "ha": 12.0969
+          },
+          "quota_inventario_2013_intersecata_pct": 45.59,
+          "quota_prg_intersecata_inventario_2013_pct": 11.56
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 643891.55,
+            "ha": 64.3892
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 34680.71,
+            "ha": 3.4681
+          },
+          "prg_non_censito_2013": {
+            "m2": 643891.55,
+            "ha": 64.3892
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1006,6 +2928,68 @@
         "prg_non_censito_2013": {
           "m2": 6464692.6,
           "ha": 646.4693
+        },
+        "quota_inventario_2013_intersecata_pct": 43.96,
+        "quota_prg_intersecata_inventario_2013_pct": 0.09,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 461882.42,
+            "ha": 46.1882
+          },
+          "intersezione_inventario_2013": {
+            "m2": 5509.18,
+            "ha": 0.5509
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7606.41,
+            "ha": 0.7606
+          },
+          "prg_non_censito_2013": {
+            "m2": 456373.24,
+            "ha": 45.6373
+          },
+          "quota_inventario_2013_intersecata_pct": 42.0,
+          "quota_prg_intersecata_inventario_2013_pct": 1.19
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 157134.17,
+            "ha": 15.7134
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1726.28,
+            "ha": 0.1726
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 11389.31,
+            "ha": 1.1389
+          },
+          "prg_non_censito_2013": {
+            "m2": 155407.89,
+            "ha": 15.5408
+          },
+          "quota_inventario_2013_intersecata_pct": 13.16,
+          "quota_prg_intersecata_inventario_2013_pct": 1.1
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6008963.61,
+            "ha": 600.8964
+          },
+          "intersezione_inventario_2013": {
+            "m2": 256.34,
+            "ha": 0.0256
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12859.25,
+            "ha": 1.2859
+          },
+          "prg_non_censito_2013": {
+            "m2": 6008707.27,
+            "ha": 600.8707
+          },
+          "quota_inventario_2013_intersecata_pct": 1.95,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1030,6 +3014,68 @@
         "prg_non_censito_2013": {
           "m2": 1161132.03,
           "ha": 116.1132
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 107857.89,
+            "ha": 10.7858
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 107857.89,
+            "ha": 10.7858
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 92509.96,
+            "ha": 9.251
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 92509.96,
+            "ha": 9.251
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 1053274.14,
+            "ha": 105.3274
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 1053274.14,
+            "ha": 105.3274
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       }
     ],
@@ -1056,6 +3102,68 @@
         "prg_non_censito_2013": {
           "m2": 0.0,
           "ha": 0.0
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": null,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 58234.14,
+            "ha": 5.8234
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 58234.14,
+            "ha": 5.8234
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 58234.14,
+            "ha": 5.8234
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1080,6 +3188,68 @@
         "prg_non_censito_2013": {
           "m2": 4896.29,
           "ha": 0.4896
+        },
+        "quota_inventario_2013_intersecata_pct": 30.12,
+        "quota_prg_intersecata_inventario_2013_pct": 67.76,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 23878.32,
+            "ha": 2.3878
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 30.12,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 15189.28,
+            "ha": 1.5189
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10292.99,
+            "ha": 1.0293
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 23878.32,
+            "ha": 2.3878
+          },
+          "prg_non_censito_2013": {
+            "m2": 4896.29,
+            "ha": 0.4896
+          },
+          "quota_inventario_2013_intersecata_pct": 30.12,
+          "quota_prg_intersecata_inventario_2013_pct": 67.76
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 34171.32,
+            "ha": 3.4171
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1104,6 +3274,68 @@
         "prg_non_censito_2013": {
           "m2": 0.0,
           "ha": 0.0
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": null,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4642.46,
+            "ha": 0.4642
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4642.46,
+            "ha": 0.4642
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4642.46,
+            "ha": 0.4642
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1128,6 +3360,68 @@
         "prg_non_censito_2013": {
           "m2": 0.0,
           "ha": 0.0
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": null,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1181.01,
+            "ha": 0.1181
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1181.01,
+            "ha": 0.1181
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1181.01,
+            "ha": 0.1181
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1152,6 +3446,68 @@
         "prg_non_censito_2013": {
           "m2": 104154.05,
           "ha": 10.4154
+        },
+        "quota_inventario_2013_intersecata_pct": 87.23,
+        "quota_prg_intersecata_inventario_2013_pct": 39.22,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 171368.61,
+            "ha": 17.1369
+          },
+          "intersezione_inventario_2013": {
+            "m2": 67214.57,
+            "ha": 6.7215
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9839.55,
+            "ha": 0.984
+          },
+          "prg_non_censito_2013": {
+            "m2": 104154.05,
+            "ha": 10.4154
+          },
+          "quota_inventario_2013_intersecata_pct": 87.23,
+          "quota_prg_intersecata_inventario_2013_pct": 39.22
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 166044.88,
+            "ha": 16.6045
+          },
+          "intersezione_inventario_2013": {
+            "m2": 67214.57,
+            "ha": 6.7215
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9839.55,
+            "ha": 0.984
+          },
+          "prg_non_censito_2013": {
+            "m2": 98830.31,
+            "ha": 9.883
+          },
+          "quota_inventario_2013_intersecata_pct": 87.23,
+          "quota_prg_intersecata_inventario_2013_pct": 40.48
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 77054.12,
+            "ha": 7.7054
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1176,6 +3532,68 @@
         "prg_non_censito_2013": {
           "m2": 149472.14,
           "ha": 14.9472
+        },
+        "quota_inventario_2013_intersecata_pct": 68.3,
+        "quota_prg_intersecata_inventario_2013_pct": 5.17,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 157625.16,
+            "ha": 15.7625
+          },
+          "intersezione_inventario_2013": {
+            "m2": 8153.02,
+            "ha": 0.8153
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3783.24,
+            "ha": 0.3783
+          },
+          "prg_non_censito_2013": {
+            "m2": 149472.14,
+            "ha": 14.9472
+          },
+          "quota_inventario_2013_intersecata_pct": 68.3,
+          "quota_prg_intersecata_inventario_2013_pct": 5.17
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 129561.26,
+            "ha": 12.9561
+          },
+          "intersezione_inventario_2013": {
+            "m2": 8153.02,
+            "ha": 0.8153
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3783.24,
+            "ha": 0.3783
+          },
+          "prg_non_censito_2013": {
+            "m2": 121408.24,
+            "ha": 12.1408
+          },
+          "quota_inventario_2013_intersecata_pct": 68.3,
+          "quota_prg_intersecata_inventario_2013_pct": 6.29
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 11936.26,
+            "ha": 1.1936
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1200,6 +3618,68 @@
         "prg_non_censito_2013": {
           "m2": 1502336.53,
           "ha": 150.2337
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 615166.58,
+            "ha": 61.5167
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17219.53,
+            "ha": 1.722
+          },
+          "prg_non_censito_2013": {
+            "m2": 615166.58,
+            "ha": 61.5167
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 132210.14,
+            "ha": 13.221
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17219.53,
+            "ha": 1.722
+          },
+          "prg_non_censito_2013": {
+            "m2": 132210.14,
+            "ha": 13.221
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 887169.95,
+            "ha": 88.717
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 17219.53,
+            "ha": 1.722
+          },
+          "prg_non_censito_2013": {
+            "m2": 887169.95,
+            "ha": 88.717
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1224,6 +3704,68 @@
         "prg_non_censito_2013": {
           "m2": 474015.55,
           "ha": 47.4016
+        },
+        "quota_inventario_2013_intersecata_pct": 44.35,
+        "quota_prg_intersecata_inventario_2013_pct": 0.07,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 58481.33,
+            "ha": 5.8481
+          },
+          "intersezione_inventario_2013": {
+            "m2": 310.71,
+            "ha": 0.0311
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 389.79,
+            "ha": 0.039
+          },
+          "prg_non_censito_2013": {
+            "m2": 58170.63,
+            "ha": 5.8171
+          },
+          "quota_inventario_2013_intersecata_pct": 44.35,
+          "quota_prg_intersecata_inventario_2013_pct": 0.53
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 46580.45,
+            "ha": 4.658
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 700.5,
+            "ha": 0.07
+          },
+          "prg_non_censito_2013": {
+            "m2": 46580.45,
+            "ha": 4.658
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 415844.93,
+            "ha": 41.5845
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 700.5,
+            "ha": 0.07
+          },
+          "prg_non_censito_2013": {
+            "m2": 415844.93,
+            "ha": 41.5845
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1248,6 +3790,68 @@
         "prg_non_censito_2013": {
           "m2": 9456826.84,
           "ha": 945.6827
+        },
+        "quota_inventario_2013_intersecata_pct": 3.4,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 69850.5,
+            "ha": 6.985
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 547.76,
+            "ha": 0.0548
+          },
+          "prg_non_censito_2013": {
+            "m2": 69850.5,
+            "ha": 6.985
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 53320.09,
+            "ha": 5.332
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 547.76,
+            "ha": 0.0548
+          },
+          "prg_non_censito_2013": {
+            "m2": 53320.09,
+            "ha": 5.332
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 9387002.75,
+            "ha": 938.7003
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18.63,
+            "ha": 0.0019
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 529.13,
+            "ha": 0.0529
+          },
+          "prg_non_censito_2013": {
+            "m2": 9386984.12,
+            "ha": 938.6984
+          },
+          "quota_inventario_2013_intersecata_pct": 3.4,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1272,6 +3876,68 @@
         "prg_non_censito_2013": {
           "m2": 138310.48,
           "ha": 13.831
+        },
+        "quota_inventario_2013_intersecata_pct": 8.54,
+        "quota_prg_intersecata_inventario_2013_pct": 0.48,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 89468.2,
+            "ha": 8.9468
+          },
+          "intersezione_inventario_2013": {
+            "m2": 667.11,
+            "ha": 0.0667
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7146.11,
+            "ha": 0.7146
+          },
+          "prg_non_censito_2013": {
+            "m2": 88801.09,
+            "ha": 8.8801
+          },
+          "quota_inventario_2013_intersecata_pct": 8.54,
+          "quota_prg_intersecata_inventario_2013_pct": 0.75
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 75258.56,
+            "ha": 7.5259
+          },
+          "intersezione_inventario_2013": {
+            "m2": 667.11,
+            "ha": 0.0667
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7146.11,
+            "ha": 0.7146
+          },
+          "prg_non_censito_2013": {
+            "m2": 74591.46,
+            "ha": 7.4591
+          },
+          "quota_inventario_2013_intersecata_pct": 8.54,
+          "quota_prg_intersecata_inventario_2013_pct": 0.89
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 49509.39,
+            "ha": 4.9509
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7813.22,
+            "ha": 0.7813
+          },
+          "prg_non_censito_2013": {
+            "m2": 49509.39,
+            "ha": 4.9509
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1296,6 +3962,68 @@
         "prg_non_censito_2013": {
           "m2": 192090.79,
           "ha": 19.2091
+        },
+        "quota_inventario_2013_intersecata_pct": 9.28,
+        "quota_prg_intersecata_inventario_2013_pct": 0.27,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 125247.08,
+            "ha": 12.5247
+          },
+          "intersezione_inventario_2013": {
+            "m2": 510.47,
+            "ha": 0.051
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4991.22,
+            "ha": 0.4991
+          },
+          "prg_non_censito_2013": {
+            "m2": 124736.61,
+            "ha": 12.4737
+          },
+          "quota_inventario_2013_intersecata_pct": 9.28,
+          "quota_prg_intersecata_inventario_2013_pct": 0.41
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 120774.56,
+            "ha": 12.0775
+          },
+          "intersezione_inventario_2013": {
+            "m2": 510.47,
+            "ha": 0.051
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4991.22,
+            "ha": 0.4991
+          },
+          "prg_non_censito_2013": {
+            "m2": 120264.09,
+            "ha": 12.0264
+          },
+          "quota_inventario_2013_intersecata_pct": 9.28,
+          "quota_prg_intersecata_inventario_2013_pct": 0.42
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 67354.18,
+            "ha": 6.7354
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5501.69,
+            "ha": 0.5502
+          },
+          "prg_non_censito_2013": {
+            "m2": 67354.18,
+            "ha": 6.7354
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1320,6 +4048,68 @@
         "prg_non_censito_2013": {
           "m2": 674100.01,
           "ha": 67.41
+        },
+        "quota_inventario_2013_intersecata_pct": 26.32,
+        "quota_prg_intersecata_inventario_2013_pct": 0.4,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 95929.21,
+            "ha": 9.5929
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2689.18,
+            "ha": 0.2689
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7529.27,
+            "ha": 0.7529
+          },
+          "prg_non_censito_2013": {
+            "m2": 93240.04,
+            "ha": 9.324
+          },
+          "quota_inventario_2013_intersecata_pct": 26.32,
+          "quota_prg_intersecata_inventario_2013_pct": 2.8
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 57230.91,
+            "ha": 5.7231
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2689.18,
+            "ha": 0.2689
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7529.27,
+            "ha": 0.7529
+          },
+          "prg_non_censito_2013": {
+            "m2": 54541.74,
+            "ha": 5.4542
+          },
+          "quota_inventario_2013_intersecata_pct": 26.32,
+          "quota_prg_intersecata_inventario_2013_pct": 4.7
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 580859.97,
+            "ha": 58.086
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10218.45,
+            "ha": 1.0218
+          },
+          "prg_non_censito_2013": {
+            "m2": 580859.97,
+            "ha": 58.086
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1344,6 +4134,68 @@
         "prg_non_censito_2013": {
           "m2": 61596.92,
           "ha": 6.1597
+        },
+        "quota_inventario_2013_intersecata_pct": 18.65,
+        "quota_prg_intersecata_inventario_2013_pct": 0.93,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 54233.74,
+            "ha": 5.4234
+          },
+          "intersezione_inventario_2013": {
+            "m2": 580.85,
+            "ha": 0.0581
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2532.92,
+            "ha": 0.2533
+          },
+          "prg_non_censito_2013": {
+            "m2": 53652.89,
+            "ha": 5.3653
+          },
+          "quota_inventario_2013_intersecata_pct": 18.65,
+          "quota_prg_intersecata_inventario_2013_pct": 1.07
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 29325.68,
+            "ha": 2.9326
+          },
+          "intersezione_inventario_2013": {
+            "m2": 580.85,
+            "ha": 0.0581
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2532.92,
+            "ha": 0.2533
+          },
+          "prg_non_censito_2013": {
+            "m2": 28744.83,
+            "ha": 2.8745
+          },
+          "quota_inventario_2013_intersecata_pct": 18.65,
+          "quota_prg_intersecata_inventario_2013_pct": 1.98
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 7944.03,
+            "ha": 0.7944
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3113.77,
+            "ha": 0.3114
+          },
+          "prg_non_censito_2013": {
+            "m2": 7944.03,
+            "ha": 0.7944
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1368,6 +4220,68 @@
         "prg_non_censito_2013": {
           "m2": 6202966.63,
           "ha": 620.2967
+        },
+        "quota_inventario_2013_intersecata_pct": 5.13,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 92565.44,
+            "ha": 9.2565
+          },
+          "intersezione_inventario_2013": {
+            "m2": 186.23,
+            "ha": 0.0186
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3850.18,
+            "ha": 0.385
+          },
+          "prg_non_censito_2013": {
+            "m2": 92379.21,
+            "ha": 9.2379
+          },
+          "quota_inventario_2013_intersecata_pct": 4.61,
+          "quota_prg_intersecata_inventario_2013_pct": 0.2
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 34641.62,
+            "ha": 3.4642
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4036.41,
+            "ha": 0.4036
+          },
+          "prg_non_censito_2013": {
+            "m2": 34641.62,
+            "ha": 3.4642
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6110608.08,
+            "ha": 611.0608
+          },
+          "intersezione_inventario_2013": {
+            "m2": 20.66,
+            "ha": 0.0021
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4015.76,
+            "ha": 0.4016
+          },
+          "prg_non_censito_2013": {
+            "m2": 6110587.42,
+            "ha": 611.0587
+          },
+          "quota_inventario_2013_intersecata_pct": 0.51,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1392,6 +4306,68 @@
         "prg_non_censito_2013": {
           "m2": 7694805.2,
           "ha": 769.4805
+        },
+        "quota_inventario_2013_intersecata_pct": 100.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 31503.48,
+            "ha": 3.1503
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 34.08,
+            "ha": 0.0034
+          },
+          "prg_non_censito_2013": {
+            "m2": 31503.48,
+            "ha": 3.1503
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 8529.62,
+            "ha": 0.853
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 34.08,
+            "ha": 0.0034
+          },
+          "prg_non_censito_2013": {
+            "m2": 8529.62,
+            "ha": 0.853
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 7663335.8,
+            "ha": 766.3336
+          },
+          "intersezione_inventario_2013": {
+            "m2": 34.08,
+            "ha": 0.0034
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "prg_non_censito_2013": {
+            "m2": 7663301.72,
+            "ha": 766.3302
+          },
+          "quota_inventario_2013_intersecata_pct": 100.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1416,6 +4392,68 @@
         "prg_non_censito_2013": {
           "m2": 11134.85,
           "ha": 1.1135
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 11134.85,
+            "ha": 1.1135
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9336.1,
+            "ha": 0.9336
+          },
+          "prg_non_censito_2013": {
+            "m2": 11134.85,
+            "ha": 1.1135
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 4655.0,
+            "ha": 0.4655
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9336.1,
+            "ha": 0.9336
+          },
+          "prg_non_censito_2013": {
+            "m2": 4655.0,
+            "ha": 0.4655
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9336.1,
+            "ha": 0.9336
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1440,6 +4478,68 @@
         "prg_non_censito_2013": {
           "m2": 651365.38,
           "ha": 65.1365
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 315294.09,
+            "ha": 31.5294
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 36252.41,
+            "ha": 3.6252
+          },
+          "prg_non_censito_2013": {
+            "m2": 315294.09,
+            "ha": 31.5294
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 59675.21,
+            "ha": 5.9675
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 36252.41,
+            "ha": 3.6252
+          },
+          "prg_non_censito_2013": {
+            "m2": 59675.21,
+            "ha": 5.9675
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 336071.29,
+            "ha": 33.6071
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 36252.41,
+            "ha": 3.6252
+          },
+          "prg_non_censito_2013": {
+            "m2": 336071.29,
+            "ha": 33.6071
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1464,6 +4564,68 @@
         "prg_non_censito_2013": {
           "m2": 173089.47,
           "ha": 17.3089
+        },
+        "quota_inventario_2013_intersecata_pct": 59.63,
+        "quota_prg_intersecata_inventario_2013_pct": 10.06,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 192452.71,
+            "ha": 19.2453
+          },
+          "intersezione_inventario_2013": {
+            "m2": 19363.24,
+            "ha": 1.9363
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13106.43,
+            "ha": 1.3106
+          },
+          "prg_non_censito_2013": {
+            "m2": 173089.47,
+            "ha": 17.3089
+          },
+          "quota_inventario_2013_intersecata_pct": 59.63,
+          "quota_prg_intersecata_inventario_2013_pct": 10.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 109529.6,
+            "ha": 10.953
+          },
+          "intersezione_inventario_2013": {
+            "m2": 6076.0,
+            "ha": 0.6076
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 26393.67,
+            "ha": 2.6394
+          },
+          "prg_non_censito_2013": {
+            "m2": 103453.6,
+            "ha": 10.3454
+          },
+          "quota_inventario_2013_intersecata_pct": 18.71,
+          "quota_prg_intersecata_inventario_2013_pct": 5.55
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 32469.67,
+            "ha": 3.247
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1488,6 +4650,68 @@
         "prg_non_censito_2013": {
           "m2": 5594.93,
           "ha": 0.5595
+        },
+        "quota_inventario_2013_intersecata_pct": 6.41,
+        "quota_prg_intersecata_inventario_2013_pct": 6.98,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 6015.01,
+            "ha": 0.6015
+          },
+          "intersezione_inventario_2013": {
+            "m2": 420.09,
+            "ha": 0.042
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6128.91,
+            "ha": 0.6129
+          },
+          "prg_non_censito_2013": {
+            "m2": 5594.93,
+            "ha": 0.5595
+          },
+          "quota_inventario_2013_intersecata_pct": 6.41,
+          "quota_prg_intersecata_inventario_2013_pct": 6.98
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 5572.42,
+            "ha": 0.5572
+          },
+          "intersezione_inventario_2013": {
+            "m2": 420.09,
+            "ha": 0.042
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6128.91,
+            "ha": 0.6129
+          },
+          "prg_non_censito_2013": {
+            "m2": 5152.34,
+            "ha": 0.5152
+          },
+          "quota_inventario_2013_intersecata_pct": 6.41,
+          "quota_prg_intersecata_inventario_2013_pct": 7.54
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6549.0,
+            "ha": 0.6549
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1512,6 +4736,68 @@
         "prg_non_censito_2013": {
           "m2": 3727114.09,
           "ha": 372.7114
+        },
+        "quota_inventario_2013_intersecata_pct": 8.52,
+        "quota_prg_intersecata_inventario_2013_pct": 0.03,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 420739.38,
+            "ha": 42.0739
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1155.64,
+            "ha": 0.1156
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12410.65,
+            "ha": 1.2411
+          },
+          "prg_non_censito_2013": {
+            "m2": 419583.74,
+            "ha": 41.9584
+          },
+          "quota_inventario_2013_intersecata_pct": 8.52,
+          "quota_prg_intersecata_inventario_2013_pct": 0.27
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 138065.3,
+            "ha": 13.8065
+          },
+          "intersezione_inventario_2013": {
+            "m2": 811.12,
+            "ha": 0.0811
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 12755.17,
+            "ha": 1.2755
+          },
+          "prg_non_censito_2013": {
+            "m2": 137254.18,
+            "ha": 13.7254
+          },
+          "quota_inventario_2013_intersecata_pct": 5.98,
+          "quota_prg_intersecata_inventario_2013_pct": 0.59
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 3307530.35,
+            "ha": 330.753
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13566.29,
+            "ha": 1.3566
+          },
+          "prg_non_censito_2013": {
+            "m2": 3307530.35,
+            "ha": 330.753
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1536,6 +4822,68 @@
         "prg_non_censito_2013": {
           "m2": 24142.5,
           "ha": 2.4143
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 24142.5,
+            "ha": 2.4143
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 15519.62,
+            "ha": 1.552
+          },
+          "prg_non_censito_2013": {
+            "m2": 24142.5,
+            "ha": 2.4143
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 1120.43,
+            "ha": 0.112
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 15519.62,
+            "ha": 1.552
+          },
+          "prg_non_censito_2013": {
+            "m2": 1120.43,
+            "ha": 0.112
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 15519.62,
+            "ha": 1.552
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1560,6 +4908,68 @@
         "prg_non_censito_2013": {
           "m2": 73018.22,
           "ha": 7.3018
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 73018.22,
+            "ha": 7.3018
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3266.92,
+            "ha": 0.3267
+          },
+          "prg_non_censito_2013": {
+            "m2": 73018.22,
+            "ha": 7.3018
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 68838.46,
+            "ha": 6.8838
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3266.92,
+            "ha": 0.3267
+          },
+          "prg_non_censito_2013": {
+            "m2": 68838.46,
+            "ha": 6.8838
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3266.92,
+            "ha": 0.3267
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1584,6 +4994,68 @@
         "prg_non_censito_2013": {
           "m2": 789692.28,
           "ha": 78.9692
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 558996.15,
+            "ha": 55.8996
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 558996.15,
+            "ha": 55.8996
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 35754.62,
+            "ha": 3.5755
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 35754.62,
+            "ha": 3.5755
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 230696.13,
+            "ha": 23.0696
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1350.08,
+            "ha": 0.135
+          },
+          "prg_non_censito_2013": {
+            "m2": 230696.13,
+            "ha": 23.0696
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1608,6 +5080,68 @@
         "prg_non_censito_2013": {
           "m2": 8739990.62,
           "ha": 873.9991
+        },
+        "quota_inventario_2013_intersecata_pct": 0.23,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 70356.72,
+            "ha": 7.0357
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10189.69,
+            "ha": 1.019
+          },
+          "prg_non_censito_2013": {
+            "m2": 70356.72,
+            "ha": 7.0357
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 14100.91,
+            "ha": 1.4101
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10189.69,
+            "ha": 1.019
+          },
+          "prg_non_censito_2013": {
+            "m2": 14100.91,
+            "ha": 1.4101
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 8669656.92,
+            "ha": 866.9657
+          },
+          "intersezione_inventario_2013": {
+            "m2": 23.02,
+            "ha": 0.0023
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10166.68,
+            "ha": 1.0167
+          },
+          "prg_non_censito_2013": {
+            "m2": 8669633.9,
+            "ha": 866.9634
+          },
+          "quota_inventario_2013_intersecata_pct": 0.23,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1632,6 +5166,68 @@
         "prg_non_censito_2013": {
           "m2": 10210.86,
           "ha": 1.0211
+        },
+        "quota_inventario_2013_intersecata_pct": 14.39,
+        "quota_prg_intersecata_inventario_2013_pct": 10.03,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 11348.75,
+            "ha": 1.1349
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1137.89,
+            "ha": 0.1138
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6768.15,
+            "ha": 0.6768
+          },
+          "prg_non_censito_2013": {
+            "m2": 10210.86,
+            "ha": 1.0211
+          },
+          "quota_inventario_2013_intersecata_pct": 14.39,
+          "quota_prg_intersecata_inventario_2013_pct": 10.03
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 5185.77,
+            "ha": 0.5186
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1137.89,
+            "ha": 0.1138
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6768.15,
+            "ha": 0.6768
+          },
+          "prg_non_censito_2013": {
+            "m2": 4047.89,
+            "ha": 0.4048
+          },
+          "quota_inventario_2013_intersecata_pct": 14.39,
+          "quota_prg_intersecata_inventario_2013_pct": 21.94
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7906.03,
+            "ha": 0.7906
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1656,6 +5252,68 @@
         "prg_non_censito_2013": {
           "m2": 19747.49,
           "ha": 1.9747
+        },
+        "quota_inventario_2013_intersecata_pct": 48.71,
+        "quota_prg_intersecata_inventario_2013_pct": 5.47,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 20891.17,
+            "ha": 2.0891
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1143.68,
+            "ha": 0.1144
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1204.19,
+            "ha": 0.1204
+          },
+          "prg_non_censito_2013": {
+            "m2": 19747.49,
+            "ha": 1.9747
+          },
+          "quota_inventario_2013_intersecata_pct": 48.71,
+          "quota_prg_intersecata_inventario_2013_pct": 5.47
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 20891.17,
+            "ha": 2.0891
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1143.68,
+            "ha": 0.1144
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1204.19,
+            "ha": 0.1204
+          },
+          "prg_non_censito_2013": {
+            "m2": 19747.49,
+            "ha": 1.9747
+          },
+          "quota_inventario_2013_intersecata_pct": 48.71,
+          "quota_prg_intersecata_inventario_2013_pct": 5.47
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2347.87,
+            "ha": 0.2348
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1680,6 +5338,68 @@
         "prg_non_censito_2013": {
           "m2": 48866.28,
           "ha": 4.8866
+        },
+        "quota_inventario_2013_intersecata_pct": 94.42,
+        "quota_prg_intersecata_inventario_2013_pct": 28.08,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 67941.47,
+            "ha": 6.7941
+          },
+          "intersezione_inventario_2013": {
+            "m2": 19075.19,
+            "ha": 1.9075
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1126.42,
+            "ha": 0.1126
+          },
+          "prg_non_censito_2013": {
+            "m2": 48866.28,
+            "ha": 4.8866
+          },
+          "quota_inventario_2013_intersecata_pct": 94.42,
+          "quota_prg_intersecata_inventario_2013_pct": 28.08
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 67748.41,
+            "ha": 6.7748
+          },
+          "intersezione_inventario_2013": {
+            "m2": 19075.19,
+            "ha": 1.9075
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1126.42,
+            "ha": 0.1126
+          },
+          "prg_non_censito_2013": {
+            "m2": 48673.22,
+            "ha": 4.8673
+          },
+          "quota_inventario_2013_intersecata_pct": 94.42,
+          "quota_prg_intersecata_inventario_2013_pct": 28.16
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 20201.62,
+            "ha": 2.0202
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1704,6 +5424,68 @@
         "prg_non_censito_2013": {
           "m2": 23538.58,
           "ha": 2.3539
+        },
+        "quota_inventario_2013_intersecata_pct": 79.06,
+        "quota_prg_intersecata_inventario_2013_pct": 6.43,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 25155.18,
+            "ha": 2.5155
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1616.59,
+            "ha": 0.1617
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 428.29,
+            "ha": 0.0428
+          },
+          "prg_non_censito_2013": {
+            "m2": 23538.58,
+            "ha": 2.3539
+          },
+          "quota_inventario_2013_intersecata_pct": 79.06,
+          "quota_prg_intersecata_inventario_2013_pct": 6.43
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 2999.37,
+            "ha": 0.2999
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1616.59,
+            "ha": 0.1617
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 428.29,
+            "ha": 0.0428
+          },
+          "prg_non_censito_2013": {
+            "m2": 1382.78,
+            "ha": 0.1383
+          },
+          "quota_inventario_2013_intersecata_pct": 79.06,
+          "quota_prg_intersecata_inventario_2013_pct": 53.9
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2044.89,
+            "ha": 0.2045
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1728,6 +5510,68 @@
         "prg_non_censito_2013": {
           "m2": 0.0,
           "ha": 0.0
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": null,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1733.37,
+            "ha": 0.1733
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1733.37,
+            "ha": 0.1733
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1733.37,
+            "ha": 0.1733
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1752,6 +5596,68 @@
         "prg_non_censito_2013": {
           "m2": 32289.58,
           "ha": 3.229
+        },
+        "quota_inventario_2013_intersecata_pct": 59.62,
+        "quota_prg_intersecata_inventario_2013_pct": 6.06,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 34371.56,
+            "ha": 3.4372
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2081.98,
+            "ha": 0.2082
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1409.89,
+            "ha": 0.141
+          },
+          "prg_non_censito_2013": {
+            "m2": 32289.58,
+            "ha": 3.229
+          },
+          "quota_inventario_2013_intersecata_pct": 59.62,
+          "quota_prg_intersecata_inventario_2013_pct": 6.06
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 16044.27,
+            "ha": 1.6044
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2081.98,
+            "ha": 0.2082
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1409.89,
+            "ha": 0.141
+          },
+          "prg_non_censito_2013": {
+            "m2": 13962.29,
+            "ha": 1.3962
+          },
+          "quota_inventario_2013_intersecata_pct": 59.62,
+          "quota_prg_intersecata_inventario_2013_pct": 12.98
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3491.87,
+            "ha": 0.3492
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1776,6 +5682,68 @@
         "prg_non_censito_2013": {
           "m2": 211114.64,
           "ha": 21.1115
+        },
+        "quota_inventario_2013_intersecata_pct": 63.46,
+        "quota_prg_intersecata_inventario_2013_pct": 2.27,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 73665.95,
+            "ha": 7.3666
+          },
+          "intersezione_inventario_2013": {
+            "m2": 4894.08,
+            "ha": 0.4894
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2817.78,
+            "ha": 0.2818
+          },
+          "prg_non_censito_2013": {
+            "m2": 68771.86,
+            "ha": 6.8772
+          },
+          "quota_inventario_2013_intersecata_pct": 63.46,
+          "quota_prg_intersecata_inventario_2013_pct": 6.64
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 73665.95,
+            "ha": 7.3666
+          },
+          "intersezione_inventario_2013": {
+            "m2": 4894.08,
+            "ha": 0.4894
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2817.78,
+            "ha": 0.2818
+          },
+          "prg_non_censito_2013": {
+            "m2": 68771.86,
+            "ha": 6.8772
+          },
+          "quota_inventario_2013_intersecata_pct": 63.46,
+          "quota_prg_intersecata_inventario_2013_pct": 6.64
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 142342.78,
+            "ha": 14.2343
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7711.86,
+            "ha": 0.7712
+          },
+          "prg_non_censito_2013": {
+            "m2": 142342.78,
+            "ha": 14.2343
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1800,6 +5768,68 @@
         "prg_non_censito_2013": {
           "m2": 10139.46,
           "ha": 1.0139
+        },
+        "quota_inventario_2013_intersecata_pct": 24.51,
+        "quota_prg_intersecata_inventario_2013_pct": 12.03,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 11526.49,
+            "ha": 1.1526
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1387.02,
+            "ha": 0.1387
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4271.0,
+            "ha": 0.4271
+          },
+          "prg_non_censito_2013": {
+            "m2": 10139.46,
+            "ha": 1.0139
+          },
+          "quota_inventario_2013_intersecata_pct": 24.51,
+          "quota_prg_intersecata_inventario_2013_pct": 12.03
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 11509.84,
+            "ha": 1.151
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1387.02,
+            "ha": 0.1387
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4271.0,
+            "ha": 0.4271
+          },
+          "prg_non_censito_2013": {
+            "m2": 10122.82,
+            "ha": 1.0123
+          },
+          "quota_inventario_2013_intersecata_pct": 24.51,
+          "quota_prg_intersecata_inventario_2013_pct": 12.05
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5658.02,
+            "ha": 0.5658
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1824,6 +5854,68 @@
         "prg_non_censito_2013": {
           "m2": 44842.73,
           "ha": 4.4843
+        },
+        "quota_inventario_2013_intersecata_pct": 16.43,
+        "quota_prg_intersecata_inventario_2013_pct": 5.43,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 47417.98,
+            "ha": 4.7418
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2575.24,
+            "ha": 0.2575
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13100.99,
+            "ha": 1.3101
+          },
+          "prg_non_censito_2013": {
+            "m2": 44842.73,
+            "ha": 4.4843
+          },
+          "quota_inventario_2013_intersecata_pct": 16.43,
+          "quota_prg_intersecata_inventario_2013_pct": 5.43
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 33204.72,
+            "ha": 3.3205
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2230.61,
+            "ha": 0.2231
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 13445.63,
+            "ha": 1.3446
+          },
+          "prg_non_censito_2013": {
+            "m2": 30974.12,
+            "ha": 3.0974
+          },
+          "quota_inventario_2013_intersecata_pct": 14.23,
+          "quota_prg_intersecata_inventario_2013_pct": 6.72
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 15676.24,
+            "ha": 1.5676
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1848,6 +5940,68 @@
         "prg_non_censito_2013": {
           "m2": 296433.08,
           "ha": 29.6433
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 154758.8,
+            "ha": 15.4759
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2673.68,
+            "ha": 0.2674
+          },
+          "prg_non_censito_2013": {
+            "m2": 154758.8,
+            "ha": 15.4759
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 58145.41,
+            "ha": 5.8145
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2673.68,
+            "ha": 0.2674
+          },
+          "prg_non_censito_2013": {
+            "m2": 58145.41,
+            "ha": 5.8145
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 141674.27,
+            "ha": 14.1674
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2673.68,
+            "ha": 0.2674
+          },
+          "prg_non_censito_2013": {
+            "m2": 141674.27,
+            "ha": 14.1674
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1872,6 +6026,68 @@
         "prg_non_censito_2013": {
           "m2": 180239.31,
           "ha": 18.0239
+        },
+        "quota_inventario_2013_intersecata_pct": 8.76,
+        "quota_prg_intersecata_inventario_2013_pct": 0.22,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 93188.4,
+            "ha": 9.3188
+          },
+          "intersezione_inventario_2013": {
+            "m2": 397.01,
+            "ha": 0.0397
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4133.78,
+            "ha": 0.4134
+          },
+          "prg_non_censito_2013": {
+            "m2": 92791.39,
+            "ha": 9.2791
+          },
+          "quota_inventario_2013_intersecata_pct": 8.76,
+          "quota_prg_intersecata_inventario_2013_pct": 0.43
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 86940.86,
+            "ha": 8.6941
+          },
+          "intersezione_inventario_2013": {
+            "m2": 397.01,
+            "ha": 0.0397
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4133.78,
+            "ha": 0.4134
+          },
+          "prg_non_censito_2013": {
+            "m2": 86543.85,
+            "ha": 8.6544
+          },
+          "quota_inventario_2013_intersecata_pct": 8.76,
+          "quota_prg_intersecata_inventario_2013_pct": 0.46
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 87447.92,
+            "ha": 8.7448
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4530.79,
+            "ha": 0.4531
+          },
+          "prg_non_censito_2013": {
+            "m2": 87447.92,
+            "ha": 8.7448
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1896,6 +6112,68 @@
         "prg_non_censito_2013": {
           "m2": 7874891.28,
           "ha": 787.4891
+        },
+        "quota_inventario_2013_intersecata_pct": 28.66,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 140263.19,
+            "ha": 14.0263
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3023.85,
+            "ha": 0.3024
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7532.16,
+            "ha": 0.7532
+          },
+          "prg_non_censito_2013": {
+            "m2": 137239.34,
+            "ha": 13.7239
+          },
+          "quota_inventario_2013_intersecata_pct": 28.65,
+          "quota_prg_intersecata_inventario_2013_pct": 2.16
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 78414.77,
+            "ha": 7.8415
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3023.85,
+            "ha": 0.3024
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7532.16,
+            "ha": 0.7532
+          },
+          "prg_non_censito_2013": {
+            "m2": 75390.92,
+            "ha": 7.5391
+          },
+          "quota_inventario_2013_intersecata_pct": 28.65,
+          "quota_prg_intersecata_inventario_2013_pct": 3.86
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 7737654.11,
+            "ha": 773.7654
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1.63,
+            "ha": 0.0002
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10554.38,
+            "ha": 1.0554
+          },
+          "prg_non_censito_2013": {
+            "m2": 7737652.48,
+            "ha": 773.7652
+          },
+          "quota_inventario_2013_intersecata_pct": 0.02,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1920,6 +6198,68 @@
         "prg_non_censito_2013": {
           "m2": 474631.56,
           "ha": 47.4632
+        },
+        "quota_inventario_2013_intersecata_pct": 6.79,
+        "quota_prg_intersecata_inventario_2013_pct": 0.07,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 17603.05,
+            "ha": 1.7603
+          },
+          "intersezione_inventario_2013": {
+            "m2": 354.34,
+            "ha": 0.0354
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4863.76,
+            "ha": 0.4864
+          },
+          "prg_non_censito_2013": {
+            "m2": 17248.71,
+            "ha": 1.7249
+          },
+          "quota_inventario_2013_intersecata_pct": 6.79,
+          "quota_prg_intersecata_inventario_2013_pct": 2.01
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 17603.05,
+            "ha": 1.7603
+          },
+          "intersezione_inventario_2013": {
+            "m2": 354.34,
+            "ha": 0.0354
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 4863.76,
+            "ha": 0.4864
+          },
+          "prg_non_censito_2013": {
+            "m2": 17248.71,
+            "ha": 1.7249
+          },
+          "quota_inventario_2013_intersecata_pct": 6.79,
+          "quota_prg_intersecata_inventario_2013_pct": 2.01
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 457382.85,
+            "ha": 45.7383
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5218.1,
+            "ha": 0.5218
+          },
+          "prg_non_censito_2013": {
+            "m2": 457382.85,
+            "ha": 45.7383
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1944,6 +6284,68 @@
         "prg_non_censito_2013": {
           "m2": 6201689.13,
           "ha": 620.1689
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 153052.43,
+            "ha": 15.3052
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7695.27,
+            "ha": 0.7695
+          },
+          "prg_non_censito_2013": {
+            "m2": 153052.43,
+            "ha": 15.3052
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 80980.78,
+            "ha": 8.0981
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7695.27,
+            "ha": 0.7695
+          },
+          "prg_non_censito_2013": {
+            "m2": 80980.78,
+            "ha": 8.0981
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6048636.7,
+            "ha": 604.8637
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 7695.27,
+            "ha": 0.7695
+          },
+          "prg_non_censito_2013": {
+            "m2": 6048636.7,
+            "ha": 604.8637
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -1968,6 +6370,68 @@
         "prg_non_censito_2013": {
           "m2": 90590.05,
           "ha": 9.059
+        },
+        "quota_inventario_2013_intersecata_pct": 98.05,
+        "quota_prg_intersecata_inventario_2013_pct": 10.76,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 101513.85,
+            "ha": 10.1514
+          },
+          "intersezione_inventario_2013": {
+            "m2": 10923.8,
+            "ha": 1.0924
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 217.43,
+            "ha": 0.0217
+          },
+          "prg_non_censito_2013": {
+            "m2": 90590.05,
+            "ha": 9.059
+          },
+          "quota_inventario_2013_intersecata_pct": 98.05,
+          "quota_prg_intersecata_inventario_2013_pct": 10.76
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 72042.05,
+            "ha": 7.2042
+          },
+          "intersezione_inventario_2013": {
+            "m2": 9567.43,
+            "ha": 0.9567
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1573.79,
+            "ha": 0.1574
+          },
+          "prg_non_censito_2013": {
+            "m2": 62474.61,
+            "ha": 6.2475
+          },
+          "quota_inventario_2013_intersecata_pct": 85.87,
+          "quota_prg_intersecata_inventario_2013_pct": 13.28
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 11141.22,
+            "ha": 1.1141
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -1992,6 +6456,68 @@
         "prg_non_censito_2013": {
           "m2": 51321.64,
           "ha": 5.1322
+        },
+        "quota_inventario_2013_intersecata_pct": 91.06,
+        "quota_prg_intersecata_inventario_2013_pct": 26.36,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 69692.04,
+            "ha": 6.9692
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18370.4,
+            "ha": 1.837
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1802.88,
+            "ha": 0.1803
+          },
+          "prg_non_censito_2013": {
+            "m2": 51321.64,
+            "ha": 5.1322
+          },
+          "quota_inventario_2013_intersecata_pct": 91.06,
+          "quota_prg_intersecata_inventario_2013_pct": 26.36
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 33416.2,
+            "ha": 3.3416
+          },
+          "intersezione_inventario_2013": {
+            "m2": 18077.12,
+            "ha": 1.8077
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2096.15,
+            "ha": 0.2096
+          },
+          "prg_non_censito_2013": {
+            "m2": 15339.07,
+            "ha": 1.5339
+          },
+          "quota_inventario_2013_intersecata_pct": 89.61,
+          "quota_prg_intersecata_inventario_2013_pct": 54.1
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 20173.28,
+            "ha": 2.0173
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -2016,6 +6542,68 @@
         "prg_non_censito_2013": {
           "m2": 30275.92,
           "ha": 3.0276
+        },
+        "quota_inventario_2013_intersecata_pct": 62.9,
+        "quota_prg_intersecata_inventario_2013_pct": 17.51,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 36700.57,
+            "ha": 3.6701
+          },
+          "intersezione_inventario_2013": {
+            "m2": 6424.65,
+            "ha": 0.6425
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3790.03,
+            "ha": 0.379
+          },
+          "prg_non_censito_2013": {
+            "m2": 30275.92,
+            "ha": 3.0276
+          },
+          "quota_inventario_2013_intersecata_pct": 62.9,
+          "quota_prg_intersecata_inventario_2013_pct": 17.51
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 18637.01,
+            "ha": 1.8637
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3607.49,
+            "ha": 0.3607
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 6607.19,
+            "ha": 0.6607
+          },
+          "prg_non_censito_2013": {
+            "m2": 15029.52,
+            "ha": 1.503
+          },
+          "quota_inventario_2013_intersecata_pct": 35.32,
+          "quota_prg_intersecata_inventario_2013_pct": 19.36
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 10214.68,
+            "ha": 1.0215
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -2040,6 +6628,68 @@
         "prg_non_censito_2013": {
           "m2": 91586.21,
           "ha": 9.1586
+        },
+        "quota_inventario_2013_intersecata_pct": 51.83,
+        "quota_prg_intersecata_inventario_2013_pct": 1.98,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 93434.27,
+            "ha": 9.3434
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1848.07,
+            "ha": 0.1848
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1717.58,
+            "ha": 0.1718
+          },
+          "prg_non_censito_2013": {
+            "m2": 91586.21,
+            "ha": 9.1586
+          },
+          "quota_inventario_2013_intersecata_pct": 51.83,
+          "quota_prg_intersecata_inventario_2013_pct": 1.98
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 9318.38,
+            "ha": 0.9318
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1322.29,
+            "ha": 0.1322
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2243.35,
+            "ha": 0.2243
+          },
+          "prg_non_censito_2013": {
+            "m2": 7996.09,
+            "ha": 0.7996
+          },
+          "quota_inventario_2013_intersecata_pct": 37.08,
+          "quota_prg_intersecata_inventario_2013_pct": 14.19
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3565.65,
+            "ha": 0.3566
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -2064,6 +6714,68 @@
         "prg_non_censito_2013": {
           "m2": 1723654.56,
           "ha": 172.3655
+        },
+        "quota_inventario_2013_intersecata_pct": 11.51,
+        "quota_prg_intersecata_inventario_2013_pct": 0.18,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 1287245.99,
+            "ha": 128.7246
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3135.58,
+            "ha": 0.3136
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 24098.93,
+            "ha": 2.4099
+          },
+          "prg_non_censito_2013": {
+            "m2": 1284110.41,
+            "ha": 128.411
+          },
+          "quota_inventario_2013_intersecata_pct": 11.51,
+          "quota_prg_intersecata_inventario_2013_pct": 0.24
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 107384.86,
+            "ha": 10.7385
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2870.07,
+            "ha": 0.287
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 24364.44,
+            "ha": 2.4364
+          },
+          "prg_non_censito_2013": {
+            "m2": 104514.79,
+            "ha": 10.4515
+          },
+          "quota_inventario_2013_intersecata_pct": 10.54,
+          "quota_prg_intersecata_inventario_2013_pct": 2.67
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 445414.0,
+            "ha": 44.5414
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 27234.51,
+            "ha": 2.7235
+          },
+          "prg_non_censito_2013": {
+            "m2": 445414.0,
+            "ha": 44.5414
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2088,6 +6800,68 @@
         "prg_non_censito_2013": {
           "m2": 6824370.76,
           "ha": 682.4371
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 274023.67,
+            "ha": 27.4024
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5520.7,
+            "ha": 0.5521
+          },
+          "prg_non_censito_2013": {
+            "m2": 274023.67,
+            "ha": 27.4024
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 33754.71,
+            "ha": 3.3755
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5520.7,
+            "ha": 0.5521
+          },
+          "prg_non_censito_2013": {
+            "m2": 33754.71,
+            "ha": 3.3755
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 6550347.09,
+            "ha": 655.0347
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5520.7,
+            "ha": 0.5521
+          },
+          "prg_non_censito_2013": {
+            "m2": 6550347.09,
+            "ha": 655.0347
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2112,6 +6886,68 @@
         "prg_non_censito_2013": {
           "m2": 461944.95,
           "ha": 46.1945
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 294714.09,
+            "ha": 29.4714
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3337.4,
+            "ha": 0.3337
+          },
+          "prg_non_censito_2013": {
+            "m2": 294714.09,
+            "ha": 29.4714
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 27711.94,
+            "ha": 2.7712
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3337.4,
+            "ha": 0.3337
+          },
+          "prg_non_censito_2013": {
+            "m2": 27711.94,
+            "ha": 2.7712
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 167230.86,
+            "ha": 16.7231
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3337.4,
+            "ha": 0.3337
+          },
+          "prg_non_censito_2013": {
+            "m2": 167230.86,
+            "ha": 16.7231
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2136,6 +6972,68 @@
         "prg_non_censito_2013": {
           "m2": 1321414.01,
           "ha": 132.1414
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 846945.86,
+            "ha": 84.6946
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 311.27,
+            "ha": 0.0311
+          },
+          "prg_non_censito_2013": {
+            "m2": 846945.86,
+            "ha": 84.6946
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 37855.4,
+            "ha": 3.7855
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 311.27,
+            "ha": 0.0311
+          },
+          "prg_non_censito_2013": {
+            "m2": 37855.4,
+            "ha": 3.7855
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 476660.69,
+            "ha": 47.6661
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 311.27,
+            "ha": 0.0311
+          },
+          "prg_non_censito_2013": {
+            "m2": 476660.69,
+            "ha": 47.6661
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2160,6 +7058,68 @@
         "prg_non_censito_2013": {
           "m2": 507353.6,
           "ha": 50.7354
+        },
+        "quota_inventario_2013_intersecata_pct": 52.97,
+        "quota_prg_intersecata_inventario_2013_pct": 3.14,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 523791.38,
+            "ha": 52.3791
+          },
+          "intersezione_inventario_2013": {
+            "m2": 16437.78,
+            "ha": 1.6438
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 14594.26,
+            "ha": 1.4594
+          },
+          "prg_non_censito_2013": {
+            "m2": 507353.6,
+            "ha": 50.7354
+          },
+          "quota_inventario_2013_intersecata_pct": 52.97,
+          "quota_prg_intersecata_inventario_2013_pct": 3.14
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 71213.97,
+            "ha": 7.1214
+          },
+          "intersezione_inventario_2013": {
+            "m2": 15812.39,
+            "ha": 1.5812
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 15219.64,
+            "ha": 1.522
+          },
+          "prg_non_censito_2013": {
+            "m2": 55401.57,
+            "ha": 5.5402
+          },
+          "quota_inventario_2013_intersecata_pct": 50.96,
+          "quota_prg_intersecata_inventario_2013_pct": 22.2
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 31032.04,
+            "ha": 3.1032
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -2184,6 +7144,68 @@
         "prg_non_censito_2013": {
           "m2": 4927426.28,
           "ha": 492.7426
+        },
+        "quota_inventario_2013_intersecata_pct": 0.2,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 544835.66,
+            "ha": 54.4836
+          },
+          "intersezione_inventario_2013": {
+            "m2": 38.66,
+            "ha": 0.0039
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 19645.62,
+            "ha": 1.9646
+          },
+          "prg_non_censito_2013": {
+            "m2": 544797.0,
+            "ha": 54.4797
+          },
+          "quota_inventario_2013_intersecata_pct": 0.2,
+          "quota_prg_intersecata_inventario_2013_pct": 0.01
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 134527.27,
+            "ha": 13.4527
+          },
+          "intersezione_inventario_2013": {
+            "m2": 38.66,
+            "ha": 0.0039
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 19645.62,
+            "ha": 1.9646
+          },
+          "prg_non_censito_2013": {
+            "m2": 134488.61,
+            "ha": 13.4489
+          },
+          "quota_inventario_2013_intersecata_pct": 0.2,
+          "quota_prg_intersecata_inventario_2013_pct": 0.03
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 4382629.56,
+            "ha": 438.263
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 19684.27,
+            "ha": 1.9684
+          },
+          "prg_non_censito_2013": {
+            "m2": 4382629.56,
+            "ha": 438.263
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2208,6 +7230,68 @@
         "prg_non_censito_2013": {
           "m2": 408949.17,
           "ha": 40.8949
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 80117.27,
+            "ha": 8.0117
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3579.74,
+            "ha": 0.358
+          },
+          "prg_non_censito_2013": {
+            "m2": 80117.27,
+            "ha": 8.0117
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 55056.81,
+            "ha": 5.5057
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3579.74,
+            "ha": 0.358
+          },
+          "prg_non_censito_2013": {
+            "m2": 55056.81,
+            "ha": 5.5057
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 328831.89,
+            "ha": 32.8832
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 3579.74,
+            "ha": 0.358
+          },
+          "prg_non_censito_2013": {
+            "m2": 328831.89,
+            "ha": 32.8832
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2232,6 +7316,68 @@
         "prg_non_censito_2013": {
           "m2": 9528065.92,
           "ha": 952.8066
+        },
+        "quota_inventario_2013_intersecata_pct": 6.29,
+        "quota_prg_intersecata_inventario_2013_pct": 0.04,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 683161.11,
+            "ha": 68.3161
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3049.53,
+            "ha": 0.305
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 57999.39,
+            "ha": 5.7999
+          },
+          "prg_non_censito_2013": {
+            "m2": 680111.59,
+            "ha": 68.0112
+          },
+          "quota_inventario_2013_intersecata_pct": 5.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.45
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 295292.34,
+            "ha": 29.5292
+          },
+          "intersezione_inventario_2013": {
+            "m2": 2938.95,
+            "ha": 0.2939
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 58109.97,
+            "ha": 5.811
+          },
+          "prg_non_censito_2013": {
+            "m2": 292353.39,
+            "ha": 29.2353
+          },
+          "quota_inventario_2013_intersecata_pct": 4.81,
+          "quota_prg_intersecata_inventario_2013_pct": 1.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 8848742.56,
+            "ha": 884.8743
+          },
+          "intersezione_inventario_2013": {
+            "m2": 788.23,
+            "ha": 0.0788
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 60260.69,
+            "ha": 6.0261
+          },
+          "prg_non_censito_2013": {
+            "m2": 8847954.33,
+            "ha": 884.7954
+          },
+          "quota_inventario_2013_intersecata_pct": 1.29,
+          "quota_prg_intersecata_inventario_2013_pct": 0.01
         }
       },
       {
@@ -2256,6 +7402,68 @@
         "prg_non_censito_2013": {
           "m2": 13679.17,
           "ha": 1.3679
+        },
+        "quota_inventario_2013_intersecata_pct": 74.85,
+        "quota_prg_intersecata_inventario_2013_pct": 11.21,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 15405.45,
+            "ha": 1.5405
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1726.28,
+            "ha": 0.1726
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 579.93,
+            "ha": 0.058
+          },
+          "prg_non_censito_2013": {
+            "m2": 13679.17,
+            "ha": 1.3679
+          },
+          "quota_inventario_2013_intersecata_pct": 74.85,
+          "quota_prg_intersecata_inventario_2013_pct": 11.21
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 12354.62,
+            "ha": 1.2355
+          },
+          "intersezione_inventario_2013": {
+            "m2": 1726.28,
+            "ha": 0.1726
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 579.93,
+            "ha": 0.058
+          },
+          "prg_non_censito_2013": {
+            "m2": 10628.34,
+            "ha": 1.0628
+          },
+          "quota_inventario_2013_intersecata_pct": 74.85,
+          "quota_prg_intersecata_inventario_2013_pct": 13.97
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2306.21,
+            "ha": 0.2306
+          },
+          "prg_non_censito_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": null
         }
       },
       {
@@ -2280,6 +7488,68 @@
         "prg_non_censito_2013": {
           "m2": 6261848.9,
           "ha": 626.1849
+        },
+        "quota_inventario_2013_intersecata_pct": 43.62,
+        "quota_prg_intersecata_inventario_2013_pct": 0.06,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 298630.32,
+            "ha": 29.863
+          },
+          "intersezione_inventario_2013": {
+            "m2": 3782.9,
+            "ha": 0.3783
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 5477.07,
+            "ha": 0.5477
+          },
+          "prg_non_censito_2013": {
+            "m2": 294847.42,
+            "ha": 29.4847
+          },
+          "quota_inventario_2013_intersecata_pct": 40.85,
+          "quota_prg_intersecata_inventario_2013_pct": 1.27
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 76601.15,
+            "ha": 7.6601
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9259.97,
+            "ha": 0.926
+          },
+          "prg_non_censito_2013": {
+            "m2": 76601.15,
+            "ha": 7.6601
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 5967645.73,
+            "ha": 596.7646
+          },
+          "intersezione_inventario_2013": {
+            "m2": 256.34,
+            "ha": 0.0256
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 9003.63,
+            "ha": 0.9004
+          },
+          "prg_non_censito_2013": {
+            "m2": 5967389.39,
+            "ha": 596.7389
+          },
+          "quota_inventario_2013_intersecata_pct": 2.77,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2304,6 +7574,68 @@
         "prg_non_censito_2013": {
           "m2": 189164.53,
           "ha": 18.9165
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 147846.65,
+            "ha": 14.7847
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1549.41,
+            "ha": 0.1549
+          },
+          "prg_non_censito_2013": {
+            "m2": 147846.65,
+            "ha": 14.7847
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 68178.39,
+            "ha": 6.8178
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1549.41,
+            "ha": 0.1549
+          },
+          "prg_non_censito_2013": {
+            "m2": 68178.39,
+            "ha": 6.8178
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 41317.88,
+            "ha": 4.1318
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 1549.41,
+            "ha": 0.1549
+          },
+          "prg_non_censito_2013": {
+            "m2": 41317.88,
+            "ha": 4.1318
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2328,6 +7660,68 @@
         "prg_non_censito_2013": {
           "m2": 448758.78,
           "ha": 44.8759
+        },
+        "quota_inventario_2013_intersecata_pct": 0.0,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 98702.53,
+            "ha": 9.8703
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 98702.53,
+            "ha": 9.8703
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 83354.6,
+            "ha": 8.3355
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 83354.6,
+            "ha": 8.3355
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 350056.25,
+            "ha": 35.0056
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 2501.3,
+            "ha": 0.2501
+          },
+          "prg_non_censito_2013": {
+            "m2": 350056.25,
+            "ha": 35.0056
+          },
+          "quota_inventario_2013_intersecata_pct": 0.0,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       },
       {
@@ -2352,6 +7746,68 @@
         "prg_non_censito_2013": {
           "m2": 712373.25,
           "ha": 71.2373
+        },
+        "quota_inventario_2013_intersecata_pct": null,
+        "quota_prg_intersecata_inventario_2013_pct": 0.0,
+        "classi_urbane_prg": {
+          "superficie_prg": {
+            "m2": 9155.36,
+            "ha": 0.9155
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "prg_non_censito_2013": {
+            "m2": 9155.36,
+            "ha": 0.9155
+          },
+          "quota_inventario_2013_intersecata_pct": null,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "candidati_standard_v1_v4": {
+          "superficie_prg": {
+            "m2": 9155.36,
+            "ha": 0.9155
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "prg_non_censito_2013": {
+            "m2": 9155.36,
+            "ha": 0.9155
+          },
+          "quota_inventario_2013_intersecata_pct": null,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
+        },
+        "aree_agricole_collinari_e1_e2": {
+          "superficie_prg": {
+            "m2": 703217.9,
+            "ha": 70.3218
+          },
+          "intersezione_inventario_2013": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "inventario_2013_fuori_gruppo": {
+            "m2": 0.0,
+            "ha": 0.0
+          },
+          "prg_non_censito_2013": {
+            "m2": 703217.9,
+            "ha": 70.3218
+          },
+          "quota_inventario_2013_intersecata_pct": null,
+          "quota_prg_intersecata_inventario_2013_pct": 0.0
         }
       }
     ]
@@ -2359,6 +7815,6 @@
   "qa": {
     "geometrie_storiche_scartate": 0,
     "geometrie_prg_scartate": 0,
-    "geometrie_storiche_non_valide_riparate_con_buffer0": 0
+    "geometrie_storiche_non_valide_riparate_con_buffer0": 2
   }
 }
