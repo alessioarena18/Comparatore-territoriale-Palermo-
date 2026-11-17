@@ -277,3 +277,12 @@ Fonte: https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015
 - Distinzione normativa: NTA PRG 2004 artt. 16-18 per E1/E2, art. 21 per verde storico/privato/pubblico, art. 23 per parchi urbani, art. 24 per servizi V1-V5 e art. 19 per F4. Il vecchio schema V1-V4 del PRG 1962 non viene applicato alla classificazione 2004.
 - Il PRG non fornisce un layer autonomo che certifichi proprietà privata: VS e registro del verde storico non sono una prova di proprietà. Superficie privata indicata N.D. fino a verifica catastale e patrimoniale. Le zone A1 non sono conteggiate integralmente come verde.
 - CI e Pages da eseguire; controllo visivo Leaflet ancora necessario dopo il deploy.
+
+
+## Aggiornamento cartografia verde – completamento legenda e QA conteggi – 17 novembre 2026
+
+La pagina **Verde urbano** espone nella legenda cartografica tutte le classi tematiche del PRG 2004 presenti nel layer: V1 gioco, V2 campi sportivi, V3 verde pubblico, V4 parchi attrezzati, V5 impianti sportivi, E1 agricolo, E2 collinare/naturalistico, VS storico/pertinenziale, F4 parchi urbani/territoriali e codici misti. La KPI include anche il verde privato come N.D.
+
+La mappa mantiene le geometrie spaziali delle classi effettivamente disponibili. Il verde privato non viene disegnato come poligono: il PRG non certifica la titolarità e non è disponibile un layer catastale/proprietario. Il layer VS non è equiparato automaticamente a proprietà privata. In fase di caricamento il browser confronta i conteggi delle classi cartografate con il riepilogo quantitativo e segnala eventuali discrepanze.
+
+Riferimenti: Comune di Palermo, dataset 320, Variante Generale PRG DCC 7/2004; data/verde_prg_summary.json e data/geo/verde_prg.geojson. Le superfici sono geometriche di piano e non misurano copertura vegetale, attuazione o accessibilità.
