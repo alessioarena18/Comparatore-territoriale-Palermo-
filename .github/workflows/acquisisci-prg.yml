@@ -10,6 +10,9 @@ on:
       - '.github/workflows/acquisisci-prg.yml'
   schedule:
     - cron: '17 4 1 * *'
+concurrency:
+  group: prg-cartography-acquisition
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:
@@ -52,5 +55,7 @@ jobs:
             echo "No PRG data changes."
           else
             git commit -m "Update official Palermo PRG layers and QA metadata"
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
