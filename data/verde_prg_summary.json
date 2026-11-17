@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "title": "Verde e aree agricole nella Variante Generale al PRG di Palermo",
+  "source": {
+    "publisher": "Comune di Palermo",
+    "dataset": 320,
+    "plan": "Variante Generale PRG, DCC 7/2004",
+    "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320",
+    "catalog_update": "2018-01-10",
+    "license": "CC BY 4.0 IT",
+    "standard_layer": "data/geo/prg_standard_2004.geojson"
+  },
+  "method": {
+    "geometry_area": "Superficie sferica approssimata calcolata dalle geometrie GeoJSON in coordinate geografiche WGS84, con raggio terrestre medio; valori arrotondati a 0,01 m².",
+    "count": "Conteggio delle geometrie filtrate per codice ZTO originale. Le codifiche miste non sono ripartite.",
+    "scope": "679 geometrie: zone E1, E2, VS, destinazioni V1-V5 e codici misti, più F4."
+  },
+  "categories": [
+    {
+      "id": "pubblico",
+      "label": "Spazi pubblici a verde V3",
+      "zto": [
+        "V3"
+      ],
+      "count": 241,
+      "area_m2": 1571963.21,
+      "codes": {
+        "V3": 241
+      },
+      "area_ha": 157.2,
+      "area_km2": 1.572
+    },
+    {
+      "id": "gioco",
+      "label": "Campi gioco per bambini V1",
+      "zto": [
+        "V1"
+      ],
+      "count": 20,
+      "area_m2": 138594.15,
+      "codes": {
+        "V1": 20
+      },
+      "area_ha": 13.86,
+      "area_km2": 0.1386
+    },
+    {
+      "id": "attrezzato",
+      "label": "Aree attrezzate a parco V4",
+      "zto": [
+        "V4"
+      ],
+      "count": 23,
+      "area_m2": 590363.43,
+      "codes": {
+        "V4": 23
+      },
+      "area_ha": 59.04,
+      "area_km2": 0.5904
+    },
+    {
+      "id": "sport",
+      "label": "Campi sportivi V2",
+      "zto": [
+        "V2"
+      ],
+      "count": 65,
+      "area_m2": 703281.21,
+      "codes": {
+        "V2": 65
+      },
+      "area_ha": 70.33,
+      "area_km2": 0.7033
+    },
+    {
+      "id": "impianti",
+      "label": "Impianti sportivi V5",
+      "zto": [
+        "V5"
+      ],
+      "count": 17,
+      "area_m2": 210810.69,
+      "codes": {
+        "V5": 17
+      },
+      "area_ha": 21.08,
+      "area_km2": 0.2108
+    },
+    {
+      "id": "agricolo",
+      "label": "Zona agricola E1",
+      "zto": [
+        "E1"
+      ],
+      "count": 107,
+      "area_m2": 22800650.64,
+      "codes": {
+        "E1": 107
+      },
+      "area_ha": 2280.07,
+      "area_km2": 22.8007
+    },
+    {
+      "id": "collinare",
+      "label": "Zona collinare e naturalistica E2",
+      "zto": [
+        "E2"
+      ],
+      "count": 10,
+      "area_m2": 58400197.62,
+      "codes": {
+        "E2": 10
+      },
+      "area_ha": 5840.02,
+      "area_km2": 58.4002
+    },
+    {
+      "id": "storico",
+      "label": "Verde storico e pertinenziale VS",
+      "zto": [
+        "VS"
+      ],
+      "count": 166,
+      "area_m2": 6271113.57,
+      "codes": {
+        "VS": 166
+      },
+      "area_ha": 627.11,
+      "area_km2": 6.2711
+    },
+    {
+      "id": "parco_urbano",
+      "label": "Parchi urbani e territoriali F4",
+      "zto": [
+        "F4"
+      ],
+      "count": 4,
+      "area_m2": 2280620.59,
+      "codes": {
+        "F4": 4
+      },
+      "area_ha": 228.06,
+      "area_km2": 2.2806
+    },
+    {
+      "id": "misto",
+      "label": "Destinazioni verdi miste o non univoche",
+      "zto": [
+        "V",
+        "V1V2",
+        "V1V3",
+        "V2V3",
+        "V2V4",
+        "V2V5",
+        "V3+VS",
+        "V3IC2IC4",
+        "V4IC2"
+      ],
+      "count": 26,
+      "area_m2": 290441.99,
+      "codes": {
+        "V": 13,
+        "V1V2": 2,
+        "V1V3": 1,
+        "V2V3": 5,
+        "V2V4": 1,
+        "V2V5": 1,
+        "V3+VS": 1,
+        "V3IC2IC4": 1,
+        "V4IC2": 1
+      },
+      "area_ha": 29.04,
+      "area_km2": 0.2904
+    },
+    {
+      "id": "privato",
+      "label": "Verde privato e pertinenziale storico",
+      "zto": [
+        "Art. 21 NTA · VS/A1"
+      ],
+      "count": null,
+      "area_m2": null,
+      "area_ha": null,
+      "area_km2": null,
+      "note": "Il PRG non fornisce un layer autonomo che certifichi la proprietà privata. L’art. 21 disciplina il verde storico, privato e pubblico; l’elenco storico comprende giardini, parchi, fondi agricoli e pertinenze. Il regime proprietario va verificato con catasto, atti e gestione."
+    }
+  ],
+  "caveats": [
+    "Le superfici delle categorie non vanno sommate in un unico totale: alcune destinazioni possono sovrapporsi o essere ricomprese in perimetri di parchi urbani.",
+    "Le zone E1 sono agricole; le E2 sono prevalentemente collinari, con vegetazione spontanea, boschi e riforestazione, e funzione di salvaguardia idrogeologica e paesaggistica.",
+    "I poligoni VS identificano verde storico e pertinenziale, non la titolarità pubblica o privata. L’elenco del verde storico include anche aree classificate A1; l’intera zona A1 non è stata conteggiata come verde.",
+    "V1, V2 e V5 sono gioco e sport; non sono assimilati automaticamente a superfici verdi permeabili. F4 è una destinazione distinta per parchi urbani e territoriali.",
+    "Il perimetro PRG 2004 è un riferimento storico di piano: le varianti successive vanno verificate per singolo ambito e non sono automaticamente recepite da questo layer."
+  ]
+}
