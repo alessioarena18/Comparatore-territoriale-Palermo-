@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Confronto spaziale indipendente tra inventario comunale verde 2013 (dataset 278) e PRG 2004."""
+# Report aggiornato: aggregazioni distinte per classi urbane, candidati standard e zone E1/E2.
 import json
 from pathlib import Path
 from collections import Counter
