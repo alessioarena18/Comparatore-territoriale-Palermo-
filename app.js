@@ -346,7 +346,6 @@ if(active==='social'){
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
  <div class="school-table"><table><thead><tr><th>Sede</th><th>Ordine scolastico</th><th>Tipologia</th><th>Istituto</th><th>Indirizzo</th><th>Quartiere</th><th>Stato V81</th><th>Controllo spaziale</th><th>Ordine verificato</th><th>Codice plesso</th><th>Raggi</th><th>Verifica documentale</th></tr></thead><tbody id="schoolPointRows"></tbody></table></div><div id="schoolUnlocated"></div>
  </div>
- <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">Attiva o disattiva i livelli con i controlli qui sotto. All’apertura è visibile soltanto il perimetro delle circoscrizioni ASC1; gli altri livelli si aggiungono singolarmente alla mappa. La base OpenStreetMap e l’ortofoto regionale 2022 sono selezionabili dal controllo cartografico.</p><div id="servicesTerritoryLayers" class="services-layer-switches" aria-label="Livelli cartografici"><label><input type="checkbox" data-service-layer="asc1" checked> Circoscrizioni ASC1</label><label><input type="checkbox" data-service-layer="asc2"> Quartieri ASC2</label><label><input type="checkbox" data-service-layer="asc3"> UPL ASC3</label><label><input type="checkbox" data-service-layer="sections"> Sezioni censuarie ISTAT 2021</label><label><input type="checkbox" data-service-layer="schools"> Sedi scolastiche georeferenziate</label></div><div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
  <div class="card"><h3>Anagrafica dei plessi e dati USR</h3><p class="school-note">401 record USR 2025/26 con codice meccanografico di plesso. Il raccordo con il registro 2026/27 resta distinto dal collegamento con gli edifici. Lotti documentali completati: 113 codici di plesso collegati a 82 punti comunali; per gli altri 288 record il collegamento fisico resta da verificare. La tabella indica i collegamenti certi e consente di richiamare la sede nella mappa, se inclusa nei filtri correnti. Non si aggregano alunni a quartiere, UPL o sezione finché la copertura dei plessi non è completa e controllata.</p>
  <div class="school-kpis">${orders.map(o=>{const x=stats.filter(z=>z.order===o);return '<div class="card"><span class="muted">'+esc(o)+'</span><div class="metric">'+fmt(x.length)+'</div><small class="muted">'+fmt(x.reduce((n,z)=>n+(+z.students||0),0))+' alunni</small></div>';}).join('')}</div>
  <div class="school-controls"><label>Ordine<select id="schoolStatsOrder"><option value="">Tutti</option>${orders.map(o=>'<option>'+esc(o)+'</option>').join('')}</select></label><label>Cerca plesso/istituto<input id="schoolStatsSearch" type="search" placeholder="Denominazione o codice"></label></div>
@@ -866,7 +865,37 @@ function initSchools(){
  const selectSchool=(id,fromList)=>{const p=pts.find(x=>String(x.id)===String(id));if(!p)return;selectedPointId=String(id);rows.querySelectorAll('tr[data-school-id]').forEach(row=>row.classList.toggle('school-row-selected',row.dataset.schoolId===selectedPointId));const marker=markersById.get(selectedPointId);if(marker){marker.setStyle({radius:11,color:'#111827',fillOpacity:1,weight:4});if(fromList){map.setView([p.lat,p.lon],Math.max(map.getZoom(),15),{animate:true});marker.openPopup();}else marker.openPopup();}rows.querySelector('tr[data-school-id="'+CSS.escape(selectedPointId)+'"]')?.scrollIntoView({block:'nearest',behavior:'smooth'});};
  rows.addEventListener('click',e=>{const row=e.target.closest('tr[data-school-id]');if(row)selectSchool(row.dataset.schoolId,true);});
  rows.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const row=e.target.closest('tr[data-school-id]');if(row){e.preventDefault();selectSchool(row.dataset.schoolId,true);}}});
- if($('#schoolMap')&&window.L){map=L.map('schoolMap').setView([38.1157,13.3615],11);addPalermoBaseLayers(map);layer=L.layerGroup().addTo(map);draw();setTimeout(()=>map.invalidateSize(),150);}else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
+ if($('#schoolMap')&&window.L){
+  map=L.map('schoolMap').setView([38.1157,13.3615],11);
+  addPalermoBaseLayers(map);
+  const territoryOverlays={};
+  const territoryDefs=[
+   {key:'asc1',name:'Circoscrizioni ASC1',color:'#1769aa',checked:true,code:'COD_ASC1',label:'DEN_ASC1'},
+   {key:'asc2',name:'Quartieri ASC2',color:'#c05a21',checked:false,code:'COM_ASC2',label:'DEN_ASC2'},
+   {key:'asc3',name:'UPL ASC3',color:'#27834a',checked:false,code:'COM_ASC3',label:'DEN_ASC3'},
+   {key:'sections',name:'Sezioni censuarie ISTAT 2021',color:'#8054a6',checked:false,code:'SEZ21_ID',label:'SEZ21'}
+  ];
+  territoryDefs.forEach(def=>{
+   const data=GEO[def.key];
+   if(!data||!Array.isArray(data.features)||!data.features.length)return;
+   const polygons=L.geoJSON(data,{style:()=>({color:def.color,weight:def.key==='sections'?.55:1.35,fillColor:def.color,fillOpacity:def.key==='sections'?.015:.035}),onEachFeature:(feature,featureLayer)=>{
+    const props=feature.properties||{},name=props[def.label]||props[def.code]||def.name;
+    featureLayer.bindPopup('<strong>'+esc(name)+'</strong><br><small>'+esc(def.name)+' · ISTAT 2021</small>');
+    if(def.key!=='sections')featureLayer.bindTooltip(esc(name),{permanent:false,direction:'center',className:'gis-polygon-label'});
+    featureLayer.on('click',()=>{const value=props[def.code];if(value!==undefined&&value!==null)syncGeoSelection(def.key==='sections'?'section':def.key,String(value));});
+   }});
+   territoryOverlays[def.name]=polygons;
+   if(def.checked)polygons.addTo(map);
+  });
+  layer=L.layerGroup().addTo(map);
+  territoryOverlays['Sedi scolastiche georeferenziate · 292 punti']=layer;
+  L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
+  const missingSections=!GEO.sections||!Array.isArray(GEO.sections.features)||!GEO.sections.features.length;
+  const mapNote=$('#schoolMapStatus');
+  if(missingSections&&mapNote)mapNote.textContent='Cartografia unificata: sedi scolastiche, circoscrizioni, quartieri e UPL. Il layer delle sezioni censuarie non è disponibile perché il relativo GeoJSON nel repository è vuoto; resta escluso finché non viene ripristinato.';
+  draw();
+  setTimeout(()=>map.invalidateSize(true),180);
+ }else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
  [kind,order,search,$('#schoolVerificationFilter'),$('#schoolBufferFilter')].forEach(x=>x?.addEventListener('input',draw));
  const so=$('#schoolStatsOrder'),ss=$('#schoolStatsSearch'),sr=$('#schoolStatsRows'),st=$('#schoolStatsStatus');
  const drawStats=()=>{const a=stats.filter(x=>{const r=registerByCode.get(String(x.code))||{};return (!so.value||x.order===so.value)&&(!ss.value||norm([x.code,x.name,x.institution,r.institutionCode2026,r.institution2026,r.institutionAddress2026].join(' ')).includes(norm(ss.value)));});sr.innerHTML=a.slice(0,300).map(x=>{const r=registerByCode.get(String(x.code))||{};return '<tr><td>'+esc(x.code)+'</td><td>'+esc(x.name)+'</td><td>'+esc(x.order)+'</td><td>'+esc(x.institution)+'</td><td>'+Number(x.students||0).toLocaleString('it-IT')+'</td><td>'+Number(x.classes||0).toLocaleString('it-IT')+'</td><td>'+Number(x.students_disability||0).toLocaleString('it-IT')+'</td><td>'+esc(r.institutionCode2026||'N.D.')+'</td><td>'+esc(r.institution2026||'Non presente nel registro 2026/27')+'</td><td>'+esc(r.institutionAddress2026||'N.D.')+'</td><td>'+esc(r.registryMatch||'Da verificare')+'</td><td>'+((r.mapPointIds&&r.mapPointIds.length)?r.mapPointIds.map((id,i)=>'<button type="button" class="school-open-map" data-map-point="'+esc(id)+'">'+(r.mapPointIds.length>1?'Apri corpo '+String.fromCharCode(65+i):'Apri sede')+'</button>').join(' '):(r.mapPointId?'<button type="button" class="school-open-map" data-map-point="'+esc(r.mapPointId)+'">Apri sede</button>':'<span class="muted">Non associata</span>'))+'</td></tr>';}).join('')||'<tr><td colspan="12">Nessun record.</td></tr>';const matches=register.filter(x=>x.registryMatch==='CODICE_COINCIDENTE').length;const documented=register.filter(x=>x.registryMatch==='ASSOCIAZIONE_DOCUMENTALE_CONFERMATA').length;const unresolved=register.length-matches-documented;const linked=register.filter(x=>x.mapPointId||x.mapPointIds?.length).length;const mappedPoints=new Set(register.flatMap(x=>x.mapPointIds?.length?x.mapPointIds:(x.mapPointId?[x.mapPointId]:[]))).size;st.textContent='Record visualizzati: '+Math.min(a.length,300)+' su '+a.length+'. Registro plessi: '+register.length+'; abbinamenti per codice esatto: '+matches+'; raccordi documentali per scuole annesse: '+documented+'; codici di plesso collegati a punti cartografici: '+linked+' su '+register.length+' ('+mappedPoints+' sedi fisiche); associazioni fisiche ancora da verificare: '+(register.length-linked)+'. Fonti USR, MIM e siti scolastici ufficiali.';};
