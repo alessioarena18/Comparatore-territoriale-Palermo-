@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "layer": "data/geo/prg_standard_2004.geojson",
+  "title": "Variante Generale al PRG di Palermo, zonizzazione e standard",
+  "resolution": "DCC 7/2004",
+  "primary_source": {
+    "publisher": "Comune di Palermo",
+    "dataset": 320,
+    "title": "Perimetrazione zonizzazione P.R.G. vigente",
+    "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320",
+    "catalog_update": "2018-01-10",
+    "license": "CC BY 4.0 IT"
+  },
+  "transformation_source": {
+    "repository": "https://github.com/gbvitrano/prg_pa_2004",
+    "license": "CC BY 4.0 IT",
+    "note": "Rielaborazione comunitaria GIS/WebGIS dichiarata come derivata dagli Open Data del Comune di Palermo. Il GeoJSON del comparatore mantiene l'attribuzione incorporata nel campo source."
+  },
+  "geometry": {
+    "format": "GeoJSON FeatureCollection",
+    "crs": "OGC:CRS84",
+    "features": 1628,
+    "geometry_type": "Polygon",
+    "bbox_wgs84": [
+      13.25789502,
+      38.06616423,
+      13.45137163,
+      38.21065695
+    ]
+  },
+  "groups": {
+    "S": {
+      "label": "Istruzione",
+      "features": 282,
+      "area_m2": 2096892.34,
+      "area_ha": 209.69
+    },
+    "IC": {
+      "label": "Attrezzature di interesse comune",
+      "features": 229,
+      "area_m2": 1627694.68,
+      "area_ha": 162.77
+    },
+    "V": {
+      "label": "Verde pubblico",
+      "features": 392,
+      "area_m2": 3505708.9,
+      "area_ha": 350.57
+    },
+    "P": {
+      "label": "Parcheggi",
+      "features": 434,
+      "area_m2": 1497104.24,
+      "area_ha": 149.71
+    },
+    "F": {
+      "label": "Attrezzature pubbliche di interesse generale",
+      "features": 291,
+      "area_m2": 15313777.14,
+      "area_ha": 1531.38
+    }
+  },
+  "exclusions": {
+    "dataset321": {
+      "title": "Vincoli vigenti della Variante Generale al P.R.G.",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=321",
+      "catalog_update": "2021-09-06",
+      "status": "not_integrated",
+      "note": "Fonte individuata ma geometrie non incluse nel layer prg_standard_2004.geojson."
+    }
+  },
+  "caveats": [
+    "La classificazione per gruppi è una rielaborazione per la visualizzazione e l'analisi; i codici originari sono mantenuti nelle proprietà delle feature.",
+    "Le superfici sono geometriche calcolate sulla geometria pubblicata; non equivalgono a superfici attuate, fruibili o di proprietà pubblica.",
+    "Le date di aggiornamento del catalogo non certificano la disciplina urbanistica vigente alla data odierna.",
+    "Per valutazioni conformative consultare atti, tavole ufficiali, NTA e varianti successive."
+  ]
+}
