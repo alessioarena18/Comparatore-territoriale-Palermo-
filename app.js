@@ -814,6 +814,7 @@ if(active==='social'){
 }
 if(active==='housing'&&window.Chart&&DATA.housing){
  const s=selected(),d=DATA.housing,level=(s.section||s.asc3)?'upl':housingLevel,rows=housingRows(d,s,level);
+  const labels=rows.map(x=>x.name);
  const distributionRows=s.circ&&!s.quart&&level==='circoscrizioni'?housingRows(d,s,'quartieri'):rows;
  const fmt=v=>Number(v||0).toLocaleString('it-IT');
  const makePie=(id,key)=>{
