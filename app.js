@@ -41,10 +41,10 @@ function computeStandardTerritorialStats(prg){
  const prepared=groups.map(f=>{
   const code=String(f.properties?.PRG_CODE||'').toUpperCase();
   const tokens=code.split(/[^A-Z0-9]+/).filter(Boolean);
-  const fTokens=tokens.filter(token=>['F1','F2','F3','F34'].includes(token));
-  const otherTokens=tokens.filter(token=>!['F1','F2','F3','F34'].includes(token));
+  const fTokens=tokens.filter(token=>['F1','F2','F3','F4','F34'].includes(token));
+  const otherTokens=tokens.filter(token=>!['F1','F2','F3','F4','F34'].includes(token));
   const fCategory=otherTokens.length===0&&fTokens.length>0
-   ?(fTokens.every(token=>token==='F3'||token==='F34')?'F34':fTokens.length===1?fTokens[0]:'')
+   ?(fTokens.every(token=>token==='F3'||token==='F4'||token==='F34')?'F34':fTokens.length===1?fTokens[0]:'')
    :'';
   return {feature:f,bbox:standardBounds(f),category:f.properties.PRG_GROUP,fCategory};
  });
