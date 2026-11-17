@@ -17,6 +17,36 @@ sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, deg
 };
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function selected(){return {circ:$('#circ')?.value||'',quart:$('#quart')?.value||'',asc2:geoSelection.asc2||'',asc3:$('#asc3')?.value||'',section:$('#section')?.value||''};}
+
+let publicFacilitiesPromise=null;
+function classifyPublicFacility(tags={}){
+ const a=tags.amenity||'',l=tags.leisure||'',o=tags.office||'',tour=tags.tourism||'';
+ if(a==='parking')return 'P';
+ if(a==='hospital'||a==='university'||a==='college'||a==='stadium'||tour==='university')return 'F';
+ if(a==='place_of_worship'||a==='community_centre'||a==='townhall'||a==='library'||a==='theatre'||a==='post_office'||a==='police'||a==='fire_station'||a==='social_facility'||a==='clinic'||a==='doctors'||a==='nursing_home'||a==='marketplace'||o==='government')return 'IC';
+ if(l==='park'||l==='playground'||l==='garden'||l==='sports_centre'||l==='pitch'||l==='stadium')return 'V';
+ return '';
+}
+function loadPublicFacilities(){
+ if(publicFacilitiesPromise)return publicFacilitiesPromise;
+ const query='[out:json][timeout:25];(nwr["amenity"~"place_of_worship|community_centre|townhall|library|theatre|post_office|police|fire_station|social_facility|clinic|doctors|nursing_home|marketplace|parking|hospital|university|college|stadium"](38.00,13.20,38.25,13.50);nwr["leisure"~"park|playground|garden|sports_centre|pitch|stadium"](38.00,13.20,38.25,13.50);nwr["office"="government"](38.00,13.20,38.25,13.50););out center tags;';
+ const endpoints=['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass.nchc.org.tw/api/interpreter'];
+ publicFacilitiesPromise=(async()=>{
+  let lastError=null;
+  for(const endpoint of endpoints){
+   try{
+    const response=await fetch(endpoint+'?data='+encodeURIComponent(query),{signal:AbortSignal.timeout(28000)});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    if(!Array.isArray(data.elements))throw new Error('Risposta OSM non valida');
+    return data.elements.map(e=>{const tags=e.tags||{},category=classifyPublicFacility(tags);let lat=e.lat,lon=e.lon;if((!Number.isFinite(lat)||!Number.isFinite(lon))&&e.center){lat=e.center.lat;lon=e.center.lon;}return {id:String(e.type||'')+'/'+String(e.id||''),category,lat,lon,name:tags.name||tags['name:it']||tags.amenity||tags.leisure||tags.office||'Attrezzatura senza denominazione',subtype:tags.amenity||tags.leisure||tags.office||tags.tourism||'',address:[tags['addr:street'],tags['addr:housenumber']].filter(Boolean).join(' '),tags,source:'OpenStreetMap'};}).filter(x=>x.category&&Number.isFinite(x.lat)&&Number.isFinite(x.lon));
+   }catch(error){lastError=error;}
+  }
+  throw lastError||new Error('Servizio cartografico non disponibile');
+ })();
+ return publicFacilitiesPromise;
+}
+
 function pointInRing(point,ring){let inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const xi=ring[i][0],yi=ring[i][1],xj=ring[j][0],yj=ring[j][1];const cross=((yi>point[1])!==(yj>point[1]))&&(point[0]<(xj-xi)*(point[1]-yi)/(yj-yi||1e-15)+xi);if(cross)inside=!inside;}return inside;}
 function pointInGeometry(point,geometry){if(!geometry)return false;const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];return polygons.some(poly=>poly.length&&pointInRing(point,poly[0])&&!poly.slice(1).some(hole=>pointInRing(point,hole)));}
 function geometryBounds(geometry){const coords=[];const walk=a=>{if(Array.isArray(a)&&typeof a[0]==='number'&&typeof a[1]==='number')coords.push(a);else if(Array.isArray(a))a.forEach(walk);};if(geometry)walk(geometry.coordinates);if(!coords.length)return null;return [Math.min(...coords.map(p=>p[0])),Math.min(...coords.map(p=>p[1])),Math.max(...coords.map(p=>p[0])),Math.max(...coords.map(p=>p[1]))];}
@@ -650,6 +680,30 @@ function initMap(mapId='map'){
   }catch(error){results.push('Sedi scolastiche: errore di caricamento ('+error.message+')');}
   }
   if(mapId==='servicesTerritoryMap'){
+   const serviceCategoryStyles={IC:{color:'#d97706',label:'Interesse comune'},V:{color:'#16845b',label:'Verde e sport'},P:{color:'#475569',label:'Parcheggi'},F:{color:'#7c3aed',label:'Interesse generale'}};
+   loadPublicFacilities().then(facilities=>{
+    const groups={IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
+    facilities.forEach(item=>{
+     const style=serviceCategoryStyles[item.category];if(!style)return;
+     const marker=L.circleMarker([item.lat,item.lon],{radius:6,color:style.color,fillColor:style.color,fillOpacity:.88,weight:1.5});
+     marker.bindPopup('<div class="school-popup"><b>'+esc(item.name)+'</b><br>'+esc(style.label)+'<br>'+esc(item.subtype||'')+(item.address?'<br>'+esc(item.address):'')+'<br><small>Fonte: OpenStreetMap. Punto di servizio da verificare per titolarità pubblica e corrispondenza PRG.</small></div>');
+     marker.addTo(groups[item.category]);
+    });
+    Object.entries(groups).forEach(([key,group])=>{
+     gisImportedLayers.push({name:'Servizi e dotazioni · '+serviceCategoryStyles[key].label+' (OSM)',key:'service-'+key,layer:group,featureLayers:group.getLayers()});
+    });
+    updateControl();
+    const panel=$('#servicesTerritoryLayers');
+    if(panel)panel.querySelectorAll('[data-service-layer]').forEach(input=>{
+     const item=gisImportedLayers.find(x=>x.key===input.dataset.serviceLayer);
+     if(!item)return;
+     if(input.checked)item.layer.addTo(gisMap);
+     input.onchange=()=>{if(input.checked)item.layer.addTo(gisMap);else gisMap.removeLayer(item.layer);};
+    });
+    const auto=$('#servicesTerritoryStatus');if(auto)auto.textContent+=' · '+facilities.length+' servizi pubblici mappati da OSM, distinti per categoria.';
+   }).catch(error=>{const auto=$('#servicesTerritoryStatus');if(auto)auto.textContent+=' · Archivio servizi OSM non disponibile: '+String(error.message||error);});
+  }
+  if(mapId==='servicesTerritoryMap'){
    const points=DATA.schoolPoints||[];
    const classes=DATA.schoolClassification?.records||[];
    const census=DATA.schoolCensus?.records||[];
@@ -862,7 +916,7 @@ function initStandardSchoolMap(){
     g.features++;g.area_m2+=Number(p.AREA_M2)||0;g.codes[p.PRG_CODE]=(g.codes[p.PRG_CODE]||0)+1;
    });
    const order=['S','IC','V','P','F'];
-   const stats=order.map(k=>{const g=prgSummary[k];return g?prgZoneStyles[k].label+': '+g.features+' poligoni, '+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' ha':'';}).filter(Boolean);
+   const stats=order.map(k=>{const g=prgSummary[k];return g?prgZoneStyles[k].label+': '+Number(g.features).toLocaleString('it-IT')+' poligoni, '+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' ha':'';}).filter(Boolean);
    if(!map.hasLayer(prgZoneGroups.S))prgZoneGroups.S.addTo(map);
    const panel=$('#standardPrgStats');
    if(panel)panel.innerHTML='<div class="grid standards-kpis">'+order.map(k=>{const g=prgSummary[k];return g?'<div class="card"><span class="muted">'+esc(prgZoneStyles[k].label)+'</span><div class="metric">'+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' <small>ha</small></div><small class="muted">'+g.features+' poligoni PRG</small></div>':'';}).join('')+'</div><p class="muted">Superfici geometriche lorde dei poligoni per gruppo; i codici combinati e le sovrapposizioni sono mantenuti come negli elaborati sorgente. Non sommare automaticamente le categorie né confondere F con gli standard ordinari dell’art. 3 del D.M. 1444/1968.</p>';
@@ -898,15 +952,15 @@ function initStandardSchoolMap(){
   status.textContent=status.textContent.split(' | ')[0]+' | '+amenitiesCount+' luoghi/servizi OSM visibili. Corrispondenza PRG solo funzionale e provvisoria: verificare destinazione P2A/P2B, titolarità e uso.';
  };
  const loadAmenities=async()=>{
-  const q='[out:json][timeout:25];(nwr["amenity"~"place_of_worship|community_centre|townhall|library|theatre|post_office|police|fire_station|social_facility|clinic|doctors|nursing_home|marketplace|parking|hospital|university|college|stadium"](38.00,13.20,38.25,13.50);nwr["leisure"~"park|playground|garden|sports_centre|pitch|stadium"](38.00,13.20,38.25,13.50);nwr["office"="government"](38.00,13.20,38.25,13.50););out center tags;';
   try{
-   const response=await fetch('https://overpass-api.de/api/interpreter?data='+encodeURIComponent(q),{signal:AbortSignal.timeout(30000)});
-   if(!response.ok)throw new Error('HTTP '+response.status);
-   const data=await response.json();addAmenities(data.elements||[]);
-   amenitiesStatus='Dati OpenStreetMap caricati: '+amenitiesCount+' luoghi/servizi nel filtro territoriale corrente.';
+   const facilities=await loadPublicFacilities();
+   const elements=facilities.map(x=>({id:x.id,lat:x.lat,lon:x.lon,tags:{...x.tags,name:x.name,amenity:x.tags.amenity,leisure:x.tags.leisure,office:x.tags.office,tourism:x.tags.tourism,'addr:street':x.tags['addr:street'],'addr:housenumber':x.tags['addr:housenumber']}}));
+   addAmenities(elements);
+   amenitiesStatus='Archivio condiviso OpenStreetMap caricato: '+amenitiesCount+' luoghi/servizi visibili nel territorio selezionato.';
+   const prgStatus=$('#standardPrgStatus');if(prgStatus)prgStatus.textContent+=' | Archivio dei servizi condiviso con Servizi e Dotazioni.';
   }catch(err){
-   amenitiesStatus='Servizi OSM temporaneamente non caricati ('+String(err.message||err)+'). Le sedi scolastiche restano disponibili; riprova più tardi.';
-   status.textContent=amenitiesStatus+' | I punti OSM non sono dati ufficiali di zonizzazione PRG.';
+   amenitiesStatus='Archivio dei servizi non disponibile ('+String(err.message||err)+'). Le sedi scolastiche e la zonizzazione PRG restano consultabili.';
+   status.textContent=amenitiesStatus;
   }
  };
  const draw=()=>{
