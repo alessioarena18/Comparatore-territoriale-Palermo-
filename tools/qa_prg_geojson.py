@@ -26,7 +26,7 @@ def main():
  reports=[check(x) for x in layers]
  meta=json.loads((DIR/"metadata.json").read_text())
  if len(meta.get("fonti",[]))!=2:raise ValueError("fonti metadata incomplete")
- (DIR/"qa_prg.json").write_text(json.dumps({"status":"passed","scope":"structural and coarse geographic plausibility only; not topology/legal validation","reports":reports},ensure_ascii=False,indent=2)+"\n")
+ (DIR/"qa_prg.json").write_text(json.dumps({"status":"passed","scope":"structural and coarse geographic plausibility only; not topology/legal validation","reports":reports,"source_quality":{"excluded_without_geometry":excluded,"geometry_collection_parts_added":split,"details":source_quality}},ensure_ascii=False,indent=2)+"\n")
  print("QA superato:",len(reports),"layer; topologia e vigenza non certificate.")
 if __name__=="__main__":
  try:main()
