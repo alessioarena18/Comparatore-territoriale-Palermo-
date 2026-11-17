@@ -1435,6 +1435,13 @@ function initSchools(){
   }).catch(error=>{const note=$('#schoolMapStatus');if(note)note.textContent+=' Archivio dei servizi OSM non disponibile: '+String(error.message||error)+'. Il censimento scolastico resta disponibile.';});
   const missingSections=!GEO.sections||!Array.isArray(GEO.sections.features)||!GEO.sections.features.length;
   draw();
+  // Inquadramento automatico delle sedi: la mappa viene adattata ai marker caricati.
+  const schoolMarkers=layer?.getLayers()||[];
+  if(schoolMarkers.length){
+   const schoolBounds=L.featureGroup(schoolMarkers).getBounds();
+   if(schoolBounds.isValid())map.fitBounds(schoolBounds,{padding:[28,28],maxZoom:13});
+   schoolMarkers.forEach(marker=>marker.bringToFront?.());
+  }
   const mapNote=$('#schoolMapStatus');
   const georeferencedCount=pts.filter(p=>Number.isFinite(Number(p.lat))&&Number.isFinite(Number(p.lon))).length;
   const eligiblePoints=schoolCensus.filter(x=>x.bufferEligible===true).length;
