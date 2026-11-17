@@ -1,6 +1,6 @@
 {
   "titolo": "Registro delle fonti ufficiali",
-  "versione": "1.3",
+  "versione": "1.4",
   "aggiornato_il": "2026-11-17",
   "criterio": "Fonti primarie istituzionali. Ogni indicatore derivato conserva fonte, anno, scala territoriale e metodologia.",
   "fonti": [
@@ -262,6 +262,36 @@
       "riferimento_temporale": "2025",
       "stato": "Documento di pianificazione e schema di massima; non assumere come piano approvato o disciplina immediatamente vigente.",
       "nota": "Utile come quadro conoscitivo e confronto, non come sostituto automatico delle tavole e NTA del PRG vigente."
+    },
+    {
+      "id": "comune-prg-nta-dcc-7-2004",
+      "ente": "Comune di Palermo",
+      "titolo": "Variante Generale al PRG DCC 7/2004: NTA, tavole di zonizzazione e deliberazione di presa d'atto",
+      "url": "https://trasparenza.comune.palermo.it/page/10624/piano-regolatore-generale-dcc-72024.html",
+      "ambito": [
+        "NTA PRG",
+        "articolo 24",
+        "zonizzazione P2A",
+        "schede norma"
+      ],
+      "riferimento_temporale": "Variante Generale PRG, presa d'atto 2004; documenti pubblicati/aggiornati 2025",
+      "stato": "Fonte comunale primaria per NTA, tavole P2A e deliberazione. Per la vigenza puntuale occorre verificare atti successivi e prescrizioni applicabili.",
+      "nota": "Riferimento per controllare codici e destinazioni delle zone S, IC, V, P e F. La pagina pubblica NTA, tavole di zonizzazione e atti di presa d'atto."
+    },
+    {
+      "id": "comune-prg-schema-massima-relazione-standard-2025",
+      "ente": "Comune di Palermo",
+      "titolo": "PRG2.0 Palermo 2025, Schema di massima, Relazione generale",
+      "url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015084706.pdf",
+      "ambito": [
+        "standard urbanistici",
+        "art. 24 NTA PRG vigente",
+        "zone S IC V P",
+        "zone F1 F2 F4"
+      ],
+      "riferimento_temporale": "Schema di massima 2025; quadro ricognitivo del PRG vigente e dati storici di attuazione",
+      "stato": "Documento ufficiale di analisi e schema di massima, non sostitutivo del PRG approvato.",
+      "nota": "Alle pp. 78-81 riporta la ripartizione locale 18 m²/abitante (S 4,5; IC 2; P 2,5; V 9), la classificazione ex art. 24 NTA (S1/S2, IC1-IC14, V1-V5, P1/PO/PR) e i parametri di interesse generale F1 1,5, F2 1 e F4 15 m²/abitante. La stessa relazione distingue dotazioni locali e territoriali e richiama la necessità di considerare lo stato di attuazione."
     }
   ],
   "regole_di_pubblicazione": [
@@ -274,6 +304,7 @@
     "Le sezioni censuarie fittizie (ad esempio 888888x e 999999x) devono essere gestite separatamente secondo le note metodologiche ISTAT.",
     "Gli archivi ZIP ISTAT sono fonti primarie: prima dell'importazione occorre conservare il file originale, documentare la data di acquisizione e validare il contenuto.",
     "Per le geometrie delle sezioni di Palermo usare il pacchetto regionale ISTAT R19_21 e non ricostruzioni cartografiche di terze parti.",
-    "Le varianti parziali al PRG devono essere georiferite sul solo perimetro catastale/territoriale interessato e mantenute distinte dalla base generale fino alla verifica di pubblicazione, conclusione del procedimento ed efficacia."
+    "Le varianti parziali al PRG devono essere georiferite sul solo perimetro catastale/territoriale interessato e mantenute distinte dalla base generale fino alla verifica di pubblicazione, conclusione del procedimento ed efficacia.",
+    "Nel confronto con il D.M. 1444/1968 distinguere gli standard locali S/IC/V/P dagli standard di interesse generale: verificare in particolare le categorie F1, F2 e F4 richiamate dall'art. 4, comma 5, senza includere indistintamente tutte le zone F."
   ]
 }
