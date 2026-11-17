@@ -888,12 +888,12 @@ function initSchools(){
    if(def.checked)polygons.addTo(map);
   });
   layer=L.layerGroup().addTo(map);
-  territoryOverlays['Sedi scolastiche georeferenziate · 292 punti']=layer;
+  territoryOverlays['Sedi scolastiche georeferenziate · '+pts.length+' punti']=layer;
   L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
   const missingSections=!GEO.sections||!Array.isArray(GEO.sections.features)||!GEO.sections.features.length;
-  const mapNote=$('#schoolMapStatus');
-  if(missingSections&&mapNote)mapNote.textContent='Cartografia unificata: sedi scolastiche, circoscrizioni, quartieri e UPL. Il layer delle sezioni censuarie non è disponibile perché il relativo GeoJSON nel repository è vuoto; resta escluso finché non viene ripristinato.';
   draw();
+  const mapNote=$('#schoolMapStatus');
+  if(mapNote)mapNote.textContent+=' Cartografia unificata: sedi scolastiche, circoscrizioni, quartieri e UPL. '+(missingSections?'Il layer delle sezioni censuarie non è disponibile perché il relativo GeoJSON nel repository è vuoto; resta escluso finché non viene ripristinato.':'Sezioni censuarie ISTAT 2021 disponibili nel controllo livelli.');
   setTimeout(()=>map.invalidateSize(true),180);
  }else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
  [kind,order,search,$('#schoolVerificationFilter'),$('#schoolBufferFilter')].forEach(x=>x?.addEventListener('input',draw));
