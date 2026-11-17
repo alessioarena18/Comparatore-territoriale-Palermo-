@@ -816,7 +816,17 @@ if(active==='housing'&&window.Chart&&DATA.housing){
  const s=selected(),d=DATA.housing,level=(s.section||s.asc3)?'upl':housingLevel,rows=housingRows(d,s,level);
  const fmt=v=>Number(v||0).toLocaleString('it-IT');
  const distributionRows=s.circ&&!s.quart&&level==='circoscrizioni'?housingRows(d,s,'quartieri'):rows;
- const labels=distributionRows.map(x=>x.name),makePie=(id,key)=>{const el=document.getElementById(id);if(el&&distributionRows.length>1)charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:distributionRows.map(x=>Number(x[key])||0)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));};
+ const fmt=v=>Number(v||0).toLocaleString('it-IT');
+ const makePie=(id,key)=>{
+  const el=document.getElementById(id);if(!el)return;
+  let items=distributionRows.map(x=>({name:x.name,value:Math.max(0,Number(x[key])||0)})).filter(x=>x.value>0);
+  if(s.circ&&!s.quart&&level==='circoscrizioni'&&rows.length){const total=Math.max(0,Number(rows[0][key])||0),sum=items.reduce((n,x)=>n+x.value,0),residual=Math.max(0,total-sum);if(residual>0)items.push({name:'Quota non ripartita tra quartieri',value:residual});}
+  const total=items.reduce((n,x)=>n+x.value,0);if(!total)return;
+  const labels=items.map(x=>x.name),values=items.map(x=>x.value);
+  const pct=v=>total?(v/total*100):0;
+  const percentLabels={id:'housingPercentLabels',afterDatasetsDraw(chart){const ctx=chart.ctx,meta=chart.getDatasetMeta(0);ctx.save();ctx.font='600 12px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';meta.data.forEach((arc,i)=>{const p=pct(values[i]);if(p<5)return;const pos=arc.tooltipPosition();ctx.fillStyle='#fff';ctx.shadowColor='rgba(0,0,0,.35)';ctx.shadowBlur=2;ctx.fillText(p.toLocaleString('it-IT',{maximumFractionDigits:1})+'%',pos.x,pos.y);});ctx.restore();}};
+  charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:values}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{generateLabels(chart){return labels.map((label,i)=>({text:label+' · '+fmt(values[i])+' ('+pct(values[i]).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1})+'%)',fillStyle:chart.data.datasets[0].backgroundColor?.[i]||Chart.defaults.backgroundColor,strokeStyle:chart.data.datasets[0].borderColor?.[i]||'#fff',lineWidth:1,hidden:false,index:i}));}}},tooltip:{callbacks:{label(ctx){const v=Number(ctx.raw)||0;return ctx.label+': '+fmt(v)+' ('+pct(v).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1})+'%)';}}}}},plugins:[percentLabels]}));
+ };
  makePie('housingPopulationPie','population');makePie('housingFamiliesPie','families');makePie('housingDwellingsPie','dwellings');makePie('housingBuildingsPie','buildings'); 
  if(DATA.housing2023){const h23=housingRows(DATA.housing2023,s,level),occupied=h23.reduce((n,x)=>n+(Number(x.occupied)||0),0),notOccupied=h23.reduce((n,x)=>n+(Number(x.notOccupied)||0),0),pie=document.getElementById('housingOccupancyPie');if(pie&&occupied+notOccupied>0)charts.push(new Chart(pie,{type:'pie',data:{labels:['Abitazioni occupate da residenti','Abitazioni non occupate da residenti'],datasets:[{data:[occupied,notOccupied]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));}
  const circRows=DATA.housing2023.circoscrizioni.filter(x=>!selected().circ||x.code===String(GEO.asc1?.features?.find(f=>String(f.properties?.COD_ASC1)===String(selected().circ).replace('c',''))?.properties?.COM_ASC1||''));
