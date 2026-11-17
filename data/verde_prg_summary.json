@@ -237,6 +237,14 @@
         "eliminazione dei doppi conteggi e delle sovrapposizioni"
       ],
       "note": "Il bilancio degli standard non viene calcolato sulle sole previsioni di PRG. E1/E2, VS e V5 non entrano automaticamente nella quota dei 9 m²/ab. Per F4 si conteggiano solo le porzioni effettivamente pertinenti, non l'intero perimetro."
+    },
+    "regional_standard": {
+      "law": "L.R. Sicilia 71/1978, art. 21",
+      "url": "https://www.gazzettaufficiale.it/atto/regioni/caricaArticolo?art.codiceRedazionale=092R0821&art.dataPubblicazioneGazzetta=1993-01-09&art.idArticolo=21&art.idGruppo=6&art.idSottoArticolo=1&art.progressivo=0&art.versione=1",
+      "additional_green_m2_per_resident": 3,
+      "scope": "Strumenti urbanistici attuativi per zone residenziali di nuova formazione",
+      "exclusions": "La quota aggiuntiva non comprende le aree destinate ad attrezzature sportive",
+      "note": "Non applicare automaticamente questa quota al bilancio complessivo del Comune; verificare il singolo ambito attuativo."
     }
   }
 }
