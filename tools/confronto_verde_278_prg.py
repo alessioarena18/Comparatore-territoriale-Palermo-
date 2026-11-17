@@ -97,7 +97,9 @@ def main():
                   "prg_non_censito_2013":summary_area(pi.difference(hi)),
                   "quota_inventario_2013_intersecata_pct":round(oi.area/hi.area*100,2) if hi.area else None,
                   "quota_prg_intersecata_inventario_2013_pct":round(oi.area/pi.area*100,2) if pi.area else None,
-                  "classi_urbane_prg":group_stats(urban_union.intersection(b),hi),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b),hi),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
+                  "classi_urbane_prg":group_stats(urban_union.intersection(b),hi),
+                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b),hi),
+                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
             except Exception:continue
         territorial[level]=rows
     result={
@@ -111,6 +113,7 @@ def main():
       "per_tipo_inventario_2013":hist_by_type,"per_classe_prg":class_rows,"perimetri_territoriali":territorial,
       "qa":{"geometrie_storiche_scartate":invalid_h,"geometrie_prg_scartate":invalid_p,"geometrie_storiche_non_valide_riparate_con_buffer0":repaired_h}
     }
-    OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"
+",encoding="utf-8")
     print(json.dumps({"status":"completed","global":result["global"],"counts":{k:len(v) for k,v in territorial.items()}},ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
