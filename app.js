@@ -1330,28 +1330,77 @@ async function initGreenMap(){
   if(!greenMapData){const r=await fetch('data/geo/verde_prg.geojson',{cache:'no-store'});if(!r.ok)throw new Error('GeoJSON verde HTTP '+r.status);greenMapData=await r.json();}
   if(!greenSummaryData){const r=await fetch('data/verde_prg_summary.json',{cache:'no-store'});if(!r.ok)throw new Error('Riepilogo verde HTTP '+r.status);greenSummaryData=await r.json();}
   if(!document.getElementById('greenMap'))return;
-  const cats=greenSummaryData.categories||[],byId=new Map(cats.map(x=>[x.id,x]));
+  const cats=greenSummaryData.categories||[],s=selected();
+  const territoryName=s.section?'Sezione censuaria '+s.section:
+   s.asc3?(GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3))?.properties?.DEN_ASC3||'UPL '+s.asc3):
+   s.quart?(DATA.territories.quartieri.find(q=>q.id===s.quart)?.name||'Quartiere selezionato'):
+   s.asc2?(GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2))?.properties?.DEN_ASC2||'Quartiere '+s.asc2):
+   s.circ?(DATA.territories.circoscrizioni.find(c=>c.id===s.circ)?.name||'Circoscrizione selezionata'):'Palermo · intero Comune';
+  let boundary=null;
+  if(s.section)boundary=GEO.sections?.features.find(f=>String(f.properties?.SEZ21_ID)===String(s.section))||null;
+  else if(s.asc3)boundary=GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3))||null;
+  else if(s.quart)boundary=findAsc2FeatureForQuartiere(DATA.territories.quartieri.find(q=>q.id===s.quart));
+  else if(s.asc2)boundary=GEO.asc2?.features.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2))||null;
+  else if(s.circ){const code=String(s.circ).replace(/\\D/g,'');boundary=GEO.asc1?.features.find(f=>String(f.properties?.COD_ASC1)===code)||null;}
+  const filtered=!!(s.section||s.asc3||s.quart||s.asc2||s.circ);
+  let mapFeatures=greenMapData.features||[],clipErrors=0;
+  if(filtered&&boundary?.geometry){
+   if(!window.turf||typeof turf.intersect!=='function')throw new Error('Turf.js non disponibile per il ritaglio territoriale');
+   const boundaryBox=turf.bbox(boundary);
+   mapFeatures=[];
+   for(let i=0;i<(greenMapData.features||[]).length;i++){
+    const feature=greenMapData.features[i];if(!feature.geometry)continue;
+    try{
+     const box=turf.bbox(feature);
+     if(box[0]>boundaryBox[2]||box[2]<boundaryBox[0]||box[1]>boundaryBox[3]||box[3]<boundaryBox[1])continue;
+     const clipped=turf.intersect(turf.featureCollection([feature,boundary]));
+     if(!clipped)continue;
+     const area=turf.area(clipped);if(!Number.isFinite(area)||area<0.5)continue;
+     clipped.properties={...(feature.properties||{}),AREA_M2:area,AREA_METHOD:'Intersezione con il perimetro territoriale selezionato'};
+     mapFeatures.push(clipped);
+    }catch(error){clipErrors++;}
+    if(i%80===79)await new Promise(resolve=>setTimeout(resolve,0));
+   }
+  }else if(filtered&&!boundary?.geometry){
+   throw new Error('Geometria ufficiale non disponibile per il territorio selezionato: impossibile ritagliare correttamente la cartografia.');
+  }
+  const mapData={type:'FeatureCollection',features:mapFeatures};
   const fmt=n=>Number(n).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const byId=new Map(cats.map(x=>[x.id,{...x}]));
+  if(filtered){
+   for(const [id,cat] of byId){
+    if(id==='privato'){cat.count=null;cat.area_ha=null;continue;}
+    const items=mapFeatures.filter(f=>f.properties?.green_class===id);
+    cat.count=items.length;
+    cat.area_ha=items.reduce((sum,f)=>sum+(Number(f.properties?.AREA_M2)||0),0)/10000;
+   }
+  }
+  const displayCats=[...byId.values()];
   const kpis=['pubblico','privato','attrezzato','agricolo','collinare','storico'].map(id=>byId.get(id)).filter(Boolean);
-  const kh=document.getElementById('greenKpis');if(kh)kh.innerHTML=kpis.map(x=>'<div class="card"><span class="muted">'+esc(x.label)+'</span><div class="metric">'+(x.area_ha===null?'N.D.':fmt(x.area_ha)+' <small>ha</small>')+'</div><small class="muted">'+(x.count===null?'Proprietà da verificare':x.count+' geometrie PRG')+'</small></div>').join('');
-  const rows=cats.map(x=>'<tr><td><strong>'+esc(x.label)+'</strong></td><td>'+esc((x.zto||[]).join(', '))+'</td><td>'+(x.count===null?'N.D.':fmt(x.count))+'</td><td>'+(x.area_ha===null?'N.D.':fmt(x.area_ha)+' ha')+'</td><td>'+(x.note?esc(x.note):'Superficie geometrica PRG')+'</td></tr>').join('');
+  const kh=document.getElementById('greenKpis');if(kh)kh.innerHTML=kpis.map(x=>'<div class="card"><span class="muted">'+esc(x.label)+'</span><div class="metric">'+(x.area_ha===null?'N.D.':fmt(x.area_ha)+' <small>ha</small>')+'</div><small class="muted">'+(x.count===null?'Proprietà da verificare':x.count+' geometrie'+(filtered?' intersecate':' PRG'))+'</small></div>').join('');
+  const rows=displayCats.map(x=>'<tr><td><strong>'+esc(x.label)+'</strong></td><td>'+esc((x.zto||[]).join(', '))+'</td><td>'+(x.count===null?'N.D.':fmt(x.count))+'</td><td>'+(x.area_ha===null?'N.D.':fmt(x.area_ha)+' ha')+'</td><td>'+(x.note?esc(x.note):'Superficie geometrica'+(filtered?' ritagliata sul territorio selezionato':' PRG'))+'</td></tr>').join('');
   const th=document.getElementById('greenStatsTable');if(th)th.innerHTML='<table><thead><tr><th>Destinazione</th><th>Codice</th><th>Geometrie</th><th>Superficie</th><th>Nota</th></tr></thead><tbody>'+rows+'</tbody></table>';
-  const chart=document.getElementById('greenAreaChart');if(chart&&window.Chart){const chartIds=['pubblico','attrezzato','agricolo','collinare','storico','parco_urbano','gioco','sport','impianti'];const chartRows=chartIds.map(id=>byId.get(id)).filter(x=>x&&Number(x.area_ha)>0);charts.push(new Chart(chart,{type:'bar',data:{labels:chartRows.map(x=>x.label),datasets:[{label:'Superficie geometrica (ha)',data:chartRows.map(x=>x.area_ha)}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:'Ettari'}}}}}));}
+  const chart=document.getElementById('greenAreaChart');
+  if(chart&&window.Chart){
+   const chartIds=['pubblico','attrezzato','agricolo','collinare','storico','parco_urbano','gioco','sport','impianti'];
+   const chartRows=chartIds.map(id=>byId.get(id)).filter(x=>x&&Number(x.area_ha)>0);
+   charts.push(new Chart(chart,{type:'bar',data:{labels:chartRows.map(x=>x.label),datasets:[{label:'Superficie geometrica (ha)',data:chartRows.map(x=>x.area_ha)}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,title:{display:true,text:'Ettari'}}}}}));
+  }
   const map=L.map(el).setView([38.1157,13.3615],11),base=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});base.addTo(map);
   const styles={pubblico:{color:'#15803d',fillColor:'#22c55e'},gioco:{color:'#a16207',fillColor:'#eab308'},sport:{color:'#c2410c',fillColor:'#fb923c'},attrezzato:{color:'#16a34a',fillColor:'#4ade80'},impianti:{color:'#b45309',fillColor:'#f59e0b'},agricolo:{color:'#84933c',fillColor:'#c5d36a'},collinare:{color:'#14532d',fillColor:'#166534'},storico:{color:'#0f766e',fillColor:'#5eead4'},parco_urbano:{color:'#1d4ed8',fillColor:'#60a5fa'},misto:{color:'#64748b',fillColor:'#94a3b8'}};
   const names={pubblico:'V3 · Spazi pubblici a verde',gioco:'V1 · Campi gioco per bambini',sport:'V2 · Campi sportivi',attrezzato:'V4 · Aree attrezzate a parco',impianti:'V5 · Impianti sportivi',agricolo:'E1 · Verde agricolo',collinare:'E2 · Verde collinare e naturalistico',storico:'VS · Verde storico e pertinenziale',parco_urbano:'F4 · Parchi urbani e territoriali',misto:'Codici V misti o non univoci'};
   const overlay={};
   Object.keys(names).forEach(key=>{
-   const features=(greenMapData.features||[]).filter(f=>f.properties?.green_class===key);if(!features.length)return;
-   const st=styles[key];const layer=L.geoJSON({type:'FeatureCollection',features},{style:()=>({color:st.color,fillColor:st.fillColor,weight:1,opacity:.9,fillOpacity:.28}),onEachFeature:(feature,ly)=>{const p=feature.properties||{};ly.bindPopup('<strong>'+esc(p.green_label||names[key])+'</strong><br>Codice PRG: '+esc(p.ZTO||'N.D.')+'<br>Superficie geometrica: '+(Number.isFinite(Number(p.AREA_M2))?fmt(Number(p.AREA_M2))+' m²':'N.D.')+'<br>ID geometria: '+esc(p.ID||p.PRG_ID||'N.D.'));}});
+   const features=mapFeatures.filter(f=>f.properties?.green_class===key);if(!features.length)return;
+   const st=styles[key];const layer=L.geoJSON({type:'FeatureCollection',features},{style:()=>({color:st.color,fillColor:st.fillColor,weight:1,opacity:.9,fillOpacity:.28}),onEachFeature:(feature,ly)=>{const p=feature.properties||{};ly.bindPopup('<strong>'+esc(p.green_label||names[key])+'</strong><br>Codice PRG: '+esc(p.ZTO||'N.D.')+'<br>Superficie geometrica'+(filtered?' nell’unità selezionata':'')+': '+(Number.isFinite(Number(p.AREA_M2))?fmt(Number(p.AREA_M2))+' m²':'N.D.')+'<br>ID geometria: '+esc(p.ID||p.PRG_ID||'N.D.'));}});
    overlay[names[key]]=layer;if(['pubblico','attrezzato','agricolo','collinare'].includes(key))layer.addTo(map);
   });
   L.control.layers({'OpenStreetMap':base},overlay,{collapsed:false}).addTo(map);
-  const bounds=L.geoJSON(greenMapData).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18]});
+  const bounds=L.geoJSON(mapData).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18]});
   greenMapInstance=map;
-  const mapCounts={};(greenMapData.features||[]).forEach(f=>{const key=f.properties?.green_class||'non_classificato';mapCounts[key]=(mapCounts[key]||0)+1;});
-  const mismatches=cats.filter(x=>x.count!==null&&x.id!=='privato'&&(mapCounts[x.id]||0)!==Number(x.count));
-  if(status)status.textContent=(greenMapData.feature_count||greenMapData.features?.length||0)+' geometrie caricate. Layer PRG distinti: V1, V2, V3, V4, V5, E1, E2, VS, F4 e codici misti. Verde privato: N.D., non cartografato perché manca un layer PRG che certifichi la titolarità. '+(mismatches.length?'Attenzione: conteggi mappa/riepilogo da riconciliare per '+mismatches.map(x=>x.id).join(', ')+'.':'Conteggi della mappa coerenti con il riepilogo quantitativo.')+' Fonte primaria: Comune di Palermo, dataset 320, Variante Generale DCC 7/2004.';
+  const mapCounts={};mapFeatures.forEach(f=>{const key=f.properties?.green_class||'non_classificato';mapCounts[key]=(mapCounts[key]||0)+1;});
+  const mismatches=filtered?[]:cats.filter(x=>x.count!==null&&x.id!=='privato'&&(mapCounts[x.id]||0)!==Number(x.count));
+  if(status)status.textContent=mapFeatures.length+' geometrie'+(filtered?' intersecate con '+territoryName:' caricate per Palermo intera')+'. '+(filtered?'Superfici ricalcolate sull’intersezione con il perimetro ISTAT selezionato. ':'')+'Layer PRG: V1, V2, V3, V4, V5, E1, E2, VS, F4 e codici misti. Verde privato: N.D., non cartografato perché manca un layer PRG che certifichi la titolarità. '+(clipErrors?'Intersezioni non elaborate: '+clipErrors+'. ':'')+(mismatches.length?'Attenzione: conteggi mappa/riepilogo da riconciliare per '+mismatches.map(x=>x.id).join(', ')+'.':'Conteggi mappa e riepilogo coerenti.')+' Fonte: Comune di Palermo, dataset 320, Variante Generale DCC 7/2004.';
  }catch(error){console.error('Analisi del verde non disponibile',error);if(status)status.textContent='Impossibile caricare la cartografia del verde: '+error.message;}
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
