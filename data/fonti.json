@@ -1,7 +1,7 @@
 {
   "titolo": "Registro delle fonti ufficiali",
-  "versione": "1.2",
-  "aggiornato_il": "2026-11-12",
+  "versione": "1.3",
+  "aggiornato_il": "2026-11-17",
   "criterio": "Fonti primarie istituzionali. Ogni indicatore derivato conserva fonte, anno, scala territoriale e metodologia.",
   "fonti": [
     {
@@ -206,6 +206,62 @@
         "quadratura totali",
         "assenza duplicazioni"
       ]
+    },
+    {
+      "id": "comune-prg-variante-parziale-via-tommaso-natale-2026",
+      "ente": "Comune di Palermo",
+      "titolo": "Variante parziale PRG, via Tommaso Natale, delibera Commissario ad acta n. 136 del 13/04/2026",
+      "url": "https://www.comune.palermo.it/novita/avviso-e-delibera-commissario-ad-acta-n-136-del-13042026/",
+      "ambito": [
+        "variante urbanistica localizzata",
+        "via Tommaso Natale",
+        "ZTO Cb"
+      ],
+      "riferimento_temporale": "2026",
+      "stato": "Variante adottata con i poteri del Consiglio comunale; avviso comunale del 17/07/2026 con termine di 45 giorni per osservazioni. Efficacia definitiva da verificare sugli atti conclusivi e sulla pubblicazione.",
+      "nota": "Modifica localizzata su area bianca identificata catastalmente al foglio 15, particella 620. Non sostituisce la zonizzazione generale 2004 sull'intero territorio."
+    },
+    {
+      "id": "comune-prg-variante-parziale-via-gioacchino-belli-2026",
+      "ente": "Comune di Palermo",
+      "titolo": "Variante parziale PRG, via Gioacchino Belli, delibera Commissario ad acta n. 287 del 17/06/2026",
+      "url": "https://www.comune.palermo.it/novita/variante-urbanistica-parziale-al-vigente-prg-2/",
+      "ambito": [
+        "variante urbanistica localizzata",
+        "via Gioacchino Belli",
+        "ZTO Cb"
+      ],
+      "riferimento_temporale": "2026",
+      "stato": "Variante adottata con i poteri del Consiglio comunale; avviso pubblicato l'11/09/2026 con termine di 45 giorni per osservazioni. Efficacia definitiva da verificare sugli atti conclusivi e sulla pubblicazione.",
+      "nota": "Riguarda area bianca identificata catastalmente al foglio 8, particelle 2180 e quota parte 2181, in esecuzione della sentenza TAR Sicilia n. 3310/2023. Non estendere la modifica oltre il perimetro catastale."
+    },
+    {
+      "id": "comune-prg-variante-parziale-via-giuseppe-sunseri-2025",
+      "ente": "Comune di Palermo",
+      "titolo": "Variante parziale PRG, via Giuseppe Sunseri, delibera Commissario ad acta n. 380 del 24/11/2025",
+      "url": "https://www.comune.palermo.it/novita/avviso-e-delibera-commissario-ad-acta-n-380-del-24112025/",
+      "ambito": [
+        "variante urbanistica localizzata",
+        "via Giuseppe Sunseri"
+      ],
+      "riferimento_temporale": "2025",
+      "stato": "Atto di variante parziale pubblicato con procedura di osservazioni; verificare pubblicazione in GURS, conclusione dell'iter ed efficacia prima di considerarlo disciplina vigente.",
+      "nota": "La documentazione comprende accordo di pianificazione del 11/09/2025 e stralci dello stato attuale e di progetto. Modifica circoscritta all'area interessata."
+    },
+    {
+      "id": "comune-prg-schema-massima-palermo-2025",
+      "ente": "Comune di Palermo",
+      "titolo": "Schema di massima del nuovo PRG, Palermo 2025",
+      "url": "https://trasparenza.comune.palermo.it/page/10723/schema-di-massima-del-nuovo-prg-palermo-2025.html",
+      "ambito": [
+        "nuovo PRG",
+        "schema di massima",
+        "ricognizione servizi e attrezzature",
+        "regime vincolistico"
+      ],
+      "riferimento_temporale": "2025",
+      "stato": "Documento di pianificazione e schema di massima; non assumere come piano approvato o disciplina immediatamente vigente.",
+      "nota": "Utile come quadro conoscitivo e confronto, non come sostituto automatico delle tavole e NTA del PRG vigente."
     }
   ],
   "regole_di_pubblicazione": [
@@ -217,6 +273,7 @@
     "I confini amministrativi ISTAT a fini statistici e le circoscrizioni comunali sono livelli distinti: non devono essere confusi.",
     "Le sezioni censuarie fittizie (ad esempio 888888x e 999999x) devono essere gestite separatamente secondo le note metodologiche ISTAT.",
     "Gli archivi ZIP ISTAT sono fonti primarie: prima dell'importazione occorre conservare il file originale, documentare la data di acquisizione e validare il contenuto.",
-    "Per le geometrie delle sezioni di Palermo usare il pacchetto regionale ISTAT R19_21 e non ricostruzioni cartografiche di terze parti."
+    "Per le geometrie delle sezioni di Palermo usare il pacchetto regionale ISTAT R19_21 e non ricostruzioni cartografiche di terze parti.",
+    "Le varianti parziali al PRG devono essere georiferite sul solo perimetro catastale/territoriale interessato e mantenute distinte dalla base generale fino alla verifica di pubblicazione, conclusione del procedimento ed efficacia."
   ]
 }
