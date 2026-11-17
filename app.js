@@ -823,33 +823,59 @@ function initMap(mapId='map'){
    return item.name+': '+data.features.length+' elementi caricati';
   }catch(error){return item.name+': errore di caricamento ('+error.message+')';}
  })).then(async results=>{
-  if(false){
-  try{
-   const [pointResponse,censusResponse,classificationResponse]=await Promise.all([
-    fetch('data/scuole_points.json',{cache:'no-store'}),
-    fetch('data/censimento_scolastico_v81.json',{cache:'no-store'}),
-    fetch('data/scuole_classificazione.json',{cache:'no-store'})
-   ]);
-   if(!pointResponse.ok||!censusResponse.ok||!classificationResponse.ok)throw new Error('Archivi scolastici non disponibili');
-   const [schoolPoints,schoolCensus,schoolClassification]=await Promise.all([pointResponse.json(),censusResponse.json(),classificationResponse.json()]);
-   const censusById=new Map((schoolCensus.records||[]).map(x=>[String(x.id),x]));
-   const orderById=new Map((schoolClassification.records||[]).map(x=>[String(x.point_id),x.orders||[]]));
-   const schoolLayer=L.layerGroup(),schoolFeatureLayers=[];
-   const orderColors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
-   schoolPoints.forEach(point=>{
-    const record=censusById.get(String(point.id)),orders=orderById.get(String(point.id))||[];
-    const out=point.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES';
-    const color=out?'#dc2626':(orderColors[orders[0]]||'#64748b');
-    const marker=L.circleMarker([point.lat,point.lon],{radius:5,color,fillColor:color,fillOpacity:.9,weight:1.5});
-    const orderLabel=orders.join(' · ')||'Ordine non classificato';
-    const addressMatches=Array.isArray(point.address_matches)&&point.address_matches.length?'<br><b>Altra sede con indirizzo coincidente:</b> '+esc(point.address_matches.map(x=>x.name).join(' · '))+' (co-localizzazione da verificare)':'';
-    marker.bindPopup('<div class="school-popup"><b>'+esc(point.name)+'</b><br>'+esc(orderLabel)+'<br>'+esc(point.institution||'')+'<br>'+esc(point.address||'')+addressMatches+'<br><b>Stato V81:</b> '+esc(record?.classe_affidabilita_finale||'Non disponibile')+(out?'<br><b style="color:#dc2626">Fuori dai perimetri ISTAT 2021</b>':'')+'<br><b>Raggi:</b> '+(record?.bufferEligible===true?'abilitato':'non abilitato')+'</div>');
-    marker._schoolPoint=point;schoolFeatureLayers.push(marker);marker.addTo(schoolLayer);
-   });
-   schoolLayer.addTo(gisMap);
-   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 (292)',key:'schools',layer:schoolLayer,featureLayers:schoolFeatureLayers});applyGisSelectionVisibility();
-   results.push('Sedi scolastiche: '+schoolPoints.length+' punti caricati');
-  }catch(error){results.push('Sedi scolastiche: errore di caricamento ('+error.message+')');}
+  if(mapId==='map'){
+   try{
+    const [pointResponse,censusResponse,classificationResponse]=await Promise.all([
+     fetch('data/scuole_points.json',{cache:'no-store'}),
+     fetch('data/censimento_scolastico_v81.json',{cache:'no-store'}),
+     fetch('data/scuole_classificazione.json',{cache:'no-store'})
+    ]);
+    if(!pointResponse.ok||!censusResponse.ok||!classificationResponse.ok)throw new Error('Archivi scolastici non disponibili');
+    const [schoolPoints,schoolCensus,schoolClassification]=await Promise.all([pointResponse.json(),censusResponse.json(),classificationResponse.json()]);
+    const censusById=new Map((schoolCensus.records||[]).map(x=>[String(x.id),x]));
+    const orderById=new Map((schoolClassification.records||[]).map(x=>[String(x.point_id),x.orders||[]]));
+    const schoolLayer=L.layerGroup(),schoolFeatureLayers=[];
+    const influenceLayers={
+     infant:L.layerGroup(),
+     primary:L.layerGroup(),
+     secondary:L.layerGroup()
+    };
+    const orderColors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
+    const radii=[
+     {key:'infant',orders:['NIDO','INFANZIA'],radius:300,label:'Nidi e infanzia',color:'#db2777'},
+     {key:'primary',orders:['ELEMENTARI'],radius:500,label:'Primaria',color:'#16845b'},
+     {key:'secondary',orders:['MEDIE'],radius:1000,label:'Secondaria',color:'#2563eb'}
+    ];
+    schoolPoints.forEach(point=>{
+     const lat=Number(point.lat),lon=Number(point.lon);
+     if(!Number.isFinite(lat)||!Number.isFinite(lon))return;
+     const record=censusById.get(String(point.id)),orders=orderById.get(String(point.id))||[];
+     const out=point.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES';
+     const color=out?'#dc2626':(orderColors[orders[0]]||'#64748b');
+     const marker=L.circleMarker([lat,lon],{radius:5,color,fillColor:color,fillOpacity:.95,weight:1.5});
+     const orderLabel=orders.join(' · ')||'Ordine non classificato';
+     marker.bindPopup('<div class="school-popup"><b>'+esc(point.name)+'</b><br>'+esc(orderLabel)+'<br>'+esc(point.institution||'')+'<br>'+esc(point.address||'')+'<br><b>Stato V81:</b> '+esc(record?.classe_affidabilita_finale||'Non disponibile')+(out?'<br><b style="color:#dc2626">Fuori dai perimetri ISTAT 2021</b>':'')+'<br><b>Raggi:</b> '+(record?.bufferEligible===true?'abilitato':'non abilitato')+'</div>');
+     marker._schoolPoint=point;schoolFeatureLayers.push(marker);marker.addTo(schoolLayer);
+     if(record?.bufferEligible===true){
+      radii.forEach(def=>{
+       if(!def.orders.some(order=>orders.includes(order)))return;
+       const circle=L.circle([lat,lon],{radius:def.radius,color:def.color,weight:2,opacity:.85,fillColor:def.color,fillOpacity:.10});
+       circle.bindPopup('<div class="school-popup"><b>'+esc(point.name)+'</b><br>'+esc(def.label)+'<br>Raggio indicativo: '+def.radius.toLocaleString('it-IT')+' m<br><small>Buffer geometrico in linea d’aria, non bacino ufficiale né percorso pedonale.</small></div>');
+       circle.bindTooltip(esc(point.name)+' · '+def.radius.toLocaleString('it-IT')+' m');
+       circle.addTo(influenceLayers[def.key]);
+      });
+     }
+    });
+    schoolLayer.addTo(gisMap);
+    gisImportedLayers.push({name:'Sedi scolastiche georeferenziate · '+schoolFeatureLayers.length+' punti',key:'schools',layer:schoolLayer,featureLayers:schoolFeatureLayers});
+    const bufferNames={infant:'Raggi d’influenza · Nidi e infanzia · 300 m',primary:'Raggi d’influenza · Primaria · 500 m',secondary:'Raggi d’influenza · Secondaria · 1.000 m'};
+    Object.entries(influenceLayers).forEach(([key,layer])=>{
+     layer.addTo(gisMap);
+     gisImportedLayers.push({name:bufferNames[key],key:'school-buffer-'+key,layer,featureLayers:layer.getLayers()});
+    });
+    results.push('Sedi scolastiche: '+schoolFeatureLayers.length+' punti caricati');
+    results.push('Raggi d’influenza: '+Object.values(influenceLayers).reduce((n,layer)=>n+layer.getLayers().length,0)+' geometrie sui soli punti abilitati V81');
+   }catch(error){results.push('Sedi scolastiche e raggi: errore di caricamento ('+error.message+')');}
   }
   if(mapId==='servicesTerritoryMap'){
    const serviceCategoryStyles={IC:{color:'#d97706',label:'Interesse comune'},V:{color:'#16845b',label:'Verde e sport'},P:{color:'#475569',label:'Parcheggi'},F:{color:'#7c3aed',label:'Interesse generale'}};
