@@ -1,0 +1,30 @@
+name: Audit zonizzazione PRG 2004
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/geo/prg_standard_2004.geojson"
+      - "data/geo/prg_standard_2004_metadata.json"
+      - "tools/qa_prg_standard_2004.py"
+      - ".github/workflows/audit-prg-standard.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Verifica zonizzazione PRG
+        run: python3 tools/qa_prg_standard_2004.py
+      - name: Pubblica rapporto QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-zonizzazione-prg-palermo
+          path: data/geo/qa_prg_standard_2004.json
+          if-no-files-found: error
+          retention-days: 30
