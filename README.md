@@ -433,3 +433,24 @@ La risoluzione per codice è applicata alla Cartografia GIS, all'Analisi spazial
 - Il grafico degli standard mostra il fabbisogno teorico per categoria quando è disponibile la popolazione, senza rappresentare superfici effettivamente presenti.
 
 - Il fabbisogno teorico degli standard viene calcolato automaticamente all'apertura della sezione, senza attendere una modifica manuale dell'input.
+
+
+## Cartografia PRG 2004: provenienza e controllo qualità
+
+La mappa **Standard urbanistici** utilizza il layer `data/geo/prg_standard_2004.geojson`, una rielaborazione GeoJSON della zonizzazione comunale della Variante Generale al PRG (DCC 7/2004). Il file contiene 1.628 poligoni in CRS84, suddivisi nei gruppi S, IC, V, P e F. La provenienza e i conteggi sono documentati in `data/geo/prg_standard_2004_metadata.json`.
+
+- Fonte primaria: [Comune di Palermo, dataset 320](https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320), aggiornamento catalogo 10/01/2018, licenza CC BY 4.0 IT.
+- Rielaborazione GIS di riferimento: [gbvitrano/prg_pa_2004](https://github.com/gbvitrano/prg_pa_2004), licenza CC BY 4.0 IT.
+- Il layer dei vincoli del dataset 321 è una fonte distinta e **non è compreso** nel GeoJSON attualmente usato dalla mappa. [Scheda comunale dataset 321](https://opendata.comune.palermo.it/opendata-dataset.php?dataset=321), aggiornamento catalogo 06/09/2021.
+
+### Audit riproducibile
+
+Eseguire:
+
+```bash
+python3 tools/qa_prg_standard_2004.py
+```
+
+Il controllo verifica conteggi, gruppi, superfici dichiarate, attributi essenziali, geometrie Polygon, chiusura degli anelli, CRS84 e plausibilità dell'estensione geografica. Il workflow GitHub Actions **Audit zonizzazione PRG 2004** esegue lo stesso controllo e conserva il rapporto come artifact.
+
+I controlli non certificano la topologia completa, l'attuazione degli standard, la proprietà o la fruibilità delle aree, né la vigenza urbanistica. Le superfici sono geometriche e devono essere lette con NTA, tavole e atti successivi alla DCC 7/2004.
