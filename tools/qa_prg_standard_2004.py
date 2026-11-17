@@ -11,11 +11,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data/geo/prg_standard_2004.geojson"
 OUT = ROOT / "data/geo/qa_prg_standard_2004.json"
 EXPECTED = {
-    "S": {"features": 282, "area_m2": 2096892.34},
-    "IC": {"features": 229, "area_m2": 1627694.68},
-    "V": {"features": 392, "area_m2": 3505708.90},
-    "P": {"features": 434, "area_m2": 1497104.24},
-    "F": {"features": 291, "area_m2": 15313777.14},
+    "S": {"features": 282, "area_m2": 2096892.40},
+    "IC": {"features": 229, "area_m2": 1627694.61},
+    "V": {"features": 392, "area_m2": 3505708.86},
+    "P": {"features": 434, "area_m2": 1497104.22},
+    "F": {"features": 291, "area_m2": 15313777.12},
 }
 # Inviluppo volutamente ampio, usato soltanto per intercettare errori di CRS.
 PALERMO = (12.9, 37.7, 13.8, 38.5)
@@ -81,7 +81,7 @@ def main():
         area = round(areas[group], 2)
         if counts[group] != expected["features"]:
             raise ValueError(f"{group}: conteggio {counts[group]} != {expected['features']}")
-        if abs(area - expected["area_m2"]) > 0.05:
+        if abs(area - expected["area_m2"]) > 0.01:
             raise ValueError(f"{group}: area {area} != {expected['area_m2']}")
         groups[group] = {"features": counts[group], "area_m2": area, "area_ha": round(area / 10000, 2)}
     report = {
