@@ -346,7 +346,7 @@ if(active==='social'){
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
  <div class="school-table"><table><thead><tr><th>Sede</th><th>Ordine scolastico</th><th>Tipologia</th><th>Istituto</th><th>Indirizzo</th><th>Quartiere</th><th>Stato V81</th><th>Controllo spaziale</th><th>Ordine verificato</th><th>Codice plesso</th><th>Raggi</th><th>Verifica documentale</th></tr></thead><tbody id="schoolPointRows"></tbody></table></div><div id="schoolUnlocated"></div>
  </div>
- <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">La cartografia ripropone gli stessi livelli della pagina GIS. All’apertura è attivo soltanto il layer Circoscrizioni ASC1; quartieri ASC2, UPL ASC3 e sezioni censuarie ISTAT 2021 sono disponibili nel controllo dei livelli e devono essere attivati manualmente. La base cartografica e l’ortofoto sono selezionabili separatamente.</p><div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
+ <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">La cartografia ripropone i livelli della pagina GIS e aggiunge le sedi scolastiche georeferenziate V81 come overlay autonomo. All’apertura è attivo soltanto il layer Circoscrizioni ASC1; quartieri ASC2, UPL ASC3, sezioni censuarie ISTAT 2021 e sedi scolastiche sono disponibili nel controllo dei livelli e possono essere attivati o disattivati singolarmente. La base OpenStreetMap e l’ortofoto regionale 2022 sono selezionabili separatamente. I punti scolastici sono distinti per ordine prevalente; quelli fuori perimetro ISTAT sono evidenziati in rosso.<div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
  <div class="card"><h3>Anagrafica dei plessi e dati USR</h3><p class="school-note">401 record USR 2025/26 con codice meccanografico di plesso. Il raccordo con il registro 2026/27 resta distinto dal collegamento con gli edifici. Lotti documentali completati: 113 codici di plesso collegati a 82 punti comunali; per gli altri 288 record il collegamento fisico resta da verificare. La tabella indica i collegamenti certi e consente di richiamare la sede nella mappa, se inclusa nei filtri correnti. Non si aggregano alunni a quartiere, UPL o sezione finché la copertura dei plessi non è completa e controllata.</p>
  <div class="school-kpis">${orders.map(o=>{const x=stats.filter(z=>z.order===o);return '<div class="card"><span class="muted">'+esc(o)+'</span><div class="metric">'+fmt(x.length)+'</div><small class="muted">'+fmt(x.reduce((n,z)=>n+(+z.students||0),0))+' alunni</small></div>';}).join('')}</div>
  <div class="school-controls"><label>Ordine<select id="schoolStatsOrder"><option value="">Tutti</option>${orders.map(o=>'<option>'+esc(o)+'</option>').join('')}</select></label><label>Cerca plesso/istituto<input id="schoolStatsSearch" type="search" placeholder="Denominazione o codice"></label></div>
@@ -622,6 +622,30 @@ function initMap(mapId='map'){
    gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 (292)',key:'schools',layer:schoolLayer,featureLayers:schoolFeatureLayers});applyGisSelectionVisibility();
    results.push('Sedi scolastiche: '+schoolPoints.length+' punti caricati');
   }catch(error){results.push('Sedi scolastiche: errore di caricamento ('+error.message+')');}
+  }
+  if(mapId==='servicesTerritoryMap'){
+   const points=DATA.schoolPoints||[];
+   const classes=DATA.schoolClassification?.records||[];
+   const census=DATA.schoolCensus?.records||[];
+   const classById=new Map(classes.map(x=>[String(x.point_id),x]));
+   const censusById=new Map(census.map(x=>[String(x.id),x]));
+   const colors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
+   const schoolLayer=L.layerGroup();
+   points.forEach(point=>{
+    if(!Number.isFinite(Number(point.lat))||!Number.isFinite(Number(point.lon)))return;
+    const classification=classById.get(String(point.id))||{};
+    const record=censusById.get(String(point.id))||{};
+    const orders=Array.isArray(classification.orders)?classification.orders:[];
+    const order=orders[0]||'';
+    const outside=point.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES';
+    const color=outside?'#dc2626':(colors[order]||'#64748b');
+    const marker=L.circleMarker([Number(point.lat),Number(point.lon)],{radius:5,color,fillColor:color,fillOpacity:.9,weight:1.5});
+    const safe=value=>esc(value===undefined||value===null||value===''?'N.D.':String(value));
+    marker.bindPopup('<div class="school-popup"><strong>'+safe(point.name)+'</strong><br>'+safe(orders.join(' · ')||'Ordine non classificato')+'<br>'+safe(point.institution)+'<br>'+safe(point.address)+'<br><b>Stato V81:</b> '+safe(record.classe_affidabilita_finale)+'<br><b>Raggi d’influenza:</b> '+(record.bufferEligible===true?'abilitato':'non abilitato')+(outside?'<br><b style="color:#dc2626">Fuori dai perimetri ISTAT 2021</b>':'')+'</div>');
+    marker.addTo(schoolLayer);
+   });
+   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 · '+points.length,key:'schools',layer:schoolLayer,featureLayers:schoolLayer.getLayers()});
+   results.push('Sedi scolastiche disponibili nel controllo layer: '+points.length);
   }
   updateControl();
   const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
