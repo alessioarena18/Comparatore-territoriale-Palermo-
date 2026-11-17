@@ -125,3 +125,42 @@ Prossimi passi:
 - La pubblicazione Pages era già riuscita per il commit `610f119`; la nuova pubblicazione conseguente alla PR #12 è stata avviata e va verificata separatamente.
 
 Restano da completare: verifica della pubblicazione Pages successiva alla PR #12; verifica visuale del caricamento dei layer nel browser; audit documentale della vigenza delle varianti urbanistiche successive; QA topologica e semantica delle geometrie PRG; completamento dei grafici e degli indicatori territoriali nelle sezioni.
+
+
+## Audit documentale PRG e aggiornamento fonti (17/11/2026)
+
+### Esito della ricognizione degli atti successivi
+Sono stati aggiunti al registro data/fonti.json (versione 1.3, aggiornato 17/11/2026) quattro riferimenti istituzionali:
+- Variante parziale via Tommaso Natale, delibera Commissario ad acta n. 136 del 13/04/2026, pubblicata dal Comune il 17/07/2026. Atto adottato con i poteri del Consiglio comunale; avviso con termine di 45 giorni per osservazioni.
+- Variante parziale via Gioacchino Belli, delibera Commissario ad acta n. 287 del 17/06/2026, pubblicata l'11/09/2026. Riguarda il foglio 8, particelle 2180 e quota parte 2181; avviso con termine di 45 giorni per osservazioni.
+- Variante parziale via Giuseppe Sunseri, delibera Commissario ad acta n. 380 del 24/11/2025, con documentazione e accordo di pianificazione del 11/09/2025.
+- Schema di massima del nuovo PRG Palermo 2025, registrato come documento di pianificazione e non come piano automaticamente approvato/vigente.
+
+Fonti istituzionali consultate:
+- https://www.comune.palermo.it/novita/avviso-e-delibera-commissario-ad-acta-n-136-del-13042026/
+- https://www.comune.palermo.it/novita/variante-urbanistica-parziale-al-vigente-prg-2/
+- https://www.comune.palermo.it/novita/avviso-e-delibera-commissario-ad-acta-n-380-del-24112025/
+- https://trasparenza.comune.palermo.it/page/10723/schema-di-massima-del-nuovo-prg-palermo-2025.html
+- https://www.sitr.regione.sicilia.it/comune-di-palermo-variante-urbanistica-parziale-al-vigente-p-r-g/
+
+### Regola interpretativa confermata
+Le varianti parziali individuate sono localizzate e non autorizzano a sostituire in blocco la base della Variante Generale 2004. La loro efficacia deve essere verificata caso per caso sulla documentazione conclusiva, pubblicazione e perimetro catastale. Lo Schema di massima 2025 è un quadro di pianificazione, non va trattato come piano approvato. Il registro delle fonti impone ora di mantenere separate le varianti localizzate dalla base generale finché non ne sia verificata l'efficacia.
+
+### Audit del calcolo degli standard
+- app.js calcola intersezioni geometriche tra le feature del layer tematico prg_standard_2004.geojson e le unità territoriali, usando Turf e bounding box preliminari.
+- Il calcolo usa i gruppi S, IC, V, P, F; la categoria F resta separata e non entra nel confronto pro capite 4,5 + 2 + 9 + 2,5 m²/abitante.
+- Le categorie combinate rimangono nella categoria sorgente e non vengono ripartite arbitrariamente.
+- Il testo dell'app avverte correttamente che le superfici geometriche non certificano attuazione, proprietà pubblica, accessibilità, fruibilità, capienza o disponibilità reale.
+- Lo script tools/qa_prg_standard_2004.py verifica conteggi, superfici aggregate, CRS, attributi essenziali, tipi geometrici e chiusura degli anelli. Non esegue ancora validazione topologica completa, test di auto-intersezione, sovrapposizioni tra poligoni o confronto semantico sistematico tra ogni codice PRG e NTA. Non descrivere quindi questo controllo come QA topologico o giuridico.
+
+### Pubblicazione
+- Aggiornamento registro fonti data/fonti.json committato su main: 0357b175e4ec758caa536cc48dd686eba6c051c0.
+- Deployment GitHub Pages del commit di continuità precedente 404b34da982718842a7af3bbef87bdd9e8c3ec61: run 44098083102, conclusione success.
+- Il nuovo aggiornamento del registro fonti richiede il relativo controllo CI e deployment Pages.
+
+### Prossime attività
+1. Controllare esito CI e Pages dopo il commit 0357b175.
+2. Eseguire audit geometrico approfondito del layer tematico PRG: validità, auto-intersezioni, duplicati e possibili sovrapposizioni, mantenendo separati gli esiti automatici dai controlli giuridici.
+3. Confrontare i codici PRG e le categorie S/IC/V/P/F con legenda, NTA e tavole comunali, in particolare per le codifiche combinate.
+4. Georiferire le varianti localizzate solo dopo aver acquisito gli allegati ufficiali e ricostruito il perimetro catastale, senza alterare la base generale.
+5. Verificare nel browser il rendering delle pagine e dei layer; il successo del deployment non equivale a verifica visiva dell'interfaccia.
