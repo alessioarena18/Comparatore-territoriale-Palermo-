@@ -978,7 +978,7 @@ function initStandardSchoolMap(){
  };
  const prgStyles={IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde e sport'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgZoneGroups={S:L.layerGroup(),IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
- const prgConstraintGroups={areali:L.layerGroup(),lineari:L.layerGroup(),puntuali:L.layerGroup(),misti:L.layerGroup()};
+ const prgConstraintGroups={areali:L.layerGroup(),lineari:L.layerGroup()};
  const prgOfficialZoning=L.layerGroup();
  const prgZoneStyles={S:{color:'#2563eb',label:'S · Istruzione'},IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde pubblico'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgSummary={};
@@ -1048,8 +1048,7 @@ function initStandardSchoolMap(){
   const specs=[
    {key:'areali',file:'data/geo/prg/prg_vincoli_areali.geojson',label:'Vincoli areali · Variante Generale 2004',color:'#0f766e',fill:'#5eead4',weight:1.2},
    {key:'lineari',file:'data/geo/prg/prg_vincoli_lineari.geojson',label:'Vincoli lineari · Variante Generale 2004',color:'#be123c',fill:'#fb7185',weight:2.5},
-   {key:'puntuali',file:'data/geo/prg/prg_vincoli_puntuali.geojson',label:'Vincoli puntuali · Variante Generale 2004',color:'#7e22ce',fill:'#c4b5fd',weight:1.8},
-   {key:'misti',file:'data/geo/prg/prg_vincoli_misti.geojson',label:'Geometrie miste · Variante Generale 2004',color:'#a16207',fill:'#fde68a',weight:1.8}
+   
   ];
   const loaded=[];
   for(const spec of specs){
@@ -1070,7 +1069,7 @@ function initStandardSchoolMap(){
   }
   const statusNode=$('#standardPrgStatus');
   if(statusNode){
-   const note=loaded.length?' Vincoli caricati separatamente: '+loaded.join('; ')+'.':' Dataset 321 non ancora disponibile come GeoJSON: areali, lineari e puntuali restano predisposti ma non vengono simulati.';
+   const note=loaded.length?' Vincoli caricati separatamente: '+loaded.join('; ')+'.':' Dataset 321 non disponibile: i vincoli non vengono simulati.';
    statusNode.textContent+=note;
   }
  };
@@ -1134,8 +1133,6 @@ function initStandardSchoolMap(){
   'PRG 2004 · Zonizzazione integrale (dataset 320)':prgOfficialZoning,
   'PRG 2004 · Vincoli areali':prgConstraintGroups.areali,
   'PRG 2004 · Vincoli lineari':prgConstraintGroups.lineari,
-  'PRG 2004 · Vincoli puntuali':prgConstraintGroups.puntuali,
-  'PRG 2004 · Geometrie miste':prgConstraintGroups.misti,
   'Luoghi/servizi OpenStreetMap · IC':prgGroups.IC,
   'Aree verdi/sport OpenStreetMap · V':prgGroups.V,
   'Parcheggi OpenStreetMap · P':prgGroups.P,
