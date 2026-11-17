@@ -971,6 +971,7 @@ function initStandardSchoolMap(){
  };
  const prgStyles={IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde e sport'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgZoneGroups={S:L.layerGroup(),IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
+ const prgConstraintGroups={areali:L.layerGroup(),lineari:L.layerGroup(),puntuali:L.layerGroup()};
  const prgZoneStyles={S:{color:'#2563eb',label:'S · Istruzione'},IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde pubblico'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgSummary={};
  const loadPrgZones=async()=>{
@@ -1001,6 +1002,37 @@ function initStandardSchoolMap(){
    const prgStatus=$('#standardPrgStatus');if(prgStatus)prgStatus.textContent='Errore nel caricamento della zonizzazione PRG: '+String(err.message||err);
   }
  };
+
+ const loadPrgConstraints=async()=>{
+  const specs=[
+   {key:'areali',file:'data/geo/prg/prg_vincoli_areali.geojson',label:'Vincoli areali · dataset 321',color:'#0f766e',fill:'#5eead4',weight:1.2},
+   {key:'lineari',file:'data/geo/prg/prg_vincoli_lineari.geojson',label:'Vincoli lineari · dataset 321',color:'#be123c',fill:'#fb7185',weight:2.5},
+   {key:'puntuali',file:'data/geo/prg/prg_vincoli_puntuali.geojson',label:'Vincoli puntuali · dataset 321',color:'#7e22ce',fill:'#c4b5fd',weight:1.8}
+  ];
+  const loaded=[];
+  for(const spec of specs){
+   try{
+    const response=await fetch(spec.file+'?v=20261117-vincoli',{cache:'no-cache'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const fc=await response.json();
+    if(fc.type!=='FeatureCollection'||!Array.isArray(fc.features)||!fc.features.length)throw new Error('GeoJSON vuoto/non valido');
+    const layer=L.geoJSON(fc,{style:()=>({color:spec.color,fillColor:spec.fill,weight:spec.weight,fillOpacity:spec.key==='areali'?.18:0.12,dashArray:spec.key==='lineari'?'6 4':null}),pointToLayer:(feature,ll)=>L.circleMarker(ll,{radius:5,color:spec.color,fillColor:spec.fill,fillOpacity:.9,weight:1.5}),onEachFeature:(feature,featureLayer)=>{
+     const p=feature.properties||{},rows=Object.entries(p).filter(([k,v])=>v!==null&&v!==''&&typeof v!=='object').slice(0,20);
+     const body=rows.map(([k,v])=>'<tr><th>'+esc(k)+'</th><td>'+esc(String(v))+'</td></tr>').join('');
+     featureLayer.bindPopup('<div class="school-popup"><b>'+esc(spec.label)+'</b><div class="table-wrap"><table>'+body+'</table></div><small>Fonte: Comune di Palermo, dataset 321, Variante Generale PRG con presa d’atto DCC 7/2004. Verificare eventuali varianti e prescrizioni successive.</small></div>');
+    }});
+    if(!layer.getLayers().length)throw new Error('Nessuna geometria');
+    prgConstraintGroups[spec.key].clearLayers();prgConstraintGroups[spec.key].addLayer(layer);
+    loaded.push(spec.label+' ('+fc.features.length+' geometrie)');
+   }catch(err){}
+  }
+  const statusNode=$('#standardPrgStatus');
+  if(statusNode){
+   const note=loaded.length?' Vincoli caricati separatamente: '+loaded.join('; ')+'.':' Dataset 321 non ancora disponibile come GeoJSON: areali, lineari e puntuali restano predisposti ma non vengono simulati.';
+   statusNode.textContent+=note;
+  }
+ };
+
  let amenitiesCount=0,amenitiesStatus='Caricamento delle attrezzature pubbliche da OpenStreetMap…';
  const classify=e=>{
   const t=e.tags||{},a=t.amenity||'',l=t.leisure||'',o=t.office||'',tour=t.tourism||'',sport=t.sport||'';
@@ -1057,6 +1089,9 @@ function initStandardSchoolMap(){
   'PRG 2004 · V Verde pubblico':prgZoneGroups.V,
   'PRG 2004 · P Parcheggi':prgZoneGroups.P,
   'PRG 2004 · F Interesse generale':prgZoneGroups.F,
+  'PRG · Vincoli areali (dataset 321)':prgConstraintGroups.areali,
+  'PRG · Vincoli lineari (dataset 321)':prgConstraintGroups.lineari,
+  'PRG · Vincoli puntuali (dataset 321)':prgConstraintGroups.puntuali,
   'Luoghi/servizi OpenStreetMap · IC':prgGroups.IC,
   'Aree verdi/sport OpenStreetMap · V':prgGroups.V,
   'Parcheggi OpenStreetMap · P':prgGroups.P,
@@ -1069,7 +1104,7 @@ function initStandardSchoolMap(){
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const b=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(b.isValid())map.fitBounds(b,{padding:[20,20],maxZoom:13});}
  window.__standardAmenitiesMap=map;window.__stdAmenities=[];
- loadPrgZones();loadAmenities().then(()=>{});
+ loadPrgZones();loadPrgConstraints();loadAmenities().then(()=>{});
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function loadSchoolArchives(){
