@@ -33,7 +33,7 @@ jobs:
       - name: Upload source layers and QA report
         uses: actions/upload-artifact@v4
         with:
-          name: prg-palermo-geojson-\${{ github.run_number }}
+          name: prg-palermo-geojson-${{ github.run_number }}
           path: data/geo/prg/
           if-no-files-found: error
           retention-days: 30
