@@ -1389,7 +1389,8 @@ function initGreenMap(){
   if(!greenMapData){const r=await fetch('data/geo/verde_prg.geojson',{cache:'no-store'});if(!r.ok)throw new Error('GeoJSON verde HTTP '+r.status);greenMapData=await r.json();}
   if(!greenSummaryData){const r=await fetch('data/verde_prg_summary.json',{cache:'no-store'});if(!r.ok)throw new Error('Riepilogo verde HTTP '+r.status);greenSummaryData=await r.json();}
   if(!document.getElementById('greenMap'))return;
-  const cats=greenSummaryData.categories||[],s=selected();\n  initGreenBalance();
+  const cats=greenSummaryData.categories||[],s=selected();
+  initGreenBalance();
   const territoryName=s.section?'Sezione censuaria '+s.section:
    s.asc3?(GEO.asc3?.features.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3))?.properties?.DEN_ASC3||'UPL '+s.asc3):
    s.quart?(DATA.territories.quartieri.find(q=>q.id===s.quart)?.name||'Quartiere selezionato'):
