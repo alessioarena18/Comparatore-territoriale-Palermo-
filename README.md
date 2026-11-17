@@ -454,3 +454,13 @@ python3 tools/qa_prg_standard_2004.py
 Il controllo verifica conteggi, gruppi, superfici dichiarate, attributi essenziali, geometrie Polygon, chiusura degli anelli, CRS84 e plausibilità dell'estensione geografica. Il workflow GitHub Actions **Audit zonizzazione PRG 2004** esegue lo stesso controllo e conserva il rapporto come artifact.
 
 I controlli non certificano la topologia completa, l'attuazione degli standard, la proprietà o la fruibilità delle aree, né la vigenza urbanistica. Le superfici sono geometriche e devono essere lette con NTA, tavole e atti successivi alla DCC 7/2004.
+
+
+### Dataset 321: vincoli areali e lineari
+
+La procedura `tools/acquisisci_vincoli_prg.py` estrae e converte separatamente i due shapefile contenuti nello ZIP comunale 321:
+
+- `Vincoli_Ariali.shp` → `data/geo/prg_vincoli_areali_2021.geojson`;
+- `Vincoli_Lineari.shp` → `data/geo/prg_vincoli_lineari_2021.geojson`.
+
+Il workflow GitHub Actions **Acquisizione vincoli PRG Palermo (dataset 321)** esegue download, conversione WGS84, controllo preliminare e conserva i due GeoJSON con metadati e rapporto QA come artifact. Le due geometrie non vengono fuse: restano distinte per lettura, stile e interrogazione.
