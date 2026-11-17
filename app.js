@@ -18,7 +18,9 @@ sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, deg
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function selected(){return {circ:$('#circ')?.value||'',quart:$('#quart')?.value||'',asc2:geoSelection.asc2||'',asc3:$('#asc3')?.value||'',section:$('#section')?.value||''};}
 
-let standardTerritorialStatsCache=null;
+let standardTerritorialStatsCache={source:'',categories:['S','IC','V','P','F','F1','F2','F34'],standardCodes:['F1','F2','F34'],levels:{},errors:0,intersections:0,unionOperations:0};
+let standardTerritorialPrg=null;
+let standardTerritorialJobs={};
 function standardBounds(feature){
  const c=feature?.geometry?.coordinates;if(!c)return null;
  let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
@@ -26,83 +28,85 @@ function standardBounds(feature){
  walk(c);return Number.isFinite(minX)?[minX,minY,maxX,maxY]:null;
 }
 function standardBboxOverlaps(a,b){return a&&b&&a[0]<=b[2]&&a[2]>=b[0]&&a[1]<=b[3]&&a[3]>=b[1];}
-function computeStandardTerritorialStats(prg){
- if(standardTerritorialStatsCache)return standardTerritorialStatsCache;
+const standardYield=()=>new Promise(resolve=>setTimeout(resolve,0));
+async function computeStandardTerritorialStats(prg,levelKey){
  if(!window.turf||typeof turf.intersect!=='function'||typeof turf.union!=='function')throw new Error('Libreria geometrica Turf.js non disponibile o incompleta');
- const definitions=[
-  {key:'asc1',label:'Circoscrizioni',code:'COD_ASC1',name:'DEN_ASC1'},
-  {key:'asc2',label:'Quartieri',code:'COM_ASC2',name:'DEN_ASC2'},
-  {key:'asc3',label:'UPL',code:'COM_ASC3',name:'DEN_ASC3'},
-  {key:'sections',label:'Sezioni censuarie',code:'SEZ21_ID',name:'SEZ21'}
- ];
- const categories=['S','IC','V','P','F','F1','F2','F34'];
- const standardCodes=['F1','F2','F34'];
- const groups=prg.features.filter(f=>f.geometry&&categories.slice(0,5).includes(f.properties?.PRG_GROUP));
- const prepared=groups.map(f=>{
-  const code=String(f.properties?.PRG_CODE||'').toUpperCase();
-  const tokens=code.split(/[^A-Z0-9]+/).filter(Boolean);
-  const fTokens=tokens.filter(token=>['F1','F2','F3','F4','F34'].includes(token));
-  const otherTokens=tokens.filter(token=>!['F1','F2','F3','F4','F34'].includes(token));
-  const fCategory=otherTokens.length===0&&fTokens.length>0
-   ?(fTokens.every(token=>token==='F3'||token==='F4'||token==='F34')?'F34':fTokens.length===1?fTokens[0]:'')
-   :'';
-  return {feature:f,bbox:standardBounds(f),category:f.properties.PRG_GROUP,fCategory};
- });
- const output={source:prg.source||'Variante Generale PRG, DCC 7/2004',categories,standardCodes,levels:{},errors:0,intersections:0,unionOperations:0};
- definitions.forEach(def=>{
+ if(standardTerritorialStatsCache.levels[levelKey])return standardTerritorialStatsCache;
+ if(standardTerritorialJobs[levelKey])return standardTerritorialJobs[levelKey];
+ const job=(async()=>{
+  const definitions=[
+   {key:'asc1',label:'Circoscrizioni',code:'COD_ASC1',name:'DEN_ASC1'},
+   {key:'asc2',label:'Quartieri',code:'COM_ASC2',name:'DEN_ASC2'},
+   {key:'asc3',label:'UPL',code:'COM_ASC3',name:'DEN_ASC3'},
+   {key:'sections',label:'Sezioni censuarie',code:'SEZ21_ID',name:'SEZ21'}
+  ];
+  const def=definitions.find(x=>x.key===levelKey);
+  if(!def)throw new Error('Livello territoriale non riconosciuto');
   const collection=GEO[def.key];
-  if(!collection?.features?.length)return;
+  if(!collection?.features?.length)throw new Error('Geometrie territoriali non disponibili per il livello selezionato');
+  const categories=['S','IC','V','P','F','F1','F2','F34'];
+  const groups=prg.features.filter(f=>f.geometry&&categories.slice(0,5).includes(f.properties?.PRG_GROUP));
+  const prepared=groups.map(f=>{
+   const code=String(f.properties?.PRG_CODE||'').toUpperCase();
+   const tokens=code.split(/[^A-Z0-9]+/).filter(Boolean);
+   const fTokens=tokens.filter(token=>['F1','F2','F3','F4','F34'].includes(token));
+   const otherTokens=tokens.filter(token=>!['F1','F2','F3','F4','F34'].includes(token));
+   const fCategory=otherTokens.length===0&&fTokens.length>0
+    ?(fTokens.every(token=>token==='F3'||token==='F4'||token==='F34')?'F34':fTokens.length===1?fTokens[0]:'')
+    :'';
+   return {feature:f,bbox:standardBounds(f),category:f.properties.PRG_GROUP,fCategory};
+  });
   const territories=collection.features.map(f=>({feature:f,bbox:standardBounds(f),code:String(f.properties?.[def.code]??''),name:String(f.properties?.[def.name]??f.properties?.[def.code]??'Territorio'),population:Number(f.properties?.POP21)||0,area:Number(f.properties?.Shape_Area??f.properties?.SHAPE_Area)||0})).filter(x=>x.bbox);
   const rows=territories.map(t=>({code:t.code,name:t.name,population:t.population,territoryAreaM2:t.area,areas:{S:0,IC:0,V:0,P:0,F:0,F1:0,F2:0,F34:0},features:{S:0,IC:0,V:0,P:0,F:0,F1:0,F2:0,F34:0},parts:{S:[],IC:[],V:[],P:[],F:[],F1:[],F2:[],F34:[]}}));
-  const rowByCode=new Map(rows.map(r=>[r.code,r]));
-  const territoryBounds=territories.map(t=>t.bbox);
-  prepared.forEach(item=>{
-   if(!item.bbox)return;
+  const output={label:def.label,rows,errors:0,intersections:0,unionOperations:0};
+  for(let n=0;n<prepared.length;n++){
+   const item=prepared[n];if(!item.bbox)continue;
    for(let i=0;i<territories.length;i++){
-    if(!standardBboxOverlaps(item.bbox,territoryBounds[i]))continue;
+    if(!standardBboxOverlaps(item.bbox,territories[i].bbox))continue;
     try{
      const intersection=turf.intersect(turf.featureCollection([item.feature,territories[i].feature]));
      if(!intersection)continue;
      const area=turf.area(intersection);
      if(!Number.isFinite(area)||area<0.5)continue;
-     const row=rowByCode.get(territories[i].code);if(!row)continue;
+     const row=rows[i];
      row.parts[item.category].push(intersection);
      row.features[item.category]++;
-     if(item.category==='F'&&item.fCategory){
-      row.parts[item.fCategory].push(intersection);
-      row.features[item.fCategory]++;
-     }
+     if(item.category==='F'&&item.fCategory){row.parts[item.fCategory].push(intersection);row.features[item.fCategory]++;}
      output.intersections++;
     }catch(error){output.errors++;}
    }
-  });
-  rows.forEach(row=>{
-   ['S','IC','V','P','F','F1','F2','F34'].forEach(category=>{
+   if(n%12===11)await standardYield();
+  }
+  for(let ri=0;ri<rows.length;ri++){
+   const row=rows[ri];
+   for(const category of categories){
     const parts=row.parts[category];
-    if(!parts.length){row.areas[category]=0;return;}
+    if(!parts.length){row.areas[category]=0;continue;}
     try{
      const merged=parts.length===1?parts[0]:turf.union(turf.featureCollection(parts));
      if(!merged)throw new Error('Unione geometrica vuota');
      row.areas[category]=turf.area(merged);
      if(parts.length>1)output.unionOperations++;
-    }catch(error){
-     row.areas[category]=null;
-     row.unionErrors=(row.unionErrors||0)+1;
-     output.errors++;
-    }
-   });
+    }catch(error){row.areas[category]=null;row.unionErrors=(row.unionErrors||0)+1;output.errors++;}
+   }
    delete row.parts;
-  });
-  output.levels[def.key]={label:def.label,rows};
- });
- standardTerritorialStatsCache=output;return output;
+   if(ri%8===7)await standardYield();
+  }
+  standardTerritorialStatsCache.levels[levelKey]=output;
+  standardTerritorialStatsCache.source=prg.source||'Variante Generale PRG, DCC 7/2004';
+  standardTerritorialStatsCache.errors+=output.errors;
+  standardTerritorialStatsCache.intersections+=output.intersections;
+  standardTerritorialStatsCache.unionOperations+=output.unionOperations;
+  return standardTerritorialStatsCache;
+ })();
+ standardTerritorialJobs[levelKey]=job;
+ try{return await job;}finally{delete standardTerritorialJobs[levelKey];}
 }
 function renderStandardTerritorialStats(){
  const host=$('#standardTerritorialStats');if(!host)return;
  const level=$('#standardTerritorialLevel')?.value||'asc1',stats=standardTerritorialStatsCache;
- if(!stats){host.innerHTML='<p class="muted">Elaborazione delle intersezioni geometriche in corso…</p>';return;}
  const data=stats.levels[level];
- if(!data){host.innerHTML='<p class="muted">Geometrie territoriali non disponibili per il livello selezionato.</p>';return;}
+ if(!data){host.innerHTML='<p class="muted">Seleziona il livello territoriale. Il calcolo viene avviato solo per il livello richiesto e procede senza bloccare l’interfaccia.</p>';return;}
  const fmtHa=n=>Number.isFinite(n)?(n/10000).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2})+' ha':'N.D.';
  const fmtM2=n=>Number.isFinite(n)?n.toLocaleString('it-IT',{maximumFractionDigits:2}):'N.D.';
  const standards={S:4.5,IC:2,V:9,P:2.5,F1:1.5,F2:1,F34:15};
@@ -120,17 +124,22 @@ function renderStandardTerritorialStats(){
   return acc;
  },{population:0,territoryAreaM2:0,areas:{S:0,IC:0,V:0,P:0,F:0,F1:0,F2:0,F34:0},errors:0});
  const ratioText=localCodes.concat(generalCodes).map(k=>standards[k].toLocaleString('it-IT',{maximumFractionDigits:1})).join(' · ');
- host.innerHTML='<p class="muted">Intersezioni geometriche PRG × '+esc(data.label)+'. '+data.rows.length+' unità territoriali elaborate; '+stats.intersections.toLocaleString('it-IT')+' intersezioni non nulle; '+stats.unionOperations.toLocaleString('it-IT')+' unioni geometriche eseguite; '+stats.errors+' errori di intersezione/unione.</p><div class="table-wrap"><table><thead><tr><th>Unità territoriale</th><th>Pop. ISTAT 2021</th><th>Superficie unità</th><th>S · Istruzione</th><th>IC · Interesse comune</th><th>V · Verde</th><th>P · Parcheggi</th><th>F · Totale generale</th><th>F1 · Istruzione sup.</th><th>F2 · Sanità</th><th>F3+F4 · Sport e parchi urbani/territoriali</th><th>Confronto % standard S/IC/V/P/F1/F2/F3+F4</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><th>Totale</th><th>'+fmtM2(totals.population)+'</th><th>'+fmtHa(totals.territoryAreaM2)+'</th><th>'+fmtHa(totals.areas.S)+'</th><th>'+fmtHa(totals.areas.IC)+'</th><th>'+fmtHa(totals.areas.V)+'</th><th>'+fmtHa(totals.areas.P)+'</th><th>'+fmtHa(totals.areas.F)+'</th><th>'+fmtHa(totals.areas.F1)+'</th><th>'+fmtHa(totals.areas.F2)+'</th><th>'+fmtHa(totals.areas.F34)+'</th><th>Riferimenti m²/ab: '+ratioText+'</th></tr></tfoot></table></div><p class="muted">I rapporti percentuali confrontano le superfici geometriche del PRG con i parametri di riferimento: standard locali ex artt. 3, 4 e 6 D.M. 1444/1968 (S 4,5; IC 2; V 9; P 2,5 m²/ab) e attrezzature di interesse generale richiamate dall’art. 4, comma 5 (F1 1,5; F2 1; F3+F4 15 m²/ab). F è mostrata come aggregato descrittivo e non entra in alcun rapporto. Le superfici sono calcolate come unione geometrica per categoria e unità territoriale, per evitare doppi conteggi interni alla stessa categoria; le sovrapposizioni tra categorie differenti restano distinte. Le codifiche combinate non vengono ripartite arbitrariamente: F1, F2 e il gruppo F3+F4 sono riconosciuti solo quando il codice contiene esattamente il token corrispondente. Il confronto non certifica attuazione, proprietà pubblica, accessibilità, fruibilità, capienza o disponibilità reale. Le categorie e i parametri devono essere letti con NTA, tavole e atti vigenti.</p>';
+ host.innerHTML='<p class="muted">Intersezioni geometriche PRG × '+esc(data.label)+'. '+data.rows.length+' unità territoriali elaborate; '+data.intersections.toLocaleString('it-IT')+' intersezioni non nulle; '+data.unionOperations.toLocaleString('it-IT')+' unioni geometriche eseguite; '+data.errors+' errori di intersezione/unione.</p><div class="table-wrap"><table><thead><tr><th>Unità territoriale</th><th>Pop. ISTAT 2021</th><th>Superficie unità</th><th>S · Istruzione</th><th>IC · Interesse comune</th><th>V · Verde</th><th>P · Parcheggi</th><th>F · Totale generale</th><th>F1 · Istruzione sup.</th><th>F2 · Sanità</th><th>F3+F4 · Sport e parchi urbani/territoriali</th><th>Confronto % standard S/IC/V/P/F1/F2/F3+F4</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><th>Totale</th><th>'+fmtM2(totals.population)+'</th><th>'+fmtHa(totals.territoryAreaM2)+'</th><th>'+fmtHa(totals.areas.S)+'</th><th>'+fmtHa(totals.areas.IC)+'</th><th>'+fmtHa(totals.areas.V)+'</th><th>'+fmtHa(totals.areas.P)+'</th><th>'+fmtHa(totals.areas.F)+'</th><th>'+fmtHa(totals.areas.F1)+'</th><th>'+fmtHa(totals.areas.F2)+'</th><th>'+fmtHa(totals.areas.F34)+'</th><th>Riferimenti m²/ab: '+ratioText+'</th></tr></tfoot></table></div><p class="muted">I rapporti percentuali confrontano le superfici geometriche del PRG con i parametri di riferimento: standard locali ex artt. 3, 4 e 6 D.M. 1444/1968 (S 4,5; IC 2; V 9; P 2,5 m²/ab) e attrezzature di interesse generale richiamate dall’art. 4, comma 5 (F1 1,5; F2 1; F3+F4 15 m²/ab). F è mostrata come aggregato descrittivo e non entra in alcun rapporto. Le superfici sono calcolate come unione geometrica per categoria e unità territoriale, per evitare doppi conteggi interni alla stessa categoria; le sovrapposizioni tra categorie differenti restano distinte. Le codifiche combinate non vengono ripartite arbitrariamente: F1, F2 e il gruppo F3+F4 sono riconosciuti solo quando il codice contiene esattamente il token corrispondente. Il confronto non certifica attuazione, proprietà pubblica, accessibilità, fruibilità, capienza o disponibilità reale. Le categorie e i parametri devono essere letti con NTA, tavole e atti vigenti.</p>';
+}
+async function loadStandardTerritorialLevel(level){
+ const host=$('#standardTerritorialStats');if(!host||!standardTerritorialPrg)return;
+ if(standardTerritorialStatsCache.levels[level]){renderStandardTerritorialStats();return;}
+ host.innerHTML='<p class="muted">Elaborazione del livello '+esc(level)+' in corso. L’interfaccia resta disponibile; attendere il completamento del calcolo.</p>';
+ try{
+  await computeStandardTerritorialStats(standardTerritorialPrg,level);
+  if($('#standardTerritorialLevel')?.value===level)renderStandardTerritorialStats();
+  const note=$('#standardPrgStatus');if(note&&!note.textContent.includes('Analisi territoriale:'))note.textContent+=' | Analisi territoriale calcolata su richiesta per il livello selezionato.';
+ }catch(error){host.innerHTML='<p class="school-note">Analisi territoriale non disponibile: '+esc(error.message||error)+'</p>';}
 }
 async function loadStandardTerritorialStats(prg){
- const host=$('#standardTerritorialStats');if(host)host.innerHTML='<p class="muted">Calcolo delle intersezioni geometriche tra zonizzazione PRG e unità territoriali…</p>';
- try{
-  const stats=computeStandardTerritorialStats(prg);
-  renderStandardTerritorialStats();
-  const note=$('#standardPrgStatus');if(note)note.textContent+=' | Analisi territoriale: intersezioni geometriche calcolate per circoscrizioni, quartieri, UPL e sezioni disponibili.';
- }catch(error){if(host)host.innerHTML='<p class="school-note">Analisi territoriale non disponibile: '+esc(error.message||error)+'</p>';}
+ standardTerritorialPrg=prg;
+ await loadStandardTerritorialLevel($('#standardTerritorialLevel')?.value||'asc1');
 }
-
 
 let publicFacilitiesPromise=null;
 function classifyPublicFacility(tags={}){
@@ -998,7 +1007,7 @@ function addPalermoBaseLayers(map){
 }
 
 function initStandardSchoolMap(){
- const levelSelect=$('#standardTerritorialLevel');if(levelSelect)levelSelect.addEventListener('change',renderStandardTerritorialStats);
+ const levelSelect=$('#standardTerritorialLevel');if(levelSelect)levelSelect.onchange=()=>loadStandardTerritorialLevel(levelSelect.value);
  const el=$('#standardSchoolMap');if(!el||!window.L)return;
  const pts=DATA.schoolPoints||[],records=DATA.schoolClassification?.records||[],census=DATA.schoolCensus?.records||[],verification=DATA.schoolSiteVerification?.records||[];
  const byId=new Map(records.map(x=>[String(x.point_id),x])),censusById=new Map(census.map(x=>[String(x.id),x])),verificationById=new Map(verification.map(x=>[String(x.pointId),x]));
