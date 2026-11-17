@@ -18,6 +18,78 @@ sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, deg
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function selected(){return {circ:$('#circ')?.value||'',quart:$('#quart')?.value||'',asc2:geoSelection.asc2||'',asc3:$('#asc3')?.value||'',section:$('#section')?.value||''};}
 
+let standardTerritorialStatsCache=null;
+function standardBounds(feature){
+ const c=feature?.geometry?.coordinates;if(!c)return null;
+ let minX=Infinity,minY=Infinity,maxX=-Infinity,maxY=-Infinity;
+ const walk=a=>{if(Array.isArray(a)&&typeof a[0]==='number'&&typeof a[1]==='number'){minX=Math.min(minX,a[0]);minY=Math.min(minY,a[1]);maxX=Math.max(maxX,a[0]);maxY=Math.max(maxY,a[1]);}else if(Array.isArray(a))a.forEach(walk);};
+ walk(c);return Number.isFinite(minX)?[minX,minY,maxX,maxY]:null;
+}
+function standardBboxOverlaps(a,b){return a&&b&&a[0]<=b[2]&&a[2]>=b[0]&&a[1]<=b[3]&&a[3]>=b[1];}
+function computeStandardTerritorialStats(prg){
+ if(standardTerritorialStatsCache)return standardTerritorialStatsCache;
+ if(!window.turf||typeof turf.intersect!=='function')throw new Error('Libreria geometrica Turf.js non disponibile');
+ const definitions=[
+  {key:'asc1',label:'Circoscrizioni',code:'COD_ASC1',name:'DEN_ASC1'},
+  {key:'asc2',label:'Quartieri',code:'COM_ASC2',name:'DEN_ASC2'},
+  {key:'asc3',label:'UPL',code:'COM_ASC3',name:'DEN_ASC3'},
+  {key:'sections',label:'Sezioni censuarie',code:'SEZ21_ID',name:'SEZ21'}
+ ];
+ const categories=['S','IC','V','P','F'],groups=prg.features.filter(f=>f.geometry&&categories.includes(f.properties?.PRG_GROUP));
+ const prepared=groups.map(f=>({feature:f,bbox:standardBounds(f),category:f.properties.PRG_GROUP,area:Number(f.properties?.AREA_M2)||0}));
+ const output={source:prg.source||'Variante Generale PRG, DCC 7/2004',categories,levels:{},errors:0,intersections:0};
+ definitions.forEach(def=>{
+  const collection=GEO[def.key];
+  if(!collection?.features?.length)return;
+  const territories=collection.features.map(f=>({feature:f,bbox:standardBounds(f),code:String(f.properties?.[def.code]??''),name:String(f.properties?.[def.name]??f.properties?.[def.code]??'Territorio'),population:Number(f.properties?.POP21)||0,area:Number(f.properties?.Shape_Area??f.properties?.SHAPE_Area)||0})).filter(x=>x.bbox);
+  const rows=territories.map(t=>({code:t.code,name:t.name,population:t.population,territoryAreaM2:t.area,areas:{S:0,IC:0,V:0,P:0,F:0},features:{S:0,IC:0,V:0,P:0,F:0}}));
+  const rowByCode=new Map(rows.map(r=>[r.code,r]));
+  const territoryBounds=territories.map(t=>t.bbox);
+  prepared.forEach(item=>{
+   if(!item.bbox)return;
+   for(let i=0;i<territories.length;i++){
+    if(!standardBboxOverlaps(item.bbox,territoryBounds[i]))continue;
+    try{
+     const intersection=turf.intersect(turf.featureCollection([item.feature,territories[i].feature]));
+     if(!intersection)continue;
+     const area=turf.area(intersection);
+     if(!Number.isFinite(area)||area<0.5)continue;
+     const row=rowByCode.get(territories[i].code);if(!row)continue;
+     row.areas[item.category]+=area;row.features[item.category]++;output.intersections++;
+    }catch(error){output.errors++;}
+   }
+  });
+  output.levels[def.key]={label:def.label,rows};
+ });
+ standardTerritorialStatsCache=output;return output;
+}
+function renderStandardTerritorialStats(){
+ const host=$('#standardTerritorialStats');if(!host)return;
+ const level=$('#standardTerritorialLevel')?.value||'asc1',stats=standardTerritorialStatsCache;
+ if(!stats){host.innerHTML='<p class="muted">Elaborazione delle intersezioni geometriche in corso…</p>';return;}
+ const data=stats.levels[level];
+ if(!data){host.innerHTML='<p class="muted">Geometrie territoriali non disponibili per il livello selezionato.</p>';return;}
+ const fmtHa=n=>(n/10000).toLocaleString('it-IT',{minimumFractionDigits:2,maximumFractionDigits:2});
+ const fmtM2=n=>n.toLocaleString('it-IT',{maximumFractionDigits:2});
+ const standards={S:4.5,IC:2,V:9,P:2.5};
+ const rows=data.rows.map(r=>{
+  const per=key=>r.population>0?r.areas[key]/r.population:null;
+  const ratios=['S','IC','V','P'].map(k=>{const value=per(k),target=standards[k];return value===null?'N.D.':(value/target*100).toLocaleString('it-IT',{maximumFractionDigits:0})+'%';});
+  return '<tr><td>'+esc(r.name)+'</td><td>'+fmt(r.population)+'</td><td>'+fmtHa(r.territoryAreaM2)+' ha</td><td>'+fmtHa(r.areas.S)+' ha<br><small>'+fmtM2(per('S')??0)+' m²/ab</small></td><td>'+fmtHa(r.areas.IC)+' ha<br><small>'+fmtM2(per('IC')??0)+' m²/ab</small></td><td>'+fmtHa(r.areas.V)+' ha<br><small>'+fmtM2(per('V')??0)+' m²/ab</small></td><td>'+fmtHa(r.areas.P)+' ha<br><small>'+fmtM2(per('P')??0)+' m²/ab</small></td><td>'+fmtHa(r.areas.F)+' ha</td><td>'+ratios.join(' · ')+'</td></tr>';
+ }).join('');
+ const totals=data.rows.reduce((acc,r)=>{acc.population+=r.population;acc.territoryAreaM2+=r.territoryAreaM2;['S','IC','V','P','F'].forEach(k=>acc.areas[k]+=r.areas[k]);return acc;},{population:0,territoryAreaM2:0,areas:{S:0,IC:0,V:0,P:0,F:0}});
+ host.innerHTML='<p class="muted">Intersezioni geometriche PRG × '+esc(data.label)+'. '+data.rows.length+' unità territoriali elaborate; '+stats.intersections.toLocaleString('it-IT')+' intersezioni non nulle; '+stats.errors+' geometrie non processate. Le superfici sono misurate sulle porzioni effettivamente ricadenti in ciascuna unità, non attribuite per centroide.</p><div class="table-wrap"><table><thead><tr><th>Unità territoriale</th><th>Pop. ISTAT 2021</th><th>Superficie unità</th><th>S · Istruzione</th><th>IC · Interesse comune</th><th>V · Verde</th><th>P · Parcheggi</th><th>F · Interesse generale</th><th>Rapporto PRG / standard teorico S-IC-V-P</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><th>Totale</th><th>'+fmt(totals.population)+'</th><th>'+fmtHa(totals.territoryAreaM2)+' ha</th><th>'+fmtHa(totals.areas.S)+' ha</th><th>'+fmtHa(totals.areas.IC)+' ha</th><th>'+fmtHa(totals.areas.V)+' ha</th><th>'+fmtHa(totals.areas.P)+' ha</th><th>'+fmtHa(totals.areas.F)+' ha</th><th>Riferimenti: 4,5 · 2 · 9 · 2,5 m²/ab</th></tr></tfoot></table></div><p class="muted">Il rapporto percentuale confronta la superficie prevista dal PRG con i riferimenti pro capite del D.M. 1444/1968, usando la popolazione ISTAT 2021. È un confronto di pianificazione, non una certificazione di standard effettivamente soddisfatti: non misura stato di attuazione, proprietà pubblica, accessibilità, fruibilità, capienza o disponibilità reale. La categoria F è mostrata separatamente e non entra nel rapporto S-IC-V-P. Le codifiche PRG combinate restano nella categoria del dato sorgente.</p>';
+}
+async function loadStandardTerritorialStats(prg){
+ const host=$('#standardTerritorialStats');if(host)host.innerHTML='<p class="muted">Calcolo delle intersezioni geometriche tra zonizzazione PRG e unità territoriali…</p>';
+ try{
+  const stats=computeStandardTerritorialStats(prg);
+  renderStandardTerritorialStats();
+  const note=$('#standardPrgStatus');if(note)note.textContent+=' | Analisi territoriale: intersezioni geometriche calcolate per circoscrizioni, quartieri, UPL e sezioni disponibili.';
+ }catch(error){if(host)host.innerHTML='<p class="school-note">Analisi territoriale non disponibile: '+esc(error.message||error)+'</p>';}
+}
+
+
 let publicFacilitiesPromise=null;
 function classifyPublicFacility(tags={}){
  const a=tags.amenity||'',l=tags.leisure||'',o=tags.office||'',tour=tags.tourism||'';
@@ -441,6 +513,7 @@ if(active==='social'){
   'F23 – Laboratorio di astrofisica spaziale',
   'F24 – Istituto Universitario Zootecnico'
  ];
+ html+='<div class="card"><h3>Bilancio territoriale delle previsioni PRG</h3><p class="muted">Misurazione delle superfici delle zone di piano intersecate con le unità statistiche ISTAT 2021. La lettura distingue previsione urbanistica e dotazione effettivamente realizzata.</p><label>Unità di analisi<select id="standardTerritorialLevel"><option value="asc1">Circoscrizioni ASC1</option><option value="asc2">Quartieri ASC2</option><option value="asc3">UPL ASC3</option><option value="sections">Sezioni censuarie ISTAT 2021</option></select></label><div id="standardTerritorialStats"><p class="muted">In attesa del caricamento delle geometrie PRG e territoriali.</p></div></div>';
  html+='<div class="card"><h3>Catalogo delle categorie e delle tipologie di attrezzature</h3><p class="muted">Classificazione operativa delle dotazioni da censire. Le voci sono articolazioni descrittive delle quattro categorie normative: non costituiscono quote minime autonome e non sostituiscono la verifica della destinazione urbanistica, della proprietà pubblica e dell’effettiva fruibilità.</p><div class="grid standards-kpis">'+standardDetail.map(group=>'<div class="card"><h3>'+group.macro+'</h3><ul>'+group.items.map(item=>'<li>'+item+'</li>').join('')+'</ul></div>').join('')+'</div><div class="card"><h3>Attrezzature pubbliche di interesse generale · Zone F</h3><p class="muted">Classificazione distinta dalle quattro categorie che compongono la dotazione minima ordinaria di 18 m²/abitante. Le zone F del PRG individuano attrezzature e impianti di interesse generale; non vanno sommate automaticamente al conteggio degli standard dell’art. 3 del D.M. 1444/1968.</p><div class="grid standards-kpis"><div class="card"><ul>'+generalInterest.map(item=>'<li>'+item+'</li>').join('')+'</ul></div></div><p class="notice-inline">Fonte: NTA PRG Palermo, artt. 19 e 24. La destinazione F1–F24 va letta sulle tavole P2a e verificata rispetto alle eventuali prescrizioni specifiche.</p></div><p class="notice-inline">Per le attrezzature di interesse comune il catalogo espone le tipologie IC1–IC14 della classificazione del PRG di Palermo. Le denominazioni sono riportate come chiave di censimento; la corrispondenza con le categorie del PRG vigente e con gli elaborati più recenti va verificata puntualmente. Il parametro di riferimento per la categoria resta 2,00 m²/abitante, non 2,00 m² per ciascuna tipologia. Le attrezzature scolastiche sono approfondite nella mappa dei raggi di influenza. Nessuna superficie viene conteggiata senza geometria, destinazione, proprietà e fruibilità verificate.</p></div>';
  html+=`<div class="card standards-calculator"><h3>Simulatore del fabbisogno di standard</h3><p class="muted">Inserisci la popolazione di riferimento e le superfici effettivamente disponibili. Il calcolo è una simulazione parametrica, non una certificazione urbanistica.</p><div class="calc-input"><label>Popolazione di riferimento<input id="stdPopulation" type="number" min="0" step="1" placeholder="Inserisci numero abitanti"></label><p class="muted comparison-note">Valore iniziale: ${stdPopulationContext.source}. Puoi modificarlo per simulazioni alternative.</p></div><div class="table-wrap"><table><thead><tr><th>Categoria</th><th>Standard (m²/ab)</th><th>Superficie disponibile (m²)</th><th>Fabbisogno teorico (m²)</th><th>Differenza (m²)</th></tr></thead><tbody>${standard.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td><input class="std-area" data-index="${i}" type="number" min="0" step="0.01" placeholder="Da inserire" aria-label="Superficie disponibile ${x[0]}"></td><td id="stdNeed${i}">N.D.</td><td id="stdGap${i}">N.D.</td></tr>`).join('')}</tbody><tfoot><tr><th colspan="3">Totale</th><th id="stdTotalNeed">N.D.</th><th id="stdTotalGap">N.D.</th></tr></tfoot></table></div><p id="stdCalcStatus" class="muted comparison-note">Inserisci popolazione e superfici per calcolare fabbisogno e differenziali.</p></div>`;
  html+='<div class="card"><h3>Mappa delle attrezzature pubbliche e delle sedi scolastiche</h3><p class="muted">La mappa sovrappone le sedi scolastiche georeferenziate ai luoghi e servizi pubblicamente mappati in OpenStreetMap, organizzati secondo una corrispondenza funzionale preliminare con le categorie S, IC, V, P e F dell’art. 24 e delle tavole P2A/P2B del PRG. I punti OSM non attestano proprietà pubblica, destinazione urbanistica o conformità al PRG: ogni corrispondenza è da verificare sulle tavole ufficiali e sulle NTA. I poligoni della zonizzazione PRG 2004 sono integrati nei layer S, IC, V, P e F; le geometrie sono derivate dalla perimetrazione comunale e rielaborate per la visualizzazione web. I bacini scolastici sono calcolati sulle sedi georeferenziate e classificate. Sono soglie analitiche indicative, non distanze normative né isocrone pedonali: non considerano barriere, pendenze, attraversamenti o rete stradale.</p><div class="school-controls"><label>Ordine scolastico<select id="stdSchoolOrder"><option value="">Tutti gli ordini classificati</option><option value="NIDO">Nidi</option><option value="INFANZIA">Infanzia</option><option value="ELEMENTARI">Primaria</option><option value="MEDIE">Secondaria I grado</option><option value="SUPERIORI">Secondaria II grado</option></select></label><label>Visualizzazione<select id="stdBufferMode"><option value="all">Raggi e sedi</option><option value="buffers">Solo raggi</option><option value="points">Solo sedi</option></select></label></div><div class="map-legend school-map-legend"><span><i class="legend-dot" style="background:#d97706"></i>IC · Interesse comune (OSM)</span><span><i class="legend-dot" style="background:#16845b"></i>V · Verde e sport (OSM)</span><span><i class="legend-dot" style="background:#475569"></i>P · Parcheggi (OSM)</span><span><i class="legend-dot" style="background:#7c3aed"></i>F · Interesse generale (OSM)</span><span><i class="legend-dot" style="background:#d97706"></i>Nido</span><span><i class="legend-dot" style="background:#db2777"></i>Infanzia</span><span><i class="legend-dot" style="background:#16845b"></i>Primaria</span><span><i class="legend-dot" style="background:#2563eb"></i>Secondaria I grado</span><span><i class="legend-dot" style="background:#7c3aed"></i>Secondaria II grado</span></div><div id="standardSchoolMap" class="school-map"></div><p id="standardSchoolStatus" class="school-note"></p><p id="standardPrgStatus" class="school-note">Caricamento della zonizzazione PRG…</p><div id="standardPrgStats"></div><p class="school-note">Fonte delle sedi: censimento scolastico del progetto, archivi istituzionali e georeferenziazione degli indirizzi. Sono rappresentate tutte le sedi censite disponibili; i punti con classificazione o affidabilità non completa restano visibili e distinguibili. Raggi adottati: nidi e infanzia 500 m; primaria 800 m; secondaria di I grado 1.000 m; secondaria di II grado 1.500 m. Il valore di 1,5 km è assunto anche come soglia comparativa di prossimità per la primaria in una specifica elaborazione Openpolis, non come prescrizione generale. Le sedi prive di ordine documentato non ricevono un buffer.</p></div>';
@@ -876,6 +949,7 @@ function addPalermoBaseLayers(map){
 }
 
 function initStandardSchoolMap(){
+ const levelSelect=$('#standardTerritorialLevel');if(levelSelect)levelSelect.addEventListener('change',renderStandardTerritorialStats);
  const el=$('#standardSchoolMap');if(!el||!window.L)return;
  const pts=DATA.schoolPoints||[],records=DATA.schoolClassification?.records||[],census=DATA.schoolCensus?.records||[],verification=DATA.schoolSiteVerification?.records||[];
  const byId=new Map(records.map(x=>[String(x.point_id),x])),censusById=new Map(census.map(x=>[String(x.id),x])),verificationById=new Map(verification.map(x=>[String(x.pointId),x]));
@@ -915,6 +989,7 @@ function initStandardSchoolMap(){
     const g=prgSummary[group]||(prgSummary[group]={features:0,area_m2:0,codes:{}});
     g.features++;g.area_m2+=Number(p.AREA_M2)||0;g.codes[p.PRG_CODE]=(g.codes[p.PRG_CODE]||0)+1;
    });
+   loadStandardTerritorialStats(fc);
    const order=['S','IC','V','P','F'];
    const stats=order.map(k=>{const g=prgSummary[k];return g?prgZoneStyles[k].label+': '+Number(g.features).toLocaleString('it-IT')+' poligoni, '+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' ha':'';}).filter(Boolean);
    if(!map.hasLayer(prgZoneGroups.S))prgZoneGroups.S.addTo(map);
