@@ -60,12 +60,14 @@ def main():
     urban_union=unary_union([g for c,group in byclass.items() if c in urban_keys for g in group])
     standard_union=unary_union([g for c,group in byclass.items() if c in standard_keys for g in group])
     natural_union=unary_union([g for c,group in byclass.items() if c in natural_keys for g in group])
-    def group_stats(u):
-        i=h_union.intersection(u)
+    def group_stats(u,hbase=None):
+        hbase=h_union if hbase is None else hbase
+        i=hbase.intersection(u)
         return {'superficie_prg':summary_area(u),'intersezione_inventario_2013':summary_area(i),
-                'inventario_2013_fuori_gruppo':summary_area(h_union.difference(u)),
-                'prg_non_censito_2013':summary_area(u.difference(h_union)),
-                'quota_inventario_2013_intersecata_pct':round(i.area/h_union.area*100,2) if h_union.area else None}
+                'inventario_2013_fuori_gruppo':summary_area(hbase.difference(u)),
+                'prg_non_censito_2013':summary_area(u.difference(hbase)),
+                'quota_inventario_2013_intersecata_pct':round(i.area/hbase.area*100,2) if hbase.area else None,
+                'quota_prg_intersecata_inventario_2013_pct':round(i.area/u.area*100,2) if u.area else None}
     overlap=h_union.intersection(p_union)
     outside=h_union.difference(p_union)
     prg_without=p_union.difference(h_union)
@@ -91,7 +93,7 @@ def main():
                 rows.append({"codice":props.get(codekey),"nome":props.get(namekey) or str(props.get(codekey) or "N.D."),
                   "verde_comunale_2013":summary_area(hi),"verde_prg_classificato":summary_area(pi),
                   "intersezione":summary_area(oi),"inventario_2013_fuori_prg":summary_area(hi.difference(pi)),
-                  "prg_non_censito_2013":summary_area(pi.difference(hi)),\n                  "classi_urbane_prg":group_stats(urban_union.intersection(b)),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b)),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b))})
+                  "prg_non_censito_2013":summary_area(pi.difference(hi)),\n                  "classi_urbane_prg":group_stats(urban_union.intersection(b),hi),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b),hi),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
             except Exception:continue
         territorial[level]=rows
     result={
