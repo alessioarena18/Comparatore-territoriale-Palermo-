@@ -14,6 +14,11 @@ def extract(p,d):
   return list({str(x.resolve()):x for x in a}.values())
  if p.suffix.lower()==".shp": return [p]
  raise ValueError("Input deve essere ZIP o SHP: "+str(p))
+def read_geojson(path):
+ raw=path.read_bytes()
+ try:text=raw.decode("utf-8")
+ except UnicodeDecodeError:text=raw.decode("cp1252")
+ return json.loads(text)
 def family(fs):
  ts={f.get("geometry",{}).get("type","") for f in fs if f.get("geometry")}
  if ts and ts<={"Polygon","MultiPolygon"}:return "areali"
@@ -37,7 +42,7 @@ def main():
     subprocess.run(["ogrinfo","-ro","-so","-al",str(shp)],check=True,capture_output=True)
     tmp=td/(slug(shp.stem)+".geojson")
     subprocess.run(["ogr2ogr","-f","GeoJSON","-t_srs","EPSG:4326","-lco","RFC7946=YES",str(tmp),str(shp)],check=True)
-    fc=json.loads(tmp.read_text(encoding="utf-8"))
+    fc=read_geojson(tmp)
     if fc.get("type")!="FeatureCollection" or not fc.get("features"):raise ValueError("GeoJSON vuoto: "+shp.name)
     fam=family(fc["features"])
     if ds==320:
