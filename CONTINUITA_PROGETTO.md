@@ -105,7 +105,7 @@ Prossime attività:
 - PR #7 aggiunge la zonizzazione integrale dataset 320 alla mappa Standard urbanistici come overlay distinto. PR #8 aggiunge verifiche automatiche di sintassi e presenza dei layer. PR #9 aggiorna la tabella Fonti e metodologia con dataset 320/321, NTA e varianti parziali 2025–2026.
 - PR #11 (integrata nel commit `f54b6eb8726cf3daf88eae1dcfad58baf2be68e0`) rimuove gli overlay puntuali/misti vuoti, non presenti nel rilascio, e aggiorna README e legenda ai soli layer effettivamente acquisiti: zonizzazione 5.879, vincoli areali 662, vincoli lineari 100.
 - QA PRG: 3 layer validati per struttura e plausibilità geografica; una feature sorgente senza geometria esclusa e conteggiata; una GeometryCollection convertita in una componente areale e una lineare. Nessuna certificazione topologica o giuridica.
-- Deploy Pages del commit `39791508b8cadf9fa64c4d0b484ca71189f1e482` concluso SUCCESS. Dopo PR #11, nuovo deploy in corso nel run #44097120367 e verifica automatica in corso nel run #44097120615.
+- Deploy Pages del commit `39791508b8cadf9fa64c4d0b484ca71189f1e482` concluso SUCCESS. Dopo PR #11, verifica automatica #44097120615 conclusa SUCCESS e deploy successivo #44097159609 concluso SUCCESS (commit handoff `011059ede088d8652a4a9e00f23d61a246169736`).
 
 Prossimi passi:
 1. Attendere l'esito della verifica CI e del deploy dopo PR #11.
