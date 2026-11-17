@@ -1355,6 +1355,7 @@ function initSchools(){
  const territoryPoints=()=>pts.filter(belongs);
  const drawTerritorySummary=()=>{const area=territoryPoints(),classified=area.filter(p=>ordersOf(p).length).length,metrics=$('#schoolTerritoryMetrics');if(!metrics)return;const countByOrder=orderInfo.map(o=>({label:o.label,count:area.filter(p=>ordersOf(p).includes(o.key)).length})).filter(x=>x.count>0);metrics.innerHTML='<div class="school-territory-head"><strong>'+area.length.toLocaleString('it-IT')+'</strong><span>sedi e punti cartografici nell’ambito selezionato</span></div><div class="school-territory-head"><strong>'+classified.toLocaleString('it-IT')+'</strong><span>punti con almeno un ordine scolastico documentato</span></div><div class="school-territory-breakdown">'+(countByOrder.map(x=>'<span>'+esc(x.label)+': <b>'+x.count.toLocaleString('it-IT')+'</b></span>').join('')||'<span>Nessun ordine scolastico documentato nell’ambito selezionato</span>')+'</div><small class="school-note">Le categorie indicano presenze per ordine e possono sovrapporsi nello stesso edificio. Il conteggio non equivale al numero di istituzioni scolastiche né agli alunni iscritti.</small>';};
  let map=null,layer=null;const markersById=new Map();let selectedPointId=null;
+ let drawInfluenceBuffers=()=>{};
  const draw=()=>{
   const list=filtered();drawTerritorySummary();
   rows.innerHTML=list.map(p=>{const v=verificationById.get(String(p.id)),c=censusById.get(String(p.id));const verified=v&&v.status!=='NON_VERIFICATO';const institution=verified&&v.institutionName?v.institutionName:(c?.denominazione_istituzione_candidata||p.institution||'N.D.');const status=c?.classe_affidabilita_finale||'NON PRESENTE';const orderVerified=c?.ordine_scolastico_verificato||'DA CLASSIFICARE';const code=c?.codice_meccanografico_plesso_verificato||'N.D.';const bufferLabel=c?.bufferEligible===true?'IDONEO':'NON ABILITATO';const detail=[c?.nota_riconciliazione,c?.nota_verifica_ordine,v?.note].filter(Boolean).join(' | ');const spatialTag=p.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES'?'FUORI PERIMETRO ISTAT':'INTERNO AI PERIMETRI ISTAT';const addressMatch=p.address_matches?.map(x=>x.name).join(' · ');return '<tr data-school-id="'+esc(p.id)+'" tabindex="0" class="'+(p.id===selectedPointId?'school-row-selected':'')+'"><td>'+esc(p.name)+'</td><td><span class="school-order-tag" style="--school-color:'+orderColor(orderOf(p))+'">'+esc(orderLabel(orderOf(p)))+'</span></td><td>'+esc(p.kind)+'</td><td>'+esc(institution)+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(p.quarter||'N.D.')+'</td><td>'+esc(status)+'</td><td>'+esc(spatialTag)+'</td><td>'+esc(orderVerified)+'</td><td>'+esc(code)+'</td><td title="'+esc(c?.idoneita_raggi_influenza||'')+'">'+esc(bufferLabel)+'</td><td><span class="school-verification-tag" title="'+esc(detail||'Nessuna nota disponibile')+'">'+esc(v?.status||c?.stato_verifica_documentale||'NON VERIFICATA')+'</span></td></tr>';}).join('')||'<tr><td colspan="12">Nessuna sede trovata.</td></tr>';
@@ -1404,7 +1405,7 @@ function initSchools(){
    overlays['Raggi d’influenza · '+spec.label]=group;
    return [spec.key,group];
   }));
-  const drawInfluenceBuffers=list=>{
+  drawInfluenceBuffers=list=>{
    Object.values(influenceLayers).forEach(group=>group.clearLayers());
    list.forEach(p=>{
     const record=censusById.get(String(p.id));
