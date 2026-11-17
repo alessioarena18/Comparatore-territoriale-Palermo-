@@ -1,4 +1,5 @@
 name: Confronto spaziale verde comunale 2013 e PRG
+# Esecuzione su aggiornamenti del generatore e dei layer sorgente.
 on:
   workflow_dispatch:
   push:
