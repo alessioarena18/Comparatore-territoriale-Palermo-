@@ -1,0 +1,2364 @@
+{
+  "schema_version": "1.0",
+  "status": "completed",
+  "generated_from": "dataset comunale 278 (ricognizione 2013) e layer tematico derivato dal dataset PRG 320 (Variante Generale DCC 7/2004)",
+  "method": {
+    "crs_area": "EPSG:32633 / UTM 33N",
+    "overlay": "intersezione geometrica di unioni topologiche; superfici in m² e ha",
+    "historic_source": "data/geo/verde_comunale_2013.geojson",
+    "prg_source": "data/geo/verde_prg.geojson",
+    "no_double_count": "Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.",
+    "limits": [
+      "Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.",
+      "La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.",
+      "Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.",
+      "Fuori dalle classi verdi PRG non significa assenza di vegetazione; non censito nel 2013 non significa assenza di verde.",
+      "Il confronto non è un bilancio normativo degli standard urbanistici."
+    ]
+  },
+  "global": {
+    "geometrie_storiche_utilizzate": 2089,
+    "geometrie_prg_per_classe": 679,
+    "inventario_2013": {
+      "m2": 674810.7,
+      "ha": 67.4811
+    },
+    "classi_verdi_prg": {
+      "m2": 90731613.46,
+      "ha": 9073.1613
+    },
+    "intersezione": {
+      "m2": 216111.2,
+      "ha": 21.6111
+    },
+    "inventario_2013_fuori_prg": {
+      "m2": 458699.5,
+      "ha": 45.8699
+    },
+    "prg_non_censito_2013": {
+      "m2": 90515502.26,
+      "ha": 9051.5502
+    },
+    "quota_inventario_2013_intersecata_pct": 32.03,
+    "quota_prg_intersecata_inventario_2013_pct": 0.24
+  },
+  "per_tipo_inventario_2013": {
+    "aiuola": {
+      "features": 2086,
+      "area_totale": {
+        "m2": 659598.24,
+        "ha": 65.9598
+      },
+      "intersezione_prg_verde": {
+        "m2": 201344.8,
+        "ha": 20.1345
+      },
+      "fuori_dalle_classi_verdi_prg": {
+        "m2": 458253.44,
+        "ha": 45.8253
+      }
+    },
+    "alberi": {
+      "features": 3,
+      "area_totale": {
+        "m2": 15212.46,
+        "ha": 1.5212
+      },
+      "intersezione_prg_verde": {
+        "m2": 14766.4,
+        "ha": 1.4766
+      },
+      "fuori_dalle_classi_verdi_prg": {
+        "m2": 446.06,
+        "ha": 0.0446
+      }
+    }
+  },
+  "per_classe_prg": [
+    {
+      "classe_prg": "agricolo",
+      "geometrie_prg": 107,
+      "superficie_prg": {
+        "m2": 22808163.01,
+        "ha": 2280.8163
+      },
+      "intersezione_inventario_2013": {
+        "m2": 718.94,
+        "ha": 0.0719
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 22807444.07,
+        "ha": 2280.7444
+      }
+    },
+    {
+      "classe_prg": "attrezzato",
+      "geometrie_prg": 23,
+      "superficie_prg": {
+        "m2": 590574.45,
+        "ha": 59.0574
+      },
+      "intersezione_inventario_2013": {
+        "m2": 22926.87,
+        "ha": 2.2927
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 567647.58,
+        "ha": 56.7648
+      }
+    },
+    {
+      "classe_prg": "collinare",
+      "geometrie_prg": 10,
+      "superficie_prg": {
+        "m2": 58422119.65,
+        "ha": 5842.212
+      },
+      "intersezione_inventario_2013": {
+        "m2": 423.64,
+        "ha": 0.0424
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 58421696.01,
+        "ha": 5842.1696
+      }
+    },
+    {
+      "classe_prg": "gioco",
+      "geometrie_prg": 20,
+      "superficie_prg": {
+        "m2": 138641.6,
+        "ha": 13.8642
+      },
+      "intersezione_inventario_2013": {
+        "m2": 2689.18,
+        "ha": 0.2689
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 135952.42,
+        "ha": 13.5952
+      }
+    },
+    {
+      "classe_prg": "impianti",
+      "geometrie_prg": 17,
+      "superficie_prg": {
+        "m2": 210886.98,
+        "ha": 21.0887
+      },
+      "intersezione_inventario_2013": {
+        "m2": 144.42,
+        "ha": 0.0144
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 210742.56,
+        "ha": 21.0743
+      }
+    },
+    {
+      "classe_prg": "misto",
+      "geometrie_prg": 26,
+      "superficie_prg": {
+        "m2": 290544.87,
+        "ha": 29.0545
+      },
+      "intersezione_inventario_2013": {
+        "m2": 625.59,
+        "ha": 0.0626
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 289919.28,
+        "ha": 28.9919
+      }
+    },
+    {
+      "classe_prg": "parco_urbano",
+      "geometrie_prg": 4,
+      "superficie_prg": {
+        "m2": 2281432.62,
+        "ha": 228.1433
+      },
+      "intersezione_inventario_2013": {
+        "m2": 4424.15,
+        "ha": 0.4424
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 2277008.48,
+        "ha": 227.7008
+      }
+    },
+    {
+      "classe_prg": "pubblico",
+      "geometrie_prg": 241,
+      "superficie_prg": {
+        "m2": 1572509.74,
+        "ha": 157.251
+      },
+      "intersezione_inventario_2013": {
+        "m2": 164050.42,
+        "ha": 16.405
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 1408459.32,
+        "ha": 140.8459
+      }
+    },
+    {
+      "classe_prg": "sport",
+      "geometrie_prg": 65,
+      "superficie_prg": {
+        "m2": 703533.48,
+        "ha": 70.3533
+      },
+      "intersezione_inventario_2013": {
+        "m2": 1051.86,
+        "ha": 0.1052
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 702481.62,
+        "ha": 70.2482
+      }
+    },
+    {
+      "classe_prg": "storico",
+      "geometrie_prg": 166,
+      "superficie_prg": {
+        "m2": 6273343.67,
+        "ha": 627.3344
+      },
+      "intersezione_inventario_2013": {
+        "m2": 127560.85,
+        "ha": 12.7561
+      },
+      "superficie_prg_non_censita_nel_2013": {
+        "m2": 6145782.82,
+        "ha": 614.5783
+      }
+    }
+  ],
+  "perimetri_territoriali": {
+    "circoscrizioni": [
+      {
+        "codice": 1,
+        "nome": "Prima",
+        "verde_comunale_2013": {
+          "m2": 98228.93,
+          "ha": 9.8229
+        },
+        "verde_prg_classificato": {
+          "m2": 15189.28,
+          "ha": 1.5189
+        },
+        "intersezione": {
+          "m2": 10292.99,
+          "ha": 1.0293
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 87935.94,
+          "ha": 8.7936
+        },
+        "prg_non_censito_2013": {
+          "m2": 4896.29,
+          "ha": 0.4896
+        }
+      },
+      {
+        "codice": 2,
+        "nome": "Seconda",
+        "verde_comunale_2013": {
+          "m2": 107458.17,
+          "ha": 10.7458
+        },
+        "verde_prg_classificato": {
+          "m2": 11762502.03,
+          "ha": 1176.2502
+        },
+        "intersezione": {
+          "m2": 75696.92,
+          "ha": 7.5697
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 31761.25,
+          "ha": 3.1761
+        },
+        "prg_non_censito_2013": {
+          "m2": 11686805.11,
+          "ha": 1168.6805
+        }
+      },
+      {
+        "codice": 3,
+        "nome": "Terza",
+        "verde_comunale_2013": {
+          "m2": 30717.61,
+          "ha": 3.0718
+        },
+        "verde_prg_classificato": {
+          "m2": 14968558.61,
+          "ha": 1496.8559
+        },
+        "intersezione": {
+          "m2": 4688.58,
+          "ha": 0.4689
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 26029.04,
+          "ha": 2.6029
+        },
+        "prg_non_censito_2013": {
+          "m2": 14963870.03,
+          "ha": 1496.387
+        }
+      },
+      {
+        "codice": 4,
+        "nome": "Quarta",
+        "verde_comunale_2013": {
+          "m2": 109713.24,
+          "ha": 10.9713
+        },
+        "verde_prg_classificato": {
+          "m2": 14118943.6,
+          "ha": 1411.8944
+        },
+        "intersezione": {
+          "m2": 20961.98,
+          "ha": 2.0962
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 88751.25,
+          "ha": 8.8751
+        },
+        "prg_non_censito_2013": {
+          "m2": 14097981.61,
+          "ha": 1409.7982
+        }
+      },
+      {
+        "codice": 5,
+        "nome": "Quinta",
+        "verde_comunale_2013": {
+          "m2": 51529.01,
+          "ha": 5.1529
+        },
+        "verde_prg_classificato": {
+          "m2": 8727682.35,
+          "ha": 872.7682
+        },
+        "intersezione": {
+          "m2": 12015.15,
+          "ha": 1.2015
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 39513.86,
+          "ha": 3.9514
+        },
+        "prg_non_censito_2013": {
+          "m2": 8715667.2,
+          "ha": 871.5667
+        }
+      },
+      {
+        "codice": 6,
+        "nome": "Sesta",
+        "verde_comunale_2013": {
+          "m2": 45668.59,
+          "ha": 4.5669
+        },
+        "verde_prg_classificato": {
+          "m2": 15227835.93,
+          "ha": 1522.7836
+        },
+        "intersezione": {
+          "m2": 3489.93,
+          "ha": 0.349
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 42178.67,
+          "ha": 4.2179
+        },
+        "prg_non_censito_2013": {
+          "m2": 15224346.0,
+          "ha": 1522.4346
+        }
+      },
+      {
+        "codice": 7,
+        "nome": "Settima",
+        "verde_comunale_2013": {
+          "m2": 121494.95,
+          "ha": 12.1495
+        },
+        "verde_prg_classificato": {
+          "m2": 18336600.15,
+          "ha": 1833.66
+        },
+        "intersezione": {
+          "m2": 20314.19,
+          "ha": 2.0314
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 101180.76,
+          "ha": 10.1181
+        },
+        "prg_non_censito_2013": {
+          "m2": 18316285.95,
+          "ha": 1831.6286
+        }
+      },
+      {
+        "codice": 8,
+        "nome": "Ottava",
+        "verde_comunale_2013": {
+          "m2": 110000.2,
+          "ha": 11.0
+        },
+        "verde_prg_classificato": {
+          "m2": 6930924.71,
+          "ha": 693.0925
+        },
+        "intersezione": {
+          "m2": 68651.46,
+          "ha": 6.8651
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 41348.74,
+          "ha": 4.1349
+        },
+        "prg_non_censito_2013": {
+          "m2": 6862273.25,
+          "ha": 686.2273
+        }
+      }
+    ],
+    "quartieri": [
+      {
+        "codice": 82053001,
+        "nome": "Tribunali-Castellammare",
+        "verde_comunale_2013": {
+          "m2": 59415.15,
+          "ha": 5.9415
+        },
+        "verde_prg_classificato": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 59415.15,
+          "ha": 5.9415
+        },
+        "prg_non_censito_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        }
+      },
+      {
+        "codice": 82053002,
+        "nome": "Palazzo Reale - Monte Di Pieta'",
+        "verde_comunale_2013": {
+          "m2": 38813.78,
+          "ha": 3.8814
+        },
+        "verde_prg_classificato": {
+          "m2": 15189.28,
+          "ha": 1.5189
+        },
+        "intersezione": {
+          "m2": 10292.99,
+          "ha": 1.0293
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 28520.79,
+          "ha": 2.8521
+        },
+        "prg_non_censito_2013": {
+          "m2": 4896.29,
+          "ha": 0.4896
+        }
+      },
+      {
+        "codice": 82053003,
+        "nome": "Oreto- Stazione",
+        "verde_comunale_2013": {
+          "m2": 90369.02,
+          "ha": 9.0369
+        },
+        "verde_prg_classificato": {
+          "m2": 502947.47,
+          "ha": 50.2947
+        },
+        "intersezione": {
+          "m2": 68392.15,
+          "ha": 6.8392
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 21976.88,
+          "ha": 2.1977
+        },
+        "prg_non_censito_2013": {
+          "m2": 434555.32,
+          "ha": 43.4555
+        }
+      },
+      {
+        "codice": 82053004,
+        "nome": "S. Rosalia - Montegrappa",
+        "verde_comunale_2013": {
+          "m2": 45588.51,
+          "ha": 4.5589
+        },
+        "verde_prg_classificato": {
+          "m2": 662500.23,
+          "ha": 66.25
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 45588.51,
+          "ha": 4.5589
+        },
+        "prg_non_censito_2013": {
+          "m2": 662500.23,
+          "ha": 66.25
+        }
+      },
+      {
+        "codice": 82053005,
+        "nome": "Cuba-Calatafimi",
+        "verde_comunale_2013": {
+          "m2": 32469.67,
+          "ha": 3.247
+        },
+        "verde_prg_classificato": {
+          "m2": 192452.71,
+          "ha": 19.2453
+        },
+        "intersezione": {
+          "m2": 19363.24,
+          "ha": 1.9363
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 13106.43,
+          "ha": 1.3106
+        },
+        "prg_non_censito_2013": {
+          "m2": 173089.47,
+          "ha": 17.3089
+        }
+      },
+      {
+        "codice": 82053006,
+        "nome": "Zisa",
+        "verde_comunale_2013": {
+          "m2": 20831.42,
+          "ha": 2.0831
+        },
+        "verde_prg_classificato": {
+          "m2": 122315.91,
+          "ha": 12.2316
+        },
+        "intersezione": {
+          "m2": 1616.59,
+          "ha": 0.1617
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 19214.83,
+          "ha": 1.9215
+        },
+        "prg_non_censito_2013": {
+          "m2": 120699.31,
+          "ha": 12.0699
+        }
+      },
+      {
+        "codice": 82053007,
+        "nome": "Noce",
+        "verde_comunale_2013": {
+          "m2": 5225.24,
+          "ha": 0.5225
+        },
+        "verde_prg_classificato": {
+          "m2": 34371.56,
+          "ha": 3.4372
+        },
+        "intersezione": {
+          "m2": 2081.98,
+          "ha": 0.2082
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3143.25,
+          "ha": 0.3143
+        },
+        "prg_non_censito_2013": {
+          "m2": 32289.58,
+          "ha": 3.229
+        }
+      },
+      {
+        "codice": 82053008,
+        "nome": "Malaspina -Palagonia",
+        "verde_comunale_2013": {
+          "m2": 21334.25,
+          "ha": 2.1334
+        },
+        "verde_prg_classificato": {
+          "m2": 58944.46,
+          "ha": 5.8944
+        },
+        "intersezione": {
+          "m2": 3962.27,
+          "ha": 0.3962
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 17371.99,
+          "ha": 1.7372
+        },
+        "prg_non_censito_2013": {
+          "m2": 54982.2,
+          "ha": 5.4982
+        }
+      },
+      {
+        "codice": 82053009,
+        "nome": "Liberta'",
+        "verde_comunale_2013": {
+          "m2": 45094.83,
+          "ha": 4.5095
+        },
+        "verde_prg_classificato": {
+          "m2": 301340.74,
+          "ha": 30.1341
+        },
+        "intersezione": {
+          "m2": 37566.92,
+          "ha": 3.7567
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7527.91,
+          "ha": 0.7528
+        },
+        "prg_non_censito_2013": {
+          "m2": 263773.82,
+          "ha": 26.3774
+        }
+      },
+      {
+        "codice": 82053010,
+        "nome": "Politeama",
+        "verde_comunale_2013": {
+          "m2": 30455.52,
+          "ha": 3.0456
+        },
+        "verde_prg_classificato": {
+          "m2": 100181.39,
+          "ha": 10.0181
+        },
+        "intersezione": {
+          "m2": 21356.76,
+          "ha": 2.1357
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 9098.76,
+          "ha": 0.9099
+        },
+        "prg_non_censito_2013": {
+          "m2": 78824.63,
+          "ha": 7.8825
+        }
+      },
+      {
+        "codice": 82053011,
+        "nome": "Settecannoli",
+        "verde_comunale_2013": {
+          "m2": 29155.79,
+          "ha": 2.9156
+        },
+        "verde_prg_classificato": {
+          "m2": 1659961.69,
+          "ha": 165.9962
+        },
+        "intersezione": {
+          "m2": 8153.02,
+          "ha": 0.8153
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 21002.78,
+          "ha": 2.1003
+        },
+        "prg_non_censito_2013": {
+          "m2": 1651808.67,
+          "ha": 165.1809
+        }
+      },
+      {
+        "codice": 82053012,
+        "nome": "Brancaccio-Ciaculli",
+        "verde_comunale_2013": {
+          "m2": 1248.26,
+          "ha": 0.1248
+        },
+        "verde_prg_classificato": {
+          "m2": 9931171.73,
+          "ha": 993.1172
+        },
+        "intersezione": {
+          "m2": 329.34,
+          "ha": 0.0329
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 918.92,
+          "ha": 0.0919
+        },
+        "prg_non_censito_2013": {
+          "m2": 9930842.39,
+          "ha": 993.0842
+        }
+      },
+      {
+        "codice": 82053013,
+        "nome": "Villagrazia-Falsomiele",
+        "verde_comunale_2013": {
+          "m2": 17402.71,
+          "ha": 1.7403
+        },
+        "verde_prg_classificato": {
+          "m2": 14636979.75,
+          "ha": 1463.698
+        },
+        "intersezione": {
+          "m2": 3511.0,
+          "ha": 0.3511
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 13891.71,
+          "ha": 1.3892
+        },
+        "prg_non_censito_2013": {
+          "m2": 14633468.76,
+          "ha": 1463.3469
+        }
+      },
+      {
+        "codice": 82053014,
+        "nome": "Mezzomonreale -Villa Tasca",
+        "verde_comunale_2013": {
+          "m2": 20115.29,
+          "ha": 2.0115
+        },
+        "verde_prg_classificato": {
+          "m2": 3734284.75,
+          "ha": 373.4285
+        },
+        "intersezione": {
+          "m2": 1575.73,
+          "ha": 0.1576
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 18539.56,
+          "ha": 1.854
+        },
+        "prg_non_censito_2013": {
+          "m2": 3732709.02,
+          "ha": 373.2709
+        }
+      },
+      {
+        "codice": 82053015,
+        "nome": "Altarello",
+        "verde_comunale_2013": {
+          "m2": 1350.08,
+          "ha": 0.135
+        },
+        "verde_prg_classificato": {
+          "m2": 789692.28,
+          "ha": 78.9692
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1350.08,
+          "ha": 0.135
+        },
+        "prg_non_censito_2013": {
+          "m2": 789692.28,
+          "ha": 78.9692
+        }
+      },
+      {
+        "codice": 82053016,
+        "nome": "Boccadifalco",
+        "verde_comunale_2013": {
+          "m2": 10189.69,
+          "ha": 1.019
+        },
+        "verde_prg_classificato": {
+          "m2": 8740013.63,
+          "ha": 874.0014
+        },
+        "intersezione": {
+          "m2": 23.02,
+          "ha": 0.0023
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 10166.68,
+          "ha": 1.0167
+        },
+        "prg_non_censito_2013": {
+          "m2": 8739990.62,
+          "ha": 873.9991
+        }
+      },
+      {
+        "codice": 82053017,
+        "nome": "Uditore-Passo Di Rigano",
+        "verde_comunale_2013": {
+          "m2": 14916.34,
+          "ha": 1.4916
+        },
+        "verde_prg_classificato": {
+          "m2": 693078.12,
+          "ha": 69.3078
+        },
+        "intersezione": {
+          "m2": 5291.09,
+          "ha": 0.5291
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 9625.24,
+          "ha": 0.9625
+        },
+        "prg_non_censito_2013": {
+          "m2": 687787.03,
+          "ha": 68.7787
+        }
+      },
+      {
+        "codice": 82053018,
+        "nome": "Borgo Nuovo",
+        "verde_comunale_2013": {
+          "m2": 10556.01,
+          "ha": 1.0556
+        },
+        "verde_prg_classificato": {
+          "m2": 7877916.76,
+          "ha": 787.7917
+        },
+        "intersezione": {
+          "m2": 3025.48,
+          "ha": 0.3025
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7530.53,
+          "ha": 0.7531
+        },
+        "prg_non_censito_2013": {
+          "m2": 7874891.28,
+          "ha": 787.4891
+        }
+      },
+      {
+        "codice": 82053019,
+        "nome": "Cruillas - S.Giovanni Apostolo",
+        "verde_comunale_2013": {
+          "m2": 12913.38,
+          "ha": 1.2913
+        },
+        "verde_prg_classificato": {
+          "m2": 6676675.03,
+          "ha": 667.6675
+        },
+        "intersezione": {
+          "m2": 354.34,
+          "ha": 0.0354
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 12559.04,
+          "ha": 1.2559
+        },
+        "prg_non_censito_2013": {
+          "m2": 6676320.69,
+          "ha": 667.6321
+        }
+      },
+      {
+        "codice": 82053020,
+        "nome": "Resuttana - S.Lorenzo",
+        "verde_comunale_2013": {
+          "m2": 32755.21,
+          "ha": 3.2755
+        },
+        "verde_prg_classificato": {
+          "m2": 8551160.9,
+          "ha": 855.1161
+        },
+        "intersezione": {
+          "m2": 3135.58,
+          "ha": 0.3136
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 29619.63,
+          "ha": 2.962
+        },
+        "prg_non_censito_2013": {
+          "m2": 8548025.32,
+          "ha": 854.8025
+        }
+      },
+      {
+        "codice": 82053021,
+        "nome": "Tommaso Natale - Sferracavallo",
+        "verde_comunale_2013": {
+          "m2": 23264.02,
+          "ha": 2.3264
+        },
+        "verde_prg_classificato": {
+          "m2": 5336414.11,
+          "ha": 533.6414
+        },
+        "intersezione": {
+          "m2": 38.66,
+          "ha": 0.0039
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 23225.36,
+          "ha": 2.3225
+        },
+        "prg_non_censito_2013": {
+          "m2": 5336375.45,
+          "ha": 533.6375
+        }
+      },
+      {
+        "codice": 82053022,
+        "nome": "Partanna Mondello",
+        "verde_comunale_2013": {
+          "m2": 61048.92,
+          "ha": 6.1049
+        },
+        "verde_prg_classificato": {
+          "m2": 9531903.67,
+          "ha": 953.1904
+        },
+        "intersezione": {
+          "m2": 3837.75,
+          "ha": 0.3838
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 57211.16,
+          "ha": 5.7211
+        },
+        "prg_non_censito_2013": {
+          "m2": 9528065.92,
+          "ha": 952.8066
+        }
+      },
+      {
+        "codice": 82053023,
+        "nome": "Pallavicino",
+        "verde_comunale_2013": {
+          "m2": 34680.71,
+          "ha": 3.4681
+        },
+        "verde_prg_classificato": {
+          "m2": 2307150.33,
+          "ha": 230.715
+        },
+        "intersezione": {
+          "m2": 16437.78,
+          "ha": 1.6438
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 18242.93,
+          "ha": 1.8243
+        },
+        "prg_non_censito_2013": {
+          "m2": 2290712.56,
+          "ha": 229.0713
+        }
+      },
+      {
+        "codice": 82053024,
+        "nome": "Montepellegrino",
+        "verde_comunale_2013": {
+          "m2": 13115.59,
+          "ha": 1.3116
+        },
+        "verde_prg_classificato": {
+          "m2": 6470458.12,
+          "ha": 647.0458
+        },
+        "intersezione": {
+          "m2": 5765.52,
+          "ha": 0.5766
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7350.08,
+          "ha": 0.735
+        },
+        "prg_non_censito_2013": {
+          "m2": 6464692.6,
+          "ha": 646.4693
+        }
+      },
+      {
+        "codice": 82053025,
+        "nome": "Arenella - Vergine Maria",
+        "verde_comunale_2013": {
+          "m2": 2501.3,
+          "ha": 0.2501
+        },
+        "verde_prg_classificato": {
+          "m2": 1161132.03,
+          "ha": 116.1132
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 2501.3,
+          "ha": 0.2501
+        },
+        "prg_non_censito_2013": {
+          "m2": 1161132.03,
+          "ha": 116.1132
+        }
+      }
+    ],
+    "upl": [
+      {
+        "codice": 82053001,
+        "nome": "Tribunali o Kalsa",
+        "verde_comunale_2013": {
+          "m2": 58234.14,
+          "ha": 5.8234
+        },
+        "verde_prg_classificato": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 58234.14,
+          "ha": 5.8234
+        },
+        "prg_non_censito_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        }
+      },
+      {
+        "codice": 82053002,
+        "nome": "Palazzo Reale o Albergaria",
+        "verde_comunale_2013": {
+          "m2": 34171.32,
+          "ha": 3.4171
+        },
+        "verde_prg_classificato": {
+          "m2": 15189.28,
+          "ha": 1.5189
+        },
+        "intersezione": {
+          "m2": 10292.99,
+          "ha": 1.0293
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 23878.32,
+          "ha": 2.3878
+        },
+        "prg_non_censito_2013": {
+          "m2": 4896.29,
+          "ha": 0.4896
+        }
+      },
+      {
+        "codice": 82053003,
+        "nome": "Monte di PietÃ  o Seralcadi",
+        "verde_comunale_2013": {
+          "m2": 4642.46,
+          "ha": 0.4642
+        },
+        "verde_prg_classificato": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 4642.46,
+          "ha": 0.4642
+        },
+        "prg_non_censito_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        }
+      },
+      {
+        "codice": 82053004,
+        "nome": "Castellammare o Loggia",
+        "verde_comunale_2013": {
+          "m2": 1181.01,
+          "ha": 0.1181
+        },
+        "verde_prg_classificato": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1181.01,
+          "ha": 0.1181
+        },
+        "prg_non_censito_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        }
+      },
+      {
+        "codice": 82053005,
+        "nome": "Corso dei Mille - S.Erasmo",
+        "verde_comunale_2013": {
+          "m2": 77054.12,
+          "ha": 7.7054
+        },
+        "verde_prg_classificato": {
+          "m2": 171368.61,
+          "ha": 17.1369
+        },
+        "intersezione": {
+          "m2": 67214.57,
+          "ha": 6.7215
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 9839.55,
+          "ha": 0.984
+        },
+        "prg_non_censito_2013": {
+          "m2": 104154.05,
+          "ha": 10.4154
+        }
+      },
+      {
+        "codice": 82053006,
+        "nome": "Settecannoli",
+        "verde_comunale_2013": {
+          "m2": 11936.26,
+          "ha": 1.1936
+        },
+        "verde_prg_classificato": {
+          "m2": 157625.16,
+          "ha": 15.7625
+        },
+        "intersezione": {
+          "m2": 8153.02,
+          "ha": 0.8153
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3783.24,
+          "ha": 0.3783
+        },
+        "prg_non_censito_2013": {
+          "m2": 149472.14,
+          "ha": 14.9472
+        }
+      },
+      {
+        "codice": 82053007,
+        "nome": "Roccella Acqua dei Corsari",
+        "verde_comunale_2013": {
+          "m2": 17219.53,
+          "ha": 1.722
+        },
+        "verde_prg_classificato": {
+          "m2": 1502336.53,
+          "ha": 150.2337
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 17219.53,
+          "ha": 1.722
+        },
+        "prg_non_censito_2013": {
+          "m2": 1502336.53,
+          "ha": 150.2337
+        }
+      },
+      {
+        "codice": 82053008,
+        "nome": "Brancaccio Conte Federico",
+        "verde_comunale_2013": {
+          "m2": 700.5,
+          "ha": 0.07
+        },
+        "verde_prg_classificato": {
+          "m2": 474326.26,
+          "ha": 47.4326
+        },
+        "intersezione": {
+          "m2": 310.71,
+          "ha": 0.0311
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 389.79,
+          "ha": 0.039
+        },
+        "prg_non_censito_2013": {
+          "m2": 474015.55,
+          "ha": 47.4016
+        }
+      },
+      {
+        "codice": 82053009,
+        "nome": "Ciaculli Croce Verde",
+        "verde_comunale_2013": {
+          "m2": 547.76,
+          "ha": 0.0548
+        },
+        "verde_prg_classificato": {
+          "m2": 9456845.47,
+          "ha": 945.6845
+        },
+        "intersezione": {
+          "m2": 18.63,
+          "ha": 0.0019
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 529.13,
+          "ha": 0.0529
+        },
+        "prg_non_censito_2013": {
+          "m2": 9456826.84,
+          "ha": 945.6827
+        }
+      },
+      {
+        "codice": 82053010,
+        "nome": "Oreto Perez",
+        "verde_comunale_2013": {
+          "m2": 7813.22,
+          "ha": 0.7813
+        },
+        "verde_prg_classificato": {
+          "m2": 138977.59,
+          "ha": 13.8978
+        },
+        "intersezione": {
+          "m2": 667.11,
+          "ha": 0.0667
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7146.11,
+          "ha": 0.7146
+        },
+        "prg_non_censito_2013": {
+          "m2": 138310.48,
+          "ha": 13.831
+        }
+      },
+      {
+        "codice": 82053011,
+        "nome": "Oreto Guadagna",
+        "verde_comunale_2013": {
+          "m2": 5501.69,
+          "ha": 0.5502
+        },
+        "verde_prg_classificato": {
+          "m2": 192601.27,
+          "ha": 19.2601
+        },
+        "intersezione": {
+          "m2": 510.47,
+          "ha": 0.051
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 4991.22,
+          "ha": 0.4991
+        },
+        "prg_non_censito_2013": {
+          "m2": 192090.79,
+          "ha": 19.2091
+        }
+      },
+      {
+        "codice": 82053012,
+        "nome": "Falsomiele Borgo Ulivia",
+        "verde_comunale_2013": {
+          "m2": 10218.45,
+          "ha": 1.0218
+        },
+        "verde_prg_classificato": {
+          "m2": 676789.19,
+          "ha": 67.6789
+        },
+        "intersezione": {
+          "m2": 2689.18,
+          "ha": 0.2689
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7529.27,
+          "ha": 0.7529
+        },
+        "prg_non_censito_2013": {
+          "m2": 674100.01,
+          "ha": 67.41
+        }
+      },
+      {
+        "codice": 82053013,
+        "nome": "Bonagia",
+        "verde_comunale_2013": {
+          "m2": 3113.77,
+          "ha": 0.3114
+        },
+        "verde_prg_classificato": {
+          "m2": 62177.76,
+          "ha": 6.2178
+        },
+        "intersezione": {
+          "m2": 580.85,
+          "ha": 0.0581
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 2532.92,
+          "ha": 0.2533
+        },
+        "prg_non_censito_2013": {
+          "m2": 61596.92,
+          "ha": 6.1597
+        }
+      },
+      {
+        "codice": 82053014,
+        "nome": "Chiavelli - S.Maria di GesÃ¹",
+        "verde_comunale_2013": {
+          "m2": 4036.41,
+          "ha": 0.4036
+        },
+        "verde_prg_classificato": {
+          "m2": 6203173.52,
+          "ha": 620.3174
+        },
+        "intersezione": {
+          "m2": 206.89,
+          "ha": 0.0207
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3829.52,
+          "ha": 0.383
+        },
+        "prg_non_censito_2013": {
+          "m2": 6202966.63,
+          "ha": 620.2967
+        }
+      },
+      {
+        "codice": 82053015,
+        "nome": "Villagrazia",
+        "verde_comunale_2013": {
+          "m2": 34.08,
+          "ha": 0.0034
+        },
+        "verde_prg_classificato": {
+          "m2": 7694839.28,
+          "ha": 769.4839
+        },
+        "intersezione": {
+          "m2": 34.08,
+          "ha": 0.0034
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "prg_non_censito_2013": {
+          "m2": 7694805.2,
+          "ha": 769.4805
+        }
+      },
+      {
+        "codice": 82053016,
+        "nome": "Montegrappa",
+        "verde_comunale_2013": {
+          "m2": 9336.1,
+          "ha": 0.9336
+        },
+        "verde_prg_classificato": {
+          "m2": 11134.85,
+          "ha": 1.1135
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 9336.1,
+          "ha": 0.9336
+        },
+        "prg_non_censito_2013": {
+          "m2": 11134.85,
+          "ha": 1.1135
+        }
+      },
+      {
+        "codice": 82053017,
+        "nome": "S.Rosalia",
+        "verde_comunale_2013": {
+          "m2": 36252.41,
+          "ha": 3.6252
+        },
+        "verde_prg_classificato": {
+          "m2": 651365.38,
+          "ha": 65.1365
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 36252.41,
+          "ha": 3.6252
+        },
+        "prg_non_censito_2013": {
+          "m2": 651365.38,
+          "ha": 65.1365
+        }
+      },
+      {
+        "codice": 82053018,
+        "nome": "Cuba - Calatafimi",
+        "verde_comunale_2013": {
+          "m2": 32469.67,
+          "ha": 3.247
+        },
+        "verde_prg_classificato": {
+          "m2": 192452.71,
+          "ha": 19.2453
+        },
+        "intersezione": {
+          "m2": 19363.24,
+          "ha": 1.9363
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 13106.43,
+          "ha": 1.3106
+        },
+        "prg_non_censito_2013": {
+          "m2": 173089.47,
+          "ha": 17.3089
+        }
+      },
+      {
+        "codice": 82053019,
+        "nome": "Villa Tasca",
+        "verde_comunale_2013": {
+          "m2": 6549.0,
+          "ha": 0.6549
+        },
+        "verde_prg_classificato": {
+          "m2": 6015.01,
+          "ha": 0.6015
+        },
+        "intersezione": {
+          "m2": 420.09,
+          "ha": 0.042
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 6128.91,
+          "ha": 0.6129
+        },
+        "prg_non_censito_2013": {
+          "m2": 5594.93,
+          "ha": 0.5595
+        }
+      },
+      {
+        "codice": 82053020,
+        "nome": "Mezzomonreale",
+        "verde_comunale_2013": {
+          "m2": 13566.29,
+          "ha": 1.3566
+        },
+        "verde_prg_classificato": {
+          "m2": 3728269.73,
+          "ha": 372.827
+        },
+        "intersezione": {
+          "m2": 1155.64,
+          "ha": 0.1156
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 12410.65,
+          "ha": 1.2411
+        },
+        "prg_non_censito_2013": {
+          "m2": 3727114.09,
+          "ha": 372.7114
+        }
+      },
+      {
+        "codice": 82053021,
+        "nome": "Zisa - Ingastone",
+        "verde_comunale_2013": {
+          "m2": 15519.62,
+          "ha": 1.552
+        },
+        "verde_prg_classificato": {
+          "m2": 24142.5,
+          "ha": 2.4143
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 15519.62,
+          "ha": 1.552
+        },
+        "prg_non_censito_2013": {
+          "m2": 24142.5,
+          "ha": 2.4143
+        }
+      },
+      {
+        "codice": 82053022,
+        "nome": "Zisa - 4 Camere",
+        "verde_comunale_2013": {
+          "m2": 3266.92,
+          "ha": 0.3267
+        },
+        "verde_prg_classificato": {
+          "m2": 73018.22,
+          "ha": 7.3018
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3266.92,
+          "ha": 0.3267
+        },
+        "prg_non_censito_2013": {
+          "m2": 73018.22,
+          "ha": 7.3018
+        }
+      },
+      {
+        "codice": 82053023,
+        "nome": "Altarello - Tasca Lanza",
+        "verde_comunale_2013": {
+          "m2": 1350.08,
+          "ha": 0.135
+        },
+        "verde_prg_classificato": {
+          "m2": 789692.28,
+          "ha": 78.9692
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1350.08,
+          "ha": 0.135
+        },
+        "prg_non_censito_2013": {
+          "m2": 789692.28,
+          "ha": 78.9692
+        }
+      },
+      {
+        "codice": 82053024,
+        "nome": "Boccadifalco - Baida",
+        "verde_comunale_2013": {
+          "m2": 10189.69,
+          "ha": 1.019
+        },
+        "verde_prg_classificato": {
+          "m2": 8740013.63,
+          "ha": 874.0014
+        },
+        "intersezione": {
+          "m2": 23.02,
+          "ha": 0.0023
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 10166.68,
+          "ha": 1.0167
+        },
+        "prg_non_censito_2013": {
+          "m2": 8739990.62,
+          "ha": 873.9991
+        }
+      },
+      {
+        "codice": 82053025,
+        "nome": "Borgo Vecchio - Principe Scordia",
+        "verde_comunale_2013": {
+          "m2": 7906.03,
+          "ha": 0.7906
+        },
+        "verde_prg_classificato": {
+          "m2": 11348.75,
+          "ha": 1.1349
+        },
+        "intersezione": {
+          "m2": 1137.89,
+          "ha": 0.1138
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 6768.15,
+          "ha": 0.6768
+        },
+        "prg_non_censito_2013": {
+          "m2": 10210.86,
+          "ha": 1.0211
+        }
+      },
+      {
+        "codice": 82053026,
+        "nome": "Croci - Ruggiero Settimo",
+        "verde_comunale_2013": {
+          "m2": 2347.87,
+          "ha": 0.2348
+        },
+        "verde_prg_classificato": {
+          "m2": 20891.17,
+          "ha": 2.0891
+        },
+        "intersezione": {
+          "m2": 1143.68,
+          "ha": 0.1144
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1204.19,
+          "ha": 0.1204
+        },
+        "prg_non_censito_2013": {
+          "m2": 19747.49,
+          "ha": 1.9747
+        }
+      },
+      {
+        "codice": 82053027,
+        "nome": "S.Francesco di Paola - Terrasanta",
+        "verde_comunale_2013": {
+          "m2": 20201.62,
+          "ha": 2.0202
+        },
+        "verde_prg_classificato": {
+          "m2": 67941.47,
+          "ha": 6.7941
+        },
+        "intersezione": {
+          "m2": 19075.19,
+          "ha": 1.9075
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1126.42,
+          "ha": 0.1126
+        },
+        "prg_non_censito_2013": {
+          "m2": 48866.28,
+          "ha": 4.8866
+        }
+      },
+      {
+        "codice": 82053028,
+        "nome": "Olivuzza",
+        "verde_comunale_2013": {
+          "m2": 2044.89,
+          "ha": 0.2045
+        },
+        "verde_prg_classificato": {
+          "m2": 25155.18,
+          "ha": 2.5155
+        },
+        "intersezione": {
+          "m2": 1616.59,
+          "ha": 0.1617
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 428.29,
+          "ha": 0.0428
+        },
+        "prg_non_censito_2013": {
+          "m2": 23538.58,
+          "ha": 2.3539
+        }
+      },
+      {
+        "codice": 82053029,
+        "nome": "Parlatore - Serradifalco",
+        "verde_comunale_2013": {
+          "m2": 1733.37,
+          "ha": 0.1733
+        },
+        "verde_prg_classificato": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1733.37,
+          "ha": 0.1733
+        },
+        "prg_non_censito_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        }
+      },
+      {
+        "codice": 82053030,
+        "nome": "Noce",
+        "verde_comunale_2013": {
+          "m2": 3491.87,
+          "ha": 0.3492
+        },
+        "verde_prg_classificato": {
+          "m2": 34371.56,
+          "ha": 3.4372
+        },
+        "intersezione": {
+          "m2": 2081.98,
+          "ha": 0.2082
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1409.89,
+          "ha": 0.141
+        },
+        "prg_non_censito_2013": {
+          "m2": 32289.58,
+          "ha": 3.229
+        }
+      },
+      {
+        "codice": 82053031,
+        "nome": "Leonardo da Vinci - Di Blasi",
+        "verde_comunale_2013": {
+          "m2": 7711.86,
+          "ha": 0.7712
+        },
+        "verde_prg_classificato": {
+          "m2": 216008.73,
+          "ha": 21.6009
+        },
+        "intersezione": {
+          "m2": 4894.08,
+          "ha": 0.4894
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 2817.78,
+          "ha": 0.2818
+        },
+        "prg_non_censito_2013": {
+          "m2": 211114.64,
+          "ha": 21.1115
+        }
+      },
+      {
+        "codice": 82053032,
+        "nome": "Malaspina - Leonardo da Vinci",
+        "verde_comunale_2013": {
+          "m2": 5658.02,
+          "ha": 0.5658
+        },
+        "verde_prg_classificato": {
+          "m2": 11526.49,
+          "ha": 1.1526
+        },
+        "intersezione": {
+          "m2": 1387.02,
+          "ha": 0.1387
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 4271.0,
+          "ha": 0.4271
+        },
+        "prg_non_censito_2013": {
+          "m2": 10139.46,
+          "ha": 1.0139
+        }
+      },
+      {
+        "codice": 82053033,
+        "nome": "Principe di Palagonia",
+        "verde_comunale_2013": {
+          "m2": 15676.24,
+          "ha": 1.5676
+        },
+        "verde_prg_classificato": {
+          "m2": 47417.98,
+          "ha": 4.7418
+        },
+        "intersezione": {
+          "m2": 2575.24,
+          "ha": 0.2575
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 13100.99,
+          "ha": 1.3101
+        },
+        "prg_non_censito_2013": {
+          "m2": 44842.73,
+          "ha": 4.4843
+        }
+      },
+      {
+        "codice": 82053034,
+        "nome": "Uditore",
+        "verde_comunale_2013": {
+          "m2": 2673.68,
+          "ha": 0.2674
+        },
+        "verde_prg_classificato": {
+          "m2": 296433.08,
+          "ha": 29.6433
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 2673.68,
+          "ha": 0.2674
+        },
+        "prg_non_censito_2013": {
+          "m2": 296433.08,
+          "ha": 29.6433
+        }
+      },
+      {
+        "codice": 82053035,
+        "nome": "Passo di Rigano",
+        "verde_comunale_2013": {
+          "m2": 4530.79,
+          "ha": 0.4531
+        },
+        "verde_prg_classificato": {
+          "m2": 180636.32,
+          "ha": 18.0636
+        },
+        "intersezione": {
+          "m2": 397.01,
+          "ha": 0.0397
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 4133.78,
+          "ha": 0.4134
+        },
+        "prg_non_censito_2013": {
+          "m2": 180239.31,
+          "ha": 18.0239
+        }
+      },
+      {
+        "codice": 82053036,
+        "nome": "Borgo Nuovo",
+        "verde_comunale_2013": {
+          "m2": 10556.01,
+          "ha": 1.0556
+        },
+        "verde_prg_classificato": {
+          "m2": 7877916.76,
+          "ha": 787.7917
+        },
+        "intersezione": {
+          "m2": 3025.48,
+          "ha": 0.3025
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7530.53,
+          "ha": 0.7531
+        },
+        "prg_non_censito_2013": {
+          "m2": 7874891.28,
+          "ha": 787.4891
+        }
+      },
+      {
+        "codice": 82053037,
+        "nome": "San Giovanni Apostolo",
+        "verde_comunale_2013": {
+          "m2": 5218.1,
+          "ha": 0.5218
+        },
+        "verde_prg_classificato": {
+          "m2": 474985.9,
+          "ha": 47.4986
+        },
+        "intersezione": {
+          "m2": 354.34,
+          "ha": 0.0354
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 4863.76,
+          "ha": 0.4864
+        },
+        "prg_non_censito_2013": {
+          "m2": 474631.56,
+          "ha": 47.4632
+        }
+      },
+      {
+        "codice": 82053038,
+        "nome": "Cruillas",
+        "verde_comunale_2013": {
+          "m2": 7695.27,
+          "ha": 0.7695
+        },
+        "verde_prg_classificato": {
+          "m2": 6201689.13,
+          "ha": 620.1689
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 7695.27,
+          "ha": 0.7695
+        },
+        "prg_non_censito_2013": {
+          "m2": 6201689.13,
+          "ha": 620.1689
+        }
+      },
+      {
+        "codice": 82053039,
+        "nome": "Notarbartolo - Giardino Inglese",
+        "verde_comunale_2013": {
+          "m2": 11141.22,
+          "ha": 1.1141
+        },
+        "verde_prg_classificato": {
+          "m2": 101513.85,
+          "ha": 10.1514
+        },
+        "intersezione": {
+          "m2": 10923.8,
+          "ha": 1.0924
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 217.43,
+          "ha": 0.0217
+        },
+        "prg_non_censito_2013": {
+          "m2": 90590.05,
+          "ha": 9.059
+        }
+      },
+      {
+        "codice": 82053040,
+        "nome": "Villa Sperlinga",
+        "verde_comunale_2013": {
+          "m2": 20173.28,
+          "ha": 2.0173
+        },
+        "verde_prg_classificato": {
+          "m2": 69692.04,
+          "ha": 6.9692
+        },
+        "intersezione": {
+          "m2": 18370.4,
+          "ha": 1.837
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1802.88,
+          "ha": 0.1803
+        },
+        "prg_non_censito_2013": {
+          "m2": 51321.64,
+          "ha": 5.1322
+        }
+      },
+      {
+        "codice": 82053041,
+        "nome": "Vittorio Veneto",
+        "verde_comunale_2013": {
+          "m2": 10214.68,
+          "ha": 1.0215
+        },
+        "verde_prg_classificato": {
+          "m2": 36700.57,
+          "ha": 3.6701
+        },
+        "intersezione": {
+          "m2": 6424.65,
+          "ha": 0.6425
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3790.03,
+          "ha": 0.379
+        },
+        "prg_non_censito_2013": {
+          "m2": 30275.92,
+          "ha": 3.0276
+        }
+      },
+      {
+        "codice": 82053042,
+        "nome": "Marchese di Villabianca - Sampolo",
+        "verde_comunale_2013": {
+          "m2": 3565.65,
+          "ha": 0.3566
+        },
+        "verde_prg_classificato": {
+          "m2": 93434.27,
+          "ha": 9.3434
+        },
+        "intersezione": {
+          "m2": 1848.07,
+          "ha": 0.1848
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1717.58,
+          "ha": 0.1718
+        },
+        "prg_non_censito_2013": {
+          "m2": 91586.21,
+          "ha": 9.1586
+        }
+      },
+      {
+        "codice": 82053043,
+        "nome": "Resuttana",
+        "verde_comunale_2013": {
+          "m2": 27234.51,
+          "ha": 2.7235
+        },
+        "verde_prg_classificato": {
+          "m2": 1726790.14,
+          "ha": 172.679
+        },
+        "intersezione": {
+          "m2": 3135.58,
+          "ha": 0.3136
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 24098.93,
+          "ha": 2.4099
+        },
+        "prg_non_censito_2013": {
+          "m2": 1723654.56,
+          "ha": 172.3655
+        }
+      },
+      {
+        "codice": 82053044,
+        "nome": "San Lorenzo",
+        "verde_comunale_2013": {
+          "m2": 5520.7,
+          "ha": 0.5521
+        },
+        "verde_prg_classificato": {
+          "m2": 6824370.76,
+          "ha": 682.4371
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 5520.7,
+          "ha": 0.5521
+        },
+        "prg_non_censito_2013": {
+          "m2": 6824370.76,
+          "ha": 682.4371
+        }
+      },
+      {
+        "codice": 82053045,
+        "nome": "Patti - Villaggio Ruffini",
+        "verde_comunale_2013": {
+          "m2": 3337.4,
+          "ha": 0.3337
+        },
+        "verde_prg_classificato": {
+          "m2": 461944.95,
+          "ha": 46.1945
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3337.4,
+          "ha": 0.3337
+        },
+        "prg_non_censito_2013": {
+          "m2": 461944.95,
+          "ha": 46.1945
+        }
+      },
+      {
+        "codice": 82053046,
+        "nome": "Pallavicino",
+        "verde_comunale_2013": {
+          "m2": 311.27,
+          "ha": 0.0311
+        },
+        "verde_prg_classificato": {
+          "m2": 1321414.01,
+          "ha": 132.1414
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 311.27,
+          "ha": 0.0311
+        },
+        "prg_non_censito_2013": {
+          "m2": 1321414.01,
+          "ha": 132.1414
+        }
+      },
+      {
+        "codice": 82053047,
+        "nome": "San Filippo Neri",
+        "verde_comunale_2013": {
+          "m2": 31032.04,
+          "ha": 3.1032
+        },
+        "verde_prg_classificato": {
+          "m2": 523791.38,
+          "ha": 52.3791
+        },
+        "intersezione": {
+          "m2": 16437.78,
+          "ha": 1.6438
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 14594.26,
+          "ha": 1.4594
+        },
+        "prg_non_censito_2013": {
+          "m2": 507353.6,
+          "ha": 50.7354
+        }
+      },
+      {
+        "codice": 82053048,
+        "nome": "Tommaso Natale - Sant'Ambrogio - Cardillo",
+        "verde_comunale_2013": {
+          "m2": 19684.27,
+          "ha": 1.9684
+        },
+        "verde_prg_classificato": {
+          "m2": 4927464.94,
+          "ha": 492.7465
+        },
+        "intersezione": {
+          "m2": 38.66,
+          "ha": 0.0039
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 19645.62,
+          "ha": 1.9646
+        },
+        "prg_non_censito_2013": {
+          "m2": 4927426.28,
+          "ha": 492.7426
+        }
+      },
+      {
+        "codice": 82053049,
+        "nome": "Sferracavallo",
+        "verde_comunale_2013": {
+          "m2": 3579.74,
+          "ha": 0.358
+        },
+        "verde_prg_classificato": {
+          "m2": 408949.17,
+          "ha": 40.8949
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 3579.74,
+          "ha": 0.358
+        },
+        "prg_non_censito_2013": {
+          "m2": 408949.17,
+          "ha": 40.8949
+        }
+      },
+      {
+        "codice": 82053050,
+        "nome": "Partanna Mondello",
+        "verde_comunale_2013": {
+          "m2": 61048.92,
+          "ha": 6.1049
+        },
+        "verde_prg_classificato": {
+          "m2": 9531903.67,
+          "ha": 953.1904
+        },
+        "intersezione": {
+          "m2": 3837.75,
+          "ha": 0.3838
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 57211.16,
+          "ha": 5.7211
+        },
+        "prg_non_censito_2013": {
+          "m2": 9528065.92,
+          "ha": 952.8066
+        }
+      },
+      {
+        "codice": 82053051,
+        "nome": "Cantieri",
+        "verde_comunale_2013": {
+          "m2": 2306.21,
+          "ha": 0.2306
+        },
+        "verde_prg_classificato": {
+          "m2": 15405.45,
+          "ha": 1.5405
+        },
+        "intersezione": {
+          "m2": 1726.28,
+          "ha": 0.1726
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 579.93,
+          "ha": 0.058
+        },
+        "prg_non_censito_2013": {
+          "m2": 13679.17,
+          "ha": 1.3679
+        }
+      },
+      {
+        "codice": 82053052,
+        "nome": "Montepellegrino",
+        "verde_comunale_2013": {
+          "m2": 9259.97,
+          "ha": 0.926
+        },
+        "verde_prg_classificato": {
+          "m2": 6265888.14,
+          "ha": 626.5888
+        },
+        "intersezione": {
+          "m2": 4039.24,
+          "ha": 0.4039
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 5220.73,
+          "ha": 0.5221
+        },
+        "prg_non_censito_2013": {
+          "m2": 6261848.9,
+          "ha": 626.1849
+        }
+      },
+      {
+        "codice": 82053053,
+        "nome": "Acquasanta",
+        "verde_comunale_2013": {
+          "m2": 1549.41,
+          "ha": 0.1549
+        },
+        "verde_prg_classificato": {
+          "m2": 189164.53,
+          "ha": 18.9165
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 1549.41,
+          "ha": 0.1549
+        },
+        "prg_non_censito_2013": {
+          "m2": 189164.53,
+          "ha": 18.9165
+        }
+      },
+      {
+        "codice": 82053054,
+        "nome": "Arenella",
+        "verde_comunale_2013": {
+          "m2": 2501.3,
+          "ha": 0.2501
+        },
+        "verde_prg_classificato": {
+          "m2": 448758.78,
+          "ha": 44.8759
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 2501.3,
+          "ha": 0.2501
+        },
+        "prg_non_censito_2013": {
+          "m2": 448758.78,
+          "ha": 44.8759
+        }
+      },
+      {
+        "codice": 82053055,
+        "nome": "Vergine Maria",
+        "verde_comunale_2013": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "verde_prg_classificato": {
+          "m2": 712373.25,
+          "ha": 71.2373
+        },
+        "intersezione": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "inventario_2013_fuori_prg": {
+          "m2": 0.0,
+          "ha": 0.0
+        },
+        "prg_non_censito_2013": {
+          "m2": 712373.25,
+          "ha": 71.2373
+        }
+      }
+    ]
+  },
+  "qa": {
+    "geometrie_storiche_scartate": 0,
+    "geometrie_prg_scartate": 0,
+    "geometrie_storiche_non_valide_riparate_con_buffer0": 0
+  }
+}
