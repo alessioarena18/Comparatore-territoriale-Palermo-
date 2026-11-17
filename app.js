@@ -909,21 +909,46 @@ function initMap(mapId='map'){
    const censusById=new Map(census.map(x=>[String(x.id),x]));
    const colors={NIDO:'#d97706',INFANZIA:'#db2777',ELEMENTARI:'#16845b',MEDIE:'#2563eb',SUPERIORI:'#7c3aed'};
    const schoolLayer=L.layerGroup();
+   const influenceLayers={infant:L.layerGroup(),primary:L.layerGroup(),secondary:L.layerGroup()};
+   const radiusDefs=[
+    {key:'infant',orders:['NIDO','INFANZIA'],radius:300,label:'Nidi e infanzia',color:'#db2777'},
+    {key:'primary',orders:['ELEMENTARI'],radius:500,label:'Primaria',color:'#16845b'},
+    {key:'secondary',orders:['MEDIE'],radius:1000,label:'Secondaria',color:'#2563eb'}
+   ];
+   let schoolCount=0;
    points.forEach(point=>{
-    if(!Number.isFinite(Number(point.lat))||!Number.isFinite(Number(point.lon)))return;
+    const lat=Number(point.lat),lon=Number(point.lon);
+    if(!Number.isFinite(lat)||!Number.isFinite(lon))return;
+    schoolCount++;
     const classification=classById.get(String(point.id))||{};
     const record=censusById.get(String(point.id))||{};
     const orders=Array.isArray(classification.orders)?classification.orders:[];
     const order=orders[0]||'';
     const outside=point.spatial_validation?.status==='OUTSIDE_PALERMO_BOUNDARIES';
     const color=outside?'#dc2626':(colors[order]||'#64748b');
-    const marker=L.circleMarker([Number(point.lat),Number(point.lon)],{radius:5,color,fillColor:color,fillOpacity:.9,weight:1.5});
+    const marker=L.circleMarker([lat,lon],{radius:5,color,fillColor:color,fillOpacity:.9,weight:1.5});
     const safe=value=>esc(value===undefined||value===null||value===''?'N.D.':String(value));
     marker.bindPopup('<div class="school-popup"><strong>'+safe(point.name)+'</strong><br>'+safe(orders.join(' · ')||'Ordine non classificato')+'<br>'+safe(point.institution)+'<br>'+safe(point.address)+'<br><b>Stato V81:</b> '+safe(record.classe_affidabilita_finale)+'<br><b>Raggi d’influenza:</b> '+(record.bufferEligible===true?'abilitato':'non abilitato')+(outside?'<br><b style="color:#dc2626">Fuori dai perimetri ISTAT 2021</b>':'')+'</div>');
     marker.addTo(schoolLayer);
+    if(record.bufferEligible===true){
+     radiusDefs.forEach(def=>{
+      if(!def.orders.some(x=>orders.includes(x)))return;
+      const circle=L.circle([lat,lon],{radius:def.radius,color:def.color,weight:2,opacity:.85,fillColor:def.color,fillOpacity:.10});
+      circle.bindPopup('<div class="school-popup"><strong>'+safe(point.name)+'</strong><br>'+def.label+' · raggio indicativo '+def.radius.toLocaleString('it-IT')+' m<br><small>Buffer geometrico in linea d’aria, non bacino ufficiale né percorso pedonale.</small></div>');
+      circle.bindTooltip(safe(point.name)+' · '+def.radius.toLocaleString('it-IT')+' m');
+      circle.addTo(influenceLayers[def.key]);
+     });
+    }
    });
-   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 · '+points.length,key:'schools',layer:schoolLayer,featureLayers:schoolLayer.getLayers()});
-   results.push('Sedi scolastiche: '+schoolLayer.getLayers().length+' punti caricati');
+   schoolLayer.addTo(gisMap);
+   gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 · '+schoolCount,key:'schools',layer:schoolLayer,featureLayers:schoolLayer.getLayers()});
+   const radiusNames={infant:'Raggi d’influenza · Nidi e infanzia · 300 m',primary:'Raggi d’influenza · Primaria · 500 m',secondary:'Raggi d’influenza · Secondaria · 1.000 m'};
+   Object.entries(influenceLayers).forEach(([key,layer])=>{
+    layer.addTo(gisMap);
+    gisImportedLayers.push({name:radiusNames[key],key:'school-buffer-'+key,layer,featureLayers:layer.getLayers()});
+   });
+   results.push('Sedi scolastiche: '+schoolCount+' punti caricati');
+   results.push('Raggi d’influenza: '+Object.values(influenceLayers).reduce((n,layer)=>n+layer.getLayers().length,0)+' geometrie abilitate V81');
   }
   if(mapId==='map'){
    try{
@@ -1295,7 +1320,7 @@ function initStandardSchoolMap(){
 async function loadSchoolArchives(){
  const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json'],['schoolRegister','data/anagrafica_plessi_2025_26.json'],['schoolSiteVerification','data/verifica_sedi_scolastiche_v14.json'],['schoolCensus','data/censimento_scolastico_v81.json']];
  await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
- if(active==='overview'||active==='schools'||active==='standards')render();
+ if(active==='overview'||active==='schools'||active==='standards'||active==='services')render();
 }
 function initSchools(){
  const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[],classification=DATA.schoolClassification?.records||[],register=DATA.schoolRegister?.records||[],siteVerification=DATA.schoolSiteVerification?.records||[],schoolCensus=DATA.schoolCensus?.records||[];
