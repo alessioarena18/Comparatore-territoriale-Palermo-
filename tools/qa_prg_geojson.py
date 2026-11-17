@@ -25,6 +25,9 @@ def main():
  if not layers or not {320,321}.issubset({x["dataset"] for x in layers}):raise ValueError("manifest 320/321 incompleto")
  reports=[check(x) for x in layers]
  meta=json.loads((DIR/"metadata.json").read_text())
+ source_quality=[{"dataset":s.get("dataset"),"shapefiles":s.get("shapefiles",[])} for s in meta.get("fonti",[])]
+ excluded=sum(x.get("excluded_without_geometry",0) for s in source_quality for x in s["shapefiles"])
+ split=sum(x.get("geometry_collection_parts_added",0) for s in source_quality for x in s["shapefiles"])
  if len(meta.get("fonti",[]))!=2:raise ValueError("fonti metadata incomplete")
  (DIR/"qa_prg.json").write_text(json.dumps({"status":"passed","scope":"structural and coarse geographic plausibility only; not topology/legal validation","reports":reports,"source_quality":{"excluded_without_geometry":excluded,"geometry_collection_parts_added":split,"details":source_quality}},ensure_ascii=False,indent=2)+"\n")
  print("QA superato:",len(reports),"layer; topologia e vigenza non certificate.")
