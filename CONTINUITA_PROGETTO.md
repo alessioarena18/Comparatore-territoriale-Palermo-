@@ -194,3 +194,27 @@ Le varianti parziali individuate sono localizzate e non autorizzano a sostituire
 3. Controllare la corrispondenza di tutti i codici PRG con art. 24 NTA, tavole P2A e disposizioni speciali, soprattutto i codici combinati e le zone F diverse da F1/F2/F4.
 4. Georiferire gli atti di variante parziale 2025-2026 sui rispettivi perimetri catastali solo dopo aver acquisito gli allegati e verificato l'efficacia.
 5. Non considerare il progetto concluso prima della verifica visiva dell'interfaccia e della revisione semantico-giuridica delle geometrie.
+
+
+## Rettifica interpretazione standard di interesse generale F3/F4 (17/11/2026)
+
+### Fonte primaria e lettura corretta
+La Relazione generale PRG2.0 Palermo 2025, pp. 78-82, è stata riletta direttamente nei passaggi relativi agli standard (fonte PDF comunale: https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015084706.pdf).
+- Le zone locali S/IC/V/P sono disciplinate dall'art. 24 NTA; le zone F sono disciplinate dall'art. 19 NTA (p. 80).
+- La relazione elenca F1 istruzione secondaria superiore, F2 ospedali/sanità, F3 attrezzature sportive e F4 parchi urbani/territoriali (p. 80).
+- I minimi richiamati dall'art. 4, comma 5, D.M. 1444/1968 sono F1 1,5 m²/ab, F2 1 m²/ab e 15 m²/ab per parchi pubblici urbani e territoriali; nel quadro del PRG la relazione tratta le attrezzature sportive F3 e i parchi F4 congiuntamente come gruppo F3+F4 (pp. 80-81).
+- I valori 1,47 / 1,46 / 15,76 m²/ab sono quelli storici riportati dalla tabella commissariale n. 470/01; la relazione cita inoltre valori successivi di 1,06 / 1,63 / 15,65 m²/ab dopo le modifiche di adeguamento (p. 81). Non sono i minimi normativi.
+- La tabella di stato al 2015 (p. 82) riporta le superfici esistenti per F1, F2 e F4; sono valori storici e non certificano la dotazione odierna.
+
+### Correzione tecnica predisposta
+- La precedente PR #14 aveva mostrato F1/F2/F4 come tre parametri separati; questa rappresentazione viene rettificata.
+- Il calcolo corretto mantiene F1 (1,5) e F2 (1), ma aggrega F3 e F4 in un unico gruppo analitico F34 (15 m²/ab), coerente con la trattazione congiunta riportata dalla relazione.
+- I codici combinati che includono altre categorie (es. F1-S2) non vengono attribuiti automaticamente a F1/F2/F34; i codici composti esclusivamente da F3 e F4 possono essere ricondotti al gruppo F34.
+- Il gruppo generale F resta mostrato come aggregato descrittivo e non entra nel rapporto normativo.
+- Registro fonti aggiornato a versione 1.5 con separazione esplicita tra minimi normativi, valori storici di dimensionamento e superfici esistenti 2015.
+- Cache key di app.js aggiornata per forzare il caricamento della correzione.
+
+### Verifiche ancora da eseguire
+1. Controllo automatico sintassi e dati sul branch `fix/categorie-standard-interesse-generale-f3f4`.
+2. Verifica della tabella in tutti i livelli territoriali e gestione dei codici composti.
+3. Pubblicazione su main e controllo del deployment Pages.
