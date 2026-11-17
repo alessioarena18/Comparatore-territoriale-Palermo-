@@ -11,7 +11,7 @@
     "standard_layer": "data/geo/prg_standard_2004.geojson"
   },
   "method": {
-    "geometry_area": "Superficie geodetica calcolata dalle geometrie GeoJSON in coordinate geografiche WGS84; valori arrotondati a 0,01 m².",
+    "geometry_area": "Superficie sferica approssimata calcolata dalle geometrie GeoJSON in coordinate geografiche WGS84, con raggio terrestre medio; valori arrotondati a 0,01 m².",
     "count": "Conteggio delle geometrie filtrate per codice ZTO originale. Le codifiche miste non sono ripartite.",
     "scope": "679 geometrie: zone E1, E2, VS, destinazioni V1-V5 e codici misti, più F4."
   },
