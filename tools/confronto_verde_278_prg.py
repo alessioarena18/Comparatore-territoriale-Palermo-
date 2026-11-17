@@ -93,7 +93,9 @@ def main():
                 rows.append({"codice":props.get(codekey),"nome":props.get(namekey) or str(props.get(codekey) or "N.D."),
                   "verde_comunale_2013":summary_area(hi),"verde_prg_classificato":summary_area(pi),
                   "intersezione":summary_area(oi),"inventario_2013_fuori_prg":summary_area(hi.difference(pi)),
-                  "prg_non_censito_2013":summary_area(pi.difference(hi)),\n                  "classi_urbane_prg":group_stats(urban_union.intersection(b),hi),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b),hi),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
+                  "prg_non_censito_2013":summary_area(pi.difference(hi)),
+                  "quota_inventario_2013_intersecata_pct":round(oi.area/hi.area*100,2) if hi.area else None,
+                  "quota_prg_intersecata_inventario_2013_pct":round(oi.area/pi.area*100,2) if pi.area else None,\n                  "classi_urbane_prg":group_stats(urban_union.intersection(b),hi),\n                  "candidati_standard_v1_v4":group_stats(standard_union.intersection(b),hi),\n                  "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
             except Exception:continue
         territorial[level]=rows
     result={
