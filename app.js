@@ -1,6 +1,6 @@
 const $=s=>document.querySelector(s);
 let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],housing:null,sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null,schoolRegister:{records:[]},schoolSiteVerification:{records:[]},schoolCensus:{records:[]}};
-let active='overview', charts=[];
+let active='overview', charts=[], housingLevel='circoscrizioni';
 let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
 let greenMapInstance=null,greenMapData=null,greenSummaryData=null;
 let GEO={asc1:null,asc2:null,asc3:null,sections:null};
@@ -20,6 +20,28 @@ sources:['DOCUMENTAZIONE','Fonti e metodologia','Tracciabilità delle fonti, deg
 };
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function selected(){return {circ:$('#circ')?.value||'',quart:$('#quart')?.value||'',asc2:geoSelection.asc2||'',asc3:$('#asc3')?.value||'',section:$('#section')?.value||''};}
+function housingRows(data,s,requestedLevel){
+ const level=(s.section||s.asc3)?'upl':requestedLevel;
+ const quart=DATA.territories?.quartieri?.find(q=>q.id===s.quart);
+ const qFeature=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):quart?findAsc2FeatureForQuartiere(quart):null;
+ const qCode=qFeature?String(qFeature.properties?.COM_ASC2||''):'';
+ if(level==='circoscrizioni'){
+  if(s.circ){const f=GEO.asc1?.features?.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);return data.circoscrizioni.filter(x=>f&&x.code===String(f.properties?.COM_ASC1));}
+  if(qFeature){const p=findParentFeature(qFeature,'asc2','asc1');return data.circoscrizioni.filter(x=>p&&x.code===String(p.properties?.COM_ASC1));}
+  return data.circoscrizioni;
+ }
+ if(level==='quartieri'){
+  if(qFeature)return data.quartieri.filter(x=>x.code===qCode);
+  if(s.circ)return data.quartieri.filter(x=>{const q=DATA.territories.quartieri.find(z=>{const f=findAsc2FeatureForQuartiere(z);return f&&String(f.properties?.COM_ASC2)===x.code;});return q&&(q.circ_ids||[]).includes(s.circ)&&(q.circ_ids||[]).length===1;});
+  if(s.asc3){const f=GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3)),p=f?findParentFeature(f,'asc3','asc2'):null;return data.quartieri.filter(x=>p&&x.code===String(p.properties?.COM_ASC2));}
+  return data.quartieri;
+ }
+ if(s.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(s.section)),p=f?findParentFeature(f,'section','asc3'):null;return data.upl.filter(x=>p&&x.code===String(p.properties?.COM_ASC3));}
+ if(s.asc3)return data.upl.filter(x=>x.code===String(s.asc3));
+ if(qFeature)return data.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code),p=f?findParentFeature(f,'asc3','asc2'):null;return p&&String(p.properties?.COM_ASC2)===qCode;});
+ if(s.circ)return data.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code);return f&&featureBelongsToCirc(f,'asc3',s.circ);});
+ return data.upl;
+}
 
 let standardTerritorialStatsCache={source:'',categories:['S','IC','V','P','F','F1','F2','F34'],standardCodes:['F1','F2','F34'],levels:{},errors:0,intersections:0,unionOperations:0};
 let standardTerritorialPrg=null;
@@ -420,33 +442,20 @@ html+=`<div class="grid"><div class="card"><h3>Composizione della popolazione</h
  const d=DATA.housing;
  if(!d){html+='<div class="notice"><h3>Archivio non disponibile</h3><p>Non è stato possibile caricare il rapporto ISTAT 2021 sulla struttura abitativa ed edilizia.</p></div>';}
  else{
-  let rows=[],level='circoscrizioni',levelLabel='Circoscrizioni',selectionNote='';
-  const codeOf=(level,feature)=>String(feature?.properties?.[{circoscrizioni:'COM_ASC1',quartieri:'COM_ASC2',upl:'COM_ASC3'}[level]]??'');
-  if(s.section){
-   const sf=GEO.sections?.features?.find(f=>String(f.properties?.SEZ21_ID)===String(s.section));
-   const parent=sf?findParentFeature(sf,'section','asc3'):null;
-   const code=parent?String(parent.properties?.COM_ASC3||''):'';
-   rows=d.upl.filter(x=>x.code===code);level='upl';levelLabel='UPL di appartenenza';
-   selectionNote='La sezione censuaria è ricondotta alla UPL contenente la maggior parte della sua geometria. Gli indicatori mostrati sono quelli dell’intera UPL, non della singola sezione.';
-  }else if(s.asc3){
-   rows=d.upl.filter(x=>x.code===String(s.asc3));level='upl';levelLabel='UPL';
-  }else if(s.quart||s.asc2){
-   const qf=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):findAsc2FeatureForQuartiere(DATA.territories.quartieri.find(q=>q.id===s.quart));
-   const qcode=qf?String(qf.properties?.COM_ASC2||''):'';
-   rows=d.upl.filter(x=>{const uf=GEO.asc3?.features?.find(f=>String(f.properties?.COM_ASC3)===x.code);const parent=uf?findParentFeature(uf,'asc3','asc2'):null;return parent&&String(parent.properties?.COM_ASC2)===qcode;});
-   level='upl';levelLabel='UPL del quartiere';
-  }else if(s.circ){
-   rows=d.upl.filter(x=>{const uf=GEO.asc3?.features?.find(f=>String(f.properties?.COM_ASC3)===x.code);return uf&&featureBelongsToCirc(uf,'asc3',s.circ);});
-   level='upl';levelLabel='UPL della circoscrizione';
-   selectionNote='Le UPL sono assegnate alla circoscrizione mediante prevalenza geometrica. I totali UPL possono differire marginalmente dal totale amministrativo diretto della circoscrizione.';
-  }else{rows=[...d.circoscrizioni];}
+  const level=(s.section||s.asc3)?'upl':housingLevel;
+  const rows=housingRows(d,s,level);
+  const levelLabel=level==='circoscrizioni'?'Circoscrizioni':level==='quartieri'?'Quartieri':'UPL';
+  let selectionNote='';
+  if(s.section)selectionNote='La sezione censuaria è ricondotta alla UPL contenente la maggior parte della sua geometria. Gli indicatori mostrati sono quelli dell’intera UPL, non della singola sezione.';
+  else if(s.circ&&level==='upl')selectionNote='Le UPL sono assegnate alla circoscrizione mediante prevalenza geometrica. I totali UPL possono differire marginalmente dal totale amministrativo diretto della circoscrizione.';
+  else if(s.circ&&level==='quartieri')selectionNote='Sono mostrati solo i quartieri attribuiti a una sola circoscrizione. Oreto-Stazione, che interessa due circoscrizioni, è escluso per evitare attribuzioni e doppi conteggi.';
   const fmtH=(v,digits=0)=>Number(v||0).toLocaleString('it-IT',{maximumFractionDigits:digits,minimumFractionDigits:digits});
   const total=k=>rows.reduce((a,x)=>a+(Number(x[k])||0),0);
   const pop=total('population'),families=total('families'),dwellings=total('dwellings'),buildings=total('buildings'),area=total('area_km2');
   const density=area?pop/area:null,buildDensity=area?buildings/area:null,dwellDensity=area?dwellings/area:null;
   const title=s.section?'UPL di riferimento per la sezione selezionata':s.asc3?'UPL selezionata':s.quart?'Quartiere selezionato':s.circ?'Circoscrizione selezionata':'Palermo · quadro comunale';
   const sorted=[...rows].sort((a,b)=>b.population_density_km2-a.population_density_km2);
-  html+='<div class="notice-inline"><strong>Fonte e anno:</strong> ISTAT, Censimento permanente 2021 e Basi territoriali 2021. Le densità sono rapporti tra conteggi censuari e superficie ufficiale delle geometrie. '+(selectionNote?esc(selectionNote):'')+'</div>';
+  html+='<div class="card housing-level-select"><label for="housingLevel"><strong>Livello territoriale da analizzare</strong></label><select id="housingLevel" '+((s.section||s.asc3)?'disabled':'')+'><option value="circoscrizioni" '+(level==='circoscrizioni'?'selected':'')+'>Circoscrizioni (8)</option><option value="quartieri" '+(level==='quartieri'?'selected':'')+'>Quartieri (25)</option><option value="upl" '+(level==='upl'?'selected':'')+'>UPL (55)</option></select><p class="muted">La selezione rispetta i filtri territoriali generali. Se è selezionata una UPL o una sezione censuaria, l’analisi viene ricondotta al livello UPL.</p></div><div class="notice-inline"><strong>Fonte e anno:</strong> ISTAT, Censimento permanente 2021 e Basi territoriali 2021. Le densità sono rapporti tra conteggi censuari e superficie ufficiale delle geometrie. '+(selectionNote?esc(selectionNote):'')+'</div>','add level selector
   html+='<div class="grid overview-kpis housing-kpis"><div class="card"><span class="muted">Popolazione residente</span><div class="metric">'+fmtH(pop)+'</div><small class="muted">POP21 · ISTAT 2021</small></div><div class="card"><span class="muted">Densità abitativa</span><div class="metric">'+(density===null?'N.D.':fmtH(density,0))+'</div><small class="muted">residenti / km²</small></div><div class="card"><span class="muted">Edifici censiti</span><div class="metric">'+fmtH(buildings)+'</div><small class="muted">'+(buildDensity===null?'N.D.':fmtH(buildDensity,0)+' edifici / km²')+'</small></div><div class="card"><span class="muted">Abitazioni censite</span><div class="metric">'+fmtH(dwellings)+'</div><small class="muted">'+(dwellDensity===null?'N.D.':fmtH(dwellDensity,0)+' abitazioni / km²')+'</small></div></div>';
   html+='<div class="grid"><div class="card"><h3>Distribuzione percentuale dei residenti</h3><div class="section-pie-wrap"><canvas id="housingPopulationPie"></canvas></div></div><div class="card"><h3>Distribuzione percentuale delle abitazioni</h3><div class="section-pie-wrap"><canvas id="housingDwellingsPie"></canvas></div></div><div class="card"><h3>Distribuzione percentuale degli edifici</h3><div class="section-pie-wrap"><canvas id="housingBuildingsPie"></canvas></div></div><div class="card"><h3>Densità abitativa per unità territoriale</h3><div style="height:360px;position:relative"><canvas id="housingDensityBar"></canvas></div></div><div class="card"><h3>Densità edilizia per unità territoriale</h3><div style="height:360px;position:relative"><canvas id="housingBuildingBar"></canvas></div></div></div>';
   html+='<div class="card"><h3>Indicatori per '+levelLabel+' · '+esc(title)+'</h3><p class="muted">Unità territoriali in tabella: '+rows.length+'. Superficie totale: '+fmtH(area,2)+' km². Densità calcolate su area geometrica ISTAT, non sulla sola superficie urbanizzata o edificabile.</p><div class="table-wrap"><table><thead><tr><th>Unità territoriale</th><th>Residenti</th><th>Famiglie</th><th>Abitazioni</th><th>Edifici</th><th>km²</th><th>Ab./km²</th><th>Edifici/km²</th><th>Abitazioni/km²</th><th>Residenti/famiglia</th><th>Abitazioni/famiglia</th><th>Residenti/abitazione</th><th>Abitazioni/edificio</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong></td><td>'+fmtH(x.population)+'</td><td>'+fmtH(x.families)+'</td><td>'+fmtH(x.dwellings)+'</td><td>'+fmtH(x.buildings)+'</td><td>'+fmtH(x.area_km2,2)+'</td><td>'+fmtH(x.population_density_km2,0)+'</td><td>'+fmtH(x.building_density_km2,0)+'</td><td>'+fmtH(x.dwelling_density_km2,0)+'</td><td>'+fmtH(x.residents_per_family,2)+'</td><td>'+fmtH(x.dwellings_per_family,2)+'</td><td>'+fmtH(x.residents_per_dwelling,2)+'</td><td>'+fmtH(x.dwellings_per_building,2)+'</td></tr>').join('')+'</tbody></table></div></div>';
@@ -717,6 +726,7 @@ if(active==='social'){
  if(active!=='green'&&active!=='housing')html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  html=html.replace(/(?:\\[object Object\\]\\s*,?\\s*){2,}/g,'').replace(/\\[object Object\\]/g,'');
  $('#content').innerHTML=html;
+ if(active==='housing'){const level=document.getElementById('housingLevel');if(level)level.addEventListener('change',e=>{housingLevel=e.target.value;render();});}
  if(active==='schools'){initSchools();}
  if(active==='green'){initGreenMap();}
  
@@ -760,11 +770,7 @@ if(active==='social'){
   aggiornaConfronto();
 }
 if(active==='housing'&&window.Chart&&DATA.housing){
- const s=selected(),d=DATA.housing;let rows=d.circoscrizioni;
- if(s.circ){rows=d.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code);return f&&featureBelongsToCirc(f,'asc3',s.circ);});}
- if(s.quart||s.asc2){const qf=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):findAsc2FeatureForQuartiere(DATA.territories.quartieri.find(q=>q.id===s.quart));const qc=qf?String(qf.properties?.COM_ASC2||''):'';rows=d.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code),p=f?findParentFeature(f,'asc3','asc2'):null;return p&&String(p.properties?.COM_ASC2)===qc;});}
- if(s.asc3)rows=d.upl.filter(x=>x.code===String(s.asc3));
- if(s.section){const f=GEO.sections?.features?.find(z=>String(z.properties?.SEZ21_ID)===String(s.section)),p=f?findParentFeature(f,'section','asc3'):null;rows=d.upl.filter(x=>p&&x.code===String(p.properties?.COM_ASC3));}
+ const s=selected(),d=DATA.housing,level=(s.section||s.asc3)?'upl':housingLevel,rows=housingRows(d,s,level);
  const fmt=v=>Number(v||0).toLocaleString('it-IT');
  const labels=rows.map(x=>x.name),makePie=(id,key)=>{const el=document.getElementById(id);if(el&&rows.length>1)charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:rows.map(x=>Number(x[key])||0)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));};
  makePie('housingPopulationPie','population');makePie('housingDwellingsPie','dwellings');makePie('housingBuildingsPie','buildings');
