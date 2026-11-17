@@ -113,3 +113,8 @@
 .school-marker-icon{background:transparent!important;border:0!important;}
 .school-marker-icon span{display:block;}
 .school-marker-selected{z-index:10000!important;}
+
+/* Fix visibilità mappa sedi scolastiche in Servizi e dotazioni */
+#schoolMap.school-map,#schoolMap.school-map.leaflet-container{display:block;width:100%;height:560px;min-height:560px;position:relative;z-index:0;background:#e8eef3;}
+#schoolMap .leaflet-pane{z-index:400;}
+#schoolMap .leaflet-control-container{z-index:800;}
