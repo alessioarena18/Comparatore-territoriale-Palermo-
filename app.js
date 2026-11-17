@@ -346,7 +346,7 @@ if(active==='social'){
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
  <div class="school-table"><table><thead><tr><th>Sede</th><th>Ordine scolastico</th><th>Tipologia</th><th>Istituto</th><th>Indirizzo</th><th>Quartiere</th><th>Stato V81</th><th>Controllo spaziale</th><th>Ordine verificato</th><th>Codice plesso</th><th>Raggi</th><th>Verifica documentale</th></tr></thead><tbody id="schoolPointRows"></tbody></table></div><div id="schoolUnlocated"></div>
  </div>
- <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">La cartografia ripropone i livelli della pagina GIS e aggiunge le sedi scolastiche georeferenziate V81 come overlay autonomo. All’apertura è attivo soltanto il layer Circoscrizioni ASC1; quartieri ASC2, UPL ASC3, sezioni censuarie ISTAT 2021 e sedi scolastiche sono disponibili nel controllo dei livelli e possono essere attivati o disattivati singolarmente. La base OpenStreetMap e l’ortofoto regionale 2022 sono selezionabili separatamente. I punti scolastici sono distinti per ordine prevalente; quelli fuori perimetro ISTAT sono evidenziati in rosso.<div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
+ <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">Attiva o disattiva i livelli con i controlli qui sotto. All’apertura è visibile soltanto il perimetro delle circoscrizioni ASC1; gli altri livelli si aggiungono singolarmente alla mappa. La base OpenStreetMap e l’ortofoto regionale 2022 sono selezionabili dal controllo cartografico.</p><div id="servicesTerritoryLayers" class="services-layer-switches" aria-label="Livelli cartografici"><label><input type="checkbox" data-service-layer="asc1" checked> Circoscrizioni ASC1</label><label><input type="checkbox" data-service-layer="asc2"> Quartieri ASC2</label><label><input type="checkbox" data-service-layer="asc3"> UPL ASC3</label><label><input type="checkbox" data-service-layer="sections"> Sezioni censuarie ISTAT 2021</label><label><input type="checkbox" data-service-layer="schools"> Sedi scolastiche georeferenziate</label></div><div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
  <div class="card"><h3>Anagrafica dei plessi e dati USR</h3><p class="school-note">401 record USR 2025/26 con codice meccanografico di plesso. Il raccordo con il registro 2026/27 resta distinto dal collegamento con gli edifici. Lotti documentali completati: 113 codici di plesso collegati a 82 punti comunali; per gli altri 288 record il collegamento fisico resta da verificare. La tabella indica i collegamenti certi e consente di richiamare la sede nella mappa, se inclusa nei filtri correnti. Non si aggregano alunni a quartiere, UPL o sezione finché la copertura dei plessi non è completa e controllata.</p>
  <div class="school-kpis">${orders.map(o=>{const x=stats.filter(z=>z.order===o);return '<div class="card"><span class="muted">'+esc(o)+'</span><div class="metric">'+fmt(x.length)+'</div><small class="muted">'+fmt(x.reduce((n,z)=>n+(+z.students||0),0))+' alunni</small></div>';}).join('')}</div>
  <div class="school-controls"><label>Ordine<select id="schoolStatsOrder"><option value="">Tutti</option>${orders.map(o=>'<option>'+esc(o)+'</option>').join('')}</select></label><label>Cerca plesso/istituto<input id="schoolStatsSearch" type="search" placeholder="Denominazione o codice"></label></div>
@@ -645,12 +645,24 @@ function initMap(mapId='map'){
     marker.addTo(schoolLayer);
    });
    gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 · '+points.length,key:'schools',layer:schoolLayer,featureLayers:schoolLayer.getLayers()});
-   results.push('Sedi scolastiche disponibili nel controllo layer: '+points.length);
+   results.push('Sedi scolastiche: '+schoolLayer.getLayers().length+' punti caricati');
   }
   updateControl();
+  if(mapId==='servicesTerritoryMap'){
+   const panel=$('#servicesTerritoryLayers');
+   const byKey=new Map(gisImportedLayers.map(item=>[item.key,item]));
+   panel?.querySelectorAll('[data-service-layer]').forEach(input=>{
+    const item=byKey.get(input.dataset.serviceLayer);if(!item)return;
+    if(input.checked&&!gisMap.hasLayer(item.layer))item.layer.addTo(gisMap);
+    if(!input.checked&&gisMap.hasLayer(item.layer))gisMap.removeLayer(item.layer);
+    input.onchange=()=>{if(input.checked)item.layer.addTo(gisMap);else gisMap.removeLayer(item.layer);};
+   });
+  }
   const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
-  if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}applyGisSelectedStyle();focusGeneralSelection();
-  if(autoStatus)autoStatus.textContent=results.join(' · ')+(gisImportedLayers.length?' . Seleziona i livelli dal controllo della mappa.':' . Nessun layer ufficiale caricato.');
+  if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}
+  applyGisSelectedStyle();focusGeneralSelection();
+  setTimeout(()=>gisMap&&gisMap.invalidateSize(true),180);
+  if(autoStatus)autoStatus.textContent=results.join(' · ')+(gisImportedLayers.length?' · Usa i selettori sopra la mappa per attivare i livelli.':' · Nessun layer ufficiale caricato.');
  });
 
  const updateControl=()=>{
