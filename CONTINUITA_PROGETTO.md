@@ -60,3 +60,39 @@ Riscontro preliminare sui dati sorgente:
 - La conversione precedente aveva già prodotto 99 geometrie lineari e 662 feature nel gruppo misto proveniente da `Vincoli_Ariali.shp`; tali conteggi vanno verificati nel run definitivo dopo l'esplosione.
 
 Stato attuale: i GeoJSON finali non vanno considerati pubblicati finché il run 44095465462 non conclude QA e upload/commit. Le verifiche strutturali e geografiche preliminari non certificano la topologia né la vigenza urbanistica. La denominazione cartografica deve restare riferita alla Variante Generale 2004 e accompagnata dall'avvertenza sulle varianti successive.
+
+## Stato consolidato al 17 novembre 2026, ore 13:52
+
+### Cartografia PRG acquisita e pubblicata
+La pipeline `Acquisizione cartografia PRG Palermo` è terminata con esito SUCCESS nel run [44096133160](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/44096133160). Conversione, controlli di sintassi, QA strutturale/geografica, upload artifact e commit automatico su `main` sono tutti riusciti.
+
+File pubblicati in `data/geo/prg/`:
+- `prg_320_vg_zonizzazione.geojson`: 5.879 geometrie su 5.880 record sorgente.
+- `prg_vincoli_areali.geojson`: 662 geometrie areali.
+- `prg_vincoli_lineari.geojson`: 100 geometrie lineari, incluse le componenti lineari estratte da una GeometryCollection del layer areale.
+- `metadata.json`, `layers.json`, `qa_prg.json`: provenienza, hash SHA-256, conteggi, famiglie geometriche e controlli.
+
+Una feature del dataset 320 era priva di geometria: esclusa dai layer cartografici e conteggiata nei metadati. QA superata per 3 layer; controlli limitati a struttura e plausibilità geografica grossolana. Non certificano topologia, proprietà, attuazione o vigenza.
+
+### Mappa e fonti
+- La mappa Standard urbanistici dispone ora di un layer separato, disattivato all'apertura, per la zonizzazione integrale ufficiale dataset 320 (5.879 geometrie).
+- I vincoli areali e lineari del dataset 321 sono layer separati. I layer sono etichettati come Variante Generale 2004.
+- La classificazione cromatica dei codici ZTO è solo orientativa; i codici combinati sono visualizzati come misti. Le zone F non sono automaticamente equiparate agli standard ex art. 3 D.M. 1444/1968.
+- La pagina Fonti e metodologia registra dataset 320/321 e una prima ricognizione di varianti parziali 2025–2026, distinguendo atti adottati da atti approvati/trasmessi. Ogni variante va verificata per ambito catastale ed efficacia.
+
+### Pull request integrate
+- #6: serializzazione pipeline e rebase prima del push, per evitare conflitti tra commit concorrenti.
+- #7: layer della zonizzazione integrale ufficiale nella mappa Standard urbanistici.
+- #8: workflow di verifica automatica di JavaScript, Python e presenza dei layer PRG.
+- #9: aggiornamento del registro delle fonti PRG e delle varianti successive.
+
+### Verifiche CI e pubblicazione
+- Run [44096512432](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/44096512432): controlli applicazione/dati superati.
+- Run [44096812982](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/44096812982): controlli applicazione/dati superati dopo l'aggiornamento del registro fonti.
+- Run [44096812385](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/44096812385): GitHub Pages build e deploy terminati con esito SUCCESS.
+
+Prossime attività:
+1. Verifica funzionale nel browser della mappa Standard urbanistici, del layer integrale 320 e dei vincoli 321.
+2. Verifica della separazione tra Servizi e dotazioni, Standard urbanistici e Cartografia GIS.
+3. Controllo dei raggi d'influenza scolastici e dei grafici a torta, senza attribuire superfici o coperture non verificate.
+4. Proseguimento dell'audit degli atti PRG successivi e dei relativi perimetri geografici.
