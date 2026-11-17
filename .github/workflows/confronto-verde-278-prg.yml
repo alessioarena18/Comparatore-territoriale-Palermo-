@@ -1,0 +1,52 @@
+name: Confronto spaziale verde comunale 2013 e PRG
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/confronto_verde_278_prg.py'
+      - '.github/workflows/confronto-verde-278-prg.yml'
+      - 'data/geo/verde_comunale_2013.geojson'
+      - 'data/geo/verde_prg.geojson'
+      - 'data/geo/circoscrizioni_palermo_2021.geojson'
+      - 'data/geo/aree_subcomunali_liv2_palermo_2021.geojson'
+      - 'data/geo/aree_subcomunali_liv3_palermo_2021.geojson'
+permissions:
+  contents: write
+concurrency:
+  group: confronto-verde-278-prg
+  cancel-in-progress: false
+jobs:
+  overlay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install geospatial dependencies
+        run: pip install 'shapely>=2.0' pyproj
+      - name: Compute spatial comparison
+        run: python tools/confronto_verde_278_prg.py
+      - name: Validate output
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('data/verde_confronto_278_prg.json'))
+          assert x['status']=='completed'
+          assert x['global']['inventario_2013']['m2']>0
+          assert x['global']['classi_verdi_prg']['m2']>0
+          assert all(k in x['perimetri_territoriali'] for k in ('circoscrizioni','quartieri','upl'))
+          print('Confronto validato:', x['global'])
+          PY
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/verde_confronto_278_prg.json
+          if git diff --cached --quiet; then echo "Report invariato"; exit 0; fi
+          git commit -m "Add spatial comparison of historical green inventory and PRG"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
