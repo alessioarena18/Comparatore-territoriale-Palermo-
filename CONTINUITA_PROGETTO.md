@@ -257,3 +257,12 @@ Fonte: https://www.comune.palermo.it/js/server/uploads/trasparenza_all/_25112015
 - La pagina Standard urbanistici espone l'esito QA: 0 geometrie invalide, 4 duplicati esatti, 16 coppie con sovrapposizione >1 m². È esplicitato che le sovrapposizioni sono segnalazioni da verificare e che non sono state eliminate geometrie.
 - Registro fonti aggiornato a versione 1.5.
 - Le modifiche richiedono test automatico, deployment Pages e verifica visiva della tabella.
+
+
+## Ripristino visibilità cartografia Standard urbanistici (17/11/2026)
+
+- Individuata la causa della mappa non visibile: il contenitore `.school-map` non aveva una regola CSS di altezza, mentre il codice inizializza Leaflet sul nodo `#standardSchoolMap`.
+- Aggiunta altezza esplicita di 560 px desktop e 470 px mobile, altezza minima, sfondo e stacking context per i controlli Leaflet.
+- Aggiornata la query string CSS in index.html per invalidare la cache.
+- La mappa conserva sedi scolastiche, raggi di influenza, poligoni PRG S/IC/V/P/F, zonizzazione integrale dataset 320 e vincoli areali/lineari come layer attivabili.
+- Da verificare dopo il deployment il rendering visivo su desktop e smartphone; la correzione CSS è verificata a livello di sorgente, non ancora con test visivo browser.
