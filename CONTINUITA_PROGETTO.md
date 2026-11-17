@@ -96,3 +96,19 @@ Prossime attività:
 2. Verifica della separazione tra Servizi e dotazioni, Standard urbanistici e Cartografia GIS.
 3. Controllo dei raggi d'influenza scolastici e dei grafici a torta, senza attribuire superfici o coperture non verificate.
 4. Proseguimento dell'audit degli atti PRG successivi e dei relativi perimetri geografici.
+
+## Aggiornamento successivo: 17 novembre 2026, ore 13:53
+
+- La prima esecuzione con QA superata (#44095465462) ha caricato l'artifact ma il commit automatico è stato respinto per un aggiornamento concorrente del branch `main` (non per dimensione dei file).
+- La pipeline è stata serializzata e ribasata con PR #6. La nuova esecuzione #44096133160 è terminata con SUCCESS in tutti gli step, compresi commit dei GeoJSON e QA.
+- Commit dati: `fb33c2b464c629cea38f06307b2986685092ef0f`. I file sono presenti nel repository in `data/geo/prg/`.
+- PR #7 aggiunge la zonizzazione integrale dataset 320 alla mappa Standard urbanistici come overlay distinto. PR #8 aggiunge verifiche automatiche di sintassi e presenza dei layer. PR #9 aggiorna la tabella Fonti e metodologia con dataset 320/321, NTA e varianti parziali 2025–2026.
+- PR #11 (integrata nel commit `f54b6eb8726cf3daf88eae1dcfad58baf2be68e0`) rimuove gli overlay puntuali/misti vuoti, non presenti nel rilascio, e aggiorna README e legenda ai soli layer effettivamente acquisiti: zonizzazione 5.879, vincoli areali 662, vincoli lineari 100.
+- QA PRG: 3 layer validati per struttura e plausibilità geografica; una feature sorgente senza geometria esclusa e conteggiata; una GeometryCollection convertita in una componente areale e una lineare. Nessuna certificazione topologica o giuridica.
+- Deploy Pages del commit `39791508b8cadf9fa64c4d0b484ca71189f1e482` concluso SUCCESS. Dopo PR #11, nuovo deploy in corso nel run #44097120367 e verifica automatica in corso nel run #44097120615.
+
+Prossimi passi:
+1. Attendere l'esito della verifica CI e del deploy dopo PR #11.
+2. Verificare che il layer integrale 320 e i due layer 321 siano effettivamente caricati nella mappa Standard urbanistici, e che i layer GIS iniziali restino limitati alle circoscrizioni.
+3. Eseguire una verifica funzionale delle pagine Servizi e dotazioni e Standard urbanistici, con attenzione ai grafici a torta e ai raggi d'influenza scolastici.
+4. Continuare l'audit giuridico delle varianti successive con perimetri e stato di efficacia, senza sovrapporre automaticamente gli atti parziali alla zonizzazione comunale.
