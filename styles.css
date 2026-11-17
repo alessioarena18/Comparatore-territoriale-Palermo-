@@ -108,3 +108,8 @@
 /* Sedi amministrative delle circoscrizioni */
 .circ-office-marker{background:transparent;border:0}
 .circ-office-marker span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:2px solid #fff;border-radius:50%;background:#7c3aed;color:#fff;font-weight:800;font-size:13px;box-shadow:0 1px 6px #1118}
+
+/* Icone delle sedi scolastiche: icona HTML autonoma, senza dipendenza dalle immagini predefinite Leaflet */
+.school-marker-icon{background:transparent!important;border:0!important;}
+.school-marker-icon span{display:block;}
+.school-marker-selected{z-index:10000!important;}
