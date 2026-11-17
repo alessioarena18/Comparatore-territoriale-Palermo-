@@ -1,0 +1,158 @@
+{
+  "type": "FeatureCollection",
+  "name": "Sedi amministrative delle otto circoscrizioni di Palermo",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 1,
+        "name": "I Circoscrizione",
+        "short_name": "Circoscrizione 1",
+        "address": "Piazza Giulio Cesare, 52, 90133 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=58",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3660875,
+          38.1106322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 2,
+        "name": "II Circoscrizione",
+        "short_name": "Circoscrizione 2",
+        "address": "Via San Ciro, 15, 90124 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=59",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3831462,
+          38.0946681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 3,
+        "name": "III Circoscrizione",
+        "short_name": "Circoscrizione 3",
+        "address": "Via Francesco La Colla, 48/52, 90124 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=60",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3727677,
+          38.1011683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 4,
+        "name": "IV Circoscrizione",
+        "short_name": "Circoscrizione 4",
+        "address": "Viale della Regione Siciliana Nord Ovest, 95, 90129 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=61",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3309106,
+          38.1041412
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 5,
+        "name": "V Circoscrizione",
+        "short_name": "Circoscrizione 5",
+        "address": "Largo Pozzillo, 7, 90132 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=62",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.299314,
+          38.1283856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 6,
+        "name": "VI Circoscrizione",
+        "short_name": "Circoscrizione 6",
+        "address": "Via Monte San Calogero, 26/28, 90146 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=63",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3254173,
+          38.1535917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 7,
+        "name": "VII Circoscrizione",
+        "short_name": "Circoscrizione 7",
+        "address": "Via Eleonora Duse, 31, 90146 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=64",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3187865,
+          38.1711424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "number": 8,
+        "name": "VIII Circoscrizione",
+        "short_name": "Circoscrizione 8",
+        "address": "Via Enrico Fileti, 19, 90142 Palermo, Italia",
+        "source_url": "https://docs.comune.palermo.it/circoscrizione-consiglio.php?cat=47&sez=65",
+        "source": "Comune di Palermo · scheda ufficiale del Consiglio circoscrizionale",
+        "coordinate_source": "Collegamento Google Maps presente nella scheda ufficiale del Comune"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3645991,
+          38.1425623
+        ]
+      }
+    }
+  ]
+}
