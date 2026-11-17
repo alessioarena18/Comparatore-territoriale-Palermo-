@@ -815,7 +815,8 @@ if(active==='social'){
 if(active==='housing'&&window.Chart&&DATA.housing){
  const s=selected(),d=DATA.housing,level=(s.section||s.asc3)?'upl':housingLevel,rows=housingRows(d,s,level);
  const fmt=v=>Number(v||0).toLocaleString('it-IT');
- const labels=rows.map(x=>x.name),makePie=(id,key)=>{const el=document.getElementById(id);if(el&&rows.length>1)charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:rows.map(x=>Number(x[key])||0)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));};
+ const distributionRows=s.circ&&!s.quart&&level==='circoscrizioni'?housingRows(d,s,'quartieri'):rows;
+ const labels=distributionRows.map(x=>x.name),makePie=(id,key)=>{const el=document.getElementById(id);if(el&&distributionRows.length>1)charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:distributionRows.map(x=>Number(x[key])||0)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));};
  makePie('housingPopulationPie','population');makePie('housingFamiliesPie','families');makePie('housingDwellingsPie','dwellings');makePie('housingBuildingsPie','buildings'); 
  if(DATA.housing2023){const h23=housingRows(DATA.housing2023,s,level),occupied=h23.reduce((n,x)=>n+(Number(x.occupied)||0),0),notOccupied=h23.reduce((n,x)=>n+(Number(x.notOccupied)||0),0),pie=document.getElementById('housingOccupancyPie');if(pie&&occupied+notOccupied>0)charts.push(new Chart(pie,{type:'pie',data:{labels:['Abitazioni occupate da residenti','Abitazioni non occupate da residenti'],datasets:[{data:[occupied,notOccupied]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));}
  const circRows=DATA.housing2023.circoscrizioni.filter(x=>!selected().circ||x.code===String(GEO.asc1?.features?.find(f=>String(f.properties?.COD_ASC1)===String(selected().circ).replace('c',''))?.properties?.COM_ASC1||''));
