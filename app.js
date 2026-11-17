@@ -899,6 +899,24 @@ function initMap(mapId='map'){
    gisImportedLayers.push({name:'Sedi scolastiche georeferenziate V81 · '+points.length,key:'schools',layer:schoolLayer,featureLayers:schoolLayer.getLayers()});
    results.push('Sedi scolastiche: '+schoolLayer.getLayers().length+' punti caricati');
   }
+  if(mapId==='map'){
+   try{
+    const response=await fetch('data/geo/sedi_circoscrizionali.geojson',{cache:'no-store'});
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const offices=await response.json();
+    const officeLayer=L.geoJSON(offices,{
+     pointToLayer:(feature,latlng)=>L.marker(latlng,{icon:L.divIcon({className:'circ-office-marker',html:'<span>'+String(feature.properties?.number||'')+'</span>',iconSize:[30,30],iconAnchor:[15,15]})}),
+     onEachFeature:(feature,layer)=>{
+      const p=feature.properties||{};
+      layer.bindPopup('<div class="school-popup"><strong>'+esc(p.name||'Sede circoscrizionale')+'</strong><br>'+esc(p.address||'')+'<br><small>Coordinate: '+Number(feature.geometry.coordinates[1]).toFixed(6)+', '+Number(feature.geometry.coordinates[0]).toFixed(6)+'</small><br><a href="'+esc(p.source_url||'https://www.comune.palermo.it/circoscrizione-consiglio.php')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a></div>');
+      layer.bindTooltip(String(p.number||'')+' · '+String(p.short_name||'Circoscrizione'),{direction:'top',offset:[0,-14]});
+     }
+    });
+    officeLayer.addTo(gisMap);
+    gisImportedLayers.push({name:'Sedi amministrative delle 8 circoscrizioni · Comune di Palermo',key:'circ_offices',layer:officeLayer,featureLayers:officeLayer.getLayers()});
+    results.push('Sedi amministrative circoscrizionali: '+officeLayer.getLayers().length+' punti caricati');
+   }catch(error){results.push('Sedi circoscrizionali: errore di caricamento ('+error.message+')');}
+  }
   updateControl();
   if(mapId==='servicesTerritoryMap'){
    const panel=$('#servicesTerritoryLayers');
