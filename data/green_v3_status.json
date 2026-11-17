@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "title": "Inventario di verifica delle aree V3 del PRG di Palermo",
+  "status": "schema predisposto; geometrie e classificazioni puntuali non ancora digitalizzate",
+  "sources": [
+    {
+      "name": "Regolamento del verde pubblico e privato, D.C.C. 355/2008, Allegato B",
+      "url": "https://www.comune.palermo.it/wp-content/uploads/2024/11/regolamento%20del%20verde%20pubblico%20e%20privato%20della%20citt%C3%A0%20di%20palermo.pdf",
+      "pages": "76-84",
+      "note": "Linee guida e tavole cartografiche per circoscrizione. Le tavole consultabili sono scansioni raster; la classificazione è limitata alle aree V3."
+    },
+    {
+      "name": "Dataset comunale 278 - Perimetrazione area verde",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=278",
+      "date": "2013-02-22",
+      "catalog_update": "2021-09-06",
+      "note": "Shapefile senza documentazione tecnica. Base storica da verificare, non inventario aggiornato."
+    },
+    {
+      "name": "Dataset comunale 320 - Perimetrazione zonizzazione PRG vigente",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320",
+      "date": "2015-02-16",
+      "catalog_update": "2018-01-10"
+    }
+  ],
+  "classification": {
+    "red": [
+      {
+        "code": "R1",
+        "label": "Giardini pubblici storici",
+        "status": "verde pubblico storico esistente; verificare perimetro e accessibilità attuale"
+      },
+      {
+        "code": "R2.1",
+        "label": "Verde storico pubblico o privato con caratteristiche dimensionali, botaniche o d'impianto conservate",
+        "status": "non assimilabile automaticamente a verde pubblico fruibile"
+      },
+      {
+        "code": "R2.2",
+        "label": "Verde storico pubblico o privato che ha perduto le caratteristiche originarie",
+        "status": "recupero e verifica del regime proprietario"
+      },
+      {
+        "code": "R3.1",
+        "label": "Giardini pubblici realizzati in buone condizioni",
+        "status": "giardino pubblico esistente"
+      },
+      {
+        "code": "R3.2",
+        "label": "Giardini pubblici realizzati in condizioni mediocri",
+        "status": "esistente; manutenzione straordinaria necessaria per fruibilità"
+      },
+      {
+        "code": "R3.3",
+        "label": "Giardini pubblici realizzati in pessime condizioni",
+        "status": "esistente; criticità manutentive e di fruibilità"
+      },
+      {
+        "code": "R4",
+        "label": "Giardini privati o di proprietà IACP già realizzati",
+        "status": "non conteggiare come pubblico accessibile senza titolo/convenzione"
+      },
+      {
+        "code": "R5",
+        "label": "Area mista: zona comunale libera e inutilizzata con giardino pubblico in buono stato",
+        "status": "separare la porzione già realizzata dalla parte da completare"
+      }
+    ],
+    "green": [
+      {
+        "code": "G1",
+        "label": "Aree comunali, senza manufatti, non utilizzate",
+        "status": "priorità attuativa elevata"
+      },
+      {
+        "code": "G2.1",
+        "label": "Aree private o parzialmente private, senza manufatti, non utilizzate",
+        "status": "attuazione subordinata a disponibilità/cessione e progetto"
+      },
+      {
+        "code": "G2.2",
+        "label": "Aree private o parzialmente private, senza manufatti, non utilizzate o parzialmente utilizzate",
+        "status": "verificare proprietà e usi"
+      },
+      {
+        "code": "G2.3",
+        "label": "Aree private o parzialmente private, con manufatti, non utilizzate",
+        "status": "verificare manufatti e necessità di demolizione"
+      },
+      {
+        "code": "G2.4",
+        "label": "Aree private o parzialmente private, con manufatti, utilizzate o parzialmente utilizzate",
+        "status": "criticità attuative e usi presenti"
+      },
+      {
+        "code": "G3",
+        "label": "Area mista privata senza manufatti e inutilizzata con giardino pubblico da riprogettare",
+        "status": "distinguere porzione pubblica esistente e parte da realizzare"
+      },
+      {
+        "code": "G4.1",
+        "label": "Aree IACP o convenzionabili, senza manufatti, non utilizzate",
+        "status": "verificare titolo/convenzione"
+      },
+      {
+        "code": "G4.2",
+        "label": "Aree IACP o convenzionabili, senza manufatti, utilizzate",
+        "status": "verificare uso e convenzione"
+      },
+      {
+        "code": "G4.3",
+        "label": "Aree IACP o convenzionabili, con manufatti, utilizzate",
+        "status": "verificare manufatti, uso e convenzione"
+      }
+    ],
+    "blue": [
+      {
+        "code": "B1",
+        "label": "Aree difficoltose",
+        "status": "studio di fattibilità e analisi costi-benefici"
+      },
+      {
+        "code": "B2",
+        "label": "Aree molto difficoltose",
+        "status": "valutare variante e aree alternative"
+      },
+      {
+        "code": "B3",
+        "label": "Aree non realizzabili",
+        "status": "individuare aree sostitutive per mantenere lo standard"
+      },
+      {
+        "code": "B4",
+        "label": "Aree da realizzare per stralci",
+        "status": "attuazione per fasi funzionali"
+      }
+    ]
+  },
+  "fields_required": [
+    "id",
+    "geometry",
+    "prg_v3_code",
+    "annex_b_class",
+    "municipal_district",
+    "ownership",
+    "title_or_convention",
+    "implementation_status",
+    "public_access",
+    "maintenance_status",
+    "effective_public_area_m2",
+    "source_document",
+    "survey_date",
+    "verification_level"
+  ],
+  "features": [],
+  "limitations": [
+    "Le classi dell'Allegato B si riferiscono alle aree V3, non a tutte le destinazioni V1-V5, E1, E2, VS o F4.",
+    "Le tavole dell'Allegato B sono scansioni cartografiche per circoscrizione e non forniscono direttamente geometrie GIS o coordinate per i simboli.",
+    "Non associare automaticamente i simboli delle tavole a poligoni PRG senza georeferenziazione, controllo topologico e verifica catastale/atti.",
+    "Il dataset 278 è del 2013 e il catalogo dichiara assenza di documentazione tecnica; non è prova dello stato attuale."
+  ]
+}
