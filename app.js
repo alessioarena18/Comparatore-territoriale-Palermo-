@@ -451,7 +451,7 @@ if(active==='social'){
  else if(active==='sources'){pieLabels=['Record demografici','UPL archiviate','Punti scolastici','Sezioni censuarie'];pieValues=[DATA.demografia.length,(DATA.sociale||[]).length,(DATA.schoolPoints||[]).length,GEO.sections?.features?.length||0];}
  html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  $('#content').innerHTML=html;
- if(active==='schools'){initSchools();initMap('servicesTerritoryMap');}
+ if(active==='schools'){initSchools();}
  
 if(active==='standards'){
  initStandardSchoolMap();
