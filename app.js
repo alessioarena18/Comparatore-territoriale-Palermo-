@@ -972,6 +972,7 @@ function initStandardSchoolMap(){
  const prgStyles={IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde e sport'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgZoneGroups={S:L.layerGroup(),IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
  const prgConstraintGroups={areali:L.layerGroup(),lineari:L.layerGroup(),puntuali:L.layerGroup(),misti:L.layerGroup()};
+ const prgOfficialZoning=L.layerGroup();
  const prgZoneStyles={S:{color:'#2563eb',label:'S · Istruzione'},IC:{color:'#d97706',label:'IC · Interesse comune'},V:{color:'#16845b',label:'V · Verde pubblico'},P:{color:'#475569',label:'P · Parcheggi'},F:{color:'#7c3aed',label:'F · Interesse generale'}};
  const prgSummary={};
  const loadPrgZones=async()=>{
@@ -1003,6 +1004,39 @@ function initStandardSchoolMap(){
   }
  };
 
+ const loadPrgOfficialZoning=async()=>{
+  const statusNode=$('#standardPrgStatus');
+  try{
+   const response=await fetch('data/geo/prg/prg_320_vg_zonizzazione.geojson?v=20261117-official',{cache:'no-cache'});
+   if(!response.ok)throw new Error('HTTP '+response.status);
+   const fc=await response.json();
+   if(fc.type!=='FeatureCollection'||!Array.isArray(fc.features)||!fc.features.length)throw new Error('GeoJSON vuoto/non valido');
+   const palette={S:'#2563eb',IC:'#d97706',V:'#16845b',P:'#475569',F:'#7c3aed',M:'#64748b',ALT:'#94a3b8'};
+   const category=code=>{
+    const z=String(code||'').toUpperCase();
+    const found=[];
+    if(/S\\d/.test(z))found.push('S');
+    if(/IC\\d/.test(z))found.push('IC');
+    if(/V\\d|^V$|^VS/.test(z))found.push('V');
+    if(/F\\d/.test(z))found.push('F');
+    if(z==='PARCHEGGI')found.push('P');
+    return found.length===1?found[0]:found.length>1?'M':'ALT';
+   };
+   const layer=L.geoJSON(fc,{style:feature=>{
+    const group=category(feature.properties?.ZTO),color=palette[group];
+    return {color,fillColor:color,weight:.75,opacity:.8,fillOpacity:.12};
+   },onEachFeature:(feature,featureLayer)=>{
+    const p=feature.properties||{},z=String(p.ZTO||'Non classificata'),group=category(z);
+    const names={S:'Istruzione (S)',IC:'Interesse comune (IC)',V:'Verde/attrezzature sportive (V)',P:'Parcheggi',F:'Interesse generale (F)',M:'Codice combinato, da leggere nelle NTA',ALT:'Altra zonizzazione'};
+    const rows=Object.entries(p).filter(([k,v])=>v!==null&&v!==''&&typeof v!=='object').slice(0,16);
+    const body=rows.map(([k,v])=>'<tr><th>'+esc(k)+'</th><td>'+esc(String(v))+'</td></tr>').join('');
+    featureLayer.bindPopup('<div class="school-popup"><b>PRG · '+esc(z)+'</b><br>'+esc(names[group])+'<div class="table-wrap"><table>'+body+'</table></div><small>Fonte: Comune di Palermo, dataset 320, Variante Generale PRG (DCC 7/2004). La classificazione cartografica non sostituisce NTA, tavole e atti successivi. Le zone F non sono automaticamente standard ex art. 3 D.M. 1444/1968.</small></div>');
+   }});
+   if(!layer.getLayers().length)throw new Error('Nessuna geometria');
+   prgOfficialZoning.clearLayers();prgOfficialZoning.addLayer(layer);
+   if(statusNode)statusNode.textContent+=' Zonizzazione integrale dataset 320 disponibile: '+fc.features.length.toLocaleString('it-IT')+' geometrie, attivabile dal controllo mappa; i codici combinati sono distinti e non riclassificati automaticamente.';
+  }catch(err){if(statusNode)statusNode.textContent+=' Zonizzazione integrale dataset 320 non caricata: '+String(err.message||err);}
+ };
  const loadPrgConstraints=async()=>{
   const specs=[
    {key:'areali',file:'data/geo/prg/prg_vincoli_areali.geojson',label:'Vincoli areali · Variante Generale 2004',color:'#0f766e',fill:'#5eead4',weight:1.2},
@@ -1090,6 +1124,7 @@ function initStandardSchoolMap(){
   'PRG 2004 · V Verde pubblico':prgZoneGroups.V,
   'PRG 2004 · P Parcheggi':prgZoneGroups.P,
   'PRG 2004 · F Interesse generale':prgZoneGroups.F,
+  'PRG 2004 · Zonizzazione integrale (dataset 320)':prgOfficialZoning,
   'PRG 2004 · Vincoli areali':prgConstraintGroups.areali,
   'PRG 2004 · Vincoli lineari':prgConstraintGroups.lineari,
   'PRG 2004 · Vincoli puntuali':prgConstraintGroups.puntuali,
@@ -1106,7 +1141,7 @@ function initStandardSchoolMap(){
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const b=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(b.isValid())map.fitBounds(b,{padding:[20,20],maxZoom:13});}
  window.__standardAmenitiesMap=map;window.__stdAmenities=[];
- loadPrgZones().then(()=>loadPrgConstraints());loadAmenities().then(()=>{});
+ loadPrgZones().then(()=>Promise.all([loadPrgConstraints(),loadPrgOfficialZoning()]));loadAmenities().then(()=>{});
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function loadSchoolArchives(){
