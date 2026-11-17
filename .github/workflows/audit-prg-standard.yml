@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Installa dipendenze GIS per QA topologica
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyproj==3.7.2
       - name: Verifica zonizzazione PRG
         run: python3 tools/qa_prg_standard_2004.py
       - name: Pubblica rapporto QA
