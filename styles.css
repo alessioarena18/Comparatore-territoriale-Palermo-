@@ -118,3 +118,5 @@
 #schoolMap.school-map,#schoolMap.school-map.leaflet-container{display:block;width:100%;height:560px;min-height:560px;position:relative;z-index:0;background:#e8eef3;}
 #schoolMap .leaflet-pane{z-index:400;}
 #schoolMap .leaflet-control-container{z-index:800;}
+
+.housing-level-select{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}.housing-level-select label{color:#425d77}.housing-level-select select{height:40px;min-width:240px;border:1px solid #cbd8e4;border-radius:7px;padding:0 10px;background:#fff;color:#243e57}.housing-kpis{margin:16px 0}.housing-kpis .card{min-height:112px}
