@@ -1,0 +1,36 @@
+name: Verifica applicazione e dati territoriali
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'app.js'
+      - 'index.html'
+      - 'styles.css'
+      - 'tools/*.py'
+      - '.github/workflows/validate-app.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verifica sintassi JavaScript
+        run: node --check app.js
+      - name: Verifica sintassi Python
+        run: python3 -m py_compile tools/*.py
+      - name: Verifica whitespace e patch
+        run: git diff --check
+      - name: Verifica presenza dei layer PRG pubblicati
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          d=pathlib.Path('data/geo/prg')
+          required=['prg_320_vg_zonizzazione.geojson','prg_vincoli_areali.geojson','prg_vincoli_lineari.geojson','metadata.json','qa_prg.json']
+          missing=[x for x in required if not (d/x).is_file()]
+          if missing: raise SystemExit('Layer PRG mancanti: '+', '.join(missing))
+          qa=json.loads((d/'qa_prg.json').read_text(encoding='utf-8'))
+          if qa.get('status')!='passed': raise SystemExit('QA PRG non superata')
+          print('Layer PRG presenti; QA preliminare superata.')
+          PY
