@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null,schoolRegister:{records:[]},schoolSiteVerification:{records:[]},schoolCensus:{records:[]}};
+let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],housing:null,sociale:[],socialeMeta:{},socialeAdu:[],scuole:[],standard:[],geojson:null,schoolRegister:{records:[]},schoolSiteVerification:{records:[]},schoolCensus:{records:[]}};
 let active='overview', charts=[];
 let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
 let greenMapInstance=null,greenMapData=null,greenSummaryData=null;
@@ -8,6 +8,7 @@ let geoSelection={asc2:'',asc3:'',section:''};
 const pages={
 overview:['QUADRO CONOSCITIVO','Panoramica territoriale','Quadro integrato delle componenti demografiche, scolastiche, urbanistiche e spaziali.'],
 demography:['POPOLAZIONE RESIDENTE','Analisi demografica','Distribuzione per sesso, classi d’età e fasce funzionali.'],
+housing:['STRUTTURA ABITATIVA ED EDILIZIA','Densità e abitabilità','Densità abitativa ed edilizia, dotazione dello stock abitativo e indicatori di pressione per circoscrizioni, quartieri e UPL.'],
 social:['STRUTTURA SOCIALE','Analisi sociale','Indicatori di struttura demografica e caratteristiche della popolazione.'],
 schools:['SERVIZI TERRITORIALI','Servizi e dotazioni urbane','Distribuzione delle attrezzature collettive, della rete scolastica e delle dotazioni di quartiere.'],
 standards:['DOTAZIONI TERRITORIALI','Standard urbanistici','Verifica delle dotazioni territoriali e confronto con i parametri normativi applicabili.'],
@@ -415,6 +416,42 @@ function render(){
 
  
 html+=`<div class="grid"><div class="card"><h3>Composizione della popolazione</h3><canvas id="chartComposizione"></canvas></div><div class="card"><h3>Popolazione per quartiere</h3><div style="height:${Math.max(520,righe.length*27)}px;position:relative"><canvas id="chartQuartieri"></canvas></div></div></div><div class="card"><h3>Incidenza della popolazione straniera</h3><canvas id="chartIncidenza"></canvas></div>`;
+}else if(active==='housing'){
+ const d=DATA.housing;
+ if(!d){html+='<div class="notice"><h3>Archivio non disponibile</h3><p>Non è stato possibile caricare il rapporto ISTAT 2021 sulla struttura abitativa ed edilizia.</p></div>';}
+ else{
+  let rows=[],level='circoscrizioni',levelLabel='Circoscrizioni',selectionNote='';
+  const codeOf=(level,feature)=>String(feature?.properties?.[{circoscrizioni:'COM_ASC1',quartieri:'COM_ASC2',upl:'COM_ASC3'}[level]]??'');
+  if(s.section){
+   const sf=GEO.sections?.features?.find(f=>String(f.properties?.SEZ21_ID)===String(s.section));
+   const parent=sf?findParentFeature(sf,'section','asc3'):null;
+   const code=parent?String(parent.properties?.COM_ASC3||''):'';
+   rows=d.upl.filter(x=>x.code===code);level='upl';levelLabel='UPL di appartenenza';
+   selectionNote='La sezione censuaria è ricondotta alla UPL contenente la maggior parte della sua geometria. Gli indicatori mostrati sono quelli dell’intera UPL, non della singola sezione.';
+  }else if(s.asc3){
+   rows=d.upl.filter(x=>x.code===String(s.asc3));level='upl';levelLabel='UPL';
+  }else if(s.quart||s.asc2){
+   const qf=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):findAsc2FeatureForQuartiere(DATA.territories.quartieri.find(q=>q.id===s.quart));
+   const qcode=qf?String(qf.properties?.COM_ASC2||''):'';
+   rows=d.upl.filter(x=>{const uf=GEO.asc3?.features?.find(f=>String(f.properties?.COM_ASC3)===x.code);const parent=uf?findParentFeature(uf,'asc3','asc2'):null;return parent&&String(parent.properties?.COM_ASC2)===qcode;});
+   level='upl';levelLabel='UPL del quartiere';
+  }else if(s.circ){
+   rows=d.upl.filter(x=>{const uf=GEO.asc3?.features?.find(f=>String(f.properties?.COM_ASC3)===x.code);return uf&&featureBelongsToCirc(uf,'asc3',s.circ);});
+   level='upl';levelLabel='UPL della circoscrizione';
+   selectionNote='Le UPL sono assegnate alla circoscrizione mediante prevalenza geometrica. I totali UPL possono differire marginalmente dal totale amministrativo diretto della circoscrizione.';
+  }else{rows=[...d.circoscrizioni];}
+  const fmtH=(v,digits=0)=>Number(v||0).toLocaleString('it-IT',{maximumFractionDigits:digits,minimumFractionDigits:digits});
+  const total=k=>rows.reduce((a,x)=>a+(Number(x[k])||0),0);
+  const pop=total('population'),families=total('families'),dwellings=total('dwellings'),buildings=total('buildings'),area=total('area_km2');
+  const density=area?pop/area:null,buildDensity=area?buildings/area:null,dwellDensity=area?dwellings/area:null;
+  const title=s.section?'UPL di riferimento per la sezione selezionata':s.asc3?'UPL selezionata':s.quart?'Quartiere selezionato':s.circ?'Circoscrizione selezionata':'Palermo · quadro comunale';
+  const sorted=[...rows].sort((a,b)=>b.population_density_km2-a.population_density_km2);
+  html+='<div class="notice-inline"><strong>Fonte e anno:</strong> ISTAT, Censimento permanente 2021 e Basi territoriali 2021. Le densità sono rapporti tra conteggi censuari e superficie ufficiale delle geometrie. '+(selectionNote?esc(selectionNote):'')+'</div>';
+  html+='<div class="grid overview-kpis housing-kpis"><div class="card"><span class="muted">Popolazione residente</span><div class="metric">'+fmtH(pop)+'</div><small class="muted">POP21 · ISTAT 2021</small></div><div class="card"><span class="muted">Densità abitativa</span><div class="metric">'+(density===null?'N.D.':fmtH(density,0))+'</div><small class="muted">residenti / km²</small></div><div class="card"><span class="muted">Edifici censiti</span><div class="metric">'+fmtH(buildings)+'</div><small class="muted">'+(buildDensity===null?'N.D.':fmtH(buildDensity,0)+' edifici / km²')+'</small></div><div class="card"><span class="muted">Abitazioni censite</span><div class="metric">'+fmtH(dwellings)+'</div><small class="muted">'+(dwellDensity===null?'N.D.':fmtH(dwellDensity,0)+' abitazioni / km²')+'</small></div></div>';
+  html+='<div class="grid"><div class="card"><h3>Distribuzione percentuale dei residenti</h3><div class="section-pie-wrap"><canvas id="housingPopulationPie"></canvas></div></div><div class="card"><h3>Distribuzione percentuale delle abitazioni</h3><div class="section-pie-wrap"><canvas id="housingDwellingsPie"></canvas></div></div><div class="card"><h3>Distribuzione percentuale degli edifici</h3><div class="section-pie-wrap"><canvas id="housingBuildingsPie"></canvas></div></div><div class="card"><h3>Densità abitativa per unità territoriale</h3><div style="height:360px;position:relative"><canvas id="housingDensityBar"></canvas></div></div><div class="card"><h3>Densità edilizia per unità territoriale</h3><div style="height:360px;position:relative"><canvas id="housingBuildingBar"></canvas></div></div></div>';
+  html+='<div class="card"><h3>Indicatori per '+levelLabel+' · '+esc(title)+'</h3><p class="muted">Unità territoriali in tabella: '+rows.length+'. Superficie totale: '+fmtH(area,2)+' km². Densità calcolate su area geometrica ISTAT, non sulla sola superficie urbanizzata o edificabile.</p><div class="table-wrap"><table><thead><tr><th>Unità territoriale</th><th>Residenti</th><th>Famiglie</th><th>Abitazioni</th><th>Edifici</th><th>km²</th><th>Ab./km²</th><th>Edifici/km²</th><th>Abitazioni/km²</th><th>Residenti/famiglia</th><th>Abitazioni/famiglia</th><th>Residenti/abitazione</th><th>Abitazioni/edificio</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong></td><td>'+fmtH(x.population)+'</td><td>'+fmtH(x.families)+'</td><td>'+fmtH(x.dwellings)+'</td><td>'+fmtH(x.buildings)+'</td><td>'+fmtH(x.area_km2,2)+'</td><td>'+fmtH(x.population_density_km2,0)+'</td><td>'+fmtH(x.building_density_km2,0)+'</td><td>'+fmtH(x.dwelling_density_km2,0)+'</td><td>'+fmtH(x.residents_per_family,2)+'</td><td>'+fmtH(x.dwellings_per_family,2)+'</td><td>'+fmtH(x.residents_per_dwelling,2)+'</td><td>'+fmtH(x.dwellings_per_building,2)+'</td></tr>').join('')+'</tbody></table></div></div>';
+  html+='<div class="card"><h3>Come interpretare gli indici di abitabilità</h3><p><strong>Residenti per famiglia</strong>: dimensione media del nucleo familiare.</p><p><strong>Abitazioni per famiglia</strong>: rapporto tra stock abitativo complessivo e famiglie censite. Un valore superiore a 1 segnala una dotazione di abitazioni maggiore del numero di famiglie, ma non misura direttamente le abitazioni vuote.</p><p><strong>Residenti per abitazione</strong>: pressione demografica sullo stock abitativo totale. Non equivale all’occupazione media delle sole abitazioni occupate.</p><p><strong>Abitazioni per edificio</strong>: intensità dello stock abitativo rispetto al numero di edifici censiti.</p><p class="notice-inline">Questi sono indicatori statistici di struttura e pressione abitativa, non certificazioni di abitabilità edilizia. Il file ISTAT utilizzato in questa elaborazione riporta il totale delle abitazioni (ABI21), senza la distinzione tra occupate e non occupate: non viene quindi calcolato né mostrato un tasso di vacanza abitativa. Per la qualità igienico-sanitaria, statica, impiantistica e funzionale servono altre fonti e verifiche.</p></div>';
+ }
 }else if(active==='compare'){
 const datiCirc=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');
 const confronto=DATA.territories.circoscrizioni.map(c=>{
@@ -644,6 +681,7 @@ if(active==='social'){
  ['Comune di Palermo','Popolazione per sezione censuaria e cittadinanza','2022 · 31/12','Dataset 1691','https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1691','Da associare alle geometrie solo dopo verifica dei codici delle sezioni.'],
  ['Comune di Palermo','Popolazione per sezione censuaria e fasce quinquennali d’età','2022 · 31/12','Dataset 1706','https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706','Fonte anagrafica; aggregazione geografica ancora da completare.'],
  ['ISTAT','Censimento permanente 2023 per sezioni e aree subcomunali','2023 · 31/12','Download ZIP capoluoghi metropolitani','https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip','Archivio ufficiale diretto. Verificare copertura Palermo, tracciato, codici e quadratura prima dell’importazione.'],
+ ['ISTAT','Basi territoriali e variabili censuarie: popolazione, famiglie, abitazioni ed edifici','2021 · 31/12','Basi territoriali 2021','https://www.istat.it/notizia/basi-territoriali-e-variabili-censuarie/','Elaborazione di POP21, FAM21, ABI21, EDI21 e superficie geografica per 8 circoscrizioni, 25 quartieri e 55 UPL. ABI21 è il totale delle abitazioni, non distingue occupate e non occupate.'],
  ['ISTAT','Basi territoriali 2021 – sezioni censuarie Sicilia','2021','Download SHP Sicilia','https://www.istat.it/storage/cartografia/basi_territoriali/2021/R19_21.zip','Archivio regionale ufficiale, CRS EPSG:32632. Da estrarre e validare per codici comunali, geometrie e copertura Palermo.'], ['ISTAT','Aree subcomunali 2021 – municipi e circoscrizioni','2021 · file sostituito 14/05/2026','Download SHP / XLS','https://www.istat.it/wp-content/uploads/2025/04/ASC_21.zip','Fonte geografica ufficiale per le partizioni subcomunali; verificare denominazioni e corrispondenza con l’assetto comunale.'],
  ['Comune di Palermo','Perimetrazione delle circoscrizioni comunali','2013 · catalogo aggiornato 2018','Dataset 265 · SHP','https://opendata.comune.palermo.it/opendata-dataset.php?dataset=265','Fonte ufficiale, ma da verificare rispetto all’assetto amministrativo corrente.'],
  ['Comune di Palermo','Scuole comunali','2015–2020 · catalogo aggiornato 2021','Dataset 328 · KML','https://opendata.comune.palermo.it/opendata-dataset.php?dataset=328','Inventario storico da verificare rispetto all’offerta attuale.'],
@@ -664,7 +702,7 @@ if(active==='social'){
 
  }
   const pieCanvasId='sectionTerritoryPie';
- const pieTitle={overview:'Composizione del quadro territoriale',green:'Superfici verdi e agricole per destinazione PRG',demography:'Composizione della popolazione residente',social:'Distribuzione delle UPL per classi IDISE',schools:'Distribuzione dei punti scolastici per ordine prevalente',standards:'Ripartizione dei parametri minimi di standard',gis:'Articolazione dei livelli territoriali',spatial:'Distribuzione della popolazione censuaria 2021 per UPL',compare:'Popolazione per circoscrizione',sources:'Fonti documentali per archivio'}[active]||'Analisi territoriale';
+ const pieTitle={housing:'Struttura abitativa ed edilizia',overview:'Composizione del quadro territoriale',green:'Superfici verdi e agricole per destinazione PRG',demography:'Composizione della popolazione residente',social:'Distribuzione delle UPL per classi IDISE',schools:'Distribuzione dei punti scolastici per ordine prevalente',standards:'Ripartizione dei parametri minimi di standard',gis:'Articolazione dei livelli territoriali',spatial:'Distribuzione della popolazione censuaria 2021 per UPL',compare:'Popolazione per circoscrizione',sources:'Fonti documentali per archivio'}[active]||'Analisi territoriale';
  let pieLabels=[],pieValues=[];
  const pieNorm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  if(active==='overview'){pieLabels=['Circoscrizioni','Quartieri','UPL','Sezioni censuarie'];pieValues=[DATA.territories.circoscrizioni.length,DATA.territories.quartieri.length,GEO.asc3?.features?.length||55,GEO.sections?.features?.length||3600];}
@@ -676,7 +714,7 @@ if(active==='social'){
  else if(active==='spatial'){const top=asc3Sorted.slice(0,8),other=asc3Sorted.slice(8).reduce((n,x)=>n+x.pop,0);pieLabels=top.map(x=>x.name);pieValues=top.map(x=>x.pop);if(other>0){pieLabels.push('Altre UPL');pieValues.push(other);}}
  else if(active==='compare'){const ds=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');const rows=DATA.territories.circoscrizioni.map(c=>({name:c.name,value:Number(ds.find(x=>x.territorio_id===c.id)?.totale)||0}));pieLabels=rows.map(x=>x.name);pieValues=rows.map(x=>x.value);}
  else if(active==='sources'){pieLabels=['Record demografici','UPL archiviate','Punti scolastici','Sezioni censuarie'];pieValues=[DATA.demografia.length,(DATA.sociale||[]).length,(DATA.schoolPoints||[]).length,GEO.sections?.features?.length||0];}
- if(active!=='green')html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
+ if(active!=='green'&&active!=='housing')html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  html=html.replace(/(?:\\[object Object\\]\\s*,?\\s*){2,}/g,'').replace(/\\[object Object\\]/g,'');
  $('#content').innerHTML=html;
  if(active==='schools'){initSchools();}
@@ -720,6 +758,18 @@ if(active==='social'){
   }
   document.querySelectorAll('.upl-check').forEach(c=>c.addEventListener('change',aggiornaConfronto));
   aggiornaConfronto();
+}
+if(active==='housing'&&window.Chart&&DATA.housing){
+ const s=selected(),d=DATA.housing;let rows=d.circoscrizioni;
+ if(s.circ){rows=d.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code);return f&&featureBelongsToCirc(f,'asc3',s.circ);});}
+ if(s.quart||s.asc2){const qf=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):findAsc2FeatureForQuartiere(DATA.territories.quartieri.find(q=>q.id===s.quart));const qc=qf?String(qf.properties?.COM_ASC2||''):'';rows=d.upl.filter(x=>{const f=GEO.asc3?.features?.find(z=>String(z.properties?.COM_ASC3)===x.code),p=f?findParentFeature(f,'asc3','asc2'):null;return p&&String(p.properties?.COM_ASC2)===qc;});}
+ if(s.asc3)rows=d.upl.filter(x=>x.code===String(s.asc3));
+ if(s.section){const f=GEO.sections?.features?.find(z=>String(z.properties?.SEZ21_ID)===String(s.section)),p=f?findParentFeature(f,'section','asc3'):null;rows=d.upl.filter(x=>p&&x.code===String(p.properties?.COM_ASC3));}
+ const fmt=v=>Number(v||0).toLocaleString('it-IT');
+ const labels=rows.map(x=>x.name),makePie=(id,key)=>{const el=document.getElementById(id);if(el&&rows.length>1)charts.push(new Chart(el,{type:'pie',data:{labels,datasets:[{data:rows.map(x=>Number(x[key])||0)}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));};
+ makePie('housingPopulationPie','population');makePie('housingDwellingsPie','dwellings');makePie('housingBuildingsPie','buildings');
+ const densityBar=document.getElementById('housingDensityBar');if(densityBar&&rows.length)charts.push(new Chart(densityBar,{type:'bar',data:{labels,datasets:[{label:'Residenti per km²',data:rows.map(x=>Number(x.population_density_km2.toFixed(1)))}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));
+ const buildingBar=document.getElementById('housingBuildingBar');if(buildingBar&&rows.length)charts.push(new Chart(buildingBar,{type:'bar',data:{labels,datasets:[{label:'Edifici per km²',data:rows.map(x=>Number(x.building_density_km2.toFixed(1)))}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));
 }
 if(active==='demography'&&window.Chart){
  const sd=selected();
@@ -1606,7 +1656,7 @@ async function initGreenMap(){
  }catch(error){console.error('Analisi del verde non disponibile',error);if(status)status.textContent='Impossibile caricare la cartografia del verde: '+error.message;}
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
-async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();loadSchoolArchives();} 
+async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json(); let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let h=await fetch('data/analisi_densita_abitativa_2021.json',{cache:'no-store'});if(h.ok)DATA.housing=await h.json();let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();await loadGeoCatalog();}catch(e){$('#status').textContent='Struttura pronta · dati non caricati';}render();loadSchoolArchives();} 
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
