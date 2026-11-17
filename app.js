@@ -1015,10 +1015,10 @@ function initStandardSchoolMap(){
    const category=code=>{
     const z=String(code||'').toUpperCase();
     const found=[];
-    if(/S\\d/.test(z))found.push('S');
-    if(/IC\\d/.test(z))found.push('IC');
-    if(/V\\d|^V$|^VS/.test(z))found.push('V');
-    if(/F\\d/.test(z))found.push('F');
+    if(/S\d/.test(z))found.push('S');
+    if(/IC\d/.test(z))found.push('IC');
+    if(/V\d|^V$|^VS/.test(z))found.push('V');
+    if(/F\d/.test(z))found.push('F');
     if(z==='PARCHEGGI')found.push('P');
     return found.length===1?found[0]:found.length>1?'M':'ALT';
    };
