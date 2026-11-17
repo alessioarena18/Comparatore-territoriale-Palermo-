@@ -113,7 +113,6 @@ def main():
       "per_tipo_inventario_2013":hist_by_type,"per_classe_prg":class_rows,"perimetri_territoriali":territorial,
       "qa":{"geometrie_storiche_scartate":invalid_h,"geometrie_prg_scartate":invalid_p,"geometrie_storiche_non_valide_riparate_con_buffer0":repaired_h}
     }
-    OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"
-",encoding="utf-8")
+    OUT.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"status":"completed","global":result["global"],"counts":{k:len(v) for k,v in territorial.items()}},ensure_ascii=False,indent=2))
 if __name__=="__main__":main()
