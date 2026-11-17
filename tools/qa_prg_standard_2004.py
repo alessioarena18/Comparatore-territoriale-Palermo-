@@ -57,6 +57,7 @@ def topology_audit(features):
 
     tree = STRtree(projected)
     overlaps = []
+    overlap_pair_count = 0
     overlap_area_total = 0.0
     for i, geom in enumerate(projected):
         for raw_j in tree.query(geom):
@@ -68,6 +69,7 @@ def topology_audit(features):
                 continue
             area = geom.intersection(other).area
             if area > 1.0:
+                overlap_pair_count += 1
                 overlap_area_total += area
                 if len(overlaps) < 100:
                     overlaps.append({
@@ -84,7 +86,7 @@ def topology_audit(features):
         "invalid_geometry_count": len(invalid),
         "invalid_geometries_sample": invalid[:100],
         "duplicate_geometry_count": duplicates,
-        "overlap_pair_count_over_1m2": len(overlaps),
+        "overlap_pair_count_over_1m2": overlap_pair_count,
         "overlap_pairs_sample_max_100": overlaps,
         "overlap_area_sum_m2": round(overlap_area_total, 2),
         "overlap_area_sum_note": "Somma delle intersezioni a coppie; in presenza di tripli overlap una stessa porzione può essere conteggiata più volte.",
