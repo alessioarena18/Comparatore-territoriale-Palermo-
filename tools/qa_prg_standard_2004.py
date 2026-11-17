@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Audit riproducibile del GeoJSON PRG 2004 già integrato nel comparatore.
+"""Audit riproducibile del GeoJSON PRG 2004.
 
-Controlli strutturali e di plausibilità geografica; non sostituisce QGIS,
-la verifica topologica o il controllo della vigenza urbanistica.
+Controlli strutturali, plausibilità geografica e diagnostica topologica.
+Il controllo automatico non sostituisce la verifica delle NTA, degli atti
+urbanistici, della vigenza o dell'attuazione delle previsioni.
 """
 from __future__ import annotations
 import collections, json, pathlib, sys
@@ -17,7 +18,6 @@ EXPECTED = {
     "P": {"features": 434, "area_m2": 1497104.22},
     "F": {"features": 291, "area_m2": 15313777.12},
 }
-# Inviluppo volutamente ampio, usato soltanto per intercettare errori di CRS.
 PALERMO = (12.9, 37.7, 13.8, 38.5)
 
 def walk(value, coords):
@@ -28,6 +28,69 @@ def walk(value, coords):
             for child in value:
                 walk(child, coords)
 
+def topology_audit(features):
+    try:
+        from shapely.geometry import shape
+        from shapely.strtree import STRtree
+        from shapely.ops import transform
+        from pyproj import Transformer
+    except ImportError as exc:
+        raise RuntimeError("Dipendenze topologiche mancanti: installare shapely e pyproj") from exc
+
+    transformer = Transformer.from_crs("EPSG:4326", "EPSG:32633", always_xy=True)
+    projected = []
+    invalid = []
+    normalized = set()
+    duplicates = 0
+
+    for index, feature in enumerate(features):
+        geom = shape(feature["geometry"])
+        if not geom.is_valid:
+            from shapely.validation import explain_validity
+            invalid.append({"feature_index": index, "reason": explain_validity(geom)})
+        key = geom.normalize().wkb
+        if key in normalized:
+            duplicates += 1
+        else:
+            normalized.add(key)
+        projected.append(transform(transformer.transform, geom))
+
+    tree = STRtree(projected)
+    overlaps = []
+    overlap_area_total = 0.0
+    for i, geom in enumerate(projected):
+        for raw_j in tree.query(geom):
+            j = int(raw_j)
+            if j <= i:
+                continue
+            other = projected[j]
+            if not geom.intersects(other):
+                continue
+            area = geom.intersection(other).area
+            if area > 1.0:
+                overlap_area_total += area
+                if len(overlaps) < 100:
+                    overlaps.append({
+                        "feature_a": i,
+                        "feature_b": j,
+                        "overlap_m2": round(area, 2),
+                        "group_a": features[i].get("properties", {}).get("PRG_GROUP"),
+                        "group_b": features[j].get("properties", {}).get("PRG_GROUP")
+                    })
+
+    return {
+        "engine": "Shapely + pyproj",
+        "projected_crs_for_area": "EPSG:32633",
+        "invalid_geometry_count": len(invalid),
+        "invalid_geometries_sample": invalid[:100],
+        "duplicate_geometry_count": duplicates,
+        "overlap_pair_count_over_1m2": len(overlaps),
+        "overlap_pairs_sample_max_100": overlaps,
+        "overlap_area_sum_m2": round(overlap_area_total, 2),
+        "overlap_area_sum_note": "Somma delle intersezioni a coppie; in presenza di tripli overlap una stessa porzione può essere conteggiata più volte.",
+        "status": "review_required" if invalid or duplicates or overlaps else "no_issues_detected"
+    }
+
 def main():
     fc = json.loads(SOURCE.read_text(encoding="utf-8"))
     assert fc.get("type") == "FeatureCollection", "type GeoJSON non valido"
@@ -37,12 +100,14 @@ def main():
     assert "gbvitrano/prg_pa_2004" in fc.get("source", ""), "rielaborazione non attribuita"
     assert fc.get("license") == "CC BY 4.0 IT", "licenza non dichiarata"
     assert fc.get("crs", {}).get("properties", {}).get("name", "").endswith("CRS84"), "CRS atteso CRS84"
+
     counts = collections.Counter()
     areas = collections.defaultdict(float)
     geom_types = collections.Counter()
     coords = []
     missing = []
     invalid_rings = 0
+
     for i, feature in enumerate(fc["features"]):
         props = feature.get("properties") or {}
         group = props.get("PRG_GROUP")
@@ -64,6 +129,7 @@ def main():
             if len(ring) < 4 or ring[0] != ring[-1]:
                 invalid_rings += 1
         walk(geom.get("coordinates", []), coords)
+
     if missing:
         raise ValueError(f"attributi PRG_ID/PRG_CODE mancanti in {len(missing)} feature")
     if invalid_rings:
@@ -72,10 +138,12 @@ def main():
         raise ValueError("nessuna coordinata")
     if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in coords):
         raise ValueError("coordinate fuori dai limiti WGS84")
+
     bbox = [min(x for x, _ in coords), min(y for _, y in coords), max(x for x, _ in coords), max(y for _, y in coords)]
     west, south, east, north = PALERMO
     if bbox[2] < west or bbox[0] > east or bbox[3] < south or bbox[1] > north:
         raise ValueError(f"bbox non intercetta Palermo: {bbox}")
+
     groups = {}
     for group, expected in EXPECTED.items():
         area = round(areas[group], 2)
@@ -84,6 +152,8 @@ def main():
         if abs(area - expected["area_m2"]) > 0.01:
             raise ValueError(f"{group}: area {area} != {expected['area_m2']}")
         groups[group] = {"features": counts[group], "area_m2": area, "area_ha": round(area / 10000, 2)}
+
+    topology = topology_audit(fc["features"])
     report = {
         "status": "passed",
         "file": "data/geo/prg_standard_2004.geojson",
@@ -95,8 +165,10 @@ def main():
         "bbox_wgs84": [round(x, 8) for x in bbox],
         "coordinate_count": len(coords),
         "groups": groups,
+        "topology_audit": topology,
         "limitations": [
-            "Controllo strutturale e geografico preliminare, non validazione topologica completa.",
+            "La diagnostica topologica segnala geometrie invalide, duplicati e sovrapposizioni; non determina se una sovrapposizione sia giuridicamente legittima.",
+            "Il controllo non verifica la corrispondenza semantica di ogni codice con NTA e tavole ufficiali.",
             "Le superfici geometriche non attestano attuazione, proprietà pubblica o disponibilità effettiva.",
             "Il dataset 321 dei vincoli non è incluso nel GeoJSON analizzato.",
             "La base è riferita alla Variante Generale PRG presa d'atto con DCC 7/2004; verificare atti e varianti successive."
