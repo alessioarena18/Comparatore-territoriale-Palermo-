@@ -1,0 +1,40 @@
+{
+  "title": "Perimetrazione area verde comunale · ricognizione 2013",
+  "dataset": 278,
+  "publisher": "Comune di Palermo",
+  "source_page": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=278",
+  "source_download": "https://opendata.comune.palermo.it/js/server/uploads/dataset/shp/_10012018113342.zip",
+  "published": "2013-02-22",
+  "catalog_updated": "2021-09-06",
+  "temporal_coverage": "2013-01-01/2013-12-31",
+  "technical_documentation": null,
+  "license": "CC BY 4.0 IT",
+  "acquired_utc": "2026-11-17T22:08:51.220715+00:00",
+  "source_sha256": "8bfaee8e051e982a34d93ef72ab151fc3ef756fdb646b36b4c630222f5c5dff9",
+  "source_bytes": 357508,
+  "source_shapefile": "AREA_VERDE.shp",
+  "feature_count": 2089,
+  "geometry_types": {
+    "Polygon": 2087,
+    "MultiPolygon": 2
+  },
+  "property_fields": [
+    "ID",
+    "TIPO"
+  ],
+  "bbox_wgs84": [
+    13.2677644,
+    38.0723178,
+    13.4418737,
+    38.2083971
+  ],
+  "output": "data/geo/verde_comunale_2013.geojson",
+  "status": "acquired_converted_preliminary_qa_passed",
+  "limitations": [
+    "Ricognizione storica con copertura temporale 2013, non inventario aggiornato.",
+    "Il dataset non contiene documentazione tecnica secondo il catalogo comunale.",
+    "Non sostituisce la zonizzazione PRG e non certifica proprietà pubblica o privata, attuazione, accessibilità o fruibilità.",
+    "Le geometrie non devono essere sommate alle superfici PRG: il layer è un confronto indipendente.",
+    "Il controllo geografico preliminare non certifica topologia, completezza o validità catastale."
+  ]
+}
