@@ -1367,38 +1367,41 @@ function initSchools(){
  rows.addEventListener('click',e=>{const row=e.target.closest('tr[data-school-id]');if(row)selectSchool(row.dataset.schoolId,true);});
  rows.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const row=e.target.closest('tr[data-school-id]');if(row){e.preventDefault();selectSchool(row.dataset.schoolId,true);}}});
  if($('#schoolMap')&&window.L){
-  // Stessa inizializzazione cartografica della mappa "Standard urbanistici".
+  // Mappa scolastica autonoma, con lo stesso schema Leaflet della pagina Standard urbanistici.
   map=L.map('schoolMap').setView([38.1157,13.3615],11);
   addPalermoBaseLayers(map);
-  const territoryOverlays={};
+  const overlays={};
   const territoryDefs=[
-   {key:'asc1',name:'Circoscrizioni ASC1',color:'#1769aa',checked:true,code:'COD_ASC1',label:'DEN_ASC1'},
-   {key:'asc2',name:'Quartieri ASC2',color:'#c05a21',checked:false,code:'COM_ASC2',label:'DEN_ASC2'},
-   {key:'asc3',name:'UPL ASC3',color:'#27834a',checked:false,code:'COM_ASC3',label:'DEN_ASC3'},
-   {key:'sections',name:'Sezioni censuarie ISTAT 2021',color:'#8054a6',checked:false,code:'SEZ21_ID',label:'SEZ21'}
+   {key:'asc1',name:'Circoscrizioni ISTAT 2021',color:'#1769aa',code:'COD_ASC1',label:'DEN_ASC1'},
+   {key:'asc2',name:'Quartieri ISTAT 2021',color:'#c05a21',code:'COM_ASC2',label:'DEN_ASC2'},
+   {key:'asc3',name:'UPL ISTAT 2021',color:'#27834a',code:'COM_ASC3',label:'DEN_ASC3'},
+   {key:'sections',name:'Sezioni censuarie ISTAT 2021',color:'#8054a6',code:'SEZ21_ID',label:'SEZ21'}
   ];
   territoryDefs.forEach(def=>{
    const data=GEO[def.key];
-   if(!data||!Array.isArray(data.features)||!data.features.length)return;
-   const polygons=L.geoJSON(data,{style:()=>({color:def.color,weight:def.key==='sections'?.55:1.35,fillColor:def.color,fillOpacity:def.key==='sections'?.015:.035}),onEachFeature:(feature,featureLayer)=>{
-    const props=feature.properties||{},name=props[def.label]||props[def.code]||def.name;
-    featureLayer.bindPopup('<strong>'+esc(name)+'</strong><br><small>'+esc(def.name)+' · ISTAT 2021</small>');
-    if(def.key!=='sections')featureLayer.bindTooltip(esc(name),{permanent:false,direction:'center',className:'gis-polygon-label'});
-    featureLayer.on('click',()=>{const value=props[def.code];if(value!==undefined&&value!==null)syncGeoSelection(def.key==='sections'?'section':def.key,String(value));});
-   }});
-   territoryOverlays[def.name]=polygons;
-   if(def.checked)polygons.addTo(map);
+   if(!data?.features?.length)return;
+   const polygons=L.geoJSON(data,{
+    style:()=>({color:def.color,weight:def.key==='sections'?.45:1.15,fillColor:def.color,fillOpacity:def.key==='sections'?.008:.025}),
+    onEachFeature:(feature,featureLayer)=>{
+     const props=feature.properties||{},name=props[def.label]||props[def.code]||def.name;
+     featureLayer.bindPopup('<strong>'+esc(name)+'</strong><br><small>'+esc(def.name)+' · ISTAT 2021</small>');
+     if(def.key!=='sections')featureLayer.bindTooltip(esc(name),{direction:'center',className:'gis-polygon-label'});
+     featureLayer.on('click',()=>{const value=props[def.code];if(value!==undefined&&value!==null)syncGeoSelection(def.key==='sections'?'section':def.key,String(value));});
+    }
+   });
+   overlays[def.name]=polygons;
+   if(def.key==='asc1')polygons.addTo(map);
   });
-  layer=L.layerGroup().addTo(map);
-  territoryOverlays['Sedi scolastiche georeferenziate · '+pts.length+' punti']=layer;
+  layer=L.layerGroup();
+  overlays['Sedi scolastiche georeferenziate · '+pts.length]=layer;
   const influenceSpecs=[
    {key:'early',label:'Nidi e infanzia · 300 m',radius:300,color:'#d97706',match:/NIDO|INFANZIA/},
-   {key:'primary',label:'Primaria · 500 m',radius:500,color:'#16845b',match:/PRIMARIA/},
-   {key:'secondary',label:'Secondaria · 1.000 m',radius:1000,color:'#2563eb',match:/SECONDARIA/}
+   {key:'primary',label:'Primaria · 500 m',radius:500,color:'#16845b',match:/PRIMARIA|ELEMENTARI/},
+   {key:'secondary',label:'Secondaria · 1.000 m',radius:1000,color:'#2563eb',match:/SECONDARIA|MEDIE/}
   ];
   const influenceLayers=Object.fromEntries(influenceSpecs.map(spec=>{
-   const group=L.layerGroup().addTo(map);
-   territoryOverlays['Raggi d’influenza · '+spec.label]=group;
+   const group=L.layerGroup();
+   overlays['Raggi d’influenza · '+spec.label]=group;
    return [spec.key,group];
   }));
   const drawInfluenceBuffers=list=>{
@@ -1409,50 +1412,33 @@ function initSchools(){
     const ordersText=String(record.ordine_scolastico_operativo||record.ordine_scolastico_verificato||'');
     influenceSpecs.forEach(spec=>{
      if(!spec.match.test(ordersText))return;
-     const circle=L.circle([Number(p.lat),Number(p.lon)],{radius:spec.radius,color:spec.color,weight:3,opacity:1,fillColor:spec.color,fillOpacity:.22,interactive:true});
-     circle.bindPopup('<strong>Raggio d’influenza scolastica</strong><br>'+esc(p.name)+'<br>'+esc(spec.label)+'<br><small>Buffer geometrico circolare, misurato in linea d’aria dal punto georeferenziato. Non rappresenta un bacino ufficiale, un percorso pedonale o una verifica di accessibilità.</small>');
-     circle.bindTooltip(esc(p.name)+' · '+spec.radius.toLocaleString('it-IT')+' m');
-     circle.addTo(influenceLayers[spec.key]);
+     L.circle([Number(p.lat),Number(p.lon)],{radius:spec.radius,color:spec.color,weight:2,opacity:.9,fillColor:spec.color,fillOpacity:.10})
+      .bindPopup('<strong>Raggio d’influenza scolastica</strong><br>'+esc(p.name)+'<br>'+esc(spec.label)+'<br><small>Buffer geometrico in linea d’aria, non bacino ufficiale né percorso pedonale.</small>')
+      .addTo(influenceLayers[spec.key]);
     });
    });
   };
-  const territoryControl=L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
+  L.control.layers(null,overlays,{collapsed:false,position:'topright'}).addTo(map);
   layer.addTo(map);
   Object.values(influenceLayers).forEach(group=>group.addTo(map));
-  const serviceCategoryStyles={IC:{color:'#d97706',label:'Interesse comune'},V:{color:'#16845b',label:'Verde e sport'},P:{color:'#475569',label:'Parcheggi'},F:{color:'#7c3aed',label:'Interesse generale'}};
-  loadPublicFacilities().then(facilities=>{
-   const groups={IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
-   facilities.forEach(item=>{
-    const style=serviceCategoryStyles[item.category];if(!style)return;
-    const marker=L.circleMarker([item.lat,item.lon],{radius:6,color:style.color,fillColor:style.color,fillOpacity:.88,weight:1.5});
-    marker.bindPopup('<div class="school-popup"><b>'+esc(item.name)+'</b><br>'+esc(style.label)+'<br>'+esc(item.subtype||'')+(item.address?'<br>'+esc(item.address):'')+'<br><small>Fonte: OpenStreetMap. Punto di servizio da verificare per titolarità pubblica, stato operativo e corrispondenza PRG.</small></div>');
-    marker.addTo(groups[item.category]);
-   });
-   map.removeControl(territoryControl);
-   Object.entries(groups).forEach(([key,group])=>{territoryOverlays['Servizi e dotazioni · '+serviceCategoryStyles[key].label+' (OSM)']=group;});
-   L.control.layers(null,territoryOverlays,{collapsed:false,position:'topright'}).addTo(map);
-   const note=$('#schoolMapStatus');if(note)note.textContent+=' Archivio condiviso: '+facilities.length+' luoghi e servizi OSM classificati per categoria; verifica di proprietà e destinazione PRG separata.';
-  }).catch(error=>{const note=$('#schoolMapStatus');if(note)note.textContent+=' Archivio dei servizi OSM non disponibile: '+String(error.message||error)+'. Il censimento scolastico resta disponibile.';});
-  const missingSections=!GEO.sections||!Array.isArray(GEO.sections.features)||!GEO.sections.features.length;
   draw();
-  // Inquadramento automatico delle sedi: la mappa viene adattata ai marker caricati.
-  const schoolMarkers=layer?.getLayers()||[];
-  if(schoolMarkers.length){
-   const schoolBounds=L.featureGroup(schoolMarkers).getBounds();
-   if(schoolBounds.isValid())map.fitBounds(schoolBounds,{padding:[28,28],maxZoom:13});
-   schoolMarkers.forEach(marker=>marker.bringToFront?.());
+  const markerLayers=layer.getLayers();
+  if(markerLayers.length){
+   const bounds=L.featureGroup(markerLayers).getBounds();
+   if(bounds.isValid())map.fitBounds(bounds,{padding:[28,28],maxZoom:13});
   }
   const mapNote=$('#schoolMapStatus');
   const georeferencedCount=pts.filter(p=>Number.isFinite(Number(p.lat))&&Number.isFinite(Number(p.lon))).length;
+  const markerCount=layer.getLayers().length;
   const eligiblePoints=schoolCensus.filter(x=>x.bufferEligible===true).length;
-  const visibleBuffers=Object.values(influenceLayers).reduce((n,group)=>n+group.getLayers().length,0);
-  const markerCount=layer?.getLayers().length||0;
-  const diagnosticText=' Verifica tecnica: '+georeferencedCount+' coordinate valide; '+markerCount+' sedi rappresentate con circleMarker, come nella mappa Standard urbanistici; '+eligiblePoints+' sedi abilitate V81; '+visibleBuffers+' cerchi di influenza creati.';
-  const schoolStatus=$('#schoolStatus');if(schoolStatus)schoolStatus.textContent=diagnosticText.trim();
-  if(mapNote)mapNote.textContent=(mapNote.textContent||'')+' '+diagnosticText;
-  console.info('[Comparatore] Mappa scuole', {georeferencedCount,markerCount,eligiblePoints,visibleBuffers});
-  setTimeout(()=>{map.invalidateSize(true);if(!map.hasLayer(layer))layer.addTo(map);Object.values(influenceLayers).forEach(group=>{if(!map.hasLayer(group))group.addTo(map);});},350);
- }else{$('#schoolMap').innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';draw();}
+  if(mapNote)mapNote.textContent='Mappa scolastica caricata: '+markerCount+' sedi visibili su '+georeferencedCount+' punti georeferenziati. '+eligiblePoints+' sedi abilitate ai raggi V81. Le sedi sono un livello autonomo, attivo all’apertura; confini e raggi sono livelli separati.';
+  const schoolStatus=$('#schoolStatus');if(schoolStatus)schoolStatus.textContent='Mappa scolastica: '+markerCount+' sedi visualizzate.';
+  console.info('[Comparatore] Mappa servizi e dotazioni', {georeferencedCount,markerCount,eligiblePoints});
+  setTimeout(()=>map.invalidateSize(true),250);
+ }else{
+  const host=$('#schoolMap');if(host)host.innerHTML='<p class="muted">Mappa non disponibile; resta consultabile la tabella.</p>';
+  draw();
+ }
  [kind,order,search,$('#schoolVerificationFilter'),$('#schoolBufferFilter')].forEach(x=>x?.addEventListener('input',draw));
  const so=$('#schoolStatsOrder'),ss=$('#schoolStatsSearch'),sr=$('#schoolStatsRows'),st=$('#schoolStatsStatus');
  const drawStats=()=>{const a=stats.filter(x=>{const r=registerByCode.get(String(x.code))||{};return (!so.value||x.order===so.value)&&(!ss.value||norm([x.code,x.name,x.institution,r.institutionCode2026,r.institution2026,r.institutionAddress2026].join(' ')).includes(norm(ss.value)));});sr.innerHTML=a.slice(0,300).map(x=>{const r=registerByCode.get(String(x.code))||{};return '<tr><td>'+esc(x.code)+'</td><td>'+esc(x.name)+'</td><td>'+esc(x.order)+'</td><td>'+esc(x.institution)+'</td><td>'+Number(x.students||0).toLocaleString('it-IT')+'</td><td>'+Number(x.classes||0).toLocaleString('it-IT')+'</td><td>'+Number(x.students_disability||0).toLocaleString('it-IT')+'</td><td>'+esc(r.institutionCode2026||'N.D.')+'</td><td>'+esc(r.institution2026||'Non presente nel registro 2026/27')+'</td><td>'+esc(r.institutionAddress2026||'N.D.')+'</td><td>'+esc(r.registryMatch||'Da verificare')+'</td><td>'+((r.mapPointIds&&r.mapPointIds.length)?r.mapPointIds.map((id,i)=>'<button type="button" class="school-open-map" data-map-point="'+esc(id)+'">'+(r.mapPointIds.length>1?'Apri corpo '+String.fromCharCode(65+i):'Apri sede')+'</button>').join(' '):(r.mapPointId?'<button type="button" class="school-open-map" data-map-point="'+esc(r.mapPointId)+'">Apri sede</button>':'<span class="muted">Non associata</span>'))+'</td></tr>';}).join('')||'<tr><td colspan="12">Nessun record.</td></tr>';const matches=register.filter(x=>x.registryMatch==='CODICE_COINCIDENTE').length;const documented=register.filter(x=>x.registryMatch==='ASSOCIAZIONE_DOCUMENTALE_CONFERMATA').length;const unresolved=register.length-matches-documented;const linked=register.filter(x=>x.mapPointId||x.mapPointIds?.length).length;const mappedPoints=new Set(register.flatMap(x=>x.mapPointIds?.length?x.mapPointIds:(x.mapPointId?[x.mapPointId]:[]))).size;st.textContent='Record visualizzati: '+Math.min(a.length,300)+' su '+a.length+'. Registro plessi: '+register.length+'; abbinamenti per codice esatto: '+matches+'; raccordi documentali per scuole annesse: '+documented+'; codici di plesso collegati a punti cartografici: '+linked+' su '+register.length+' ('+mappedPoints+' sedi fisiche); associazioni fisiche ancora da verificare: '+(register.length-linked)+'. Fonti USR, MIM e siti scolastici ufficiali.';};
