@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "name": "Parchi urbani integrativi di Palermo",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "parco_uditore",
+        "name": "Parco Uditore",
+        "category": "verde_pubblico_esistente",
+        "status": "esistente",
+        "status_label": "Verde pubblico esistente",
+        "area_note": "Circa 9 ettari secondo il soggetto gestore; superficie non verificata su perimetro GIS ufficiale.",
+        "description": "Parco aperto alla fruizione pubblica in Piazza Albert Einstein.",
+        "source_url": "https://docs.comune.palermo.it/verde-pubblico-dettaglio.php?id=278",
+        "geometry_source": "Localizzazione puntuale da cartografia OpenStreetMap/Mapcarta; non è un perimetro."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32723,
+          38.12968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "parco_villa_turrisi",
+        "name": "Parco Villa Turrisi",
+        "category": "parco_urbano_in_progetto",
+        "status": "progetto",
+        "status_label": "Ambito di parco urbano in progetto",
+        "area_note": "Circa 25 ettari per l'intero ambito, prevalentemente privato; solo alcuni nuclei sono pubblici e il progetto comunale riguarda un primo giardino pubblico.",
+        "description": "Ambito tra viale Leonardo da Vinci e le vie Ruggeri, De Grossis, Di Blasi e Politi. Il progetto comunale del primo giardino pubblico risulta in fase di progettazione/attuazione procedurale.",
+        "source_url": "https://repository.comune.palermo.it/pnrr/pnrr-palermo-progetto-scheda.php?id=49",
+        "geometry_source": "Localizzazione puntuale indicativa, non perimetro del parco né del lotto di intervento."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32068,
+          38.1276
+        ]
+      }
+    }
+  ]
+}
