@@ -218,3 +218,14 @@ La Relazione generale PRG2.0 Palermo 2025, pp. 78-82, è stata riletta direttame
 1. Controllo automatico sintassi e dati sul branch `fix/categorie-standard-interesse-generale-f3f4`.
 2. Verifica della tabella in tutti i livelli territoriali e gestione dei codici composti.
 3. Pubblicazione su main e controllo del deployment Pages.
+
+
+## Rettifica F3+F4 pubblicata e rapporto QA esposto nell'interfaccia (17/11/2026)
+
+- PR #15 integrata: https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/pull/15; merge commit `f007f1b82212d3d2db005c7a2bf84a4ff0e0f8f6`.
+- Corretto il gruppo di interesse generale: F1 1,5 m²/ab; F2 1 m²/ab; F3+F4 15 m²/ab. I valori storici 1,47 / 1,46 / 15,76 m²/ab e i valori post-adeguamento 1,06 / 1,63 / 15,65 sono distinti dai minimi normativi.
+- Il parser esclude i codici combinati che includono altre categorie (es. F1-S2) dal confronto automatico; i codici F3/F4 combinati esclusivamente tra loro sono ricondotti al gruppo F34.
+- Workflow verifica app #44100092440: SUCCESS; deployment Pages #44100090110: SUCCESS.
+- È stato predisposto il branch `feat/mostra-qa-prg-standard` per aggiungere il rapporto QA topologico persistente e mostrare nella pagina Standard urbanistici il numero di geometrie invalide, coincidenze esatte e coppie sovrapposte. Rapporto: `data/geo/qa_prg_standard_2004.json`.
+- I risultati QA esposti sono: 0 geometrie invalide, 4 coincidenze esatte, 16 coppie sovrapposte oltre 1 m². Sono diagnostiche e non autorizzano correzioni automatiche.
+- Prossimo step: verificare il branch e integrare il pannello QA, poi passare alla revisione semantica dei 4 duplicati e delle sovrapposizioni.
