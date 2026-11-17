@@ -32,33 +32,34 @@
     "S": {
       "label": "Istruzione",
       "features": 282,
-      "area_m2": 2096892.34,
+      "area_m2": 2096892.4,
       "area_ha": 209.69
     },
     "IC": {
       "label": "Attrezzature di interesse comune",
       "features": 229,
-      "area_m2": 1627694.68,
+      "area_m2": 1627694.61,
       "area_ha": 162.77
     },
     "V": {
       "label": "Verde pubblico",
       "features": 392,
-      "area_m2": 3505708.9,
+      "area_m2": 3505708.86,
       "area_ha": 350.57
     },
     "P": {
       "label": "Parcheggi",
       "features": 434,
-      "area_m2": 1497104.24,
+      "area_m2": 1497104.22,
       "area_ha": 149.71
     },
     "F": {
       "label": "Attrezzature pubbliche di interesse generale",
       "features": 291,
-      "area_m2": 15313777.14,
+      "area_m2": 15313777.12,
       "area_ha": 1531.38
-    }
+    },
+    "area_note": "Somma dei valori AREA_M2 arrotondati a 0,01 m² presenti nelle singole feature, non ricalcolo delle geometrie grezze."
   },
   "exclusions": {
     "dataset321": {
