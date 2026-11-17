@@ -53,7 +53,8 @@ def main():
     else:
      for f in fc["features"]:
       p=f.setdefault("properties",{});p["_source_shapefile"]=shp.name;p["_source_dataset"]=321
-     groups.setdefault(fam,[]).extend(fc["features"])
+      feature_family=family([f])
+      groups.setdefault(feature_family,[]).append(f)
    if ds==321:
     for fam,features in groups.items():
      fn="prg_vincoli_"+fam+".geojson";fc={"type":"FeatureCollection","name":fn,"features":features}
