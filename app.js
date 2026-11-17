@@ -1326,16 +1326,16 @@ function fillFilters(){
 }
 async function initGreenBalance(){
  const host=document.getElementById('greenBalance');if(!host)return;
- host.innerHTML='<div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px"><button type="button" id="greenBalanceCirc" class="secondary-button">Calcola per circoscrizione</button><button type="button" id="greenBalanceQuart" class="secondary-button">Calcola per quartiere</button></div><p id="greenBalanceStatus" class="school-note">Seleziona il livello territoriale. Le superfici saranno calcolate tramite intersezione geometrica tra PRG 2004 e confini ISTAT 2021.</p><div id="greenBalanceTable" class="table-wrap"></div>';
+ host.innerHTML='<div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px"><button type="button" id="greenBalanceCirc" class="secondary-button">Calcola per circoscrizione</button><button type="button" id="greenBalanceQuart" class="secondary-button">Calcola per quartiere</button><button type="button" id="greenBalanceUpl" class="secondary-button">Calcola per UPL</button></div><p id="greenBalanceStatus" class="school-note">Seleziona il livello territoriale. Le superfici saranno calcolate tramite intersezione geometrica tra PRG 2004 e confini ISTAT 2021.</p><div id="greenBalanceTable" class="table-wrap"></div>';
  const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
  const fmt=v=>Number(v).toLocaleString('it-IT',{maximumFractionDigits:2});
  const run=async level=>{
   const status=document.getElementById('greenBalanceStatus'),table=document.getElementById('greenBalanceTable');
   if(!window.turf||!greenMapData?.features?.length){status.textContent='Dati PRG o libreria geometrica non disponibili.';return;}
-  const circ=level==='circ';
-  const territories=circ?(DATA.territories.circoscrizioni||[]):(DATA.territories.quartieri||[]);
+  const circ=level==='circ',upl=level==='upl';
+  const territories=circ?(DATA.territories.circoscrizioni||[]):upl?(GEO.asc3?.features||[]):(DATA.territories.quartieri||[]);
   const population=DATA.demografia||[];
-  if(!territories.length||!GEO[circ?'asc1':'asc2']?.features?.length){status.textContent='Anagrafica territoriale o confini ISTAT non disponibili.';return;}
+  if(!territories.length||!GEO[circ?'asc1':upl?'asc3':'asc2']?.features?.length){status.textContent='Anagrafica territoriale o confini ISTAT non disponibili.';return;}
   const popById=new Map(population.map(p=>[String(p.territorio_id),Number(p.totale)||0]));
   const items=greenMapData.features.filter(f=>f.geometry);
   const cats=['pubblico','attrezzato','gioco','sport','impianti','agricolo','collinare','storico','parco_urbano','misto'];
@@ -1345,7 +1345,8 @@ async function initGreenBalance(){
   for(let ti=0;ti<territories.length;ti++){
    const t=territories[ti];
    let boundary=null,pop=0,name=t.name||t.nome||t.id;
-   if(circ){
+   if(upl){boundary=t;name=t.properties?.DEN_ASC3||'UPL '+t.properties?.COD_ASC3_T;pop=Number(t.properties?.POP21)||0;}
+   else if(circ){
     const code=String(t.id||'').replace(/\D/g,'');
     boundary=GEO.asc1.features.find(f=>String(f.properties?.COD_ASC1)===code);
     pop=popById.get(String(t.id))||0;
@@ -1370,16 +1371,18 @@ async function initGreenBalance(){
    status.textContent='Elaborazione '+(ti+1)+'/'+territories.length+': '+name;
    await new Promise(resolve=>setTimeout(resolve,0));
   }
-  const head='<thead><tr><th>Territorio</th><th>Residenti 2022</th>'+cats.map(k=>'<th>'+labels[k]+' (ha)</th>').join('')+'<th>V1+V2+V3+V4 (m²/ab.)*</th><th>Scarto indicativo da 9 m²/ab.*</th></tr></thead>';
+  const popYear=upl?'2021':'2022';
+  const head='<thead><tr><th>Territorio</th><th>Residenti '+popYear+'</th>'+cats.map(k=>'<th>'+labels[k]+' (ha)</th>').join('')+'<th>V1+V2+V3+V4 (m²/ab.)*</th><th>Scarto indicativo da 9 m²/ab.*</th></tr></thead>';
   const body=rows.map(r=>{
    const eligible=(r.areas.pubblico||0)+(r.areas.attrezzato||0)+(r.areas.gioco||0)+(r.areas.sport||0),perCapita=r.pop?eligible/r.pop:NaN,delta=Number.isFinite(perCapita)?perCapita-9:NaN;
    return '<tr><td><strong>'+esc(r.name)+'</strong></td><td>'+fmt(r.pop)+'</td>'+cats.map(k=>'<td>'+fmt((r.areas[k]||0)/10000)+'</td>').join('')+'<td>'+(Number.isFinite(perCapita)?fmt(perCapita):'N.D.')+'</td><td>'+(Number.isFinite(delta)?(delta>=0?'+':'')+fmt(delta):'N.D.')+'</td></tr>';
   }).join('');
-  table.innerHTML='<table>'+head+'<tbody>'+body+'</tbody></table><p class="school-note">* Indicatore lordo preliminare basato sulle superfici PRG V1+V2+V3+V4 intersecate e sulla popolazione 2022, in quanto gioco, sport e verde sono componenti potenzialmente pertinenti all’art. 3 del D.M. 1444/1968. Non è una verifica normativa né un dato di verde pubblico effettivamente fruibile: mancano verifica di proprietà/uso pubblico, attuazione, accessibilità, sovrapposizioni e superficie utile netta; V2 può includere superfici sportive non permeabili. Il confronto con 9 m²/abitante è solo un indice lordo di piano e non certifica il rispetto dello standard. Le categorie sono separate e non vanno sommate indiscriminatamente. Fonte popolazione: Comune di Palermo, 31/12/2022; perimetri: ISTAT 2021; destinazioni: PRG DCC 7/2004.</p>';
-  status.textContent='Elaborazione completata: '+rows.length+' unità territoriali. Dati demografici '+(circ?'per circoscrizione':'per quartiere')+' al 31/12/2022.';
+  table.innerHTML='<table>'+head+'<tbody>'+body+'</tbody></table><p class="school-note">* Indicatore lordo preliminare basato sulle superfici PRG V1+V2+V3+V4 intersecate e sulla popolazione 2022, in quanto gioco, sport e verde sono componenti potenzialmente pertinenti all’art. 3 del D.M. 1444/1968. Non è una verifica normativa né un dato di verde pubblico effettivamente fruibile: mancano verifica di proprietà/uso pubblico, attuazione, accessibilità, sovrapposizioni e superficie utile netta; V2 può includere superfici sportive non permeabili. Il confronto con 9 m²/abitante è solo un indice lordo di piano e non certifica il rispetto dello standard. Le categorie sono separate e non vanno sommate indiscriminatamente. Fonte popolazione: '+(upl?'ISTAT, censimento 2021 (POP21)':'Comune di Palermo, 31/12/2022')+'; perimetri: ISTAT 2021; destinazioni: PRG DCC 7/2004.</p>';
+  status.textContent='Elaborazione completata: '+rows.length+' unità territoriali. Dato demografico '+(upl?'ISTAT 2021 (POP21)':circ?'Comune 2022':'Comune 2022')+'.';
  };
  document.getElementById('greenBalanceCirc')?.addEventListener('click',()=>run('circ'));
  document.getElementById('greenBalanceQuart')?.addEventListener('click',()=>run('quart'));
+ document.getElementById('greenBalanceUpl')?.addEventListener('click',()=>run('upl'));
 }
 function initGreenMap(){
  const el=document.getElementById('greenMap');if(!el||!window.L)return;
