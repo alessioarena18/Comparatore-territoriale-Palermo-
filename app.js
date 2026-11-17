@@ -1370,12 +1370,12 @@ async function initGreenBalance(){
    status.textContent='Elaborazione '+(ti+1)+'/'+territories.length+': '+name;
    await new Promise(resolve=>setTimeout(resolve,0));
   }
-  const head='<thead><tr><th>Territorio</th><th>Residenti 2022</th>'+cats.map(k=>'<th>'+labels[k]+' (ha)</th>').join('')+'<th>V3+V4 (m²/ab.)*</th><th>Scarto da 9 m²/ab.*</th></tr></thead>';
+  const head='<thead><tr><th>Territorio</th><th>Residenti 2022</th>'+cats.map(k=>'<th>'+labels[k]+' (ha)</th>').join('')+'<th>V1+V2+V3+V4 (m²/ab.)*</th><th>Scarto indicativo da 9 m²/ab.*</th></tr></thead>';
   const body=rows.map(r=>{
-   const eligible=(r.areas.pubblico||0)+(r.areas.attrezzato||0),perCapita=r.pop?eligible/r.pop:NaN,delta=Number.isFinite(perCapita)?perCapita-9:NaN;
+   const eligible=(r.areas.pubblico||0)+(r.areas.attrezzato||0)+(r.areas.gioco||0)+(r.areas.sport||0),perCapita=r.pop?eligible/r.pop:NaN,delta=Number.isFinite(perCapita)?perCapita-9:NaN;
    return '<tr><td><strong>'+esc(r.name)+'</strong></td><td>'+fmt(r.pop)+'</td>'+cats.map(k=>'<td>'+fmt((r.areas[k]||0)/10000)+'</td>').join('')+'<td>'+(Number.isFinite(perCapita)?fmt(perCapita):'N.D.')+'</td><td>'+(Number.isFinite(delta)?(delta>=0?'+':'')+fmt(delta):'N.D.')+'</td></tr>';
   }).join('');
-  table.innerHTML='<table>'+head+'<tbody>'+body+'</tbody></table><p class="school-note">* Indicatore preliminare basato esclusivamente sulle superfici PRG V3+V4 intersecate e sulla popolazione 2022. Non è una verifica normativa né un dato di verde pubblico effettivamente fruibile: mancano verifica di proprietà/uso pubblico, attuazione, accessibilità, sovrapposizioni e superficie utile netta. Il confronto con 9 m²/abitante è quindi solo un indice di piano, non certifica il rispetto del D.M. 1444/1968. Le categorie sono separate e non vanno sommate indiscriminatamente. Fonte popolazione: Comune di Palermo, 31/12/2022; perimetri: ISTAT 2021; destinazioni: PRG DCC 7/2004.</p>';
+  table.innerHTML='<table>'+head+'<tbody>'+body+'</tbody></table><p class="school-note">* Indicatore lordo preliminare basato sulle superfici PRG V1+V2+V3+V4 intersecate e sulla popolazione 2022, in quanto gioco, sport e verde sono componenti potenzialmente pertinenti all’art. 3 del D.M. 1444/1968. Non è una verifica normativa né un dato di verde pubblico effettivamente fruibile: mancano verifica di proprietà/uso pubblico, attuazione, accessibilità, sovrapposizioni e superficie utile netta; V2 può includere superfici sportive non permeabili. Il confronto con 9 m²/abitante è solo un indice lordo di piano e non certifica il rispetto dello standard. Le categorie sono separate e non vanno sommate indiscriminatamente. Fonte popolazione: Comune di Palermo, 31/12/2022; perimetri: ISTAT 2021; destinazioni: PRG DCC 7/2004.</p>';
   status.textContent='Elaborazione completata: '+rows.length+' unità territoriali. Dati demografici '+(circ?'per circoscrizione':'per quartiere')+' al 31/12/2022.';
  };
  document.getElementById('greenBalanceCirc')?.addEventListener('click',()=>run('circ'));
