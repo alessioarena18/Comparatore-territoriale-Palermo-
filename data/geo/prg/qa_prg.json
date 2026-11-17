@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "scope": "structural and coarse geographic plausibility only; not topology/legal validation",
+  "reports": [
+    {
+      "file": "prg_320_vg_zonizzazione.geojson",
+      "dataset": 320,
+      "group": "zonizzazione",
+      "features": 5879,
+      "geometry_types": {
+        "Polygon": 5878,
+        "MultiPolygon": 1
+      },
+      "bbox_wgs84": [
+        13.2420953,
+        38.0500402,
+        13.4521427,
+        38.2246478
+      ]
+    },
+    {
+      "file": "prg_vincoli_areali.geojson",
+      "dataset": 321,
+      "group": "vincoli_areali",
+      "features": 662,
+      "geometry_types": {
+        "Polygon": 662
+      },
+      "bbox_wgs84": [
+        13.2420953,
+        38.0489387,
+        13.4540953,
+        38.2278316
+      ]
+    },
+    {
+      "file": "prg_vincoli_lineari.geojson",
+      "dataset": 321,
+      "group": "vincoli_lineari",
+      "features": 100,
+      "geometry_types": {
+        "LineString": 100
+      },
+      "bbox_wgs84": [
+        13.2483006,
+        38.0611826,
+        13.4513089,
+        38.2201384
+      ]
+    }
+  ],
+  "source_quality": {
+    "excluded_without_geometry": 1,
+    "geometry_collection_parts_added": 1,
+    "details": [
+      {
+        "dataset": 320,
+        "shapefiles": [
+          {
+            "shapefile": "VG_ZONIZZAZIONE.shp",
+            "source_feature_count": 5880,
+            "output_feature_count": 5879,
+            "excluded_without_geometry": 1,
+            "geometry_collection_parts_added": 0
+          }
+        ]
+      },
+      {
+        "dataset": 321,
+        "shapefiles": [
+          {
+            "shapefile": "Vincoli_Ariali.shp",
+            "source_feature_count": 662,
+            "output_feature_count": 663,
+            "excluded_without_geometry": 0,
+            "geometry_collection_parts_added": 1
+          },
+          {
+            "shapefile": "Vincoli_Lineari.shp",
+            "source_feature_count": 99,
+            "output_feature_count": 99,
+            "excluded_without_geometry": 0,
+            "geometry_collection_parts_added": 0
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "titolo": "Cartografia PRG Palermo",
+  "riferimento": "Variante Generale PRG, presa d'atto DCC 7/2004",
+  "data_acquisizione_utc": "2026-11-17T13:47:09.172779+00:00",
+  "fonti": [
+    {
+      "dataset": 320,
+      "nome": "Perimetrazione zonizzazione PRG vigente",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=320",
+      "aggiornamento_catalogo": "2018-01-10",
+      "sha256": "26d41c39d85e5d1edb869f9b11434b7f73c2d3118476805e18c9bc3f3dced911",
+      "bytes": 2602565,
+      "shapefile_count": 1,
+      "shapefiles": [
+        {
+          "shapefile": "VG_ZONIZZAZIONE.shp",
+          "source_feature_count": 5880,
+          "output_feature_count": 5879,
+          "excluded_without_geometry": 1,
+          "geometry_collection_parts_added": 0
+        }
+      ]
+    },
+    {
+      "dataset": 321,
+      "nome": "Vincoli vigenti della Variante Generale al PRG",
+      "url": "https://opendata.comune.palermo.it/opendata-dataset.php?dataset=321",
+      "aggiornamento_catalogo": "2021-09-06",
+      "sha256": "c7cfac8ad90b7ee8e4afdb4562d2d779cf9abcfd1f83c093a800838f500ac4fa",
+      "bytes": 2979095,
+      "shapefile_count": 2,
+      "shapefiles": [
+        {
+          "shapefile": "Vincoli_Ariali.shp",
+          "source_feature_count": 662,
+          "output_feature_count": 663,
+          "excluded_without_geometry": 0,
+          "geometry_collection_parts_added": 1
+        },
+        {
+          "shapefile": "Vincoli_Lineari.shp",
+          "source_feature_count": 99,
+          "output_feature_count": 99,
+          "excluded_without_geometry": 0,
+          "geometry_collection_parts_added": 0
+        }
+      ]
+    }
+  ],
+  "crs_output": "OGC:CRS84 / GeoJSON RFC 7946",
+  "licenza": "CC BY 4.0 IT",
+  "layers": [
+    {
+      "dataset": 320,
+      "group": "zonizzazione",
+      "name": "Zonizzazione · VG_ZONIZZAZIONE",
+      "file": "prg_320_vg_zonizzazione.geojson",
+      "geometry_family": "areali",
+      "feature_count": 5879,
+      "source_feature_count": 5880,
+      "excluded_without_geometry": 1,
+      "geometry_collection_parts_added": 0
+    },
+    {
+      "dataset": 321,
+      "group": "vincoli_areali",
+      "name": "Vincoli areali",
+      "file": "prg_vincoli_areali.geojson",
+      "geometry_family": "areali",
+      "feature_count": 662,
+      "source_shapefiles": [
+        "Vincoli_Ariali.shp"
+      ]
+    },
+    {
+      "dataset": 321,
+      "group": "vincoli_lineari",
+      "name": "Vincoli lineari",
+      "file": "prg_vincoli_lineari.geojson",
+      "geometry_family": "lineari",
+      "feature_count": 100,
+      "source_shapefiles": [
+        "Vincoli_Ariali.shp",
+        "Vincoli_Lineari.shp"
+      ]
+    }
+  ],
+  "stato": "convertito; QA preliminare richiesto; vigenza da verificare",
+  "nota": "Le GeometryCollection sono esplose in feature semplici. Le feature prive di geometria sono escluse dai GeoJSON e conteggiate nei metadati. Il dataset 321 è suddiviso per famiglia geometrica. Le date catalogo non certificano la disciplina urbanistica attuale."
+}

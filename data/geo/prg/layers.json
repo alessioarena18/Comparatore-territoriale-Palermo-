@@ -1,0 +1,38 @@
+{
+  "layers": [
+    {
+      "dataset": 320,
+      "group": "zonizzazione",
+      "name": "Zonizzazione · VG_ZONIZZAZIONE",
+      "file": "prg_320_vg_zonizzazione.geojson",
+      "geometry_family": "areali",
+      "feature_count": 5879,
+      "source_feature_count": 5880,
+      "excluded_without_geometry": 1,
+      "geometry_collection_parts_added": 0
+    },
+    {
+      "dataset": 321,
+      "group": "vincoli_areali",
+      "name": "Vincoli areali",
+      "file": "prg_vincoli_areali.geojson",
+      "geometry_family": "areali",
+      "feature_count": 662,
+      "source_shapefiles": [
+        "Vincoli_Ariali.shp"
+      ]
+    },
+    {
+      "dataset": 321,
+      "group": "vincoli_lineari",
+      "name": "Vincoli lineari",
+      "file": "prg_vincoli_lineari.geojson",
+      "geometry_family": "lineari",
+      "feature_count": 100,
+      "source_shapefiles": [
+        "Vincoli_Ariali.shp",
+        "Vincoli_Lineari.shp"
+      ]
+    }
+  ]
+}
