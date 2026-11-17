@@ -1048,6 +1048,14 @@ function initStandardSchoolMap(){
    if(panel)panel.innerHTML='<div class="grid standards-kpis">'+order.map(k=>{const g=prgSummary[k];return g?'<div class="card"><span class="muted">'+esc(prgZoneStyles[k].label)+'</span><div class="metric">'+(g.area_m2/10000).toLocaleString('it-IT',{maximumFractionDigits:2})+' <small>ha</small></div><small class="muted">'+g.features+' poligoni PRG</small></div>':'';}).join('')+'</div><p class="muted">Superfici geometriche lorde dei poligoni per gruppo; i codici combinati e le sovrapposizioni sono mantenuti come negli elaborati sorgente. Non sommare automaticamente le categorie né confondere F con gli standard ordinari dell’art. 3 del D.M. 1444/1968.</p>';
    const prgStatus=$('#standardPrgStatus');
    if(prgStatus)prgStatus.textContent='Layer tematico PRG 2004 caricato: '+Number(fc.features.length).toLocaleString('it-IT')+' poligoni, rielaborazione comunitaria derivata dal dataset comunale 320, classificata nei gruppi S/IC/V/P/F. Le statistiche aggregate usano questo layer tematico; la zonizzazione integrale ufficiale (5.879 geometrie) è disponibile come overlay separato di consultazione e non viene sommata automaticamente alle statistiche. I vincoli del dataset 321 sono layer distinti. Le superfici geometriche non attestano attuazione, proprietà o disponibilità effettiva.';
+   try{
+    const qaResponse=await fetch('data/geo/qa_prg_standard_2004.json?v=20261117-topology',{cache:'no-cache'});
+    if(!qaResponse.ok)throw new Error('HTTP '+qaResponse.status);
+    const qa=await qaResponse.json();
+    if(prgStatus)prgStatus.textContent+=' QA geometrico: '+qa.invalid_geometry_count+' geometrie invalide, '+qa.duplicate_geometry_count+' coincidenze esatte e '+qa.overlap_pair_count_over_1m2+' coppie sovrapposte oltre 1 m². Le anomalie sono diagnostiche e richiedono verifica sulle tavole/NTA; non sono state corrette automaticamente.';
+   }catch(qaError){
+    if(prgStatus)prgStatus.textContent+=' Rapporto QA topologico non disponibile: '+String(qaError.message||qaError);
+   }
   }catch(err){
    const prgStatus=$('#standardPrgStatus');if(prgStatus)prgStatus.textContent='Errore nel caricamento della zonizzazione PRG: '+String(err.message||err);
   }
