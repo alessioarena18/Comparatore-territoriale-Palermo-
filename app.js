@@ -346,6 +346,7 @@ if(active==='social'){
  <div id="schoolMap" class="school-map"></div><p id="schoolMapStatus" class="school-note"></p>
  <div class="school-table"><table><thead><tr><th>Sede</th><th>Ordine scolastico</th><th>Tipologia</th><th>Istituto</th><th>Indirizzo</th><th>Quartiere</th><th>Stato V81</th><th>Controllo spaziale</th><th>Ordine verificato</th><th>Codice plesso</th><th>Raggi</th><th>Verifica documentale</th></tr></thead><tbody id="schoolPointRows"></tbody></table></div><div id="schoolUnlocated"></div>
  </div>
+ <div class="card"><h3>Cartografia territoriale e livelli amministrativi</h3><p class="school-note">La cartografia ripropone gli stessi livelli della pagina GIS. All’apertura è attivo soltanto il layer Circoscrizioni ASC1; quartieri ASC2, UPL ASC3 e sezioni censuarie ISTAT 2021 sono disponibili nel controllo dei livelli e devono essere attivati manualmente. La base cartografica e l’ortofoto sono selezionabili separatamente.</p><div id="servicesTerritoryMap" class="school-map" role="region" aria-label="Cartografia territoriale dei servizi e delle dotazioni"></div><p id="servicesTerritoryStatus" class="school-note" aria-live="polite">Caricamento dei livelli territoriali ISTAT 2021…</p></div>
  <div class="card"><h3>Anagrafica dei plessi e dati USR</h3><p class="school-note">401 record USR 2025/26 con codice meccanografico di plesso. Il raccordo con il registro 2026/27 resta distinto dal collegamento con gli edifici. Lotti documentali completati: 113 codici di plesso collegati a 82 punti comunali; per gli altri 288 record il collegamento fisico resta da verificare. La tabella indica i collegamenti certi e consente di richiamare la sede nella mappa, se inclusa nei filtri correnti. Non si aggregano alunni a quartiere, UPL o sezione finché la copertura dei plessi non è completa e controllata.</p>
  <div class="school-kpis">${orders.map(o=>{const x=stats.filter(z=>z.order===o);return '<div class="card"><span class="muted">'+esc(o)+'</span><div class="metric">'+fmt(x.length)+'</div><small class="muted">'+fmt(x.reduce((n,z)=>n+(+z.students||0),0))+' alunni</small></div>';}).join('')}</div>
  <div class="school-controls"><label>Ordine<select id="schoolStatsOrder"><option value="">Tutti</option>${orders.map(o=>'<option>'+esc(o)+'</option>').join('')}</select></label><label>Cerca plesso/istituto<input id="schoolStatsSearch" type="search" placeholder="Denominazione o codice"></label></div>
@@ -451,7 +452,7 @@ if(active==='social'){
  else if(active==='sources'){pieLabels=['Record demografici','UPL archiviate','Punti scolastici','Sezioni censuarie'];pieValues=[DATA.demografia.length,(DATA.sociale||[]).length,(DATA.schoolPoints||[]).length,GEO.sections?.features?.length||0];}
  html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  $('#content').innerHTML=html;
- if(active==='schools')initSchools();
+ if(active==='schools'){initSchools();initMap('servicesTerritoryMap');}
  
 if(active==='standards'){
  initStandardSchoolMap();
@@ -554,13 +555,13 @@ async function initTerritorialSelectors(){
  if(status)status.textContent=missing.length?'Alcuni archivi non sono disponibili: '+missing.join(', '):'Archivi territoriali ISTAT 2021 caricati. Usa i selettori per applicare l’ambito di analisi.';
  updateGisSelectionFeedback();
 }
-function initMap(){
- let el=$('#map');if(!el||!window.L)return;
+function initMap(mapId='map'){
+ let el=$('#'+mapId);if(!el||!window.L)return;
  populateGisSelectors();
 
  if(gisMap){gisMap.remove();gisMap=null;gisImportedLayers=[];gisLayerControl=null;}
  gisMap=L.map(el).setView([38.1157,13.3615],12);
- const autoStatus=$('#gisAutoStatus');
+ const autoStatus=$('#'+(mapId==='map'?'gisAutoStatus':'servicesTerritoryStatus'));
  addPalermoBaseLayers(gisMap);
  const fileInput=$('#gisFile'),report=$('#gisReport');
  const palette=['#1769aa','#c05a21','#27834a','#8054a6'];
