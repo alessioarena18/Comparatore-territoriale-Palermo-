@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "generated_on": "2026-11-17",
+  "source": "data/geo/prg_standard_2004.geojson",
+  "source_reference": "Comune di Palermo, Open Data dataset 320; Variante Generale PRG DCC 7/2004; rielaborazione gbvitrano/prg_pa_2004, CC BY 4.0 IT",
+  "engine": "Shapely 2.1.2 + pyproj 3.7.2",
+  "area_crs": "EPSG:32633",
+  "structural_status": "passed",
+  "topology_status": "review_required",
+  "feature_count": 1628,
+  "invalid_geometry_count": 0,
+  "duplicate_geometry_count": 4,
+  "overlap_pair_count_over_1m2": 16,
+  "overlap_area_sum_m2": 265564.13,
+  "overlap_area_sum_note": "Somma delle intersezioni a coppie; in presenza di intersezioni multiple la stessa porzione può essere conteggiata più volte. Non è una superficie univoca da sottrarre.",
+  "duplicates": [
+    {
+      "ids": [
+        "899",
+        "948"
+      ],
+      "codes": [
+        "IC3",
+        "IC4"
+      ],
+      "groups": [
+        "IC",
+        "IC"
+      ],
+      "area_m2": 27697.51,
+      "description": [
+        "Edifici per la pubblica amministrazione",
+        "Centri culturali"
+      ]
+    },
+    {
+      "ids": [
+        "4652",
+        "3083"
+      ],
+      "codes": [
+        "S2",
+        "F1"
+      ],
+      "groups": [
+        "S",
+        "F"
+      ],
+      "area_m2": 14198.03,
+      "description": [
+        "Scuole dell'obbligo",
+        "Istituti di istruzione secondaria superiore"
+      ]
+    },
+    {
+      "ids": [
+        "4653",
+        "3084"
+      ],
+      "codes": [
+        "S2",
+        "F1-S2"
+      ],
+      "groups": [
+        "S",
+        "F"
+      ],
+      "area_m2": 14639.51,
+      "description": [
+        "Scuole dell'obbligo",
+        "Codice combinato senza descrizione"
+      ]
+    },
+    {
+      "ids": [
+        "4630",
+        "3260"
+      ],
+      "codes": [
+        "V3",
+        "F11"
+      ],
+      "groups": [
+        "V",
+        "F"
+      ],
+      "area_m2": 148692.74,
+      "description": [
+        "Spazi pubblici a verde",
+        "Università"
+      ]
+    }
+  ],
+  "overlaps": [
+    {
+      "ids": [
+        "4652",
+        "3083"
+      ],
+      "codes": [
+        "S2",
+        "F1"
+      ],
+      "area_m2": 14203.02
+    },
+    {
+      "ids": [
+        "4653",
+        "3084"
+      ],
+      "codes": [
+        "S2",
+        "F1-S2"
+      ],
+      "area_m2": 14644.56
+    },
+    {
+      "ids": [
+        "4654",
+        "4635"
+      ],
+      "codes": [
+        "S2",
+        "V"
+      ],
+      "area_m2": 11062.48
+    },
+    {
+      "ids": [
+        "5142",
+        "5561"
+      ],
+      "codes": [
+        "S2",
+        "IC1"
+      ],
+      "area_m2": 2851.84
+    },
+    {
+      "ids": [
+        "899",
+        "948"
+      ],
+      "codes": [
+        "IC3",
+        "IC4"
+      ],
+      "area_m2": 27707.47
+    },
+    {
+      "ids": [
+        "946",
+        "4672"
+      ],
+      "codes": [
+        "IC4",
+        "V3IC2IC4"
+      ],
+      "area_m2": 16395.35
+    },
+    {
+      "ids": [
+        "5560",
+        "3126"
+      ],
+      "codes": [
+        "IC1",
+        "F10"
+      ],
+      "area_m2": 1561.46
+    },
+    {
+      "ids": [
+        "5564",
+        "3124"
+      ],
+      "codes": [
+        "IC1",
+        "F10"
+      ],
+      "area_m2": 6879.21
+    },
+    {
+      "ids": [
+        "5614",
+        "5801"
+      ],
+      "codes": [
+        "IC11",
+        "F4"
+      ],
+      "area_m2": 1095.84
+    },
+    {
+      "ids": [
+        "5615",
+        "5801"
+      ],
+      "codes": [
+        "IC11",
+        "F4"
+      ],
+      "area_m2": 793.15
+    },
+    {
+      "ids": [
+        "4590",
+        "5158"
+      ],
+      "codes": [
+        "V3",
+        "F4"
+      ],
+      "area_m2": 4.47
+    },
+    {
+      "ids": [
+        "4630",
+        "3260"
+      ],
+      "codes": [
+        "V3",
+        "F11"
+      ],
+      "area_m2": 148741.28
+    },
+    {
+      "ids": [
+        "3257",
+        "5158"
+      ],
+      "codes": [
+        "F11",
+        "F4"
+      ],
+      "area_m2": 5.35
+    },
+    {
+      "ids": [
+        "3420",
+        "5304"
+      ],
+      "codes": [
+        "F16",
+        "Parcheggi"
+      ],
+      "area_m2": 11022.86
+    },
+    {
+      "ids": [
+        "3420",
+        "5428"
+      ],
+      "codes": [
+        "F16",
+        "Parcheggi"
+      ],
+      "area_m2": 1394.57
+    },
+    {
+      "ids": [
+        "3421",
+        "905"
+      ],
+      "codes": [
+        "F16",
+        "Parcheggi"
+      ],
+      "area_m2": 7201.21
+    }
+  ],
+  "limitations": [
+    "Il rapporto è diagnostico e non decide se le sovrapposizioni siano giuridicamente ammissibili.",
+    "Le geometrie coincidenti o sovrapposte non sono state eliminate o corrette automaticamente.",
+    "La corrispondenza semantica dei codici deve essere verificata su NTA, tavole P2A e atti di variante.",
+    "Le superfici geometriche non attestano attuazione, proprietà pubblica, accessibilità o disponibilità effettiva."
+  ]
+}
