@@ -28,6 +28,10 @@ def walk(value, coords):
             for child in value:
                 walk(child, coords)
 
+def feature_summary(feature):
+    p = feature.get("properties", {})
+    return {k: p.get(k) for k in ("PRG_ID", "PRG_CODE", "PRG_DESCRIPTION", "PRG_GROUP", "AREA_M2", "source", "source_layer") if p.get(k) is not None}
+
 def topology_audit(features):
     try:
         from shapely.geometry import shape
@@ -40,7 +44,8 @@ def topology_audit(features):
     transformer = Transformer.from_crs("EPSG:4326", "EPSG:32633", always_xy=True)
     projected = []
     invalid = []
-    normalized = set()
+    normalized = {}
+    duplicate_samples = []
     duplicates = 0
 
     for index, feature in enumerate(features):
@@ -51,8 +56,13 @@ def topology_audit(features):
         key = geom.normalize().wkb
         if key in normalized:
             duplicates += 1
+            if len(duplicate_samples) < 100:
+                first = normalized[key]
+                duplicate_samples.append({"feature_a": first, "feature_b": index,
+                    "attributes_a": feature_summary(features[first]),
+                    "attributes_b": feature_summary(feature)})
         else:
-            normalized.add(key)
+            normalized[key] = index
         projected.append(transform(transformer.transform, geom))
 
     tree = STRtree(projected)
@@ -77,7 +87,9 @@ def topology_audit(features):
                         "feature_b": j,
                         "overlap_m2": round(area, 2),
                         "group_a": features[i].get("properties", {}).get("PRG_GROUP"),
-                        "group_b": features[j].get("properties", {}).get("PRG_GROUP")
+                        "group_b": features[j].get("properties", {}).get("PRG_GROUP"),
+                        "attributes_a": feature_summary(features[i]),
+                        "attributes_b": feature_summary(features[j])
                     })
 
     return {
@@ -86,6 +98,7 @@ def topology_audit(features):
         "invalid_geometry_count": len(invalid),
         "invalid_geometries_sample": invalid[:100],
         "duplicate_geometry_count": duplicates,
+        "duplicate_pairs_sample_max_100": duplicate_samples,
         "overlap_pair_count_over_1m2": overlap_pair_count,
         "overlap_pairs_sample_max_100": overlaps,
         "overlap_area_sum_m2": round(overlap_area_total, 2),
