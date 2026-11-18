@@ -1,0 +1,270 @@
+{
+  "metadata": {
+    "title": "Inventario documentale iniziale delle ville e dei giardini comunali recintati",
+    "municipality": "Palermo",
+    "reference_date": "2026-11-18",
+    "status": "prima ricognizione documentale; non equivale a censimento geometrico completo",
+    "sources": [
+      {
+        "id": "COM-14130-2026",
+        "title": "Determinazione dirigenziale n. 14130 del 30/09/2026 e avviso comunale 01/10/2026",
+        "url": "https://www.comune.palermo.it/novita/ville-e-giardini-comunali-nuovi-orari-di-apertura-e-chiusura-per-il-periodo-autunnoinverno/",
+        "date": "2026-10-01",
+        "supports": [
+          "elenco siti recintati",
+          "orari stagionali",
+          "illuminazione artificiale",
+          "chiusure straordinarie",
+          "custodia da ufficio, partecipata o soggetti convenzionati"
+        ]
+      },
+      {
+        "id": "COM-3537-2026",
+        "title": "Determinazione dirigenziale n. 3537 del 06/03/2026 e avviso comunale 07/03/2026",
+        "url": "https://www.comune.palermo.it/novita/orari-di-aperture-e-chiusura-delle-ville-giardini-parchi-comunali-periodo-primavera-estate-2026/",
+        "date": "2026-03-07",
+        "supports": [
+          "orari primavera-estate 2026",
+          "custodia Villa Trabia e Roseto",
+          "custodia Giardini della Zisa"
+        ]
+      },
+      {
+        "id": "COM-UFFICIO-VERDE",
+        "title": "Ufficio autonomo gestione verde urbano, agricoltura urbana e rapporti con RESET",
+        "url": "https://www.comune.palermo.it/amministrazione/unita_organizzativa/ufficio-autonomo-gestione-verde-urbano-agricoltura-urbana-e-rapporti-con-reset-2/",
+        "date": "2026-11-18",
+        "supports": [
+          "competenze gestionali comunali"
+        ]
+      }
+    ],
+    "limitations": [
+      "Le fonti consultate documentano accesso regolamentato e orari, ma non attestano la proprietà catastale di ciascuna area.",
+      "Il dataset comunale 278 è una ricognizione geometrica 2013: il collegamento tra singolo sito e poligono deve essere verificato, non presunto.",
+      "Non sono disponibili in queste fonti indicatori aggiornati e puntuali sullo stato manutentivo.",
+      "Le chiusure per allerta meteo, vento, lavori e manutenzioni possono sospendere temporaneamente la fruizione."
+    ]
+  },
+  "facilities": [
+    {
+      "id": "PA-VER-PUB-001",
+      "name": "Villa Falcone-Morvillo",
+      "type": "villa/giardino recintato",
+      "lighting": "non documentata illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "18:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "17:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-002",
+      "name": "Villa Giulia",
+      "type": "villa/giardino recintato",
+      "lighting": "non documentata illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "18:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "17:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-003",
+      "name": "Villa Tricoli",
+      "type": "villa/giardino recintato",
+      "lighting": "non documentata illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "18:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "17:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-004",
+      "name": "Giardini della Zisa",
+      "type": "giardino recintato",
+      "lighting": "non documentata illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "18:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "17:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia attribuita a Re.Se.T. nell’avviso comunale primavera-estate 2026; conferma di validità per stagione corrente da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026",
+        "COM-3537-2026"
+      ],
+      "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-005",
+      "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
+      "type": "parco/giardino recintato",
+      "lighting": "dotato di illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "19:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "18:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-006",
+      "name": "Villa Costa",
+      "type": "villa/giardino recintato",
+      "lighting": "dotato di illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "19:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "18:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-007",
+      "name": "Giardino Rosa Balistreri (Roseto)",
+      "type": "giardino recintato",
+      "lighting": "dotato di illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "19:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "18:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia affidata a soggetto privato quale obbligo di convenzione nell’avviso comunale primavera-estate 2026; validità attuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026",
+        "COM-3537-2026"
+      ],
+      "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-008",
+      "name": "Villa Garibaldi",
+      "type": "villa/giardino recintato",
+      "lighting": "dotato di illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "19:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "18:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026"
+      ],
+      "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
+    },
+    {
+      "id": "PA-VER-PUB-009",
+      "name": "Villa Trabia",
+      "type": "villa/giardino recintato",
+      "lighting": "dotato di illuminazione artificiale adeguata",
+      "access": "accesso pubblico regolamentato documentato",
+      "hours": {
+        "from": "07:00",
+        "to": "19:00",
+        "period": "dal 1 ottobre al giorno antecedente il cambio dell’ora legale",
+        "after_clock_change": {
+          "from": "07:00",
+          "to": "18:00"
+        }
+      },
+      "ownership": "da verificare con inventario patrimoniale/atti",
+      "management": "custodia attribuita a Re.Se.T. nell’avviso comunale primavera-estate 2026; conferma di validità per stagione corrente da verificare",
+      "maintenance": "non documentata",
+      "geometry": "da associare e verificare sul dataset comunale 278",
+      "source_ids": [
+        "COM-14130-2026",
+        "COM-3537-2026"
+      ],
+      "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
+    }
+  ]
+}
