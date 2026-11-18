@@ -1010,7 +1010,7 @@ function initRealizedAmenitiesMap(){
     }catch(error){console.warn('Indirizzo sanitario non geocodificato',item.id,error);}
     if(i<facilities.length-1)await new Promise(resolve=>setTimeout(resolve,1100));
    }
-   return addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
+   const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');\n   features.forEach(feature=>{const id=feature.properties?.facility_id,row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');if(row&&row.children[3])row.children[3].textContent='Geocodificato da indirizzo · WGS84 da verificare';});\n   return mapped;
   })()
  ];
  const results=await Promise.allSettled(jobs);
