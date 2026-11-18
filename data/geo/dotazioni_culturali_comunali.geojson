@@ -1,0 +1,187 @@
+{
+  "type": "FeatureCollection",
+  "name": "Dotazioni culturali comunali georeferenziate",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "metadata": {
+    "source": "Comune di Palermo, schede ufficiali Luoghi e portale Librarsi",
+    "reference_date": "2026-11-18",
+    "method": "Punti ricavati dai link cartografici ufficiali delle schede comunali; nessun perimetro o superficie viene inferito.",
+    "mapped_locations": 7,
+    "not_yet_mapped": [
+      "Biblioteca comunale Leonardo Sciascia (indirizzo noto, coordinate da validare)",
+      "Biblioteche decentrate (rete da scomporre in singole sedi)"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3516445,
+          38.1241504
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-palazzo-ziino",
+        "name": "Palazzo Ziino · Sala mostre e Gipsoteca",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via Dante, 53, 90141 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palazzo-ziino/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.363547455781,
+          38.113795434114
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-archivio-storico",
+        "name": "Archivio Storico Comunale",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via Maqueda, 157, 90133 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/archivio-storico-comunale-2/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3310171,
+          38.1668755
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-museo-pitre",
+        "name": "Museo Etnografico G. Pitrè",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Viale Duca degli Abruzzi, 1, 90146 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/museo-etnografico-g-pitre/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3625356,
+          38.1104999
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-palazzo-tarallo",
+        "name": "Palazzo Tarallo · Biblioteca etnografica",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via delle Pergole, 74, 90134 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/via-delle-pergole-74-2/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [
+          "culture-biblioteca-etnografica-pitre"
+        ],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.337998,
+          38.1182137
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-cantieri-zisa",
+        "name": "Cantieri Culturali alla Zisa · Officine Ducrot",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via Paolo Gili, 4, 90134 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/cantieri-culturali-alla-zisa/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [
+          "culture-zac"
+        ],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3655215,
+          38.1151489
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-gam",
+        "name": "Galleria d'Arte Moderna",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via Sant'Anna, 21, 90133 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/galleria-darte-moderna/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3715487,
+          38.1145129
+        ]
+      },
+      "properties": {
+        "facility_id": "culture-spasimo",
+        "name": "Complesso Monumentale Santa Maria dello Spasimo",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via dello Spasimo, 15, 90133 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/chiesa-di-s-maria-dello-spasimo/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    }
+  ]
+}
