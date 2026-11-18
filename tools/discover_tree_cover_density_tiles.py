@@ -15,12 +15,72 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import time
 import zipfile
 from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
 from pystac_client import Client
+
+TOKEN_URL = "https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token"
+
+
+class CDSEAuth:
+    """Gestisce token CDSE senza stamparli nei log."""
+    def __init__(self) -> None:
+        self.username = os.environ.get("CDSE_USERNAME")
+        self.password = os.environ.get("CDSE_PASSWORD")
+        self.static_token = os.environ.get("CDSE_ACCESS_TOKEN")
+        self.totp_secret = os.environ.get("CDSE_TOTP_SECRET")
+        self.access_token = None
+        self.expires_at = 0.0
+        self.refresh_token = None
+        self.session = requests.Session()
+
+    def _login(self) -> None:
+        if not self.username or not self.password:
+            if self.static_token:
+                self.access_token = self.static_token
+                self.expires_at = time.time() + 480
+                return
+            raise RuntimeError("Per il download autenticato configurare CDSE_USERNAME e CDSE_PASSWORD (oppure CDSE_ACCESS_TOKEN).")
+        payload = {"client_id": "cdse-public", "username": self.username,
+                   "password": self.password, "grant_type": "password"}
+        if self.totp_secret:
+            try:
+                import pyotp
+                payload["totp"] = pyotp.TOTP(self.totp_secret).now()
+            except ImportError as exc:
+                raise RuntimeError("Per usare CDSE_TOTP_SECRET installare pyotp.") from exc
+        response = self.session.post(TOKEN_URL, data=payload, timeout=30)
+        response.raise_for_status()
+        token_data = response.json()
+        self.access_token = token_data["access_token"]
+        self.refresh_token = token_data.get("refresh_token")
+        self.expires_at = time.time() + int(token_data.get("expires_in", 600)) - 60
+
+    def headers(self) -> dict[str, str]:
+        if not self.access_token or time.time() >= self.expires_at:
+            self._login()
+        return {"Authorization": f"Bearer {self.access_token}"} if self.access_token else {}
+
+    def download(self, url: str, destination: Path) -> None:
+        for attempt in range(2):
+            response = self.session.get(url, headers=self.headers(), stream=True, timeout=180)
+            if response.status_code == 401 and attempt == 0 and self.username and self.password:
+                response.close()
+                self.access_token = None
+                self.expires_at = 0
+                continue
+            response.raise_for_status()
+            with destination.open("wb") as stream:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if chunk:
+                        stream.write(chunk)
+            response.close()
+            return
+        raise RuntimeError(f"Download non autorizzato dopo il rinnovo del token: {url}")
 
 COLLECTION = "clms_vlcc_tree-cover-density_europe_10m_yearly_v1"
 CONFIDENCE_COLLECTION = "clms_vlcc_tree-cover-density-confidence-layer_europe_10m_yearly_v1"
@@ -45,8 +105,7 @@ def main() -> None:
     if not items:
         raise SystemExit("Nessun item restituito: verificare bbox, anno e disponibilità delle collection STAC.")
 
-    token = os.environ.get("CDSE_ACCESS_TOKEN")
-    headers = {"Authorization": f"Bearer {token}"} if token else {}
+    auth = CDSEAuth()
     report = []
     for item in items:
         assets = []
@@ -71,12 +130,7 @@ def main() -> None:
                 original_name = Path(urlparse(href).path).name or f"{key}.tif"
                 name = f"{item.id}_{original_name}"
                 destination = args.download_dir / name
-                response = requests.get(href, headers=headers, stream=True, timeout=180)
-                response.raise_for_status()
-                with destination.open("wb") as stream:
-                    for chunk in response.iter_content(chunk_size=1024 * 1024):
-                        if chunk:
-                            stream.write(chunk)
+                auth.download(href, destination)
                 entry["downloaded_to"] = str(destination)
                 entry["download_bytes"] = destination.stat().st_size
                 if zipfile.is_zipfile(destination):
@@ -113,8 +167,8 @@ def main() -> None:
             for raster in asset.get('extracted_rasters', []):
                 print(f"  raster estratto: {raster}")
     print(f"Report: {args.output}")
-    if args.download_dir and not token:
-        print("Nota: nessun CDSE_ACCESS_TOKEN impostato; il download potrebbe richiedere autenticazione.")
+    if args.download_dir and not (auth.username and auth.password) and not auth.static_token:
+        print("Nota: nessuna credenziale CDSE impostata; il download potrebbe richiedere autenticazione.")
 
 
 if __name__ == "__main__":
