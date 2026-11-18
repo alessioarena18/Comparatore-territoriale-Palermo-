@@ -966,7 +966,7 @@ function selectRealizedFacility(id,fromInventory=false){
  if(entry&&map){map.setView(entry.marker.getLatLng(),16,{animate:true});entry.marker.openPopup();}
  else if(row){const cell=row.children[1]?.textContent||'';const status=document.getElementById('realizedAmenitiesStatus');if(status)status.textContent='La struttura è presente nell’inventario ma non dispone ancora di coordinate validate: '+cell;}
 }
-function initRealizedAmenitiesMap(){
+async function initRealizedAmenitiesMap(){
  const el=document.getElementById('realizedAmenitiesMap');if(!el||!window.L)return;
  if(realizedAmenitiesMap){realizedAmenitiesMap.remove();realizedAmenitiesMap=null;}
  realizedFacilityMarkers.clear();
@@ -1005,12 +1005,14 @@ function initRealizedAmenitiesMap(){
      const matches=await response.json();
      if(matches?.[0]){
       const lon=Number(matches[0].lon),lat=Number(matches[0].lat);
-      if(Number.isFinite(lon)&&Number.isFinite(lat))features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{facility_id:item.id,name:item.name,category:'health',documentary_status:item.status,address:item.address,source_url:item.location_source_url,geometry_note:'Punto geocodificato a partire dall’indirizzo ufficiale. Verificare il civico e l’ingresso prima di analisi di prossimità o accessibilità.',coordinate_source:'OpenStreetMap Nominatim · geocodifica dell’indirizzo',coordinate_reference:'WGS84 · localizzazione indicativa',last_verified:new Date().toISOString().slice(0,10)}}});
+      if(Number.isFinite(lon)&&Number.isFinite(lat))features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{facility_id:item.id,name:item.name,category:'health',documentary_status:item.status,address:item.address,source_url:item.location_source_url,geometry_note:'Punto geocodificato a partire dall’indirizzo ufficiale. Verificare il civico e l’ingresso prima di analisi di prossimità o accessibilità.',coordinate_source:'OpenStreetMap Nominatim · geocodifica dell’indirizzo',coordinate_reference:'WGS84 · localizzazione indicativa',last_verified:new Date().toISOString().slice(0,10)}});
     }
     }catch(error){console.warn('Indirizzo sanitario non geocodificato',item.id,error);}
     if(i<facilities.length-1)await new Promise(resolve=>setTimeout(resolve,1100));
    }
-   const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');\n   features.forEach(feature=>{const id=feature.properties?.facility_id,row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');if(row&&row.children[3])row.children[3].textContent='Geocodificato da indirizzo · WGS84 da verificare';});\n   return mapped;
+   const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
+   features.forEach(feature=>{const id=feature.properties?.facility_id,row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');if(row&&row.children[3])row.children[3].textContent='Geocodificato da indirizzo · WGS84 da verificare';});
+   return mapped;
   })()
  ];
  const results=await Promise.allSettled(jobs);
