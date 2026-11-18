@@ -1875,7 +1875,45 @@ async function initGreenMap(){
  }catch(error){console.error('Analisi del verde non disponibile',error);if(status)status.textContent='Impossibile caricare la cartografia del verde: '+error.message;}
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
-async function load(){try{let r=await fetch('data/territoriale.json',{cache:'no-store'});if(!r.ok)throw new Error('territoriale');DATA=await r.json();let d=await fetch('data/demografia.json',{cache:'no-store'});if(d.ok){let dem=await d.json();DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}let h=await fetch('data/analisi_densita_abitativa_2021.json',{cache:'no-store'});if(h.ok)DATA.housing=await h.json();let s=await fetch('data/sociale_palermo_idise_2023.json',{cache:'no-store'});if(s.ok){let soc=await s.json();DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}$('#status').textContent=DATA.demografia.length?'Dati territoriali e demografici caricati · anno 2022':'Dati territoriali caricati · archivio demografico non disponibile';fillFilters();render();loadGeoCatalog().then(()=>{if(active==='overview')render();}).catch(error=>console.warn('Geometrie territoriali non disponibili',error));}catch(e){console.error('Caricamento dati principali non riuscito',e);$('#status').textContent='Struttura pronta · dati non caricati';render();}loadSchoolArchives();} 
+async function fetchJsonSafe(url,timeoutMs=15000){
+ const controller=new AbortController();
+ const timer=setTimeout(()=>controller.abort(),timeoutMs);
+ try{
+  const response=await fetch(url,{cache:'no-store',signal:controller.signal});
+  if(!response.ok)throw new Error(url+' · HTTP '+response.status);
+  return await response.json();
+ }finally{clearTimeout(timer);}
+}
+async function load(){
+ $('#status').textContent='Caricamento anagrafica territoriale…';
+ try{
+  const territorial=await fetchJsonSafe('data/territoriale.json',12000);
+  if(!territorial?.territories?.circoscrizioni||!territorial?.territories?.quartieri)throw new Error('Anagrafica territoriale con struttura non valida');
+  DATA={...DATA,...territorial};
+  fillFilters();
+  render();
+  $('#status').textContent='Anagrafica territoriale caricata · completamento degli archivi in corso';
+ }catch(error){
+  console.error('Caricamento anagrafica territoriale non riuscito',error);
+  $('#status').textContent='Errore nel caricamento dell’anagrafica territoriale · '+(error.message||'verificare la connessione');
+  const content=$('#content');if(content)content.innerHTML='<div class="notice"><h3>Dati territoriali non disponibili</h3><p>Non è stato possibile caricare l’anagrafica delle circoscrizioni e dei quartieri. Riprova a ricaricare la pagina. Dettaglio tecnico: '+esc(error.message||String(error))+'</p></div>';
+  loadSchoolArchives();
+  return;
+ }
+ const jobs=[
+  ['demografia',async()=>{const dem=await fetchJsonSafe('data/demografia.json');DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];}],
+  ['densità abitativa',async()=>{DATA.housing=await fetchJsonSafe('data/analisi_densita_abitativa_2021.json');}],
+  ['analisi sociale',async()=>{const soc=await fetchJsonSafe('data/sociale_palermo_idise_2023.json');DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}],
+  ['geometrie territoriali',async()=>{await loadGeoCatalog();}]
+ ];
+ const results=await Promise.allSettled(jobs.map(async([name,run])=>{await run();return name;}));
+ const failed=results.map((result,index)=>result.status==='rejected'?jobs[index][0]:null).filter(Boolean);
+ try{render();}catch(error){console.error('Aggiornamento interfaccia dopo il caricamento archivi non riuscito',error);}
+ $('#status').textContent=failed.length
+  ?'Anagrafica caricata · archivi non disponibili: '+failed.join(', ')
+  :'Dati territoriali, demografici e cartografici caricati';
+ loadSchoolArchives();
+}
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
