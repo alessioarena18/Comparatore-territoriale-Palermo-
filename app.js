@@ -959,7 +959,7 @@ function applyRealizedTerritorialFilter(){
  if(!realizedAmenitiesMap)return;const selection=selected();
  realizedFacilityMarkers.forEach(entry=>{const layer=entry.groupLayer,visible=realizedFacilityMatchesSelection(entry.id,selection,entry.marker);if(!layer)return;if(visible&&!layer.hasLayer(entry.marker))layer.addLayer(entry.marker);else if(!visible&&layer.hasLayer(entry.marker))layer.removeLayer(entry.marker);});
 }
-function initRealizedNonSchoolRegister(){
+async function initRealizedNonSchoolRegister(){
  const host=document.getElementById('realizedNonSchoolRegister');if(!host)return;
  try{
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
