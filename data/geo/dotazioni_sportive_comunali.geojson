@@ -1,0 +1,207 @@
+{
+  "type": "FeatureCollection",
+  "name": "Dotazioni sportive comunali georeferenziate",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "metadata": {
+    "source": "Comune di Palermo, directory ufficiale Luoghi e collegamenti cartografici delle schede delle strutture",
+    "reference_date": "2026-11-18",
+    "method": "Punti derivati dalle coordinate riportate nei link Google Maps associati alle schede ufficiali; non sono poligoni di proprietà o superfici.",
+    "mapped_locations": 8,
+    "not_yet_mapped": [
+      "Palestra di Borgo Ulivia"
+    ]
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3429052,
+          38.1494413
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-piscina",
+        "name": "Piscina Comunale",
+        "category": "sport",
+        "documentary_status": "CHIUSO_LAVORI_DA_FONTE",
+        "address": "Viale del Fante, 5, 90146 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/piscina-comunale/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [
+          "sport-palestra-piscina"
+        ],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3378438,
+          38.1568062
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-stadio-palme",
+        "name": "Stadio delle Palme",
+        "category": "sport",
+        "documentary_status": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "address": "Viale del Fante, 27, 90142 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/stadio-delle-palme/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3717105,
+          38.0939506
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-palaoreto",
+        "name": "PalaOreto",
+        "category": "sport",
+        "documentary_status": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "address": "Via Santa Maria di Gesù, 11, 90124 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palaoreto/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3109625,
+          38.1281949
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-palamangano",
+        "name": "PalaMangano",
+        "category": "sport",
+        "documentary_status": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "address": "Via Ugo Perricone Engel, 14, 90146 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-palamangano/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4040492,
+          38.0966512
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-valentino-renda",
+        "name": "Palestra Valentino Renda",
+        "category": "sport",
+        "documentary_status": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "address": "Via XXVII Maggio, 26, 90121 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palestra-valentino-renda/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3515459,
+          38.1339194
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-pattinaggio-giardino-inglese",
+        "name": "Pista di pattinaggio del Giardino Inglese",
+        "category": "sport",
+        "documentary_status": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "address": "Via Duca della Verdura, 3, 90143 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-pattinodromo-del-giardino-inglese/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3335463,
+          38.1023338
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-pattinaggio-via-mule",
+        "name": "Pista di pattinaggio di via Mulè",
+        "category": "sport",
+        "documentary_status": "NON_FRUIBILE_DA_FONTE",
+        "address": "Via Giuseppe Mulè, 90129 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-pattinodromo-via-mul/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3591514,
+          38.0832944
+        ]
+      },
+      "properties": {
+        "facility_id": "sport-polivalente-bonagia",
+        "name": "Impianto polivalente Bonagia",
+        "category": "sport",
+        "documentary_status": "NON_FRUIBILE_DA_FONTE",
+        "address": "Via Mico Geraci, 90125 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-polivalente-bonagia/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto di localizzazione della sede; non rappresenta il perimetro né la superficie dell'impianto."
+      }
+    }
+  ]
+}
