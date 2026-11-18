@@ -441,10 +441,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "address": "Cortile Scalilla, 37, 90133 Palermo PA, Italia",
+      "address": "Cortile Scalilla, 37, 90134 Palermo PA, Italia",
       "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-dei-bambini-e-dei-ragazzi-Il-Piccolo-Principe/",
-      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
-      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+      "location_verification": "Indirizzo confermato dalla scheda istituzionale Librarsi e dalla U.O. Biblioteche Decentrate del Comune (90134). La scheda Librarsi precisa che Cortile Scalilla è una traversa di via Sant'Agostino all'altezza del civico 172. È stata individuata la sede, ma non è disponibile un collegamento cartografico istituzionale con coordinate verificabili: nessun marker viene quindi aggiunto.",
+      "note": "Biblioteca comunale dei bambini e dei ragazzi, sezione territoriale del Sistema Bibliotecario Cittadino. La scheda Librarsi riporta orario dal lunedì al venerdì 8:30-17:30 e descrive i servizi di consultazione e prestito. Coordinate non ancora validate; mantenere il record documentale senza marker."
     },
     {
       "id": "health-pta-biondo",
