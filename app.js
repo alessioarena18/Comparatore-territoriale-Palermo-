@@ -807,7 +807,8 @@ if(active==='social'){
 if(active==='standards'){
  initStandardSchoolMap();
  const pop=document.getElementById('stdPopulation');
- if(pop&&stdPopulationContext.value!==null)pop.value=String(stdPopulationContext.value);
+ const popContext=standardPopulationContext(selected());
+ if(pop&&popContext.value!==null)pop.value=String(popContext.value);
  const parametri=[4.5,2,9,2.5];
  const fmt=n=>Number(n).toLocaleString('it-IT',{maximumFractionDigits:2});
  function calcolaStandard(){
