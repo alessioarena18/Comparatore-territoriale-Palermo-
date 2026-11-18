@@ -973,7 +973,7 @@ function initRealizedAmenitiesMap(){
  }).catch(error=>{console.warn('Layer impianti sportivi non disponibile',error);if(status)status.textContent+=' Layer impianti sportivi non disponibile: '+String(error.message||error);});
  fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
   const facilities=data.features||[];
-  const cultureLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:'#7c3aed',fillOpacity:.95}),onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Dotazione culturale')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
+  const cultureLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:'#c026d3',fillOpacity:.95}),onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Dotazione culturale')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
   cultureLayer.addTo(map);
   L.control.layers(null,{'Dotazioni culturali comunali · 7 localizzazioni':cultureLayer},{collapsed:true}).addTo(map);
   const b=cultureLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
@@ -1085,7 +1085,7 @@ function initMap(mapId='map'){
    }catch(error){results.push('Sedi scolastiche e raggi: errore di caricamento ('+error.message+')');}
   }
   if(mapId==='servicesTerritoryMap'){
-   const serviceCategoryStyles={IC:{color:'#d97706',label:'Interesse comune'},V:{color:'#16845b',label:'Verde e sport'},P:{color:'#475569',label:'Parcheggi'},F:{color:'#7c3aed',label:'Interesse generale'}};
+   const serviceCategoryStyles={IC:{color:'#c026d3',label:'Interesse comune'},V:{color:'#0f766e',label:'Verde e sport'},P:{color:'#334155',label:'Parcheggi'},F:{color:'#92400e',label:'Interesse generale'}};
    loadPublicFacilities().then(facilities=>{
     const groups={IC:L.layerGroup(),V:L.layerGroup(),P:L.layerGroup(),F:L.layerGroup()};
     facilities.forEach(item=>{
