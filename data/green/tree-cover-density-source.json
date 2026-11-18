@@ -10,7 +10,7 @@
   "crs": "EPSG:3035 (griglia europea EEA); controllare il CRS effettivo del file scaricato",
   "format": "Cloud Optimized GeoTIFF (COG), uint8",
   "confidence_layer_available": true,
-  "status": "Fonte individuata e metodologia predisposta; raster 2024 di Palermo non ancora acquisito e validato nel repository",
+  "status": "Catalogo e metodologia individuati; aggiunto script per interrogare STAC e individuare gli asset che intersecano Palermo. Il raster 2024 non è ancora acquisito e validato nel repository.",
   "sources": [
     {
       "title": "Copernicus Data Space · STAC collection ufficiale TCD 10 m",
@@ -25,12 +25,12 @@
       "url": "https://land.copernicus.eu/en/products/high-resolution-layer-forests-and-tree-cover?tab=tree_cover_density"
     },
     {
-      "title": "Validation Report Tree Cover Density 2022-2023",
-      "url": "https://land.copernicus.eu/en/technical-library/validation-report-tree-cover-and-forests-2022-and-2023/%40%40download/file"
-    },
-    {
       "title": "Copernicus Data Space · modalità di accesso ai prodotti CLMS",
       "url": "https://documentation.dataspace.copernicus.eu/Data/ComplementaryData/CLMS.html"
+    },
+    {
+      "title": "Copernicus · Validation Report Tree Cover Density 2024",
+      "url": "https://land.copernicus.eu/en/technical-library/validation-report-tree-cover-density-2024/%40%40download/file"
     }
   ],
   "interpretation": [
@@ -39,5 +39,23 @@
     "Il prodotto Forest Type esclude alcuni alberi urbani e agricoli: per il verde urbano usare TCD, non Forest Type.",
     "Le statistiche territoriali devono essere calcolate sul raster originale, mascherando NoData e rispettando la griglia e il CRS.",
     "Non aggregare TCD con le superfici PRG, catastali, Copernicus Urban Atlas o OpenStreetMap."
-  ]
+  ],
+  "workflow": {
+    "discovery_script": "tools/discover_tree_cover_density_tiles.py",
+    "catalog_api": "https://stac.dataspace.copernicus.eu/v1",
+    "search_area_wgs84": [
+      13.27,
+      38.07,
+      13.42,
+      38.21
+    ],
+    "search_period": "2024-01-01/2024-12-31",
+    "dependencies": [
+      "pystac-client",
+      "requests"
+    ],
+    "download_authentication": "Se il download dell'asset lo richiede, impostare la variabile d'ambiente CDSE_ACCESS_TOKEN con un token valido del proprio account Copernicus Data Space.",
+    "report_path": "data/green/tcd_2024_stac_items.json",
+    "note": "Lo script individua gli item e gli asset effettivamente restituiti dal catalogo. Non crea raster sostitutivi."
+  }
 }
