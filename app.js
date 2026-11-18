@@ -971,6 +971,14 @@ function initRealizedAmenitiesMap(){
   const b=sportLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
   if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni di impianti sportivi comunali, in un layer indipendente; un impianto resta non georeferenziato in attesa di una localizzazione puntuale verificata.';
  }).catch(error=>{console.warn('Layer impianti sportivi non disponibile',error);if(status)status.textContent+=' Layer impianti sportivi non disponibile: '+String(error.message||error);});
+ fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+  const facilities=data.features||[];
+  const cultureLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:'#7c3aed',fillOpacity:.95}),onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Dotazione culturale')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
+  cultureLayer.addTo(map);
+  L.control.layers(null,{'Dotazioni culturali comunali · 7 localizzazioni':cultureLayer},{collapsed:true}).addTo(map);
+  const b=cultureLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
+  if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni culturali comunali, in un layer indipendente; sedi interne ai complessi non sono conteggiate come immobili separati.';
+ }).catch(error=>{console.warn('Layer dotazioni culturali non disponibile',error);if(status)status.textContent+=' Layer dotazioni culturali non disponibile: '+String(error.message||error);});
  setTimeout(()=>map.invalidateSize(true),160);
 }
 async function initTerritorialSelectors(){
