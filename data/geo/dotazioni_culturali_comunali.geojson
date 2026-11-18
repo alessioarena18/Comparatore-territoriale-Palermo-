@@ -253,6 +253,29 @@
           38.1126275
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "culture-biblioteca-brancaccio",
+        "name": "Biblioteca comunale di Brancaccio",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO · civico da riallineare tra fonti",
+        "address": "Via S. Ciro, 15 (scheda Luoghi) / Via San Ciro, 19 (Librarsi e U.O. Biblioteche), 90124 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/biblioteca-comunale-di-brancaccio/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda Luoghi ufficiale del Comune di Palermo; il portale Librarsi e U.O. Biblioteche riportano invece civico 19",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto localizzativo ufficiale della scheda Luoghi al civico 15; il civico 19 riportato da Librarsi è un conflitto documentale da risolvere, non una seconda sede."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3832624,
+          38.0947897
+        ]
+      }
     }
   ]
 }
