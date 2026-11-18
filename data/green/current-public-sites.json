@@ -37,6 +37,16 @@
         "supports": [
           "competenze gestionali comunali"
         ]
+      },
+      {
+        "id": "COM-CATALOGO-VERDE",
+        "title": "Comune di Palermo · Verde e Vivibilità Urbana, elenco giardini pubblici e spazi aperti",
+        "url": "https://repository.comune.palermo.it/verde-pubblico.php",
+        "date": "consultato 2026-11-18",
+        "supports": [
+          "elenco istituzionale di luoghi e spazi aperti da sottoporre a verifica"
+        ],
+        "note": "Catalogo tematico non sufficiente da solo a certificare proprietà, apertura attuale o manutenzione."
       }
     ],
     "limitations": [
@@ -284,6 +294,239 @@
         "COM-3537-2026"
       ],
       "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
+    }
+  ],
+  "candidate_sites": [
+    {
+      "id": "PA-VER-CAND-001",
+      "name": "Città dei Ragazzi",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-002",
+      "name": "Foro Italico",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-003",
+      "name": "Giardino dei Giusti",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-004",
+      "name": "Giardino della Zisa",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-005",
+      "name": "Giardino di Villa Napoli",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-006",
+      "name": "Orto Botanico",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-007",
+      "name": "Parco della Favorita",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-008",
+      "name": "Parco di Villa Malfitano",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-009",
+      "name": "Parco di Villa Niscemi",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-010",
+      "name": "Parco di Villa Trabia",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-011",
+      "name": "Parco d'Orleans",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-012",
+      "name": "Parco Ninni Cassarà",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-013",
+      "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-014",
+      "name": "Parco Uditore",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-015",
+      "name": "Villa Bonanno",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-016",
+      "name": "Villa Falcone-Morvillo",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-017",
+      "name": "Villa Filippina",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-018",
+      "name": "Villa Garibaldi",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-019",
+      "name": "Villa Giulia",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-020",
+      "name": "Villa Sperlinga",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
+    },
+    {
+      "id": "PA-VER-CAND-021",
+      "name": "Villa Terrasi",
+      "status": "candidato da sottoporre a verifica puntuale",
+      "access": "non dedotto dal solo inserimento nel catalogo",
+      "ownership": "da verificare",
+      "management": "da verificare",
+      "maintenance": "da verificare",
+      "geometry": "da associare a un perimetro attuale validato",
+      "source_id": "COM-CATALOGO-VERDE"
     }
   ]
 }
