@@ -43,8 +43,27 @@
       "Le fonti consultate documentano accesso regolamentato e orari, ma non attestano la proprietà catastale di ciascuna area.",
       "Il dataset comunale 278 è una ricognizione geometrica 2013: il collegamento tra singolo sito e poligono deve essere verificato, non presunto.",
       "Non sono disponibili in queste fonti indicatori aggiornati e puntuali sullo stato manutentivo.",
-      "Le chiusure per allerta meteo, vento, lavori e manutenzioni possono sospendere temporaneamente la fruizione."
-    ]
+      "Le chiusure per allerta meteo, vento, lavori e manutenzioni possono sospendere temporaneamente la fruizione.",
+      "Audit tecnico del GeoJSON 278: 2.089 geometrie, di cui 2.086 con TIPO=aiuola e 3 con TIPO=alberi; gli unici attributi sono ID e TIPO. Non è una banca dati nominativa di parchi e giardini."
+    ],
+    "historic_geometry_audit": {
+      "source": "data/geo/verde_comunale_2013.geojson",
+      "feature_count": 2089,
+      "geometry_types": [
+        "Polygon",
+        "MultiPolygon"
+      ],
+      "attributes": [
+        "ID",
+        "TIPO"
+      ],
+      "type_counts": {
+        "aiuola": 2086,
+        "alberi": 3
+      },
+      "audit_date": "2026-11-18",
+      "conclusion": "Il dataset 278 è una ricognizione di geometrie puntuali/areali prevalentemente riferite ad aiuole. Non contiene denominazioni di parchi, identificativi patrimoniali, proprietà, gestori o stato manutentivo. Non è possibile associare automaticamente questi poligoni ai nove siti comunali recintati."
+    }
   },
   "facilities": [
     {
