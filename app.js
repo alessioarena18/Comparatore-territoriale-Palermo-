@@ -336,7 +336,11 @@ function filteredSchoolPoints(selection){
   // Prefer the point-in-polygon codes already validated in the school archive.
   // Use the live GeoJSON geometry only when that level is absent from the record.
   if(s.circ&&!matches(spatial.asc1,circCode,point,circFeature))return false;
-  if((s.quart||s.asc2)&&!matches(spatial.asc2,quartCode,point,quartFeature))return false;
+  if(s.asc2&&!matches(spatial.asc2,quartCode,point,quartFeature))return false;
+  if(s.quart&&!s.asc2){
+   if(quartCode){if(!matches(spatial.asc2,quartCode,point,quartFeature))return false;}
+   else{const q=DATA.territories?.quartieri?.find(x=>x.id===s.quart),aliases={'MEZZOMONREALE-V.LLA TASCA':'Mezzomonreale-Villa Tasca','MONTEGRAPPA- S.ROSALIA':'S. Rosalia-Montegrappa','PALAZZO REALE - M.TE DI PIETA':'Palazzo Reale-Monte di Pietà','RESUTTANO-S. LORENZO':'Resuttana-San Lorenzo'};if(normalizeTerritoryName(aliases[p.quarter]||p.quarter)!==normalizeTerritoryName(q?.name))return false;}
+  }
   if(s.asc3&&!matches(spatial.asc3,String(s.asc3),point,uplFeature))return false;
   if(s.section&&!matches(spatial.section||spatial.sezione,s.section,point,sectionFeature))return false;
   return true;
