@@ -319,14 +319,26 @@ function standardPopulationContext(selection){
 }
 function filteredSchoolPoints(selection){
  const s=selection||selected(),points=DATA.schoolPoints||[];
+ const circCode=s.circ?String(s.circ).replace(/^c/,''):'';
+ const quartFeature=s.asc2?GEO.asc2?.features?.find(f=>String(f.properties?.COM_ASC2)===String(s.asc2)):s.quart?findAsc2FeatureForQuartiere(DATA.territories?.quartieri?.find(q=>q.id===s.quart)):null;
+ const quartCode=quartFeature?String(quartFeature.properties?.COM_ASC2??''):'';
+ const matches=(stored,expected,point,feature)=>{
+  if(expected&&stored!==undefined&&stored!==null&&String(stored)!=='')return String(stored)===String(expected);
+  return !!feature&&pointInGeometry(point,feature.geometry);
+ };
+ const circFeature=s.circ?GEO.asc1?.features?.find(f=>String(f.properties?.COD_ASC1)===circCode):null;
+ const uplFeature=s.asc3?GEO.asc3?.features?.find(f=>String(f.properties?.COM_ASC3)===String(s.asc3)):null;
+ const sectionFeature=s.section?GEO.sections?.features?.find(f=>String(f.properties?.SEZ21_ID)===String(s.section)):null;
  return points.filter(p=>{
   const point=[Number(p.lon),Number(p.lat)];
   if(!Number.isFinite(point[0])||!Number.isFinite(point[1]))return false;
-  if(s.section){const f=GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(!f||!pointInGeometry(point,f.geometry))return false;}
-  if(s.asc3){const f=GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(!f||!pointInGeometry(point,f.geometry))return false;}
-  if(s.asc2){const f=GEO.asc2?.features?.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));if(!f||!pointInGeometry(point,f.geometry))return false;}
-  if(s.quart&&!s.asc2){const q=DATA.territories?.quartieri?.find(x=>x.id===s.quart),f=findAsc2FeatureForQuartiere(q);if(f){if(!pointInGeometry(point,f.geometry))return false;}else if(normalizeTerritoryName(p.quarter)!==normalizeTerritoryName(q?.name))return false;}
-  if(s.circ){const f=GEO.asc1?.features?.find(x=>'c'+String(x.properties?.COD_ASC1)===String(s.circ));if(!f||!pointInGeometry(point,f.geometry))return false;}
+  const spatial=p.spatial_validation||{};
+  // Prefer the point-in-polygon codes already validated in the school archive.
+  // Use the live GeoJSON geometry only when that level is absent from the record.
+  if(s.circ&&!matches(spatial.asc1,circCode,point,circFeature))return false;
+  if((s.quart||s.asc2)&&!matches(spatial.asc2,quartCode,point,quartFeature))return false;
+  if(s.asc3&&!matches(spatial.asc3,String(s.asc3),point,uplFeature))return false;
+  if(s.section&&!matches(spatial.section||spatial.sezione,s.section,point,sectionFeature))return false;
   return true;
  });
 }
@@ -910,7 +922,8 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
  if(active==='overview'&&window.Chart&&document.getElementById('overviewSchoolChart')){
   const cl=DATA.schoolClassification?.records||[],pt=filteredSchoolPoints(s),byId=new Map(cl.map(x=>[String(x.point_id),x])),orderKeys=['NIDO','INFANZIA','ELEMENTARI','MEDIE','SUPERIORI','Non classificati'],orderColors=['#d97706','#db2777','#16845b','#2563eb','#7c3aed','#64748b'],counts=Object.fromEntries(orderKeys.map(k=>[k,0]));
   pt.forEach(p=>{const k=(byId.get(String(p.id))?.orders||[])[0]||'Non classificati';counts[counts[k]!==undefined?k:'Non classificati']++;});
-  charts.push(new Chart(document.getElementById('overviewSchoolChart'),{type:'doughnut',data:{labels:orderKeys,datasets:[{data:orderKeys.map(k=>counts[k]),backgroundColor:orderColors,borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));
+  const total=orderKeys.reduce((n,k)=>n+counts[k],0),fmtPie=n=>Number(n||0).toLocaleString('it-IT'),chartTitle=s.section?'Sezione censuaria':s.asc3?'UPL selezionata':s.quart?'Quartiere selezionato':s.circ?'Circoscrizione selezionata':'Intero Comune';
+  charts.push(new Chart(document.getElementById('overviewSchoolChart'),{type:'doughnut',data:{labels:orderKeys,datasets:[{data:orderKeys.map(k=>counts[k]),backgroundColor:orderColors,borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:chartTitle+' · '+fmtPie(total)+' punti fisici'},legend:{position:'bottom'},tooltip:{callbacks:{label(ctx){const value=Number(ctx.raw)||0,pct=total?value/total*100:0;return ctx.label+': '+fmtPie(value)+' ('+pct.toLocaleString('it-IT',{maximumFractionDigits:1})+'%)';}}}}}}));
  }
  if(active==='gis') initMap();
 $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Palermo').replace(/(^|[\s-])(\p{L})/gu,(_,sep,letter)=>sep+letter.toLocaleUpperCase('it-IT'));
