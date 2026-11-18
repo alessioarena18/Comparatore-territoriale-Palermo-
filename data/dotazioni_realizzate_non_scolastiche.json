@@ -41,7 +41,8 @@
       "I presidi sanitari e i consultori possono ospitare più unità operative: il conteggio del registro è per sede fisica/servizio censito, non per numero di ambulatori o prestazioni.",
       "Le coordinate delle biblioteche Borgo Nuovo e Villa Trabia localizzano rispettivamente il civico/complesso di accesso e il complesso di Villa Trabia; non identificano il perimetro edilizio della singola biblioteca.",
       "La Biblioteca di Pallavicino è censita come sede storica chiusa in attesa di ricollocazione: non va rappresentata come dotazione attualmente fruibile né inserita nel layer dei marker operativi.",
-      "Per la Biblioteca di Brancaccio le fonti comunali discordano sul civico (15 nella scheda Luoghi, 19 in Librarsi e U.O. Biblioteche); il marker segue il punto cartografico della scheda Luoghi al civico 15 e il conflitto è esplicitato nel registro."
+      "Per la Biblioteca di Brancaccio le fonti comunali discordano sul civico (15 nella scheda Luoghi, 19 in Librarsi e U.O. Biblioteche); il marker segue il punto cartografico della scheda Luoghi al civico 15 e il conflitto è esplicitato nel registro.",
+      "Le coordinate sanitarie sono pubblicate soltanto quando supportate da un documento tecnico identificabile. Le sedi di Via La Loggia 5 e Via Sarullo 19 hanno coordinate ricavate dall'allegato tecnico ASP alla Delibera 1075/2023; le altre cinque sedi restano nell'inventario senza marker finché non si acquisisce un riscontro cartografico affidabile."
     ]
   },
   "sources": [
@@ -180,6 +181,14 @@
       "reference_date": "Consultazione 18/11/2026",
       "url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/index.html",
       "scope": "Schede ufficiali di sedi, codici ISIL, indirizzi, contatti, orari e servizi delle biblioteche di Ateneo. Le biblioteche sono organizzate in cinque poli. Gli accessi e le modalità di consultazione possono essere soggetti al regolamento e alle condizioni dell'Ateneo."
+    },
+    {
+      "id": "asp_coordinate_allegato_2023",
+      "publisher": "ASP Palermo",
+      "title": "Allegato tecnico alla Delibera n. 1075 del 18 luglio 2023 · coordinate immobili",
+      "reference_date": "18/07/2023",
+      "url": "https://www.asppalermo.org/wp-content/uploads/2024/04/Deliberan.1075del18luglio2023Allegati.pdf",
+      "scope": "Coordinate geografiche in DMS per gli immobili di Via Luigi Sarullo 19 e Via Gaetano La Loggia 5. Conversione in WGS84 decimale; localizzazione della sede, non rilievo dell’ingresso."
     }
   ],
   "categories": [
@@ -486,8 +495,16 @@
       "source_id": "asp_ds42_2026",
       "address": "Via Gaetano La Loggia, 5, 90129 Palermo PA, Italia",
       "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-biondo-palermo/",
-      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
-      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+      "location_verification": "Coordinate WGS84 ricavate dall’allegato tecnico ASP 2023; posizione della sede documentata, ingresso da verificare sul posto.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili.",
+      "coordinates": {
+        "lat": 38.1079722,
+        "lon": 13.3340639,
+        "crs": "EPSG:4326",
+        "source_id": "asp_coordinate_allegato_2023",
+        "verification_status": "COORDINATA_DA_DOCUMENTO_TECNICO_ASP",
+        "note": "Coordinate riportate nell’allegato tecnico ASP per l’immobile; conversione da gradi, primi e secondi in WGS84 decimale. Ingresso da verificare sul posto."
+      }
     },
     {
       "id": "health-pta-casa-del-sole",
@@ -497,8 +514,16 @@
       "source_id": "asp_ds42_2026",
       "address": "Via Luigi Sarullo, 19, 90129 Palermo PA, Italia",
       "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-casa-del-sole-palermo/",
-      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
-      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+      "location_verification": "Coordinate WGS84 ricavate dall’allegato tecnico ASP 2023; posizione della sede documentata, ingresso da verificare sul posto.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili.",
+      "coordinates": {
+        "lat": 38.1202806,
+        "lon": 13.3031444,
+        "crs": "EPSG:4326",
+        "source_id": "asp_coordinate_allegato_2023",
+        "verification_status": "COORDINATA_DA_DOCUMENTO_TECNICO_ASP",
+        "note": "Coordinate riportate nell’allegato tecnico ASP per l’immobile; conversione da gradi, primi e secondi in WGS84 decimale. Ingresso da verificare sul posto."
+      }
     },
     {
       "id": "health-pta-enrico-albanese",
