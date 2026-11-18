@@ -37,7 +37,8 @@
       "Le unità funzionali interne allo stesso complesso non devono essere sommate come immobili distinti.",
       "Nessuna superficie è calcolata o sommata agli standard urbanistici.",
       "Le coordinate dei punti sportivi provengono dai collegamenti cartografici associati alle schede ufficiali del Comune; il punto rappresenta la localizzazione dell'accesso/luogo e non il perimetro catastale o la superficie dell'impianto.",
-      "Le sedi interne a complessi culturali (ad esempio ZAC ai Cantieri della Zisa e biblioteca etnografica a Palazzo Tarallo) sono collegate al complesso ospitante e non conteggiate come immobili autonomi."
+      "Le sedi interne a complessi culturali (ad esempio ZAC ai Cantieri della Zisa e biblioteca etnografica a Palazzo Tarallo) sono collegate al complesso ospitante e non conteggiate come immobili autonomi.",
+      "I presidi sanitari e i consultori possono ospitare più unità operative: il conteggio del registro è per sede fisica/servizio censito, non per numero di ambulatori o prestazioni."
     ]
   },
   "sources": [
@@ -80,6 +81,38 @@
       "reference_date": "Consultazione 18/11/2026",
       "url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/",
       "scope": "Indirizzi delle strutture culturali e coordinate ricavate dai collegamenti cartografici delle schede; la Biblioteca Leonardo Sciascia ha indirizzo ufficiale ma resta da georeferenziare."
+    },
+    {
+      "id": "asp_ds42_2026",
+      "publisher": "ASP Palermo · Distretto Sanitario 42",
+      "title": "Presidi Territoriali di Assistenza e servizi del Distretto 42",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
+      "scope": "Sedi PTA e servizi sanitari territoriali con indirizzi; riferimento per i presidi di Palermo, da distinguere dalle sedi di altri comuni del distretto."
+    },
+    {
+      "id": "asp_consultori",
+      "publisher": "ASP Palermo",
+      "title": "Elenco dei Consultori",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.asppalermo.org/consultori/",
+      "scope": "Elenco dei consultori familiari e indirizzi; contiene sedi di Palermo e comuni del territorio provinciale, da filtrare."
+    },
+    {
+      "id": "social_accreditati_2026",
+      "publisher": "Comune di Palermo · Area Politiche Socio Sanitarie",
+      "title": "Elenco enti accreditati e servizi socio-assistenziali",
+      "reference_date": "Aggiornamento 03/11/2026",
+      "url": "https://www.attivitasociali.palermo.it/index.php?id=1241&option=com_content&view=article",
+      "scope": "Elenco di enti accreditati per servizi socio-educativi, comunità alloggio, accoglienza e altri servizi; non equivale a elenco completo di immobili comunali e richiede verifica puntuale di indirizzo e sede operativa."
+    },
+    {
+      "id": "amat_sosta_2026",
+      "publisher": "AMAT Palermo S.p.A.",
+      "title": "Zone blu e Piano di Regolamentazione della Sosta Tariffata",
+      "reference_date": "Agosto 2026",
+      "url": "https://www.amat.pa.it/zone-blu/",
+      "scope": "Consistenza degli stalli per le zone A, B e C; le zone D ed E sono stagionali e G è di nuova istituzione. Dati di sosta su strada, non parcheggi in struttura."
     }
   ],
   "categories": [
@@ -94,29 +127,29 @@
       "id": "culture",
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
-      "records": 10,
-      "note": "Dieci record documentali; 7 complessi/sedi culturali georeferenziati con schede ufficiali e link cartografici. Biblioteca Sciascia con indirizzo validato ma coordinate non ancora caricate; rete decentrata da scomporre in singole sedi."
+      "records": 14,
+      "note": "Rete bibliotecaria ampliata con le cinque sedi decentrate nominate nella Carta dei Servizi Culturali 2026; indirizzi acquisiti, coordinate ancora da validare per i nuovi punti."
     },
     {
       "id": "health",
       "label": "Sanità e presidi sanitari",
-      "status": "DA_INTEGRARE",
-      "records": 0,
-      "note": "Non sono ancora caricati punti validati da fonti sanitarie istituzionali."
+      "status": "PARZIALE",
+      "records": 7,
+      "note": "Cinque PTA del Distretto 42 e due consultori di Palermo censiti da fonti ASP; ulteriori ambulatori, presidi ospedalieri e servizi da integrare e georeferenziare."
     },
     {
       "id": "social",
       "label": "Assistenza e servizi sociali",
       "status": "DA_INTEGRARE",
       "records": 0,
-      "note": "Da acquisire gli elenchi istituzionali delle strutture e distinguere sedi, servizi domiciliari e gestori."
+      "note": "È stata acquisita la fonte aggiornata degli enti accreditati (03/11/2026). Gli elenchi riguardano gestori e servizi, non sempre immobili o sedi operative; nessun punto è caricato senza indirizzo verificato."
     },
     {
       "id": "parking",
       "label": "Parcheggi pubblici",
       "status": "DA_INTEGRARE",
       "records": 0,
-      "note": "Da integrare con dati AMAT/Comune, distinguendo parcheggi in struttura, aree di sosta e stalli su strada."
+      "note": "Separare parcheggi in struttura/aree dedicate dalla sosta su strada. Disponibili ora i dati AMAT 2026 delle zone A, B e C con stalli conteggiati; non sono punti di parcheggio."
     }
   ],
   "facilities": [
@@ -250,14 +283,6 @@
       "location_verification": "Indirizzo verificato sul portale istituzionale Librarsi; coordinate non ancora validate dal link cartografico."
     },
     {
-      "id": "culture-biblioteche-decentrate",
-      "name": "Biblioteche decentrate comunali",
-      "category": "culture",
-      "status": "RETE_DA_DETTAGLIARE",
-      "source_id": "culture_carta_2024",
-      "note": "La Carta individua la rete, ma il registro deve essere completato con l'elenco delle singole sedi fisiche e i relativi orari."
-    },
-    {
       "id": "culture-archivio-storico",
       "name": "Archivio Storico Comunale",
       "category": "culture",
@@ -330,6 +355,138 @@
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
       "note": "Spazio espositivo indicato dalla Carta; è interno ai Cantieri Culturali alla Zisa e non va sommato come complesso immobiliare distinto."
+    },
+    {
+      "id": "culture-biblioteca-borgo-nuovo",
+      "name": "Biblioteca comunale Borgo Nuovo",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "address": "Largo Pozzillo, 7, 90131 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+    },
+    {
+      "id": "culture-biblioteca-brancaccio",
+      "name": "Biblioteca comunale Brancaccio",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "address": "Via San Ciro, 19, 90124 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+    },
+    {
+      "id": "culture-biblioteca-pallavicino",
+      "name": "Biblioteca comunale Pallavicino",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "address": "Via Giuseppe Spata, 18/20, 90146 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+    },
+    {
+      "id": "culture-biblioteca-villa-trabia",
+      "name": "Biblioteca comunale multimediale Villa Trabia",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "address": "Via Antonino Salinas, 3, 90141 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-multimediale-di-Villa-Trabia/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+    },
+    {
+      "id": "culture-biblioteca-piccolo-principe",
+      "name": "Biblioteca comunale dei bambini e dei ragazzi Il Piccolo Principe",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "address": "Cortile Scalilla, 37, 90133 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-dei-bambini-e-dei-ragazzi-Il-Piccolo-Principe/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+    },
+    {
+      "id": "health-pta-biondo",
+      "name": "PTA Biondo",
+      "category": "health",
+      "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_ds42_2026",
+      "address": "Via Gaetano La Loggia, 5, 90129 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-biondo-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+    },
+    {
+      "id": "health-pta-casa-del-sole",
+      "name": "PTA Casa del Sole",
+      "category": "health",
+      "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_ds42_2026",
+      "address": "Via Luigi Sarullo, 19, 90129 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-casa-del-sole-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+    },
+    {
+      "id": "health-pta-enrico-albanese",
+      "name": "PTA Enrico Albanese",
+      "category": "health",
+      "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_ds42_2026",
+      "address": "Via Papa Sergio I, 5, 90142 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-enrico-albanese-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+    },
+    {
+      "id": "health-pta-guadagna",
+      "name": "PTA Guadagna",
+      "category": "health",
+      "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_ds42_2026",
+      "address": "Via Giuseppe Arcoleo, 5, 90124 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+    },
+    {
+      "id": "health-pta-centro",
+      "name": "PTA Centro",
+      "category": "health",
+      "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_ds42_2026",
+      "address": "Via Giovan Battista Turrisi Colonna, 43, 90141 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+    },
+    {
+      "id": "health-consultorio-villagrazia",
+      "name": "Consultorio familiare Palermo Villagrazia",
+      "category": "health",
+      "status": "SERVIZIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_consultori",
+      "address": "Via della Vega, 25, 90127 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/consultori/",
+      "location_verification": "Indirizzo riportato nell'elenco ufficiale dei Consultori ASP; coordinate non ancora validate.",
+      "note": "Servizio territoriale sanitario. Verificare sede attiva e orari prima di rappresentare la fruibilità."
+    },
+    {
+      "id": "health-consultorio-zen",
+      "name": "Consultorio familiare Palermo ZEN",
+      "category": "health",
+      "status": "SERVIZIO_SANITARIO_DOCUMENTATO",
+      "source_id": "asp_consultori",
+      "address": "Via Luigi Einaudi, 16, 90146 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/consultori/",
+      "location_verification": "Indirizzo riportato nell'elenco ufficiale dei Consultori ASP; coordinate non ancora validate.",
+      "note": "Servizio territoriale sanitario. Verificare sede attiva e orari prima di rappresentare la fruibilità."
     }
   ]
 }
