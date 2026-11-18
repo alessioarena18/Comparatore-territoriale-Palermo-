@@ -581,28 +581,16 @@ if(active==='social'){
     </div>
   </div>`;
 }else if(active==='realized'){
- const points=filteredSchoolPoints(s),census=DATA.schoolCensus?.records||[],censusById=new Map(census.map(x=>[String(x.id),x]));
- const inside=points.filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_BOUNDARIES'&&p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
- const counts={DOCUMENTATO:0,RISERVA_O_RETTIFICA:0,CONFERMATO_DA_RIVALIDARE:0,SENZA_SCHEDA:0};
- inside.forEach(p=>{const r=censusById.get(String(p.id)),k=r?.classe_affidabilita_finale||'SENZA_SCHEDA';counts[counts[k]!==undefined?k:'SENZA_SCHEDA']++;});
- const fmt=n=>Number(n||0).toLocaleString('it-IT');
- html+=`<div class="notice"><h3>Inventario delle dotazioni documentate come esistenti</h3><p>Questa pagina è distinta dalle previsioni del PRG e dal simulatore degli standard. Riporta sedi scolastiche censite e localizzazioni di spazi pubblici esistenti solo quando la fonte ne documenta la presenza. La classificazione documentale non equivale automaticamente alla certificazione di apertura, accessibilità o piena operatività alla data odierna.</p></div>
- <div class="grid realized-kpis">
-  <div class="card"><span class="muted">Punti scolastici nel perimetro comunale</span><div class="metric">${fmt(inside.length)}</div><small class="muted">Catalogo comunale KML 2021, sottoposto a controllo spaziale</small></div>
-  <div class="card"><span class="muted">Documentazione classificata</span><div class="metric">${fmt(counts.DOCUMENTATO)}</div><small class="muted">Classe di affidabilità documentale V81, non stato di apertura</small></div>
-  <div class="card"><span class="muted">Con riserva o rettifica</span><div class="metric">${fmt(counts.RISERVA_O_RETTIFICA)}</div><small class="muted">Da non conteggiare come pienamente verificati</small></div>
-  <div class="card"><span class="muted">Da rivalidare / senza scheda</span><div class="metric">${fmt(counts.CONFERMATO_DA_RIVALIDARE+counts.SENZA_SCHEDA)}</div><small class="muted">Richiedono ulteriore verifica</small></div>
- </div>
- <div class="card"><h3>Mappa delle sedi scolastiche censite</h3><p class="school-note">I simboli rappresentano localizzazioni fisiche del catalogo comunale 2021, non certificano da soli l'attività corrente. Il colore distingue la classe di affidabilità del record V81. Le sedi esterne al confine amministrativo e quelle prive di coordinate non vengono rappresentate nella mappa comunale.</p>
- <div class="map-legend school-legend"><span><i style="background:#16845b"></i>Documentato</span><span><i style="background:#d97706"></i>Riserva / rettifica</span><span><i style="background:#7c3aed"></i>Da rivalidare</span><span><i style="background:#64748b"></i>Senza scheda V81</span><span><i style="background:#0f766e"></i>Parco pubblico esistente</span><span><i style="background:#2563eb"></i>Sport · documentato</span><span><i style="background:#b45309"></i>Sport · non fruibile da fonte</span><span><i style="background:#b91c1c"></i>Sport · chiuso per lavori</span><span><i style="background:#c026d3"></i>Biblioteca / dotazione comunale</span><span><i style="background:#0e7490"></i>Biblioteca regionale</span><span><i style="background:#7c3aed"></i>Biblioteca universitaria</span><span><i style="background:#b91c1c"></i>Servizio sospeso da avviso</span></div>
+ html+=`<div class="notice"><h3>Inventario delle dotazioni documentate come esistenti</h3><p>Questa pagina è distinta dalle previsioni del PRG e dal simulatore degli standard. Raccoglie esclusivamente dotazioni e servizi pubblici non scolastici documentati da fonti istituzionali. La presenza in inventario non equivale automaticamente alla certificazione di apertura, accessibilità o piena operatività alla data odierna.</p></div>
+ <div class="card"><h3>Mappa delle dotazioni pubbliche realizzate</h3><p class="school-note">La cartografia rappresenta localizzazioni documentate di verde pubblico, impianti sportivi e dotazioni culturali e bibliotecarie. Le sedi scolastiche sono escluse da questa pagina e restano consultabili nella sezione dedicata alla rete scolastica.</p>
+ <div class="map-legend school-legend"><span><i style="background:#0f766e"></i>Parco pubblico esistente</span><span><i style="background:#2563eb"></i>Sport · documentato</span><span><i style="background:#b45309"></i>Sport · non fruibile da fonte</span><span><i style="background:#b91c1c"></i>Sport · chiuso per lavori</span><span><i style="background:#c026d3"></i>Biblioteca / dotazione comunale</span><span><i style="background:#0e7490"></i>Biblioteca regionale</span><span><i style="background:#7c3aed"></i>Biblioteca universitaria</span><span><i style="background:#b91c1c"></i>Servizio sospeso da avviso</span></div>
  <div id="realizedAmenitiesMap" class="school-map"></div><p id="realizedAmenitiesStatus" class="school-note">Caricamento della mappa e delle fonti documentali…</p></div>
- <div class="card"><h3>Inventario scolastico per livello di verifica</h3><p class="school-note">La tabella include le sedi georeferenziate nel perimetro comunale, applicando i filtri territoriali in testata. Lo stato V81 è una classificazione documentale; non sostituisce una verifica amministrativa aggiornata sul funzionamento della singola sede.</p><div class="table-wrap"><table><thead><tr><th>Sede</th><th>Istituzione</th><th>Indirizzo</th><th>Ordine verificato</th><th>Classe documentale</th><th>Stato sede / nota</th></tr></thead><tbody>${inside.slice().sort((a,b)=>String(a.name).localeCompare(String(b.name),'it')).map(p=>{const r=censusById.get(String(p.id)),cls=r?.classe_affidabilita_finale||'SENZA_SCHEDA',orders=(DATA.schoolClassification?.records||[]).find(x=>String(x.point_id)===String(p.id))?.orders||[];return '<tr><td><strong>'+esc(p.name)+'</strong></td><td>'+esc(p.institution||'N.D.')+'</td><td>'+esc(p.address||'N.D.')+'</td><td>'+esc(orders.join(', ')||'Non classificato')+'</td><td>'+esc(cls)+'</td><td>'+esc(r?.stato_verifica_documentale||'Scheda V81 non associata')+'</td></tr>';}).join('')}</tbody></table></div></div>
  <div class="grid">
   <div class="card"><h3>Spazi verdi pubblici documentati</h3><p>Il Parco Uditore è censito come verde pubblico esistente e aperto alla fruizione. La fonte disponibile consente una localizzazione puntuale, ma non un perimetro GIS ufficiale verificato: non viene quindi sommata una superficie al bilancio degli standard.</p><p class="school-note">Fonte: <a href="https://docs.comune.palermo.it/verde-pubblico-dettaglio.php?id=278" target="_blank" rel="noopener">Comune di Palermo · scheda Parco Uditore</a>. Estensione indicativa di circa 9 ettari secondo il soggetto gestore, non verificata su geometria ufficiale.</p></div>
   <div class="card"><h3>Progetti da non conteggiare come realizzati</h3><p><strong>Parco Villa Turrisi</strong>: ambito di parco urbano in progetto, circa 25 ettari complessivi prevalentemente privati. Il primo giardino pubblico è oggetto di progetto comunale. Non viene conteggiato come 25 ettari di verde pubblico realizzato.</p><p class="school-note">Fonte: <a href="https://repository.comune.palermo.it/pnrr/pnrr-palermo-progetto-scheda.php?id=49" target="_blank" rel="noopener">Comune di Palermo · scheda progetto Villa Turrisi</a>.</p></div>
  </div>
- <div class="card"><h3>Altre dotazioni pubbliche · censimento documentale</h3><p class="school-note">Registro separato dalle sedi scolastiche. Le voci sono riportate solo quando individuate in documenti istituzionali; non sono ancora tutte georeferenziate. Lo stato documentale non coincide con la verifica di apertura o accessibilità.</p><div id="realizedNonSchoolRegister"><p class="muted">Caricamento del registro delle fonti ufficiali…</p></div></div>
-  <div class="notice-inline"><strong>Limite dell'inventario:</strong> i servizi OSM e le destinazioni PRG non vengono conteggiati qui come dotazioni realizzate. Per includere altre categorie (sanità, sport, cultura, assistenza, parcheggi) servono inventari istituzionali aggiornati e riscontri sullo stato di attuazione, disponibilità e accessibilità. I punti scolastici sono un inventario localizzativo con verifica documentale non uniforme, non una certificazione completa della rete attiva.</div>`;
+ <div class="card"><h3>Altre dotazioni pubbliche · censimento documentale</h3><p class="school-note">Registro delle dotazioni non scolastiche individuate in documenti istituzionali. Le voci non ancora georeferenziate restano nell'inventario documentale senza essere rappresentate in mappa. Lo stato documentale non coincide con la verifica di apertura o accessibilità.</p><div id="realizedNonSchoolRegister"><p class="muted">Caricamento del registro delle fonti ufficiali…</p></div></div>
+ <div class="notice-inline"><strong>Perimetro dell'inventario:</strong> la pagina comprende verde pubblico, impianti sportivi, cultura, biblioteche e gli altri servizi non scolastici documentati. Le sedi scolastiche sono escluse sia dalla mappa sia dall'inventario. I servizi OSM e le destinazioni PRG non vengono conteggiati come dotazioni realizzate senza riscontri istituzionali sullo stato di attuazione.</div>`;
 }else if(active==='schools'){
  const points=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],par=DATA.schoolParitarie||[],siteVerification=DATA.schoolSiteVerification?.records||[];
  const fmt=n=>Number(n||0).toLocaleString('it-IT');
@@ -956,29 +944,18 @@ function initRealizedAmenitiesMap(){
  const status=document.getElementById('realizedAmenitiesStatus');
  const map=L.map(el).setView([38.1157,13.3615],12);realizedAmenitiesMap=map;
  const baseLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});baseLayer.addTo(map);
- const points=filteredSchoolPoints(selected()).filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_BOUNDARIES'&&p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
- const census=DATA.schoolCensus?.records||[],byId=new Map(census.map(x=>[String(x.id),x]));
- const colors={DOCUMENTATO:'#16845b',RISERVA_O_RETTIFICA:'#d97706',CONFERMATO_DA_RIVALIDARE:'#7c3aed',SENZA_SCHEDA:'#64748b'};
- const markers=L.featureGroup();
- points.forEach(p=>{
-  const r=byId.get(String(p.id)),cls=r?.classe_affidabilita_finale||'SENZA_SCHEDA',color=colors[cls]||colors.SENZA_SCHEDA;
-  const marker=L.circleMarker([Number(p.lat),Number(p.lon)],{radius:6,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.92});
-  marker.bindPopup('<strong>'+esc(p.name)+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Classe documentale: '+esc(cls)+'<br>Stato sede: '+esc(r?.stato_verifica_documentale||'Scheda non associata')+'</small>');
-  markers.addLayer(marker);
- });
- markers.addTo(map);
- const overlays={'Sedi scolastiche censite':markers};
+ const overlays={};
  const base={'OpenStreetMap':baseLayer};
  fetch('data/geo/parchi_urbani_integrativi.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
   const existing=(data.features||[]).filter(f=>f.properties?.status==='esistente');
   const parkLayer=L.geoJSON({type:'FeatureCollection',features:existing},{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:'#fff',weight:2,fillColor:'#0f766e',fillOpacity:1}),onEachFeature:(feature,layer)=>layer.bindPopup('<strong>'+esc(feature.properties?.name||'Spazio verde')+'</strong><br>'+esc(feature.properties?.status_label||'Esistente')+'<br><small>'+esc(feature.properties?.area_note||'Superficie non verificata')+'</small>')});
   parkLayer.addTo(map);overlays['Verde pubblico esistente documentato']=parkLayer;
   L.control.layers(base,overlays,{collapsed:true}).addTo(map);
-  const all=L.featureGroup([markers,parkLayer]),bounds=all.getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
-  if(status)status.textContent=points.length+' sedi scolastiche nel filtro corrente; '+existing.length+' localizzazione/i di verde pubblico con stato esistente. Le geometrie puntuali non rappresentano i perimetri delle strutture.';
+  const all=L.featureGroup([parkLayer]),bounds=all.getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
+  if(status)status.textContent=existing.length+' localizzazione/i di verde pubblico con stato esistente. Le geometrie puntuali non rappresentano i perimetri delle strutture.';
  }).catch(error=>{
   L.control.layers(base,overlays,{collapsed:true}).addTo(map);
-  if(status)status.textContent=points.length+' sedi scolastiche nel filtro corrente. Layer dei parchi non disponibile: '+String(error.message||error);
+  if(status)status.textContent='Layer del verde pubblico non disponibile: '+String(error.message||error);
  });
  fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
   const facilities=data.features||[];
