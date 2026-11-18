@@ -38,7 +38,9 @@
       "Nessuna superficie è calcolata o sommata agli standard urbanistici.",
       "Le coordinate dei punti sportivi provengono dai collegamenti cartografici associati alle schede ufficiali del Comune; il punto rappresenta la localizzazione dell'accesso/luogo e non il perimetro catastale o la superficie dell'impianto.",
       "Le sedi interne a complessi culturali (ad esempio ZAC ai Cantieri della Zisa e biblioteca etnografica a Palazzo Tarallo) sono collegate al complesso ospitante e non conteggiate come immobili autonomi.",
-      "I presidi sanitari e i consultori possono ospitare più unità operative: il conteggio del registro è per sede fisica/servizio censito, non per numero di ambulatori o prestazioni."
+      "I presidi sanitari e i consultori possono ospitare più unità operative: il conteggio del registro è per sede fisica/servizio censito, non per numero di ambulatori o prestazioni.",
+      "Le coordinate delle biblioteche Borgo Nuovo e Villa Trabia localizzano rispettivamente il civico/complesso di accesso e il complesso di Villa Trabia; non identificano il perimetro edilizio della singola biblioteca.",
+      "La Biblioteca di Pallavicino è censita come sede storica chiusa in attesa di ricollocazione: non va rappresentata come dotazione attualmente fruibile né inserita nel layer dei marker operativi."
     ]
   },
   "sources": [
@@ -129,6 +131,22 @@
       "reference_date": "Aggiornamento 13/11/2026",
       "url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-centro-palermo/",
       "scope": "Conferma sede in via Giuseppina Turrisi Colonna 43 e rimodulazione delle attività dal 02/01/2026 per lavori strutturali. La rimodulazione non va classificata come chiusura totale del presidio."
+    },
+    {
+      "id": "librarsi_sedi_decentrate_2026",
+      "publisher": "Comune di Palermo · Sistema Bibliotecario Cittadino",
+      "title": "Schede istituzionali Librarsi delle biblioteche comunali decentrate",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
+      "scope": "Verifica puntuale delle sedi e degli indirizzi delle biblioteche comunali; la scheda di Pallavicino segnala la chiusura in attesa di nuova ubicazione. Per le coordinate sono usati esclusivamente collegamenti cartografici ufficiali del Comune quando disponibili."
+    },
+    {
+      "id": "comune_luoghi_biblioteche_2026",
+      "publisher": "Comune di Palermo · Directory Luoghi",
+      "title": "Schede Luoghi e indicazioni cartografiche delle sedi bibliotecarie",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/",
+      "scope": "Collegamenti Google Maps ufficiali utilizzati per localizzare il civico Largo Pozzillo 7, Villa Trabia via Antonino Salinas 3 e Biblioteca Leonardo Sciascia in Piazzetta Lucrezia Brunaccini 2. Il punto è localizzativo e non rappresenta perimetro o superficie."
     }
   ],
   "categories": [
@@ -144,7 +162,7 @@
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
       "records": 14,
-      "note": "Rete bibliotecaria ampliata con le cinque sedi decentrate nominate nella Carta dei Servizi Culturali 2026; indirizzi acquisiti, coordinate ancora da validare per i nuovi punti."
+      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Tre sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio e Il Piccolo Principe restano in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile."
     },
     {
       "id": "health",
@@ -293,10 +311,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Sede centrale indicata nel sistema bibliotecario cittadino.",
-      "address": "Piazzetta Lucrezia Brunaccini, 2, 90133 Palermo PA, Italia",
+      "note": "Biblioteca centrale e sede del Sistema Bibliotecario Cittadino, ubicata nel complesso di Casa Professa. Il punto localizza l'accesso, non il perimetro dell'immobile.",
+      "address": "Piazzetta Lucrezia Brunaccini, 2, 90134 Palermo PA, Italia",
       "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Palermo-Leonardo-Sciascia/",
-      "location_verification": "Indirizzo verificato sul portale istituzionale Librarsi; coordinate non ancora validate dal link cartografico."
+      "location_verification": "Indirizzo verificato sulla scheda Librarsi e sulla scheda Luoghi del Comune; coordinate lette dal collegamento ufficiale Google Maps."
     },
     {
       "id": "culture-archivio-storico",
@@ -378,10 +396,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "address": "Largo Pozzillo, 7, 90131 Palermo PA, Italia",
-      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
-      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
-      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+      "address": "Largo Pozzillo, 7, 90135 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Borgo-Nuovo/",
+      "location_verification": "Indirizzo verificato sulla scheda Librarsi; punto di localizzazione ricavato dal collegamento Google Maps della scheda comunale del civico Largo Pozzillo 7.",
+      "note": "Sede bibliotecaria decentrata del Sistema Bibliotecario Cittadino. La coordinata individua il civico e il complesso di accesso, non un perimetro edilizio autonomo."
     },
     {
       "id": "culture-biblioteca-brancaccio",
@@ -398,12 +416,12 @@
       "id": "culture-biblioteca-pallavicino",
       "name": "Biblioteca comunale Pallavicino",
       "category": "culture",
-      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "status": "SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE",
       "source_id": "culture_carta_2024",
-      "address": "Via Giuseppe Spata, 18/20, 90146 Palermo PA, Italia",
-      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
-      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
-      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+      "address": "Via G. Spata, 10/20, 90146 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Pallavicino/",
+      "location_verification": "Indirizzo storico confermato dalla scheda ufficiale Librarsi; la stessa scheda dichiara la biblioteca attualmente chiusa in attesa di una nuova ubicazione. Non georeferenziare come dotazione fruibile nella sede precedente.",
+      "note": "La scheda ufficiale Librarsi dichiara la biblioteca chiusa in attesa di trovare una nuova ubicazione. Via G. Spata 10/20 è la sede storica, non una sede attualmente fruibile. Da mantenere nel registro documentale ma da escludere dai marker delle dotazioni culturali operative fino alla comunicazione di una nuova sede."
     },
     {
       "id": "culture-biblioteca-villa-trabia",
@@ -413,8 +431,8 @@
       "source_id": "culture_carta_2024",
       "address": "Via Antonino Salinas, 3, 90141 Palermo PA, Italia",
       "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-multimediale-di-Villa-Trabia/",
-      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
-      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
+      "location_verification": "Indirizzo verificato sulla scheda Librarsi; punto di localizzazione ricavato dal collegamento Google Maps della scheda comunale Villa Trabia.",
+      "note": "La biblioteca si trova al piano terra della Casena di Villa Trabia. Il punto localizza l'accesso al complesso, non un immobile autonomo né il perimetro del parco."
     },
     {
       "id": "culture-biblioteca-piccolo-principe",
