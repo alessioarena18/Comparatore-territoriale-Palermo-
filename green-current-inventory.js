@@ -28,14 +28,14 @@
   if(!host){host=document.createElement('section');host.id='greenCurrentInventoryProtocol';host.className='card';(document.getElementById('greenComparisonReport')||document.getElementById('greenMapStatus')||map).insertAdjacentElement('afterend',host);}
   host.innerHTML='<h3>Inventario del verde pubblico · prima ricognizione documentale</h3><p class="muted">Caricamento del registro comunale documentato…</p>';
   try{
-   const response=await fetch('data/green/current-public-sites.json?v=20261118-2',{cache:'no-cache'});
+   const response=await fetch('data/green/current-public-sites.json?v=20261118-3',{cache:'no-cache'});
    if(!response.ok)throw new Error('Registro non disponibile (HTTP '+response.status+')');
    const data=await response.json(),records=data.facilities||[];
    const groups={};
    for(const r of records){const key=r.lighting.includes('non documentata')?'Senza illuminazione adeguata documentata':'Con illuminazione adeguata documentata';groups[key]=(groups[key]||0)+1;}
    const stat=(label,value)=>'<div class="card"><span class="muted">'+label+'</span><div class="metric">'+value+'</div></div>';
    const rows=records.map(r=>{
-    const hours=r.hours.from+'–'+r.hours.to+' ('+r.hours.period+'); successivamente '+r.hours.after_clock_change.from+'–'+r.hours.after_clock_change.to;
+    const hours='In vigore al '+r.hours.current_as_of+': '+r.hours.current_open+'–'+r.hours.current_close+'; fascia precedente al cambio d’ora: '+r.hours.from+'–'+r.hours.to;
     return '<tr><td><strong>'+esc(r.name)+'</strong><br><small>'+esc(r.id)+'</small></td><td>'+esc(r.type)+'</td><td>'+esc(r.access)+'</td><td>'+esc(hours)+'</td><td>'+esc(r.lighting)+'</td><td>'+esc(r.management)+'</td><td>'+esc(r.ownership)+'</td><td>'+esc(r.maintenance)+'</td><td>'+esc(r.geometry)+'</td></tr>';
    }).join('');
    const sources=(data.metadata.sources||[]).map(s=>'<tr><td><strong>'+esc(s.id)+'</strong></td><td><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+'</a></td><td>'+esc(s.date)+'</td><td>'+esc(s.supports.join(', '))+'</td></tr>').join('');
