@@ -1692,6 +1692,7 @@ async function initGreenMap(){
   if(!greenMapData){const r=await fetch('data/geo/verde_prg.geojson',{cache:'no-store'});if(!r.ok)throw new Error('GeoJSON verde HTTP '+r.status);greenMapData=await r.json();}
   if(!greenSummaryData){const r=await fetch('data/verde_prg_summary.json',{cache:'no-store'});if(!r.ok)throw new Error('Riepilogo verde HTTP '+r.status);greenSummaryData=await r.json();}
   const parkResponse=await fetch('data/geo/parchi_urbani_integrativi.geojson',{cache:'no-store'});if(!parkResponse.ok)throw new Error('Inventario parchi integrativi HTTP '+parkResponse.status);const supplementaryParks=await parkResponse.json();
+  let historicalGreen2013=null;try{const historicalResponse=await fetch('data/geo/verde_comunale_2013.geojson',{cache:'no-store'});if(historicalResponse.ok)historicalGreen2013=await historicalResponse.json();}catch(error){console.warn('Layer storico verde 2013 non disponibile',error);}
   if(!document.getElementById('greenMap'))return;
   const cats=greenSummaryData.categories||[],s=selected();
   initGreenBalance();
@@ -1768,12 +1769,25 @@ async function initGreenMap(){
    onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Parco')+'</strong><br>Stato: '+esc(p.status_label||p.status||'N.D.')+'<br>'+esc(p.description||'')+(p.area_note?'<br><em>'+esc(p.area_note)+'</em>':'')+(p.source_url?'<br><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">Fonte</a>':''));}
   });
   if(parkFeatures.length){overlay['Parchi e progetti integrativi (punti)']=parkLayer;parkLayer.addTo(map);}
+  let historicalGreenCount=0;
+  if(historicalGreen2013?.type==='FeatureCollection'&&Array.isArray(historicalGreen2013.features)){
+   const historicalFeatures=historicalGreen2013.features.filter(f=>{
+    if(!filtered||!boundary?.geometry)return true;
+    try{return turf.booleanIntersects(f,boundary);}catch(error){return false;}
+   });
+   historicalGreenCount=historicalFeatures.length;
+   const historicalLayer=L.geoJSON({type:'FeatureCollection',features:historicalFeatures},{
+    style:()=>({color:'#b45309',weight:1.1,dashArray:'5 4',opacity:.9,fillColor:'#f59e0b',fillOpacity:.07}),
+    onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>Ricognizione comunale del verde · 2013</strong><br>Tipo riportato nella fonte: '+esc(p.TIPO||'N.D.')+'<br>ID archivio: '+esc(p.ID||'N.D.')+'<br><em>Dato storico: non certifica lo stato attuale, la proprietà pubblica, l’attuazione o la fruibilità. Non è sommato alle superfici PRG.</em>');}
+   });
+   overlay['Ricognizione comunale 2013 · storico, non verificato come attuale']=historicalLayer;
+  }
   L.control.layers({'OpenStreetMap':base},overlay,{collapsed:false}).addTo(map);
   const bounds=L.geoJSON(mapData).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18]});
   greenMapInstance=map;
   const mapCounts={};mapFeatures.forEach(f=>{const key=f.properties?.green_class||'non_classificato';mapCounts[key]=(mapCounts[key]||0)+1;});
   const mismatches=filtered?[]:cats.filter(x=>x.count!==null&&x.id!=='privato'&&(mapCounts[x.id]||0)!==Number(x.count));
-  if(status)status.textContent=mapFeatures.length+' geometrie'+(filtered?' intersecate con '+territoryName:' caricate per Palermo intera')+'. '+(filtered?'Superfici ricalcolate sull’intersezione con il perimetro ISTAT selezionato. ':'')+'Layer PRG: V1, V2, V3, V4, V5, E1, E2, VS, F4 e codici misti. Verde privato: N.D., non cartografato perché manca un layer PRG che certifichi la titolarità. '+(clipErrors?'Intersezioni non elaborate: '+clipErrors+'. ':'')+(mismatches.length?'Attenzione: conteggi mappa/riepilogo da riconciliare per '+mismatches.map(x=>x.id).join(', ')+'.':'Conteggi mappa e riepilogo coerenti.')+' Parchi integrativi: '+parkFeatures.length+' località puntuali visibili; non sono incluse nelle superfici PRG né nel bilancio m²/abitante. Villa Turrisi è rappresentata come progetto/ambito in prevalenza privato, non come parco pubblico integralmente realizzato. Fonte PRG: Comune di Palermo, dataset 320, Variante Generale DCC 7/2004.';
+  if(status)status.textContent=mapFeatures.length+' geometrie'+(filtered?' intersecate con '+territoryName:' caricate per Palermo intera')+'. '+(filtered?'Superfici ricalcolate sull’intersezione con il perimetro ISTAT selezionato. ':'')+'Layer PRG: V1, V2, V3, V4, V5, E1, E2, VS, F4 e codici misti. Verde privato: N.D., non cartografato perché manca un layer PRG che certifichi la titolarità. '+(clipErrors?'Intersezioni non elaborate: '+clipErrors+'. ':'')+(mismatches.length?'Attenzione: conteggi mappa/riepilogo da riconciliare per '+mismatches.map(x=>x.id).join(', ')+'.':'Conteggi mappa e riepilogo coerenti.')+' Parchi integrativi: '+parkFeatures.length+' località puntuali visibili; non sono incluse nelle superfici PRG né nel bilancio m²/abitante. Ricognizione comunale storica 2013: '+historicalGreenCount+' geometrie, disponibile come layer indipendente disattivato inizialmente; non certifica lo stato attuale e non viene sommata alle superfici PRG. Villa Turrisi è rappresentata come progetto/ambito in prevalenza privato, non come parco pubblico integralmente realizzato. Fonte PRG: Comune di Palermo, dataset 320, Variante Generale DCC 7/2004.';
  }catch(error){console.error('Analisi del verde non disponibile',error);if(status)status.textContent='Impossibile caricare la cartografia del verde: '+error.message;}
 }
 async function loadGeoCatalog(){const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];await Promise.all(defs.map(async([key,url])=>{try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j?.type==='FeatureCollection'&&Array.isArray(j.features))GEO[key]=j;}catch(e){console.warn('Layer territoriale non disponibile:',url,e);}}));populateGeoSelectors();}
