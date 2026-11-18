@@ -58,9 +58,18 @@ def main() -> None:
                 "file_size": asset.extra_fields.get("file:size"),
             }
             media = (asset.media_type or "").lower()
-            if args.download_dir and href and ("tif" in media or "geotiff" in media or key.lower() in {"data", "tcd", "raster"}):
+            path_suffix = Path(urlparse(href).path).suffix.lower() if href else ""
+            asset_roles = {str(role).lower() for role in (asset.roles or [])}
+            is_raster_asset = (
+                "data" in asset_roles
+                or path_suffix in {".tif", ".tiff", ".zip"}
+                or any(marker in media for marker in ("tif", "geotiff", "zip"))
+                or key.lower() in {"data", "tcd", "raster", "confidence", "confidence_layer"}
+            )
+            if args.download_dir and href and is_raster_asset:
                 args.download_dir.mkdir(parents=True, exist_ok=True)
-                name = Path(urlparse(href).path).name or f"{item.id}_{key}.tif"
+                original_name = Path(urlparse(href).path).name or f"{key}.tif"
+                name = f"{item.id}_{original_name}"
                 destination = args.download_dir / name
                 response = requests.get(href, headers=headers, stream=True, timeout=180)
                 response.raise_for_status()
@@ -77,7 +86,7 @@ def main() -> None:
                             suffix = Path(member.filename).suffix.lower()
                             if suffix not in {".tif", ".tiff"} or member.is_dir():
                                 continue
-                            target = args.download_dir / Path(member.filename).name
+                            target = args.download_dir / f"{item.id}_{Path(member.filename).name}"
                             with archive.open(member) as source, target.open("wb") as output:
                                 for chunk in iter(lambda: source.read(1024 * 1024), b""):
                                     output.write(chunk)
