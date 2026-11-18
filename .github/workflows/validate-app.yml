@@ -22,6 +22,8 @@ jobs:
         run: python3 -m py_compile tools/*.py
       - name: Verifica whitespace e patch
         run: git diff --check
+      - name: Audit integrità dei dataset territoriali
+        run: python3 tools/qa_dataset_integrity.py
       - name: Verifica presenza dei layer PRG pubblicati
         run: |
           python3 - <<'PY'
