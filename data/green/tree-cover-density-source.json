@@ -1,0 +1,43 @@
+{
+  "title": "Copernicus Tree Cover Density Europe 10 m",
+  "product": "High Resolution Layer Tree Cover and Forests · Tree Cover Density (TCD)",
+  "collection": "clms_vlcc_tree-cover-density_europe_10m_yearly_v1",
+  "reference_year_selected": 2024,
+  "temporal_extent": "2018-present, annual",
+  "resolution_m": 10,
+  "values": "0 = assenza di copertura arborea; 1-100 = percentuale di copertura delle chiome per pixel; 255 = NoData/fuori area",
+  "pixel_area_m2": 100,
+  "crs": "EPSG:3035 (griglia europea EEA); controllare il CRS effettivo del file scaricato",
+  "format": "Cloud Optimized GeoTIFF (COG), uint8",
+  "confidence_layer_available": true,
+  "status": "Fonte individuata e metodologia predisposta; raster 2024 di Palermo non ancora acquisito e validato nel repository",
+  "sources": [
+    {
+      "title": "Copernicus Data Space · STAC collection ufficiale TCD 10 m",
+      "url": "https://browser.stac.dataspace.copernicus.eu/collections/clms_vlcc_tree-cover-density_europe_10m_yearly_v1"
+    },
+    {
+      "title": "Documentazione tecnica ufficiale TCD 10 m",
+      "url": "https://documentation.dataspace.copernicus.eu/APIs/SentinelHub/Data/clms/land-cover-and-land-use-mapping/tree-cover-and-forests/tree-cover-density/tree-cover-density/clms_vlcc_tree-cover-density_europe_10m_yearly_v1.html"
+    },
+    {
+      "title": "Copernicus Land Monitoring Service · prodotto Tree Cover Density",
+      "url": "https://land.copernicus.eu/en/products/high-resolution-layer-forests-and-tree-cover?tab=tree_cover_density"
+    },
+    {
+      "title": "Validation Report Tree Cover Density 2022-2023",
+      "url": "https://land.copernicus.eu/en/technical-library/validation-report-tree-cover-and-forests-2022-and-2023/%40%40download/file"
+    },
+    {
+      "title": "Copernicus Data Space · modalità di accesso ai prodotti CLMS",
+      "url": "https://documentation.dataspace.copernicus.eu/Data/ComplementaryData/CLMS.html"
+    }
+  ],
+  "interpretation": [
+    "Misura la proiezione verticale delle chiome arboree, non tutta la vegetazione.",
+    "Non equivale a superficie di verde pubblico, fruibile o di proprietà comunale.",
+    "Il prodotto Forest Type esclude alcuni alberi urbani e agricoli: per il verde urbano usare TCD, non Forest Type.",
+    "Le statistiche territoriali devono essere calcolate sul raster originale, mascherando NoData e rispettando la griglia e il CRS.",
+    "Non aggregare TCD con le superfici PRG, catastali, Copernicus Urban Atlas o OpenStreetMap."
+  ]
+}
