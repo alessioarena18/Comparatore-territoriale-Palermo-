@@ -963,6 +963,14 @@ function initRealizedAmenitiesMap(){
   L.control.layers(base,overlays,{collapsed:true}).addTo(map);
   if(status)status.textContent=points.length+' sedi scolastiche nel filtro corrente. Layer dei parchi non disponibile: '+String(error.message||error);
  });
+ fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
+  const facilities=data.features||[];
+  const sportLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>{const st=feature.properties?.documentary_status;const color=st==='NON_FRUIBILE_DA_FONTE'?'#d97706':st==='CHIUSO_LAVORI_DA_FONTE'?'#b91c1c':'#2563eb';return L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.95});},onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Impianto sportivo')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
+  sportLayer.addTo(map);
+  L.control.layers(null,{'Impianti sportivi comunali · 8 localizzazioni':sportLayer},{collapsed:true}).addTo(map);
+  const b=sportLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
+  if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni di impianti sportivi comunali, in un layer indipendente; un impianto resta non georeferenziato in attesa di una localizzazione puntuale verificata.';
+ }).catch(error=>{console.warn('Layer impianti sportivi non disponibile',error);if(status)status.textContent+=' Layer impianti sportivi non disponibile: '+String(error.message||error);});
  setTimeout(()=>map.invalidateSize(true),160);
 }
 async function initTerritorialSelectors(){
