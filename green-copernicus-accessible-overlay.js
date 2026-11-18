@@ -34,6 +34,33 @@
    if(!note&&status){note=document.createElement('p');note.id='copernicusAccessibleGreenNote';note.className='school-note';status.insertAdjacentElement('afterend',note);}
    if(note)note.innerHTML='<strong>Confronto indipendente · Copernicus Urban Atlas 2021.</strong> Il dataset contiene '+features.length+' poligoni, con superficie dichiarata complessiva di circa 3,36 km². La selezione deriva dalla classe 14110 (aree verdi urbane ad accesso pubblico) e applica una soglia dimensionale di 2.000 m². È un’elaborazione secondaria pubblicata da <a href="https://sigfreedo.github.io/palermo-3-30-300/dati.html" target="_blank" rel="noopener">Domenico Schillaci · Palermo 3-30-300</a>, licenza CC BY 4.0. Il dato non certifica accessibilità attuale, proprietà, manutenzione o attuazione e non viene sommato alle superfici PRG o catastali. <a href="https://sigfreedo.github.io/palermo-3-30-300/metodologia.html" target="_blank" rel="noopener">Consulta la metodologia e i limiti</a>.';
    if(status)status.textContent+=' Confronto indipendente Copernicus Urban Atlas 2021: '+features.length+' poligoni caricati, livello separato e disattivato inizialmente. Non sommato alle superfici PRG o catastali.';
+   try{
+    const osmResponse=await fetch('data/geo/osm_verde_accessibile_2025.geojson?v=20261118-1',{cache:'no-cache'});
+    if(!osmResponse.ok)throw new Error('Dataset OSM non disponibile (HTTP '+osmResponse.status+')');
+    const osmData=await osmResponse.json();
+    if(osmData?.type!=='FeatureCollection'||!Array.isArray(osmData.features))throw new Error('Struttura GeoJSON OSM non valida');
+    const osmFeatures=osmData.features.filter(f=>f?.geometry&&['Polygon','MultiPolygon'].includes(f.geometry.type));
+    const osmLayer=L.geoJSON({type:'FeatureCollection',features:osmFeatures},{
+     style:()=>({color:'#7c2d12',weight:1.3,opacity:.9,fillColor:'#fb923c',fillOpacity:.25}),
+     onEachFeature:(feature,featureLayer)=>{
+      const p=feature.properties||{},area=Number(p.area_sqm);
+      const areaText=Number.isFinite(area)?area.toLocaleString('it-IT',{maximumFractionDigits:0})+' m²':'Non disponibile';
+      featureLayer.bindPopup('<strong>'+esc(p.name||'Spazio verde pubblico · OpenStreetMap')+'</strong><br>'+
+       'Classe dimensionale: '+esc(p.size_label||'Non classificata')+'<br>'+
+       'Superficie dichiarata: '+areaText+'<br>'+
+       '<small>Fonte derivata: Palermo 3-30-300, © OpenStreetMap contributors, licenza ODbL 1.0. La mappatura collaborativa può essere incompleta o non aggiornata; non certifica proprietà, manutenzione o apertura attuale.</small>');
+     }
+    });
+    map.__osmAccessibleGreenLayer=osmLayer;
+    L.control.layers(null,{'OpenStreetMap · verde pubblico mappato (118 poligoni)':osmLayer},{collapsed:true}).addTo(map);
+    let osmNote=document.getElementById('osmAccessibleGreenNote');
+    if(!osmNote&&status){osmNote=document.createElement('p');osmNote.id='osmAccessibleGreenNote';osmNote.className='school-note';(document.getElementById('copernicusAccessibleGreenNote')||status).insertAdjacentElement('afterend',osmNote);}
+    if(osmNote)osmNote.innerHTML='<strong>Confronto indipendente · OpenStreetMap.</strong> Il dataset contiene '+osmFeatures.length+' poligoni, con superficie dichiarata complessiva di circa 4,29 km². La selezione deriva da tag di parchi, giardini e aree ricreative pubbliche, con esclusione di accessi privati/residenti e soglia dimensionale di 2.000 m². Elaborazione secondaria di <a href="https://sigfreedo.github.io/palermo-3-30-300/dati.html" target="_blank" rel="noopener">Domenico Schillaci</a>; dati OpenStreetMap, licenza ODbL 1.0. Qualità e completezza dipendono dal contributo collaborativo. Il layer non viene sommato alle superfici PRG o catastali. <a href="https://sigfreedo.github.io/palermo-3-30-300/metodologia.html" target="_blank" rel="noopener">Consulta la metodologia</a>.';
+    if(status)status.textContent+=' Confronto OpenStreetMap: '+osmFeatures.length+' poligoni caricati, livello indipendente e disattivato inizialmente.';
+   }catch(osmError){
+    console.warn('Layer OpenStreetMap verde non disponibile',osmError);
+    if(status)status.textContent+=' Layer OpenStreetMap non disponibile: '+String(osmError.message||osmError)+'.';
+   }
   }catch(error){
    console.warn('Layer Copernicus verde non disponibile',error);
    if(status)status.textContent+=' Layer di confronto Copernicus non disponibile: '+String(error.message||error)+'. Le analisi PRG e catastali restano indipendenti.';
