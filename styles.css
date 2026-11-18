@@ -122,3 +122,33 @@
 .housing-level-select{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:16px 0}.housing-level-select label{color:#425d77}.housing-level-select select{height:40px;min-width:240px;border:1px solid #cbd8e4;border-radius:7px;padding:0 10px;background:#fff;color:#243e57}.housing-kpis{margin:16px 0}.housing-kpis .card{min-height:112px}
 
 .realized-kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin:14px 0}.realized-kpis .card{min-width:0}.realized-kpis .metric{font-size:25px}@media(max-width:900px){.realized-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.realized-kpis{grid-template-columns:1fr 1fr}.realized-kpis .metric{font-size:21px}}
+
+
+/* Esportazione e stampa: pagina completa o singola scheda */
+.export-toolbar{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin:12px 0 16px;padding:10px 12px;background:#fff;border:1px solid #d9e4ee;border-radius:10px}
+.export-toolbar span{margin-right:auto;color:#607b95;font-size:12px;font-weight:600}
+.export-toolbar button,.export-card-button{border:1px solid #b9cbdc;border-radius:7px;padding:8px 12px;background:#fff;color:#244761;font:600 12px inherit;cursor:pointer}
+.export-toolbar button.primary-export{background:#173653;border-color:#173653;color:#fff}
+.card-export-actions{display:flex;justify-content:flex-end;margin:0 0 8px}
+.export-card-button{padding:5px 9px;font-size:11px}
+.export-toolbar button:hover,.export-card-button:hover{filter:brightness(.96)}
+@media print{
+ @page{size:A4 portrait;margin:14mm}
+ html,body{background:#fff!important;color:#111!important;min-width:0!important}
+ body{font-size:10pt!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .top,.side,.filters,.export-toolbar,footer,.no-print,.card-export-actions,.leaflet-control-container,.leaflet-control-attribution{display:none!important}
+ .layout,main{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ #content{width:100%!important;margin:0!important;padding:0!important}
+ #content .card,#content .notice,#content .notice-inline{box-shadow:none!important;break-inside:avoid-page;border-color:#cbd5df!important}
+ #content .card{margin:0 0 10px!important}
+ #content h1,#content h2,#content h3{color:#173653!important;break-after:avoid-page}
+ #content table{width:100%!important;border-collapse:collapse!important;font-size:8pt!important}
+ #content th,#content td{border:1px solid #cbd5df!important;padding:4px!important}
+ #content canvas{max-width:100%!important}
+ #content .leaflet-container{break-inside:avoid-page;max-width:100%!important}
+ #content .leaflet-container img{max-width:none!important}
+ #content input,#content select{border:1px solid #888!important;background:#fff!important;color:#111!important}
+ #content a{color:#173653!important;text-decoration:underline!important}
+ .print-hidden{display:none!important}
+ body.print-card #content .print-hidden{display:none!important}
+}
