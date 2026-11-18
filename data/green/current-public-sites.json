@@ -47,6 +47,27 @@
           "elenco istituzionale di luoghi e spazi aperti da sottoporre a verifica"
         ],
         "note": "Catalogo tematico non sufficiente da solo a certificare proprietà, apertura attuale o manutenzione."
+      },
+      {
+        "id": "COM-PATRIMONIO-2024",
+        "title": "Elenco immobili comunali aggiornato al 31/12/2024",
+        "url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_25062025100826.pdf",
+        "date": "2025-06-25",
+        "supports": [
+          "riconoscimento di terreni e aree comunali classificati VERDE AGRICOLO, VERDE PUBBLICO e VILLA/GIARDINO",
+          "indirizzi e riferimenti catastali foglio/particella"
+        ]
+      },
+      {
+        "id": "COM-RENDICONTO-2024",
+        "title": "Referto del Controllo di Gestione 2024, Ufficio Gestione Verde Urbano",
+        "url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_23012026081850.pdf",
+        "date": "2026-01-23",
+        "supports": [
+          "interventi di manutenzione straordinaria per alcune ville e giardini nel 2023 e 2024",
+          "superfici sottoposte a manutenzione per circoscrizione",
+          "addetti, nuove essenze e interventi programmati/effettuati"
+        ]
       }
     ],
     "limitations": [
@@ -528,5 +549,631 @@
       "geometry": "da associare a un perimetro attuale validato",
       "source_id": "COM-CATALOGO-VERDE"
     }
-  ]
+  ],
+  "municipal_property_parcels": [
+    {
+      "id": "PA-CAT-001",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Li Puma Epifanio",
+      "cadastral_sheet": "0089",
+      "parcels": [
+        "01662",
+        "01664",
+        "01663"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-002",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0011",
+      "parcels": [
+        "02044"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-003",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0005",
+      "parcels": [
+        "03255"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-004",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0011",
+      "parcels": [
+        "02045"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-005",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0005",
+      "parcels": [
+        "03632"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-006",
+      "type": "VERDE AGRICOLO",
+      "address": "Corso dei Mille",
+      "cadastral_sheet": "0092",
+      "parcels": [
+        "03539",
+        "03517",
+        "03495",
+        "03498",
+        "03530",
+        "03502",
+        "03505",
+        "03508",
+        "03511"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-007",
+      "type": "VERDE AGRICOLO",
+      "address": "Viale Regione Siciliana N.O.",
+      "cadastral_sheet": "0041",
+      "parcels": [
+        "00343"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-008",
+      "type": "VERDE AGRICOLO",
+      "address": "Lungomare Cristoforo Colombo",
+      "cadastral_sheet": "0012",
+      "parcels": [
+        "D2140"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-009",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Li Puma Epifanio",
+      "cadastral_sheet": "0089",
+      "parcels": [
+        "00509"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-010",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0005",
+      "parcels": [
+        "03624",
+        "03625",
+        "03628",
+        "03630",
+        "03626",
+        "03260"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-011",
+      "type": "VERDE AGRICOLO",
+      "address": "Fondo Mango 1",
+      "cadastral_sheet": "0040",
+      "parcels": [
+        "00888"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-012",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Schillaci 33",
+      "cadastral_sheet": "0002",
+      "parcels": [
+        "06596"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-013",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Urzì Saro",
+      "cadastral_sheet": "0069",
+      "parcels": [
+        "01744"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-014",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Montmasson Rosalia 30",
+      "cadastral_sheet": "0109",
+      "parcels": [
+        "01203"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-015",
+      "type": "VERDE AGRICOLO",
+      "address": "Via Besta Fabio",
+      "cadastral_sheet": "0015",
+      "parcels": [
+        "02023",
+        "02025",
+        "02027",
+        "02029",
+        "02031",
+        "02033"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-016",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0064",
+      "parcels": [
+        "01411",
+        "02077"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-017",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0077",
+      "parcels": [
+        "05964",
+        "01455"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-018",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0064",
+      "parcels": [
+        "02268"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-019",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0077",
+      "parcels": [
+        "00849"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-020",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0077",
+      "parcels": [
+        "01543"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-021",
+      "type": "VERDE AGRICOLO",
+      "address": "non indicato",
+      "cadastral_sheet": "0064",
+      "parcels": [
+        "01587"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-022",
+      "type": "VERDE PUBBLICO",
+      "address": "Via Attinelli Salvatore",
+      "cadastral_sheet": "0038",
+      "parcels": [
+        "07864",
+        "07714"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-023",
+      "type": "VERDE PUBBLICO",
+      "address": "Rotonda Zarcone Norman",
+      "cadastral_sheet": "0064",
+      "parcels": [
+        "02006",
+        "02018",
+        "02005",
+        "02003"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-024",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Villagrazia 302",
+      "cadastral_sheet": "0097",
+      "parcels": [
+        "00016"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-025",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Montevergini 22",
+      "cadastral_sheet": "0131",
+      "parcels": [
+        "00998"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-026",
+      "type": "VILLA/GIARDINO",
+      "address": "Corso Tukory",
+      "cadastral_sheet": "0137",
+      "parcels": [
+        "01379"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-027",
+      "type": "VILLA/GIARDINO",
+      "address": "Piazza Marina s.n.c.",
+      "cadastral_sheet": "0133",
+      "parcels": [
+        "00057"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-028",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Giusti Giuseppe 36",
+      "cadastral_sheet": "0043",
+      "parcels": [
+        "00402",
+        "00041"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-029",
+      "type": "VILLA/GIARDINO",
+      "address": "Via della Libertà",
+      "cadastral_sheet": "0033",
+      "parcels": [
+        "00253"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-030",
+      "type": "VILLA/GIARDINO",
+      "address": "Viale Praga",
+      "cadastral_sheet": "0029",
+      "parcels": [
+        "00273"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-031",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Melendez Francesco 46-48-5",
+      "cadastral_sheet": "0103",
+      "parcels": [
+        "01042",
+        "01041",
+        "00443",
+        "00970"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-032",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Giardino della Concordia 14",
+      "cadastral_sheet": "0019",
+      "parcels": [
+        "00571",
+        "00035"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-033",
+      "type": "VILLA/GIARDINO",
+      "address": "Piazza Rossi",
+      "cadastral_sheet": "0007",
+      "parcels": [
+        "00218"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-034",
+      "type": "VILLA/GIARDINO",
+      "address": "Piazza Rossi 28",
+      "cadastral_sheet": "0007",
+      "parcels": [
+        "00220",
+        "00222"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-035",
+      "type": "VILLA/GIARDINO",
+      "address": "Via Monte S. Calogero",
+      "cadastral_sheet": "non indicato",
+      "parcels": [],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-036",
+      "type": "VILLA/GIARDINO",
+      "address": "Vicolo Pantelleria 67",
+      "cadastral_sheet": "0022",
+      "parcels": [
+        "00021",
+        "00889",
+        "00024",
+        "00025",
+        "00014",
+        "00012",
+        "00049",
+        "00018",
+        "00555",
+        "00048"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    },
+    {
+      "id": "PA-CAT-037",
+      "type": "VILLA/GIARDINO",
+      "address": "Cortile Scalilla",
+      "cadastral_sheet": "0136",
+      "parcels": [
+        "00341"
+      ],
+      "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
+      "geometry": "da acquisire/associare tramite cartografia catastale",
+      "source_id": "COM-PATRIMONIO-2024"
+    }
+  ],
+  "maintenance_monitoring": {
+    "source_id": "COM-RENDICONTO-2024",
+    "extraordinary_maintenance_by_site": [
+      {
+        "site": "Villa Bonanno",
+        "year2023": 2,
+        "year2024": 0
+      },
+      {
+        "site": "Villa Giulia",
+        "year2023": 6,
+        "year2024": 1
+      },
+      {
+        "site": "Giardino Garibaldi",
+        "year2023": 0,
+        "year2024": 0
+      },
+      {
+        "site": "Giardino Inglese / Parco Piersanti Mattarella",
+        "year2023": 1,
+        "year2024": 1
+      },
+      {
+        "site": "Villa Trabia",
+        "year2023": 2,
+        "year2024": 1
+      },
+      {
+        "site": "Palazzina Cinese",
+        "year2023": 0,
+        "year2024": 0
+      },
+      {
+        "site": "Villa Niscemi",
+        "year2023": 0,
+        "year2024": 1
+      },
+      {
+        "site": "Parterre Falcone Morvillo",
+        "year2023": 1,
+        "year2024": 0
+      }
+    ],
+    "by_circumscription": [
+      {
+        "circumscription": "I",
+        "maintenance_area_m2": 45000,
+        "staff2023": 6,
+        "staff2024": 5,
+        "new_plantings2023": 12,
+        "new_plantings2024": 20,
+        "planned_or_completed_interventions2023": 77,
+        "planned_or_completed_interventions2024": 80
+      },
+      {
+        "circumscription": "II",
+        "maintenance_area_m2": 65000,
+        "staff2023": 6,
+        "staff2024": 8,
+        "new_plantings2023": 222,
+        "new_plantings2024": 238,
+        "planned_or_completed_interventions2023": 87,
+        "planned_or_completed_interventions2024": 95
+      },
+      {
+        "circumscription": "III",
+        "maintenance_area_m2": 10000,
+        "staff2023": 3,
+        "staff2024": 2,
+        "new_plantings2023": 0,
+        "new_plantings2024": 0,
+        "planned_or_completed_interventions2023": 19,
+        "planned_or_completed_interventions2024": 25
+      },
+      {
+        "circumscription": "IV",
+        "maintenance_area_m2": 40000,
+        "staff2023": 4,
+        "staff2024": 4,
+        "new_plantings2023": 137,
+        "new_plantings2024": 145,
+        "planned_or_completed_interventions2023": 75,
+        "planned_or_completed_interventions2024": 82
+      },
+      {
+        "circumscription": "V",
+        "maintenance_area_m2": 20000,
+        "staff2023": 7,
+        "staff2024": 7,
+        "new_plantings2023": 353,
+        "new_plantings2024": 360,
+        "planned_or_completed_interventions2023": 38,
+        "planned_or_completed_interventions2024": 45
+      },
+      {
+        "circumscription": "VI",
+        "maintenance_area_m2": 36000,
+        "staff2023": 3,
+        "staff2024": 4,
+        "new_plantings2023": 212,
+        "new_plantings2024": 230,
+        "planned_or_completed_interventions2023": 69,
+        "planned_or_completed_interventions2024": 75
+      },
+      {
+        "circumscription": "VII",
+        "maintenance_area_m2": 39000,
+        "staff2023": 4,
+        "staff2024": 4,
+        "new_plantings2023": 0,
+        "new_plantings2024": 50,
+        "planned_or_completed_interventions2023": 73,
+        "planned_or_completed_interventions2024": 78
+      },
+      {
+        "circumscription": "VIII",
+        "maintenance_area_m2": 165000,
+        "staff2023": 15,
+        "staff2024": 11,
+        "new_plantings2023": 605,
+        "new_plantings2024": 620,
+        "planned_or_completed_interventions2023": 193,
+        "planned_or_completed_interventions2024": 200
+      }
+    ],
+    "totals": {
+      "maintenance_area_m2": 420000,
+      "staff2023": 48,
+      "staff2024": 45,
+      "new_plantings2023": 1541,
+      "new_plantings2024": 1663,
+      "planned_or_completed_interventions2023": 631,
+      "planned_or_completed_interventions2024": 680
+    },
+    "interpretation": "Il rapporto distingue interventi straordinari per sito e indicatori aggregati per circoscrizione. Gli indicatori aggregati non consentono di attribuire lo stato manutentivo a ogni singola area. La voce 'interventi programmati e effettuati' è mantenuta con la stessa formulazione del documento.",
+    "reference_years": [
+      2023,
+      2024
+    ]
+  }
 }
