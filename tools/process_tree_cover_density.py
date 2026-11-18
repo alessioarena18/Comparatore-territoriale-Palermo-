@@ -6,8 +6,15 @@ Input:
   - layer poligonale con circoscrizioni, quartieri o UPL
 
 Esempio:
-  python tools/process_tree_cover_density.py TCD_2024.tif upl.gpkg \
-    --id-field COD_ASC3 --name-field DEN_ASC3 --output tcd_upl_2024.csv
+  # UPL
+  python tools/process_tree_cover_density.py TCD_2024.tif data/geo/aree_subcomunali_liv3_palermo_2021.geojson \
+    --id-field COM_ASC3 --name-field DEN_ASC3 --output tcd_upl_2024.csv
+  # Quartieri
+  python tools/process_tree_cover_density.py TCD_2024.tif data/geo/aree_subcomunali_liv2_palermo_2021.geojson \
+    --id-field COM_ASC2 --name-field DEN_ASC2 --output tcd_quartieri_2024.csv
+  # Circoscrizioni
+  python tools/process_tree_cover_density.py TCD_2024.tif data/geo/circoscrizioni_palermo_2021.geojson \
+    --id-field COM_ASC1 --name-field DEN_ASC1 --output tcd_circoscrizioni_2024.csv
 
 Dipendenze: geopandas, rasterio, shapely, numpy.
 Le statistiche usano i pixel il cui centro ricade nel poligono (all_touched=False).
@@ -53,6 +60,9 @@ def main() -> None:
             raise SystemExit("Il raster non dichiara il CRS.")
         if not src.crs.is_projected:
             raise SystemExit("Il raster deve avere un CRS proiettato in metri per calcolare le superfici.")
+        units = [str(axis.unit_name).lower() for axis in src.crs.axis_info[:2]]
+        if len(units) < 2 or not all("metre" in unit or "meter" in unit for unit in units):
+            raise SystemExit(f"Il CRS del raster non risulta espresso in metri: {units}")
         pixel_area = abs(src.transform.a * src.transform.e - src.transform.b * src.transform.d)
         if not math.isfinite(pixel_area) or pixel_area <= 0:
             raise SystemExit("Dimensione del pixel non valida.")
