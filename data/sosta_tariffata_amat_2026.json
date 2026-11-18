@@ -1,0 +1,69 @@
+{
+  "title": "Sosta tariffata AMAT Palermo · quadro per zone omogenee",
+  "reference_date": "Agosto 2026",
+  "source": "AMAT Palermo S.p.A.",
+  "source_url": "https://www.amat.pa.it/zone-blu/",
+  "methodology": "Dati ufficiali di stalli su strada per zone tariffate A, B e C. Non sono parcheggi in struttura, non vanno sommati al numero di autorimesse e non rappresentano standard urbanistici per aree di parcheggio fuori sede stradale. D ed E sono stagionali; G è istituita nel piano ma la pagina sintetica non riporta una consistenza numerica.",
+  "zones": [
+    {
+      "id": "A",
+      "name": "Zona A · Centro urbano",
+      "total_stalls": 6207,
+      "paid_stalls": 3935,
+      "free_or_reserved_stalls": 2272,
+      "seasonal": false,
+      "source_url": "https://www.amat.pa.it/zone-blu/"
+    },
+    {
+      "id": "B",
+      "name": "Zona B · Residenziale-direzionale",
+      "total_stalls": 2264,
+      "paid_stalls": 1469,
+      "free_or_reserved_stalls": 795,
+      "seasonal": false,
+      "source_url": "https://www.amat.pa.it/wp-content/uploads/2026/08/1462-Sosta-tariffata-Zona-B.pdf"
+    },
+    {
+      "id": "C",
+      "name": "Zona C · Centro urbano",
+      "total_stalls": 2873,
+      "paid_stalls": 1815,
+      "free_or_reserved_stalls": 1058,
+      "seasonal": false,
+      "source_url": "https://www.amat.pa.it/11-08-2026-sosta-tariffata-nuove-ordinanze-dettaglio-zone-confini-viari-nuovi-orari-e-semplificazione-abbonamenti/"
+    },
+    {
+      "id": "D",
+      "name": "Zona D · Mondello",
+      "total_stalls": null,
+      "paid_stalls": null,
+      "free_or_reserved_stalls": null,
+      "seasonal": true,
+      "note": "Zona stagionale; consistenza numerica non riportata nella pagina sintetica."
+    },
+    {
+      "id": "E",
+      "name": "Zona E · Sferracavallo",
+      "total_stalls": null,
+      "paid_stalls": null,
+      "free_or_reserved_stalls": null,
+      "seasonal": true,
+      "note": "Zona stagionale; consistenza numerica non riportata nella pagina sintetica."
+    },
+    {
+      "id": "G",
+      "name": "Zona G · Quadrante Giordano-Alpi-Palagonia",
+      "total_stalls": null,
+      "paid_stalls": null,
+      "free_or_reserved_stalls": null,
+      "seasonal": false,
+      "note": "Zona istituita; consistenza numerica da acquisire dall'ordinanza e dagli allegati tecnici."
+    }
+  ],
+  "totals_A_B_C": {
+    "total_stalls": 11344,
+    "paid_stalls": 7219,
+    "free_or_reserved_stalls": 4125
+  },
+  "warning": "La classificazione per zone tariffate non coincide con la localizzazione di parcheggi pubblici in struttura o di aree di sosta dedicate."
+}
