@@ -934,8 +934,8 @@ async function initRealizedNonSchoolRegister(){
   if(!response.ok)throw new Error('HTTP '+response.status);
   const data=await response.json();
   const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',OSPEDALE_DOCUMENTATO:'Presidio ospedaliero documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
-  const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e presidi sanitari',hospitals:'Ospedali e presidi ospedalieri'};
-  const allowedCategories=new Set(['sport','culture','health','hospitals']);
+  const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e strutture ospedaliere'};
+  const allowedCategories=new Set(['sport','culture','health']);
   const sourceById=new Map((data.sources||[]).map(x=>[x.id,x]));
   const categories=(data.categories||[]).filter(cat=>allowedCategories.has(cat.id)).map(cat=>{
    const items=(data.facilities||[]).filter(x=>x.category===cat.id&&!isSchoolFacilityRecord(x));
@@ -996,8 +996,11 @@ async function initRealizedAmenitiesMap(){
    const r=await fetch('data/geo/dotazioni_sanitarie_comunali.geojson',{cache:'no-store'});
    if(!r.ok)throw new Error('Sanità GeoJSON HTTP '+r.status);
    const d=await r.json();
-   const features=(d.features||[]).filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE'].includes(f.properties?.coordinate_status));
-   const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
+   const hospitalResponse=await fetch('data/geo/dotazioni_ospedaliere_comunali.geojson',{cache:'no-store'});
+   if(!hospitalResponse.ok)throw new Error('Ospedali GeoJSON HTTP '+hospitalResponse.status);
+   const hospitalData=await hospitalResponse.json();
+   const features=[...(d.features||[]),...(hospitalData.features||[])].filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE','COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA'].includes(f.properties?.coordinate_status));
+   const mapped=addFacilityLayer(features,'health','Sanità e strutture ospedaliere',p=>'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
    features.forEach(feature=>{
     const id=feature.properties?.facility_id;
     const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');
@@ -1005,13 +1008,13 @@ async function initRealizedAmenitiesMap(){
    });
    return mapped;
   })(),
-  (async()=>{const r=await fetch('data/geo/dotazioni_ospedaliere_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Ospedali HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'hospitals','Ospedali e presidi ospedalieri',p=>'#7c3aed',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');})()
+
  ];
  const results=await Promise.allSettled(jobs);
  L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
  const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
- const counts=results.map((result,i)=>({label:['sport','culture','health','hospitals'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
- if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità: 4 sedi georeferenziate; PTA Centro e i due consultori restano da verificare. Ospedali: 8 localizzazioni cartografiche iniziali; 2 strutture restano nell’inventario senza marker. I punti localizzano i complessi, non necessariamente gli ingressi.';
+ const counts=results.map((result,i)=>({label:['sport','culture','sanità e strutture ospedaliere'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
+ if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità e strutture ospedaliere: livello unico in rosso. Sono mappate le sedi con coordinate disponibili; le altre restano nell’inventario senza marker. I punti localizzano i complessi, non necessariamente gli ingressi.';
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function initTerritorialSelectors(){
