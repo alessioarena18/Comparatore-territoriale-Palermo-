@@ -40,8 +40,7 @@
       "Le sedi interne a complessi culturali (ad esempio ZAC ai Cantieri della Zisa e biblioteca etnografica a Palazzo Tarallo) sono collegate al complesso ospitante e non conteggiate come immobili autonomi.",
       "I presidi sanitari e i consultori possono ospitare più unità operative: il conteggio del registro è per sede fisica/servizio censito, non per numero di ambulatori o prestazioni.",
       "Le coordinate delle biblioteche Borgo Nuovo e Villa Trabia localizzano rispettivamente il civico/complesso di accesso e il complesso di Villa Trabia; non identificano il perimetro edilizio della singola biblioteca.",
-      "La Biblioteca di Pallavicino è censita come sede storica chiusa in attesa di ricollocazione: non va rappresentata come dotazione attualmente fruibile né inserita nel layer dei marker operativi.",
-      "Per la Biblioteca di Brancaccio le fonti comunali discordano sul civico (15 nella scheda Luoghi, 19 in Librarsi e U.O. Biblioteche); il marker segue il punto cartografico della scheda Luoghi al civico 15 e il conflitto è esplicitato nel registro."
+      "La Biblioteca di Pallavicino è censita come sede storica chiusa in attesa di ricollocazione: non va rappresentata come dotazione attualmente fruibile né inserita nel layer dei marker operativi."
     ]
   },
   "sources": [
@@ -163,7 +162,7 @@
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
       "records": 14,
-      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile."
+      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Tre sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio e Il Piccolo Principe restano in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile."
     },
     {
       "id": "health",
@@ -408,10 +407,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "address": "Via S. Ciro, 15 (scheda Luoghi) / Via San Ciro, 19 (Librarsi e U.O. Biblioteche), 90124 Palermo PA, Italia",
-      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/biblioteca-comunale-di-brancaccio/",
-      "location_verification": "Sede confermata da scheda Luoghi comunale e portale Librarsi; le fonti istituzionali discordano sul civico: 15 nella scheda Luoghi aggiornata 02/09/2025, 19 su Librarsi e U.O. Biblioteche. Coordinate riferite al punto cartografico ufficiale della scheda Luoghi al civico 15.",
-      "note": "Biblioteca comunale decentrata effettivamente censita. Disallineamento civico tra fonti istituzionali: la scheda Luoghi del Comune riporta via S. Ciro 15, mentre Librarsi e U.O. Biblioteche riportano via San Ciro 19. Il marker localizza il punto Google Maps della scheda Luoghi al civico 15; verificare il civico d'ingresso prima di ulteriori analisi di accessibilità o prossimità."
+      "address": "Via San Ciro, 19, 90124 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/",
+      "location_verification": "Indirizzo riportato nella Carta dei Servizi Culturali 2026 e/o nella scheda istituzionale Librarsi; coordinate non ancora validate.",
+      "note": "Sede bibliotecaria comunale censita; orari e fruibilità da verificare sulla scheda aggiornata."
     },
     {
       "id": "culture-biblioteca-pallavicino",
@@ -422,7 +421,7 @@
       "address": "Via G. Spata, 10/20, 90146 Palermo PA, Italia",
       "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Pallavicino/",
       "location_verification": "Indirizzo storico confermato dalla scheda ufficiale Librarsi; la stessa scheda dichiara la biblioteca attualmente chiusa in attesa di una nuova ubicazione. Non georeferenziare come dotazione fruibile nella sede precedente.",
-      "note": "La scheda ufficiale Librarsi dichiara la biblioteca chiusa in attesa di trovare una nuova ubicazione. La sede storica è indicata come via G. Spata 10/20 nella scheda Librarsi e nell'elenco U.O. Biblioteche; la Carta dei Servizi Culturali 2026 riporta 18/20. Il civico non viene assunto come localizzazione operativa: sede chiusa e ricollocazione non comunicata. Esclusa dai marker delle dotazioni culturali fruibili."
+      "note": "La scheda ufficiale Librarsi dichiara la biblioteca chiusa in attesa di trovare una nuova ubicazione. Via G. Spata 10/20 è la sede storica, non una sede attualmente fruibile. Da mantenere nel registro documentale ma da escludere dai marker delle dotazioni culturali operative fino alla comunicazione di una nuova sede."
     },
     {
       "id": "culture-biblioteca-villa-trabia",
