@@ -1011,7 +1011,8 @@ async function initRealizedAmenitiesMap(){
  const addFacilityLayer=(features,key,label,colorFor,statusFor)=>{
   const clean=(features||[]).filter(f=>!isSchoolFacilityRecord(f)&&f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates));
   const fc={type:'FeatureCollection',features:clean};
-  const layer=L.geoJSON(fc,{
+  let layer;
+  layer=L.geoJSON(fc,{
    pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:'#fff',weight:2,fillColor:colorFor(feature.properties||{}),fillOpacity:.95}),
    onEachFeature:(feature,marker)=>{
     const p=feature.properties||{},id=String(p.facility_id||p.id||'');
@@ -1020,6 +1021,7 @@ async function initRealizedAmenitiesMap(){
     if(id){realizedFacilityMarkers.set(id,{id,marker,layer:key,groupLayer:layer});marker.on('click',()=>{document.querySelectorAll('.realized-facility-row.is-selected').forEach(row=>row.classList.remove('is-selected'));const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(id)+'"]');if(row){row.classList.add('is-selected');row.scrollIntoView({behavior:'smooth',block:'center'});}});}
    }
   });
+  layer.eachLayer(marker=>{const id=String(marker.feature?.properties?.facility_id||marker.feature?.properties?.id||'');const entry=realizedFacilityMarkers.get(id);if(entry)entry.groupLayer=layer;});
   layer.addTo(map);overlays[label]=layer;allLayers.push(layer);return clean.length;
  };
  const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato'};
