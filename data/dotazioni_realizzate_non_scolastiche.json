@@ -450,10 +450,10 @@
       "category": "health",
       "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
       "source_id": "asp_ds42_2026",
-      "address": "Via Villagrazia, 46, 90124 Palermo PA, Italia",
-      "location_source_url": "https://www.asppalermo.org/punto_contatto/distretto-sanitario-n-42-pta-guadagna-palermo/",
-      "location_verification": "Indirizzo aggiornato dalla scheda ufficiale ASP Palermo, pagina aggiornata 31/08/2026.",
-      "note": "Presidio territoriale ASP del Distretto Sanitario 42. La sede ufficiale è Via Villagrazia, 46; evitare la precedente indicazione Via G. Arcoleo, che compare in una pagina riepilogativa non coerente."
+      "address": "Via Giuseppe Arcoleo, 5, 90124 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
     },
     {
       "id": "health-pta-centro",
