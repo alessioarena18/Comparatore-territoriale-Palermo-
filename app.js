@@ -932,56 +932,93 @@ async function initRealizedNonSchoolRegister(){
  try{
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
-  const data=await response.json(),statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'},categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei'};
+  const data=await response.json();
+  const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
+  const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e presidi sanitari'};
+  const allowedCategories=new Set(['sport','culture','health']);
   const sourceById=new Map((data.sources||[]).map(x=>[x.id,x]));
-  const allowedCategories=new Set(['sport','culture','health','social','parking']);
   const categories=(data.categories||[]).filter(cat=>allowedCategories.has(cat.id)).map(cat=>{
    const items=(data.facilities||[]).filter(x=>x.category===cat.id&&!isSchoolFacilityRecord(x));
-   const rows=items.map(item=>{const source=sourceById.get(item.source_id);return '<tr><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';}).join('');
-   return '<section style="margin:14px 0"><h4>'+esc(categoryLabels[cat.id]||cat.label)+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table><thead><tr><th>Struttura / servizio</th><th>Stato documentale</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record georeferenziato o verificato caricato. Categoria da integrare.</p>')+'</section>';
+   const rows=items.map(item=>{
+    const source=sourceById.get(item.source_id);
+    const mapState=item.category==='health'?'Localizzazione in corso / da verificare':item.coordinates?'Localizzato in mappa':'Non ancora georeferenziato';
+    return '<tr class="realized-facility-row" data-facility-id="'+esc(item.id)+'" tabindex="0" role="button" aria-label="Individua '+esc(item.name)+' sulla mappa"><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status||'N.D.')+'</td><td>'+esc(mapState)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';
+   }).join('');
+   return '<section class="realized-category" style="margin:14px 0" id="realized-category-'+esc(cat.id)+'"><h4>'+esc(categoryLabels[cat.id]||cat.label)+' · '+items.length+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table class="realized-facility-table"><thead><tr><th>Struttura / servizio</th><th>Indirizzo</th><th>Stato documentale</th><th>Localizzazione</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record disponibile.</p>')+'</section>';
   }).join('');
   const usedSourceIds=new Set((data.facilities||[]).filter(x=>allowedCategories.has(x.category)&&!isSchoolFacilityRecord(x)).map(x=>x.source_id));
   const sourceRows=(data.sources||[]).filter(x=>usedSourceIds.has(x.id)).map(x=>'<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a> · '+esc(x.publisher)+' · '+esc(x.reference_date)+'<br><span class="school-note">'+esc(x.scope)+'</span></li>').join('');
   const restrictions=(data.methodology?.restrictions||[]).map(x=>'<li>'+esc(x)+'</li>').join('');
-  let parkingHtml='';try{const pr=await fetch('data/sosta_tariffata_amat_2026.json',{cache:'no-store'});if(pr.ok){const p=await pr.json();parkingHtml='<section style="margin:14px 0"><h4>Sosta tariffata su strada · AMAT 2026</h4><p class="school-note">'+esc(p.methodology)+'</p><div class="table-wrap"><table><thead><tr><th>Zona</th><th>Stalli totali</th><th>Tariffati</th><th>Gratuiti / riservati</th><th>Fonte</th></tr></thead><tbody>'+(p.zones||[]).map(z=>'<tr><td>'+esc(z.name)+'</td><td>'+(z.total_stalls===null?'N.D.':Number(z.total_stalls).toLocaleString('it-IT'))+'</td><td>'+(z.paid_stalls===null?'N.D.':Number(z.paid_stalls).toLocaleString('it-IT'))+'</td><td>'+(z.free_or_reserved_stalls===null?'N.D.':Number(z.free_or_reserved_stalls).toLocaleString('it-IT'))+'</td><td>'+(z.source_url?'<a href="'+esc(z.source_url)+'" target="_blank" rel="noopener">AMAT</a>':'N.D.')+'</td></tr>').join('')+'</tbody></table></div><p class="school-note"><strong>Zone A, B e C:</strong> '+Number(p.totals_A_B_C.total_stalls).toLocaleString('it-IT')+' stalli complessivi, di cui '+Number(p.totals_A_B_C.paid_stalls).toLocaleString('it-IT')+' tariffati. '+esc(p.warning)+'</p></section>';}}catch(e){console.warn('Dati sosta AMAT non disponibili',e);}host.innerHTML='<div class="grid realized-kpis">'+(data.categories||[]).map(cat=>'<div class="card"><span class="muted">'+esc(cat.label)+'</span><div class="metric">'+Number(cat.records||0).toLocaleString('it-IT')+'</div><small class="muted">'+esc(cat.status==='DA_INTEGRARE'?'Da integrare':cat.status==='PARZIALE'?'Censimento documentale parziale':'In lavorazione')+'</small></div>').join('')+'</div>'+categories+parkingHtml+'<div class="grid"><div class="card"><h4>Fonti istituzionali</h4><ul>'+sourceRows+'</ul></div><div class="card"><h4>Regole di lettura</h4><ul>'+restrictions+'</ul></div></div><p class="school-note">Archivio: data/dotazioni_realizzate_non_scolastiche.json · aggiornamento '+esc(data.generated_at||'N.D.')+'. I conteggi indicano record documentali, non immobili distinti né dotazioni fruibili.</p>';
+  host.innerHTML='<style>.realized-facility-row{cursor:pointer}.realized-facility-row:hover{background:#eff6ff}.realized-facility-row.is-selected{background:#dbeafe!important;outline:2px solid #2563eb;outline-offset:-2px}.realized-facility-row:focus{outline:2px solid #2563eb;outline-offset:-2px}.realized-facility-table{min-width:900px}.realized-category h4{scroll-margin-top:90px}</style><div class="grid realized-kpis">'+(data.categories||[]).filter(cat=>allowedCategories.has(cat.id)).map(cat=>'<div class="card"><span class="muted">'+esc(categoryLabels[cat.id]||cat.label)+'</span><div class="metric">'+Number(cat.records||0).toLocaleString('it-IT')+'</div><small class="muted">'+esc(cat.status==='DA_INTEGRARE'?'Da integrare':cat.status==='PARZIALE'?'Censimento documentale parziale':'In lavorazione')+'</small></div>').join('')+'</div>'+categories+'<div class="grid"><div class="card"><h4>Fonti istituzionali</h4><ul>'+sourceRows+'</ul></div><div class="card"><h4>Regole di lettura</h4><ul>'+restrictions+'</ul></div></div><p class="school-note">Inventario limitato a impianti sportivi, cultura/biblioteche/musei e sanità/presidi sanitari. Le righe sono selezionabili e collegano la scheda alla cartografia. I record senza coordinate validate restano identificati come tali.</p>';
+  if(!host.dataset.selectionBound){
+   host.addEventListener('click',event=>{const row=event.target.closest('tr[data-facility-id]');if(row&&!event.target.closest('a'))selectRealizedFacility(row.dataset.facilityId,true);});
+   host.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('tr[data-facility-id]')){event.preventDefault();selectRealizedFacility(event.target.dataset.facilityId,true);}});
+   host.dataset.selectionBound='1';
+  }
  }catch(error){host.innerHTML='<p class="notice-inline">Registro non disponibile: '+esc(error.message||String(error))+'</p>';}
+}
+const realizedFacilityMarkers=new Map();
+function selectRealizedFacility(id,fromInventory=false){
+ const map=realizedAmenitiesMap,entry=realizedFacilityMarkers.get(String(id));
+ document.querySelectorAll('.realized-facility-row.is-selected').forEach(row=>row.classList.remove('is-selected'));
+ const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');
+ if(row){row.classList.add('is-selected');if(fromInventory)row.scrollIntoView({behavior:'smooth',block:'center'});}
+ if(entry&&map){map.setView(entry.marker.getLatLng(),16,{animate:true});entry.marker.openPopup();}
+ else if(row){const cell=row.children[1]?.textContent||'';const status=document.getElementById('realizedAmenitiesStatus');if(status)status.textContent='La struttura è presente nell’inventario ma non dispone ancora di coordinate validate: '+cell;}
 }
 function initRealizedAmenitiesMap(){
  const el=document.getElementById('realizedAmenitiesMap');if(!el||!window.L)return;
  if(realizedAmenitiesMap){realizedAmenitiesMap.remove();realizedAmenitiesMap=null;}
+ realizedFacilityMarkers.clear();
  const status=document.getElementById('realizedAmenitiesStatus');
  const map=L.map(el).setView([38.1157,13.3615],12);realizedAmenitiesMap=map;
  const baseLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});baseLayer.addTo(map);
- const overlays={};
- const base={'OpenStreetMap':baseLayer};
- fetch('data/geo/parchi_urbani_integrativi.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
-  const existing=(data.features||[]).filter(f=>f.properties?.status==='esistente'&&!isSchoolFacilityRecord(f));
-  const parkLayer=L.geoJSON({type:'FeatureCollection',features:existing},{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:'#fff',weight:2,fillColor:'#0f766e',fillOpacity:1}),onEachFeature:(feature,layer)=>layer.bindPopup('<strong>'+esc(feature.properties?.name||'Spazio verde')+'</strong><br>'+esc(feature.properties?.status_label||'Esistente')+'<br><small>'+esc(feature.properties?.area_note||'Superficie non verificata')+'</small>')});
-  parkLayer.addTo(map);overlays['Verde pubblico esistente documentato']=parkLayer;
-  L.control.layers(base,overlays,{collapsed:true}).addTo(map);
-  const all=L.featureGroup([parkLayer]),bounds=all.getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
-  if(status)status.textContent=existing.length+' localizzazione/i di verde pubblico con stato esistente. Le geometrie puntuali non rappresentano i perimetri delle strutture.';
- }).catch(error=>{
-  L.control.layers(base,overlays,{collapsed:true}).addTo(map);
-  if(status)status.textContent='Layer del verde pubblico non disponibile: '+String(error.message||error);
- });
- fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
-  const facilities=(data.features||[]).filter(f=>!isSchoolFacilityRecord(f));
-  const sportLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>{const st=feature.properties?.documentary_status;const color=st==='NON_FRUIBILE_DA_FONTE'?'#b45309':st==='CHIUSO_LAVORI_DA_FONTE'?'#b91c1c':'#2563eb';return L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.95});},onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Impianto sportivo')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
-  sportLayer.addTo(map);
-  L.control.layers(null,{'Impianti sportivi comunali · 8 localizzazioni':sportLayer},{collapsed:true}).addTo(map);
-  const b=sportLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
-  if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni di impianti sportivi comunali, in un layer indipendente; un impianto resta non georeferenziato in attesa di una localizzazione puntuale verificata.';
- }).catch(error=>{console.warn('Layer impianti sportivi non disponibile',error);if(status)status.textContent+=' Layer impianti sportivi non disponibile: '+String(error.message||error);});
- fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
-  const facilities=(data.features||[]).filter(f=>!isSchoolFacilityRecord(f));
-  const cultureLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>{const p=feature.properties||{},fill=p.status==='SERVIZIO_SOSPESO_DA_AVVISO'?'#b91c1c':p.category==='biblioteca_universitaria'?'#7c3aed':p.managing_body==='Regione Siciliana'?'#0e7490':'#c026d3';return L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:fill,fillOpacity:.95});},onEachFeature:(feature,layer)=>{const p=feature.properties||{},status=statusLabels[p.status]||p.status||'Non specificato';layer.bindPopup('<strong>'+esc(p.name||'Dotazione culturale')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Ente: '+esc(p.managing_body||'N.D.')+'</small><br><small>Stato: '+esc(status)+'</small><br><small>'+esc(p.location_note||p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda istituzionale</a>');}});
-  cultureLayer.addTo(map);
-  L.control.layers(null,{['Dotazioni culturali e bibliotecarie · '+facilities.length+' localizzazioni']:cultureLayer},{collapsed:true}).addTo(map);
-  const b=cultureLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
-  if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni culturali e bibliotecarie, in un layer indipendente; sedi interne ai complessi non sono conteggiate come immobili separati.';
- }).catch(error=>{console.warn('Layer dotazioni culturali non disponibile',error);if(status)status.textContent+=' Layer dotazioni culturali non disponibile: '+String(error.message||error);});
- setTimeout(()=>map.invalidateSize(true),160);
+ const overlays={},allLayers=[];
+ const addFacilityLayer=(features,key,label,colorFor,statusFor)=>{
+  const clean=(features||[]).filter(f=>!isSchoolFacilityRecord(f)&&f.geometry?.type==='Point'&&Array.isArray(f.geometry.coordinates));
+  const fc={type:'FeatureCollection',features:clean};
+  const layer=L.geoJSON(fc,{
+   pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:'#fff',weight:2,fillColor:colorFor(feature.properties||{}),fillOpacity:.95}),
+   onEachFeature:(feature,marker)=>{
+    const p=feature.properties||{},id=String(p.facility_id||p.id||'');
+    const state=statusFor(p);
+    marker.bindPopup('<div class="school-popup"><strong>'+esc(p.name||label)+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato: '+esc(state)+'</small><br><small>'+esc(p.geometry_note||p.location_note||'Punto localizzativo, non perimetro della struttura')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Fonte istituzionale</a></div>');
+    if(id){realizedFacilityMarkers.set(id,{marker,layer:key});marker.on('click',()=>{document.querySelectorAll('.realized-facility-row.is-selected').forEach(row=>row.classList.remove('is-selected'));const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(id)+'"]');if(row){row.classList.add('is-selected');row.scrollIntoView({behavior:'smooth',block:'center'});}});}
+   }
+  });
+  layer.addTo(map);overlays[label]=layer;allLayers.push(layer);return clean.length;
+ };
+ const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato'};
+ const jobs=[
+  (async()=>{const r=await fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Sport HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'sport','Impianti sportivi',p=>p.documentary_status==='NON_FRUIBILE_DA_FONTE'?'#b45309':p.documentary_status==='CHIUSO_LAVORI_DA_FONTE'?'#b91c1c':'#2563eb',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');})(),
+  (async()=>{const r=await fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Cultura HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'culture','Cultura, biblioteche e musei',p=>p.status==='SERVIZIO_SOSPESO_DA_AVVISO'?'#b91c1c':p.category==='biblioteca_universitaria'?'#7c3aed':p.managing_body==='Regione Siciliana'?'#0e7490':'#c026d3',p=>statusLabels[p.status||p.documentary_status]||p.status||p.documentary_status||'N.D.');})(),
+  (async()=>{
+   const r=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});if(!r.ok)throw new Error('Archivio sanitario HTTP '+r.status);const d=await r.json();
+   const facilities=(d.facilities||[]).filter(x=>x.category==='health'&&!isSchoolFacilityRecord(x));
+   const features=[];
+   for(let i=0;i<facilities.length;i++){
+    const item=facilities[i];
+    try{
+     const url='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=it&q='+encodeURIComponent(item.address+', Palermo, Italia');
+     const response=await fetch(url,{headers:{Accept:'application/json'}});
+     if(!response.ok)throw new Error('Geocodifica HTTP '+response.status);
+     const matches=await response.json();
+     if(matches?.[0]){
+      const lon=Number(matches[0].lon),lat=Number(matches[0].lat);
+      if(Number.isFinite(lon)&&Number.isFinite(lat))features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{facility_id:item.id,name:item.name,category:'health',documentary_status:item.status,address:item.address,source_url:item.location_source_url,geometry_note:'Punto geocodificato a partire dall’indirizzo ufficiale. Verificare il civico e l’ingresso prima di analisi di prossimità o accessibilità.',coordinate_source:'OpenStreetMap Nominatim · geocodifica dell’indirizzo',coordinate_reference:'WGS84 · localizzazione indicativa',last_verified:new Date().toISOString().slice(0,10)}}});
+    }
+    }catch(error){console.warn('Indirizzo sanitario non geocodificato',item.id,error);}
+    if(i<facilities.length-1)await new Promise(resolve=>setTimeout(resolve,1100));
+   }
+   return addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
+  })()
+ ];
+ const results=await Promise.allSettled(jobs);
+ L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
+ const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
+ const counts=results.map((result,i)=>({label:['sport','culture','health'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
+ if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Le coordinate sanitarie derivano da geocodifica degli indirizzi e richiedono validazione puntuale del civico/ingresso.';
+ setTimeout(()=>map.invalidateSize(true),180);
 }
 async function initTerritorialSelectors(){
  const defs=[['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];
