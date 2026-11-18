@@ -927,7 +927,6 @@ function isSchoolFacilityRecord(item){
  const name=String(item?.name||p.name||p.title||'');
  return /^(education|school|schools|scolastico|scolastica|istruzione)$/.test(category)||/(^|\\b)(scuola|scuole|plesso scolastico|istituto comprensivo|istituto scolastico|asilo nido|nido d'infanzia)(\\b|$)/i.test(name);
 }
-async 
 let realizedTerritorialAssociationsPromise=null;
 let realizedTerritorialAssociations=new Map();
 async function loadRealizedTerritorialAssociations(){
