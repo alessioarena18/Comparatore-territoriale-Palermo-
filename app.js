@@ -1991,4 +1991,5 @@ $('#content').addEventListener('change',e=>{
  syncGeoSelection(level,target.value);
 });
 const sectionMain=$('#section');if(sectionMain&&sectionMain.options.length)sectionMain.options[0].textContent='Nessuna';
+render();
 load();
