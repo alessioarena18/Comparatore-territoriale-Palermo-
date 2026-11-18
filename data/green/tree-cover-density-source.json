@@ -10,7 +10,7 @@
   "crs": "EPSG:3035 (griglia europea EEA); controllare il CRS effettivo del file scaricato",
   "format": "Cloud Optimized GeoTIFF (COG), uint8",
   "confidence_layer_available": true,
-  "status": "Catalogo e metodologia individuati; aggiunto script per interrogare STAC e individuare gli asset che intersecano Palermo. Il raster 2024 non è ancora acquisito e validato nel repository.",
+  "status": "Catalogo e workflow predisposti; lo script interroga sia il raster TCD 2024 sia il relativo layer di confidenza, individua gli asset che intersecano Palermo e gestisce l'estrazione dei GeoTIFF dagli archivi ZIP. I raster non sono ancora acquisiti e validati nel repository.",
   "sources": [
     {
       "title": "Copernicus Data Space · STAC collection ufficiale TCD 10 m",
@@ -51,11 +51,15 @@
     ],
     "search_period": "2024-01-01/2024-12-31",
     "dependencies": [
-      "pystac-client",
-      "requests"
+      "pystac-client>=0.8,<2",
+      "requests>=2.31,<3"
     ],
     "download_authentication": "Se il download dell'asset lo richiede, impostare la variabile d'ambiente CDSE_ACCESS_TOKEN con un token valido del proprio account Copernicus Data Space.",
     "report_path": "data/green/tcd_2024_stac_items.json",
-    "note": "Lo script individua gli item e gli asset effettivamente restituiti dal catalogo. Non crea raster sostitutivi."
+    "note": "Lo script individua gli item e gli asset effettivamente restituiti dal catalogo. Non crea raster sostitutivi.",
+    "confidence_collection": "clms_vlcc_tree-cover-density-confidence-layer_europe_10m_yearly_v1",
+    "install_command": "python -m pip install -r tools/requirements-tree-cover-density.txt",
+    "run_command": "python tools/discover_tree_cover_density_tiles.py --download-dir data/green/tcd_2024",
+    "archive_handling": "Se gli asset sono distribuiti in archivi ZIP, lo script estrae i GeoTIFF e registra i percorsi nel report."
   }
 }
