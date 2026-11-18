@@ -933,15 +933,15 @@ async function initRealizedNonSchoolRegister(){
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
   const data=await response.json();
-  const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
-  const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e presidi sanitari'};
-  const allowedCategories=new Set(['sport','culture','health']);
+  const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',OSPEDALE_DOCUMENTATO:'Presidio ospedaliero documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
+  const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e presidi sanitari',hospitals:'Ospedali e presidi ospedalieri'};
+  const allowedCategories=new Set(['sport','culture','health','hospitals']);
   const sourceById=new Map((data.sources||[]).map(x=>[x.id,x]));
   const categories=(data.categories||[]).filter(cat=>allowedCategories.has(cat.id)).map(cat=>{
    const items=(data.facilities||[]).filter(x=>x.category===cat.id&&!isSchoolFacilityRecord(x));
    const rows=items.map(item=>{
     const source=sourceById.get(item.source_id);
-    const mapState=item.coordinates?'Coordinate da documento tecnico ASP · WGS84':'Non ancora georeferenziato';
+    const mapState=item.coordinates?(item.coordinates.verification_status==='COORDINATA_DA_DOCUMENTO_TECNICO_ASP'?'Coordinate da allegato tecnico ASP · WGS84':'Coordinate da cartografia · WGS84'):'Non ancora georeferenziato';
     return '<tr class="realized-facility-row" data-facility-id="'+esc(item.id)+'" tabindex="0" role="button" aria-label="Individua '+esc(item.name)+' sulla mappa"><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status||'N.D.')+'</td><td>'+esc(mapState)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';
    }).join('');
    return '<section class="realized-category" style="margin:14px 0" id="realized-category-'+esc(cat.id)+'"><h4>'+esc(categoryLabels[cat.id]||cat.label)+' · '+items.length+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table class="realized-facility-table"><thead><tr><th>Struttura / servizio</th><th>Indirizzo</th><th>Stato documentale</th><th>Localizzazione</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record disponibile.</p>')+'</section>';
@@ -996,7 +996,7 @@ async function initRealizedAmenitiesMap(){
    const r=await fetch('data/geo/dotazioni_sanitarie_comunali.geojson',{cache:'no-store'});
    if(!r.ok)throw new Error('Sanità GeoJSON HTTP '+r.status);
    const d=await r.json();
-   const features=(d.features||[]).filter(f=>f.properties?.coordinate_status==='COORDINATA_DA_DOCUMENTO_TECNICO_ASP');
+   const features=(d.features||[]).filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE'].includes(f.properties?.coordinate_status));
    const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
    features.forEach(feature=>{
     const id=feature.properties?.facility_id;
@@ -1004,13 +1004,14 @@ async function initRealizedAmenitiesMap(){
     if(row&&row.children[3])row.children[3].textContent='Coordinate da documento tecnico ASP · WGS84';
    });
    return mapped;
-  })()
+  })(),
+  (async()=>{const r=await fetch('data/geo/dotazioni_ospedaliere_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Ospedali HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'hospitals','Ospedali e presidi ospedalieri',p=>'#7c3aed',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');})()
  ];
  const results=await Promise.allSettled(jobs);
  L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
  const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
- const counts=results.map((result,i)=>({label:['sport','culture','health'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
- if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità: 2 coordinate da allegato tecnico ASP; 5 sedi restano nell’inventario in attesa di coordinate documentate. I punti localizzano l’immobile, non necessariamente l’ingresso.';
+ const counts=results.map((result,i)=>({label:['sport','culture','health','hospitals'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
+ if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità: 4 sedi georeferenziate; PTA Centro e i due consultori restano da verificare. Ospedali: 8 localizzazioni cartografiche iniziali; 2 strutture restano nell’inventario senza marker. I punti localizzano i complessi, non necessariamente gli ingressi.';
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function initTerritorialSelectors(){
