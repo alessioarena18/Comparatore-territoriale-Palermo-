@@ -30,7 +30,10 @@
    });
    map.__copernicusAccessibleGreenLayer=layer;
    L.control.layers(null,{'Copernicus Urban Atlas 2021 · verde pubblico (129 poligoni)':layer},{collapsed:true}).addTo(map);
-   if(status)status.textContent+=' Confronto indipendente Copernicus Urban Atlas 2021: '+features.length+' poligoni caricati, livello separato e disattivato inizialmente. Dataset derivato CC BY 4.0; non sommato alle superfici PRG o catastali.';
+   let note=document.getElementById('copernicusAccessibleGreenNote');
+   if(!note&&status){note=document.createElement('p');note.id='copernicusAccessibleGreenNote';note.className='school-note';status.insertAdjacentElement('afterend',note);}
+   if(note)note.innerHTML='<strong>Confronto indipendente · Copernicus Urban Atlas 2021.</strong> Il dataset contiene '+features.length+' poligoni, con superficie dichiarata complessiva di circa 3,36 km². La selezione deriva dalla classe 14110 (aree verdi urbane ad accesso pubblico) e applica una soglia dimensionale di 2.000 m². È un’elaborazione secondaria pubblicata da <a href="https://sigfreedo.github.io/palermo-3-30-300/dati.html" target="_blank" rel="noopener">Domenico Schillaci · Palermo 3-30-300</a>, licenza CC BY 4.0. Il dato non certifica accessibilità attuale, proprietà, manutenzione o attuazione e non viene sommato alle superfici PRG o catastali. <a href="https://sigfreedo.github.io/palermo-3-30-300/metodologia.html" target="_blank" rel="noopener">Consulta la metodologia e i limiti</a>.';
+   if(status)status.textContent+=' Confronto indipendente Copernicus Urban Atlas 2021: '+features.length+' poligoni caricati, livello separato e disattivato inizialmente. Non sommato alle superfici PRG o catastali.';
   }catch(error){
    console.warn('Layer Copernicus verde non disponibile',error);
    if(status)status.textContent+=' Layer di confronto Copernicus non disponibile: '+String(error.message||error)+'. Le analisi PRG e catastali restano indipendenti.';
