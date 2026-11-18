@@ -927,12 +927,44 @@ function isSchoolFacilityRecord(item){
  const name=String(item?.name||p.name||p.title||'');
  return /^(education|school|schools|scolastico|scolastica|istruzione)$/.test(category)||/(^|\\b)(scuola|scuole|plesso scolastico|istituto comprensivo|istituto scolastico|asilo nido|nido d'infanzia)(\\b|$)/i.test(name);
 }
-async function initRealizedNonSchoolRegister(){
+async 
+let realizedTerritorialAssociationsPromise=null;
+let realizedTerritorialAssociations=new Map();
+async function loadRealizedTerritorialAssociations(){
+ if(realizedTerritorialAssociationsPromise)return realizedTerritorialAssociationsPromise;
+ realizedTerritorialAssociationsPromise=(async()=>{
+  const defs=[['sport','data/geo/dotazioni_sportive_comunali.geojson'],['culture','data/geo/dotazioni_culturali_comunali.geojson'],['health','data/geo/dotazioni_sanitarie_comunali.geojson'],['hospitals','data/geo/dotazioni_ospedaliere_comunali.geojson'],['asc1','data/geo/circoscrizioni_palermo_2021.geojson'],['asc2','data/geo/aree_subcomunali_liv2_palermo_2021.geojson'],['asc3','data/geo/aree_subcomunali_liv3_palermo_2021.geojson'],['sections','data/geo/sezioni_palermo_2021.geojson']];
+  const loaded=await Promise.all(defs.map(async([key,url])=>{if(['asc1','asc2','asc3','sections'].includes(key)&&GEO[key])return [key,GEO[key]];const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(key+' HTTP '+r.status);const g=await r.json();if(!g||g.type!=='FeatureCollection'||!Array.isArray(g.features))throw new Error(key+' GeoJSON non valido');if(['asc1','asc2','asc3','sections'].includes(key))GEO[key]=g;return [key,g];}));
+  const byId=new Map();
+  loaded.filter(([key])=>['sport','culture','health','hospitals'].includes(key)).forEach(([key,g])=>(g.features||[]).forEach(f=>{const id=String(f.properties?.facility_id||f.id||'');if(id&&f.geometry?.type==='Point'){const c=f.geometry.coordinates;byId.set(id,{point:[Number(c[0]),Number(c[1])],category:key});}}));
+  const bboxCache=new WeakMap(),inside=(point,feature)=>{if(!feature?.geometry)return false;let b=bboxCache.get(feature);if(!b){b=geometryBounds(feature.geometry);bboxCache.set(feature,b);}return !!b&&point[0]>=b[0]&&point[0]<=b[2]&&point[1]>=b[1]&&point[1]<=b[3]&&pointInGeometry(point,feature.geometry);};
+  const find=key=>point=>(GEO[key]?.features||[]).find(f=>inside(point,f));
+  byId.forEach((entry,id)=>{const cp=find('asc1')(entry.point)?.properties||{},qp=find('asc2')(entry.point)?.properties||{},up=find('asc3')(entry.point)?.properties||{},sp=find('sections')(entry.point)?.properties||{};entry.territory={circId:cp.COD_ASC1!==undefined?'c'+String(cp.COD_ASC1):'',circName:cp.DEN_ASC1||'',quartCode:qp.COM_ASC2!==undefined?String(qp.COM_ASC2):'',quartName:qp.DEN_ASC2||'',uplCode:up.COM_ASC3!==undefined?String(up.COM_ASC3):'',uplName:up.DEN_ASC3||'',sectionCode:sp.SEZ21_ID!==undefined?String(sp.SEZ21_ID):''};realizedTerritorialAssociations.set(id,entry);});
+  return realizedTerritorialAssociations;
+ })().catch(error=>{realizedTerritorialAssociationsPromise=null;throw error;});
+ return realizedTerritorialAssociationsPromise;
+}
+function realizedFacilityMatchesSelection(id,selection=selected()){
+ const t=realizedTerritorialAssociations.get(String(id))?.territory;if(!t)return false;
+ if(selection.circ&&t.circId!==selection.circ)return false;
+ const quartCode=selection.asc2||(selection.quart?quartiereAsc2Code(DATA.territories?.quartieri?.find(q=>q.id===selection.quart)):'');
+ if(quartCode&&t.quartCode!==String(quartCode))return false;
+ if(selection.asc3&&t.uplCode!==String(selection.asc3))return false;
+ if(selection.section&&t.sectionCode!==String(selection.section))return false;
+ return true;
+}
+function applyRealizedTerritorialFilter(){
+ if(!realizedAmenitiesMap)return;const selection=selected();
+ realizedFacilityMarkers.forEach(entry=>{const layer=entry.groupLayer,visible=realizedFacilityMatchesSelection(entry.id,selection);if(!layer)return;if(visible&&!layer.hasLayer(entry.marker))layer.addLayer(entry.marker);else if(!visible&&layer.hasLayer(entry.marker))layer.removeLayer(entry.marker);});
+}
+
+function initRealizedNonSchoolRegister(){
  const host=document.getElementById('realizedNonSchoolRegister');if(!host)return;
  try{
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
   const data=await response.json();
+  await loadRealizedTerritorialAssociations();
   const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',OSPEDALE_DOCUMENTATO:'Presidio ospedaliero documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
   const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e strutture ospedaliere'};
   const allowedCategories=new Set(['sport','culture','health']);
@@ -941,10 +973,12 @@ async function initRealizedNonSchoolRegister(){
    const items=(data.facilities||[]).filter(x=>x.category===cat.id&&!isSchoolFacilityRecord(x));
    const rows=items.map(item=>{
     const source=sourceById.get(item.source_id);
-    const mapState=item.coordinates?(item.coordinates.verification_status==='COORDINATA_DA_DOCUMENTO_TECNICO_ASP'?'Coordinate da allegato tecnico ASP · WGS84':'Coordinate da cartografia · WGS84'):'Non ancora georeferenziato';
-    return '<tr class="realized-facility-row" data-facility-id="'+esc(item.id)+'" tabindex="0" role="button" aria-label="Individua '+esc(item.name)+' sulla mappa"><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status||'N.D.')+'</td><td>'+esc(mapState)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';
+    const association=realizedTerritorialAssociations.get(String(item.id))?.territory;
+    const territoryLabel=association&&association.circName?[association.circName+' circoscrizione',association.quartName,association.uplName,association.sectionCode?'Sez. '+association.sectionCode:''].filter(Boolean).join(' · '):'Coordinate territoriali non disponibili';
+    const mapState=realizedTerritorialAssociations.has(String(item.id))?'Georeferenziato · WGS84':item.coordinates?'Coordinate dichiarate · da associare':'Non ancora georeferenziato';
+    return '<tr class="realized-facility-row" data-facility-id="'+esc(item.id)+'" tabindex="0" role="button" aria-label="Individua '+esc(item.name)+' sulla mappa"><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status||'N.D.')+'</td><td>'+esc(mapState)+'</td><td>'+esc(territoryLabel)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';
    }).join('');
-   return '<section class="realized-category" style="margin:14px 0" id="realized-category-'+esc(cat.id)+'"><h4>'+esc(categoryLabels[cat.id]||cat.label)+' · '+items.length+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table class="realized-facility-table"><thead><tr><th>Struttura / servizio</th><th>Indirizzo</th><th>Stato documentale</th><th>Localizzazione</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record disponibile.</p>')+'</section>';
+   return '<section class="realized-category" style="margin:14px 0" id="realized-category-'+esc(cat.id)+'"><h4>'+esc(categoryLabels[cat.id]||cat.label)+' · '+items.length+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table class="realized-facility-table"><thead><tr><th>Struttura / servizio</th><th>Indirizzo</th><th>Stato documentale</th><th>Localizzazione</th><th>Associazione territoriale · Circoscrizione / Quartiere / UPL / Sezione</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record disponibile.</p>')+'</section>';
   }).join('');
   const usedSourceIds=new Set((data.facilities||[]).filter(x=>allowedCategories.has(x.category)&&!isSchoolFacilityRecord(x)).map(x=>x.source_id));
   const sourceRows=(data.sources||[]).filter(x=>usedSourceIds.has(x.id)).map(x=>'<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a> · '+esc(x.publisher)+' · '+esc(x.reference_date)+'<br><span class="school-note">'+esc(x.scope)+'</span></li>').join('');
@@ -983,7 +1017,7 @@ async function initRealizedAmenitiesMap(){
     const p=feature.properties||{},id=String(p.facility_id||p.id||'');
     const state=statusFor(p);
     marker.bindPopup('<div class="school-popup"><strong>'+esc(p.name||label)+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato: '+esc(state)+'</small><br><small>'+esc(p.geometry_note||p.location_note||'Punto localizzativo, non perimetro della struttura')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Fonte istituzionale</a></div>');
-    if(id){realizedFacilityMarkers.set(id,{marker,layer:key});marker.on('click',()=>{document.querySelectorAll('.realized-facility-row.is-selected').forEach(row=>row.classList.remove('is-selected'));const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(id)+'"]');if(row){row.classList.add('is-selected');row.scrollIntoView({behavior:'smooth',block:'center'});}});}
+    if(id){realizedFacilityMarkers.set(id,{id,marker,layer:key,groupLayer:layer});marker.on('click',()=>{document.querySelectorAll('.realized-facility-row.is-selected').forEach(row=>row.classList.remove('is-selected'));const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(id)+'"]');if(row){row.classList.add('is-selected');row.scrollIntoView({behavior:'smooth',block:'center'});}});}
    }
   });
   layer.addTo(map);overlays[label]=layer;allLayers.push(layer);return clean.length;
@@ -1011,6 +1045,7 @@ async function initRealizedAmenitiesMap(){
 
  ];
  const results=await Promise.allSettled(jobs);
+ try{await loadRealizedTerritorialAssociations();applyRealizedTerritorialFilter();}catch(error){if(status)status.textContent='Associazione territoriale non disponibile: '+(error.message||error);}
  L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
  const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
  const counts=results.map((result,i)=>({label:['sport','culture','sanità e strutture ospedaliere'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
@@ -1944,6 +1979,7 @@ function syncMainFilter(id){
  else render();
 }
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
+$('#content').addEventListener('change',e=>{if(e.target.matches('#circ,#quart,#asc3,#section'))setTimeout(applyRealizedTerritorialFilter,0);});
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
 ['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>syncMainFilter(id)));
 $('#content').addEventListener('change',e=>{
