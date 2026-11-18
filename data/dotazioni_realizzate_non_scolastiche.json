@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "title": "Registro documentale delle dotazioni non scolastiche di Palermo",
+  "generated_at": "2026-11-18",
+  "methodology": {
+    "status_levels": [
+      {
+        "code": "GESTIONE_COMUNALE_DOCUMENTATA",
+        "label": "Gestione comunale documentata",
+        "meaning": "La Carta dei servizi comunale include la struttura tra gli impianti gestiti direttamente; non certifica da sola l'apertura quotidiana."
+      },
+      {
+        "code": "NON_FRUIBILE_DA_FONTE",
+        "label": "Non fruibile secondo la fonte",
+        "meaning": "La fonte comunale dichiara esplicitamente la non fruibilità alla data della Carta."
+      },
+      {
+        "code": "CHIUSO_LAVORI_DA_FONTE",
+        "label": "Chiuso per lavori secondo la fonte",
+        "meaning": "La fonte comunale dichiara la chiusura per ristrutturazione."
+      },
+      {
+        "code": "SERVIZIO_CULTURALE_CENSITO",
+        "label": "Servizio culturale censito",
+        "meaning": "La Carta dei servizi Area Cultura include la struttura o il servizio; l'operatività attuale e gli orari vanno verificati."
+      },
+      {
+        "code": "RETE_DA_DETTAGLIARE",
+        "label": "Rete da dettagliare",
+        "meaning": "La fonte individua una rete di sedi ma non fornisce in questo registro l'elenco georeferenziato completo."
+      }
+    ],
+    "restrictions": [
+      "Il registro non rappresenta un censimento completo di tutte le dotazioni pubbliche di Palermo.",
+      "I record sono documentali e non georeferenziati: non vengono inseriti marker senza coordinate e indirizzi verificati.",
+      "La gestione comunale non equivale a piena fruibilità, apertura al pubblico o accessibilità universale.",
+      "Le unità funzionali interne allo stesso complesso non devono essere sommate come immobili distinti.",
+      "Nessuna superficie è calcolata o sommata agli standard urbanistici."
+    ]
+  },
+  "sources": [
+    {
+      "id": "sport_carta_2025",
+      "publisher": "Comune di Palermo · Ufficio Sport e Impianti Sportivi",
+      "title": "Carta dei servizi Sport e Impianti Sportivi",
+      "reference_date": "Settembre 2025",
+      "url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_06112025104408.pdf",
+      "scope": "Elenco degli impianti gestiti direttamente e note esplicite sulla fruibilità; FAQ e descrizione del servizio."
+    },
+    {
+      "id": "culture_carta_2024",
+      "publisher": "Comune di Palermo · Area Cultura",
+      "title": "Carta dei servizi dell'Area Cultura",
+      "reference_date": "2024",
+      "url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_27082024103219.pdf",
+      "scope": "Strutture e articolazioni dei servizi culturali; segnala lo Spasimo temporaneamente chiuso per ristrutturazione."
+    },
+    {
+      "id": "places_directory_2026",
+      "publisher": "Comune di Palermo",
+      "title": "Luoghi della città",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/",
+      "scope": "Directory istituzionale con categorie cultura, sport, parchi e altri luoghi; 115 risultati alla data di consultazione. Da acquisire integralmente e riconciliare per evitare duplicati."
+    },
+    {
+      "id": "sport_office",
+      "publisher": "Comune di Palermo",
+      "title": "Ufficio Sport, turismo e gestione impianti sportivi",
+      "reference_date": "Pagina aggiornata 23/09/2025",
+      "url": "https://www.comune.palermo.it/amministrazione/unita_organizzativa/ufficio-sport-turismo-e-gestione-impianti-sportivi/",
+      "scope": "Competenze e struttura amministrativa responsabile della gestione degli impianti sportivi."
+    }
+  ],
+  "categories": [
+    {
+      "id": "sport",
+      "label": "Impianti sportivi",
+      "status": "PARZIALE",
+      "records": 10,
+      "note": "Dieci impianti nominati nella Carta comunale 2025; indirizzi, coordinate e disponibilità puntuale ancora da associare."
+    },
+    {
+      "id": "culture",
+      "label": "Cultura, biblioteche e musei",
+      "status": "PARZIALE",
+      "records": 9,
+      "note": "Strutture e servizi censiti dalla Carta Cultura 2024; rete decentrata da scomporre in sedi fisiche e verificare."
+    },
+    {
+      "id": "health",
+      "label": "Sanità e presidi sanitari",
+      "status": "DA_INTEGRARE",
+      "records": 0,
+      "note": "Non sono ancora caricati punti validati da fonti sanitarie istituzionali."
+    },
+    {
+      "id": "social",
+      "label": "Assistenza e servizi sociali",
+      "status": "DA_INTEGRARE",
+      "records": 0,
+      "note": "Da acquisire gli elenchi istituzionali delle strutture e distinguere sedi, servizi domiciliari e gestori."
+    },
+    {
+      "id": "parking",
+      "label": "Parcheggi pubblici",
+      "status": "DA_INTEGRARE",
+      "records": 0,
+      "note": "Da integrare con dati AMAT/Comune, distinguendo parcheggi in struttura, aree di sosta e stalli su strada."
+    }
+  ],
+  "facilities": [
+    {
+      "id": "sport-piscina",
+      "name": "Piscina Comunale",
+      "category": "sport",
+      "status": "CHIUSO_LAVORI_DA_FONTE",
+      "source_id": "sport_carta_2025",
+      "note": "La Carta 2025 dichiara la struttura chiusa per lavori di ristrutturazione; la tessera magnetica risulta non attiva. Verificare eventuale riapertura successiva."
+    },
+    {
+      "id": "sport-palestra-piscina",
+      "name": "Palestra della Piscina Comunale",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Indicata tra gli impianti gestiti direttamente; unità interna al complesso Piscina Comunale, non contare come immobile autonomo senza ulteriore verifica."
+    },
+    {
+      "id": "sport-stadio-palme",
+      "name": "Stadio delle Palme",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto gestito direttamente dal Comune; la Carta descrive il servizio di abbonamento annuale. Accesso e disponibilità da verificare."
+    },
+    {
+      "id": "sport-palaoreto",
+      "name": "PalaOreto",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+    },
+    {
+      "id": "sport-palamangano",
+      "name": "PalaMangano",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+    },
+    {
+      "id": "sport-borgo-ulivia",
+      "name": "Palestra di Borgo Ulivia",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+    },
+    {
+      "id": "sport-valentino-renda",
+      "name": "Palestra Valentino Renda (già Sperone)",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+    },
+    {
+      "id": "sport-pattinaggio-giardino-inglese",
+      "name": "Pista di pattinaggio del Giardino Inglese",
+      "category": "sport",
+      "status": "GESTIONE_COMUNALE_DOCUMENTATA",
+      "source_id": "sport_carta_2025",
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+    },
+    {
+      "id": "sport-pattinaggio-via-mule",
+      "name": "Pista di pattinaggio di via Mulè",
+      "category": "sport",
+      "status": "NON_FRUIBILE_DA_FONTE",
+      "source_id": "sport_carta_2025",
+      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile."
+    },
+    {
+      "id": "sport-polivalente-bonagia",
+      "name": "Impianto polivalente Bonagia",
+      "category": "sport",
+      "status": "NON_FRUIBILE_DA_FONTE",
+      "source_id": "sport_carta_2025",
+      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile."
+    },
+    {
+      "id": "culture-palazzo-ziino",
+      "name": "Palazzo Ziino · Sala mostre e Gipsoteca",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Struttura e articolazioni espositive elencate nella Carta dei servizi Area Cultura."
+    },
+    {
+      "id": "culture-biblioteca-sciascia",
+      "name": "Biblioteca comunale Leonardo Sciascia in Casa Professa",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Sede centrale indicata nel sistema bibliotecario cittadino."
+    },
+    {
+      "id": "culture-biblioteche-decentrate",
+      "name": "Biblioteche decentrate comunali",
+      "category": "culture",
+      "status": "RETE_DA_DETTAGLIARE",
+      "source_id": "culture_carta_2024",
+      "note": "La Carta individua la rete, ma il registro deve essere completato con l'elenco delle singole sedi fisiche e i relativi orari."
+    },
+    {
+      "id": "culture-archivio-storico",
+      "name": "Archivio Storico Comunale",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Servizio e sede culturale elencati nella Carta dell'Area Cultura."
+    },
+    {
+      "id": "culture-museo-pitre",
+      "name": "Museo Pitrè",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura."
+    },
+    {
+      "id": "culture-palazzo-tarallo",
+      "name": "Palazzo Tarallo",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura."
+    },
+    {
+      "id": "culture-cantieri-zisa",
+      "name": "Cantieri Culturali alla Zisa · Officine Ducrot",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Complesso culturale con Sala Vittorio De Seta, Sala Tre Navate e Centro Internazionale di Fotografia; le articolazioni interne non sono conteggiate come immobili distinti."
+    },
+    {
+      "id": "culture-gam",
+      "name": "Galleria d'Arte Moderna",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Servizio museale elencato nella Carta dell'Area Cultura."
+    },
+    {
+      "id": "culture-spasimo",
+      "name": "Complesso Monumentale Santa Maria dello Spasimo",
+      "category": "culture",
+      "status": "CHIUSO_LAVORI_DA_FONTE",
+      "source_id": "culture_carta_2024",
+      "note": "La Carta dell'Area Cultura 2024 lo indicava temporaneamente chiuso per ristrutturazione; occorre verifica successiva prima di attribuire lo stato attuale."
+    },
+    {
+      "id": "culture-zac",
+      "name": "Spazio ZAC",
+      "category": "culture",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
+      "source_id": "culture_carta_2024",
+      "note": "Spazio espositivo indicato dalla Carta; è interno ai Cantieri Culturali alla Zisa e non va sommato come complesso immobiliare distinto."
+    }
+  ]
+}
