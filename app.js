@@ -964,7 +964,7 @@ function initRealizedNonSchoolRegister(){
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
   const data=await response.json();
-  await loadRealizedTerritorialAssociations();
+  await loadRealizedTerritorialAssociations().catch(error=>{console.warn('Associazioni territoriali delle dotazioni non disponibili',error);return realizedTerritorialAssociations;});
   const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',OSPEDALE_DOCUMENTATO:'Presidio ospedaliero documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione',SEDE_STORICA_NON_OPERATIVA:'Sede storica non operativa · fruibilità non documentata',SEDE_DA_RIVALIDARE_ICCU:'Sede censita da ICCU · operatività da rivalidare',SERVIZIO_BIBLIOTECARIO_REGIONALE:'Biblioteca pubblica regionale',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso dell’ente'};
   const categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei',health:'Sanità e strutture ospedaliere'};
   const allowedCategories=new Set(['sport','culture','health']);
