@@ -3,7 +3,7 @@ let DATA={meta:{},territories:{circoscrizioni:[],quartieri:[]},demografia:[],hou
 let housing2023State='idle',housing2023Error='',housing2023Promise=null;
 let active='overview', charts=[], housingLevel='circoscrizioni';
 let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, mapSelections=[];
-let greenMapInstance=null,greenMapData=null,greenSummaryData=null;
+let greenMapInstance=null,greenMapData=null,greenSummaryData=null,realizedAmenitiesMap=null;
 let GEO={asc1:null,asc2:null,asc3:null,sections:null};
 let geoSelection={asc2:'',asc3:'',section:''};
 const pages={
@@ -13,7 +13,7 @@ housing:['STRUTTURA ABITATIVA ED EDILIZIA','Densità e abitabilità','Densità a
 social:['STRUTTURA SOCIALE','Analisi sociale','Indicatori di struttura demografica e caratteristiche della popolazione.'],
 schools:['SERVIZI TERRITORIALI','Servizi e dotazioni urbane','Distribuzione delle attrezzature collettive, della rete scolastica e delle dotazioni di quartiere.'],
 realized:['DOTAZIONI ESISTENTI','Dotazioni realizzate','Inventario delle sedi e degli spazi documentati come esistenti, con distinzione tra riscontro documentale, riserve e stato operativo da confermare.'],
-standards:['DOTAZIONI TERRITORIALI','Standard urbanistici','Verifica delle dotazioni territoriali e confronto con i parametri normativi applicabili.'],
+standards:['DOTAZIONI ANALIZZATE · PREVISIONI DI PIANO','Dotazioni analizzate e standard urbanistici','Previsioni del PRG, classificazioni urbanistiche e fabbisogni teorici. Questa sezione non certifica la presenza di dotazioni realizzate.'],
 green:['INFRASTRUTTURA VERDE','Verde urbano e sistema ecologico','Lettura delle aree verdi, agricole, storiche e collinari secondo le destinazioni del PRG 2004.'], 
 gis:['SISTEMA INFORMATIVO TERRITORIALE','Cartografia GIS','Visualizzazione dei confini amministrativi, delle sezioni censuarie e dei servizi.'],
 spatial:['GEOGRAFIA E ACCESSIBILITÀ','Analisi spaziale','Prossimità, distanze, accessibilità e aree di influenza.'],
@@ -429,6 +429,7 @@ function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistich
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
 function render(){
  charts.forEach(c=>c.destroy());charts=[];
+ if(realizedAmenitiesMap){realizedAmenitiesMap.remove();realizedAmenitiesMap=null;}
  let html=pageShell(),s=selected();
  const hasDemo=DATA.demografia.length>0, hasSchools=DATA.scuole.length>0, hasStandards=DATA.standard.length>0;
  if(active==='overview'){
@@ -565,7 +566,7 @@ if(active==='social'){
   </div>`;
 }else if(active==='realized'){
  const points=filteredSchoolPoints(s),census=DATA.schoolCensus?.records||[],censusById=new Map(census.map(x=>[String(x.id),x]));
- const inside=points.filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
+ const inside=points.filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_BOUNDARIES'&&p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
  const counts={DOCUMENTATO:0,RISERVA_O_RETTIFICA:0,CONFERMATO_DA_RIVALIDARE:0,SENZA_SCHEDA:0};
  inside.forEach(p=>{const r=censusById.get(String(p.id)),k=r?.classe_affidabilita_finale||'SENZA_SCHEDA';counts[counts[k]!==undefined?k:'SENZA_SCHEDA']++;});
  const fmt=n=>Number(n||0).toLocaleString('it-IT');
@@ -914,9 +915,11 @@ $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?
 }
 function initRealizedAmenitiesMap(){
  const el=document.getElementById('realizedAmenitiesMap');if(!el||!window.L)return;
+ if(realizedAmenitiesMap){realizedAmenitiesMap.remove();realizedAmenitiesMap=null;}
  const status=document.getElementById('realizedAmenitiesStatus');
- const map=L.map(el).setView([38.1157,13.3615],12);addPalermoBaseLayers(map);
- const points=filteredSchoolPoints(selected()).filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
+ const map=L.map(el).setView([38.1157,13.3615],12);realizedAmenitiesMap=map;
+ const baseLayer=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'});baseLayer.addTo(map);
+ const points=filteredSchoolPoints(selected()).filter(p=>p.spatial_validation?.status!=='OUTSIDE_PALERMO_BOUNDARIES'&&p.spatial_validation?.status!=='OUTSIDE_PALERMO_ADMIN_AREAS');
  const census=DATA.schoolCensus?.records||[],byId=new Map(census.map(x=>[String(x.id),x]));
  const colors={DOCUMENTATO:'#16845b',RISERVA_O_RETTIFICA:'#d97706',CONFERMATO_DA_RIVALIDARE:'#7c3aed',SENZA_SCHEDA:'#64748b'};
  const markers=L.featureGroup();
@@ -928,7 +931,7 @@ function initRealizedAmenitiesMap(){
  });
  markers.addTo(map);
  const overlays={'Sedi scolastiche censite':markers};
- const base={'OpenStreetMap':L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'})};
+ const base={'OpenStreetMap':baseLayer};
  fetch('data/geo/parchi_urbani_integrativi.geojson',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(data=>{
   const existing=(data.features||[]).filter(f=>f.properties?.status==='esistente');
   const parkLayer=L.geoJSON({type:'FeatureCollection',features:existing},{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:'#fff',weight:2,fillColor:'#0f766e',fillOpacity:1}),onEachFeature:(feature,layer)=>layer.bindPopup('<strong>'+esc(feature.properties?.name||'Spazio verde')+'</strong><br>'+esc(feature.properties?.status_label||'Esistente')+'<br><small>'+esc(feature.properties?.area_note||'Superficie non verificata')+'</small>')});
@@ -1488,7 +1491,7 @@ function initStandardSchoolMap(){
 async function loadSchoolArchives(){
  const defs=[['schoolPoints','data/scuole_points.json'],['schoolStatistics','data/scuole_statistics.json'],['schoolParitarie','data/scuole_paritarie.json'],['schoolClassification','data/scuole_classificazione.json'],['schoolRegister','data/anagrafica_plessi_2025_26.json'],['schoolSiteVerification','data/verifica_sedi_scolastiche_v14.json'],['schoolCensus','data/censimento_scolastico_v81.json']];
  await Promise.all(defs.map(async([k,u])=>{try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);DATA[k]=await r.json();}catch(e){console.warn('Archivio scuole non disponibile',u,e);DATA[k]=[];}}));
- if(active==='overview'||active==='schools'||active==='standards'||active==='services')render();
+ if(active==='overview'||active==='schools'||active==='realized'||active==='standards'||active==='services')render();
 }
 function initSchools(){
  const pts=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],pars=DATA.schoolParitarie||[],classification=DATA.schoolClassification?.records||[],register=DATA.schoolRegister?.records||[],siteVerification=DATA.schoolSiteVerification?.records||[],schoolCensus=DATA.schoolCensus?.records||[];
