@@ -1810,7 +1810,7 @@ async function initGreenMap(){
    try{return turf.booleanPointInPolygon(f,boundary);}catch(error){return false;}
   });
   const parkLayer=L.geoJSON({type:'FeatureCollection',features:parkFeatures},{
-   pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:feature.properties?.status==='esistente'?'#064e3b':'#1d4ed8',weight:2,fillColor:feature.properties?.status==='esistente'?'#22c55e':'#93c5fd',fillOpacity:.95}),
+   pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:8,color:feature.properties?.status==='esistente'?'#1f2937':'#be123c',weight:2,fillColor:feature.properties?.status==='esistente'?'#6b7280':'#fb7185',fillOpacity:.95}),
    onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Parco')+'</strong><br>Stato: '+esc(p.status_label||p.status||'N.D.')+'<br>'+esc(p.description||'')+(p.area_note?'<br><em>'+esc(p.area_note)+'</em>':'')+(p.source_url?'<br><a href="'+esc(p.source_url)+'" target="_blank" rel="noopener">Fonte</a>':''));}
   });
   if(parkFeatures.length){overlay['Parchi e progetti integrativi (punti)']=parkLayer;parkLayer.addTo(map);}
@@ -1822,7 +1822,7 @@ async function initGreenMap(){
    });
    historicalGreenCount=historicalFeatures.length;
    const historicalLayer=L.geoJSON({type:'FeatureCollection',features:historicalFeatures},{
-    style:()=>({color:'#b45309',weight:1.1,dashArray:'5 4',opacity:.9,fillColor:'#f59e0b',fillOpacity:.07}),
+    style:()=>({color:'#7f1d1d',weight:1.4,dashArray:'5 4',opacity:.95,fillColor:'#fecaca',fillOpacity:.10}),
     onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>Ricognizione comunale del verde · 2013</strong><br>Tipo riportato nella fonte: '+esc(p.TIPO||'N.D.')+'<br>ID archivio: '+esc(p.ID||'N.D.')+'<br><em>Dato storico: non certifica lo stato attuale, la proprietà pubblica, l’attuazione o la fruibilità. Non è sommato alle superfici PRG.</em>');}
    });
    overlay['Ricognizione comunale 2013 · storico, non verificato come attuale']=historicalLayer;
