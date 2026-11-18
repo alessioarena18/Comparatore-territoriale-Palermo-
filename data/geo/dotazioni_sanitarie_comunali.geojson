@@ -10,11 +10,11 @@
   "metadata": {
     "title": "Localizzazioni sanitarie documentate di Palermo",
     "created_at": "2026-11-18",
-    "methodology": "Sono inclusi soltanto punti con coordinate riportate in un allegato tecnico ASP. Coordinate convertite da DMS a gradi decimali WGS84. La posizione dell’immobile non certifica l’esatta posizione dell’ingresso.",
+    "methodology": "Coordinate tecniche ASP per Biondo e Casa del Sole; coordinate dai link cartografici del Portale del Turismo del Comune per Guadagna ed Enrico Albanese. Le coordinate indicano il punto localizzativo, non necessariamente l'ingresso.",
     "coordinate_source": "ASP Palermo · Allegato tecnico Delibera n. 1075 del 18/07/2023",
-    "mapped_features": 2,
+    "mapped_features": 4,
     "inventory_records": 7,
-    "remaining_without_verified_coordinates": 5
+    "remaining_without_verified_coordinates": 3
   },
   "features": [
     {
@@ -63,6 +63,52 @@
         "coordinate_reference": "WGS84 · EPSG:4326",
         "coordinate_status": "COORDINATA_DA_DOCUMENTO_TECNICO_ASP",
         "geometry_note": "Coordinata dell’immobile riportata nell’allegato tecnico ASP; non equivale al rilievo dell’ingresso. Verificare il punto di accesso prima di analisi pedonali o di accessibilità."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "health-pta-guadagna",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3642414,
+          38.0955514
+        ]
+      },
+      "properties": {
+        "facility_id": "health-pta-guadagna",
+        "name": "PTA Guadagna",
+        "category": "health",
+        "documentary_status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+        "address": "Via Villagrazia, 46, 90124 Palermo PA, Italia",
+        "source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-guadagna-palermo/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Coordinate tratte dal collegamento cartografico ufficiale del Portale del Turismo del Comune di Palermo per il Punto di primo intervento in Via Villagrazia 46."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "health-pta-enrico-albanese",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3708362,
+          38.1464461
+        ]
+      },
+      "properties": {
+        "facility_id": "health-pta-enrico-albanese",
+        "name": "PTA Enrico Albanese",
+        "category": "health",
+        "documentary_status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+        "address": "Via Papa Sergio I, 5, 90142 Palermo PA, Italia",
+        "source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-enrico-albanese-palermo/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Coordinate tratte dal collegamento cartografico ufficiale del Portale del Turismo del Comune di Palermo per il Punto di primo intervento in Via Papa Sergio I 5."
       }
     }
   ]
