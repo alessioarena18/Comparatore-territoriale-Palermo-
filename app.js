@@ -585,7 +585,8 @@ if(active==='social'){
   <div class="card"><h3>Spazi verdi pubblici documentati</h3><p>Il Parco Uditore è censito come verde pubblico esistente e aperto alla fruizione. La fonte disponibile consente una localizzazione puntuale, ma non un perimetro GIS ufficiale verificato: non viene quindi sommata una superficie al bilancio degli standard.</p><p class="school-note">Fonte: <a href="https://docs.comune.palermo.it/verde-pubblico-dettaglio.php?id=278" target="_blank" rel="noopener">Comune di Palermo · scheda Parco Uditore</a>. Estensione indicativa di circa 9 ettari secondo il soggetto gestore, non verificata su geometria ufficiale.</p></div>
   <div class="card"><h3>Progetti da non conteggiare come realizzati</h3><p><strong>Parco Villa Turrisi</strong>: ambito di parco urbano in progetto, circa 25 ettari complessivi prevalentemente privati. Il primo giardino pubblico è oggetto di progetto comunale. Non viene conteggiato come 25 ettari di verde pubblico realizzato.</p><p class="school-note">Fonte: <a href="https://repository.comune.palermo.it/pnrr/pnrr-palermo-progetto-scheda.php?id=49" target="_blank" rel="noopener">Comune di Palermo · scheda progetto Villa Turrisi</a>.</p></div>
  </div>
- <div class="notice-inline"><strong>Limite dell'inventario:</strong> i servizi OSM e le destinazioni PRG non vengono conteggiati qui come dotazioni realizzate. Per includere altre categorie (sanità, sport, cultura, assistenza, parcheggi) servono inventari istituzionali aggiornati e riscontri sullo stato di attuazione, disponibilità e accessibilità. I punti scolastici sono un inventario localizzativo con verifica documentale non uniforme, non una certificazione completa della rete attiva.</div>`;
+ <div class="card"><h3>Altre dotazioni pubbliche · censimento documentale</h3><p class="school-note">Registro separato dalle sedi scolastiche. Le voci sono riportate solo quando individuate in documenti istituzionali; non sono ancora tutte georeferenziate. Lo stato documentale non coincide con la verifica di apertura o accessibilità.</p><div id="realizedNonSchoolRegister"><p class="muted">Caricamento del registro delle fonti ufficiali…</p></div></div>
+  <div class="notice-inline"><strong>Limite dell'inventario:</strong> i servizi OSM e le destinazioni PRG non vengono conteggiati qui come dotazioni realizzate. Per includere altre categorie (sanità, sport, cultura, assistenza, parcheggi) servono inventari istituzionali aggiornati e riscontri sullo stato di attuazione, disponibilità e accessibilità. I punti scolastici sono un inventario localizzativo con verifica documentale non uniforme, non una certificazione completa della rete attiva.</div>`;
 }else if(active==='schools'){
  const points=DATA.schoolPoints||[],stats=DATA.schoolStatistics||[],par=DATA.schoolParitarie||[],siteVerification=DATA.schoolSiteVerification?.records||[];
  const fmt=n=>Number(n||0).toLocaleString('it-IT');
@@ -796,7 +797,7 @@ if(active==='social'){
  $('#content').innerHTML=html;
  if(active==='housing'){const level=document.getElementById('housingLevel');if(level)level.addEventListener('change',e=>{housingLevel=e.target.value;render();});if(housing2023State==='idle')loadHousing2023Data().then(()=>{if(active==='housing')render();});}
  if(active==='schools'){initSchools();}
- if(active==='realized'){initRealizedAmenitiesMap();}
+ if(active==='realized'){initRealizedAmenitiesMap();initRealizedNonSchoolRegister();}
  if(active==='green'){initGreenMap();}
  
 if(active==='standards'){
@@ -913,6 +914,24 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
  }
  if(active==='gis') initMap();
 $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Palermo').replace(/(^|[\s-])(\p{L})/gu,(_,sep,letter)=>sep+letter.toLocaleUpperCase('it-IT'));
+}
+
+async function initRealizedNonSchoolRegister(){
+ const host=document.getElementById('realizedNonSchoolRegister');if(!host)return;
+ try{
+  const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
+  if(!response.ok)throw new Error('HTTP '+response.status);
+  const data=await response.json(),statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare'},categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei'};
+  const sourceById=new Map((data.sources||[]).map(x=>[x.id,x]));
+  const categories=(data.categories||[]).map(cat=>{
+   const items=(data.facilities||[]).filter(x=>x.category===cat.id);
+   const rows=items.map(item=>{const source=sourceById.get(item.source_id);return '<tr><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(statusLabels[item.status]||item.status)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';}).join('');
+   return '<section style="margin:14px 0"><h4>'+esc(categoryLabels[cat.id]||cat.label)+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table><thead><tr><th>Struttura / servizio</th><th>Stato documentale</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record georeferenziato o verificato caricato. Categoria da integrare.</p>')+'</section>';
+  }).join('');
+  const sourceRows=(data.sources||[]).map(x=>'<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title)+'</a> · '+esc(x.publisher)+' · '+esc(x.reference_date)+'<br><span class="school-note">'+esc(x.scope)+'</span></li>').join('');
+  const restrictions=(data.methodology?.restrictions||[]).map(x=>'<li>'+esc(x)+'</li>').join('');
+  host.innerHTML='<div class="grid realized-kpis">'+(data.categories||[]).map(cat=>'<div class="card"><span class="muted">'+esc(cat.label)+'</span><div class="metric">'+Number(cat.records||0).toLocaleString('it-IT')+'</div><small class="muted">'+esc(cat.status==='DA_INTEGRARE'?'Da integrare':cat.status==='PARZIALE'?'Censimento documentale parziale':'In lavorazione')+'</small></div>').join('')+'</div>'+categories+'<div class="grid"><div class="card"><h4>Fonti istituzionali</h4><ul>'+sourceRows+'</ul></div><div class="card"><h4>Regole di lettura</h4><ul>'+restrictions+'</ul></div></div><p class="school-note">Archivio: data/dotazioni_realizzate_non_scolastiche.json · aggiornamento '+esc(data.generated_at||'N.D.')+'. I conteggi indicano record documentali, non immobili distinti né dotazioni fruibili.</p>';
+ }catch(error){host.innerHTML='<p class="notice-inline">Registro non disponibile: '+esc(error.message||String(error))+'</p>';}
 }
 function initRealizedAmenitiesMap(){
  const el=document.getElementById('realizedAmenitiesMap');if(!el||!window.L)return;
