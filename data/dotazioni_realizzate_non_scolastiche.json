@@ -36,7 +36,8 @@
       "La gestione comunale non equivale a piena fruibilità, apertura al pubblico o accessibilità universale.",
       "Le unità funzionali interne allo stesso complesso non devono essere sommate come immobili distinti.",
       "Nessuna superficie è calcolata o sommata agli standard urbanistici.",
-      "Le coordinate dei punti sportivi provengono dai collegamenti cartografici associati alle schede ufficiali del Comune; il punto rappresenta la localizzazione dell'accesso/luogo e non il perimetro catastale o la superficie dell'impianto."
+      "Le coordinate dei punti sportivi provengono dai collegamenti cartografici associati alle schede ufficiali del Comune; il punto rappresenta la localizzazione dell'accesso/luogo e non il perimetro catastale o la superficie dell'impianto.",
+      "Le sedi interne a complessi culturali (ad esempio ZAC ai Cantieri della Zisa e biblioteca etnografica a Palazzo Tarallo) sono collegate al complesso ospitante e non conteggiate come immobili autonomi."
     ]
   },
   "sources": [
@@ -71,6 +72,14 @@
       "reference_date": "Pagina aggiornata 23/09/2025",
       "url": "https://www.comune.palermo.it/amministrazione/unita_organizzativa/ufficio-sport-turismo-e-gestione-impianti-sportivi/",
       "scope": "Competenze e struttura amministrativa responsabile della gestione degli impianti sportivi."
+    },
+    {
+      "id": "culture_places_2026",
+      "publisher": "Comune di Palermo · Directory Luoghi e portale Librarsi",
+      "title": "Schede ufficiali dei luoghi culturali e sedi bibliotecarie",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/",
+      "scope": "Indirizzi delle strutture culturali e coordinate ricavate dai collegamenti cartografici delle schede; la Biblioteca Leonardo Sciascia ha indirizzo ufficiale ma resta da georeferenziare."
     }
   ],
   "categories": [
@@ -86,7 +95,7 @@
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
       "records": 10,
-      "note": "Dieci record documentali censiti dalla Carta Cultura 2024; localizzazioni da completare e rete decentrata da scomporre in sedi fisiche."
+      "note": "Dieci record documentali; 7 complessi/sedi culturali georeferenziati con schede ufficiali e link cartografici. Biblioteca Sciascia con indirizzo validato ma coordinate non ancora caricate; rete decentrata da scomporre in singole sedi."
     },
     {
       "id": "health",
@@ -224,7 +233,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Struttura e articolazioni espositive elencate nella Carta dei servizi Area Cultura."
+      "note": "Struttura e articolazioni espositive elencate nella Carta dei servizi Area Cultura.",
+      "address": "Via Dante, 53, 90141 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palazzo-ziino/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-biblioteca-sciascia",
@@ -232,7 +244,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Sede centrale indicata nel sistema bibliotecario cittadino."
+      "note": "Sede centrale indicata nel sistema bibliotecario cittadino.",
+      "address": "Piazzetta Lucrezia Brunaccini, 2, 90133 Palermo PA, Italia",
+      "location_source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Palermo-Leonardo-Sciascia/",
+      "location_verification": "Indirizzo verificato sul portale istituzionale Librarsi; coordinate non ancora validate dal link cartografico."
     },
     {
       "id": "culture-biblioteche-decentrate",
@@ -248,7 +263,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Servizio e sede culturale elencati nella Carta dell'Area Cultura."
+      "note": "Servizio e sede culturale elencati nella Carta dell'Area Cultura.",
+      "address": "Via Maqueda, 157, 90133 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/archivio-storico-comunale-2/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-museo-pitre",
@@ -256,7 +274,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura."
+      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura.",
+      "address": "Viale Duca degli Abruzzi, 1, 90146 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/museo-etnografico-g-pitre/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-palazzo-tarallo",
@@ -264,7 +285,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura."
+      "note": "Spazio etnoantropologico indicato nella Carta dell'Area Cultura.",
+      "address": "Via delle Pergole, 74, 90134 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/via-delle-pergole-74-2/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-cantieri-zisa",
@@ -272,7 +296,10 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Complesso culturale con Sala Vittorio De Seta, Sala Tre Navate e Centro Internazionale di Fotografia; le articolazioni interne non sono conteggiate come immobili distinti."
+      "note": "Complesso culturale con Sala Vittorio De Seta, Sala Tre Navate e Centro Internazionale di Fotografia; le articolazioni interne non sono conteggiate come immobili distinti.",
+      "address": "Via Paolo Gili, 4, 90134 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/cantieri-culturali-alla-zisa/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-gam",
@@ -280,15 +307,21 @@
       "category": "culture",
       "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "Servizio museale elencato nella Carta dell'Area Cultura."
+      "note": "Servizio museale elencato nella Carta dell'Area Cultura.",
+      "address": "Via Sant'Anna, 21, 90133 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/galleria-darte-moderna/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-spasimo",
       "name": "Complesso Monumentale Santa Maria dello Spasimo",
       "category": "culture",
-      "status": "CHIUSO_LAVORI_DA_FONTE",
+      "status": "SERVIZIO_CULTURALE_CENSITO",
       "source_id": "culture_carta_2024",
-      "note": "La Carta dell'Area Cultura 2024 lo indicava temporaneamente chiuso per ristrutturazione; occorre verifica successiva prima di attribuire lo stato attuale."
+      "note": "La Carta Cultura 2024 lo indicava temporaneamente chiuso per ristrutturazione; la scheda ufficiale del Comune aggiornata il 24/06/2025 descrive lo Spasimo come spazio polifunzionale che ospita mostre, spettacoli ed eventi. Stato attuale e calendario vanno comunque verificati.",
+      "address": "Via dello Spasimo, 15, 90133 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/chiesa-di-s-maria-dello-spasimo/",
+      "location_verification": "Indirizzo riportato nella scheda ufficiale del Comune; coordinate tratte dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-zac",
