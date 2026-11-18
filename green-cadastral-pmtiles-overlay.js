@@ -69,7 +69,38 @@
    layer.addTo(map);
    map.__municipalGreenCadastralLayer=layer;
    L.control.layers(null,{'Patrimonio comunale 2024 · categorie verdi (dato catastale)':layer},{collapsed:true}).addTo(map);
-   if(status)status.textContent+=' Overlay catastale del patrimonio comunale 2024 caricato. Le geometrie identificano beni comunali classificati a verde, non certificano la copertura vegetale né la fruibilità.';
+   const gl=typeof layer.getMaplibreMap==='function'?layer.getMaplibreMap():null;
+   if(gl){
+    const fillId='municipal-green-cadastral-fill',lineId='municipal-green-cadastral-outline';
+    const popupFields=[
+     ['CATEGORIA','Categoria'],['TIPO','Tipo'],['SUBTIPO','Classificazione verde'],
+     ['INDIRIZZO','Indirizzo'],['NUMERO_CIVICO','Numero civico'],
+     ['FOGLIO','Foglio catastale'],['PLLA','Particella'],['SUB','Subalterno'],
+     ['UPL_nome','UPL'],['Quartiere','Quartiere'],['circoscrizione','Circoscrizione']
+    ];
+    const showValue=v=>v===null||v===undefined||String(v).trim()===''?'Non disponibile':esc(v);
+    const onFeatureClick=e=>{
+     const feature=e.features&&e.features[0];if(!feature)return;
+     const p=feature.properties||{};
+     const rows=popupFields.filter(([key])=>p[key]!==undefined&&p[key]!==null&&String(p[key]).trim()!=='')
+      .map(([key,label])=>'<tr><th>'+label+'</th><td>'+showValue(p[key])+'</td></tr>').join('');
+     const html='<div class="municipal-green-popup"><strong>'+showValue(p.SUBTIPO||p.TIPO||'Bene comunale classificato a verde')+'</strong><table>'+rows+'</table><p><small>Fonte: inventario del patrimonio comunale georeferenziato 2024, elaborazione OpenDataSicilia. La classificazione patrimoniale/catastale non dimostra da sola copertura vegetale attuale, accessibilità pubblica, attrezzatura o stato manutentivo.</small></p></div>';
+     new maplibregl.Popup({maxWidth:'340px'}).setLngLat(e.lngLat).setHTML(html).addTo(gl);
+    };
+    gl.on('click',fillId,onFeatureClick);
+    gl.on('mouseenter',fillId,()=>{gl.getCanvas().style.cursor='pointer';});
+    gl.on('mouseleave',fillId,()=>{gl.getCanvas().style.cursor='';});
+    gl.on('error',event=>{
+     const message=event?.error?.message||'errore di caricamento delle tessere';
+     if(status&&!map.__municipalGreenPmtilesErrorShown){
+      map.__municipalGreenPmtilesErrorShown=true;
+      status.textContent+=' Attenzione: il servizio cartografico catastale ha segnalato un errore: '+message+'. Il layer resta selezionabile ma potrebbe non essere visualizzato.';
+     }
+    });
+   }else if(status){
+    status.textContent+=' Il layer è stato aggiunto, ma l’API MapLibre non espone il gestore della mappa per le schede informative.';
+   }
+   if(status)status.textContent+=' Overlay catastale del patrimonio comunale 2024 caricato. Seleziona un poligono per consultare i riferimenti catastali e territoriali. Le geometrie identificano beni comunali classificati a verde, non certificano la copertura vegetale né la fruibilità.';
   }catch(error){
    if(status)status.textContent+=' Overlay catastale comunale non disponibile: '+String(error.message||error)+'. Restano consultabili le fonti e i registri documentali.';
   }
