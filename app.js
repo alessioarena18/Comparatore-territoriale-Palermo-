@@ -941,7 +941,7 @@ async function initRealizedNonSchoolRegister(){
    const items=(data.facilities||[]).filter(x=>x.category===cat.id&&!isSchoolFacilityRecord(x));
    const rows=items.map(item=>{
     const source=sourceById.get(item.source_id);
-    const mapState=item.category==='health'?'Localizzazione in corso / da verificare':item.coordinates?'Localizzato in mappa':'Non ancora georeferenziato';
+    const mapState=item.coordinates?'Coordinate da documento tecnico ASP · WGS84':'Non ancora georeferenziato';
     return '<tr class="realized-facility-row" data-facility-id="'+esc(item.id)+'" tabindex="0" role="button" aria-label="Individua '+esc(item.name)+' sulla mappa"><td><strong>'+esc(item.name)+'</strong></td><td>'+esc(item.address||'Indirizzo da acquisire')+'</td><td>'+esc(statusLabels[item.status]||item.status||'N.D.')+'</td><td>'+esc(mapState)+'</td><td>'+esc(item.note||'')+'</td><td>'+(source?'<a href="'+esc(source.url)+'" target="_blank" rel="noopener">'+esc(source.reference_date)+'</a>':'N.D.')+'</td></tr>';
    }).join('');
    return '<section class="realized-category" style="margin:14px 0" id="realized-category-'+esc(cat.id)+'"><h4>'+esc(categoryLabels[cat.id]||cat.label)+' · '+items.length+'</h4><p class="school-note">'+esc(cat.note)+'</p>'+(items.length?'<div class="table-wrap"><table class="realized-facility-table"><thead><tr><th>Struttura / servizio</th><th>Indirizzo</th><th>Stato documentale</th><th>Localizzazione</th><th>Nota di verifica</th><th>Fonte</th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="notice-inline">Nessun record disponibile.</p>')+'</section>';
@@ -993,25 +993,16 @@ async function initRealizedAmenitiesMap(){
   (async()=>{const r=await fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Sport HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'sport','Impianti sportivi',p=>p.documentary_status==='NON_FRUIBILE_DA_FONTE'?'#b45309':p.documentary_status==='CHIUSO_LAVORI_DA_FONTE'?'#b91c1c':'#2563eb',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');})(),
   (async()=>{const r=await fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Cultura HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'culture','Cultura, biblioteche e musei',p=>p.status==='SERVIZIO_SOSPESO_DA_AVVISO'?'#b91c1c':p.category==='biblioteca_universitaria'?'#7c3aed':p.managing_body==='Regione Siciliana'?'#0e7490':'#c026d3',p=>statusLabels[p.status||p.documentary_status]||p.status||p.documentary_status||'N.D.');})(),
   (async()=>{
-   const r=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});if(!r.ok)throw new Error('Archivio sanitario HTTP '+r.status);const d=await r.json();
-   const facilities=(d.facilities||[]).filter(x=>x.category==='health'&&!isSchoolFacilityRecord(x));
-   const features=[];
-   for(let i=0;i<facilities.length;i++){
-    const item=facilities[i];
-    try{
-     const url='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=it&q='+encodeURIComponent(item.address+', Palermo, Italia');
-     const response=await fetch(url,{headers:{Accept:'application/json'}});
-     if(!response.ok)throw new Error('Geocodifica HTTP '+response.status);
-     const matches=await response.json();
-     if(matches?.[0]){
-      const lon=Number(matches[0].lon),lat=Number(matches[0].lat);
-      if(Number.isFinite(lon)&&Number.isFinite(lat))features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{facility_id:item.id,name:item.name,category:'health',documentary_status:item.status,address:item.address,source_url:item.location_source_url,geometry_note:'Punto geocodificato a partire dall’indirizzo ufficiale. Verificare il civico e l’ingresso prima di analisi di prossimità o accessibilità.',coordinate_source:'OpenStreetMap Nominatim · geocodifica dell’indirizzo',coordinate_reference:'WGS84 · localizzazione indicativa',last_verified:new Date().toISOString().slice(0,10)}});
-    }
-    }catch(error){console.warn('Indirizzo sanitario non geocodificato',item.id,error);}
-    if(i<facilities.length-1)await new Promise(resolve=>setTimeout(resolve,1100));
-   }
+   const r=await fetch('data/geo/dotazioni_sanitarie_comunali.geojson',{cache:'no-store'});
+   if(!r.ok)throw new Error('Sanità GeoJSON HTTP '+r.status);
+   const d=await r.json();
+   const features=(d.features||[]).filter(f=>f.properties?.coordinate_status==='COORDINATA_DA_DOCUMENTO_TECNICO_ASP');
    const mapped=addFacilityLayer(features,'health','Sanità e presidi sanitari',p=>p.documentary_status==='SERVIZIO_SANITARIO_DOCUMENTATO'?'#0e7490':'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
-   features.forEach(feature=>{const id=feature.properties?.facility_id,row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');if(row&&row.children[3])row.children[3].textContent='Geocodificato da indirizzo · WGS84 da verificare';});
+   features.forEach(feature=>{
+    const id=feature.properties?.facility_id;
+    const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');
+    if(row&&row.children[3])row.children[3].textContent='Coordinate da documento tecnico ASP · WGS84';
+   });
    return mapped;
   })()
  ];
@@ -1019,7 +1010,7 @@ async function initRealizedAmenitiesMap(){
  L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
  const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
  const counts=results.map((result,i)=>({label:['sport','culture','health'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
- if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Le coordinate sanitarie derivano da geocodifica degli indirizzi e richiedono validazione puntuale del civico/ingresso.';
+ if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità: 2 coordinate da allegato tecnico ASP; 5 sedi restano nell’inventario in attesa di coordinate documentate. I punti localizzano l’immobile, non necessariamente l’ingresso.';
  setTimeout(()=>map.invalidateSize(true),180);
 }
 async function initTerritorialSelectors(){
