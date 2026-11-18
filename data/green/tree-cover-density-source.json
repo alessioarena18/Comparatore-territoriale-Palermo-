@@ -54,7 +54,7 @@
       "pystac-client>=0.8,<2",
       "requests>=2.31,<3"
     ],
-    "download_authentication": "Se il download dell'asset lo richiede, impostare la variabile d'ambiente CDSE_ACCESS_TOKEN con un token valido del proprio account Copernicus Data Space.",
+    "download_authentication": "Il workflow usa gli eventuali secret CDSE_USERNAME e CDSE_PASSWORD per ottenere e rinnovare automaticamente i token durante i download. Se l'account usa autenticazione a due fattori, è supportato il secret CDSE_TOTP_SECRET. In alternativa è possibile impostare CDSE_ACCESS_TOKEN, ma un token statico può scadere durante download lunghi. Gli asset pubblici vengono comunque richiesti senza autenticazione.",
     "report_path": "data/green/tcd_2024_stac_items.json",
     "note": "Lo script individua gli item e gli asset effettivamente restituiti dal catalogo. Non crea raster sostitutivi.",
     "confidence_collection": "clms_vlcc_tree-cover-density-confidence-layer_europe_10m_yearly_v1",
@@ -62,6 +62,6 @@
     "run_command": "python tools/discover_tree_cover_density_tiles.py --download-dir data/green/tcd_2024",
     "archive_handling": "Se gli asset sono distribuiti in archivi ZIP, lo script estrae i GeoTIFF e registra i percorsi nel report.",
     "github_actions": ".github/workflows/acquisisci-tcd-2024.yml",
-    "github_actions_mode": "Esecuzione manuale da GitHub Actions. L'opzione download_rasters=false produce il report STAC; true tenta anche il download dei raster e del layer di confidenza. Se gli asset richiedono autenticazione, configurare il secret di repository CDSE_ACCESS_TOKEN. I risultati vengono pubblicati come artifact temporaneo per 14 giorni, non committati automaticamente nel repository."
+    "github_actions_mode": "Esecuzione manuale da GitHub Actions. L'opzione download_rasters=false produce il report STAC; true tenta anche il download dei raster e del layer di confidenza. Per asset protetti configurare nei Secrets del repository CDSE_USERNAME e CDSE_PASSWORD; facoltativamente CDSE_TOTP_SECRET per TOTP. Le credenziali restano nei secrets GitHub e non sono inserite nel codice. I risultati vengono pubblicati come artifact temporaneo per 14 giorni, non committati automaticamente nel repository."
   }
 }
