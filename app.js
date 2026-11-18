@@ -944,20 +944,21 @@ async function loadRealizedTerritorialAssociations(){
  })().catch(error=>{realizedTerritorialAssociationsPromise=null;throw error;});
  return realizedTerritorialAssociationsPromise;
 }
-function realizedFacilityMatchesSelection(id,selection=selected()){
- const t=realizedTerritorialAssociations.get(String(id))?.territory;if(!t)return false;
- if(selection.circ&&t.circId!==selection.circ)return false;
+function realizedFacilityMatchesSelection(id,selection=selected(),marker=null){
+ const point=marker?.getLatLng?(()=>{const p=marker.getLatLng();return [p.lng,p.lat];})():realizedTerritorialAssociations.get(String(id))?.point;
+ if(!point)return false;
+ const within=(collection,match)=>{const feature=collection?.features?.find(match);return !!feature&&pointInGeometry(point,feature.geometry);};
+ if(selection.circ&&!within(GEO.asc1,f=>'c'+String(f.properties?.COD_ASC1)===String(selection.circ)))return false;
  const quartCode=selection.asc2||(selection.quart?quartiereAsc2Code(DATA.territories?.quartieri?.find(q=>q.id===selection.quart)):'');
- if(quartCode&&t.quartCode!==String(quartCode))return false;
- if(selection.asc3&&t.uplCode!==String(selection.asc3))return false;
- if(selection.section&&t.sectionCode!==String(selection.section))return false;
+ if(quartCode&&!within(GEO.asc2,f=>String(f.properties?.COM_ASC2)===String(quartCode)))return false;
+ if(selection.asc3&&!within(GEO.asc3,f=>String(f.properties?.COM_ASC3)===String(selection.asc3)))return false;
+ if(selection.section&&!within(GEO.sections,f=>String(f.properties?.SEZ21_ID)===String(selection.section)))return false;
  return true;
 }
 function applyRealizedTerritorialFilter(){
  if(!realizedAmenitiesMap)return;const selection=selected();
- realizedFacilityMarkers.forEach(entry=>{const layer=entry.groupLayer,visible=realizedFacilityMatchesSelection(entry.id,selection);if(!layer)return;if(visible&&!layer.hasLayer(entry.marker))layer.addLayer(entry.marker);else if(!visible&&layer.hasLayer(entry.marker))layer.removeLayer(entry.marker);});
+ realizedFacilityMarkers.forEach(entry=>{const layer=entry.groupLayer,visible=realizedFacilityMatchesSelection(entry.id,selection,entry.marker);if(!layer)return;if(visible&&!layer.hasLayer(entry.marker))layer.addLayer(entry.marker);else if(!visible&&layer.hasLayer(entry.marker))layer.removeLayer(entry.marker);});
 }
-
 function initRealizedNonSchoolRegister(){
  const host=document.getElementById('realizedNonSchoolRegister');if(!host)return;
  try{
