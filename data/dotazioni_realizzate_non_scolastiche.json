@@ -164,6 +164,22 @@
       "reference_date": "Scheda IT-PA0201 aggiornata 21/02/2024; consultazione 18/11/2026",
       "url": "https://anagrafe.iccu.sbn.it/it/ricerca/risultati.html?fl=regione%40SICILIA&monocampo=&start=840",
       "scope": "Identifica due biblioteche pubbliche del Comune di Palermo, sezioni esterne dei quartieri IV Montegrappa-Santa Rosalia e V Cuba-Calatafimi. Le schede ICCU riportano indirizzi, servizi e orari, ma i dati non costituiscono conferma dell'operatività attuale; i record sono da rivalidare con il Comune prima di considerarli sedi fruibili."
+    },
+    {
+      "id": "regione_biblioteca_bombace_2026",
+      "publisher": "Regione Siciliana · Dipartimento Beni Culturali",
+      "title": "Servizio Biblioteca centrale della Regione Siciliana Alberto Bombace",
+      "reference_date": "Aggiornamento 08/07/2026",
+      "url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-beni-culturali-identita-siciliana/dipartimento-beni-culturali-identita-siciliana/organizzazione/servizio-biblioteca-centrale-alberto-bombace",
+      "scope": "Fonte istituzionale per denominazione, competenze, servizi al pubblico, contatti e indirizzo Corso Vittorio Emanuele 429/431. Coordinate non acquisite da una mappa istituzionale utilizzabile; il record resta non georeferenziato."
+    },
+    {
+      "id": "unipa_portale_biblioteche_2026",
+      "publisher": "Università degli Studi di Palermo · Sistema Bibliotecario di Ateneo",
+      "title": "Portale delle Biblioteche UniPa · schede ufficiali delle sedi",
+      "reference_date": "Consultazione 18/11/2026",
+      "url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/index.html",
+      "scope": "Schede ufficiali di sedi, codici ISIL, indirizzi, contatti, orari e servizi delle biblioteche di Ateneo. Le biblioteche sono organizzate in cinque poli. Gli accessi e le modalità di consultazione possono essere soggetti al regolamento e alle condizioni dell'Ateneo."
     }
   ],
   "categories": [
@@ -178,8 +194,8 @@
       "id": "culture",
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
-      "records": 17,
-      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile. La Biblioteca Verde Terrasi è censita come sede storica non operativa: il fabbricato di Villa Costa è segnalato dal Comune come da recuperare (06/08/2026), quindi non è rappresentato tra le sedi fruibili. L'Anagrafe ICCU documenta inoltre due sezioni esterne comunali nei quartieri IV (Montegrappa-Santa Rosalia) e V (Cuba-Calatafimi), censite come sedi da rivalidare: le schede non provano l'operatività attuale e non sono disponibili coordinate validate, quindi non sono rappresentate in mappa."
+      "records": 22,
+      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile. La Biblioteca Verde Terrasi è censita come sede storica non operativa: il fabbricato di Villa Costa è segnalato dal Comune come da recuperare (06/08/2026), quindi non è rappresentato tra le sedi fruibili. L'Anagrafe ICCU documenta inoltre due sezioni esterne comunali nei quartieri IV (Montegrappa-Santa Rosalia) e V (Cuba-Calatafimi), censite come sedi da rivalidare: le schede non provano l'operatività attuale e non sono disponibili coordinate validate, quindi non sono rappresentate in mappa. Il censimento è stato esteso anche a una biblioteca regionale e a quattro sedi universitarie UniPa. Le quattro localizzazioni universitarie indicano gli edifici ufficialmente collegati dalle schede di Ateneo, non gli ingressi delle sale; la Biblioteca di Scienze agrarie è contrassegnata come servizio sospeso da avviso del 18/09/2026. La Biblioteca Bombace regionale resta nel registro senza marker per assenza di coordinate validate."
     },
     {
       "id": "health",
@@ -571,6 +587,76 @@
       "location_source_url": "https://anagrafe.iccu.sbn.it/isil/IT-PA0201",
       "location_verification": "L'Anagrafe ICCU identifica la struttura come biblioteca pubblica del Comune di Palermo, sezione esterna del quartiere V, con accesso aperto a tutti, prestito locale e servizio bibliografico in sede. La scheda è aggiornata al 21/02/2024: operatività attuale da confermare con il Comune. Nessuna coordinata validata: esclusa dalla mappa.",
       "note": "Identificativo ICCU IT-PA0201. Sede bibliotecaria pubblica comunale documentata nell'Anagrafe delle Biblioteche Italiane. La fonte non consente di attestare l'apertura attuale né di georeferenziare con precisione l'ingresso; record documentale senza marker, in attesa di riscontro comunale."
+    },
+    {
+      "id": "culture-biblioteca-regionale-bombace",
+      "name": "Biblioteca centrale della Regione Siciliana Alberto Bombace",
+      "category": "culture",
+      "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+      "source_id": "regione_biblioteca_bombace_2026",
+      "address": "Corso Vittorio Emanuele, 429/431, 90134 Palermo PA, Italia",
+      "location_source_url": "https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-beni-culturali-identita-siciliana/dipartimento-beni-culturali-identita-siciliana/organizzazione/servizio-biblioteca-centrale-alberto-bombace",
+      "location_verification": "Indirizzo e competenze verificate sulla scheda ufficiale della Regione Siciliana. Non è stata acquisita una coordinata cartografica istituzionale sufficientemente precisa; nessun marker viene inserito.",
+      "note": "Biblioteca pubblica regionale. La Regione documenta servizi al pubblico, SBN, informazioni bibliografiche, emeroteca, fondi antichi e laboratorio di restauro. La sede è riportata in Corso Vittorio Emanuele 429/431. Coordinate non validate: nessun marker.",
+      "managing_body": "Regione Siciliana",
+      "facility_type": "Biblioteca pubblica regionale",
+      "access_profile": "Accesso e servizi soggetti alle condizioni e ai regolamenti dell'ente gestore; non equiparare automaticamente a biblioteca comunale a libero accesso."
+    },
+    {
+      "id": "culture-unipa-biblioteca-ingegneria",
+      "name": "Biblioteca UniPa di Ingegneria",
+      "category": "culture",
+      "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+      "source_id": "unipa_portale_biblioteche_2026",
+      "address": "Viale delle Scienze, Edificio 7, piano terra, 90128 Palermo PA, Italia",
+      "location_source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Ingegneria/",
+      "location_verification": "Indirizzo e sede verificati sulla scheda istituzionale dell'ente. Coordinate ricavate dal collegamento cartografico presente nella scheda ufficiale e riferite al fabbricato/civico, non all'ingresso della sala biblioteca. ISIL IT-PA0066.",
+      "note": "Biblioteca universitaria del Polo bibliotecario politecnico. La scheda UniPa riporta sede, orari di sala lettura e servizi bibliotecari; coordinate riferite al punto cartografico ufficiale dell'Edificio 7, non all'ingresso della sala biblioteca. Modalità di accesso secondo le regole UniPa.",
+      "managing_body": "Università degli Studi di Palermo",
+      "facility_type": "Biblioteca universitaria",
+      "access_profile": "Accesso e servizi soggetti alle condizioni e ai regolamenti dell'ente gestore; non equiparare automaticamente a biblioteca comunale a libero accesso."
+    },
+    {
+      "id": "culture-unipa-biblioteca-architettura",
+      "name": "Biblioteca UniPa di Architettura · sede centrale",
+      "category": "culture",
+      "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+      "source_id": "unipa_portale_biblioteche_2026",
+      "address": "Viale delle Scienze, Edificio 14, piani 2-3, 90128 Palermo PA, Italia",
+      "location_source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Architettura.-Centrale-di-architettura/index.html",
+      "location_verification": "Indirizzo e sede verificati sulla scheda istituzionale dell'ente. Coordinate ricavate dal collegamento cartografico presente nella scheda ufficiale e riferite al fabbricato/civico, non all'ingresso della sala biblioteca. ISIL IT-PA0106.",
+      "note": "Biblioteca universitaria del Polo bibliotecario politecnico. La scheda UniPa riporta sede ai piani 2 e 3 dell'Edificio 14, sala lettura, emeroteca e servizi. Coordinate riferite al punto cartografico ufficiale dell'edificio, non all'ingresso della biblioteca. Modalità di accesso secondo le regole UniPa.",
+      "managing_body": "Università degli Studi di Palermo",
+      "facility_type": "Biblioteca universitaria",
+      "access_profile": "Accesso e servizi soggetti alle condizioni e ai regolamenti dell'ente gestore; non equiparare automaticamente a biblioteca comunale a libero accesso."
+    },
+    {
+      "id": "culture-unipa-biblioteca-psicologia",
+      "name": "Biblioteca UniPa di Psicologia",
+      "category": "culture",
+      "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+      "source_id": "unipa_portale_biblioteche_2026",
+      "address": "Viale delle Scienze, Edificio 15, piano terra, 90128 Palermo PA, Italia",
+      "location_source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-umane/Biblioteca-di-Psicologia/",
+      "location_verification": "Indirizzo e sede verificati sulla scheda istituzionale dell'ente. Coordinate ricavate dal collegamento cartografico presente nella scheda ufficiale e riferite al fabbricato/civico, non all'ingresso della sala biblioteca. ISIL IT-PA0327.",
+      "note": "Biblioteca universitaria del Polo di Scienze Umane. La scheda UniPa documenta sala lettura, emeroteca e collezioni specialistiche; coordinate riferite al punto cartografico ufficiale dell'Edificio 15, non all'ingresso della biblioteca. Modalità di accesso secondo le regole UniPa.",
+      "managing_body": "Università degli Studi di Palermo",
+      "facility_type": "Biblioteca universitaria",
+      "access_profile": "Accesso e servizi soggetti alle condizioni e ai regolamenti dell'ente gestore; non equiparare automaticamente a biblioteca comunale a libero accesso."
+    },
+    {
+      "id": "culture-unipa-biblioteca-agraria",
+      "name": "Biblioteca UniPa di Scienze agrarie, alimentari e forestali",
+      "category": "culture",
+      "status": "SERVIZIO_SOSPESO_DA_AVVISO",
+      "source_id": "unipa_portale_biblioteche_2026",
+      "address": "Viale delle Scienze, Edificio 4, ingresso A, piano 1, 90128 Palermo PA, Italia",
+      "location_source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-di-base-e-applicate/Biblioteca-di-Scienze-agro-forestali.-Centrale-agraria/",
+      "location_verification": "Indirizzo e sede verificati sulla scheda istituzionale dell'ente. Coordinate ricavate dal collegamento cartografico presente nella scheda ufficiale e riferite al fabbricato/civico, non all'ingresso della sala biblioteca. ISIL IT-PA0107.",
+      "note": "Biblioteca universitaria del Polo di Scienze di base e applicate. La scheda UniPa documenta sede, orari, servizi e patrimonio. La stessa pagina pubblica un avviso di sospensione dei servizi di consultazione e prestito dal 18 settembre 2026: il record è quindi censito ma non qualificato come pienamente fruibile fino a nuovo avviso. Coordinate riferite al punto cartografico ufficiale dell'indirizzo/Edificio 4, non all'ingresso della biblioteca.",
+      "managing_body": "Università degli Studi di Palermo",
+      "facility_type": "Biblioteca universitaria",
+      "access_profile": "Accesso e servizi soggetti alle condizioni e ai regolamenti dell'ente gestore; non equiparare automaticamente a biblioteca comunale a libero accesso."
     }
   ]
 }
