@@ -35,7 +35,8 @@
       "I record sono documentali e non georeferenziati: non vengono inseriti marker senza coordinate e indirizzi verificati.",
       "La gestione comunale non equivale a piena fruibilità, apertura al pubblico o accessibilità universale.",
       "Le unità funzionali interne allo stesso complesso non devono essere sommate come immobili distinti.",
-      "Nessuna superficie è calcolata o sommata agli standard urbanistici."
+      "Nessuna superficie è calcolata o sommata agli standard urbanistici.",
+      "Le coordinate dei punti sportivi provengono dai collegamenti cartografici associati alle schede ufficiali del Comune; il punto rappresenta la localizzazione dell'accesso/luogo e non il perimetro catastale o la superficie dell'impianto."
     ]
   },
   "sources": [
@@ -78,14 +79,14 @@
       "label": "Impianti sportivi",
       "status": "PARZIALE",
       "records": 10,
-      "note": "Dieci impianti nominati nella Carta comunale 2025; indirizzi, coordinate e disponibilità puntuale ancora da associare."
+      "note": "Dieci record della Carta comunale 2025; 8 localizzazioni puntuali ricavate dalle schede ufficiali del Comune e dai relativi collegamenti cartografici; Palestra di Borgo Ulivia ancora senza coordinate puntuali; la palestra della Piscina è unità interna al complesso Piscina."
     },
     {
       "id": "culture",
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
-      "records": 9,
-      "note": "Strutture e servizi censiti dalla Carta Cultura 2024; rete decentrata da scomporre in sedi fisiche e verificare."
+      "records": 10,
+      "note": "Dieci record documentali censiti dalla Carta Cultura 2024; localizzazioni da completare e rete decentrata da scomporre in sedi fisiche."
     },
     {
       "id": "health",
@@ -116,7 +117,10 @@
       "category": "sport",
       "status": "CHIUSO_LAVORI_DA_FONTE",
       "source_id": "sport_carta_2025",
-      "note": "La Carta 2025 dichiara la struttura chiusa per lavori di ristrutturazione; la tessera magnetica risulta non attiva. Verificare eventuale riapertura successiva."
+      "note": "La Carta 2025 dichiara la struttura chiusa per lavori di ristrutturazione; la tessera magnetica risulta non attiva. Verificare eventuale riapertura successiva.",
+      "address": "Viale del Fante, 5, 90146 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/piscina-comunale/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-palestra-piscina",
@@ -132,7 +136,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto gestito direttamente dal Comune; la Carta descrive il servizio di abbonamento annuale. Accesso e disponibilità da verificare."
+      "note": "Impianto gestito direttamente dal Comune; la Carta descrive il servizio di abbonamento annuale. Accesso e disponibilità da verificare.",
+      "address": "Viale del Fante, 27, 90142 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/stadio-delle-palme/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-palaoreto",
@@ -140,7 +147,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
+      "address": "Via Santa Maria di Gesù, 11, 90124 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palaoreto/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-palamangano",
@@ -148,7 +158,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
+      "address": "Via Ugo Perricone Engel, 14, 90146 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-palamangano/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-borgo-ulivia",
@@ -156,7 +169,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
+      "address": "Via Nissa, 1, 90135 Palermo PA, Italia",
+      "location_source_url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_07082023113114.pdf",
+      "location_verification": "Indirizzo da fonte comunale, coordinate non ancora validate."
     },
     {
       "id": "sport-valentino-renda",
@@ -164,7 +180,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
+      "address": "Via XXVII Maggio, 26, 90121 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/palestra-valentino-renda/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-pattinaggio-giardino-inglese",
@@ -172,7 +191,10 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare."
+      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
+      "address": "Via Duca della Verdura, 3, 90143 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-pattinodromo-del-giardino-inglese/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-pattinaggio-via-mule",
@@ -180,7 +202,10 @@
       "category": "sport",
       "status": "NON_FRUIBILE_DA_FONTE",
       "source_id": "sport_carta_2025",
-      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile."
+      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile.",
+      "address": "Via Giuseppe Mulè, 90129 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-pattinodromo-via-mul/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "sport-polivalente-bonagia",
@@ -188,7 +213,10 @@
       "category": "sport",
       "status": "NON_FRUIBILE_DA_FONTE",
       "source_id": "sport_carta_2025",
-      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile."
+      "note": "La Carta comunale 2025 dichiara che la struttura non è fruibile.",
+      "address": "Via Mico Geraci, 90125 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/impianto-polivalente-bonagia/",
+      "location_verification": "Indirizzo della scheda comunale; coordinate lette dal collegamento ufficiale Indicazioni stradali su Google Maps."
     },
     {
       "id": "culture-palazzo-ziino",
