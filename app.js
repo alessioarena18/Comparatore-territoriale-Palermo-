@@ -443,6 +443,38 @@ function focusGeneralSelection(){
 }
 function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistiche=[];const fmtGeo=v=>Number(v).toLocaleString('it-IT');const fmtArea=v=>{const m2=Number(v);return Number.isFinite(m2)&&m2>0?(m2/1000000).toLocaleString('it-IT',{minimumFractionDigits:3,maximumFractionDigits:3})+' km²':'N.D.';};const dettaglio=(feature,label)=>{if(!feature)return;const x=feature.properties||{};ambiti.push(label+': '+(x.DEN_ASC1||x.DEN_ASC2||x.DEN_ASC3||x.SEZ21_ID||''));const valori=[['Estensione territoriale',fmtArea(x.SHAPE_Area??x.Shape_Area)],['POP21 · ISTAT 2021',x.POP21],['Famiglie',x.FAM21],['Abitazioni',x.ABI21],['Edifici',x.EDI21]].filter(v=>v[1]!==undefined&&v[1]!==null).map(v=>v[0]+': '+(v[0]==='Estensione territoriale'?v[1]:fmtGeo(v[1])));if(valori.length)statistiche.push('<div><strong>'+esc(label)+'</strong><br><span>'+valori.map(esc).join(' · ')+'</span></div>');};if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)dettaglio(f,'Circoscrizione');else ambiti.push('Circoscrizione: '+(DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||s.circ));}if(s.quart){const q=DATA.territories.quartieri.find(x=>x.id===s.quart);const feature=findAsc2FeatureForQuartiere(q);if(feature)dettaglio(feature,'Quartiere');else ambiti.push('Quartiere: '+(q?.name||s.quart)+' · estensione non disponibile nel layer ISTAT');}if(s.asc2){const f=GEO.asc2?.features.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));ambiti.push('Quartiere ASC2: '+(f?.properties?.DEN_ASC2||s.asc2));}if(s.asc3){const f=GEO.asc3?.features.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(f)dettaglio(f,'UPL');else ambiti.push('UPL: '+s.asc3);}if(s.section){const f=GEO.sections?.features.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(f)dettaglio(f,'Sezione censuaria');else ambiti.push('Sezione censuaria: '+s.section);}const contesto=ambiti.length?'<div class="notice-inline selection-context"><strong>Ambiti territoriali attivi:</strong> '+ambiti.map(esc).join(' · ')+(statistiche.length?'<div class="selection-stats">'+statistiche.join('')+'</div>':'')+'<span>I filtri vengono mantenuti passando da una pagina all’altra. POP21, famiglie, abitazioni ed edifici sono riferiti al Censimento ISTAT 2021 e restano distinti dai dati anagrafici comunali 2022 e dall’IDISE 2023. L’elaborazione si applica solo quando la fonte dispone di una corrispondenza geografica verificata alla scala selezionata.</span></div>':'';return `<p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p>${contesto}`;}
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
+
+// Stampa ed esportazione PDF della pagina e delle singole schede
+function installExportControls(){
+ const content=document.getElementById('content');
+ if(!content)return;
+ content.querySelectorAll('.card').forEach((card,index)=>{
+  if(card.querySelector(':scope > .card-export-actions'))return;
+  const heading=card.querySelector(':scope > h1,:scope > h2,:scope > h3,:scope > h4');
+  const actions=document.createElement('div');
+  actions.className='card-export-actions no-print';
+  actions.innerHTML='<button type="button" class="export-card-button" aria-label="Stampa questa scheda">Stampa scheda</button>';
+  actions.querySelector('button').addEventListener('click',()=>printCurrentView(card));
+  if(heading)heading.insertAdjacentElement('afterend',actions);else card.insertAdjacentElement('afterbegin',actions);
+ });
+}
+function printCurrentView(target=null){
+ document.body.classList.remove('print-card');
+ document.querySelectorAll('.print-hidden').forEach(el=>el.classList.remove('print-hidden'));
+ if(target){
+  document.body.classList.add('print-card');
+  const content=document.getElementById('content');
+  content.querySelectorAll('*').forEach(el=>{
+   if(el!==target&&!target.contains(el)&&!el.contains(target))el.classList.add('print-hidden');
+  });
+ }
+ window.print();
+}
+window.addEventListener('afterprint',()=>{
+ document.body.classList.remove('print-card');
+ document.querySelectorAll('.print-hidden').forEach(el=>el.classList.remove('print-hidden'));
+});
+
 function renderUnsafe(){
  charts.forEach(c=>c.destroy());charts=[];
  if(realizedAmenitiesMap){realizedAmenitiesMap.remove();realizedAmenitiesMap=null;}
@@ -799,6 +831,7 @@ if(active==='social'){
  if(active!=='green'&&active!=='housing')html+='<div class="card section-pie-card"><h3>'+pieTitle+'</h3><p class="school-note">'+(active==='spatial'?'Quote della popolazione censuaria POP21 delle prime otto UPL selezionate; la quota residua è aggregata in “Altre UPL”. Fonte: basi territoriali ISTAT 2021. I filtri territoriali sono applicati nei limiti dei codici e delle geometrie disponibili.':'Il grafico si aggiorna con gli ambiti selezionati nei limiti della risoluzione geografica disponibile per ciascun archivio. Se la fonte non contiene dati al livello richiesto, il grafico viene omesso anziché stimare valori.')+'</p><div class="section-pie-wrap"><canvas id="sectionTerritoryPie" aria-label="'+pieTitle+'" role="img"></canvas></div></div>';
  html=html.replace(/(?:\\[object Object\\]\\s*,?\\s*){2,}/g,'').replace(/\\[object Object\\]/g,'');
  $('#content').innerHTML=html;
+ installExportControls();
  if(active==='housing'){const level=document.getElementById('housingLevel');if(level)level.addEventListener('change',e=>{housingLevel=e.target.value;render();});if(housing2023State==='idle')loadHousing2023Data().then(()=>{if(active==='housing')render();});}
  if(active==='schools'){initSchools();}
  if(active==='realized'){initRealizedAmenitiesMap();initRealizedNonSchoolRegister();}
@@ -1960,6 +1993,8 @@ async function load(){
   :'Dati territoriali, demografici e cartografici caricati';
  loadSchoolArchives();
 }
+document.getElementById('printPageButton')?.addEventListener('click',()=>printCurrentView());
+document.getElementById('savePdfButton')?.addEventListener('click',()=>printCurrentView());
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
