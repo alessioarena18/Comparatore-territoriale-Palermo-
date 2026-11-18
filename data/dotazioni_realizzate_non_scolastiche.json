@@ -88,7 +88,7 @@
       "title": "Presidi Territoriali di Assistenza e servizi del Distretto 42",
       "reference_date": "Consultazione 18/11/2026",
       "url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
-      "scope": "Sedi PTA e servizi sanitari territoriali con indirizzi; riferimento per i presidi di Palermo, da distinguere dalle sedi di altri comuni del distretto."
+      "scope": "Sedi PTA e servizi sanitari territoriali con indirizzi. Per il PTA Guadagna l'indirizzo della pagina generale è superato: prevalgono la scheda dedicata e l'avviso di trasferimento del 25/08/2026, con nuova sede in via Villagrazia 46 dal 31/08/2026."
     },
     {
       "id": "asp_consultori",
@@ -113,6 +113,22 @@
       "reference_date": "Agosto 2026",
       "url": "https://www.amat.pa.it/zone-blu/",
       "scope": "Consistenza degli stalli per le zone A, B e C; le zone D ed E sono stagionali e G è di nuova istituzione. Dati di sosta su strada, non parcheggi in struttura."
+    },
+    {
+      "id": "asp_pta_guadagna_transfer_2026",
+      "publisher": "ASP Palermo · Distretto Sanitario 42",
+      "title": "PTA Guadagna · Trasferimento degli uffici da via Giorgio Arcoleo 25 a via Villagrazia 46",
+      "reference_date": "25/08/2026, trasferimento efficace dal 31/08/2026",
+      "url": "https://www.asppalermo.org/novita/pta-guadagna-trasferimento-uffici-villagrazia/",
+      "scope": "Fonte prevalente per la sede aggiornata del PTA Guadagna. Conferma trasferimento degli uffici della Direzione, Assistenza Sanitaria di Base e Integrazione Socio Sanitaria; la scheda dedicata ASP riporta via Villagrazia 46."
+    },
+    {
+      "id": "asp_pta_centro_2026",
+      "publisher": "ASP Palermo · Distretto Sanitario 42",
+      "title": "PTA Centro · rimodulazione temporanea per lavori strutturali",
+      "reference_date": "Aggiornamento 13/11/2026",
+      "url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-centro-palermo/",
+      "scope": "Conferma sede in via Giuseppina Turrisi Colonna 43 e rimodulazione delle attività dal 02/01/2026 per lavori strutturali. La rimodulazione non va classificata come chiusura totale del presidio."
     }
   ],
   "categories": [
@@ -450,10 +466,10 @@
       "category": "health",
       "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
       "source_id": "asp_ds42_2026",
-      "address": "Via Giuseppe Arcoleo, 5, 90124 Palermo PA, Italia",
-      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
-      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
-      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+      "address": "Via Villagrazia, 46, 90124 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-guadagna-palermo/",
+      "location_verification": "Indirizzo aggiornato sulla scheda ufficiale ASP Palermo e sull'avviso di trasferimento del 25/08/2026, efficace dal 31/08/2026; coordinate non ancora validate.",
+      "note": "Sede aggiornata del PTA Guadagna: gli uffici UOS Integrazione Socio Sanitaria, Assistenza Sanitaria di Base e Direzione sono stati trasferiti da via Giorgio Arcoleo n. 25 a via Villagrazia n. 46 dal 31/08/2026. Non usare il vecchio indirizzo per la georeferenziazione."
     },
     {
       "id": "health-pta-centro",
@@ -461,10 +477,10 @@
       "category": "health",
       "status": "PRESIDIO_SANITARIO_DOCUMENTATO",
       "source_id": "asp_ds42_2026",
-      "address": "Via Giovan Battista Turrisi Colonna, 43, 90141 Palermo PA, Italia",
-      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-palermo/",
-      "location_verification": "Indirizzo riportato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
-      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Distinguere il presidio dalla pluralità di servizi interni per non duplicare il conteggio degli immobili."
+      "address": "Via Giuseppina Turrisi Colonna, 43, 90141 Palermo PA, Italia",
+      "location_source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-centro-palermo/",
+      "location_verification": "Indirizzo confermato nella scheda ufficiale ASP Palermo; coordinate non ancora validate.",
+      "note": "Presidio territoriale ASP del Distretto Sanitario 42. Dal 02/01/2026 l'attività è temporaneamente rimodulata per lavori strutturali: non equivale a chiusura dell'intero presidio. Distinguere la sede dalla pluralità di servizi interni."
     },
     {
       "id": "health-consultorio-villagrazia",
