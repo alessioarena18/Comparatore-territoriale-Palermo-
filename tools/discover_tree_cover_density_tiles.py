@@ -67,7 +67,8 @@ class CDSEAuth:
 
     def download(self, url: str, destination: Path) -> None:
         for attempt in range(2):
-            response = self.session.get(url, headers=self.headers(), stream=True, timeout=180)
+            request_headers = self.headers() if (self.username and self.password) or self.static_token else {}
+            response = self.session.get(url, headers=request_headers, stream=True, timeout=180)
             if response.status_code == 401 and attempt == 0 and self.username and self.password:
                 response.close()
                 self.access_token = None
@@ -80,7 +81,7 @@ class CDSEAuth:
                         stream.write(chunk)
             response.close()
             return
-        raise RuntimeError(f"Download non autorizzato dopo il rinnovo del token: {url}")
+        raise RuntimeError("Download non autorizzato. Verificare le credenziali CDSE e i permessi dell’asset.")
 
 COLLECTION = "clms_vlcc_tree-cover-density_europe_10m_yearly_v1"
 CONFIDENCE_COLLECTION = "clms_vlcc_tree-cover-density-confidence-layer_europe_10m_yearly_v1"
