@@ -23,7 +23,7 @@ from pystac_client import Client
 
 COLLECTION = "clms_vlcc_tree-cover-density_europe_10m_yearly_v1"
 STAC_URL = "https://stac.dataspace.copernicus.eu/v1"
-PALERMO_BBOX = (13.27, 38.07, 13.42, 38.21)
+PALERMO_BBOX = (13.15, 37.95, 13.55, 38.30)
 
 
 def main() -> None:
