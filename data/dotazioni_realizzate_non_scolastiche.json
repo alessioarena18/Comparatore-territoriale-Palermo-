@@ -148,6 +148,14 @@
       "reference_date": "Consultazione 18/11/2026",
       "url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/",
       "scope": "Collegamenti Google Maps ufficiali utilizzati per localizzare il civico Largo Pozzillo 7, Villa Trabia via Antonino Salinas 3 e Biblioteca Leonardo Sciascia in Piazzetta Lucrezia Brunaccini 2. Il punto è localizzativo e non rappresenta perimetro o superficie."
+    },
+    {
+      "id": "villa_costa_verde_terrasi_2026",
+      "publisher": "Comune di Palermo · VIII Circoscrizione / Portale del Turismo",
+      "title": "Biblioteca Verde Terrasi e stato del fabbricato di Villa Costa",
+      "reference_date": "Scheda turistica consultata 18/11/2026; comunicazione sullo stato del fabbricato 06/08/2026",
+      "url": "https://www.comune.palermo.it/novita/villa-costa-dichiarazione-presidente-viii-circoscrizione/",
+      "scope": "La scheda turistica documenta la biblioteca storicamente ospitata in Viale Lazio 5; la comunicazione comunale del 06/08/2026 segnala che il fabbricato di Villa Costa è in stato di abbandono e necessita di recupero. La scheda storica non prova l'operatività attuale del servizio."
     }
   ],
   "categories": [
@@ -162,8 +170,8 @@
       "id": "culture",
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
-      "records": 14,
-      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile."
+      "records": 15,
+      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile. La Biblioteca Verde Terrasi è censita come sede storica non operativa: il fabbricato di Villa Costa è segnalato dal Comune come da recuperare (06/08/2026), quindi non è rappresentato tra le sedi fruibili."
     },
     {
       "id": "health",
@@ -522,6 +530,17 @@
       "location_source_url": "https://www.asppalermo.org/consultori/",
       "location_verification": "Indirizzo riportato nell'elenco ufficiale dei Consultori ASP; coordinate non ancora validate.",
       "note": "Servizio territoriale sanitario. Verificare sede attiva e orari prima di rappresentare la fruibilità."
+    },
+    {
+      "id": "culture-biblioteca-verde-terrasi",
+      "name": "Biblioteca comunale Verde Terrasi · sede storica",
+      "category": "culture",
+      "status": "SEDE_STORICA_NON_OPERATIVA",
+      "source_id": "villa_costa_verde_terrasi_2026",
+      "address": "Viale Lazio, 5, 90144 Palermo PA, Italia",
+      "location_source_url": "https://www.comune.palermo.it/novita/villa-costa-dichiarazione-presidente-viii-circoscrizione/",
+      "location_verification": "La scheda del Portale del Turismo comunale riporta la biblioteca e l'indirizzo storico in Viale Lazio 5. La comunicazione comunale del 06/08/2026 descrive il fabbricato di Villa Costa come in stato di abbandono e da recuperare; non è quindi documentata l'operatività attuale della biblioteca. Nessuna coordinata viene inserita nel layer delle sedi fruibili.",
+      "note": "Sede storica della Biblioteca Verde Terrasi, già ospitata nel fabbricato di Villa Costa. L'immobile è stato oggetto di procedura di concessione/aggiudicazione nel 2025; nell'agosto 2026 il Comune ne segnala lo stato di abbandono e la necessità di recupero. Record conservato per memoria documentale e monitoraggio, escluso dalle dotazioni culturali attualmente fruibili e dai marker operativi."
     }
   ]
 }
