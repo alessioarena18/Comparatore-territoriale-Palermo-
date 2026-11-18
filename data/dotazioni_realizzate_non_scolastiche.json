@@ -156,6 +156,14 @@
       "reference_date": "Scheda turistica consultata 18/11/2026; comunicazione sullo stato del fabbricato 06/08/2026",
       "url": "https://www.comune.palermo.it/novita/villa-costa-dichiarazione-presidente-viii-circoscrizione/",
       "scope": "La scheda turistica documenta la biblioteca storicamente ospitata in Viale Lazio 5; la comunicazione comunale del 06/08/2026 segnala che il fabbricato di Villa Costa è in stato di abbandono e necessita di recupero. La scheda storica non prova l'operatività attuale del servizio."
+    },
+    {
+      "id": "iccu_sezioni_esterne_palermo_2024",
+      "publisher": "ICCU · Anagrafe delle Biblioteche Italiane",
+      "title": "Schede ISIL IT-PA0200 e IT-PA0201 · sezioni esterne comunali",
+      "reference_date": "Scheda IT-PA0201 aggiornata 21/02/2024; consultazione 18/11/2026",
+      "url": "https://anagrafe.iccu.sbn.it/it/ricerca/risultati.html?fl=regione%40SICILIA&monocampo=&start=840",
+      "scope": "Identifica due biblioteche pubbliche del Comune di Palermo, sezioni esterne dei quartieri IV Montegrappa-Santa Rosalia e V Cuba-Calatafimi. Le schede ICCU riportano indirizzi, servizi e orari, ma i dati non costituiscono conferma dell'operatività attuale; i record sono da rivalidare con il Comune prima di considerarli sedi fruibili."
     }
   ],
   "categories": [
@@ -170,8 +178,8 @@
       "id": "culture",
       "label": "Cultura, biblioteche e musei",
       "status": "PARZIALE",
-      "records": 15,
-      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile. La Biblioteca Verde Terrasi è censita come sede storica non operativa: il fabbricato di Villa Costa è segnalato dal Comune come da recuperare (06/08/2026), quindi non è rappresentato tra le sedi fruibili."
+      "records": 17,
+      "note": "Rete bibliotecaria ampliata con le sedi decentrate della Carta dei Servizi Culturali 2026 e del portale Librarsi. Quattro sedi aggiuntive sono localizzate con collegamenti cartografici ufficiali; Brancaccio presenta una discordanza istituzionale sul civico (15/19), esplicitata nel popup e nel registro. Il Piccolo Principe resta in attesa di coordinate validate. Pallavicino è chiusa in attesa di ricollocazione e non viene mappata come sede fruibile. La Biblioteca Verde Terrasi è censita come sede storica non operativa: il fabbricato di Villa Costa è segnalato dal Comune come da recuperare (06/08/2026), quindi non è rappresentato tra le sedi fruibili. L'Anagrafe ICCU documenta inoltre due sezioni esterne comunali nei quartieri IV (Montegrappa-Santa Rosalia) e V (Cuba-Calatafimi), censite come sedi da rivalidare: le schede non provano l'operatività attuale e non sono disponibili coordinate validate, quindi non sono rappresentate in mappa."
     },
     {
       "id": "health",
@@ -541,6 +549,28 @@
       "location_source_url": "https://www.comune.palermo.it/novita/villa-costa-dichiarazione-presidente-viii-circoscrizione/",
       "location_verification": "La scheda del Portale del Turismo comunale riporta la biblioteca e l'indirizzo storico in Viale Lazio 5. La comunicazione comunale del 06/08/2026 descrive il fabbricato di Villa Costa come in stato di abbandono e da recuperare; non è quindi documentata l'operatività attuale della biblioteca. Nessuna coordinata viene inserita nel layer delle sedi fruibili.",
       "note": "Sede storica della Biblioteca Verde Terrasi, già ospitata nel fabbricato di Villa Costa. L'immobile è stato oggetto di procedura di concessione/aggiudicazione nel 2025; nell'agosto 2026 il Comune ne segnala lo stato di abbandono e la necessità di recupero. Record conservato per memoria documentale e monitoraggio, escluso dalle dotazioni culturali attualmente fruibili e dai marker operativi."
+    },
+    {
+      "id": "culture-biblioteca-sezione-montegrappa",
+      "name": "Biblioteca comunale · Sezione esterna quartiere IV Montegrappa-Santa Rosalia",
+      "category": "culture",
+      "status": "SEDE_DA_RIVALIDARE_ICCU",
+      "source_id": "iccu_sezioni_esterne_palermo_2024",
+      "address": "Via Volontari Italiani del Sangue, 33, 90128 Palermo PA, Italia",
+      "location_source_url": "https://anagrafe.iccu.sbn.it/isil/IT-PA0200",
+      "location_verification": "L'Anagrafe ICCU identifica la struttura come biblioteca pubblica del Comune di Palermo, sezione esterna del quartiere IV, con accesso aperto a tutti, prestito locale e servizio bibliografico in sede. La scheda riporta l'indirizzo e gli orari, ma non espone una data recente di aggiornamento; operatività attuale da confermare con il Comune. Nessuna coordinata validata: esclusa dalla mappa.",
+      "note": "Identificativo ICCU IT-PA0200. Sede bibliotecaria pubblica comunale documentata nell'Anagrafe delle Biblioteche Italiane. La fonte non consente di attestare l'apertura attuale né di georeferenziare con precisione l'ingresso; record documentale senza marker, in attesa di riscontro comunale."
+    },
+    {
+      "id": "culture-biblioteca-sezione-cuba-calatafimi",
+      "name": "Biblioteca comunale · Sezione esterna quartiere V Cuba-Calatafimi",
+      "category": "culture",
+      "status": "SEDE_DA_RIVALIDARE_ICCU",
+      "source_id": "iccu_sezioni_esterne_palermo_2024",
+      "address": "Via F. Speciale, 35-37, 90129 Palermo PA, Italia",
+      "location_source_url": "https://anagrafe.iccu.sbn.it/isil/IT-PA0201",
+      "location_verification": "L'Anagrafe ICCU identifica la struttura come biblioteca pubblica del Comune di Palermo, sezione esterna del quartiere V, con accesso aperto a tutti, prestito locale e servizio bibliografico in sede. La scheda è aggiornata al 21/02/2024: operatività attuale da confermare con il Comune. Nessuna coordinata validata: esclusa dalla mappa.",
+      "note": "Identificativo ICCU IT-PA0201. Sede bibliotecaria pubblica comunale documentata nell'Anagrafe delle Biblioteche Italiane. La fonte non consente di attestare l'apertura attuale né di georeferenziare con precisione l'ingresso; record documentale senza marker, in attesa di riscontro comunale."
     }
   ]
 }
