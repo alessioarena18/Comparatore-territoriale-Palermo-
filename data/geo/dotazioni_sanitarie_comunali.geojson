@@ -8,13 +8,14 @@
     }
   },
   "metadata": {
-    "title": "Localizzazioni sanitarie documentate di Palermo",
+    "title": "Sanità e strutture ospedaliere di Palermo",
     "created_at": "2026-11-18",
     "methodology": "Coordinate tecniche ASP per Biondo e Casa del Sole; coordinate dai link cartografici del Portale del Turismo del Comune per Guadagna ed Enrico Albanese. Le coordinate indicano il punto localizzativo, non necessariamente l'ingresso.",
     "coordinate_source": "ASP Palermo · Allegato tecnico Delibera n. 1075 del 18/07/2023",
     "mapped_features": 4,
-    "inventory_records": 7,
-    "remaining_without_verified_coordinates": 3
+    "inventory_records": 17,
+    "remaining_without_verified_coordinates": 3,
+    "hospital_features": 8
   },
   "features": [
     {
@@ -109,6 +110,190 @@
         "coordinate_reference": "WGS84 · EPSG:4326",
         "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
         "geometry_note": "Coordinate tratte dal collegamento cartografico ufficiale del Portale del Turismo del Comune di Palermo per il Punto di primo intervento in Via Papa Sergio I 5."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-civico",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3579221,
+          38.1046489
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-civico",
+        "name": "Presidio Ospedaliero Civico",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Piazza Nicola Leotta, 4, 90127 Palermo PA, Italia",
+        "source_url": "https://www.arnascivico.it/attachments/article/37175/190927_PIAO_19012024.pdf",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-di-cristina",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3561868,
+          38.1088657
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-di-cristina",
+        "name": "Presidio Ospedaliero Pediatrico Giovanni Di Cristina",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Piazza Montalto, 2, 90134 Palermo PA, Italia",
+        "source_url": "https://www.arnascivico.it/attachments/article/37175/190927_PIAO_19012024.pdf",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-villa-sofia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3370703,
+          38.1548332
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-villa-sofia",
+        "name": "Presidio Ospedaliero Villa Sofia",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Piazza Ottavio Salerno, 1, 90146 Palermo PA, Italia",
+        "source_url": "https://www.ospedaliriunitipalermo.it/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-cervello",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3137829,
+          38.1544023
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-cervello",
+        "name": "Presidio Ospedaliero Vincenzo Cervello",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Via Trabucco, 180, 90146 Palermo PA, Italia",
+        "source_url": "https://www.ospedaliriunitipalermo.it/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-ingrassia",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3096975,
+          38.0945376
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-ingrassia",
+        "name": "Presidio Ospedaliero G.F. Ingrassia",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Corso Calatafimi, 1002, 90131 Palermo PA, Italia",
+        "source_url": "https://www.asppalermo.org/vivere-il-comune/luoghi/corso-calatafimi-1002-palermo/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-policlinico",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3610301,
+          38.1019729
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-policlinico",
+        "name": "A.O.U.P. Policlinico Paolo Giaccone",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Via del Vespro, 129, 90127 Palermo PA, Italia",
+        "source_url": "https://policlinico.pa.it/web/guest/come-raggiungerci",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-buccheri-la-ferla",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.385928,
+          38.106121
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-buccheri-la-ferla",
+        "name": "Ospedale Buccheri La Ferla Fatebenefratelli",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Via Messina Marine, 197, 90123 Palermo PA, Italia",
+        "source_url": "https://www.ospedalebuccherilaferla.it/contatti/",
+        "coordinate_source": "Portale del Turismo · Comune di Palermo, collegamento cartografico",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_CARTOGRAFIA_COMUNE",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hospital-ismett",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.35805,
+          38.10174
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-ismett",
+        "name": "ISMETT-UPMC",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Via Ernesto Tricomi, 5, 90127 Palermo PA, Italia",
+        "source_url": "https://www.ismett.edu/info-utili/come-arrivare/",
+        "coordinate_source": "Fonte cartografica secondaria; indirizzo confermato dal gestore",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA",
+        "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
       }
     }
   ]
