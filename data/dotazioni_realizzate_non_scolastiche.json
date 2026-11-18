@@ -281,10 +281,10 @@
     },
     {
       "id": "health",
-      "label": "Sanità e presidi sanitari",
+      "label": "Sanità e strutture ospedaliere",
       "status": "PARZIALE",
-      "records": 7,
-      "note": "Cinque PTA e due consultori del Distretto 42; quattro sedi ora georeferenziate con fonti tecniche/cartografiche. PTA Centro e i due consultori restano senza coordinate puntuali validate."
+      "records": 17,
+      "note": "Censimento integrato di PTA, consultori e presidi ospedalieri pubblici, universitari e privati accreditati. Le strutture senza coordinate puntuali validate restano nell’inventario senza marker."
     },
     {
       "id": "social",
@@ -299,13 +299,6 @@
       "status": "DA_INTEGRARE",
       "records": 0,
       "note": "Separare parcheggi in struttura/aree dedicate dalla sosta su strada. Disponibili ora i dati AMAT 2026 delle zone A, B e C con stalli conteggiati; non sono punti di parcheggio."
-    },
-    {
-      "id": "hospitals",
-      "label": "Ospedali e presidi ospedalieri",
-      "status": "PARZIALE",
-      "records": 10,
-      "note": "Dieci presidi ospedalieri pubblici, universitari e privati accreditati censiti. Otto punti hanno coordinate cartografiche iniziali; Maria Eleonora Hospital e Villa delle Ginestre restano in inventario in attesa di verifica puntuale."
     }
   ],
   "facilities": [
@@ -782,7 +775,7 @@
     {
       "id": "hospital-civico",
       "name": "Presidio Ospedaliero Civico",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "arnascivico_piao_2025",
       "address": "Piazza Nicola Leotta, 4, 90127 Palermo PA, Italia",
@@ -801,7 +794,7 @@
     {
       "id": "hospital-di-cristina",
       "name": "Presidio Ospedaliero Pediatrico Giovanni Di Cristina",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "arnascivico_piao_2025",
       "address": "Piazza Montalto, 2, 90134 Palermo PA, Italia",
@@ -820,7 +813,7 @@
     {
       "id": "hospital-villa-sofia",
       "name": "Presidio Ospedaliero Villa Sofia",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "ospedali_riuniti_scheda",
       "address": "Piazza Ottavio Salerno, 1, 90146 Palermo PA, Italia",
@@ -839,7 +832,7 @@
     {
       "id": "hospital-cervello",
       "name": "Presidio Ospedaliero Vincenzo Cervello",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "ospedali_riuniti_scheda",
       "address": "Via Trabucco, 180, 90146 Palermo PA, Italia",
@@ -858,7 +851,7 @@
     {
       "id": "hospital-ingrassia",
       "name": "Presidio Ospedaliero G.F. Ingrassia",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "asp_inGrassia",
       "address": "Corso Calatafimi, 1002, 90131 Palermo PA, Italia",
@@ -877,7 +870,7 @@
     {
       "id": "hospital-policlinico",
       "name": "A.O.U.P. Policlinico Paolo Giaccone",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "policlinico_palermo_contatti",
       "address": "Via del Vespro, 129, 90127 Palermo PA, Italia",
@@ -896,7 +889,7 @@
     {
       "id": "hospital-buccheri-la-ferla",
       "name": "Ospedale Buccheri La Ferla Fatebenefratelli",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "buccheri_contatti",
       "address": "Via Messina Marine, 197, 90123 Palermo PA, Italia",
@@ -915,7 +908,7 @@
     {
       "id": "hospital-ismett",
       "name": "ISMETT-UPMC",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "ismett_contatti_2026",
       "address": "Via Ernesto Tricomi, 5, 90127 Palermo PA, Italia",
@@ -934,7 +927,7 @@
     {
       "id": "hospital-maria-eleonora",
       "name": "Maria Eleonora Hospital",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "gvm_maria_eleonora_2026",
       "address": "Viale della Regione Siciliana Nord Ovest, 1571, 90135 Palermo PA, Italia",
@@ -945,7 +938,7 @@
     {
       "id": "hospital-villa-delle-ginestre",
       "name": "Presidio Ospedaliero Villa delle Ginestre",
-      "category": "hospitals",
+      "category": "health",
       "status": "OSPEDALE_DOCUMENTATO",
       "source_id": "asp_villa_ginestre_2026",
       "address": "Via Castellana, 145, 90135 Palermo PA, Italia",
