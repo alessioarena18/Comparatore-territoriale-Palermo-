@@ -1033,7 +1033,8 @@ async function initRealizedAmenitiesMap(){
    const hospitalResponse=await fetch('data/geo/dotazioni_ospedaliere_comunali.geojson',{cache:'no-store'});
    if(!hospitalResponse.ok)throw new Error('Ospedali GeoJSON HTTP '+hospitalResponse.status);
    const hospitalData=await hospitalResponse.json();
-   const features=[...(d.features||[]),...(hospitalData.features||[])].filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE','COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA'].includes(f.properties?.coordinate_status));
+   const healthById=new Map();[...(d.features||[]),...(hospitalData.features||[])].forEach(f=>{const id=String(f.properties?.facility_id||f.id||'');if(id)healthById.set(id,f);});
+   const features=[...healthById.values()].filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE','COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA'].includes(f.properties?.coordinate_status));
    const mapped=addFacilityLayer(features,'health','Sanità e strutture ospedaliere',p=>'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
    features.forEach(feature=>{
     const id=feature.properties?.facility_id;
@@ -1979,7 +1980,7 @@ function syncMainFilter(id){
  else render();
 }
 $('#circ').addEventListener('change',()=>syncMainFilter('circ'));
-$('#content').addEventListener('change',e=>{if(e.target.matches('#circ,#quart,#asc3,#section'))setTimeout(applyRealizedTerritorialFilter,0);});
+['circ','quart','asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>setTimeout(()=>{applyRealizedTerritorialFilter();if(realizedAmenitiesMap){const visible=[];realizedFacilityMarkers.forEach(entry=>{if(realizedFacilityMatchesSelection(entry.id,selected()))visible.push(entry.marker);});if(visible.length){const bounds=L.featureGroup(visible).getBounds();if(bounds.isValid())realizedAmenitiesMap.fitBounds(bounds,{padding:[28,28],maxZoom:15});}}},0)));
 $('#quart').addEventListener('change',()=>syncMainFilter('quart'));
 ['asc3','section'].forEach(id=>$('#'+id)?.addEventListener('change',()=>syncMainFilter(id)));
 $('#content').addEventListener('change',e=>{
