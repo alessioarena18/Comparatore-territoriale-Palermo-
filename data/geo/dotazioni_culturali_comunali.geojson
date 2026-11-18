@@ -17,7 +17,11 @@
       "Biblioteche decentrate (rete da scomporre in singole sedi)"
     ],
     "last_verified": "2026-11-18",
-    "methodology": "Punti di localizzazione derivati dai collegamenti Google Maps presenti nelle schede Luoghi ufficiali del Comune di Palermo. I punti indicano accessi/civici o complessi ospitanti e non costituiscono perimetri edilizi o superfici. La sede di Pallavicino è esclusa perché la scheda Librarsi la dichiara chiusa in attesa di nuova ubicazione."
+    "methodology": "Punti di localizzazione derivati dai collegamenti Google Maps presenti nelle schede Luoghi ufficiali del Comune di Palermo. I punti indicano accessi/civici o complessi ospitanti e non costituiscono perimetri edilizi o superfici. La sede di Pallavicino è esclusa perché la scheda Librarsi la dichiara chiusa in attesa di nuova ubicazione.",
+    "feature_count": 15,
+    "notes": [
+      "Sono aggiunti quattro punti di biblioteche UniPa. Le coordinate localizzano gli edifici indicati dai collegamenti ufficiali, non ingressi autonomi o perimetri delle sale. La Biblioteca centrale regionale Bombace è censita nel registro ma non mappata per mancanza di coordinate validate."
+    ]
   },
   "features": [
     {
@@ -274,6 +278,90 @@
         "coordinates": [
           13.3832624,
           38.0947897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "culture-unipa-biblioteca-ingegneria",
+        "name": "Biblioteca UniPa di Ingegneria",
+        "category": "biblioteca_universitaria",
+        "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+        "address": "Viale delle Scienze, Edificio 7, piano terra, 90128 Palermo PA, Italia",
+        "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Ingegneria/",
+        "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
+        "isil": "IT-PA0066",
+        "managing_body": "Università degli Studi di Palermo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3442053,
+          38.1131209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "culture-unipa-biblioteca-architettura",
+        "name": "Biblioteca UniPa di Architettura · sede centrale",
+        "category": "biblioteca_universitaria",
+        "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+        "address": "Viale delle Scienze, Edificio 14, piani 2-3, 90128 Palermo PA, Italia",
+        "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Architettura.-Centrale-di-architettura/index.html",
+        "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
+        "isil": "IT-PA0106",
+        "managing_body": "Università degli Studi di Palermo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.347163,
+          38.1018887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "culture-unipa-biblioteca-psicologia",
+        "name": "Biblioteca UniPa di Psicologia",
+        "category": "biblioteca_universitaria",
+        "status": "SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO",
+        "address": "Viale delle Scienze, Edificio 15, piano terra, 90128 Palermo PA, Italia",
+        "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-umane/Biblioteca-di-Psicologia/",
+        "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
+        "isil": "IT-PA0327",
+        "managing_body": "Università degli Studi di Palermo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.345205,
+          38.101869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "culture-unipa-biblioteca-agraria",
+        "name": "Biblioteca UniPa di Scienze agrarie, alimentari e forestali",
+        "category": "biblioteca_universitaria",
+        "status": "SERVIZIO_SOSPESO_DA_AVVISO",
+        "address": "Viale delle Scienze, Edificio 4, ingresso A, piano 1, 90128 Palermo PA, Italia",
+        "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-di-base-e-applicate/Biblioteca-di-Scienze-agro-forestali.-Centrale-agraria/",
+        "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
+        "isil": "IT-PA0107",
+        "managing_body": "Università degli Studi di Palermo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3525397,
+          38.1070746
         ]
       }
     }
