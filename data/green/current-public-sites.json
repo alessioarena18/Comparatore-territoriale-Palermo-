@@ -68,6 +68,15 @@
           "superfici sottoposte a manutenzione per circoscrizione",
           "addetti, nuove essenze e interventi programmati/effettuati"
         ]
+      },
+      {
+        "id": "COM-AVVISO-18112026",
+        "title": "Avviso Polizia Municipale · orari ville e giardini comunali, pubblicato il 18/11/2026",
+        "url": "https://docs.comune.palermo.it/polizia-municipale-limitazioni-dettaglio.php?id=34609",
+        "date": "2026-11-18",
+        "supports": [
+          "conferma aggiornata degli orari stagionali delle nove ville e giardini recintati"
+        ]
       }
     ],
     "limitations": [
@@ -110,14 +119,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "17:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "17:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -134,14 +148,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "17:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "17:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -158,14 +177,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "17:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "17:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -182,7 +206,11 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "17:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "17:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia attribuita a Re.Se.T. nell’avviso comunale primavera-estate 2026; conferma di validità per stagione corrente da verificare",
@@ -190,7 +218,8 @@
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
         "COM-14130-2026",
-        "COM-3537-2026"
+        "COM-3537-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
     },
@@ -207,14 +236,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "18:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "18:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -231,14 +265,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "18:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "18:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -255,7 +294,11 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "18:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "18:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia affidata a soggetto privato quale obbligo di convenzione nell’avviso comunale primavera-estate 2026; validità attuale da verificare",
@@ -263,7 +306,8 @@
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
         "COM-14130-2026",
-        "COM-3537-2026"
+        "COM-3537-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
     },
@@ -280,14 +324,19 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "18:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "18:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia a cura dell’Ufficio autonomo, società partecipata o soggetto convenzionato secondo competenza; assegnazione puntuale da verificare",
       "maintenance": "non documentata",
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
-        "COM-14130-2026"
+        "COM-14130-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; non determinata per proprietà, manutenzione e geometria"
     },
@@ -304,7 +353,11 @@
         "after_clock_change": {
           "from": "07:00",
           "to": "18:00"
-        }
+        },
+        "current_as_of": "2026-11-18",
+        "current_open": "07:00",
+        "current_close": "18:00",
+        "current_source_id": "COM-AVVISO-18112026"
       },
       "ownership": "da verificare con inventario patrimoniale/atti",
       "management": "custodia attribuita a Re.Se.T. nell’avviso comunale primavera-estate 2026; conferma di validità per stagione corrente da verificare",
@@ -312,7 +365,8 @@
       "geometry": "da associare e verificare sul dataset comunale 278",
       "source_ids": [
         "COM-14130-2026",
-        "COM-3537-2026"
+        "COM-3537-2026",
+        "COM-AVVISO-18112026"
       ],
       "confidence": "alta per accesso e orari; media per custodia; non determinata per proprietà, manutenzione e geometria"
     }
