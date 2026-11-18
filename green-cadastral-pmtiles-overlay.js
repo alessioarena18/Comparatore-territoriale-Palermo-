@@ -23,7 +23,7 @@
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  window.initGreenMap=async function(...args){
   await original.apply(this,args);
-  const map=window.greenMapInstance;
+  const map=greenMapInstance;
   const status=document.getElementById('greenMapStatus');
   if(!map||!window.L||!window.maplibregl||typeof L.maplibreGL!=='function'||!window.pmtiles)return;
   if(map.__municipalGreenCadastralLayer)return;
