@@ -7,8 +7,11 @@ on:
       - 'app.js'
       - 'index.html'
       - 'styles.css'
+      - 'green-*.js'
+      - 'data/green/*.json'
       - 'tools/*.py'
-      - '.github/workflows/validate-app.yml'
+      - '.github/workflows/*.yml'
+      - '.github/workflows/*.yaml'
 permissions:
   contents: read
 jobs:
