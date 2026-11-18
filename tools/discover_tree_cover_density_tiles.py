@@ -131,10 +131,16 @@ def main() -> None:
                 original_name = Path(urlparse(href).path).name or f"{key}.tif"
                 name = f"{item.id}_{original_name}"
                 destination = args.download_dir / name
-                auth.download(href, destination)
-                entry["downloaded_to"] = str(destination)
-                entry["download_bytes"] = destination.stat().st_size
-                if zipfile.is_zipfile(destination):
+                try:
+                    auth.download(href, destination)
+                    entry["downloaded_to"] = str(destination)
+                    entry["download_bytes"] = destination.stat().st_size
+                    if destination.stat().st_size == 0:
+                        raise RuntimeError("Il file scaricato è vuoto.")
+                except Exception as exc:
+                    destination.unlink(missing_ok=True)
+                    entry["download_error"] = f"{type(exc).__name__}: {exc}"
+                if entry.get("downloaded_to") and zipfile.is_zipfile(destination):
                     extracted = []
                     with zipfile.ZipFile(destination) as archive:
                         for member in archive.infolist():
@@ -165,9 +171,14 @@ def main() -> None:
             print(f"  asset {asset['key']}: {asset['href']}")
             if asset.get('downloaded_to'):
                 print(f"  scaricato: {asset['downloaded_to']} ({asset['download_bytes']} byte)")
+            if asset.get("download_error"):
+                print(f"  ERRORE download: {asset['download_error']}")
             for raster in asset.get('extracted_rasters', []):
                 print(f"  raster estratto: {raster}")
     print(f"Report: {args.output}")
+    failures = sum(1 for item in report for asset in item["assets"] if asset.get("download_error"))
+    if failures:
+        print(f"Download non riusciti: {failures}. Il report completo è stato comunque salvato.")
     if args.download_dir and not (auth.username and auth.password) and not auth.static_token:
         print("Nota: nessuna credenziale CDSE impostata; il download potrebbe richiedere autenticazione.")
 
