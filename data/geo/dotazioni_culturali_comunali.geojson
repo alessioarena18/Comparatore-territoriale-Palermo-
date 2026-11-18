@@ -15,7 +15,9 @@
     "not_yet_mapped": [
       "Biblioteca comunale Leonardo Sciascia (indirizzo noto, coordinate da validare)",
       "Biblioteche decentrate (rete da scomporre in singole sedi)"
-    ]
+    ],
+    "last_verified": "2026-11-18",
+    "methodology": "Punti di localizzazione derivati dai collegamenti Google Maps presenti nelle schede Luoghi ufficiali del Comune di Palermo. I punti indicano accessi/civici o complessi ospitanti e non costituiscono perimetri edilizi o superfici. La sede di Pallavicino è esclusa perché la scheda Librarsi la dichiara chiusa in attesa di nuova ubicazione."
   },
   "features": [
     {
@@ -181,6 +183,75 @@
         "last_verified": "2026-11-18",
         "related_facility_ids": [],
         "geometry_note": "Punto di localizzazione della sede/complesso; non rappresenta il perimetro né la superficie dell'immobile."
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "culture-biblioteca-borgo-nuovo",
+        "name": "Biblioteca comunale Borgo Nuovo",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Largo Pozzillo, 7, 90135 Palermo PA, Italia",
+        "source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-di-Borgo-Nuovo/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps della scheda ufficiale del Comune per il civico Largo Pozzillo 7; indirizzo coincidente con la sede bibliotecaria Librarsi",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto localizzativo del civico/complesso di accesso; non rappresenta il perimetro edilizio della biblioteca."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.299314,
+          38.1283856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "culture-biblioteca-villa-trabia",
+        "name": "Biblioteca comunale multimediale Villa Trabia",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Via Antonino Salinas, 3, 90141 Palermo PA, Italia",
+        "source_url": "https://librarsi.comune.palermo.it/it/mappa-biblioteche/biblioteca/Biblioteca-comunale-multimediale-di-Villa-Trabia/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps della scheda ufficiale del Comune Villa Trabia; la biblioteca è al piano terra della Casena",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto localizzativo dell'accesso al complesso Villa Trabia, che ospita la biblioteca al piano terra della Casena; non rappresenta perimetro o superficie."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3475384,
+          38.1302615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "facility_id": "culture-biblioteca-sciascia",
+        "name": "Biblioteca comunale Leonardo Sciascia · Casa Professa",
+        "category": "culture",
+        "documentary_status": "SERVIZIO_CULTURALE_CENSITO",
+        "address": "Piazzetta Lucrezia Brunaccini, 2, 90134 Palermo PA, Italia",
+        "source_url": "https://www.comune.palermo.it/vivere-il-comune/luoghi/biblioteca-leonardo-sciascia/",
+        "coordinate_source": "Collegamento Indicazioni stradali su Google Maps presente nella scheda ufficiale Luoghi del Comune di Palermo",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "related_facility_ids": [],
+        "geometry_note": "Punto localizzativo dell'accesso alla biblioteca nel complesso di Casa Professa; non rappresenta il perimetro né la superficie dell'immobile."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3611993,
+          38.1126275
+        ]
       }
     }
   ]
