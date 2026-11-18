@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "name": "dotazioni_sanitarie_comunali",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "metadata": {
+    "title": "Localizzazioni sanitarie documentate di Palermo",
+    "created_at": "2026-11-18",
+    "methodology": "Sono inclusi soltanto punti con coordinate riportate in un allegato tecnico ASP. Coordinate convertite da DMS a gradi decimali WGS84. La posizione dell’immobile non certifica l’esatta posizione dell’ingresso.",
+    "coordinate_source": "ASP Palermo · Allegato tecnico Delibera n. 1075 del 18/07/2023",
+    "mapped_features": 2,
+    "inventory_records": 7,
+    "remaining_without_verified_coordinates": 5
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "health-pta-biondo",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3340639,
+          38.1079722
+        ]
+      },
+      "properties": {
+        "facility_id": "health-pta-biondo",
+        "name": "PTA Biondo",
+        "category": "health",
+        "documentary_status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+        "address": "Via Gaetano La Loggia, 5, 90129 Palermo PA, Italia",
+        "source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-biondo-palermo/",
+        "coordinate_source": "Allegato tecnico ASP alla Delibera n. 1075 del 18/07/2023",
+        "coordinate_source_url": "https://www.asppalermo.org/wp-content/uploads/2024/04/Deliberan.1075del18luglio2023Allegati.pdf",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_DOCUMENTO_TECNICO_ASP",
+        "geometry_note": "Coordinata dell’immobile riportata nell’allegato tecnico ASP; non equivale al rilievo dell’ingresso. Verificare il punto di accesso prima di analisi pedonali o di accessibilità."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "health-pta-casa-del-sole",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3031444,
+          38.1202806
+        ]
+      },
+      "properties": {
+        "facility_id": "health-pta-casa-del-sole",
+        "name": "PTA Casa del Sole",
+        "category": "health",
+        "documentary_status": "PRESIDIO_SANITARIO_DOCUMENTATO",
+        "address": "Via Luigi Sarullo, 19, 90135 Palermo PA, Italia",
+        "source_url": "https://www.asppalermo.org/amministrazione/unita_organizzativa/distretto-sanitario-n-42-pta-casa-del-sole-palermo/",
+        "coordinate_source": "Allegato tecnico ASP alla Delibera n. 1075 del 18/07/2023",
+        "coordinate_source_url": "https://www.asppalermo.org/wp-content/uploads/2024/04/Deliberan.1075del18luglio2023Allegati.pdf",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_DOCUMENTO_TECNICO_ASP",
+        "geometry_note": "Coordinata dell’immobile riportata nell’allegato tecnico ASP; non equivale al rilievo dell’ingresso. Verificare il punto di accesso prima di analisi pedonali o di accessibilità."
+      }
+    }
+  ]
+}
