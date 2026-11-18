@@ -1,0 +1,42 @@
+name: Acquisizione Copernicus TCD 2024
+on:
+  workflow_dispatch:
+    inputs:
+      download_rasters:
+        description: "Scarica anche i raster TCD e confidence (può richiedere autenticazione CDSE)"
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  discover-and-download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installa dipendenze STAC
+        run: python -m pip install -r tools/requirements-tree-cover-density.txt
+      - name: Ricerca item TCD 2024 per Palermo
+        env:
+          CDSE_ACCESS_TOKEN: ${{ secrets.CDSE_ACCESS_TOKEN }}
+        run: |
+          if [ "${{ inputs.download_rasters }}" = "true" ]; then
+            python tools/discover_tree_cover_density_tiles.py --download-dir data/green/tcd_2024
+          else
+            python tools/discover_tree_cover_density_tiles.py
+          fi
+      - name: Carica report STAC e raster acquisiti
+        uses: actions/upload-artifact@v4
+        with:
+          name: copernicus-tcd-palermo-2024
+          path: |
+            data/green/tcd_2024_stac_items.json
+            data/green/tcd_2024/
+          if-no-files-found: warn
+          retention-days: 14
