@@ -799,7 +799,10 @@
       ],
       "ownership_evidence": "inserito nell'Elenco immobili comunali aggiornato al 31/12/2024",
       "geometry": "da acquisire/associare tramite cartografia catastale",
-      "source_id": "COM-PATRIMONIO-2024"
+      "source_id": "COM-PATRIMONIO-2024",
+      "subalterns": {
+        "00849": "0001"
+      }
     },
     {
       "id": "PA-CAT-020",
