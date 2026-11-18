@@ -6,9 +6,6 @@ on:
     paths:
       - 'tools/acquisisci_verde_comunale_278.py'
       - 'green-census-overlay.js'
-      - 'index.html'
-      - 'app.js'
-      - '.github/workflows/acquisisci-verde-278.yml'
 concurrency:
   group: verde-comunale-278
   cancel-in-progress: false
