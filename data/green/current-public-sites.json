@@ -1279,6 +1279,21 @@
       "non usare il solo indirizzo per assegnare una geometria",
       "non conteggiare automaticamente tutta la particella come superficie a verde: il bene può includere edifici, pertinenze o usi misti"
     ],
-    "limitation": "L'applicazione di terzi dichiara 135.101 particelle catastali e 11.418 immobili comunali georeferenziati, ma il suo stesso disclaimer richiede verifica professionale. Non sono state importate geometrie da tale applicazione in questa fase."
+    "limitation": "L'applicazione di terzi dichiara 135.101 particelle catastali e 11.418 immobili comunali georeferenziati, ma il suo stesso disclaimer richiede verifica professionale. Non sono state importate geometrie da tale applicazione in questa fase.",
+    "independent_asset_crosscheck": {
+      "source_id": "ODS-IMMOBILI-2024",
+      "total_green_records": 755,
+      "categories": {
+        "Verde Pubblico": 343,
+        "Agricolo": 310,
+        "Villa/Giardino": 29,
+        "Fondo": 25,
+        "Parco": 23,
+        "Riserva": 17,
+        "Parco Giochi": 6,
+        "Altri": 2
+      },
+      "note": "Conteggi riportati nell'applicazione indipendente OpenDataSicilia sul patrimonio comunale georeferenziato 2024. Sono record classificati nel patrimonio immobiliare comunale, non ettari di copertura vegetale e non certificano accesso o fruibilità. Il totale 37 dei record catastali estratti manualmente in questo progetto è una ricognizione parziale e non va interpretato come totale del patrimonio comunale verde."
+    }
   }
 }
