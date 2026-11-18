@@ -921,7 +921,7 @@ async function initRealizedNonSchoolRegister(){
  try{
   const response=await fetch('data/dotazioni_realizzate_non_scolastiche.json',{cache:'no-store'});
   if(!response.ok)throw new Error('HTTP '+response.status);
-  const data=await response.json(),statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato'},categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei'};
+  const data=await response.json(),statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',RETE_DA_DETTAGLIARE:'Rete da dettagliare',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',SEDE_CHIUSA_IN_ATTESA_RICOLLOCAZIONE:'Sede chiusa in attesa di ricollocazione'},categoryLabels={sport:'Impianti sportivi',culture:'Cultura, biblioteche e musei'};
   const sourceById=new Map((data.sources||[]).map(x=>[x.id,x]));
   const categories=(data.categories||[]).map(cat=>{
    const items=(data.facilities||[]).filter(x=>x.category===cat.id);
@@ -975,7 +975,7 @@ function initRealizedAmenitiesMap(){
   const facilities=data.features||[];
   const cultureLayer=L.geoJSON(data,{pointToLayer:(feature,latlng)=>L.circleMarker(latlng,{radius:7,color:'#fff',weight:1.5,fillColor:'#c026d3',fillOpacity:.95}),onEachFeature:(feature,layer)=>{const p=feature.properties||{};layer.bindPopup('<strong>'+esc(p.name||'Dotazione culturale')+'</strong><br>'+esc(p.address||'Indirizzo non disponibile')+'<br><small>Stato documentale: '+esc(p.documentary_status||'N.D.')+'</small><br><small>'+esc(p.geometry_note||'Punto localizzativo, non perimetro')+'</small><br><a href="'+esc(p.source_url||'#')+'" target="_blank" rel="noopener">Scheda ufficiale del Comune</a>');}});
   cultureLayer.addTo(map);
-  L.control.layers(null,{'Dotazioni culturali comunali · 7 localizzazioni':cultureLayer},{collapsed:true}).addTo(map);
+  L.control.layers(null,{['Dotazioni culturali comunali · '+facilities.length+' localizzazioni']:cultureLayer},{collapsed:true}).addTo(map);
   const b=cultureLayer.getBounds();if(b.isValid())map.fitBounds(b,{padding:[24,24],maxZoom:13});
   if(status)status.textContent+=' Sono inoltre disponibili '+facilities.length+' localizzazioni culturali comunali, in un layer indipendente; sedi interne ai complessi non sono conteggiate come immobili separati.';
  }).catch(error=>{console.warn('Layer dotazioni culturali non disponibile',error);if(status)status.textContent+=' Layer dotazioni culturali non disponibile: '+String(error.message||error);});
