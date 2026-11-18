@@ -448,15 +448,26 @@ function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${des
 function installExportControls(){
  const content=document.getElementById('content');
  if(!content)return;
- content.querySelectorAll('.card').forEach((card,index)=>{
+ content.querySelectorAll('.card').forEach(card=>{
   if(card.querySelector(':scope > .card-export-actions'))return;
   const heading=card.querySelector(':scope > h1,:scope > h2,:scope > h3,:scope > h4');
   const actions=document.createElement('div');
   actions.className='card-export-actions no-print';
-  actions.innerHTML='<button type="button" class="export-card-button" aria-label="Stampa questa scheda">Stampa scheda</button>';
-  actions.querySelector('button').addEventListener('click',()=>printCurrentView(card));
+  actions.innerHTML='<button type="button" class="export-card-button">Stampa scheda / PDF</button><button type="button" class="export-card-button">Esporta PNG</button>';
+  const buttons=actions.querySelectorAll('button');
+  buttons[0].addEventListener('click',()=>printCurrentView(card));
+  buttons[1].addEventListener('click',()=>exportElementPng(card));
   if(heading)heading.insertAdjacentElement('afterend',actions);else card.insertAdjacentElement('afterbegin',actions);
  });
+}
+function selectedPaper(){
+ return {size:document.getElementById('exportPaperSize')?.value||'A4',orientation:document.getElementById('exportOrientation')?.value||'portrait'};
+}
+function updatePrintPageRule(){
+ const {size,orientation}=selectedPaper();
+ let style=document.getElementById('dynamicPrintPageRule');
+ if(!style){style=document.createElement('style');style.id='dynamicPrintPageRule';document.head.appendChild(style);}
+ style.textContent='@media print{@page{size:'+size+' '+orientation+';margin:12mm}}';
 }
 function printCurrentView(target=null){
  document.body.classList.remove('print-card');
@@ -468,7 +479,21 @@ function printCurrentView(target=null){
    if(el!==target&&!target.contains(el)&&!el.contains(target))el.classList.add('print-hidden');
   });
  }
+ updatePrintPageRule();
  window.print();
+}
+async function exportElementPng(target=document.getElementById('content')){
+ if(!target)return;
+ if(typeof window.html2canvas!=='function'){alert('Esportazione PNG non disponibile: libreria non caricata.');return;}
+ const hidden=target.querySelectorAll('.no-print,.card-export-actions');
+ hidden.forEach(el=>el.style.visibility='hidden');
+ try{
+  const canvas=await window.html2canvas(target,{scale:2,useCORS:true,allowTaint:false,backgroundColor:'#ffffff',logging:false,windowWidth:Math.max(target.scrollWidth,document.documentElement.clientWidth),windowHeight:target.scrollHeight,scrollX:0,scrollY:0});
+  const link=document.createElement('a');
+  const title=(document.querySelector('#content h1,#content h2')?.textContent||'comparatore-territoriale').trim().toLowerCase().replace(/[^a-z0-9à-ÿ]+/gi,'-').replace(/^-|-$/g,'');
+  link.download=title+'.png';link.href=canvas.toDataURL('image/png');link.click();
+ }catch(error){console.error('PNG export error',error);alert('Non è stato possibile creare il PNG. Alcuni elementi cartografici o immagini esterne potrebbero non consentire la cattura.');}
+ finally{hidden.forEach(el=>el.style.visibility='');}
 }
 window.addEventListener('afterprint',()=>{
  document.body.classList.remove('print-card');
@@ -1995,6 +2020,7 @@ async function load(){
 }
 document.getElementById('printPageButton')?.addEventListener('click',()=>printCurrentView());
 document.getElementById('savePdfButton')?.addEventListener('click',()=>printCurrentView());
+document.getElementById('exportPngButton')?.addEventListener('click',()=>exportElementPng());
 $('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
