@@ -36,7 +36,7 @@
    const data=await r.json();
    let layer;layer=L.geoJSON(data,{pointToLayer:(f,ll)=>L.circleMarker(ll,{radius:8,color,weight:2,fillColor:color,fillOpacity:.95}),onEachFeature:(f,l)=>{
     const p=f.properties||{},id=String(p.id||'');
-    l.bindPopup('<strong>'+esc(p.name)+'</strong><br>ID: '+esc(id)+'<br><em>Localizzazione indicativa, non perimetro. Coordinate da validare; il punto non certifica proprietà, manutenzione o accessibilità.</em>');
+    l.bindPopup('<strong>'+esc(p.name)+'</strong><br>ID: '+esc(id)+'<br><em>Localizzazione indicativa, non perimetro. Coordinate da validare; il punto non certifica proprietà, manutenzione o accessibilità.</em><br><small>Fonte coordinate: '+esc(p.coordinate_source||'posizionamento preliminare da validare')+'</small>');
     l.bindTooltip(esc(p.name),{sticky:true});
     l.on('click',()=>markListSelection(id));
     layersById.set(id,{map,marker:l,layer});
@@ -46,7 +46,7 @@
   try{
    const documented=await loadLayer('data/green/public-sites-map-points.geojson?v=20261121-first-map','#047857','documented');
    map._greenDocumentedSitesLayer=documented;
-   const candidates=await loadLayer('data/green/catalog-candidate-map-points.geojson?v=20261121-candidates1','#d97706','candidate');
+   const candidates=await loadLayer('data/green/catalog-candidate-map-points.geojson?v=20261121-coordinates2','#d97706','candidate');
    map._greenCandidateSitesLayer=candidates;
    map._greenSitesLayerControl=L.control.layers(null,{'Inventario documentale · 9 siti (punti indicativi)':documented,'Catalogo comunale · 21 candidati da verificare (punti indicativi)':candidates},{collapsed:false}).addTo(map);
    const host=document.getElementById('greenCurrentInventoryProtocol');
