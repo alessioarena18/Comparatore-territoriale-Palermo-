@@ -55,6 +55,16 @@ def main():
     if not hist or not byclass:raise RuntimeError("Layer storici o PRG senza geometrie utilizzabili")
     h_union=unary_union([x[0] for x in hist])
     p_union=unary_union([g for group in byclass.values() for g in group])
+    circ_fc=load(FILES["circoscrizioni"][0])
+    circ_geometries=[]
+    for f in circ_fc.get("features",[]):
+        try:
+            b=geom(f)
+            if b and b.area>0:circ_geometries.append(b)
+        except Exception:pass
+    if not circ_geometries:raise RuntimeError("Perimetri circoscrizioni senza geometrie utilizzabili")
+    circ_union=unary_union(circ_geometries)
+    p_city_union=p_union.intersection(circ_union)
     urban_keys={'pubblico','gioco','sport','attrezzato','impianti','storico','parco_urbano','misto'}
     standard_keys={'pubblico','gioco','sport','attrezzato'}
     natural_keys={'agricolo','collinare'}
@@ -69,18 +79,18 @@ def main():
                 'prg_non_censito_2013':summary_area(u.difference(hbase)),
                 'quota_inventario_2013_intersecata_pct':round(i.area/hbase.area*100,2) if hbase.area else None,
                 'quota_prg_intersecata_inventario_2013_pct':round(i.area/u.area*100,2) if u.area else None}
-    overlap=h_union.intersection(p_union)
-    outside=h_union.difference(p_union)
-    prg_without=p_union.difference(h_union)
+    overlap=h_union.intersection(p_city_union)
+    outside=h_union.difference(p_city_union)
+    prg_without=p_city_union.difference(h_union)
     hist_index=STRtree([x[0] for x in hist])
     hist_by_type={}
     for typ in sorted(types):
         u=unary_union([g for g,t in hist if t==typ])
-        inter=u.intersection(p_union)
+        inter=u.intersection(p_city_union)
         hist_by_type[typ]={"features":types[typ],"area_totale":summary_area(u),"intersezione_prg_verde":summary_area(inter),"fuori_dalle_classi_verdi_prg":summary_area(u.difference(p_union))}
     class_rows=[]
     for c,geoms in sorted(byclass.items()):
-        u=unary_union(geoms);inter=u.intersection(h_union)
+        u=unary_union(geoms).intersection(circ_union);inter=u.intersection(h_union)
         class_rows.append({"classe_prg":c,"geometrie_prg":len(geoms),"superficie_prg":summary_area(u),"intersezione_inventario_2013":summary_area(inter),"superficie_prg_non_censita_nel_2013":summary_area(u.difference(h_union))})
     territorial={}
     for level,(path,codekey,namekey) in FILES.items():
@@ -102,20 +112,10 @@ def main():
                   "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
             except Exception:continue
         territorial[level]=rows
-    # QA: separa la somma delle superfici per classe dall'unione geometrica,
-    # e verifica la copertura del PRG rispetto alle circoscrizioni 2021.
-    class_surface_sum=sum(unary_union(group).area for group in byclass.values())
-    class_overlap_excess=class_surface_sum-p_union.area
-    circ_fc=load(FILES["circoscrizioni"][0])
-    circ_geometries=[]
-    for f in circ_fc.get("features",[]):
-        try:
-            b=geom(f)
-            if b and b.area>0:circ_geometries.append(b)
-        except Exception:pass
-    if not circ_geometries:raise RuntimeError("Perimetri circoscrizioni senza geometrie utilizzabili")
-    circ_union=unary_union(circ_geometries)
-    prg_inside=circ_union.intersection(p_union)
+    # QA: somma per classe e copertura territoriale, con metriche comunali ritagliate.
+    class_surface_sum=sum(unary_union(group).intersection(circ_union).area for group in byclass.values())
+    class_overlap_excess=class_surface_sum-p_city_union.area
+    prg_inside=p_city_union
     prg_outside=p_union.difference(circ_union)
     historic_outside=h_union.difference(circ_union)
     circ_rows=territorial.get("circoscrizioni",[])
@@ -123,10 +123,10 @@ def main():
     sum_historic_circ=sum(x.get("verde_comunale_2013",{}).get("m2",0) for x in circ_rows)
     class_metrics={
         "somma_unioni_per_classe_prg":{"m2":round(class_surface_sum,2),"ha":ha(class_surface_sum)},
-        "unione_geometrica_prg":{"m2":round(p_union.area,2),"ha":ha(p_union.area)},
+        "unione_geometrica_prg":{"m2":round(p_city_union.area,2),"ha":ha(p_city_union.area)},
         "eccedenza_non_additiva_classi_prg":{"m2":round(class_overlap_excess,2),"ha":ha(class_overlap_excess)},
         "eccedenza_pct_somma_classi":round(class_overlap_excess/class_surface_sum*100,2) if class_surface_sum else None,
-        "classi_non_sommabili":class_surface_sum>p_union.area+0.01
+        "classi_non_sommabili":class_surface_sum>p_city_union.area+0.01
     }
     territorial_coverage={
         "fonte_perimetro":"data/geo/circoscrizioni_palermo_2021.geojson",
@@ -143,16 +143,16 @@ def main():
     }
     result={
       "schema_version":"1.0","status":"completed","generated_from":"dataset comunale 278 (ricognizione 2013) e layer tematico derivato dal dataset PRG 320 (Variante Generale DCC 7/2004)",
-      "method":{"crs_area":"EPSG:32633 / UTM 33N","overlay":"intersezione geometrica di unioni topologiche; superfici in m² e ha","historic_source":"data/geo/verde_comunale_2013.geojson","prg_source":"data/geo/verde_prg.geojson","no_double_count":"Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.","limits":["Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.","La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.","Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.","Fuori dalle classi verdi PRG non significa assenza di vegetazione; non censito nel 2013 non significa assenza di verde.","Il confronto non è un bilancio normativo degli standard urbanistici."]},
+      "method":{"crs_area":"EPSG:32633 / UTM 33N","overlay":"intersezione geometrica di unioni topologiche; superfici in m² e ha","historic_source":"data/geo/verde_comunale_2013.geojson","prg_source":"data/geo/verde_prg.geojson","no_double_count":"Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.","limits":["Le metriche PRG comunali sono ritagliate sull'unione delle circoscrizioni 2021; il residuo fuori copertura è separato e da verificare.","Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.","La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.","Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.","Fuori dalle classi verdi PRG non significa assenza di vegetazione; non censito nel 2013 non significa assenza di verde.","Il confronto non è un bilancio normativo degli standard urbanistici."]},
       "class_metrics":class_metrics,"territorial_coverage":territorial_coverage,
       "global":{"geometrie_storiche_utilizzate":len(hist),"geometrie_prg_per_classe":sum(map(len,byclass.values())),
-        "inventario_2013":summary_area(h_union),"classi_verdi_prg":summary_area(p_union),"intersezione":summary_area(overlap),
+        "inventario_2013":summary_area(h_union),"classi_verdi_prg":summary_area(p_city_union),"intersezione":summary_area(overlap),
         "inventario_2013_fuori_prg":summary_area(outside),"prg_non_censito_2013":summary_area(prg_without),
-        "classi_urbane_prg":group_stats(urban_union),
-        "candidati_standard_v1_v4":group_stats(standard_union),
-        "aree_agricole_collinari_e1_e2":group_stats(natural_union),
+        "classi_urbane_prg":group_stats(urban_union.intersection(circ_union)),
+        "candidati_standard_v1_v4":group_stats(standard_union.intersection(circ_union)),
+        "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(circ_union)),
         "quota_inventario_2013_intersecata_pct":round(overlap.area/h_union.area*100,2) if h_union.area else None,
-        "quota_prg_intersecata_inventario_2013_pct":round(overlap.area/p_union.area*100,2) if p_union.area else None},
+        "quota_prg_intersecata_inventario_2013_pct":round(overlap.area/p_city_union.area*100,2) if p_city_union.area else None},
       "per_tipo_inventario_2013":hist_by_type,"per_classe_prg":class_rows,"perimetri_territoriali":territorial,
       "qa":{"geometrie_storiche_scartate":invalid_h,"geometrie_prg_scartate":invalid_p,"geometrie_storiche_non_valide_riparate_con_buffer0":repaired_h}
     }
