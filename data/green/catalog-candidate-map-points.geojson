@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "Altri luoghi presenti nel catalogo comunale da verificare · 17 localizzazioni indicative",
+  "name": "Altri luoghi presenti nel catalogo comunale da verificare · 15 localizzazioni indicative",
   "features": [
     {
       "type": "Feature",
@@ -56,22 +56,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "PA-VER-CAND-004",
-        "name": "Giardino della Zisa",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
-        "coordinate_source": "Inventari dei parchi e giardini italiani · coordinate in area Piazza Zisa",
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.343026,
-          38.116374]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "PA-VER-CAND-005",
         "name": "Giardino di Villa Napoli",
         "category": "catalogo_comunale_da_verificare",
@@ -110,13 +94,14 @@
         "name": "Parco della Favorita",
         "category": "catalogo_comunale_da_verificare",
         "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
-        "coordinate_source": "Garden Route Italia · coordinate riportate nel portale (Piazza Leoni); riferimento puntuale, non perimetro",
+        "coordinate_source": "Garden Route Italia · coordinate riportate nel portale (Piazza Leoni); riferimento puntuale, non perimetro"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           13.339464,
-          38.160741]
+          38.160741
+        ]
       }
     },
     {
@@ -156,34 +141,18 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "PA-VER-CAND-010",
-        "name": "Parco di Villa Trabia",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
-        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3463207,
-          38.1282475
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "PA-VER-CAND-011",
         "name": "Parco d'Orleans",
         "category": "catalogo_comunale_da_verificare",
         "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
-        "coordinate_source": "APGI · scheda Parco d'Orleans; coordinate del parco, da verificare rispetto al perimetro",
+        "coordinate_source": "APGI · scheda Parco d'Orleans; coordinate del parco, da verificare rispetto al perimetro"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
           13.352807,
-          38.109143]
+          38.109143
+        ]
       }
     },
     {
