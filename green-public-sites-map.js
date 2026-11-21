@@ -48,7 +48,7 @@
    map._greenDocumentedSitesLayer=documented;
    const candidates=await loadLayer('data/green/catalog-candidate-map-points.geojson?v=20261121-coordinates2','#d97706','candidate');
    map._greenCandidateSitesLayer=candidates;
-   map._greenSitesLayerControl=L.control.layers(null,{'Inventario documentale · 9 siti (punti indicativi)':documented,'Catalogo comunale · 21 candidati da verificare (punti indicativi)':candidates},{collapsed:false}).addTo(map);
+   map._greenSitesLayerControl=L.control.layers(null,{'Inventario documentale · 9 siti (punti indicativi)':documented,'Catalogo comunale · 17 candidati da verificare (punti indicativi)':candidates},{collapsed:false}).addTo(map);
    const host=document.getElementById('greenCurrentInventoryProtocol');
    if(host&&!host.querySelector('#greenMapPointNotice')){const n=document.createElement('p');n.id='greenMapPointNotice';n.className='school-note';n.innerHTML='<strong>Selezione cartografica:</strong> i siti documentati e i candidati del catalogo sono disponibili come layer distinti. I punti sono localizzazioni preliminari, non perimetri; le coordinate sono da validare. Puoi selezionare un marker sulla mappa oppure usare il pulsante “Mostra sulla mappa” nelle liste.';host.prepend(n);}
   }catch(e){console.warn('Layer inventario verde non disponibile',e);}
