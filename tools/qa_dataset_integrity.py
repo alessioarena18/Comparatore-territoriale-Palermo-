@@ -68,7 +68,20 @@ if isinstance(std, dict):
     if std.get("topology_status") != "passed":
         warnings.append("Topologia standard PRG da revisionare: " + str(std.get("duplicate_geometry_count")) + " duplicati e " + str(std.get("overlap_pair_count_over_1m2")) + " coppie sovrapposte oltre 1 m².")
 
-# Controllo del verde comunale storico: conteggi e schema del dataset 2013.\nhistoric_green = load("data/geo/verde_comunale_2013.geojson")\nif isinstance(historic_green, dict):\n    features = historic_green.get("features", [])\n    green_types = {}\n    for feature in features:\n        kind = feature.get("properties", {}).get("TIPO")\n        green_types[kind] = green_types.get(kind, 0) + 1\n    check(len(features) == 2089, f"Verde comunale 2013: attese 2089 geometrie, trovate {len(features)}")\n    check(green_types == {"aiuola": 2086, "alberi": 3}, f"Classi TIPO del verde comunale 2013 inattese: {green_types}")\n    check(all(set(feature.get("properties", {}).keys()) == {"ID", "TIPO"} for feature in features),\n          "Schema attributi del verde comunale 2013 cambiato: verificare interpretazione e classificazione")\n\n# Audit mirato del modulo verde urbano: evita registri incompleti e report non validati.
+# Controllo del verde comunale storico: conteggi e schema del dataset 2013.
+historic_green = load("data/geo/verde_comunale_2013.geojson")
+if isinstance(historic_green, dict):
+    features = historic_green.get("features", [])
+    green_types = {}
+    for feature in features:
+        kind = feature.get("properties", {}).get("TIPO")
+        green_types[kind] = green_types.get(kind, 0) + 1
+    check(len(features) == 2089, f"Verde comunale 2013: attese 2089 geometrie, trovate {len(features)}")
+    check(green_types == {"aiuola": 2086, "alberi": 3}, f"Classi TIPO del verde comunale 2013 inattese: {green_types}")
+    check(all(set(feature.get("properties", {}).keys()) == {"ID", "TIPO"} for feature in features),
+          "Schema attributi del verde comunale 2013 cambiato: verificare interpretazione e classificazione")
+
+# Audit mirato del modulo verde urbano: evita registri incompleti e report non validati.
 green_sites = load("data/green/current-public-sites.json")
 if isinstance(green_sites, dict):
     facilities = green_sites.get("facilities", [])
@@ -81,7 +94,14 @@ if isinstance(green_sites, dict):
               x.get("hours", {}).get("current_source_id") for x in facilities),
           "Orari correnti o fonte di aggiornamento mancanti in uno o più siti del registro verde")
 
-# Controlli quantitativi del confronto verde storico/PRG.\ngreen_comparison = load("data/verde_confronto_278_prg.json")\nif isinstance(green_comparison, dict):\n    check(green_comparison.get("status") == "completed" and isinstance(green_comparison.get("global"), dict),\n          "Report confronto geometrico verde 278/PRG non completato o privo di aggregato comunale")\n    global_green = green_comparison.get("global", {})\n    classes = green_comparison.get("per_classe_prg", [])\n    class_names = [x.get("classe_prg") for x in classes]
+# Controlli quantitativi del confronto verde storico/PRG.
+green_comparison = load("data/verde_confronto_278_prg.json")
+if isinstance(green_comparison, dict):
+    check(green_comparison.get("status") == "completed" and isinstance(green_comparison.get("global"), dict),
+          "Report confronto geometrico verde 278/PRG non completato o privo di aggregato comunale")
+    global_green = green_comparison.get("global", {})
+    classes = green_comparison.get("per_classe_prg", [])
+    class_names = [x.get("classe_prg") for x in classes]
     expected_green_classes = {"agricolo", "attrezzato", "collinare", "gioco", "impianti",
                              "misto", "parco_urbano", "pubblico", "sport", "storico"}
     check(len(classes) == 10 and len(class_names) == len(set(class_names)),
@@ -94,4 +114,20 @@ if isinstance(green_sites, dict):
     check(all(isinstance(x.get("superficie_prg", {}).get("m2"), (int, float)) and
               x.get("superficie_prg", {}).get("m2") >= 0 for x in classes),
           "Superfici PRG verde mancanti o negative")
-    check(global_green.get("geometrie_prg_per_classe") == sum(int(x.get("geometrie_prg", 0)) for x in classes),\n          "Conteggio geometrie PRG verde globale non coincide con la somma per classe")\n    for label, metrics in [("inventario 2013", global_green.get("inventario_2013")),\n                            ("classi PRG", global_green.get("classi_verdi_prg")),\n                            ("intersezione", global_green.get("intersezione"))]:\n        if isinstance(metrics, dict):\n            m2, ha_value = metrics.get("m2"), metrics.get("ha")\n            check(isinstance(m2, (int, float)) and isinstance(ha_value, (int, float)) and\n                  abs(ha_value - m2 / 10000) <= 0.001,\n                  f"Conversione m²/ha incoerente nel report verde: {label}")\n    overlap = global_green.get("intersezione", {}).get("m2")\n    hist_area = global_green.get("inventario_2013", {}).get("m2")\n    prg_area = global_green.get("classi_verdi_prg", {}).get("m2")\n    if all(isinstance(x, (int, float)) for x in [overlap, hist_area, prg_area]):\n        check(0 <= overlap <= min(hist_area, prg_area),\n              "Intersezione verde/PRG supera una delle superfici di origine")\n
+    check(global_green.get("geometrie_prg_per_classe") == sum(int(x.get("geometrie_prg", 0)) for x in classes),
+          "Conteggio geometrie PRG verde globale non coincide con la somma per classe")
+    for label, metrics in [("inventario 2013", global_green.get("inventario_2013")),
+                            ("classi PRG", global_green.get("classi_verdi_prg")),
+                            ("intersezione", global_green.get("intersezione"))]:
+        if isinstance(metrics, dict):
+            m2, ha_value = metrics.get("m2"), metrics.get("ha")
+            check(isinstance(m2, (int, float)) and isinstance(ha_value, (int, float)) and
+                  abs(ha_value - m2 / 10000) <= 0.001,
+                  f"Conversione m²/ha incoerente nel report verde: {label}")
+    overlap = global_green.get("intersezione", {}).get("m2")
+    hist_area = global_green.get("inventario_2013", {}).get("m2")
+    prg_area = global_green.get("classi_verdi_prg", {}).get("m2")
+    if all(isinstance(x, (int, float)) for x in [overlap, hist_area, prg_area]):
+        check(0 <= overlap <= min(hist_area, prg_area),
+              "Intersezione verde/PRG supera una delle superfici di origine")
+
