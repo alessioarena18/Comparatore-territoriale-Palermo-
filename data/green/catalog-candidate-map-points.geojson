@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "name": "Altri luoghi presenti nel catalogo comunale da verificare · localizzazioni indicative",
+  "name": "Altri luoghi presenti nel catalogo comunale da verificare · 17 localizzazioni indicative",
   "features": [
     {
       "type": "Feature",
@@ -209,23 +209,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "PA-VER-CAND-013",
-        "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
-        "coordinate_source": "Coordinate indicative from existing documented site marker; still to validate"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3504,
-          38.1262
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "PA-VER-CAND-014",
         "name": "Parco Uditore",
         "category": "catalogo_comunale_da_verificare",
@@ -260,23 +243,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "PA-VER-CAND-016",
-        "name": "Villa Falcone-Morvillo",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3518,
-          38.1257
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "PA-VER-CAND-017",
         "name": "Villa Filippina",
         "category": "catalogo_comunale_da_verificare",
@@ -288,40 +254,6 @@
         "coordinates": [
           13.3517,
           38.12073
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "PA-VER-CAND-018",
-        "name": "Villa Garibaldi",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.3674,
-          38.1184
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "PA-VER-CAND-019",
-        "name": "Villa Giulia",
-        "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
-        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          13.374817,
-          38.114529
         ]
       }
     },
