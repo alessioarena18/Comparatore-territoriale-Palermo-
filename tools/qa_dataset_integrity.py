@@ -68,6 +68,32 @@ if isinstance(std, dict):
     if std.get("topology_status") != "passed":
         warnings.append("Topologia standard PRG da revisionare: " + str(std.get("duplicate_geometry_count")) + " duplicati e " + str(std.get("overlap_pair_count_over_1m2")) + " coppie sovrapposte oltre 1 m².")
 
+# Audit mirato del modulo verde urbano: evita registri incompleti e report non validati.
+green_sites = load("data/green/current-public-sites.json")
+if isinstance(green_sites, dict):
+    facilities = green_sites.get("facilities", [])
+    ids = [str(x.get("id", "")) for x in facilities]
+    check(len(facilities) == 9, f"Registro verde documentato: attesi 9 siti, trovati {len(facilities)}")
+    check(len(ids) == len(set(ids)) and all(ids), "ID mancanti o duplicati nel registro verde")
+    check(all(x.get("hours", {}).get("current_as_of") and
+              x.get("hours", {}).get("current_open") and
+              x.get("hours", {}).get("current_close") and
+              x.get("hours", {}).get("current_source_id") for x in facilities),
+          "Orari correnti o fonte di aggiornamento mancanti in uno o più siti del registro verde")
+
+green_comparison = load("data/verde_confronto_278_prg.json")
+if isinstance(green_comparison, dict):
+    check(green_comparison.get("status") == "completed" and isinstance(green_comparison.get("global"), dict),
+          "Report confronto geometrico verde 278/PRG non completato o privo di aggregato comunale")
+
+tree_cover = load("data/green/tree-cover-density-source.json")
+if isinstance(tree_cover, dict):
+    check(tree_cover.get("collection") and tree_cover.get("reference_year_selected") and
+          tree_cover.get("resolution_m") == 10 and tree_cover.get("workflow", {}).get("github_actions"),
+          "Scheda Copernicus Tree Cover Density incompleta: metadati o workflow mancanti")
+    if "non sono ancora acquisiti" not in str(tree_cover.get("status", "")).lower():
+        warnings.append("Stato TCD: verificare che la scheda distingua chiaramente raster acquisito e raster non acquisito.")
+
 social = load("data/sociale_palermo_idise_2023.json")
 if isinstance(social, dict):
     meta = social.get("meta", {})
