@@ -430,17 +430,6 @@
       "source_id": "COM-CATALOGO-VERDE"
     },
     {
-      "id": "PA-VER-CAND-004",
-      "name": "Giardino della Zisa",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
       "id": "PA-VER-CAND-005",
       "name": "Giardino di Villa Napoli",
       "status": "candidato da sottoporre a verifica puntuale",
@@ -487,17 +476,6 @@
     {
       "id": "PA-VER-CAND-009",
       "name": "Parco di Villa Niscemi",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
-      "id": "PA-VER-CAND-010",
-      "name": "Parco di Villa Trabia",
       "status": "candidato da sottoporre a verifica puntuale",
       "access": "non dedotto dal solo inserimento nel catalogo",
       "ownership": "da verificare",
