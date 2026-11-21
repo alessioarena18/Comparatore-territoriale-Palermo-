@@ -16,6 +16,47 @@
       "Il confronto non è un bilancio normativo degli standard urbanistici."
     ]
   },
+  "class_metrics": {
+    "somma_unioni_per_classe_prg": {
+      "m2": 93291750.08,
+      "ha": 9329.175
+    },
+    "unione_geometrica_prg": {
+      "m2": 90731613.46,
+      "ha": 9073.1613
+    },
+    "eccedenza_non_additiva_classi_prg": {
+      "m2": 2560136.62,
+      "ha": 256.0137
+    },
+    "eccedenza_pct_somma_classi": 2.74,
+    "classi_non_sommabili": true
+  },
+  "territorial_coverage": {
+    "fonte_perimetro": "data/geo/circoscrizioni_palermo_2021.geojson",
+    "circoscrizioni_geometrie_utilizzate": 8,
+    "verde_prg_unione_totale": {
+      "m2": 90731613.46,
+      "ha": 9073.1613
+    },
+    "verde_prg_dentro_unione_circoscrizioni": {
+      "m2": 90088236.65,
+      "ha": 9008.8237
+    },
+    "verde_prg_fuori_unione_circoscrizioni": {
+      "m2": 643376.81,
+      "ha": 64.3377
+    },
+    "quota_verde_prg_dentro_circoscrizioni_pct": 99.29,
+    "somma_intersezioni_prg_circoscrizioni_m2": 90088236.66,
+    "differenza_somma_circoscrizioni_vs_unione_inside_m2": 0.01,
+    "somma_intersezioni_inventario_2013_circoscrizioni_m2": 674810.7,
+    "differenza_somma_circoscrizioni_vs_inventario_globale_m2": 0.0,
+    "inventario_2013_fuori_unione_circoscrizioni": {
+      "m2": 0.0,
+      "ha": 0.0
+    }
+  },
   "global": {
     "geometrie_storiche_utilizzate": 2089,
     "geometrie_prg_per_classe": 679,
