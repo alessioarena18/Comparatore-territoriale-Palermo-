@@ -529,17 +529,6 @@
       "source_id": "COM-CATALOGO-VERDE"
     },
     {
-      "id": "PA-VER-CAND-013",
-      "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
       "id": "PA-VER-CAND-014",
       "name": "Parco Uditore",
       "status": "candidato da sottoporre a verifica puntuale",
@@ -562,41 +551,8 @@
       "source_id": "COM-CATALOGO-VERDE"
     },
     {
-      "id": "PA-VER-CAND-016",
-      "name": "Villa Falcone-Morvillo",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
       "id": "PA-VER-CAND-017",
       "name": "Villa Filippina",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
-      "id": "PA-VER-CAND-018",
-      "name": "Villa Garibaldi",
-      "status": "candidato da sottoporre a verifica puntuale",
-      "access": "non dedotto dal solo inserimento nel catalogo",
-      "ownership": "da verificare",
-      "management": "da verificare",
-      "maintenance": "da verificare",
-      "geometry": "da associare a un perimetro attuale validato",
-      "source_id": "COM-CATALOGO-VERDE"
-    },
-    {
-      "id": "PA-VER-CAND-019",
-      "name": "Villa Giulia",
       "status": "candidato da sottoporre a verifica puntuale",
       "access": "non dedotto dal solo inserimento nel catalogo",
       "ownership": "da verificare",
