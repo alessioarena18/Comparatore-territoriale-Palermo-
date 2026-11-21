@@ -1,0 +1,363 @@
+{
+  "type": "FeatureCollection",
+  "name": "Altri luoghi presenti nel catalogo comunale da verificare · localizzazioni indicative",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-001",
+        "name": "Città dei Ragazzi",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3188,
+          38.1593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-002",
+        "name": "Foro Italico",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3718,
+          38.1118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-003",
+        "name": "Giardino dei Giusti",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3475,
+          38.1248
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-004",
+        "name": "Giardino della Zisa",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3346,
+          38.1119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-005",
+        "name": "Giardino di Villa Napoli",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3215,
+          38.1057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-006",
+        "name": "Orto Botanico",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3758,
+          38.1118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-007",
+        "name": "Parco della Favorita",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3268,
+          38.1455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-008",
+        "name": "Parco di Villa Malfitano",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3377,
+          38.1194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-009",
+        "name": "Parco di Villa Niscemi",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3266,
+          38.1438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-010",
+        "name": "Parco di Villa Trabia",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3476,
+          38.1267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-011",
+        "name": "Parco d'Orleans",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3464,
+          38.1058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-012",
+        "name": "Parco Ninni Cassarà",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3515,
+          38.1557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-013",
+        "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3504,
+          38.1262
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-014",
+        "name": "Parco Uditore",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3278,
+          38.1308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-015",
+        "name": "Villa Bonanno",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3438,
+          38.1153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-016",
+        "name": "Villa Falcone-Morvillo",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3518,
+          38.1257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-017",
+        "name": "Villa Filippina",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3482,
+          38.1208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-018",
+        "name": "Villa Garibaldi",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3674,
+          38.1184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-019",
+        "name": "Villa Giulia",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.375691,
+          38.113505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-020",
+        "name": "Villa Sperlinga",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3421,
+          38.1275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PA-VER-CAND-021",
+        "name": "Villa Terrasi",
+        "category": "catalogo_comunale_da_verificare",
+        "georeferencing": "localizzazione indicativa, non perimetro",
+        "coordinate_source": "posizionamento preliminare da validare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.3318,
+          38.1327
+        ]
+      }
+    }
+  ]
+}
