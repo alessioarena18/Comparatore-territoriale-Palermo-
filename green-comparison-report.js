@@ -36,7 +36,7 @@
   }
   host.innerHTML='<h3>Confronto tra verde censito e previsioni PRG</h3><p class="muted">Caricamento del rapporto di intersezione geometrica…</p>';
   try{
-   const response=await fetch('data/verde_confronto_278_prg.json?v=20261122-groupqa',{cache:'no-store'});
+   const response=await fetch('data/verde_confronto_278_prg.json?v=20261122-stdscope',{cache:'no-store'});
    if(!response.ok)throw new Error('Rapporto non ancora disponibile (HTTP '+response.status+')');
    const data=await response.json();
    if(data.status!=='completed'||!data.global)throw new Error('Rapporto non validato');
@@ -58,7 +58,7 @@
    }
    const classMetrics=data.class_metrics||{},territorialCoverage=data.territorial_coverage||{};
    const groupMetrics=data.group_metrics||{};
-   const groupMetricsNote='<p class="school-note"><strong>Famiglie non sommabili:</strong> il gruppo “candidati standard V1-V4” è un sottoinsieme delle classi urbane, non una categoria aggiuntiva. La sovrapposizione geometrica urbano/naturale rilevata è '+area({m2:groupMetrics.sovrapposizione_urbano_naturale?.m2,ha:groupMetrics.sovrapposizione_urbano_naturale?.ha})+'. Il totale comunale resta l’unione geometrica, non la somma delle righe.</p>';
+   const groupMetricsNote='<p class="school-note"><strong>Famiglie non sommabili e ambito degli standard:</strong> il gruppo “candidati standard V1-V4” è un sottoinsieme delle classi urbane, non una categoria aggiuntiva. È un indicatore esplorativo, non un calcolo normativo completo: non include V5 (impianti sportivi) né F4 (parchi urbani), da valutare in un eventuale bilancio verde, gioco e sport. La sovrapposizione geometrica urbano/naturale rilevata è '+area({m2:groupMetrics.sovrapposizione_urbano_naturale?.m2,ha:groupMetrics.sovrapposizione_urbano_naturale?.ha})+'. Il totale comunale resta l’unione geometrica, non la somma delle righe.</p>';
    const classMetricsNote=classMetrics.eccedenza_non_additiva_classi_prg?
     '<p class="school-note"><strong>Non sommabilità delle superfici per classe:</strong> la somma delle unioni per singola classe è '+area(classMetrics.somma_unioni_per_classe_prg)+'; l’unione geometrica complessiva è '+area(classMetrics.unione_geometrica_prg)+'. L’eccedenza non additiva è '+area(classMetrics.eccedenza_non_additiva_classi_prg)+' ('+fmt(classMetrics.eccedenza_pct_somma_classi)+'%). Le classi possono sovrapporsi: non sommare le righe della tabella per ottenere il totale.</p>':'';
    const coverageNote=territorialCoverage.verde_prg_fuori_unione_circoscrizioni?
