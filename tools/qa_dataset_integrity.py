@@ -94,6 +94,48 @@ if isinstance(green_sites, dict):
               x.get("hours", {}).get("current_source_id") for x in facilities),
           "Orari correnti o fonte di aggiornamento mancanti in uno o più siti del registro verde")
 
+# Audit dei layer puntuali del registro verde: conteggio, ID, nomi e coordinate.
+if isinstance(green_sites, dict):
+    facilities = green_sites.get("facilities", [])
+    candidates = green_sites.get("candidate_sites", [])
+
+    def audit_green_point_layer(rel, records, expected_count, label):
+        layer = load(rel)
+        if isinstance(layer, dict):
+            features = layer.get("features", [])
+            check(layer.get("type") == "FeatureCollection", f"{label}: GeoJSON non è una FeatureCollection")
+            check(len(features) == expected_count, f"{label}: attese {expected_count} geometrie, trovate {len(features)}")
+            feature_ids = [str((f.get("properties") or {}).get("id", "")) for f in features]
+            check(all(feature_ids) and len(feature_ids) == len(set(feature_ids)), f"{label}: ID mancanti o duplicati")
+            check(all((f.get("geometry") or {}).get("type") == "Point" for f in features), f"{label}: geometrie non puntuali")
+            coordinates = [(f.get("geometry") or {}).get("coordinates") for f in features]
+            check(all(isinstance(c, list) and len(c) >= 2 and
+                      isinstance(c[0], (int, float)) and isinstance(c[1], (int, float)) and
+                      -180 <= c[0] <= 180 and -90 <= c[1] <= 90 for c in coordinates),
+                  f"{label}: coordinate mancanti, non numeriche o fuori range")
+            record_ids = [str(x.get("id", "")) for x in records]
+            check(len(records) == expected_count and all(record_ids) and len(record_ids) == len(set(record_ids)),
+                  f"{label}: registro atteso {expected_count} record con ID univoci")
+            check(set(feature_ids) == set(record_ids), f"{label}: ID GeoJSON e registro non coincidono")
+            names_by_id = {str(x.get("id", "")): str(x.get("name", "")) for x in records}
+            check(all(str((f.get("properties") or {}).get("name", "")) == names_by_id.get(str((f.get("properties") or {}).get("id", "")), "")
+                      for f in features), f"{label}: nomi GeoJSON e registro non coincidono")
+
+    audit_green_point_layer("data/green/public-sites-map-points.geojson", facilities, 9, "Inventario documentato")
+    audit_green_point_layer("data/green/catalog-candidate-map-points.geojson", candidates, 15, "Catalogo candidati")
+
+    def green_name_key(name):
+        value = str(name or "").strip().lower()
+        for prefix in ("parco di ", "parco ", "giardini ", "giardino di ", "giardino "):
+            if value.startswith(prefix):
+                value = value[len(prefix):]
+                break
+        return value
+
+    documented_names = {green_name_key(x.get("name")) for x in facilities}
+    duplicate_candidates = [x.get("name") for x in candidates if green_name_key(x.get("name")) in documented_names]
+    check(not duplicate_candidates, "Candidati duplicati nel registro documentato: " + ", ".join(duplicate_candidates))
+
 # Controlli quantitativi del confronto verde storico/PRG.
 green_comparison = load("data/verde_confronto_278_prg.json")
 if isinstance(green_comparison, dict):
