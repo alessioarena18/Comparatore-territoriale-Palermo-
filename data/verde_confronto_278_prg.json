@@ -33,6 +33,32 @@
     "eccedenza_pct_somma_classi": 2.76,
     "classi_non_sommabili": true
   },
+  "group_metrics": {
+    "classi_urbane_prg": {
+      "m2": 9505878.75,
+      "ha": 950.5879
+    },
+    "candidati_standard_v1_v4": {
+      "m2": 3005168.46,
+      "ha": 300.5168
+    },
+    "aree_agricole_collinari_e1_e2": {
+      "m2": 80590816.8,
+      "ha": 8059.0817
+    },
+    "sovrapposizione_urbano_naturale": {
+      "m2": 8458.89,
+      "ha": 0.8459
+    },
+    "unione_famiglie": {
+      "m2": 90088236.65,
+      "ha": 9008.8237
+    },
+    "gap_unione_famiglie_vs_verde_prg": {
+      "m2": 0.0,
+      "ha": 0.0
+    }
+  },
   "territorial_coverage": {
     "fonte_perimetro": "data/geo/circoscrizioni_palermo_2021.geojson",
     "circoscrizioni_geometrie_utilizzate": 8,
