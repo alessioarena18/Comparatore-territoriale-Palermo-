@@ -26,7 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verifica sintassi JavaScript
-        run: node --check app.js
+        run: |
+          node --check app.js
+          for file in green-*.js; do node --check "$file"; done
       - name: Verifica sintassi Python
         run: python3 -m py_compile tools/*.py
       - name: Verifica whitespace e patch
