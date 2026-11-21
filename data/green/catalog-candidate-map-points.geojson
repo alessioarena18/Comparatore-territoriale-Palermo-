@@ -8,14 +8,14 @@
         "id": "PA-VER-CAND-001",
         "name": "Città dei Ragazzi",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments coordinates, address Viale degli Abruzzi"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3188,
-          38.1593
+          13.3359195,
+          38.142124
         ]
       }
     },
@@ -25,14 +25,14 @@
         "id": "PA-VER-CAND-002",
         "name": "Foro Italico",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Mapcarta/OSM"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3718,
-          38.1118
+          13.37535,
+          38.11721
         ]
       }
     },
@@ -93,14 +93,14 @@
         "id": "PA-VER-CAND-006",
         "name": "Orto Botanico",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Wikipedia coordinate Via Lincoln 2"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3758,
-          38.1118
+          13.3726889,
+          38.1134417
         ]
       }
     },
@@ -127,14 +127,14 @@
         "id": "PA-VER-CAND-008",
         "name": "Parco di Villa Malfitano",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Wikipedia coordinates Via Dante 167"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3377,
-          38.1194
+          13.3414,
+          38.1233
         ]
       }
     },
@@ -144,14 +144,14 @@
         "id": "PA-VER-CAND-009",
         "name": "Parco di Villa Niscemi",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3266,
-          38.1438
+          13.332269,
+          38.163883
         ]
       }
     },
@@ -161,14 +161,14 @@
         "id": "PA-VER-CAND-010",
         "name": "Parco di Villa Trabia",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3476,
-          38.1267
+          13.3463207,
+          38.1282475
         ]
       }
     },
@@ -212,8 +212,8 @@
         "id": "PA-VER-CAND-013",
         "name": "Parco Piersanti Mattarella (ex Giardino Inglese)",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Coordinate indicative from existing documented site marker; still to validate"
       },
       "geometry": {
         "type": "Point",
@@ -229,8 +229,8 @@
         "id": "PA-VER-CAND-014",
         "name": "Parco Uditore",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Approximate map point; still to validate"
       },
       "geometry": {
         "type": "Point",
@@ -280,14 +280,14 @@
         "id": "PA-VER-CAND-017",
         "name": "Villa Filippina",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Mapcarta/OSM"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3482,
-          38.1208
+          13.3517,
+          38.12073
         ]
       }
     },
@@ -314,14 +314,14 @@
         "id": "PA-VER-CAND-019",
         "name": "Villa Giulia",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.375691,
-          38.113505
+          13.374817,
+          38.114529
         ]
       }
     },
@@ -331,14 +331,14 @@
         "id": "PA-VER-CAND-020",
         "name": "Villa Sperlinga",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "Wikipedia coordinates"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3421,
-          38.1275
+          13.3425,
+          38.138333
         ]
       }
     },
@@ -348,14 +348,14 @@
         "id": "PA-VER-CAND-021",
         "name": "Villa Terrasi",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione indicativa del luogo, non perimetro; fonte coordinate indicata, da validare",
+        "coordinate_source": "OpenDataSicilia/Wiki Loves Monuments"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3318,
-          38.1327
+          13.3399722,
+          38.1435222
         ]
       }
     }
