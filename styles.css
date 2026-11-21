@@ -157,3 +157,7 @@
 .export-option select{border:1px solid #b9cbdc;border-radius:6px;padding:7px 8px;background:#fff;color:#244761;font:inherit}
 .export-card-button+ .export-card-button{margin-left:6px}
 @media print{.export-option{display:none!important}}
+
+
+/* Selezione sincronizzata tra inventario del verde e mappa */
+.green-map-select{display:inline-block;margin-top:5px;padding:4px 8px;border:1px solid #c6d4df;border-radius:5px;background:#f8fafc;color:#244761;font:600 11px inherit;cursor:pointer;white-space:nowrap}.green-map-select:hover,.green-map-select.is-selected{background:#173653;color:#fff;border-color:#173653}.green-map-select.is-selected{box-shadow:0 0 0 2px #9bc4dc}
