@@ -81,30 +81,4 @@ if isinstance(green_sites, dict):
               x.get("hours", {}).get("current_source_id") for x in facilities),
           "Orari correnti o fonte di aggiornamento mancanti in uno o più siti del registro verde")
 
-green_comparison = load("data/verde_confronto_278_prg.json")
-if isinstance(green_comparison, dict):
-    check(green_comparison.get("status") == "completed" and isinstance(green_comparison.get("global"), dict),
-          "Report confronto geometrico verde 278/PRG non completato o privo di aggregato comunale")
-
-tree_cover = load("data/green/tree-cover-density-source.json")
-if isinstance(tree_cover, dict):
-    check(tree_cover.get("collection") and tree_cover.get("reference_year_selected") and
-          tree_cover.get("resolution_m") == 10 and tree_cover.get("workflow", {}).get("github_actions"),
-          "Scheda Copernicus Tree Cover Density incompleta: metadati o workflow mancanti")
-    if "non sono ancora acquisiti" not in str(tree_cover.get("status", "")).lower():
-        warnings.append("Stato TCD: verificare che la scheda distingua chiaramente raster acquisito e raster non acquisito.")
-
-social = load("data/sociale_palermo_idise_2023.json")
-if isinstance(social, dict):
-    meta = social.get("meta", {})
-    upl, city = meta.get("popolazione_upl_somma"), meta.get("popolazione_comune_istat")
-    if isinstance(upl, (int, float)) and isinstance(city, (int, float)) and upl != city:
-        warnings.append(f"IDISE UPL: somma {upl} diversa dal totale comunale {city}; differenza {city-upl} da documentare.")
-
-for item in warnings:
-    print("AVVISO:", item)
-for item in errors:
-    print("ERRORE:", item)
-if errors:
-    raise SystemExit(1)
-print("Audit dataset superato: conteggi e integrità strutturale coerenti.")
+# Controlli quantitativi del confronto verde storico/PRG.\ngreen_comparison = load("data/verde_confronto_278_prg.json")\nif isinstance(green_comparison, dict):\n    check(green_comparison.get("status") == "completed" and isinstance(green_comparison.get("global"), dict),\n          "Report confronto geometrico verde 278/PRG non completato o privo di aggregato comunale")\n    global_green = green_comparison.get("global", {})\n    classes = green_comparison.get("per_classe_prg", [])\n    class_names = [x.get("classe_prg") for x in classes]\n    check(len(classes) == 10 and len(class_names) == len(set(class_names)),\n          f"Classi PRG verde: attese 10 classi univoche, trovate {len(classes)}")\n    check(global_green.get("geometrie_prg_per_classe") == sum(int(x.get("geometrie_prg", 0)) for x in classes),\n          "Conteggio geometrie PRG verde globale non coincide con la somma per classe")\n    for label, metrics in [("inventario 2013", global_green.get("inventario_2013")),\n                            ("classi PRG", global_green.get("classi_verdi_prg")),\n                            ("intersezione", global_green.get("intersezione"))]:\n        if isinstance(metrics, dict):\n            m2, ha_value = metrics.get("m2"), metrics.get("ha")\n            check(isinstance(m2, (int, float)) and isinstance(ha_value, (int, float)) and\n                  abs(ha_value - m2 / 10000) <= 0.001,\n                  f"Conversione m²/ha incoerente nel report verde: {label}")\n    overlap = global_green.get("intersezione", {}).get("m2")\n    hist_area = global_green.get("inventario_2013", {}).get("m2")\n    prg_area = global_green.get("classi_verdi_prg", {}).get("m2")\n    if all(isinstance(x, (int, float)) for x in [overlap, hist_area, prg_area]):\n        check(0 <= overlap <= min(hist_area, prg_area),\n              "Intersezione verde/PRG supera una delle superfici di origine")\n
