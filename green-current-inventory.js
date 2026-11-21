@@ -28,7 +28,7 @@
   if(!host){host=document.createElement('section');host.id='greenCurrentInventoryProtocol';host.className='card';(document.getElementById('greenComparisonReport')||document.getElementById('greenMapStatus')||map).insertAdjacentElement('afterend',host);}
   host.innerHTML='<h3>Inventario del verde pubblico · prima ricognizione documentale</h3><p class="muted">Caricamento del registro comunale documentato…</p>';
   try{
-   const response=await fetch('data/green/current-public-sites.json?v=20261118-5',{cache:'no-cache'});
+   const response=await fetch('data/green/current-public-sites.json?v=20261122-dedup15',{cache:'no-cache'});
    if(!response.ok)throw new Error('Registro non disponibile (HTTP '+response.status+')');
    const data=await response.json(),records=data.facilities||[];
    const groups={};
