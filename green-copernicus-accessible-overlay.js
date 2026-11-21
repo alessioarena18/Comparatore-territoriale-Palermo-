@@ -19,10 +19,11 @@
    const layer=L.geoJSON({type:'FeatureCollection',features},{
     style:()=>({color:'#075985',weight:1.2,opacity:.9,fillColor:'#38bdf8',fillOpacity:.27}),
     onEachFeature:(feature,featureLayer)=>{
-     const p=feature.properties||{};
+     const p=feature.properties||{},featureIndex=features.indexOf(feature)+1,featureLabel=p.name||('Area verde Copernicus #'+featureIndex);
      const area=Number(p.area_sqm);
      const areaText=Number.isFinite(area)?area.toLocaleString('it-IT',{maximumFractionDigits:0})+' m²':'Non disponibile';
-     featureLayer.bindPopup('<strong>Verde pubblico · Copernicus Urban Atlas 2021</strong><br>'+
+     featureLayer.bindTooltip(esc(featureLabel),{sticky:true});
+     featureLayer.bindPopup('<strong>'+esc(featureLabel)+' · Copernicus Urban Atlas 2021</strong><br>'+
       'Classe dimensionale: '+esc(p.size_label||'Non classificata')+'<br>'+
       'Superficie dichiarata: '+areaText+'<br>'+
       '<small>Fonte derivata: Palermo 3-30-300, Domenico Schillaci, CC BY 4.0. La classificazione Urban Atlas selezionata indica aree verdi con accesso pubblico previsto; non certifica apertura attuale, proprietà, manutenzione o stato di attuazione.</small>');
@@ -43,9 +44,10 @@
     const osmLayer=L.geoJSON({type:'FeatureCollection',features:osmFeatures},{
      style:()=>({color:'#7c2d12',weight:1.3,opacity:.9,fillColor:'#fb923c',fillOpacity:.25}),
      onEachFeature:(feature,featureLayer)=>{
-      const p=feature.properties||{},area=Number(p.area_sqm);
+      const p=feature.properties||{},featureIndex=osmFeatures.indexOf(feature)+1,featureLabel=p.name||('Area verde OSM #'+featureIndex),area=Number(p.area_sqm);
       const areaText=Number.isFinite(area)?area.toLocaleString('it-IT',{maximumFractionDigits:0})+' m²':'Non disponibile';
-      featureLayer.bindPopup('<strong>'+esc(p.name||'Spazio verde pubblico · OpenStreetMap')+'</strong><br>'+
+      featureLayer.bindTooltip(esc(featureLabel),{sticky:true});
+      featureLayer.bindPopup('<strong>'+esc(featureLabel)+' · OpenStreetMap</strong><br>'+
        'Classe dimensionale: '+esc(p.size_label||'Non classificata')+'<br>'+
        'Superficie dichiarata: '+areaText+'<br>'+
        '<small>Fonte derivata: Palermo 3-30-300, © OpenStreetMap contributors, licenza ODbL 1.0. La mappatura collaborativa può essere incompleta o non aggiornata; non certifica proprietà, manutenzione o apertura attuale.</small>');
