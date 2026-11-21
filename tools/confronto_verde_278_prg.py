@@ -121,6 +121,18 @@ def main():
     circ_rows=territorial.get("circoscrizioni",[])
     sum_prg_circ=sum(x.get("verde_prg_classificato",{}).get("m2",0) for x in circ_rows)
     sum_historic_circ=sum(x.get("verde_comunale_2013",{}).get("m2",0) for x in circ_rows)
+    urban_city_union=urban_union.intersection(circ_union)
+    standard_city_union=standard_union.intersection(circ_union)
+    natural_city_union=natural_union.intersection(circ_union)
+    group_union=urban_city_union.union(natural_city_union)
+    group_metrics={
+        "classi_urbane_prg":{"m2":round(urban_city_union.area,2),"ha":ha(urban_city_union.area)},
+        "candidati_standard_v1_v4":{"m2":round(standard_city_union.area,2),"ha":ha(standard_city_union.area)},
+        "aree_agricole_collinari_e1_e2":{"m2":round(natural_city_union.area,2),"ha":ha(natural_city_union.area)},
+        "sovrapposizione_urbano_naturale":{"m2":round(urban_city_union.intersection(natural_city_union).area,2),"ha":ha(urban_city_union.intersection(natural_city_union).area)},
+        "unione_famiglie":{"m2":round(group_union.area,2),"ha":ha(group_union.area)},
+        "gap_unione_famiglie_vs_verde_prg":{"m2":round(p_city_union.difference(group_union).area,2),"ha":ha(p_city_union.difference(group_union).area)}
+    }
     class_metrics={
         "somma_unioni_per_classe_prg":{"m2":round(class_surface_sum,2),"ha":ha(class_surface_sum)},
         "unione_geometrica_prg":{"m2":round(p_city_union.area,2),"ha":ha(p_city_union.area)},
@@ -144,7 +156,7 @@ def main():
     result={
       "schema_version":"1.0","status":"completed","generated_from":"dataset comunale 278 (ricognizione 2013) e layer tematico derivato dal dataset PRG 320 (Variante Generale DCC 7/2004)",
       "method":{"crs_area":"EPSG:32633 / UTM 33N","overlay":"intersezione geometrica di unioni topologiche; superfici in m² e ha","historic_source":"data/geo/verde_comunale_2013.geojson","prg_source":"data/geo/verde_prg.geojson","no_double_count":"Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.","limits":["Le metriche PRG comunali sono ritagliate sull'unione delle circoscrizioni 2021; il residuo fuori copertura è separato e da verificare.","Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.","La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.","Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.","Fuori dalle classi verdi PRG non significa assenza di vegetazione; non censito nel 2013 non significa assenza di verde.","Il confronto non è un bilancio normativo degli standard urbanistici."]},
-      "class_metrics":class_metrics,"territorial_coverage":territorial_coverage,
+      "class_metrics":class_metrics,"group_metrics":group_metrics,"territorial_coverage":territorial_coverage,
       "global":{"geometrie_storiche_utilizzate":len(hist),"geometrie_prg_per_classe":sum(map(len,byclass.values())),
         "inventario_2013":summary_area(h_union),"classi_verdi_prg":summary_area(p_city_union),"intersezione":summary_area(overlap),
         "inventario_2013_fuori_prg":summary_area(outside),"prg_non_censito_2013":summary_area(prg_without),
