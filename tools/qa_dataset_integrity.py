@@ -68,7 +68,7 @@ if isinstance(std, dict):
     if std.get("topology_status") != "passed":
         warnings.append("Topologia standard PRG da revisionare: " + str(std.get("duplicate_geometry_count")) + " duplicati e " + str(std.get("overlap_pair_count_over_1m2")) + " coppie sovrapposte oltre 1 m².")
 
-# Audit mirato del modulo verde urbano: evita registri incompleti e report non validati.
+# Controllo del verde comunale storico: conteggi e schema del dataset 2013.\nhistoric_green = load("data/geo/verde_comunale_2013.geojson")\nif isinstance(historic_green, dict):\n    features = historic_green.get("features", [])\n    green_types = {}\n    for feature in features:\n        kind = feature.get("properties", {}).get("TIPO")\n        green_types[kind] = green_types.get(kind, 0) + 1\n    check(len(features) == 2089, f"Verde comunale 2013: attese 2089 geometrie, trovate {len(features)}")\n    check(green_types == {"aiuola": 2086, "alberi": 3}, f"Classi TIPO del verde comunale 2013 inattese: {green_types}")\n    check(all(set(feature.get("properties", {}).keys()) == {"ID", "TIPO"} for feature in features),\n          "Schema attributi del verde comunale 2013 cambiato: verificare interpretazione e classificazione")\n\n# Audit mirato del modulo verde urbano: evita registri incompleti e report non validati.
 green_sites = load("data/green/current-public-sites.json")
 if isinstance(green_sites, dict):
     facilities = green_sites.get("facilities", [])
