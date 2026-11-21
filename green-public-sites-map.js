@@ -34,7 +34,7 @@
   async function loadLayer(url,color,label){
    const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw new Error('HTTP '+r.status);
    const data=await r.json();
-   const layer=L.geoJSON(data,{pointToLayer:(f,ll)=>L.circleMarker(ll,{radius:8,color,weight:2,fillColor:color,fillOpacity:.95}),onEachFeature:(f,l)=>{
+   let layer;layer=L.geoJSON(data,{pointToLayer:(f,ll)=>L.circleMarker(ll,{radius:8,color,weight:2,fillColor:color,fillOpacity:.95}),onEachFeature:(f,l)=>{
     const p=f.properties||{},id=String(p.id||'');
     l.bindPopup('<strong>'+esc(p.name)+'</strong><br>ID: '+esc(id)+'<br><em>Localizzazione indicativa, non perimetro. Coordinate da validare; il punto non certifica proprietà, manutenzione o accessibilità.</em>');
     l.bindTooltip(esc(p.name),{sticky:true});
