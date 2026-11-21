@@ -9,6 +9,7 @@
     "prg_source": "data/geo/verde_prg.geojson",
     "no_double_count": "Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.",
     "limits": [
+      "Le metriche PRG comunali sono ritagliate sull'unione delle circoscrizioni 2021; il residuo fuori copertura è separato e da verificare.",
       "Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.",
       "La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.",
       "Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.",
@@ -18,18 +19,18 @@
   },
   "class_metrics": {
     "somma_unioni_per_classe_prg": {
-      "m2": 93291750.08,
-      "ha": 9329.175
+      "m2": 92648373.27,
+      "ha": 9264.8373
     },
     "unione_geometrica_prg": {
-      "m2": 90731613.46,
-      "ha": 9073.1613
+      "m2": 90088236.65,
+      "ha": 9008.8237
     },
     "eccedenza_non_additiva_classi_prg": {
       "m2": 2560136.62,
       "ha": 256.0137
     },
-    "eccedenza_pct_somma_classi": 2.74,
+    "eccedenza_pct_somma_classi": 2.76,
     "classi_non_sommabili": true
   },
   "territorial_coverage": {
@@ -65,8 +66,8 @@
       "ha": 67.4811
     },
     "classi_verdi_prg": {
-      "m2": 90731613.46,
-      "ha": 9073.1613
+      "m2": 90088236.65,
+      "ha": 9008.8237
     },
     "intersezione": {
       "m2": 216111.2,
@@ -77,13 +78,13 @@
       "ha": 45.8699
     },
     "prg_non_censito_2013": {
-      "m2": 90515502.26,
-      "ha": 9051.5502
+      "m2": 89872125.45,
+      "ha": 8987.2125
     },
     "classi_urbane_prg": {
       "superficie_prg": {
-        "m2": 9509790.85,
-        "ha": 950.9791
+        "m2": 9505878.75,
+        "ha": 950.5879
       },
       "intersezione_inventario_2013": {
         "m2": 214968.62,
@@ -94,16 +95,16 @@
         "ha": 45.9842
       },
       "prg_non_censito_2013": {
-        "m2": 9294822.23,
-        "ha": 929.4822
+        "m2": 9290910.13,
+        "ha": 929.091
       },
       "quota_inventario_2013_intersecata_pct": 31.86,
       "quota_prg_intersecata_inventario_2013_pct": 2.26
     },
     "candidati_standard_v1_v4": {
       "superficie_prg": {
-        "m2": 3005259.27,
-        "ha": 300.5259
+        "m2": 3005168.46,
+        "ha": 300.5168
       },
       "intersezione_inventario_2013": {
         "m2": 190718.34,
@@ -114,16 +115,16 @@
         "ha": 48.4092
       },
       "prg_non_censito_2013": {
-        "m2": 2814540.94,
-        "ha": 281.4541
+        "m2": 2814450.12,
+        "ha": 281.445
       },
       "quota_inventario_2013_intersecata_pct": 28.26,
       "quota_prg_intersecata_inventario_2013_pct": 6.35
     },
     "aree_agricole_collinari_e1_e2": {
       "superficie_prg": {
-        "m2": 81230281.51,
-        "ha": 8123.0282
+        "m2": 80590816.8,
+        "ha": 8059.0817
       },
       "intersezione_inventario_2013": {
         "m2": 1142.58,
@@ -134,8 +135,8 @@
         "ha": 67.3668
       },
       "prg_non_censito_2013": {
-        "m2": 81229138.92,
-        "ha": 8122.9139
+        "m2": 80589674.22,
+        "ha": 8058.9674
       },
       "quota_inventario_2013_intersecata_pct": 0.17,
       "quota_prg_intersecata_inventario_2013_pct": 0.0
@@ -180,48 +181,48 @@
       "classe_prg": "agricolo",
       "geometrie_prg": 107,
       "superficie_prg": {
-        "m2": 22808163.01,
-        "ha": 2280.8163
+        "m2": 22755729.76,
+        "ha": 2275.573
       },
       "intersezione_inventario_2013": {
         "m2": 718.94,
         "ha": 0.0719
       },
       "superficie_prg_non_censita_nel_2013": {
-        "m2": 22807444.07,
-        "ha": 2280.7444
+        "m2": 22755010.81,
+        "ha": 2275.5011
       }
     },
     {
       "classe_prg": "attrezzato",
       "geometrie_prg": 23,
       "superficie_prg": {
-        "m2": 590574.45,
-        "ha": 59.0574
+        "m2": 590483.64,
+        "ha": 59.0484
       },
       "intersezione_inventario_2013": {
         "m2": 22926.87,
         "ha": 2.2927
       },
       "superficie_prg_non_censita_nel_2013": {
-        "m2": 567647.58,
-        "ha": 56.7648
+        "m2": 567556.77,
+        "ha": 56.7557
       }
     },
     {
       "classe_prg": "collinare",
       "geometrie_prg": 10,
       "superficie_prg": {
-        "m2": 58422119.65,
-        "ha": 5842.212
+        "m2": 57835088.2,
+        "ha": 5783.5088
       },
       "intersezione_inventario_2013": {
         "m2": 423.64,
         "ha": 0.0424
       },
       "superficie_prg_non_censita_nel_2013": {
-        "m2": 58421696.01,
-        "ha": 5842.1696
+        "m2": 57834664.56,
+        "ha": 5783.4665
       }
     },
     {
@@ -324,16 +325,16 @@
       "classe_prg": "storico",
       "geometrie_prg": 166,
       "superficie_prg": {
-        "m2": 6273343.67,
-        "ha": 627.3344
+        "m2": 6269522.38,
+        "ha": 626.9522
       },
       "intersezione_inventario_2013": {
         "m2": 127560.85,
         "ha": 12.7561
       },
       "superficie_prg_non_censita_nel_2013": {
-        "m2": 6145782.82,
-        "ha": 614.5783
+        "m2": 6141961.53,
+        "ha": 614.1962
       }
     }
   ],
