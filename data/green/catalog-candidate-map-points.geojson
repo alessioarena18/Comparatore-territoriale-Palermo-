@@ -59,15 +59,14 @@
         "id": "PA-VER-CAND-004",
         "name": "Giardino della Zisa",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
+        "coordinate_source": "Inventari dei parchi e giardini italiani · coordinate in area Piazza Zisa",
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3346,
-          38.1119
-        ]
+          13.343026,
+          38.116374]
       }
     },
     {
@@ -110,15 +109,14 @@
         "id": "PA-VER-CAND-007",
         "name": "Parco della Favorita",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
+        "coordinate_source": "Garden Route Italia · coordinate riportate nel portale (Piazza Leoni); riferimento puntuale, non perimetro",
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3268,
-          38.1455
-        ]
+          13.339464,
+          38.160741]
       }
     },
     {
@@ -178,15 +176,14 @@
         "id": "PA-VER-CAND-011",
         "name": "Parco d'Orleans",
         "category": "catalogo_comunale_da_verificare",
-        "georeferencing": "localizzazione indicativa, non perimetro",
-        "coordinate_source": "posizionamento preliminare da validare"
+        "georeferencing": "localizzazione puntuale con coordinate documentate; non perimetro e da verificare in cartografia",
+        "coordinate_source": "APGI · scheda Parco d'Orleans; coordinate del parco, da verificare rispetto al perimetro",
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          13.3464,
-          38.1058
-        ]
+          13.352807,
+          38.109143]
       }
     },
     {
