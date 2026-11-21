@@ -214,6 +214,26 @@ if isinstance(green_comparison, dict):
         report_class_counts = {x.get("classe_prg"): x.get("geometrie_prg") for x in classes}
         check(len(green_prg_features) == 679, f"Layer PRG verde: attese 679 geometrie, trovate {len(green_prg_features)}")
         check(source_class_counts == report_class_counts, "Conteggi classi nel layer verde PRG non coincidono con il report")
+    group_metrics = green_comparison.get("group_metrics", {})
+    urban_m2 = global_green.get("classi_urbane_prg", {}).get("superficie_prg", {}).get("m2", -1)
+    standard_m2 = global_green.get("candidati_standard_v1_v4", {}).get("superficie_prg", {}).get("m2", -1)
+    natural_m2 = global_green.get("aree_agricole_collinari_e1_e2", {}).get("superficie_prg", {}).get("m2", -1)
+    group_union_m2 = group_metrics.get("unione_famiglie", {}).get("m2", -1)
+    group_overlap_m2 = group_metrics.get("sovrapposizione_urbano_naturale", {}).get("m2", -1)
+    check(abs(group_metrics.get("classi_urbane_prg", {}).get("m2", -1) - urban_m2) <= 1,
+          "Metriche gruppo urbano incoerenti")
+    check(abs(group_metrics.get("candidati_standard_v1_v4", {}).get("m2", -1) - standard_m2) <= 1,
+          "Metriche gruppo standard V1-V4 incoerenti")
+    check(abs(group_metrics.get("aree_agricole_collinari_e1_e2", {}).get("m2", -1) - natural_m2) <= 1,
+          "Metriche gruppo naturale E1/E2 incoerenti")
+    check(abs(group_union_m2 - prg_area) <= 1,
+          "Unione famiglie urbano/naturale non coincide con il verde PRG comunale")
+    check(abs(group_overlap_m2 - (urban_m2 + natural_m2 - group_union_m2)) <= 1,
+          "Sovrapposizione famiglie urbano/naturale incoerente")
+    check(standard_m2 <= urban_m2 + 1,
+          "Candidati standard V1-V4 non risultano inclusi nel gruppo urbano")
+    if group_overlap_m2 > 1:
+        warnings.append(f"Famiglie urbano/naturale non additive: sovrapposizione {group_overlap_m2:,.2f} m².")
     class_metrics = green_comparison.get("class_metrics", {})
     territorial_coverage = green_comparison.get("territorial_coverage", {})
     class_surface_sum = sum(float(x.get("superficie_prg", {}).get("m2", 0)) for x in classes)
