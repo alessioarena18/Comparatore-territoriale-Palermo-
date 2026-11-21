@@ -204,6 +204,16 @@ if isinstance(green_comparison, dict):
     overlap = global_green.get("intersezione", {}).get("m2")
     hist_area = global_green.get("inventario_2013", {}).get("m2")
     prg_area = global_green.get("classi_verdi_prg", {}).get("m2")
+    green_prg_layer = load("data/geo/verde_prg.geojson")
+    if isinstance(green_prg_layer, dict):
+        green_prg_features = green_prg_layer.get("features", [])
+        source_class_counts = {}
+        for feature in green_prg_features:
+            class_name = (feature.get("properties") or {}).get("green_class")
+            source_class_counts[class_name] = source_class_counts.get(class_name, 0) + 1
+        report_class_counts = {x.get("classe_prg"): x.get("geometrie_prg") for x in classes}
+        check(len(green_prg_features) == 679, f"Layer PRG verde: attese 679 geometrie, trovate {len(green_prg_features)}")
+        check(source_class_counts == report_class_counts, "Conteggi classi nel layer verde PRG non coincidono con il report")
     class_metrics = green_comparison.get("class_metrics", {})
     territorial_coverage = green_comparison.get("territorial_coverage", {})
     class_surface_sum = sum(float(x.get("superficie_prg", {}).get("m2", 0)) for x in classes)
@@ -244,7 +254,7 @@ if isinstance(green_comparison, dict):
     total = territorial_coverage.get("verde_prg_unione_totale", {}).get("m2")
     if all(isinstance(x, (int, float)) for x in [inside, outside, total]):
         check(abs(inside + outside - total) <= 1, "Copertura PRG dentro/fuori circoscrizioni non coincide con il totale")
-        check(abs(total - prg_area) <= 1, "Totale PRG nella verifica territoriale non coincide con il globale")
+        check(abs(inside - prg_area) <= 1, "PRG dentro circoscrizioni non coincide con il totale comunale ritagliato")
         check(abs(territory_sums["circoscrizioni"]["verde_prg_classificato"] - inside) <= 1,
               "Somma intersezioni PRG per circoscrizioni non coincide con l'unione interna")
         if outside > 100:
