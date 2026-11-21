@@ -9,6 +9,7 @@ on:
       - 'styles.css'
       - 'green-*.js'
       - 'data/green/*.json'
+      - 'data/green/*.geojson'
       - 'tools/*.py'
       - '.github/workflows/*.yml'
       - '.github/workflows/*.yaml'
