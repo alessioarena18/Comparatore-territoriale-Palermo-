@@ -136,6 +136,41 @@ if isinstance(green_sites, dict):
     duplicate_candidates = [x.get("name") for x in candidates if green_name_key(x.get("name")) in documented_names]
     check(not duplicate_candidates, "Candidati duplicati nel registro documentato: " + ", ".join(duplicate_candidates))
 
+# Audit strutturale dei layer poligonali del Verde urbano.
+def valid_green_positions(value):
+    if isinstance(value, list) and len(value) >= 2 and isinstance(value[0], (int, float)) and isinstance(value[1], (int, float)):
+        return -180 <= value[0] <= 180 and -90 <= value[1] <= 90
+    return isinstance(value, list) and len(value) > 0 and all(valid_green_positions(x) for x in value)
+
+def green_polygon_rings(geometry):
+    if not isinstance(geometry, dict):
+        return []
+    if geometry.get("type") == "Polygon":
+        return geometry.get("coordinates", [])
+    if geometry.get("type") == "MultiPolygon":
+        return [ring for polygon in geometry.get("coordinates", []) for ring in polygon]
+    return []
+
+def audit_green_polygon_layer(rel, expected_count, label, allowed_types):
+    layer = load(rel)
+    if isinstance(layer, dict):
+        features = layer.get("features", [])
+        check(layer.get("type") == "FeatureCollection", f"{label}: GeoJSON non è una FeatureCollection")
+        check(len(features) == expected_count, f"{label}: attese {expected_count} geometrie, trovate {len(features)}")
+        geometries = [f.get("geometry") for f in features]
+        check(all(isinstance(g, dict) and g.get("type") in allowed_types for g in geometries),
+              f"{label}: geometrie assenti o tipo non ammesso")
+        check(all(valid_green_positions(g.get("coordinates")) for g in geometries if isinstance(g, dict)),
+              f"{label}: coordinate mancanti, non numeriche o fuori range")
+        rings = [ring for g in geometries for ring in green_polygon_rings(g)]
+        check(bool(rings) and all(isinstance(r, list) and len(r) >= 4 and r[0] == r[-1] for r in rings),
+              f"{label}: anelli poligonali vuoti, troppo corti o non chiusi")
+
+audit_green_polygon_layer("data/geo/verde_comunale_2013.geojson", 2089, "Verde comunale 2013", {"Polygon", "MultiPolygon"})
+audit_green_polygon_layer("data/geo/verde_prg.geojson", 679, "Verde PRG", {"Polygon"})
+audit_green_polygon_layer("data/geo/copernicus_verde_accessibile_2021.geojson", 129, "Copernicus Urban Atlas 2021", {"Polygon", "MultiPolygon"})
+audit_green_polygon_layer("data/geo/osm_verde_accessibile_2025.geojson", 118, "OpenStreetMap verde accessibile 2025", {"Polygon", "MultiPolygon"})
+
 # Controlli quantitativi del confronto verde storico/PRG.
 green_comparison = load("data/verde_confronto_278_prg.json")
 if isinstance(green_comparison, dict):
@@ -169,7 +204,68 @@ if isinstance(green_comparison, dict):
     overlap = global_green.get("intersezione", {}).get("m2")
     hist_area = global_green.get("inventario_2013", {}).get("m2")
     prg_area = global_green.get("classi_verdi_prg", {}).get("m2")
+    class_metrics = green_comparison.get("class_metrics", {})
+    territorial_coverage = green_comparison.get("territorial_coverage", {})
+    class_surface_sum = sum(float(x.get("superficie_prg", {}).get("m2", 0)) for x in classes)
+    check(abs(class_metrics.get("somma_unioni_per_classe_prg", {}).get("m2", -1) - class_surface_sum) <= 1,
+          "Somma superfici delle classi PRG non coincide con class_metrics")
+    check(abs(class_metrics.get("unione_geometrica_prg", {}).get("m2", -1) - prg_area) <= 1,
+          "Unione geometrica PRG non coincide con l'aggregato globale")
+    expected_excess = class_surface_sum - prg_area
+    check(abs(class_metrics.get("eccedenza_non_additiva_classi_prg", {}).get("m2", -1) - expected_excess) <= 1,
+          "Eccedenza non additiva tra classi PRG incoerente")
+    if expected_excess > 1:
+        warnings.append("Le superfici per classe PRG non sono sommabili: sovrapposizione interclassi da esplicitare nel report.")
+
+    expected_territories = {"circoscrizioni": 8, "quartieri": 25, "upl": 55}
+    territory_rows = green_comparison.get("perimetri_territoriali", {})
+    territory_sums = {}
+    for level, expected_count in expected_territories.items():
+        rows = territory_rows.get(level, [])
+        check(len(rows) == expected_count, f"Verde PRG: {level} attesi {expected_count}, trovati {len(rows)}")
+        territory_sums[level] = {
+            "verde_comunale_2013": sum(x.get("verde_comunale_2013", {}).get("m2", 0) for x in rows),
+            "verde_prg_classificato": sum(x.get("verde_prg_classificato", {}).get("m2", 0) for x in rows),
+            "intersezione": sum(x.get("intersezione", {}).get("m2", 0) for x in rows)
+        }
+    if all(level in territory_sums for level in expected_territories):
+        check(abs(territory_sums["circoscrizioni"]["verde_comunale_2013"] - hist_area) <= 1,
+              "Somma inventario 2013 per circoscrizioni non coincide con il globale")
+        check(abs(territory_sums["circoscrizioni"]["intersezione"] - overlap) <= 1,
+              "Somma intersezioni verde/PRG per circoscrizioni non coincide con il globale")
+        check(abs(territory_sums["quartieri"]["verde_prg_classificato"] - territory_sums["circoscrizioni"]["verde_prg_classificato"]) <= 1,
+              "Somma PRG per quartieri diversa da quella per circoscrizioni")
+        check(abs(territory_sums["upl"]["verde_prg_classificato"] - territory_sums["circoscrizioni"]["verde_prg_classificato"]) <= 1,
+              "Somma PRG per UPL diversa da quella per circoscrizioni")
+    check(isinstance(territorial_coverage, dict) and territorial_coverage.get("circoscrizioni_geometrie_utilizzate") == 8,
+          "Controllo copertura PRG rispetto alle circoscrizioni assente o incompleto")
+    inside = territorial_coverage.get("verde_prg_dentro_unione_circoscrizioni", {}).get("m2")
+    outside = territorial_coverage.get("verde_prg_fuori_unione_circoscrizioni", {}).get("m2")
+    total = territorial_coverage.get("verde_prg_unione_totale", {}).get("m2")
+    if all(isinstance(x, (int, float)) for x in [inside, outside, total]):
+        check(abs(inside + outside - total) <= 1, "Copertura PRG dentro/fuori circoscrizioni non coincide con il totale")
+        check(abs(total - prg_area) <= 1, "Totale PRG nella verifica territoriale non coincide con il globale")
+        check(abs(territory_sums["circoscrizioni"]["verde_prg_classificato"] - inside) <= 1,
+              "Somma intersezioni PRG per circoscrizioni non coincide con l'unione interna")
+        if outside > 100:
+            warnings.append(f"Geometrie PRG fuori dall'unione delle circoscrizioni: {outside:,.2f} m², da verificare.")
+    else:
+        check(False, "Metriche copertura PRG dentro/fuori circoscrizioni mancanti")
+    historic_outside = territorial_coverage.get("inventario_2013_fuori_unione_circoscrizioni", {}).get("m2")
+    if isinstance(historic_outside, (int, float)) and historic_outside > 100:
+        warnings.append(f"Geometrie inventario 2013 fuori dalle circoscrizioni: {historic_outside:,.2f} m².")
+
     if all(isinstance(x, (int, float)) for x in [overlap, hist_area, prg_area]):
         check(0 <= overlap <= min(hist_area, prg_area),
               "Intersezione verde/PRG supera una delle superfici di origine")
 
+if warnings:
+    print("AVVISI QA:")
+    for warning in warnings:
+        print("- " + warning)
+if errors:
+    print("QA DATASET NON SUPERATA:")
+    for error in errors:
+        print("- " + error)
+    raise SystemExit(1)
+print("QA dataset superata.")
