@@ -102,9 +102,49 @@ def main():
                   "aree_agricole_collinari_e1_e2":group_stats(natural_union.intersection(b),hi)})
             except Exception:continue
         territorial[level]=rows
+    # QA: separa la somma delle superfici per classe dall'unione geometrica,
+    # e verifica la copertura del PRG rispetto alle circoscrizioni 2021.
+    class_surface_sum=sum(unary_union(group).area for group in byclass.values())
+    class_overlap_excess=class_surface_sum-p_union.area
+    circ_fc=load(FILES["circoscrizioni"][0])
+    circ_geometries=[]
+    for f in circ_fc.get("features",[]):
+        try:
+            b=geom(f)
+            if b and b.area>0:circ_geometries.append(b)
+        except Exception:pass
+    if not circ_geometries:raise RuntimeError("Perimetri circoscrizioni senza geometrie utilizzabili")
+    circ_union=unary_union(circ_geometries)
+    prg_inside=circ_union.intersection(p_union)
+    prg_outside=p_union.difference(circ_union)
+    historic_outside=h_union.difference(circ_union)
+    circ_rows=territorial.get("circoscrizioni",[])
+    sum_prg_circ=sum(x.get("verde_prg_classificato",{}).get("m2",0) for x in circ_rows)
+    sum_historic_circ=sum(x.get("verde_comunale_2013",{}).get("m2",0) for x in circ_rows)
+    class_metrics={
+        "somma_unioni_per_classe_prg":{"m2":round(class_surface_sum,2),"ha":ha(class_surface_sum)},
+        "unione_geometrica_prg":{"m2":round(p_union.area,2),"ha":ha(p_union.area)},
+        "eccedenza_non_additiva_classi_prg":{"m2":round(class_overlap_excess,2),"ha":ha(class_overlap_excess)},
+        "eccedenza_pct_somma_classi":round(class_overlap_excess/class_surface_sum*100,2) if class_surface_sum else None,
+        "classi_non_sommabili":class_surface_sum>p_union.area+0.01
+    }
+    territorial_coverage={
+        "fonte_perimetro":"data/geo/circoscrizioni_palermo_2021.geojson",
+        "circoscrizioni_geometrie_utilizzate":len(circ_geometries),
+        "verde_prg_unione_totale":summary_area(p_union),
+        "verde_prg_dentro_unione_circoscrizioni":summary_area(prg_inside),
+        "verde_prg_fuori_unione_circoscrizioni":summary_area(prg_outside),
+        "quota_verde_prg_dentro_circoscrizioni_pct":round(prg_inside.area/p_union.area*100,2) if p_union.area else None,
+        "somma_intersezioni_prg_circoscrizioni_m2":round(sum_prg_circ,2),
+        "differenza_somma_circoscrizioni_vs_unione_inside_m2":round(sum_prg_circ-prg_inside.area,2),
+        "somma_intersezioni_inventario_2013_circoscrizioni_m2":round(sum_historic_circ,2),
+        "differenza_somma_circoscrizioni_vs_inventario_globale_m2":round(sum_historic_circ-h_union.area,2),
+        "inventario_2013_fuori_unione_circoscrizioni":summary_area(historic_outside)
+    }
     result={
       "schema_version":"1.0","status":"completed","generated_from":"dataset comunale 278 (ricognizione 2013) e layer tematico derivato dal dataset PRG 320 (Variante Generale DCC 7/2004)",
       "method":{"crs_area":"EPSG:32633 / UTM 33N","overlay":"intersezione geometrica di unioni topologiche; superfici in m² e ha","historic_source":"data/geo/verde_comunale_2013.geojson","prg_source":"data/geo/verde_prg.geojson","no_double_count":"Le metriche complessive usano l'unione geometrica dei poligoni, evitando il doppio conteggio interno alle rispettive fonti.","limits":["Il dataset 278 è una ricognizione storica 2013, non un inventario aggiornato.","La sovrapposizione cartografica non prova proprietà, destinazione effettiva, accessibilità o fruibilità.","Le classi PRG rappresentano previsioni/destinazioni del piano 2004 e non attestano attuazione o vigenza aggiornata.","Fuori dalle classi verdi PRG non significa assenza di vegetazione; non censito nel 2013 non significa assenza di verde.","Il confronto non è un bilancio normativo degli standard urbanistici."]},
+      "class_metrics":class_metrics,"territorial_coverage":territorial_coverage,
       "global":{"geometrie_storiche_utilizzate":len(hist),"geometrie_prg_per_classe":sum(map(len,byclass.values())),
         "inventario_2013":summary_area(h_union),"classi_verdi_prg":summary_area(p_union),"intersezione":summary_area(overlap),
         "inventario_2013_fuori_prg":summary_area(outside),"prg_non_censito_2013":summary_area(prg_without),
