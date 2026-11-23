@@ -182,3 +182,49 @@
 @media(max-width:650px){.metabolism-grid,.metabolism-inputs{grid-template-columns:1fr}.metabolism-bar-row{grid-template-columns:95px 1fr 38px}}
 
 .metabolism-weight-panel{margin-top:16px;padding:14px;border:1px solid #d8e4e8;border-radius:12px;background:#f8fbfc}.metabolism-weight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.metabolism-weight-grid label{display:grid;gap:6px;font-size:12px;color:#536d85}.metabolism-weight-grid input{width:100%;accent-color:#9b6c43}@media(max-width:650px){.metabolism-weight-grid{grid-template-columns:1fr}}
+
+/* Metabolismo urbano · dati territoriali e scenari */
+.metabolism-real-data{margin:18px 0;padding:18px;overflow:hidden}
+.metabolism-data-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
+.metabolism-data-head h3{margin:0 0 6px;color:#173653}
+.metabolism-data-head p{margin:0;color:#5d748a;font-size:13px;line-height:1.55}
+.metabolism-chip{white-space:nowrap;border-radius:999px;background:#e7f3ee;color:#176247;font-size:11px;font-weight:700;padding:7px 10px}
+.metabolism-loading{padding:18px;background:#f3f7fa;border-radius:12px;color:#536d85;font-size:13px}
+.metabolism-data-controls{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:14px 0}
+.metabolism-data-controls label{display:grid;gap:6px;color:#536d85;font-size:12px}
+.metabolism-data-controls select{min-width:230px;padding:9px 10px;border:1px solid #d5e0e7;border-radius:9px;background:white;color:#173653}
+.metabolism-scope{font-size:12px;color:#536d85}
+.metabolism-real-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}
+.metabolism-real-kpis>div{background:#f3f7fa;border:1px solid #e2eaf0;border-radius:12px;padding:14px;min-width:0}
+.metabolism-real-kpis small,.metabolism-real-kpis span{display:block;color:#637c91;font-size:11px;line-height:1.45}
+.metabolism-real-kpis strong{display:block;color:#173653;font-size:24px;line-height:1.25;margin:8px 0;overflow-wrap:anywhere}
+.metabolism-source-summary,.metabolism-map-card,.metabolism-ranking,.metabolism-method-grid>div,.metabolism-intervention{border:1px solid #dfe8ed;border-radius:12px;padding:14px;margin:12px 0}
+.metabolism-source-summary h4,.metabolism-map-card h4,.metabolism-ranking h4,.metabolism-method-grid h4,.metabolism-intervention h4{margin:0 0 10px;color:#173653}
+.metabolism-source-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metabolism-source-comparison>div{background:#f6f9fb;border-radius:10px;padding:12px}
+.metabolism-source-comparison small,.metabolism-source-comparison span{display:block;color:#637c91;font-size:11px}
+.metabolism-source-comparison strong{display:block;color:#173653;font-size:19px;margin:6px 0}
+.metabolism-source-summary p.muted,.metabolism-map-card p.muted,.metabolism-ranking p.muted,.metabolism-intervention p.muted{color:#637c91;font-size:11px;line-height:1.5;margin:10px 0 0}
+.metabolism-map-and-ranking{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px;align-items:stretch}
+.metabolism-map-card,.metabolism-ranking{margin:0}
+.metabolism-map{height:410px;width:100%;border-radius:10px;overflow:hidden;background:#eaf1f5}
+.metabolism-ranking-bars{display:grid;gap:10px}
+.metabolism-rank-row{display:grid;grid-template-columns:minmax(100px,1.3fr) minmax(50px,1fr) 65px;gap:8px;align-items:center;font-size:11px;color:#536d85}
+.metabolism-rank-row>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.metabolism-rank-row>div{height:9px;background:#e7edf2;border-radius:999px;overflow:hidden}
+.metabolism-rank-row i{display:block;height:100%;background:#3c8790;border-radius:999px}
+.metabolism-rank-row b{text-align:right;color:#173653;font-variant-numeric:tabular-nums}
+.metabolism-method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metabolism-method-grid>div{margin:0}
+.metabolism-method-grid ul{margin:0;padding-left:18px;color:#536d85;font-size:12px;line-height:1.6}
+.metabolism-method-grid li{margin:4px 0}
+.metabolism-intervention{background:#f8fbfc}
+.metabolism-intervention-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}
+.metabolism-intervention-controls label{display:grid;gap:7px;font-size:12px;color:#536d85}
+.metabolism-intervention-controls output{font-size:15px;font-weight:700;color:#173653}
+.metabolism-intervention-controls input{width:100%;accent-color:#3c8790}
+.metabolism-intervention-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.metabolism-intervention-results>div{background:#fff;border:1px solid #e1eaf0;border-radius:10px;padding:12px}
+.metabolism-intervention-results small{display:block;color:#637c91;font-size:11px}
+.metabolism-intervention-results strong{display:block;color:#173653;font-size:18px;margin-top:7px}
+@media(max-width:760px){.metabolism-real-kpis{grid-template-columns:1fr}.metabolism-map-and-ranking,.metabolism-method-grid{grid-template-columns:1fr}.metabolism-map{height:330px}.metabolism-intervention-controls,.metabolism-intervention-results{grid-template-columns:1fr}.metabolism-data-head{display:block}.metabolism-chip{display:inline-block;margin-top:8px}.metabolism-rank-row{grid-template-columns:minmax(90px,1fr) minmax(50px,1fr) 60px}}
