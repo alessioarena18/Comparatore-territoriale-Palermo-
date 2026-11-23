@@ -161,3 +161,22 @@
 
 /* Selezione sincronizzata tra inventario del verde e mappa */
 .green-map-select{display:inline-block;margin-top:5px;padding:4px 8px;border:1px solid #c6d4df;border-radius:5px;background:#f8fafc;color:#244761;font:600 11px inherit;cursor:pointer;white-space:nowrap}.green-map-select:hover,.green-map-select.is-selected{background:#173653;color:#fff;border-color:#173653}.green-map-select.is-selected{box-shadow:0 0 0 2px #9bc4dc}
+
+/* Metabolismo urbano e resilienza ecologica: modulo metodologico */
+.metabolism-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0}
+.metabolism-grid .card{min-height:210px}
+.metabolism-grid ul{padding-left:18px;color:#5d748a;font-size:13px}
+.metabolism-simulator{margin:18px 0}
+.metabolism-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}
+.metabolism-inputs label{display:grid;gap:7px;color:#536d85;font-size:12px}
+.metabolism-inputs output{font-weight:800;color:#173653;font-size:16px}
+.metabolism-inputs input[type=range]{width:100%;accent-color:#347e83}
+.metabolism-score{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.metabolism-score>div:first-child{min-width:130px;background:#edf5f4;border-radius:12px;padding:15px}
+.metabolism-score small,.metabolism-score span{display:block;color:#6c8397}
+.metabolism-score strong{font-size:40px;color:#173653}
+.metabolism-bars{flex:1;min-width:240px;display:grid;gap:8px}
+.metabolism-bar-row{display:grid;grid-template-columns:120px 1fr 45px;gap:8px;align-items:center;font-size:11px;color:#526d86}
+.metabolism-bar-row>div{height:9px;background:#e6edf2;border-radius:6px;overflow:hidden}
+.metabolism-bar-row i{display:block;height:100%;background:#3c8790;border-radius:6px}
+@media(max-width:650px){.metabolism-grid,.metabolism-inputs{grid-template-columns:1fr}.metabolism-bar-row{grid-template-columns:95px 1fr 38px}}
