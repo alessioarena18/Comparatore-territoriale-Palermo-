@@ -6,6 +6,10 @@ on:
     paths:
       - 'app.js'
       - 'metabolism-data.js'
+      - 'data/metabolism/**'
+      - 'data/geo/circoscrizioni_palermo_2021.geojson'
+      - 'data/geo/aree_subcomunali_liv2_palermo_2021.geojson'
+      - 'data/geo/aree_subcomunali_liv3_palermo_2021.geojson'
       - 'index.html'
       - 'styles.css'
       - 'green-*.js'
@@ -37,6 +41,8 @@ jobs:
         run: git diff --check
       - name: Audit integrità dei dataset territoriali
         run: python3 tools/qa_dataset_integrity.py
+      - name: QA Metabolismo urbano e resilienza ecologica
+        run: python3 tools/qa_metabolism_data.py
       - name: Verifica presenza dei layer PRG pubblicati
         run: |
           python3 - <<'PY'
