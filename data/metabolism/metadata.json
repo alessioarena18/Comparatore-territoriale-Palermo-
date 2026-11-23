@@ -81,6 +81,7 @@
       "Ricognizione verde comunale 2013: inventario storico.",
       "Copertura arborea: percentuale di chioma, non superficie di verde.",
       "Verde privato: non fruibile come verde pubblico."
+    ]
   },
   "scenario_calculator": {
     "new_green_per_capita": "new_green_sqm / population",
