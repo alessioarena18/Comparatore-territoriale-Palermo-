@@ -110,6 +110,7 @@
  };
  const observer=new MutationObserver(()=>{clearTimeout(state.renderTimer);state.renderTimer=setTimeout(attach,80);});
  observer.observe(document.getElementById('content')||document.body,{childList:true,subtree:true});
- document.addEventListener('change',e=>{if(['circ','quart','asc3','section'].includes(e.target?.id)){setTimeout(attach,150);}});
+ const refreshTerritory=()=>{const panel=document.getElementById('metabolismRealData');if(panel)render(panel).catch(showError);else attach();};
+ document.addEventListener('change',e=>{if(['circ','quart','asc3','section'].includes(e.target?.id)){setTimeout(refreshTerritory,150);}});
  document.addEventListener('click',e=>{if(e.target.closest('[data-page="metabolism"]'))setTimeout(attach,150);});
 })();
