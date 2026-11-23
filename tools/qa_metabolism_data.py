@@ -73,6 +73,9 @@ for path, count, area in [
 module = (ROOT / "metabolism-data.js").read_text(encoding="utf-8")
 index = (ROOT / "index.html").read_text(encoding="utf-8")
 assert "metabolism-data.js" in index, "Modulo dati metabolismo non caricato in index.html"
+app = (ROOT / "app.js").read_text(encoding="utf-8")
+assert "prima analisi territoriale esplorativa basata su dataset derivati di verde" in app, "Stato del modulo non aggiornato rispetto ai dati reali disponibili"
+assert "restano da acquisire e validare con fonti specifiche" in app, "Limiti degli indicatori non disponibili non dichiarati"
 assert "metabolismMap" in module and "pointOnFeature" in module, "Analisi spaziale o aggregazione UPL mancante"
 assert "const refreshTerritory=()=>{" in module, "Refresh dati territoriali mancante"
 assert "if(panel)render(panel).catch(showError);else attach();" in module, "Refresh del pannello al cambio selezione mancante"
