@@ -1,0 +1,109 @@
+{
+  "title": "Metabolismo urbano e resilienza ecologica · catalogo dati",
+  "version": "1.0.0",
+  "territory": "Comune di Palermo",
+  "reference_boundary": "ISTAT 2021",
+  "territorial_levels": {
+    "circoscrizioni": 8,
+    "quartieri": 25,
+    "upl": 55,
+    "population_upl_2021": 635439
+  },
+  "datasets": [
+    {
+      "id": "copernicus_urban_atlas_accessible_green_2021",
+      "label": "Copernicus Urban Atlas 2021 · verde accessibile",
+      "file": "data/geo/copernicus_verde_accessibile_2021.geojson",
+      "feature_count": 129,
+      "area_sum_sqm": 3356826.97,
+      "area_sum_km2": 3.356827,
+      "reference_year": 2021,
+      "license": "CC BY 4.0",
+      "derived_by": "Palermo 3-30-300 · Domenico Schillaci",
+      "source_url": "https://sigfreedo.github.io/palermo-3-30-300/dati.html",
+      "methodology_url": "https://sigfreedo.github.io/palermo-3-30-300/metodologia.html",
+      "interpretation": "Selezione di aree verdi classificate da Urban Atlas con accesso pubblico previsto; non certifica apertura, proprietà, manutenzione, fruibilità attuale o attuazione.",
+      "limitations": [
+        "Dataset derivato, non inventario comunale certificato.",
+        "Le superfici dichiarate possono includere sovrapposizioni; non rappresentano una union topologica.",
+        "Non sommare a OSM, verde PRG, layer catastali o ricognizioni storiche.",
+        "Non misura copertura arborea, biodiversità o permeabilità del suolo."
+      ]
+    },
+    {
+      "id": "osm_accessible_green_2025",
+      "label": "OpenStreetMap · verde accessibile mappato",
+      "file": "data/geo/osm_verde_accessibile_2025.geojson",
+      "feature_count": 118,
+      "area_sum_sqm": 4292042.34,
+      "area_sum_km2": 4.292042,
+      "reference_year": 2025,
+      "license": "ODbL 1.0",
+      "derived_by": "Palermo 3-30-300 · elaborazione OpenStreetMap",
+      "source_url": "https://sigfreedo.github.io/palermo-3-30-300/dati.html",
+      "methodology_url": "https://sigfreedo.github.io/palermo-3-30-300/metodologia.html",
+      "interpretation": "Aree mappate da tag OpenStreetMap; la completezza dipende dalla mappatura collaborativa e non certifica fruibilità o stato attuale.",
+      "limitations": [
+        "Dataset collaborativo, possibile incompletezza e disomogeneità.",
+        "Le superfici dichiarate possono includere sovrapposizioni; non rappresentano una union topologica.",
+        "Non sommare a Copernicus, verde PRG, layer catastali o ricognizioni storiche.",
+        "Non misura copertura arborea, biodiversità o permeabilità del suolo."
+      ]
+    }
+  ],
+  "aggregation": {
+    "unit": "UPL ISTAT 2021",
+    "method": "Assegnazione di ciascun poligono verde all'UPL che contiene il punto-on-feature. Le UPL sono aggregate a quartieri e circoscrizioni tramite appartenenza geometrica.",
+    "metrics": [
+      {
+        "id": "green_area",
+        "formula": "sum(area_sqm)",
+        "unit": "m²",
+        "definition": "Somma delle superfici dichiarate dei poligoni assegnati all'unità territoriale."
+      },
+      {
+        "id": "green_per_capita",
+        "formula": "green_area / POP21",
+        "unit": "m²/abitante",
+        "definition": "Rapporto tra superficie verde attribuita e popolazione residente ISTAT 2021."
+      },
+      {
+        "id": "territorial_green_share",
+        "formula": "green_area / area_territory * 100",
+        "unit": "%",
+        "definition": "Incidenza indicativa della superficie verde attribuita sul territorio."
+      }
+    ],
+    "quality": "Elaborazione esplorativa con attribuzione per centroide/punto-on-feature. Non è un clipping esatto delle geometrie sui confini. Poligoni che attraversano confini possono essere attribuiti interamente a una sola UPL; possibili sovrapposizioni nei dati sorgente possono incidere sulle somme.",
+    "population_source": "POP21 nelle geometrie sub-comunali ISTAT 2021.",
+    "not_comparable_to": [
+      "Verde PRG: previsioni e destinazioni urbanistiche, non attuazione.",
+      "Ricognizione verde comunale 2013: inventario storico.",
+      "Copertura arborea: percentuale di chioma, non superficie di verde.",
+      "Verde privato: non fruibile come verde pubblico."
+  },
+  "scenario_calculator": {
+    "new_green_per_capita": "new_green_sqm / population",
+    "permeability_increase": "deimpermeabilized_sqm / territorial_area_sqm * 100",
+    "rainfall_incident_volume": "rain_garden_sqm * rainfall_mm / 1000",
+    "warning": "Volume di pioggia incidente teorico; non è volume trattenuto, infiltrato o riutilizzato. Non è un modello idrologico o microclimatico."
+  },
+  "sources": [
+    {
+      "title": "Copernicus Urban Atlas",
+      "url": "https://land.copernicus.eu/en/products/urban-atlas"
+    },
+    {
+      "title": "OpenStreetMap copyright e licenza",
+      "url": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "title": "ISPRA · dati ambientali",
+      "url": "https://www.isprambiente.gov.it/it/servizi/accesso-ai-dati-ambientali"
+    },
+    {
+      "title": "SNPA · Palermo Resilience",
+      "url": "https://www.snpambiente.it/wp-content/uploads/2023/07/230703-DVI_2022_Summary_City_in_transition.pdf"
+    }
+  ]
+}
