@@ -180,3 +180,5 @@
 .metabolism-bar-row>div{height:9px;background:#e6edf2;border-radius:6px;overflow:hidden}
 .metabolism-bar-row i{display:block;height:100%;background:#3c8790;border-radius:6px}
 @media(max-width:650px){.metabolism-grid,.metabolism-inputs{grid-template-columns:1fr}.metabolism-bar-row{grid-template-columns:95px 1fr 38px}}
+
+.metabolism-weight-panel{margin-top:16px;padding:14px;border:1px solid #d8e4e8;border-radius:12px;background:#f8fbfc}.metabolism-weight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.metabolism-weight-grid label{display:grid;gap:6px;font-size:12px;color:#536d85}.metabolism-weight-grid input{width:100%;accent-color:#9b6c43}@media(max-width:650px){.metabolism-weight-grid{grid-template-columns:1fr}}
