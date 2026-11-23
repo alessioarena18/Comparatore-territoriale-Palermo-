@@ -1,31 +1,49 @@
-# Comparatore territoriale di Palermo – versione avanzata
+# Comparatore territoriale di Palermo · versione avanzata
 
-Questa è una base applicativa avanzata e pubblicabile con GitHub Pages. Non contiene dati territoriali inventati: i moduli restano esplicitamente in attesa finché i dataset non sono stati acquisiti, normalizzati e verificati.
+Il Comparatore è una piattaforma web statica per la lettura integrata del territorio comunale di Palermo. Consente di esplorare indicatori e inventari a scale territoriali diverse, collegando tabelle, grafici e cartografia attraverso un sistema di selezione comune.
+
+La piattaforma non sostituisce gli atti urbanistici, i dataset ufficiali o la verifica sul campo. Ogni dato deve essere letto in relazione alla fonte, all'anno, alla scala geografica e ai limiti metodologici.
 
 ## Moduli
-Panoramica, demografia, analisi sociale, scuole, standard urbanistici, GIS, analisi spaziale, confronti, fonti e metodologia.
 
-## Installazione
-Caricare **il contenuto** di questo archivio nella radice del repository GitHub, sovrascrivendo i file omonimi. In particolare `styles.css` sostituisce il file precedente `stili.css`: il nome deve corrispondere a quello richiamato da `index.html`.
+- **Panoramica territoriale** · quadro sintetico delle componenti e delle dotazioni.
+- **Demografia** · popolazione, distribuzione per sesso ed età.
+- **Densità e abitabilità** · struttura abitativa e indicatori censuari.
+- **Analisi sociale** · IDISE 2023 e indicatori DIS1–DIS9 per UPL.
+- **Censimento e analisi dotazioni** · inventari e analisi delle sedi scolastiche.
+- **Dotazioni realizzate** · inventario dei servizi documentati come esistenti.
+- **Dotazioni analizzate · PRG e standard** · previsioni e fabbisogni teorici, distinti dalle dotazioni effettivamente realizzate.
+- **Verde urbano** · lettura delle destinazioni PRG, ricognizioni e layer di confronto indipendenti.
+- **Metabolismo urbano e resilienza ecologica** · verde accessibile, indicatori derivati e scenari di intervento.
+- **Cartografia GIS** · visualizzazione dei livelli territoriali e dei layer tematici.
+- **Analisi spaziale** · distribuzione e relazioni spaziali.
+- **Confronti** · lettura comparativa tra unità territoriali.
+- **Fonti e metodologia** · tracciabilità, documentazione e limiti dei dataset.
 
-Dopo il commit, GitHub Pages pubblica il ramo `principale` dalla cartella radice, se questa è la configurazione già impostata nel repository.
+## Scala territoriale
 
-## Dati
-Schema applicativo in `data/territoriale.json`. Gli array sono volutamente vuoti. Non inserire valori aggregati finché non è verificata la relazione tra codici delle sezioni censuarie e confini di quartieri/circoscrizioni.
+Il sistema di filtri mette in relazione Comune, 8 circoscrizioni, 25 quartieri, 55 UPL e sezioni censuarie, nei limiti di disponibilità e compatibilità dei dati. Le unità territoriali non sono intercambiabili: aggregazioni e confronti devono rispettare codici e geometrie di riferimento.
 
-Fonti da usare:
-- Comune di Palermo, popolazione residente 31/12/2022 per sezione e classi quinquennali: https://opendata.comune.palermo.it/opendata-dataset.php?dataset=1706
-- ISTAT, dati censuari 2023 per sezioni e aree subcomunali: https://www.istat.it/notizia/dati-per-sezioni-di-censimento/
-- USR Sicilia, open data delle istituzioni scolastiche: https://www.usr.sicilia.it/open-data/
+## Archivi principali
 
-## Schema minimo del JSON
-- `meta`: stato, data aggiornamento, note.
-- `territories.circoscrizioni`: oggetti `{ "id": "...", "name": "..." }`.
-- `territories.quartieri`: oggetti `{ "id": "...", "name": "...", "circ_id": "..." }`.
-- `demografia`: record validati con `territorio_id`, `anno`, `pop_totale`, `maschi`, `femmine`, `eta_0_14`, `eta_15_64`, `eta_65_plus`, `fonte`.
-- `scuole`: oggetti con identificativo, denominazione, tipologia, indirizzo, latitudine, longitudine, anno scolastico e fonte.
-- `standard`: oggetti con territorio, categoria, superficie, unità, anno e fonte.
-- `geojson`: FeatureCollection GeoJSON con proprietà `territorio_id` e `nome`.
+- `data/territoriale.json` · anagrafica territoriale e filtri.
+- `data/demografia.json` · demografia comunale 2022.
+- `data/sociale_palermo_idise_2023.json` · indicatori sociali IDISE 2023.
+- `data/analisi_densita_abitativa_2021.json` · indicatori abitativi.
+- `data/geo/` · geometrie ISTAT 2021 e layer tematici.
+- `data/geo/prg/` · zonizzazione PRG e vincoli acquisiti.
+- `data/metabolism/metadata.json` · catalogo, formule e limiti del modulo Metabolismo urbano.
+- `data/` e `tools/` · registri, procedure e controlli qualità.
+
+## Metabolismo urbano · dati e interpretazione
+
+Il modulo aggiunge un confronto tra due dataset indipendenti di verde accessibile, Copernicus Urban Atlas 2021 e OpenStreetMap 2025. Le superfici dichiarate vengono attribuite alle UPL attraverso il punto-on-feature e aggregate a quartieri e circoscrizioni. Il calcolo produce superficie attribuita, m² per residente e incidenza indicativa sul territorio.
+
+L'aggregazione per centroide è esplorativa: non equivale al clipping esatto dei poligoni sui confini e può attribuire a una sola UPL un'area che attraversa più unità. Le superfici dei due dataset non sono sommate e non certificano apertura, proprietà, manutenzione o fruibilità corrente. Il simulatore di interventi mostra quantità e volumi teorici, non previsioni idrologiche o microclimatiche.
+
+Il controllo riproducibile del modulo è eseguibile con:
+
+`python3 tools/qa_metabolism_data.py`
 
 ## Limiti e criteri
 La mappa usa Leaflet e cartografia OpenStreetMap via rete. Il sito è statico: non ha database server né autenticazione. Gli aggiornamenti automatici richiedono un flusso GitHub Actions separato e la verifica dei tracciati delle fonti prima di automatizzare la trasformazione.
