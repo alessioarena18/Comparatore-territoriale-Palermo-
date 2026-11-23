@@ -20,6 +20,11 @@ La piattaforma non sostituisce gli atti urbanistici, i dataset ufficiali o la ve
 - **Confronti** · lettura comparativa tra unità territoriali.
 - **Fonti e metodologia** · tracciabilità, documentazione e limiti dei dataset.
 
+## Documentazione per la presentazione
+
+- [Guida alla presentazione universitaria](PRESENTAZIONE_UNIVERSITARIA.md)
+- [Verifica tecnica e stato del modulo Metabolismo urbano · 24 novembre 2026](VERIFICA_TECNICA_2026-11-24.md)
+
 ## Scala territoriale
 
 Il sistema di filtri mette in relazione Comune, 8 circoscrizioni, 25 quartieri, 55 UPL e sezioni censuarie, nei limiti di disponibilità e compatibilità dei dati. Le unità territoriali non sono intercambiabili: aggregazioni e confronti devono rispettare codici e geometrie di riferimento.
