@@ -541,54 +541,53 @@ function renderUnsafe(){
  html+=`<div class="card overview-method"><h3>Come leggere il quadro</h3><div class="workflow-grid"><div><b>Demografia</b><span>Comune di Palermo, popolazione residente al 31/12/2022. Per le UPL si utilizza il riferimento ISTAT IDISE 2023.</span></div><div><b>Analisi sociale</b><span>IDISE 2023 e indicatori DIS1-DIS9, disponibili per 55 UPL.</span></div><div><b>Servizi e dotazioni</b><span>292 punti scolastici fisici georeferenziati; i punti privi di classificazione restano separati.</span></div><div><b>Cartografia</b><span>Geometrie ISTAT 2021. Tre geometrie censuarie richiedono verifica topologica in QGIS.</span></div></div></div>`;
 }else if(active==='demography'){
  const d=DATA.demografiaStruttura;
+ const s=selected();
  const quartieri=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
  const circoscrizioni=DATA.demografia.filter(x=>x.tipo_territorio==='circoscrizione');
- const normalizza=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
- const nomeQuartiere=DATA.territories.quartieri.find(x=>x.id===s.quart)?.name;
- const unsupportedResolution=!!(s.asc3||s.section);
- const righe=unsupportedResolution?[]:quartieri.filter(x=>(!s.circ||((x.circoscrizioni_id||[]).includes(s.circ)&&(s.quart||(x.circoscrizioni_id||[]).length===1)))&&(!s.quart||normalizza(x.nome)===normalizza(nomeQuartiere)));
- const aggregato=s.quart?righe[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
- const somma=campo=>unsupportedResolution?null:aggregato?Number(aggregato[campo])||0:s.circ?null:circoscrizioni.reduce((tot,x)=>tot+(Number(x[campo])||0),0);
- const italiani=somma('italiani'),stranieri=somma('stranieri'),totale=somma('totale');
- const percentuale=totale===null?'N.D.':totale?((stranieri/totale)*100).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1}):'0,0';
- const nome=unsupportedResolution?(s.section?'Sezione censuaria selezionata':'UPL selezionata'):s.quart?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
- const fmt=n=>n===null||n===undefined?'N.D.':Number(n).toLocaleString('it-IT');
- const activePopulation=d?d.sex.total-d.age.under15.count-d.age.age65plus.count:null;
- const activeShare=d&&d.sex.total?activePopulation/d.sex.total*100:null;
- const sexRatio=d?d.sex.male/d.sex.female*100:null;
- const dependency=d&&activePopulation?(d.age.under15.count+d.age.age65plus.count)/activePopulation*100:null;
- const ageLabels=['0-14','15-29','30-44','45-64','65+'];
- const ageShares=d?[d.age.under15.share,d.age.age15to29.share,d.age.age30to44.share,d.age.age45to64.share,d.age.age65plus.share]:[];
- if(!d)html+='<div class="notice-inline">Archivio della struttura demografica comunale non disponibile.</div>';
- if(d){
-  html+='<div class="notice-inline"><strong>Struttura per sesso ed età · Comune di Palermo · 2024.</strong> La fonte comunale pubblica questi dati per l’intero Comune. Non sono disponibili, nella stessa fonte, ripartizioni per sesso ed età a livello di quartiere o circoscrizione. Non vengono quindi ripartiti artificialmente.</div>';
-  html+='<div class="grid overview-kpis">'+
-   '<div class="card"><span class="muted">Popolazione residente</span><div class="metric">'+fmt(d.sex.total)+'</div><small class="muted">Censimento permanente 2024</small></div>'+
-   '<div class="card"><span class="muted">Maschi</span><div class="metric">'+fmt(d.sex.male)+'</div><small class="muted">'+(d.sex.male/d.sex.total*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'% del totale</small></div>'+
-   '<div class="card"><span class="muted">Femmine</span><div class="metric">'+fmt(d.sex.female)+'</div><small class="muted">'+(d.sex.female/d.sex.total*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'% del totale</small></div>'+
-   '<div class="card"><span class="muted">Popolazione 15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div><small class="muted">'+activeShare.toLocaleString('it-IT',{maximumFractionDigits:1})+'% · calcolata per differenza</small></div>'+
-  '</div>';
-  html+='<div class="grid"><div class="card"><h3>Popolazione per sesso · 2024</h3><div class="section-pie-wrap"><canvas id="demoSex2024"></canvas></div><p class="muted">Rapporto di mascolinità: '+sexRatio.toLocaleString('it-IT',{maximumFractionDigits:1})+' maschi ogni 100 femmine.</p></div>'+
-   '<div class="card"><h3>Popolazione per classi di età · 2024</h3><div class="section-pie-wrap"><canvas id="demoAge2024"></canvas></div><p class="muted">Classi pubblicate dal Comune: 0-14, 15-29, 30-44, 45-64 e 65 anni e oltre. Quote percentuali arrotondate a un decimale.</p></div></div>';
-  html+='<div class="card"><h3>Popolazione in età attiva e indici di struttura · 2024</h3><div class="grid overview-kpis">'+
-   '<div class="card"><span class="muted">0-14 anni</span><div class="metric">'+fmt(d.age.under15.count)+'</div></div>'+
-   '<div class="card"><span class="muted">15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div></div>'+
-   '<div class="card"><span class="muted">65 anni e oltre</span><div class="metric">'+fmt(d.age.age65plus.count)+'</div></div>'+
-   '<div class="card"><span class="muted">Dipendenza strutturale</span><div class="metric">'+dependency.toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">persone 0-14 e 65+ ogni 100 persone 15-64</small></div>'+
-   '<div class="card"><span class="muted">Dipendenza giovanile</span><div class="metric">'+Number(d.official_indicators.youth_dependency).toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">0-14 ogni 100 persone 15-64</small></div>'+
-   '<div class="card"><span class="muted">Dipendenza anziani</span><div class="metric">'+Number(d.official_indicators.elderly_dependency).toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">65+ ogni 100 persone 15-64</small></div>'+
-   '<div class="card"><span class="muted">Indice di vecchiaia</span><div class="metric">'+Number(d.official_indicators.ageing_index).toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">anziani ogni 100 giovani</small></div>'+
-  '</div><p class="muted">La popolazione in età attiva è una classe anagrafica convenzionale, non coincide con occupati o forze di lavoro. Gli indici ufficiali di dipendenza e vecchiaia sono riportati dal Comune di Palermo.</p></div>';
+ const fmt=n=>n===null||n===undefined||!Number.isFinite(Number(n))?'N.D.':Number(n).toLocaleString('it-IT');
+ const normalize=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const q=DATA.territories.quartieri.find(x=>x.id===s.quart);
+ const qFeature=s.asc2?GEO.asc2?.features?.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2)):q?findAsc2FeatureForQuartiere(q):null;
+ const circFeature=s.circ?GEO.asc1?.features?.find(x=>String(x.properties?.COD_ASC1)===String(s.circ).replace(/^c/,'')):null;
+ const uplFeature=s.asc3?GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3)):null;
+ const sectionFeature=s.section?GEO.sections?.features?.find(x=>String(x.properties?.SEZ21_ID)===String(s.section)):null;
+ const selectedFeature=sectionFeature||uplFeature||qFeature||circFeature;
+ const selectedLevel=s.section?'Sezione censuaria':s.asc3?'UPL':s.quart||s.asc2?'Quartiere':s.circ?'Circoscrizione':'Comune';
+ const selectedName=s.section?(sectionFeature?.properties?.SEZ21_ID||s.section):s.asc3?(uplFeature?.properties?.DEN_ASC3||s.asc3):q?.name||qFeature?.properties?.DEN_ASC2||circFeature?.properties?.DEN_ASC1||'Palermo';
+ const pop21=selectedFeature&&Number.isFinite(Number(selectedFeature.properties?.POP21))?Number(selectedFeature.properties.POP21):null;
+ const hasSelection=!!(s.circ||s.quart||s.asc2||s.asc3||s.section);
+ const rows=quartieri.filter(x=>(!s.circ||(x.circoscrizioni_id||[]).includes(s.circ))&&(!s.quart||normalize(x.nome)===normalize(q?.name)));
+ const row2022=s.quart?quartieri.find(x=>x.territorio_id===s.quart)||rows[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
+ const hasCitizenship=!!row2022||(!hasSelection&&circoscrizioni.length>0);
+ const citRows=hasSelection?(row2022?[row2022]:[]):quartieri;
+ const citItalian=hasSelection?(row2022?Number(row2022.italiani):null):citRows.reduce((n,x)=>n+(Number(x.italiani)||0),0);
+ const citForeign=hasSelection?(row2022?Number(row2022.stranieri):null):citRows.reduce((n,x)=>n+(Number(x.stranieri)||0),0);
+ const citTotal=hasSelection?(row2022?Number(row2022.totale):null):citRows.reduce((n,x)=>n+(Number(x.totale)||0),0);
+ const citRate=citTotal?citForeign/citTotal*100:null;
+ if(!hasSelection&&d){
+  const activePopulation=d.sex.total-d.age.under15.count-d.age.age65plus.count;
+  const activeShare=activePopulation/d.sex.total*100;
+  const sexRatio=d.sex.male/d.sex.female*100;
+  const dependency=(d.age.under15.count+d.age.age65plus.count)/activePopulation*100;
+  html+='<div class="notice-inline"><strong>Struttura demografica · Comune di Palermo · 2024.</strong> I dati per sesso ed età sono disponibili a scala comunale nella fonte ufficiale. Le analisi territoriali di dettaglio sono riportate separatamente con il proprio anno di riferimento.</div>';
+  html+='<div class="grid overview-kpis"><div class="card"><span class="muted">Popolazione residente</span><div class="metric">'+fmt(d.sex.total)+'</div><small class="muted">2024 · Comune</small></div><div class="card"><span class="muted">Maschi</span><div class="metric">'+fmt(d.sex.male)+'</div><small class="muted">'+(d.sex.male/d.sex.total*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'%</small></div><div class="card"><span class="muted">Femmine</span><div class="metric">'+fmt(d.sex.female)+'</div><small class="muted">'+(d.sex.female/d.sex.total*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'%</small></div><div class="card"><span class="muted">Popolazione 15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div><small class="muted">'+activeShare.toLocaleString('it-IT',{maximumFractionDigits:1})+'% · calcolata</small></div></div>';
+  html+='<div class="grid"><div class="card"><h3>Popolazione per sesso · 2024</h3><div class="section-pie-wrap"><canvas id="demoSex2024"></canvas></div><p class="muted">Rapporto di mascolinità: '+sexRatio.toLocaleString('it-IT',{maximumFractionDigits:1})+' maschi ogni 100 femmine.</p></div><div class="card"><h3>Popolazione per classi di età · 2024</h3><div class="section-pie-wrap"><canvas id="demoAge2024"></canvas></div><p class="muted">Classi pubblicate: 0-14, 15-29, 30-44, 45-64 e 65 anni e oltre.</p></div></div>';
+  html+='<div class="card"><h3>Popolazione attiva e indici demografici · 2024</h3><div class="grid overview-kpis"><div class="card"><span class="muted">0-14 anni</span><div class="metric">'+fmt(d.age.under15.count)+'</div></div><div class="card"><span class="muted">15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div></div><div class="card"><span class="muted">65 anni e oltre</span><div class="metric">'+fmt(d.age.age65plus.count)+'</div></div><div class="card"><span class="muted">Dipendenza strutturale</span><div class="metric">'+dependency.toLocaleString('it-IT',{maximumFractionDigits:1})+'</div></div><div class="card"><span class="muted">Dipendenza giovanile</span><div class="metric">'+fmt(d.official_indicators.youth_dependency)+'</div></div><div class="card"><span class="muted">Dipendenza anziani</span><div class="metric">'+fmt(d.official_indicators.elderly_dependency)+'</div></div><div class="card"><span class="muted">Indice di vecchiaia</span><div class="metric">'+fmt(d.official_indicators.ageing_index)+'</div></div></div><p class="muted">La popolazione 15-64 è una fascia anagrafica convenzionale e non coincide con gli occupati.</p></div>';
+ }else if(hasSelection){
+  html+='<div class="notice-inline"><strong>Ambito selezionato: '+esc(selectedLevel)+' · '+esc(selectedName)+'.</strong> I valori seguenti sono ricondotti alla scala territoriale attiva. Non vengono mostrati i valori comunali 2024 come se appartenessero al singolo ambito.</div>';
+  html+='<div class="grid overview-kpis"><div class="card"><span class="muted">Popolazione residente · ISTAT 2021</span><div class="metric">'+fmt(pop21)+'</div><small class="muted">'+esc(selectedLevel)+' · dato censuario</small></div><div class="card"><span class="muted">Famiglie · ISTAT 2021</span><div class="metric">'+fmt(selectedFeature?.properties?.FAM21===undefined?null:selectedFeature.properties.FAM21)+'</div></div><div class="card"><span class="muted">Abitazioni · ISTAT 2021</span><div class="metric">'+fmt(selectedFeature?.properties?.ABI21===undefined?null:selectedFeature.properties.ABI21)+'</div></div></div>';
+  html+='<div class="notice-inline">La fonte demografica 2024 per sesso e classi di età non offre il dettaglio '+esc(selectedLevel.toLowerCase())+'. Per questa scala si utilizza quindi la popolazione censuaria ISTAT 2021. Gli indicatori per sesso, età e popolazione attiva non vengono stimati né ripartiti artificialmente.</div>';
  }
- if(unsupportedResolution)html+='<div class="notice-inline">I dati territoriali 2022 disponibili non sono attribuiti a UPL o sezioni censuarie. La struttura per sesso ed età 2024 è disponibile esclusivamente per l’intero Comune.</div>';
- html+='<div class="card"><h3>Popolazione residente per territorio · 2022</h3><p class="muted">Dati anagrafici comunali per cittadinanza, distinti dalla struttura per sesso ed età 2024 riportata sopra.</p>'+
-  '<div class="grid"><div class="card"><span class="muted">Totale residenti</span><div class="metric">'+fmt(totale)+'</div></div><div class="card"><span class="muted">Cittadini italiani</span><div class="metric">'+fmt(italiani)+'</div></div><div class="card"><span class="muted">Cittadini stranieri</span><div class="metric">'+fmt(stranieri)+'</div></div><div class="card"><span class="muted">Incidenza stranieri</span><div class="metric">'+percentuale+(percentuale==='N.D.'?'':'%')+'</div></div></div>'+
-  '<p class="muted">La tabella territoriale seguente riporta i quartieri disponibili nel filtro selezionato. I quartieri che interessano più circoscrizioni sono esclusi dal totale della singola circoscrizione per evitare attribuzioni integrali e doppi conteggi.</p></div>';
- const quartieriConfinanti=s.circ&&!s.quart?quartieri.filter(x=>(x.circoscrizioni_id||[]).includes(s.circ)&&(x.circoscrizioni_id||[]).length>1):[];
- if(quartieriConfinanti.length)html+='<div class="notice-inline">'+quartieriConfinanti.map(x=>esc(x.nome)).join(', ')+' interessa più circoscrizioni. Il dato demografico è disponibile solo per il quartiere intero e non viene attribuito integralmente alla circoscrizione selezionata.</div>';
- html+='<div class="card"><h3>Confronto demografico dei quartieri · 2022</h3><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>'+[...righe].sort((a,b)=>b.totale-a.totale).map(x=>'<tr><td>'+esc(x.nome)+'</td><td>'+fmt(x.italiani)+'</td><td>'+fmt(x.stranieri)+'</td><td>'+fmt(x.totale)+'</td><td>'+(x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0')+'%</td></tr>').join('')+'</tbody></table></div></div>';
- html+='<div class="grid"><div class="card"><h3>Composizione per cittadinanza · ambito selezionato · 2022</h3><canvas id="chartComposizione"></canvas></div><div class="card"><h3>Popolazione residente per quartiere · 2022</h3><div style="height:'+Math.max(520,righe.length*27)+'px;position:relative"><canvas id="chartQuartieri"></canvas></div></div></div><div class="card"><h3>Incidenza della popolazione straniera per quartiere · 2022</h3><canvas id="chartIncidenza"></canvas></div>';
- html+='<div class="card"><h3>Fonti e limiti di comparabilità</h3><ul><li>Comune di Palermo, Palermo Statistica 2024, Capitolo 10: popolazione per sesso, classi di età e indicatori strutturali, scala comunale.</li><li>Comune di Palermo, Open Data: popolazione residente al 31/12/2022 per quartiere e circoscrizione, distinta per cittadinanza.</li></ul><p class="muted">I dati 2024 per sesso ed età e quelli territoriali 2022 hanno date e livelli geografici differenti. Non sono combinati in un’unica tabella né trasferiti ai quartieri. Le fasce di età 15-64 sono ricavate come totale meno 0-14 e 65+.</p></div>';
+ if(hasCitizenship&&citTotal!==null){
+  html+='<div class="card"><h3>Composizione per cittadinanza · '+(hasSelection?'ambito selezionato':'territorio comunale')+' · 2022</h3><div class="grid overview-kpis"><div class="card"><span class="muted">Residenti</span><div class="metric">'+fmt(citTotal)+'</div></div><div class="card"><span class="muted">Cittadini italiani</span><div class="metric">'+fmt(citItalian)+'</div></div><div class="card"><span class="muted">Cittadini stranieri</span><div class="metric">'+fmt(citForeign)+'</div></div><div class="card"><span class="muted">Incidenza stranieri</span><div class="metric">'+(citRate===null?'N.D.':citRate.toLocaleString('it-IT',{maximumFractionDigits:1})+'%')+'</div></div></div><p class="muted">Dato anagrafico comunale al 31/12/2022. È disponibile per quartiere e circoscrizione, non per UPL o sezione censuaria.</p></div>';
+ }
+ if(!hasSelection){
+  html+='<div class="card"><h3>Confronto demografico dei quartieri · 2022</h3><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>'+[...quartieri].sort((a,b)=>b.totale-a.totale).map(x=>'<tr><td>'+esc(x.nome)+'</td><td>'+fmt(x.italiani)+'</td><td>'+fmt(x.stranieri)+'</td><td>'+fmt(x.totale)+'</td><td>'+(x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0')+'%</td></tr>').join('')+'</tbody></table></div></div>';
+  html+='<div class="grid"><div class="card"><h3>Composizione per cittadinanza · Comune · 2022</h3><canvas id="chartComposizione"></canvas></div><div class="card"><h3>Popolazione residente per quartiere · 2022</h3><div style="height:'+Math.max(520,quartieri.length*27)+'px;position:relative"><canvas id="chartQuartieri"></canvas></div></div></div><div class="card"><h3>Incidenza della popolazione straniera per quartiere · 2022</h3><canvas id="chartIncidenza"></canvas></div>';
+ }else if(s.circ||s.quart){
+  html+='<div class="card"><h3>Confronto dei quartieri appartenenti all’ambito selezionato · 2022</h3><p class="muted">Per le circoscrizioni, i quartieri che ricadono in più circoscrizioni non sono sommati integralmente, per evitare doppi conteggi. Il totale anagrafico 2022 della circoscrizione è mostrato separatamente sopra.</p><div style="overflow-x:auto"><table><thead><tr><th>Quartiere</th><th>Italiani</th><th>Stranieri</th><th>Totale</th><th>% stranieri</th></tr></thead><tbody>'+rows.map(x=>'<tr><td>'+esc(x.nome)+'</td><td>'+fmt(x.italiani)+'</td><td>'+fmt(x.stranieri)+'</td><td>'+fmt(x.totale)+'</td><td>'+(x.totale?((x.stranieri/x.totale)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'0')+'%</td></tr>').join('')+'</tbody></table></div></div>';
+ }
+ html+='<div class="card"><h3>Fonti e limiti di comparabilità</h3><ul><li>Comune di Palermo, Palermo Statistica 2024, Capitolo 10: struttura per sesso ed età, scala comunale.</li><li>Comune di Palermo, Open Data: residenti per quartiere e circoscrizione al 31/12/2022, per cittadinanza.</li><li>ISTAT, Censimento 2021: POP21, FAM21 e ABI21 per circoscrizione, quartiere, UPL e sezione censuaria, ove presenti nel layer.</li></ul><p class="muted">Gli anni e le fonti sono mantenuti distinti. Non vengono ricavati dati di sesso o classi d’età per ambiti dove la fonte non li pubblica.</p></div>';
 }else if(active==='housing'){
  const d=DATA.housing;
  if(!d){html+='<div class="notice"><h3>Archivio non disponibile</h3><p>Non è stato possibile caricare il rapporto ISTAT 2021 sulla struttura abitativa ed edilizia.</p></div>';}
@@ -1022,21 +1021,18 @@ if(active==='housing'&&window.Chart&&DATA.housing){
 }
 if(active==='demography'&&window.Chart){
  const sd=selected(),d=DATA.demografiaStruttura;
- const normGrafico=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
- const qd=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
- const nomeQD=DATA.territories.quartieri.find(x=>x.id===sd.quart)?.name;
- const rd=(sd.asc3||sd.section)?[]:qd.filter(x=>(!sd.circ||((x.circoscrizioni_id||[]).includes(sd.circ)&&(sd.quart||(x.circoscrizioni_id||[]).length===1)))&&(!sd.quart||normGrafico(x.nome)===normGrafico(nomeQD)));
- const sommaD=k=>rd.reduce((a,x)=>a+(Number(x[k])||0),0);
+ const cityOnly=!(sd.circ||sd.quart||sd.asc2||sd.asc3||sd.section);
  const canvasD=id=>document.getElementById(id);
- if(d&&canvasD('demoSex2024'))charts.push(new Chart(canvasD('demoSex2024'),{type:'doughnut',data:{labels:['Maschi','Femmine'],datasets:[{data:[d.sex.male,d.sex.female]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw).toLocaleString('it-IT')}}}}}));
- if(d&&canvasD('demoAge2024'))charts.push(new Chart(canvasD('demoAge2024'),{type:'bar',data:{labels:['0-14','15-29','30-44','45-64','65+'],datasets:[{label:'Popolazione (%)',data:[d.age.under15.share,d.age.age15to29.share,d.age.age30to44.share,d.age.age45to64.share,d.age.age65plus.share]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>Number(ctx.raw).toLocaleString('it-IT',{maximumFractionDigits:1})+'%'}}},scales:{y:{beginAtZero:true,max:35,ticks:{callback:v=>v+'%'}}}}}));
- const canvasD2=id=>document.getElementById(id);
- const composizioneDemo=sd.quart?qd.find(x=>x.territorio_id===sd.quart):sd.circ?DATA.demografia.find(x=>x.tipo_territorio==='circoscrizione'&&x.territorio_id===sd.circ):null;
- const composizioneValori=composizioneDemo?[Number(composizioneDemo.italiani)||0,Number(composizioneDemo.stranieri)||0]:[sommaD('italiani'),sommaD('stranieri')];
- if(canvasD2('chartComposizione'))charts.push(new Chart(canvasD2('chartComposizione'),{type:'doughnut',data:{labels:['Italiani','Stranieri'],datasets:[{data:composizioneValori}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}));
- const topD=[...rd].sort((a,b)=>b.totale-a.totale);
- if(canvasD2('chartQuartieri'))charts.push(new Chart(canvasD2('chartQuartieri'),{type:'bar',data:{labels:topD.map(x=>x.nome),datasets:[{label:'Residenti · 2022',data:topD.map(x=>x.totale)}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true},y:{ticks:{autoSkip:false,font:{size:10}}}}}}));
- if(canvasD2('chartIncidenza')){const incD=[...rd].sort((a,b)=>(b.stranieri/b.totale)-(a.stranieri/a.totale));charts.push(new Chart(canvasD2('chartIncidenza'),{type:'bar',data:{labels:incD.map(x=>x.nome),datasets:[{label:'Stranieri (%) · 2022',data:incD.map(x=>x.totale?Number((x.stranieri/x.totale*100).toFixed(2)):0),backgroundColor:'#dc2626',borderColor:'#991b1b',borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));}
+ if(cityOnly&&d&&canvasD('demoSex2024'))charts.push(new Chart(canvasD('demoSex2024'),{type:'doughnut',data:{labels:['Maschi','Femmine'],datasets:[{data:[d.sex.male,d.sex.female]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw).toLocaleString('it-IT')}}}}}));
+ if(cityOnly&&d&&canvasD('demoAge2024'))charts.push(new Chart(canvasD('demoAge2024'),{type:'bar',data:{labels:['0-14','15-29','30-44','45-64','65+'],datasets:[{label:'Popolazione (%)',data:[d.age.under15.share,d.age.age15to29.share,d.age.age30to44.share,d.age.age45to64.share,d.age.age65plus.share]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>Number(ctx.raw).toLocaleString('it-IT',{maximumFractionDigits:1})+'%'}}},scales:{y:{beginAtZero:true,max:35,ticks:{callback:v=>v+'%'}}}}}));
+ const demRows=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
+ const cityTotal=demRows.reduce((n,x)=>n+(Number(x.totale)||0),0);
+ const citTotal=demRows.reduce((n,x)=>n+(Number(x.italiani)||0),0);
+ const citForeign=demRows.reduce((n,x)=>n+(Number(x.stranieri)||0),0);
+ if(cityOnly&&canvasD('chartComposizione'))charts.push(new Chart(canvasD('chartComposizione'),{type:'doughnut',data:{labels:['Italiani','Stranieri'],datasets:[{data:[citTotal,citForeign]}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}}));
+ const topD=[...demRows].sort((a,b)=>b.totale-a.totale);
+ if(cityOnly&&canvasD('chartQuartieri'))charts.push(new Chart(canvasD('chartQuartieri'),{type:'bar',data:{labels:topD.map(x=>x.nome),datasets:[{label:'Residenti · 2022',data:topD.map(x=>x.totale)}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true},y:{ticks:{autoSkip:false,font:{size:10}}}}}}));
+ if(cityOnly&&canvasD('chartIncidenza')){const incD=[...demRows].sort((a,b)=>(b.stranieri/b.totale)-(a.stranieri/a.totale));charts.push(new Chart(canvasD('chartIncidenza'),{type:'bar',data:{labels:incD.map(x=>x.nome),datasets:[{label:'Stranieri (%) · 2022',data:incD.map(x=>x.totale?Number((x.stranieri/x.totale*100).toFixed(2)):0),backgroundColor:'#dc2626',borderColor:'#991b1b',borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'}}}}}));}
 }
 if(active==='spatial'&&window.Chart){const rows=asc3Sorted.slice(0,10),bar=document.getElementById('spatialUplChart');if(bar)charts.push(new Chart(bar,{type:'bar',data:{labels:rows.map(x=>x.name),datasets:[{label:'Popolazione POP21',data:rows.map(x=>x.pop)}]},options:{responsive:true,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{beginAtZero:true}}}}));}
 if(active==='compare'&&window.Chart){
