@@ -47,6 +47,19 @@ function housingRows(data,s,requestedLevel){
 }
 
 
+function getSocialQuartiereGroups(){
+ if(GEO.socialQuartiereGroupsCache)return GEO.socialQuartiereGroupsCache;
+ if(!GEO.asc2?.features?.length||!GEO.asc3?.features?.length)return [];
+ const groups=(DATA.territories?.quartieri||[]).map(quartiere=>{
+  const qFeature=findAsc2FeatureForQuartiere(quartiere);
+  const upl=(GEO.asc3.features||[]).filter(feature=>qFeature&&findParentFeature(feature,'asc3','asc2')===qFeature)
+   .map(feature=>(DATA.sociale||[]).find(a=>String(a.cod_asc)===String(feature.properties?.COM_ASC3)))
+   .filter(Boolean).sort((a,b)=>a.nome.localeCompare(b.nome,'it'));
+  return {quartiere,upl};
+ });
+ GEO.socialQuartiereGroupsCache=groups;
+ return groups;
+}
 function housingPointOnFeature(feature){
  if(window.turf?.pointOnFeature){try{return turf.pointOnFeature(feature).geometry.coordinates;}catch{}}
  const ring=feature?.geometry?.type==='Polygon'?feature.geometry.coordinates?.[0]:feature?.geometry?.type==='MultiPolygon'?feature.geometry.coordinates?.[0]?.[0]:null;
@@ -618,10 +631,11 @@ if(active==='social'){
     <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
   </div>
   <div class="card social-select"><h3>3 - Confronto degli ambiti territoriali</h3>
-    <p class="muted">Seleziona almeno due UPL per confrontare IDISE e indicatori DIS1-DIS9. L’elenco comprende tutte le 55 UPL di Palermo anche quando il selettore generale è impostato su una singola circoscrizione, quartiere o UPL: in questo modo il confronto mantiene il riferimento all’intero Comune.</p>
+    <p class="muted">I 25 quartieri raggruppano le 55 UPL ISTAT 2023. Apri ciascun quartiere per consultare o selezionare le UPL associate. Selezionando il quartiere vengono incluse tutte le sue UPL; puoi anche selezionare un sottoinsieme per un confronto parziale. Il confronto mantiene il riferimento all’intero Comune, indipendentemente dai filtri territoriali generali.</p>
     <div id="uplSelezione" class="upl-selector">
-      ${[...(DATA.sociale||[])].sort((a,b)=>a.nome.localeCompare(b.nome,'it')).map(a=>'<label class="upl-option"><input type="checkbox" class="upl-check" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')}
+      ${getSocialQuartiereGroups().map(g=>'<details class="quart-upl-group"><summary><strong>'+esc(g.quartiere.name)+'</strong> <span class="muted">· '+g.upl.length+' UPL</span></summary><div class="quart-upl-options"><label class="upl-option"><input type="checkbox" class="quarter-check" value="'+esc(g.quartiere.id)+'"> Seleziona tutte le UPL del quartiere</label>'+g.upl.map(a=>'<label class="upl-option upl-child-option"><input type="checkbox" class="upl-check" data-quarter="'+esc(g.quartiere.id)+'" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')+'</div></details>').join('')}
     </div>
+    <p class="muted">La selezione completa di un gruppo produce un macro-indicatore del quartiere. Una selezione parziale produce un indicatore riferito esclusivamente alle UPL spuntate.</p>
   </div>
   <div class="card"><h3>4 - Indice di disagio socio-economico IDISE 2023</h3>
     <p class="muted">Fonte: ISTAT, anno 2023. L’IDISE è un indice composito AMPI+, non una percentuale: il riferimento medio comunale è 100. I valori sono confrontabili tra UPL dello stesso Comune e dello stesso anno; valori superiori a 100 indicano un disagio sopra il riferimento comunale, valori inferiori un disagio sotto il riferimento.</p>
@@ -921,16 +935,41 @@ if(active==='standards'){
 if(active==='social'){
   const box=document.getElementById('uplConfronto');
   const indicatori=['DIS1','DIS2','DIS3','DIS4','DIS5','DIS6','DIS7','DIS8','DIS9'];
+  const socialQuartiereGroups=getSocialQuartiereGroups();
+  function syncQuarterChecks(){
+    document.querySelectorAll('.quart-upl-group').forEach(group=>{
+      const children=[...group.querySelectorAll('.upl-check')],parent=group.querySelector('.quarter-check');
+      if(!parent)return;
+      const count=children.filter(x=>x.checked).length;
+      parent.checked=children.length>0&&count===children.length;
+      parent.indeterminate=count>0&&count<children.length;
+    });
+  }
   function aggiornaConfronto(){
     const codici=[...document.querySelectorAll('.upl-check:checked')].map(x=>x.value);
-    const selezionate=DATA.sociale.filter(x=>codici.includes(x.cod_asc));
-    if(selezionate.length<2){box.innerHTML='<h3>Confronto tra UPL</h3><p class="muted">Seleziona almeno due UPL per visualizzare i valori a confronto.</p>';return;}
-    const numero=v=>v===null||v===undefined||v===''?'N.D.':Number(v).toLocaleString('it-IT',{maximumFractionDigits:2});
-    const righe=[['IDISE',a=>a.idise],['Popolazione',a=>a.popolazione],['Famiglie',a=>a.famiglie],['Superficie (km²)',a=>a.superficie_km2],...indicatori.map(k=>[k,a=>a.dis?.[k]])];
-    box.innerHTML='<h3>Confronto tra '+selezionate.length+' UPL</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+selezionate.map(a=>'<th>'+esc(a.nome)+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+nome+'</th>'+selezionate.map(a=>'<td>'+numero(fn(a))+(indicatori.includes(nome)?' %':'')+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">DIS1-DIS9 sono percentuali (%). Il denominatore varia in base all’indicatore ed è specificato nella scheda descrittiva. DIS4 ha polarità inversa rispetto al disagio. IDISE è invece un indice composito con riferimento comunale pari a 100.</p>';
+    const gruppiSelezionati=socialQuartiereGroups.map(g=>{
+      const selezionate=g.upl.filter(x=>codici.includes(String(x.cod_asc)));
+      if(!selezionate.length)return null;
+      const pop=selezionate.reduce((n,x)=>n+(Number(x.popolazione)||0),0);
+      const fam=selezionate.reduce((n,x)=>n+(Number(x.famiglie)||0),0);
+      const area=selezionate.reduce((n,x)=>n+(Number(x.superficie_km2)||0),0);
+      const idiseDen=selezionate.reduce((n,x)=>n+(Number(x.popolazione)||0),0);
+      const idise=idiseDen?selezionate.reduce((n,x)=>n+(Number(x.idise)||0)*(Number(x.popolazione)||0),0)/idiseDen:null;
+      const dis=Object.fromEntries(indicatori.map(k=>{const vals=selezionate.map(x=>Number(x.dis?.[k])).filter(Number.isFinite);return [k,vals.length?vals.reduce((n,v)=>n+v,0)/vals.length:null];}));
+      return {name:g.quartiere.name,upl:selezionate,total:g.upl.length,pop,fam,area,idise,dis,partial:selezionate.length!==g.upl.length};
+    }).filter(Boolean);
+    const numero=v=>v===null||v===undefined||v===''||!Number.isFinite(Number(v))?'N.D.':Number(v).toLocaleString('it-IT',{maximumFractionDigits:2});
+    if(gruppiSelezionati.length<2){box.innerHTML='<h3>Confronto tra quartieri</h3><p class="muted">Seleziona le UPL di almeno due quartieri, oppure seleziona tutte le UPL di ciascun quartiere con la casella del gruppo.</p>';return;}
+    const righe=[['UPL incluse',a=>a.upl.length+' / '+a.total],['Popolazione UPL (ISTAT 2023)',a=>numero(a.pop)],['Famiglie',a=>numero(a.fam)],['Superficie complessiva (km²)',a=>numero(a.area)],['IDISE sintetico ponderato per popolazione',a=>numero(a.idise)],...indicatori.map(k=>[k+' · media UPL (%)',a=>numero(a.dis[k])])];
+    box.innerHTML='<h3>Macro-indicatori · '+gruppiSelezionati.length+' quartieri</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+gruppiSelezionati.map(a=>'<th>'+esc(a.name)+(a.partial?' · sottoinsieme':'')+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+esc(nome)+'</th>'+gruppiSelezionati.map(a=>'<td>'+fn(a)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">Metodo: le UPL sono associate al quartiere che contiene la maggioranza dei punti di campionamento interni alla geometria UPL (point-in-polygon su griglia 28×28). IDISE è una media ponderata per la popolazione delle UPL, non un IDISE ufficiale di quartiere. DIS1-DIS9 sono medie aritmetiche non ponderate dei valori UPL, non tassi ricalcolati sui denominatori originari. Popolazione e famiglie sono somme delle UPL selezionate. '+(gruppiSelezionati.some(a=>a.partial)?'Le colonne contrassegnate come sottoinsieme includono solo le UPL spuntate. ':'')+'I risultati sono aggregazioni esplorative derivate dall’archivio ISTAT 2023.</p>';
   }
-  document.querySelectorAll('.upl-check').forEach(c=>c.addEventListener('change',aggiornaConfronto));
-  aggiornaConfronto();
+  document.querySelectorAll('.quarter-check').forEach(parent=>parent.addEventListener('change',()=>{
+    const group=parent.closest('.quart-upl-group');
+    group?.querySelectorAll('.upl-check').forEach(child=>{child.checked=parent.checked;});
+    parent.indeterminate=false;aggiornaConfronto();
+  }));
+  document.querySelectorAll('.upl-check').forEach(child=>child.addEventListener('change',()=>{syncQuarterChecks();aggiornaConfronto();}));
+  syncQuarterChecks();aggiornaConfronto();
 }
 if(active==='housing'&&window.Chart&&DATA.housing){
  const s=selected(),d=DATA.housing,level=(s.section||s.asc3)?'upl':housingLevel,rows=housingRows(d,s,level);
