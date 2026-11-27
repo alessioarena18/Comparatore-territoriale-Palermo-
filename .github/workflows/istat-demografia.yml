@@ -1,0 +1,37 @@
+name: Acquisizione dati demografici ISTAT 2023
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/istat-demografia.yml'
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il pacchetto ufficiale ISTAT
+        run: |
+          curl -fL --retry 3 --retry-delay 5 "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip" -o /tmp/Comuni_2023.zip
+          ls -lh /tmp/Comuni_2023.zip
+      - name: Ispeziona struttura e tracciati
+        run: |
+          python - <<'PY'
+          import zipfile, pathlib
+          p='/tmp/Comuni_2023.zip'
+          z=zipfile.ZipFile(p)
+          names=z.namelist()
+          print('ZIP_MEMBERS',len(names))
+          for n in names[:150]: print('MEMBER',n)
+          for n in names:
+              if '082053' in n or 'Palermo' in n.lower() or n.lower().endswith(('.csv','.txt','.dat','.xlsx','.xls','.dbf')):
+                  info=z.getinfo(n)
+                  print('CANDIDATE',n,info.file_size)
+                  if n.lower().endswith(('.csv','.txt','.dat')):
+                      with z.open(n) as f:
+                          for i in range(5):
+                              line=f.readline()
+                              if not line: break
+                              print('ROW',line[:1000].decode('utf-8-sig',errors='replace').rstrip())
+          PY
