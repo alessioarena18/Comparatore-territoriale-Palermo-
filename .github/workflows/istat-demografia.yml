@@ -6,28 +6,64 @@ on:
     paths:
       - '.github/workflows/istat-demografia.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
-  inspect:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Scarica pacchetto ISTAT
+      - uses: actions/checkout@v4
+      - name: Scarica pacchetto ISTAT ufficiale
         run: curl -fL --retry 3 --retry-delay 5 "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip" -o /tmp/Comuni_2023.zip
-      - name: Stampa tracciato e codici subcomunali
+      - name: Aggrega dati demografici per aree amministrative
         run: |
           python -m pip install --quiet openpyxl
           python - <<'PY'
-          import zipfile,io,openpyxl,json,collections
+          import zipfile,io,openpyxl,json,collections,os
           z=zipfile.ZipFile('/tmp/Comuni_2023.zip')
           w=openpyxl.load_workbook(io.BytesIO(z.read('Comuni_2023/Palermo_2023_sezioni.xlsx')),read_only=True,data_only=True)
-          s=w['Tracciato']
-          for row in s.iter_rows(min_row=2,values_only=True):
-              print('FIELD',row[0],row[1])
           d=w['Palermo_2023_sezioni']
-          h=next(d.iter_rows(min_row=1,max_row=1,values_only=True))
-          ix={k:i for i,k in enumerate(h)}
-          print('ROWS',d.max_row-1,'COLUMNS',len(h))
-          for key in ['COM_ASC1','COM_ASC2','COM_ASC3']:
-              vals=collections.Counter(str(row[ix[key]]) for row in d.iter_rows(min_row=2,values_only=True))
-              print('CODES',key,dict(vals))
+          rows=list(d.iter_rows(min_row=1,values_only=True))
+          h=list(rows[0]); data=rows[1:]; ix={k:i for i,k in enumerate(h)}
+          defs={r[0]:r[1] for r in w['Tracciato'].iter_rows(min_row=2,values_only=True) if r[0]}
+          geo={}
+          for level,path,key,namekey in [
+            ('circoscrizioni','data/geo/circoscrizioni_palermo_2021.geojson','COM_ASC1','DEN_ASC1'),
+            ('quartieri','data/geo/aree_subcomunali_liv2_palermo_2021.geojson','COM_ASC2','DEN_ASC2'),
+            ('upl','data/geo/aree_subcomunali_liv3_palermo_2021.geojson','COM_ASC3','DEN_ASC3')]:
+              gj=json.load(open(path,encoding='utf-8'))
+              geo[level]={str(f['properties'][key]):f['properties'][namekey] for f in gj['features']}
+          def n(row,k):
+              v=row[ix[k]]
+              return int(v or 0)
+          specs=[('circoscrizioni','COM_ASC1'),('quartieri','COM_ASC2'),('upl','COM_ASC3')]
+          out={'meta':{'titolo':'Popolazione e struttura demografica subcomunale di Palermo','fonte':'ISTAT, Censimento permanente della popolazione e delle abitazioni, dati per sezioni di censimento e aree subcomunali','anno':2023,'data_riferimento':'2023-12-31','base_territoriale':2021,'stato':'Aggregazioni calcolate dalle sezioni censuarie ufficiali; verificare quadratura con totale comunale','variabili':{k:defs[k] for k in ['P1','P2','P3','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P101','P102','P103','PF1','A2','A3','A8'] if k in defs}},'territori':{}}
+          totals={}
+          for level,key in specs:
+              grouped=collections.defaultdict(lambda:collections.Counter())
+              for row in data:
+                  code=str(row[ix[key]] or '')
+                  if code not in geo[level]: continue
+                  for field in ['P1','P2','P3','P14','P15','P16','P17','P18','P19','P20','P21','P22','P23','P24','P25','P26','P27','P28','P29','P101','P102','P103','PF1','A2','A3','A8']:
+                      grouped[code][field]+=n(row,field)
+              records=[]
+              for code,c in sorted(grouped.items()):
+                  under15=sum(c[k] for k in ['P14','P15','P16'])
+                  age15_64=sum(c[k] for k in ['P17','P18','P19','P20','P21','P22','P23','P24','P25','P26'])
+                  over65=sum(c[k] for k in ['P27','P28','P29'])
+                  records.append({'codice':code,'nome':geo[level][code],'popolazione':c['P1'],'maschi':c['P2'],'femmine':c['P3'],'eta_0_14':under15,'eta_15_64':age15_64,'eta_65_plus':over65,'occupati_15_64':c['P101'],'occupati_maschi_15_64':c['P102'],'occupate_femmine_15_64':c['P103'],'famiglie':c['PF1'],'abitazioni_occupate':c['A2'],'abitazioni_vuote_o_non_residenti':c['A3'],'abitazioni_totali':c['A8'],'indici':{'dipendenza_giovanile':round(under15/age15_64*100,2) if age15_64 else None,'dipendenza_anziani':round(over65/age15_64*100,2) if age15_64 else None,'dipendenza_strutturale':round((under15+over65)/age15_64*100,2) if age15_64 else None,'vecchiaia':round(over65/under15*100,2) if under15 else None,'occupazione_15_64':round(c['P101']/age15_64*100,2) if age15_64 else None}})
+              out['territori'][level]=records
+              totals[level]=sum(x['popolazione'] for x in records)
+          out['meta']['totali_territoriali']=totals
+          out['meta']['sezioni_elaborate']=len(data)
+          out['meta']['controllo_sesso']=all(x['maschi']+x['femmine']==x['popolazione'] for level in out['territori'].values() for x in level)
+          out['meta']['controllo_classi_eta']=all(x['eta_0_14']+x['eta_15_64']+x['eta_65_plus']==x['popolazione'] for level in out['territori'].values() for x in level)
+          json.dump(out,open('data/demografia_territoriale_2023.json','w',encoding='utf-8'),ensure_ascii=False,indent=2)
+          print(json.dumps(out['meta'],ensure_ascii=False))
           PY
+      - name: Verifica JSON e commit archivio
+        run: |
+          python -m json.tool data/demografia_territoriale_2023.json > /dev/null
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/demografia_territoriale_2023.json
+          git diff --cached --quiet || (git commit -m "Integra dati demografici ISTAT 2023 per aree subcomunali" && git push)
