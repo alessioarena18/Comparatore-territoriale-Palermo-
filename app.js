@@ -556,6 +556,14 @@ function renderUnsafe(){
  const selectedName=s.section?(sectionFeature?.properties?.SEZ21_ID||s.section):s.asc3?(uplFeature?.properties?.DEN_ASC3||s.asc3):q?.name||qFeature?.properties?.DEN_ASC2||circFeature?.properties?.DEN_ASC1||'Palermo';
  const pop21=selectedFeature&&Number.isFinite(Number(selectedFeature.properties?.POP21))?Number(selectedFeature.properties.POP21):null;
  const hasSelection=!!(s.circ||s.quart||s.asc2||s.asc3||s.section);
+ const territorialData=DATA.demografiaTerritoriale;
+ const territorialLevel=s.section?null:s.asc3?'upl':(s.quart||s.asc2)?'quartieri':s.circ?'circoscrizioni':null;
+ const territorialCode=s.asc3?String(uplFeature?.properties?.COM_ASC3||s.asc3):((s.quart||s.asc2)?String(qFeature?.properties?.COM_ASC2||s.asc2):s.circ?String(circFeature?.properties?.COM_ASC1||''):'');
+ const territorialRecords=territorialLevel?(territorialData?.territori?.[territorialLevel]||[]):[];
+ const territorialRecord=territorialRecords.find(x=>String(x.codice)===territorialCode);
+ const cityRecords=territorialData?.territori?.circoscrizioni||[];
+ const city2023=cityRecords.length?cityRecords.reduce((a,x)=>{for(const k of ['popolazione','maschi','femmine','eta_0_14','eta_15_64','eta_65_plus','occupati_15_64','famiglie','abitazioni_occupate','abitazioni_vuote_o_non_residenti','abitazioni_totali'])a[k]=(a[k]||0)+(Number(x[k])||0);return a;},{}):null;
+ const demographicRecord=hasSelection?territorialRecord:city2023;
  const rows=quartieri.filter(x=>(!s.circ||(x.circoscrizioni_id||[]).includes(s.circ))&&(!s.quart||normalize(x.nome)===normalize(q?.name)));
  const row2022=s.quart?quartieri.find(x=>x.territorio_id===s.quart)||rows[0]:s.circ?circoscrizioni.find(x=>x.territorio_id===s.circ):null;
  const hasCitizenship=!!row2022||(!hasSelection&&circoscrizioni.length>0);
@@ -564,7 +572,17 @@ function renderUnsafe(){
  const citForeign=hasSelection?(row2022?Number(row2022.stranieri):null):citRows.reduce((n,x)=>n+(Number(x.stranieri)||0),0);
  const citTotal=hasSelection?(row2022?Number(row2022.totale):null):citRows.reduce((n,x)=>n+(Number(x.totale)||0),0);
  const citRate=citTotal?citForeign/citTotal*100:null;
- if(!hasSelection&&d){
+ if(demographicRecord){
+  const pop=Number(demographicRecord.popolazione)||0, activePopulation=Number(demographicRecord.eta_15_64)||0, under15=Number(demographicRecord.eta_0_14)||0, over65=Number(demographicRecord.eta_65_plus)||0;
+  const activeShare=pop?activePopulation/pop*100:0, sexRatio=demographicRecord.femmine?demographicRecord.maschi/demographicRecord.femmine*100:0;
+  const dependency=activePopulation?(under15+over65)/activePopulation*100:null;
+  const label=hasSelection?selectedLevel+' · '+selectedName:'Comune di Palermo';
+  html+='<div class="notice-inline"><strong>Struttura demografica · '+esc(label)+' · ISTAT 2023.</strong> Dati censuari al 31/12/2023 aggregati dalle sezioni censuarie alle aree amministrative. Base territoriale ISTAT 2021.</div>';
+  html+='<div class="grid overview-kpis"><div class="card"><span class="muted">Popolazione residente</span><div class="metric">'+fmt(pop)+'</div><small class="muted">31/12/2023</small></div><div class="card"><span class="muted">Maschi</span><div class="metric">'+fmt(demographicRecord.maschi)+'</div><small class="muted">'+(pop?((demographicRecord.maschi/pop)*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'%':'N.D.')+'</small></div><div class="card"><span class="muted">Femmine</span><div class="metric">'+fmt(demographicRecord.femmine)+'</div><small class="muted">'+(pop?((demographicRecord.femmine/pop)*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'%':'N.D.')+'</small></div><div class="card"><span class="muted">Popolazione 15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div><small class="muted">'+activeShare.toLocaleString('it-IT',{maximumFractionDigits:1})+'%</small></div></div>';
+  html+='<div class="grid"><div class="card"><h3>Popolazione per sesso · ISTAT 2023</h3><div class="section-pie-wrap"><canvas id="demoSex2023"></canvas></div><p class="muted">Rapporto di mascolinità: '+sexRatio.toLocaleString('it-IT',{maximumFractionDigits:1})+' maschi ogni 100 femmine.</p></div><div class="card"><h3>Struttura per età · ISTAT 2023</h3><div class="section-pie-wrap"><canvas id="demoAge2023"></canvas></div><p class="muted">Fasce anagrafiche: 0-14, 15-64 e 65 anni e oltre.</p></div></div>';
+  html+='<div class="card"><h3>Indicatori demografici e occupazionali · 2023</h3><div class="grid overview-kpis"><div class="card"><span class="muted">0-14 anni</span><div class="metric">'+fmt(under15)+'</div></div><div class="card"><span class="muted">15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div></div><div class="card"><span class="muted">65 anni e oltre</span><div class="metric">'+fmt(over65)+'</div></div><div class="card"><span class="muted">Dipendenza strutturale</span><div class="metric">'+(dependency===null?'N.D.':dependency.toLocaleString('it-IT',{maximumFractionDigits:1}))+'</div></div><div class="card"><span class="muted">Indice di vecchiaia</span><div class="metric">'+(under15?((over65/under15)*100).toLocaleString('it-IT',{maximumFractionDigits:1}):'N.D.')+'</div></div><div class="card"><span class="muted">Occupati 15-64 anni</span><div class="metric">'+fmt(demographicRecord.occupati_15_64)+'</div></div><div class="card"><span class="muted">Tasso di occupazione 15-64</span><div class="metric">'+(activePopulation?((demographicRecord.occupati_15_64/activePopulation)*100).toLocaleString('it-IT',{maximumFractionDigits:1})+'%':'N.D.')+'</div></div></div><p class="muted">La popolazione 15-64 anni è una fascia anagrafica e non coincide con gli occupati. Il tasso di occupazione è calcolato come occupati 15-64 / popolazione 15-64.</p></div>';
+  html+='<div class="card"><h3>Famiglie e abitazioni · 2023</h3><div class="grid overview-kpis"><div class="card"><span class="muted">Famiglie residenti</span><div class="metric">'+fmt(demographicRecord.famiglie)+'</div></div><div class="card"><span class="muted">Abitazioni occupate</span><div class="metric">'+fmt(demographicRecord.abitazioni_occupate)+'</div></div><div class="card"><span class="muted">Abitazioni vuote o non residenti</span><div class="metric">'+fmt(demographicRecord.abitazioni_vuote_o_non_residenti)+'</div></div><div class="card"><span class="muted">Abitazioni totali</span><div class="metric">'+fmt(demographicRecord.abitazioni_totali)+'</div></div></div></div>';
+ }else if(!hasSelection&&d){
   const activePopulation=d.sex.total-d.age.under15.count-d.age.age65plus.count;
   const activeShare=activePopulation/d.sex.total*100;
   const sexRatio=d.sex.male/d.sex.female*100;
@@ -1023,6 +1041,13 @@ if(active==='demography'&&window.Chart){
  const sd=selected(),d=DATA.demografiaStruttura;
  const cityOnly=!(sd.circ||sd.quart||sd.asc2||sd.asc3||sd.section);
  const canvasD=id=>document.getElementById(id);
+ const t=DATA.demografiaTerritoriale;
+ const selectedLevelKey=sd.section?null:sd.asc3?'upl':(sd.quart||sd.asc2)?'quartieri':sd.circ?'circoscrizioni':'circoscrizioni';
+ const featureCode=sd.asc3?String(GEO.asc3?.features?.find(x=>String(x.properties?.COM_ASC3)===String(sd.asc3))?.properties?.COM_ASC3||sd.asc3):(sd.quart||sd.asc2)?String(GEO.asc2?.features?.find(x=>String(x.properties?.COM_ASC2)===String(sd.asc2||''))?.properties?.COM_ASC2||sd.asc2||''):sd.circ?String(GEO.asc1?.features?.find(x=>String(x.properties?.COD_ASC1)===String(sd.circ).replace(/^c/,''))?.properties?.COM_ASC1||''):'';
+ let record2023=null;
+ if(t&&!sd.section){const list=t.territori?.[selectedLevelKey]||[];record2023=cityOnly?list.reduce((a,x)=>{for(const k of ['popolazione','maschi','femmine','eta_0_14','eta_15_64','eta_65_plus','occupati_15_64'])a[k]=(a[k]||0)+(Number(x[k])||0);return a;},{}):list.find(x=>String(x.codice)===featureCode);}
+ if(record2023&&canvasD('demoSex2023'))charts.push(new Chart(canvasD('demoSex2023'),{type:'doughnut',data:{labels:['Maschi','Femmine'],datasets:[{data:[record2023.maschi,record2023.femmine]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));
+ if(record2023&&canvasD('demoAge2023'))charts.push(new Chart(canvasD('demoAge2023'),{type:'doughnut',data:{labels:['0-14 anni','15-64 anni','65 anni e oltre'],datasets:[{data:[record2023.eta_0_14,record2023.eta_15_64,record2023.eta_65_plus]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}}));
  if(d&&canvasD('demoSex2024'))charts.push(new Chart(canvasD('demoSex2024'),{type:'doughnut',data:{labels:['Maschi','Femmine'],datasets:[{data:[d.sex.male,d.sex.female]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw).toLocaleString('it-IT')}}}}}));
  if(d&&canvasD('demoAge2024'))charts.push(new Chart(canvasD('demoAge2024'),{type:'bar',data:{labels:['0-14','15-29','30-44','45-64','65+'],datasets:[{label:'Popolazione (%)',data:[d.age.under15.share,d.age.age15to29.share,d.age.age30to44.share,d.age.age45to64.share,d.age.age65plus.share]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>Number(ctx.raw).toLocaleString('it-IT',{maximumFractionDigits:1})+'%'}}},scales:{y:{beginAtZero:true,max:35,ticks:{callback:v=>v+'%'}}}}}));
  const demRows=DATA.demografia.filter(x=>x.tipo_territorio==='quartiere');
@@ -2093,7 +2118,7 @@ async function load(){
   return;
  }
  const jobs=[
-  ['demografia',async()=>{const [dem,structure]=await Promise.all([fetchJsonSafe('data/demografia.json'),fetchJsonSafe('data/demografia_struttura_2024.json')]);DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];DATA.demografiaStruttura=structure;}],
+  ['demografia',async()=>{const [dem,structure,territorial]=await Promise.all([fetchJsonSafe('data/demografia.json'),fetchJsonSafe('data/demografia_struttura_2024.json'),fetchJsonSafe('data/demografia_territoriale_2023.json')]);DATA.demografia=dem.popolazione_territoriale||[];DATA.demografiaMeta=dem.meta||{};DATA.demografiaNonAttribuita=dem.popolazione_non_attribuita||[];DATA.demografiaStruttura=structure;DATA.demografiaTerritoriale=territorial;}],
   ['densità abitativa',async()=>{DATA.housing=await fetchJsonSafe('data/analisi_densita_abitativa_2021.json');}],
   ['analisi sociale',async()=>{const soc=await fetchJsonSafe('data/sociale_palermo_idise_2023.json');DATA.sociale=soc.aree||[];DATA.socialeMeta=soc.meta||{};DATA.socialeAdu=soc.adu||[];}],
   ['geometrie territoriali',async()=>{await loadGeoCatalog();}]
