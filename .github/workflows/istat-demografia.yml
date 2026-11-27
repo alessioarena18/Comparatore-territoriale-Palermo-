@@ -14,24 +14,17 @@ jobs:
       - name: Scarica il pacchetto ufficiale ISTAT
         run: |
           curl -fL --retry 3 --retry-delay 5 "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip" -o /tmp/Comuni_2023.zip
-          ls -lh /tmp/Comuni_2023.zip
-      - name: Ispeziona struttura e tracciati
+      - name: Ispeziona struttura del file Palermo
         run: |
+          python -m pip install --quiet openpyxl
           python - <<'PY'
-          import zipfile, pathlib
-          p='/tmp/Comuni_2023.zip'
-          z=zipfile.ZipFile(p)
-          names=z.namelist()
-          print('ZIP_MEMBERS',len(names))
-          for n in names[:150]: print('MEMBER',n)
-          for n in names:
-              if '082053' in n or 'Palermo' in n.lower() or n.lower().endswith(('.csv','.txt','.dat','.xlsx','.xls','.dbf')):
-                  info=z.getinfo(n)
-                  print('CANDIDATE',n,info.file_size)
-                  if n.lower().endswith(('.csv','.txt','.dat')):
-                      with z.open(n) as f:
-                          for i in range(5):
-                              line=f.readline()
-                              if not line: break
-                              print('ROW',line[:1000].decode('utf-8-sig',errors='replace').rstrip())
+          import zipfile, io, openpyxl, json
+          z=zipfile.ZipFile('/tmp/Comuni_2023.zip')
+          b=z.read('Comuni_2023/Palermo_2023_sezioni.xlsx')
+          w=openpyxl.load_workbook(io.BytesIO(b), read_only=True, data_only=True)
+          print('SHEETS',w.sheetnames)
+          for s in w:
+              print('SHEET',s.title,'ROWS',s.max_row,'COLS',s.max_column)
+              for row in s.iter_rows(min_row=1,max_row=min(8,s.max_row),values_only=True):
+                  print('ROW',json.dumps(row,ensure_ascii=False,default=str))
           PY
