@@ -231,3 +231,18 @@
 
 .metabolism-source-totals{margin:8px 0 0;padding:9px 11px;border-radius:8px;background:#f7fafc;color:#657d91;font-size:11px;line-height:1.5}
 .metabolism-source-totals strong{color:#173653}
+
+/* Gerarchia visiva: macro-categorie circoscrizioni e sotto-livello quartieri */
+.circ-upl-group{margin:12px 0;border:1px solid #c8d8e8;border-left:5px solid #245b88;border-radius:11px;background:#f1f6fb;overflow:hidden}
+.circ-group-title{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;padding:12px 13px;color:#17466f!important;background:#e3edf7;border-radius:8px;font-weight:800}
+.circ-group-title strong{color:#17466f!important}
+.circ-group-title .muted{color:#54718e!important;font-weight:600}
+.circ-upl-options{padding:4px 12px 12px}
+.quart-upl-group{margin:8px 0 8px 12px;border-left:3px solid #2b8a78;border-radius:7px;background:#fff}
+.quart-group-title{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;padding:9px 10px;color:#176b5b!important;background:#eaf5f1;border-radius:6px;font-weight:750}
+.quart-group-title strong{color:#176b5b!important}
+.quart-group-title .muted{color:#63877e!important;font-weight:600}
+.quart-upl-options{padding:2px 10px 10px}
+.circ-group-title,.quart-group-title{cursor:pointer;list-style-position:inside}
+.circ-group-title::marker{color:#245b88}
+.quart-group-title::marker{color:#2b8a78}
