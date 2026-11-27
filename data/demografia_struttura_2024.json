@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Struttura demografica di Palermo",
+    "reference_date": "2024-12-31",
+    "source": "Comune di Palermo, Palermo Statistica 2024, Capitolo 10 - Palermo nei Censimenti",
+    "source_url": "https://repository.comune.palermo.it/palermo-statistica.php?cap=10&per=2024&sel=7&sez=181",
+    "license_note": "Dati pubblicati dal Comune di Palermo a fini informativi",
+    "scope": "Intero Comune di Palermo. La fonte consultata non fornisce la disaggregazione per quartiere o circoscrizione per sesso ed età."
+  },
+  "sex": {
+    "male": 300498,
+    "female": 328195,
+    "total": 628693
+  },
+  "age": {
+    "under15": {
+      "count": 83897,
+      "share": 13.3
+    },
+    "age15to29": {
+      "share": 15.8
+    },
+    "age30to44": {
+      "share": 17.6
+    },
+    "age45to64": {
+      "share": 29.7
+    },
+    "age65plus": {
+      "count": 147799,
+      "share": 23.5
+    }
+  },
+  "official_indicators": {
+    "youth_dependency": 21.1,
+    "elderly_dependency": 37.2,
+    "ageing_index": 176.2
+  },
+  "notes": [
+    "Le percentuali per classe di età sono arrotondate a un decimale e possono non sommare esattamente a 100.",
+    "La popolazione 15-64 è calcolata come differenza tra totale, popolazione 0-14 e popolazione 65+.",
+    "La popolazione 15-64 è una fascia anagrafica convenzionale, non il numero di occupati o di persone appartenenti alle forze di lavoro.",
+    "I dati per sesso ed età sono disponibili in questa fonte a livello comunale, non per quartiere o circoscrizione."
+  ]
+}
