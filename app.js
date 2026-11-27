@@ -918,7 +918,7 @@ if(active==='social'){
  }
  html=html.replace(/(?:\\[object Object\\]\\s*,?\\s*){2,}/g,'').replace(/\\[object Object\\]/g,'');
  $('#content').innerHTML=html;
- installExportControls();
+ // Esportazione gestita dai comandi globali: evita pulsanti duplicati nelle schede annidate.
  if(active==='metabolism'){
   const fields=[['metPermeable','metPermeableValue'],['metGreen','metGreenValue'],['metCanopy','metCanopyValue'],['metWater','metWaterValue'],['metHeat','metHeatValue']];
   const weightIds=['metWeightPermeable','metWeightGreen','metWeightCanopy','metWeightWater','metWeightHeat'];const weights=()=>{const raw=weightIds.map(id=>Number(document.getElementById(id)?.value||20));const sum=raw.reduce((a,v)=>a+v,0);return sum?raw.map(v=>v/sum):raw.map(()=>.2);};
