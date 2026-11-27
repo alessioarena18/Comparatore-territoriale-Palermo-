@@ -553,10 +553,10 @@ function renderUnsafe(){
  const percentuale=totale===null?'N.D.':totale?((stranieri/totale)*100).toLocaleString('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1}):'0,0';
  const nome=unsupportedResolution?(s.section?'Sezione censuaria selezionata':'UPL selezionata'):s.quart?righe[0]?.nome||'Quartiere selezionato':s.circ?DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Circoscrizione selezionata':'Comune di Palermo';
  const fmt=n=>n===null||n===undefined?'N.D.':Number(n).toLocaleString('it-IT');
- const activePopulation=d?d.sex.total-d.age.under15.count-d.age65plus.count:null;
+ const activePopulation=d?d.sex.total-d.age.under15.count-d.age.age65plus.count:null;
  const activeShare=d&&d.sex.total?activePopulation/d.sex.total*100:null;
  const sexRatio=d?d.sex.male/d.sex.female*100:null;
- const dependency=d&&activePopulation?(d.age.under15.count+d.age65plus.count)/activePopulation*100:null;
+ const dependency=d&&activePopulation?(d.age.under15.count+d.age.age65plus.count)/activePopulation*100:null;
  const ageLabels=['0-14','15-29','30-44','45-64','65+'];
  const ageShares=d?[d.age.under15.share,d.age.age15to29.share,d.age.age30to44.share,d.age.age45to64.share,d.age.age65plus.share]:[];
  if(!d)html+='<div class="notice-inline">Archivio della struttura demografica comunale non disponibile.</div>';
@@ -573,7 +573,7 @@ function renderUnsafe(){
   html+='<div class="card"><h3>Popolazione in età attiva e indici di struttura · 2024</h3><div class="grid overview-kpis">'+
    '<div class="card"><span class="muted">0-14 anni</span><div class="metric">'+fmt(d.age.under15.count)+'</div></div>'+
    '<div class="card"><span class="muted">15-64 anni</span><div class="metric">'+fmt(activePopulation)+'</div></div>'+
-   '<div class="card"><span class="muted">65 anni e oltre</span><div class="metric">'+fmt(d.age65plus.count)+'</div></div>'+
+   '<div class="card"><span class="muted">65 anni e oltre</span><div class="metric">'+fmt(d.age.age65plus.count)+'</div></div>'+
    '<div class="card"><span class="muted">Dipendenza strutturale</span><div class="metric">'+dependency.toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">persone 0-14 e 65+ ogni 100 persone 15-64</small></div>'+
    '<div class="card"><span class="muted">Dipendenza giovanile</span><div class="metric">'+Number(d.official_indicators.youth_dependency).toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">0-14 ogni 100 persone 15-64</small></div>'+
    '<div class="card"><span class="muted">Dipendenza anziani</span><div class="metric">'+Number(d.official_indicators.elderly_dependency).toLocaleString('it-IT',{maximumFractionDigits:1})+'</div><small class="muted">65+ ogni 100 persone 15-64</small></div>'+
