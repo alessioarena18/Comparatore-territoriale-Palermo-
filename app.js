@@ -60,6 +60,13 @@ function getSocialQuartiereGroups(){
  GEO.socialQuartiereGroupsCache=groups;
  return groups;
 }
+function getSocialCircoscrizioneGroups(){
+ const quartieri=getSocialQuartiereGroups();
+ return (DATA.territories?.circoscrizioni||[]).map(circoscrizione=>({
+  circoscrizione,
+  quartieri:quartieri.filter(g=>(g.quartiere.circ_ids||[]).includes(circoscrizione.id))
+ }));
+}
 function housingPointOnFeature(feature){
  if(window.turf?.pointOnFeature){try{return turf.pointOnFeature(feature).geometry.coordinates;}catch{}}
  const ring=feature?.geometry?.type==='Polygon'?feature.geometry.coordinates?.[0]:feature?.geometry?.type==='MultiPolygon'?feature.geometry.coordinates?.[0]?.[0]:null;
@@ -674,11 +681,11 @@ if(active==='social'){
     <div class="card"><span class="muted">Minore disagio</span><h3>${minimo?esc(minimo.nome):'N.D.'}</h3><div class="metric">${minimo?numero(minimo.idise):'N.D.'}</div></div>
   </div>
   <div class="card social-select"><h3>3 - Confronto degli ambiti territoriali</h3>
-    <p class="muted">I 25 quartieri raggruppano le 55 UPL ISTAT 2023. Apri ciascun quartiere per consultare o selezionare le UPL associate. Selezionando il quartiere vengono incluse tutte le sue UPL; puoi anche selezionare un sottoinsieme per un confronto parziale. Il confronto mantiene il riferimento all’intero Comune, indipendentemente dai filtri territoriali generali.</p>
+    <p class="muted">Le 8 circoscrizioni costituiscono il livello di macro-raggruppamento: ciascuna contiene i quartieri di riferimento, che a loro volta raggruppano le 55 UPL ISTAT 2023. Apri una circoscrizione e poi un quartiere per consultare o selezionare le UPL. Puoi selezionare l’intera circoscrizione, un quartiere oppure un sottoinsieme di UPL per un confronto parziale. Un quartiere associato a più circoscrizioni compare in entrambi i gruppi, senza duplicare i dati nel calcolo. Il confronto mantiene il riferimento all’intero Comune, indipendentemente dai filtri territoriali generali.</p>
     <div id="uplSelezione" class="upl-selector">
-      ${getSocialQuartiereGroups().map(g=>'<details class="quart-upl-group"><summary><strong>'+esc(g.quartiere.name)+'</strong> <span class="muted">· '+g.upl.length+' UPL</span></summary><div class="quart-upl-options"><label class="upl-option"><input type="checkbox" class="quarter-check" value="'+esc(g.quartiere.id)+'"> Seleziona tutte le UPL del quartiere</label>'+g.upl.map(a=>'<label class="upl-option upl-child-option"><input type="checkbox" class="upl-check" data-quarter="'+esc(g.quartiere.id)+'" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')+'</div></details>').join('')}
+      ${getSocialCircoscrizioneGroups().map(c=>'<details class="circ-upl-group"><summary><strong>'+esc(c.circoscrizione.name)+'</strong> <span class="muted">· '+c.quartieri.length+' quartieri</span></summary><div class="circ-upl-options"><label class="upl-option circ-select-option"><input type="checkbox" class="circ-check" value="'+esc(c.circoscrizione.id)+'"> Seleziona tutte le UPL della circoscrizione</label>'+c.quartieri.map(g=>'<details class="quart-upl-group"><summary><strong>'+esc(g.quartiere.name)+'</strong> <span class="muted">· '+g.upl.length+' UPL</span></summary><div class="quart-upl-options"><label class="upl-option"><input type="checkbox" class="quarter-check" value="'+esc(g.quartiere.id)+'"> Seleziona tutte le UPL del quartiere</label>'+g.upl.map(a=>'<label class="upl-option upl-child-option"><input type="checkbox" class="upl-check" data-quarter="'+esc(g.quartiere.id)+'" value="'+esc(a.cod_asc)+'"> '+esc(a.nome)+'</label>').join('')+'</div></details>').join('')+'</div></details>').join('')}
     </div>
-    <p class="muted">La selezione completa di un gruppo produce un macro-indicatore del quartiere. Una selezione parziale produce un indicatore riferito esclusivamente alle UPL spuntate.</p>
+    <p class="muted">La selezione della circoscrizione include tutte le UPL dei quartieri associati; la selezione del quartiere include le relative UPL. Una selezione parziale produce un indicatore riferito esclusivamente alle UPL spuntate. Il quartiere Oreto-Stazione, associato a due circoscrizioni nell’anagrafica territoriale, è visibile in entrambi i gruppi.</p>
   </div>
   <div class="card"><h3>4 - Indice di disagio socio-economico IDISE 2023</h3>
     <p class="muted">Fonte: ISTAT, anno 2023. L’IDISE è un indice composito AMPI+, non una percentuale: il riferimento medio comunale è 100. I valori sono confrontabili tra UPL dello stesso Comune e dello stesso anno; valori superiori a 100 indicano un disagio sopra il riferimento comunale, valori inferiori un disagio sotto il riferimento.</p>
@@ -981,7 +988,14 @@ if(active==='social'){
   const socialQuartiereGroups=getSocialQuartiereGroups();
   function syncQuarterChecks(){
     document.querySelectorAll('.quart-upl-group').forEach(group=>{
-      const children=[...group.querySelectorAll('.upl-check')],parent=group.querySelector('.quarter-check');
+      const children=[...group.querySelectorAll(':scope > .quart-upl-options > .upl-child-option .upl-check')],parent=group.querySelector('.quarter-check');
+      if(!parent)return;
+      const count=children.filter(x=>x.checked).length;
+      parent.checked=children.length>0&&count===children.length;
+      parent.indeterminate=count>0&&count<children.length;
+    });
+    document.querySelectorAll('.circ-upl-group').forEach(group=>{
+      const children=[...group.querySelectorAll('.upl-check')],parent=group.querySelector('.circ-check');
       if(!parent)return;
       const count=children.filter(x=>x.checked).length;
       parent.checked=children.length>0&&count===children.length;
@@ -1006,10 +1020,16 @@ if(active==='social'){
     const righe=[['UPL incluse',a=>a.upl.length+' / '+a.total],['Popolazione UPL (ISTAT 2023)',a=>numero(a.pop)],['Famiglie',a=>numero(a.fam)],['Superficie complessiva (km²)',a=>numero(a.area)],['IDISE sintetico ponderato per popolazione',a=>numero(a.idise)],...indicatori.map(k=>[k+' · media UPL (%)',a=>numero(a.dis[k])])];
     box.innerHTML='<h3>Macro-indicatori · '+gruppiSelezionati.length+' quartieri</h3><div class="table-wrap comparison-table"><table><thead><tr><th>Indicatore</th>'+gruppiSelezionati.map(a=>'<th>'+esc(a.name)+(a.partial?' · sottoinsieme':'')+'</th>').join('')+'</tr></thead><tbody>'+righe.map(([nome,fn])=>'<tr><th>'+esc(nome)+'</th>'+gruppiSelezionati.map(a=>'<td>'+fn(a)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="muted comparison-note">Metodo: le UPL sono associate al quartiere che contiene la maggioranza dei punti di campionamento interni alla geometria UPL (point-in-polygon su griglia 28×28). IDISE è una media ponderata per la popolazione delle UPL, non un IDISE ufficiale di quartiere. DIS1-DIS9 sono medie aritmetiche non ponderate dei valori UPL, non tassi ricalcolati sui denominatori originari. Popolazione e famiglie sono somme delle UPL selezionate. '+(gruppiSelezionati.some(a=>a.partial)?'Le colonne contrassegnate come sottoinsieme includono solo le UPL spuntate. ':'')+'I risultati sono aggregazioni esplorative derivate dall’archivio ISTAT 2023.</p>';
   }
+  document.querySelectorAll('.circ-check').forEach(parent=>parent.addEventListener('change',()=>{
+    const group=parent.closest('.circ-upl-group');
+    group?.querySelectorAll('.upl-check').forEach(child=>{child.checked=parent.checked;});
+    group?.querySelectorAll('.quarter-check').forEach(child=>{child.checked=parent.checked;child.indeterminate=false;});
+    parent.indeterminate=false;syncQuarterChecks();aggiornaConfronto();
+  }));
   document.querySelectorAll('.quarter-check').forEach(parent=>parent.addEventListener('change',()=>{
     const group=parent.closest('.quart-upl-group');
     group?.querySelectorAll('.upl-check').forEach(child=>{child.checked=parent.checked;});
-    parent.indeterminate=false;aggiornaConfronto();
+    parent.indeterminate=false;syncQuarterChecks();aggiornaConfronto();
   }));
   document.querySelectorAll('.upl-check').forEach(child=>child.addEventListener('change',()=>{syncQuarterChecks();aggiornaConfronto();}));
   syncQuarterChecks();aggiornaConfronto();
