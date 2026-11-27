@@ -11,20 +11,23 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Scarica il pacchetto ufficiale ISTAT
-        run: |
-          curl -fL --retry 3 --retry-delay 5 "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip" -o /tmp/Comuni_2023.zip
-      - name: Ispeziona struttura del file Palermo
+      - name: Scarica pacchetto ISTAT
+        run: curl -fL --retry 3 --retry-delay 5 "https://esploradati.istat.it/databrowser/DWL/PERMPOP/SUBCOM/Comuni_2023.zip" -o /tmp/Comuni_2023.zip
+      - name: Stampa tracciato e codici subcomunali
         run: |
           python -m pip install --quiet openpyxl
           python - <<'PY'
-          import zipfile, io, openpyxl, json
+          import zipfile,io,openpyxl,json,collections
           z=zipfile.ZipFile('/tmp/Comuni_2023.zip')
-          b=z.read('Comuni_2023/Palermo_2023_sezioni.xlsx')
-          w=openpyxl.load_workbook(io.BytesIO(b), read_only=True, data_only=True)
-          print('SHEETS',w.sheetnames)
-          for s in w:
-              print('SHEET',s.title,'ROWS',s.max_row,'COLS',s.max_column)
-              for row in s.iter_rows(min_row=1,max_row=min(8,s.max_row),values_only=True):
-                  print('ROW',json.dumps(row,ensure_ascii=False,default=str))
+          w=openpyxl.load_workbook(io.BytesIO(z.read('Comuni_2023/Palermo_2023_sezioni.xlsx')),read_only=True,data_only=True)
+          s=w['Tracciato']
+          for row in s.iter_rows(min_row=2,values_only=True):
+              print('FIELD',row[0],row[1])
+          d=w['Palermo_2023_sezioni']
+          h=next(d.iter_rows(min_row=1,max_row=1,values_only=True))
+          ix={k:i for i,k in enumerate(h)}
+          print('ROWS',d.max_row-1,'COLUMNS',len(h))
+          for key in ['COM_ASC1','COM_ASC2','COM_ASC3']:
+              vals=collections.Counter(str(row[ix[key]]) for row in d.iter_rows(min_row=2,values_only=True))
+              print('CODES',key,dict(vals))
           PY
