@@ -1487,3 +1487,62 @@ footer strong{color:var(--co-forest);font-family:Georgia,serif;font-size:13px;fo
  #content .selection-stats{grid-template-columns:1fr}
  #content .overview-kpis>.card,#content .social-kpis>.card,#content .housing-kpis>.card,#content .standards-kpis>.card{padding:13px}
 }
+
+
+/* Città Osmotica · composizione editoriale per i moduli analitici */
+#content[data-module="demography"]{--module-accent:#8fb9c7}
+#content[data-module="social"]{--module-accent:#c58b45}
+#content[data-module="green"]{--module-accent:#5f927b}
+#content[data-module="standards"]{--module-accent:#b58b52}
+#content[data-module="demography"]>.grid,
+#content[data-module="social"]>.grid,
+#content[data-module="green"]>.grid,
+#content[data-module="standards"]>.grid{gap:18px;margin:18px 0 22px}
+#content[data-module="demography"]>.grid.overview-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+#content[data-module="demography"]>.grid:not(.overview-kpis){grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+#content[data-module="demography"]>.grid:not(.overview-kpis)>.card{display:flex;flex-direction:column;min-width:0}
+#content[data-module="demography"] .section-pie-wrap{min-height:245px;max-height:300px;padding:12px 18px}
+#content[data-module="demography"]>.card,
+#content[data-module="social"]>.card,
+#content[data-module="green"]>.card,
+#content[data-module="standards"]>.card{margin:18px 0 22px;padding:clamp(18px,2.2vw,26px)}
+#content[data-module="demography"]>.card>h3,
+#content[data-module="social"]>.card>h3,
+#content[data-module="green"]>.card>h3,
+#content[data-module="standards"]>.card>h3{padding-bottom:13px;margin-bottom:15px;border-bottom:1px solid var(--co-line)}
+#content[data-module="social"]>.grid.social-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+#content[data-module="social"] .social-select{background:linear-gradient(135deg,#fffefa 0%,#f4f2e9 100%)}
+#content[data-module="social"] .upl-selector{max-height:540px;overflow:auto;padding:12px;background:#f5f4ed;border:1px solid var(--co-line);border-radius:4px}
+#content[data-module="social"] .social-compare-layout{gap:20px}
+#content[data-module="social"] .indicator-panel{background:#f5f4ed;border:1px solid var(--co-line);border-radius:4px;padding:16px}
+#content[data-module="social"] .comparison-panel{background:#fffefa;border:1px solid var(--co-line);border-radius:4px;padding:18px;min-width:0}
+#content[data-module="green"] .green-status-overview{border-top:3px solid var(--module-accent)}
+#content[data-module="green"] .green-map{min-height:520px;border:1px solid var(--co-line);border-radius:4px;overflow:hidden}
+#content[data-module="green"] .green-map-legend{display:flex;flex-wrap:wrap;gap:9px 15px;padding:13px 15px;background:#f5f4ed;border-radius:4px}
+#content[data-module="green"] .green-chart-wrap{min-height:270px}
+#content[data-module="standards"] .standards-kpis{gap:12px}
+#content[data-module="standards"] .card:has(>#standardSchoolMap){border-top:3px solid var(--module-accent)}
+#content[data-module="standards"] .school-map{min-height:540px;border:1px solid var(--co-line);border-radius:4px;overflow:hidden}
+#content[data-module="standards"] .school-controls{padding:13px 15px;background:#f5f4ed;border:1px solid var(--co-line);border-radius:4px}
+#content[data-module="demography"] .overview-kpis>.card,
+#content[data-module="social"] .social-kpis>.card,
+#content[data-module="standards"] .standards-kpis>.card{border-top:2px solid var(--module-accent);background:#fffefa}
+#content[data-module="demography"] .metric,
+#content[data-module="social"] .metric,
+#content[data-module="green"] .metric,
+#content[data-module="standards"] .metric{font-variant-numeric:tabular-nums}
+@media(max-width:900px){
+ #content[data-module="demography"]>.grid.overview-kpis,
+ #content[data-module="social"]>.grid.social-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #content[data-module="green"] .green-map,
+ #content[data-module="standards"] .school-map{min-height:420px}
+}
+@media(max-width:600px){
+ #content[data-module="demography"]>.grid:not(.overview-kpis),
+ #content[data-module="demography"]>.grid.overview-kpis,
+ #content[data-module="social"]>.grid.social-kpis{grid-template-columns:1fr}
+ #content[data-module="demography"] .section-pie-wrap{min-height:220px}
+ #content[data-module="green"] .green-map,
+ #content[data-module="standards"] .school-map{min-height:350px}
+ #content[data-module="social"] .upl-selector{max-height:420px}
+}
