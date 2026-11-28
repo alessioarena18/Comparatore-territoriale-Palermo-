@@ -1267,12 +1267,12 @@ async function initRealizedAmenitiesMap(){
    if(!hospitalResponse.ok)throw new Error('Ospedali GeoJSON HTTP '+hospitalResponse.status);
    const hospitalData=await hospitalResponse.json();
    const healthById=new Map();[...(d.features||[]),...(hospitalData.features||[])].forEach(f=>{const id=String(f.properties?.facility_id||f.id||'');if(id)healthById.set(id,f);});
-   const features=[...healthById.values()].filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE','COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA'].includes(f.properties?.coordinate_status));
+   const features=[...healthById.values()].filter(f=>['COORDINATA_DA_DOCUMENTO_TECNICO_ASP','COORDINATA_DA_CARTOGRAFIA_COMUNE','COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA','COORDINATA_DA_LINK_CARTOGRAFICO_GESTORE'].includes(f.properties?.coordinate_status));
    const mapped=addFacilityLayer(features,'health','Sanità e strutture ospedaliere',p=>'#dc2626',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');
    features.forEach(feature=>{
     const id=feature.properties?.facility_id;
     const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');
-    if(row&&row.children[3]){const coordinateLabels={COORDINATA_DA_DOCUMENTO_TECNICO_ASP:'Coordinate da documento tecnico ASP · WGS84',COORDINATA_DA_CARTOGRAFIA_COMUNE:'Punto da cartografia comunale · WGS84',COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA:'Punto da fonte cartografica secondaria · WGS84'};row.children[3].textContent=coordinateLabels[feature.properties?.coordinate_status]||'Georeferenziato · WGS84';}
+    if(row&&row.children[3]){const coordinateLabels={COORDINATA_DA_DOCUMENTO_TECNICO_ASP:'Coordinate da documento tecnico ASP · WGS84',COORDINATA_DA_CARTOGRAFIA_COMUNE:'Punto da cartografia comunale · WGS84',COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA:'Punto da fonte cartografica secondaria · WGS84',COORDINATA_DA_LINK_CARTOGRAFICO_GESTORE:'Punto da link cartografico del gestore · WGS84'};row.children[3].textContent=coordinateLabels[feature.properties?.coordinate_status]||'Georeferenziato · WGS84';}
    });
    return mapped;
   })(),

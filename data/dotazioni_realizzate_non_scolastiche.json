@@ -932,8 +932,8 @@
       "source_id": "gvm_maria_eleonora_2026",
       "address": "Viale della Regione Siciliana Nord Ovest, 1571, 90135 Palermo PA, Italia",
       "location_source_url": "https://ospedali.gvmnet.it/osp/maria-eleonora-hospital",
-      "location_verification": "Indirizzo confermato dalla fonte istituzionale; coordinate puntuali da verificare.",
-      "note": "Ospedale privato di alta specialità accreditato SSN. Indirizzo confermato dalla scheda ufficiale GVM; coordinate puntuali ancora da verificare."
+      "location_verification": "Indirizzo confermato dalla scheda ufficiale GVM; coordinate WGS84 ricavate dal collegamento «Ottieni indicazioni» della stessa scheda, verificate il 28/11/2026.",
+      "note": "Ospedale privato di alta specialità accreditato SSN. Indirizzo e punto cartografico verificati tramite la scheda ufficiale GVM; il marker identifica il complesso e non il rilievo dell'ingresso."
     },
     {
       "id": "hospital-villa-delle-ginestre",
