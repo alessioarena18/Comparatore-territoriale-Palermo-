@@ -3202,3 +3202,8 @@ main{padding-top:20px}
  .top:after{background:linear-gradient(90deg,rgba(9,42,51,.86),rgba(9,42,51,.62))}
  .top .banner-credit{font-size:8px}
 }
+
+
+/* Demografia: mostrare tutti i 25 quartieri nel grafico di incidenza */
+#content #chartIncidenza{height:650px!important;max-height:none!important}
+@media(max-width:650px){#content #chartIncidenza{height:760px!important}}
