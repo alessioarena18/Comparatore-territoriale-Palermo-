@@ -7,7 +7,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>Osservatorio urbano e territoriale | Palermo</title>
+  <title>Città Osmotica | Atlante urbano e territoriale di Palermo</title>
   <link rel="stylesheet" href="styles.css?v=20261128-overview-guidance-1">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
@@ -29,9 +29,9 @@
 <script defer src="green-public-sites-map.js?v=20261122-dedup15"></script>
 </head>
 <body>
-<header class="top"><div class="brand"><span class="mark">PA</span><div><b>Osservatorio urbano e territoriale</b><small>Comune di Palermo · sistema integrato di analisi urbana</small></div></div><span id="status" class="status">Caricamento fonti…</span></header>
+<header class="top"><div class="brand"><span class="mark">CO</span><div><b>Città Osmotica</b><small>Atlante urbano e territoriale · Palermo</small></div></div><div class="top-meta"><span class="top-edition">ATLANTE INTERATTIVO</span><span id="status" class="status">Caricamento fonti…</span></div></header>
 <div class="layout">
-<aside class="side"><div class="side-label">ANALISI</div>
+<aside class="side"><div class="side-label">ESPLORA L’ATLANTE</div>
 <nav id="nav">
 <button class="nav active" data-page="overview">Panoramica</button>
 <button class="nav" data-page="demography">Demografia</button>
@@ -51,7 +51,7 @@
 <section class="filters"><label>Circoscrizione<select id="circ"><option value="">Tutte le circoscrizioni</option></select></label><label>Quartiere<select id="quart"><option value="">Tutti i quartieri</option></select></label><label>UPL<select id="asc3"><option value="">Tutte</option></select></label><label>Sezione censuaria<select id="section"><option value="">Tutte</option></select></label><div class="territory"><small>Territorio di riferimento</small><b id="territory">Palermo</b></div></section>
 <div class="export-toolbar no-print" aria-label="Esportazione e stampa"><span>Esporta la vista corrente</span><label class="export-option">Formato<select id="exportPaperSize"><option value="A4">A4</option><option value="A3">A3</option><option value="A2">A2</option><option value="A1">A1</option><option value="A0">A0</option><option value="Letter">Letter</option><option value="Legal">Legal</option><option value="Tabloid">Tabloid</option></select></label><label class="export-option">Orientamento<select id="exportOrientation"><option value="portrait">Verticale</option><option value="landscape">Orizzontale</option></select></label><button type="button" id="printPageButton">Stampa</button><button type="button" id="savePdfButton" class="primary-export">Salva PDF</button><button type="button" id="exportPngButton">Esporta PNG</button></div>
 <div id="content"></div>
-<footer>Comparatore territoriale di Palermo · Versione tecnica avanzata · Dati e indicatori soggetti a verifica delle fonti<div class="social-links" aria-label="Seguici sui social"><a href="https://www.instagram.com/urban.design18/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Urban Design 18">Instagram · @urban.design18</a></div></footer>
+<footer><strong>CITTÀ OSMOTICA</strong> · Atlante urbano e territoriale di Palermo · Dati e indicatori soggetti a verifica delle fonti<div class="social-links" aria-label="Seguici sui social"><a href="https://www.instagram.com/urban.design18/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Urban Design 18">Instagram · @urban.design18</a></div></footer>
 </main></div>
 <script>
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20261128-offline-21").then(reg=>reg.update()).catch(err=>console.warn("Offline non attivato",err))); }
