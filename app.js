@@ -1376,7 +1376,7 @@ async function initRealizedAmenitiesMap(){
  ];
  const results=await Promise.allSettled(jobs);
  try{await loadRealizedTerritorialAssociations();applyRealizedTerritorialFilter();}catch(error){if(status)status.textContent='Associazione territoriale non disponibile: '+(error.message||error);}
- L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:false,position:'topright'}).addTo(map);
+ L.control.layers({'OpenStreetMap':baseLayer},overlays,{collapsed:window.matchMedia('(max-width: 760px)').matches,position:'topright'}).addTo(map);
  const bounds=L.featureGroup(allLayers).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[24,24],maxZoom:14});
  const counts=results.map((result,i)=>({label:['sport','culture','sanità e strutture ospedaliere'][i],count:result.status==='fulfilled'?result.value:0,error:result.status==='rejected'?result.reason?.message:''}));
  if(status)status.textContent=counts.map(x=>x.label+': '+x.count+' localizzazioni'+(x.error?' (layer non disponibile: '+x.error+')':'')).join(' · ')+'. Sanità e strutture ospedaliere: livello unico in rosso. Sono mappate le sedi con coordinate disponibili; le altre restano nell’inventario senza marker. I punti localizzano i complessi, non necessariamente gli ingressi.';
@@ -1604,7 +1604,7 @@ function initMap(mapId='map'){
   if(gisLayerControl){gisMap.removeControl(gisLayerControl);gisLayerControl=null;}
   const overlays={};
   gisImportedLayers.slice().sort((a,b)=>{const ai=officialLayers.findIndex(x=>x.key===a.key),bi=officialLayers.findIndex(x=>x.key===b.key);return (ai<0?999:ai)-(bi<0?999:bi);}).forEach((item)=>{overlays[item.name]=item.layer;});
-  if(gisImportedLayers.length)gisLayerControl=L.control.layers(null,overlays,{collapsed:false}).addTo(gisMap);
+  if(gisImportedLayers.length)gisLayerControl=L.control.layers(null,overlays,{collapsed:window.matchMedia('(max-width: 760px)').matches}).addTo(gisMap);
  };
  const reset=()=>{
   gisImportedLayers.forEach(item=>{if(gisMap.hasLayer(item.layer))gisMap.removeLayer(item.layer);});
@@ -1924,7 +1924,7 @@ function initStandardSchoolMap(){
  markers.addTo(map);buffers.addTo(map);
  const baseOSM=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
  const baseOrtho=L.tileLayer('https://map.sitr.regione.sicilia.it/gis/rest/services/ortofoto/ortofoto_2022_20cm_sicilia/ImageServer/tile/{z}/{y}/{x}',{maxZoom:20,attribution:'Regione Siciliana · SITR'});
- L.control.layers({'OpenStreetMap':baseOSM,'Ortofoto Regione Siciliana 2022':baseOrtho},overlays,{collapsed:window.matchMedia('(max-width: 650px)').matches,position:'topright'}).addTo(map);
+ L.control.layers({'OpenStreetMap':baseOSM,'Ortofoto Regione Siciliana 2022':baseOrtho},overlays,{collapsed:window.matchMedia('(max-width: 760px)').matches,position:'topright'}).addTo(map);
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const b=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(b.isValid())map.fitBounds(b,{padding:[20,20],maxZoom:13});}
  window.__standardAmenitiesMap=map;window.__stdAmenities=[];
@@ -2033,7 +2033,7 @@ function initSchools(){
     });
    });
   };
-  L.control.layers(null,overlays,{collapsed:false,position:'topright'}).addTo(map);
+  L.control.layers(null,overlays,{collapsed:window.matchMedia('(max-width: 760px)').matches,position:'topright'}).addTo(map);
   layer.addTo(map);
   Object.values(influenceLayers).forEach(group=>group.addTo(map));
   draw();
@@ -2234,7 +2234,7 @@ async function initGreenMap(){
    });
    overlay['Ricognizione comunale 2013 · storico, non verificato come attuale']=historicalLayer;
   }
-  L.control.layers({'OpenStreetMap':base},overlay,{collapsed:false}).addTo(map);
+  L.control.layers({'OpenStreetMap':base},overlay,{collapsed:window.matchMedia('(max-width: 760px)').matches}).addTo(map);
   const bounds=L.geoJSON(mapData).getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[18,18]});
   greenMapInstance=map;
   const mapCounts={};mapFeatures.forEach(f=>{const key=f.properties?.green_class||'non_classificato';mapCounts[key]=(mapCounts[key]||0)+1;});
