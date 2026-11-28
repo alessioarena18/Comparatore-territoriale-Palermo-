@@ -10,7 +10,8 @@
     "mobile:add:android": "cap add android",
     "mobile:open:ios": "cap open ios",
     "mobile:open:android": "cap open android",
-    "mobile:doctor": "cap doctor"
+    "mobile:doctor": "cap doctor",
+    "mobile:assets": "node scripts/generate-mobile-assets.mjs && capacitor-assets generate"
   },
   "dependencies": {
     "@capacitor/core": "8.6.3"
@@ -18,6 +19,8 @@
   "devDependencies": {
     "@capacitor/cli": "8.6.3",
     "@capacitor/ios": "8.6.3",
-    "@capacitor/android": "8.6.3"
+    "@capacitor/android": "8.6.3",
+    "@capacitor/assets": "4.0.0",
+    "sharp": "^0.34.5"
   }
 }
