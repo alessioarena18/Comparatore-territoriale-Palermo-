@@ -1147,7 +1147,7 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
   map.getPane('territoryBoundaries').style.zIndex='450';
   map.getPane('territoryBoundaries').style.pointerEvents='auto';
   const selectedCirc=s.circ?String(s.circ).replace(/^c/,''):'';
-  const drawCircoscrizioni=data=>{
+  const drawCircoscrizioni=async data=>{
    if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features)||data.features.length!==8)throw new Error('Archivio ISTAT ASC1 non valido: attese 8 circoscrizioni');
    const coords=[];
    const scan=value=>{if(Array.isArray(value)&&typeof value[0]==='number'&&typeof value[1]==='number'){coords.push(value);return;}if(Array.isArray(value))value.forEach(scan);};
