@@ -2733,3 +2733,90 @@ footer .social-links a{color:var(--ptl-petrol)}
  #content .overview-heading{align-items:flex-start;flex-direction:column;gap:15px}
  #content .overview-heading-tag{width:100%}
 }
+
+
+/* PTL · sistema editoriale per dati, grafici e apparati di consultazione */
+#content .card>h4,
+#content .realized-category>h4{
+  margin:18px 0 10px;padding:10px 0 8px;
+  border-bottom:1px solid var(--ptl-line);
+  color:var(--ptl-forest);font:400 17px/1.3 'DM Serif Display',Georgia,serif;
+}
+#content .card>p{color:#68756b;line-height:1.7}
+#content .card>p strong{color:#344d40}
+#content .overview-eyebrow{
+  color:var(--ptl-clay);font-size:8px;font-weight:700;
+  letter-spacing:.19em;text-transform:uppercase;
+}
+#content .overview-card-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:14px;margin-bottom:12px;
+}
+#content .overview-card-head h3{margin:5px 0 4px}
+#content .overview-card-head p{margin:0;color:#788177;font-size:11px;line-height:1.55}
+#content .section-pie-wrap,
+#content .green-chart-wrap{
+  position:relative;min-height:230px;padding:12px 4px 4px;
+}
+#content .school-legend{
+  display:flex;flex-wrap:wrap;gap:8px 15px;margin-top:12px;
+  padding:12px 13px;background:#f0f0e8;border:1px solid var(--ptl-line);
+  color:#59685d;font-size:10px;
+}
+#content .school-legend span{display:inline-flex;align-items:center;gap:6px}
+#content .school-legend i{display:inline-block;width:8px;height:8px;border-radius:50%}
+#content .selection-context{
+  margin:0 0 22px;padding:14px 17px;background:#ebece3;
+  border:1px solid var(--ptl-line);border-left:3px solid var(--ptl-ochre);
+  color:#536458;font-size:11px;line-height:1.65;
+}
+#content .selection-context>strong{color:var(--ptl-forest)}
+#content .selection-context>span{display:block;margin-top:8px;color:#788177;font-size:10px}
+#content .selection-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+#content .selection-stats>div{min-width:110px;padding:9px 11px;background:#f9f8f1;border:1px solid var(--ptl-line)}
+#content .selection-stats strong{display:block;color:var(--ptl-forest);font:400 18px 'DM Serif Display',Georgia,serif}
+#content .table-wrap{overflow:auto;scrollbar-color:#aab7a8 #eeefe7;scrollbar-width:thin}
+#content .table-wrap table{width:100%;border-collapse:separate;border-spacing:0}
+#content .table-wrap thead th{position:sticky;top:0;z-index:2;background:#e9ece3}
+#content .table-wrap tbody tr:hover td{background:#f1f2e9}
+#content .table-wrap tbody tr:last-child td{border-bottom:0}
+#content input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+#content select,
+#content textarea{
+  accent-color:var(--ptl-petrol);
+}
+#content input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+#content select,
+#content textarea{
+  border-color:#d3d9ce;border-radius:2px;background:#fffefa;color:var(--ptl-ink);
+}
+#content input:focus-visible,#content select:focus-visible,#content textarea:focus-visible,
+#content button:focus-visible,#nav button:focus-visible{
+  outline:2px solid var(--ptl-ochre);outline-offset:2px;
+}
+#content button:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out){
+  border-radius:2px;
+}
+#content .card-export-actions{
+  display:flex;justify-content:flex-end;gap:6px;margin:0 0 10px;
+}
+#content .card-export-actions button{
+  padding:5px 8px;border:1px solid #d8ddd2;background:#f0f1e9;
+  color:#667469;font-size:9px;letter-spacing:.02em;
+}
+#content .card-export-actions button:hover{
+  border-color:#aebba9;background:#e7ebe1;color:var(--ptl-forest);
+}
+.leaflet-container{font-family:'DM Sans',Inter,system-ui,sans-serif}
+.leaflet-control-attribution{font-size:9px!important;color:#68766b!important}
+#nav{scrollbar-width:thin;scrollbar-color:rgba(220,225,214,.35) transparent}
+@media(max-width:760px){
+ #content .overview-card-head{flex-direction:column;align-items:flex-start}
+ #content .section-pie-wrap,#content .green-chart-wrap{min-height:205px}
+ #content .selection-stats>div{flex:1 1 42%}
+ #content .card-export-actions{justify-content:flex-start;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
