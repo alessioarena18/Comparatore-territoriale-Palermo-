@@ -694,3 +694,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .page-title{font-size:25px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+
+/* Panoramica · gerarchia editoriale e KPI demografici */
+.overview-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0 20px}
+.overview-kpis>.card{position:relative;min-height:118px;padding:17px 18px;overflow:hidden;border-radius:11px}
+.overview-kpis>.card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#9ab8bf}
+.overview-kpis>.card:nth-child(2):before{background:#91b8d3}
+.overview-kpis>.card:nth-child(3):before{background:#d9a2b5}
+.overview-kpis>.card:nth-child(4):before{background:#6d9994}
+.overview-kpis>.card>span{display:block;font-size:10px;line-height:1.4;letter-spacing:.025em;font-weight:650;color:#71838c}
+.overview-kpis>.card .metric{margin:9px 0 5px;font-size:clamp(23px,2vw,30px)}
+.overview-kpis>.card small{font-size:10px}
+#content>.grid:not(.overview-kpis){align-items:stretch;margin:16px 0}
+#content>.grid:not(.overview-kpis)>.card{min-width:0}
+#content>.card{margin:16px 0}
+#content>.card>h3{display:flex;align-items:center;gap:9px;padding-bottom:11px;border-bottom:1px solid #edf0f0}
+#content>.card>h3:before{content:"";width:4px;height:16px;border-radius:4px;background:#679397;flex:0 0 auto}
+#content .section-pie-wrap{height:270px;max-width:560px}
+#content .notice-inline{padding:12px 15px;margin:13px 0 17px;border-radius:8px;font-size:11px;line-height:1.6}
+#content .notice-inline strong{color:#315663}
+#content .overview-kpis .card{box-shadow:none;background:#fbfcfc}
+#content .overview-kpis .card:hover{box-shadow:0 5px 16px rgba(22,48,63,.045)}
+@media(max-width:1100px){.overview-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){
+ .overview-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .overview-kpis>.card{min-height:104px;padding:13px}
+ .overview-kpis>.card .metric{font-size:23px}
+ #content .section-pie-wrap{height:235px}
+}
