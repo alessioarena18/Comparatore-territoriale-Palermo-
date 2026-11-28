@@ -75,3 +75,22 @@ Nessun intervento sul packaging mobile deve modificare dataset, indicatori, form
 ## Identità visiva nativa
 
 La pipeline genera icona e schermata di avvio coerenti con la palette petrolio, avorio e ocra di Territorial Lab. Le immagini vengono create da sorgenti SVG versionabili e poi convertite nei formati richiesti da Capacitor Assets. Per aggiornare: `npm run mobile:assets`. La generazione usa le dimensioni consigliate dalla documentazione Capacitor: icona 1024×1024 e splash 2732×2732.
+
+## Interfaccia mobile
+
+Il branch mobile mantiene la stessa struttura informativa del comparatore e aggiunge un livello CSS specifico per il runtime Capacitor:
+- navigazione orizzontale touch con voce attiva evidenziata;
+- filtri territoriali disposti su due colonne, con selettori a larghezza piena;
+- intestazione e navigazione compatibili con le safe area;
+- mappe Leaflet/MapLibre con altezze e controlli adeguati al viewport mobile;
+- tabelle e confronti con scorrimento orizzontale indipendente;
+- pulsanti e controlli con dimensioni touch;
+- adattamento a orientamento landscape e schermi compatti.
+
+Le regole sono isolate dalla classe `capacitor-native` e non modificano il DOM applicativo, i valori dei filtri, i dataset o le funzioni di calcolo.
+
+## Stato delle verifiche
+
+La pipeline automatizzata esegue la generazione delle icone/splash e una build separata per ciascuna piattaforma. La build di debug Android e quella iOS Simulator risultano completate con successo nel run [46154447987](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/46154447987). Le build non equivalgono ancora a un collaudo funzionale su dispositivi fisici né a pacchetti firmati per gli store.
+
+Per Capacitor 8 l'ambiente di sviluppo richiede Node.js 22 o superiore, Xcode 26 o superiore per iOS e Android Studio con Android SDK per Android. Riferimento: [Capacitor Environment Setup](https://capacitorjs.com/docs/getting-started/environment-setup).
