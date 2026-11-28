@@ -476,7 +476,7 @@ function applyGisSelectedStyle(){
   (item.featureLayers||[]).forEach(layer=>{
    const p=layer.feature?.properties||{},codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[item.key];
    const match=wanted.some(([key,field,value])=>key===item.key&&String(p[field]??'')===String(value));
-   layer.setStyle?.({weight:match?4.8:item.key==='asc1'?3.4:item.key==='asc2'?1.7:item.key==='asc3'?1.15:.55,opacity:1,color:match?'#a65f22':item.key==='asc1'?'#123f3b':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillColor:match?'#d7a34b':item.key==='asc1'?'#69a68e':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:match?.20:item.key==='asc1'?.055:item.key==='asc2'?.025:item.key==='asc3'?.012:.004});
+   layer.setStyle?.({weight:match?4.8:item.key==='asc1'?2:item.key==='asc2'?1.4:item.key==='asc3'?1.15:.55,opacity:1,color:match?'#a65f22':item.key==='asc1'?'#123f3b':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillColor:match?'#d7a34b':item.key==='asc1'?'#69a68e':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:match?.20:item.key==='asc1'?.055:item.key==='asc2'?.025:item.key==='asc3'?.012:.004});
    if(match)layer.bringToFront?.();
   });
  });
@@ -1157,20 +1157,20 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
    if(extent.minX<13||extent.maxX>14||extent.minY<37||extent.maxY>39)throw new Error('Coordinate ASC1 fuori dall’area geografica attesa');
    GEO.asc1=data;
    const renderer=L.svg({padding:0.5});
-   const casing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:9,opacity:1,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
+   const casing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:5,opacity:0.9,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
    const boundaries=L.geoJSON(data,{
     pane:'territoryBoundaries',renderer,
     style:feature=>{
      const code=String(feature.properties?.COD_ASC1??'');
      const isSelected=!!selectedCirc&&code===selectedCirc;
-     return {color:isSelected?'#a65f22':'#123f3b',weight:isSelected?5:3.8,opacity:1,fillColor:isSelected?'#d7a34b':'#69a68e',fillOpacity:isSelected?.24:.075,lineCap:'round',lineJoin:'round'};
+     return {color:isSelected?'#a65f22':'#123f3b',weight:isSelected?3:2,opacity:1,fillColor:isSelected?'#d7a34b':'#69a68e',fillOpacity:isSelected?.24:.075,lineCap:'round',lineJoin:'round'};
     },
     onEachFeature:(feature,layer)=>{
      const p=feature.properties||{},code=String(p.COD_ASC1??''),name=String(p.DEN_ASC1||'');
      layer.bindTooltip('Circoscrizione '+code+' · '+name,{sticky:true,direction:'auto'});
      layer.bindPopup('<strong>Circoscrizione '+code+'</strong><br>'+esc(name)+'<br><small>Perimetro ISTAT 2021 · Seleziona il poligono per applicare il filtro</small>');
      layer.on('click',()=>{const select=$('#circ'),next='c'+code;if(!select||!code)return;select.value=select.value===next?'':next;syncMainFilter('circ');});
-     layer.on('mouseover',()=>layer.setStyle({weight:5.2,fillOpacity:.20}));
+     layer.on('mouseover',()=>layer.setStyle({weight:3.4,fillOpacity:.16}));
      layer.on('mouseout',()=>boundaries.resetStyle(layer));
     }
    }).addTo(map);
