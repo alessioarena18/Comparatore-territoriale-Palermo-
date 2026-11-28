@@ -1173,7 +1173,7 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
      const p=feature.properties||{},name=String(p.DEN_ASC2||'Quartiere'),code=String(p.COD_ASC2??'');
      layer.bindTooltip(name,{sticky:true,direction:'auto'});
      layer.bindPopup('<strong>'+esc(name)+'</strong><br><small>Quartiere '+esc(code)+' · Confine ISTAT 2021</small>');
-     layer.on('click',()=>{const select=$('#quart'),next=code;if(!select||!code)return;select.value=select.value===next?'':next;syncMainFilter('quart');});
+     layer.on('click',()=>{const select=$('#quart');if(!select||!code)return;const q=DATA.territories.quartieri.find(item=>{const f=findAsc2FeatureForQuartiere(item);return f&&String(f.properties?.COM_ASC2)===String(p.COM_ASC2);});if(!q)return;select.value=select.value===q.id?'':q.id;syncMainFilter('quart');});
      layer.on('mouseover',()=>layer.setStyle({weight:2,opacity:1,fillOpacity:.08}));
      layer.on('mouseout',()=>quartieriLines.resetStyle(layer));
     }
