@@ -1140,48 +1140,62 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
  }
  if(active==='overview'&&window.L&&document.getElementById('overviewTerritoryMap')){
   const el=document.getElementById('overviewTerritoryMap');
-  const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:true}).setView([38.1157,13.3615],11);
+  const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:false}).setView([38.1157,13.3615],11);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
   L.control.scale({metric:true,imperial:false}).addTo(map);
+  map.createPane('territoryBoundaries');
+  map.getPane('territoryBoundaries').style.zIndex='450';
+  map.getPane('territoryBoundaries').style.pointerEvents='auto';
   const selectedCirc=s.circ?String(s.circ).replace(/^c/,''):'';
   const drawCircoscrizioni=data=>{
-   if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features)||!data.features.length)throw new Error('GeoJSON ASC1 vuoto o non valido');
+   if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features)||data.features.length!==8)throw new Error('Archivio ISTAT ASC1 non valido: attese 8 circoscrizioni');
+   const coords=[];
+   const scan=value=>{if(Array.isArray(value)&&typeof value[0]==='number'&&typeof value[1]==='number'){coords.push(value);return;}if(Array.isArray(value))value.forEach(scan);};
+   data.features.forEach(feature=>scan(feature.geometry?.coordinates));
+   if(!coords.length)throw new Error('Il GeoJSON ASC1 non contiene coordinate utilizzabili');
+   const extent={minX:Math.min(...coords.map(p=>p[0])),maxX:Math.max(...coords.map(p=>p[0])),minY:Math.min(...coords.map(p=>p[1])),maxY:Math.max(...coords.map(p=>p[1]))};
+   if(extent.minX<13||extent.maxX>14||extent.minY<37||extent.maxY>39)throw new Error('Coordinate ASC1 fuori dall’area geografica attesa');
    GEO.asc1=data;
-   const casing=L.geoJSON(data,{interactive:false,style:()=>({color:'#ffffff',weight:8,opacity:1,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
+   const renderer=L.svg({padding:0.5});
+   const casing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:9,opacity:1,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
    const boundaries=L.geoJSON(data,{
+    pane:'territoryBoundaries',renderer,
     style:feature=>{
      const code=String(feature.properties?.COD_ASC1??'');
      const isSelected=!!selectedCirc&&code===selectedCirc;
-     return {color:isSelected?'#a65f22':'#123f3b',weight:isSelected?4.8:3.5,opacity:1,fillColor:isSelected?'#d7a34b':'#69a68e',fillOpacity:isSelected?.20:.055,lineCap:'round',lineJoin:'round'};
+     return {color:isSelected?'#a65f22':'#123f3b',weight:isSelected?5:3.8,opacity:1,fillColor:isSelected?'#d7a34b':'#69a68e',fillOpacity:isSelected?.24:.075,lineCap:'round',lineJoin:'round'};
     },
     onEachFeature:(feature,layer)=>{
      const p=feature.properties||{},code=String(p.COD_ASC1??''),name=String(p.DEN_ASC1||'');
      layer.bindTooltip('Circoscrizione '+code+' · '+name,{sticky:true,direction:'auto'});
      layer.bindPopup('<strong>Circoscrizione '+code+'</strong><br>'+esc(name)+'<br><small>Perimetro ISTAT 2021 · Seleziona il poligono per applicare il filtro</small>');
-     layer.on('click',()=>{
-      const select=$('#circ'),next='c'+code;
-      if(!select||!code)return;
-      select.value=select.value===next?'':next;
-      syncMainFilter('circ');
-     });
-     layer.on('mouseover',()=>layer.setStyle({weight:4.5,fillOpacity:.16}));
+     layer.on('click',()=>{const select=$('#circ'),next='c'+code;if(!select||!code)return;select.value=select.value===next?'':next;syncMainFilter('circ');});
+     layer.on('mouseover',()=>layer.setStyle({weight:5.2,fillOpacity:.20}));
      layer.on('mouseout',()=>boundaries.resetStyle(layer));
     }
    }).addTo(map);
+   boundaries.bringToFront();
    const bounds=boundaries.getBounds();
-   if(bounds.isValid())map.fitBounds(bounds,{padding:[16,16],maxZoom:12});
+   if(!bounds.isValid())throw new Error('I perimetri ASC1 non generano un’estensione cartografica valida');
+   const fit=()=>{map.invalidateSize(true);map.fitBounds(bounds,{padding:[20,20],maxZoom:12,animate:false});boundaries.bringToFront();};
+   fit();
+   setTimeout(fit,250);
    el.dataset.boundaries='loaded';
    el.setAttribute('aria-label','Mappa delle otto circoscrizioni di Palermo con perimetri ISTAT 2021 evidenziati');
+   const note=el.parentElement?.querySelector('.overview-map-foot');
+   if(note){const status=note.querySelector('[data-boundary-status]')||document.createElement('span');status.dataset.boundaryStatus='loaded';status.textContent='8 perimetri ISTAT 2021 caricati';if(!status.parentElement)note.appendChild(status);}
    return {casing,boundaries};
   };
-  const source=GEO.asc1?.features?.length?Promise.resolve(GEO.asc1):fetch('data/geo/circoscrizioni_palermo_2021.geojson',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('HTTP '+response.status);return response.json();});
-  source.then(drawCircoscrizioni).catch(error=>{
-   console.error('Perimetri circoscrizionali non caricati nella panoramica',error);
-   el.dataset.boundaries='error';
-   el.setAttribute('aria-label','Mappa base di Palermo. Perimetri circoscrizionali non disponibili');
-   const note=el.parentElement?.querySelector('.overview-map-foot');
-   if(note)note.insertAdjacentHTML('beforeend','<span class="overview-map-hint">Perimetri circoscrizionali non caricati: ricaricare la pagina</span>');
-  });
+  fetch('data/geo/circoscrizioni_palermo_2021.geojson',{cache:'reload'})
+   .then(response=>{if(!response.ok)throw new Error('HTTP '+response.status+' durante il caricamento ASC1');return response.json();})
+   .then(drawCircoscrizioni)
+   .catch(error=>{
+    console.error('Perimetri circoscrizionali non disegnati nella panoramica',error);
+    el.dataset.boundaries='error';
+    el.setAttribute('aria-label','Mappa base di Palermo. Errore nel caricamento dei perimetri circoscrizionali');
+    const note=el.parentElement?.querySelector('.overview-map-foot');
+    if(note){const status=note.querySelector('[data-boundary-status]')||document.createElement('span');status.dataset.boundaryStatus='error';status.textContent='Errore perimetri circoscrizionali: '+(error.message||'caricamento non riuscito');if(!status.parentElement)note.appendChild(status);}
+   });
   setTimeout(()=>map.invalidateSize(true),180);
  }
  if(active==='gis') initMap();
