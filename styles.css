@@ -2602,3 +2602,89 @@ footer strong{color:var(--co-forest);font:500 15px Georgia,serif;letter-spacing:
     flex-direction:column;align-items:flex-start;
   }
 }
+
+
+/* =========================================================
+   PALERMO TERRITORIAL LAB · EDITORIAL URBAN ATLAS SYSTEM
+   Visual-only layer. No data, calculations or map sources changed.
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+:root{
+ --ptl-forest:#173d35;--ptl-forest-deep:#102e29;--ptl-petrol:#28584f;
+ --ptl-sage:#a8b9a6;--ptl-paper:#f3f0e7;--ptl-card:#fbfaf5;
+ --ptl-ink:#202e29;--ptl-muted:#758078;--ptl-line:#dcded3;
+ --ptl-ochre:#bd8b48;--ptl-clay:#ad684f;--ptl-shadow:0 12px 34px rgba(28,48,39,.055);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ptl-paper);color:var(--ptl-ink);font-family:'DM Sans',Inter,system-ui,sans-serif;font-size:14px;line-height:1.58}
+.top{height:88px;padding:0 34px;background:var(--ptl-forest-deep);box-shadow:none;border-bottom:1px solid rgba(255,255,255,.12);position:relative;z-index:500}
+.brand{gap:15px}.mark{display:grid;place-items:center;width:43px;height:43px;padding:0;border:1px solid rgba(219,201,159,.65);border-radius:50%;background:transparent;color:#e6d5ad;font:600 12px 'DM Sans',sans-serif;letter-spacing:.08em}
+.brand b{font:400 22px/1.12 'DM Serif Display',Georgia,serif;letter-spacing:.01em;color:#f4f0e5}
+.brand small{margin-top:4px;color:#b8c8bb;font-size:9px;letter-spacing:.19em;text-transform:uppercase}
+.top-meta{display:flex;align-items:center;gap:18px}.top-edition{color:#c9b58d;font-size:9px;letter-spacing:.2em;font-weight:700}
+.status{border:1px solid rgba(220,230,218,.28);border-radius:2px;padding:6px 10px;color:#d7e0d7;font-size:10px;letter-spacing:.04em}
+.layout{grid-template-columns:248px minmax(0,1fr);min-height:calc(100vh - 88px)}
+.side{position:sticky;top:0;height:calc(100vh - 0px);overflow-y:auto;background:var(--ptl-forest);border:0;padding:30px 17px 22px;color:#e9eee5}
+.side-label{padding:0 13px 15px;color:#c9b58d;font-size:9px;letter-spacing:.2em}
+.nav{position:relative;margin:2px 0;padding:10px 13px;border-radius:3px;color:#d0ddd2;font-size:12px;letter-spacing:.01em;transition:background .18s,color .18s}
+.nav:hover{background:rgba(255,255,255,.08);color:#fff}.nav.active{background:rgba(235,227,205,.13);color:#fff;font-weight:700}
+.nav.active:before{content:'';position:absolute;left:0;top:7px;bottom:7px;width:2px;background:var(--ptl-ochre)}
+.side-note{margin:34px 5px 0;padding:15px 14px;border:1px solid rgba(225,232,219,.2);border-radius:3px;background:rgba(255,255,255,.045);color:#e7ede4;font-size:11px}
+.side-note p{color:#b8c9bb;line-height:1.6}
+main{padding:30px clamp(20px,3vw,48px) 24px;min-width:0;max-width:1800px;width:100%;margin:0 auto}
+.filters{position:relative;gap:12px;padding:14px 16px;margin-bottom:24px;background:rgba(251,250,245,.92);border:1px solid var(--ptl-line);border-radius:3px;box-shadow:none}
+.filters label{color:#66736a;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.filters select{height:38px;border:1px solid #d6d9ce;border-radius:2px;background:#fffefa;color:var(--ptl-ink);font:500 12px 'DM Sans',sans-serif}
+.territory{padding:0 8px 3px}.territory small{color:#8a8e82;font-size:9px;letter-spacing:.12em;text-transform:uppercase}.territory b{color:var(--ptl-forest);font:400 19px 'DM Serif Display',Georgia,serif}
+.export-toolbar{margin:0 0 24px;padding:9px 12px;background:transparent;border:0;border-top:1px solid var(--ptl-line);border-bottom:1px solid var(--ptl-line);border-radius:0;color:#6f786f;font-size:10px;letter-spacing:.04em}
+.export-toolbar button{border-radius:2px;background:var(--ptl-forest);border:1px solid var(--ptl-forest);color:#fff;padding:8px 12px;font:600 10px 'DM Sans',sans-serif;letter-spacing:.04em}
+.export-toolbar button:hover{background:var(--ptl-forest-deep)}.export-toolbar .primary-export{background:var(--ptl-ochre);border-color:var(--ptl-ochre);color:#1d2d27}
+.page-kicker{color:var(--ptl-clay);font-size:9px;letter-spacing:.2em;font-weight:700;margin-bottom:8px}
+.page-title{font:400 clamp(30px,3vw,43px)/1.08 'DM Serif Display',Georgia,serif;letter-spacing:-.02em;color:var(--ptl-forest);margin:0 0 8px}
+.lead{max-width:850px;color:#737d73;font-size:13px;line-height:1.7;margin:0 0 26px}
+.card{background:var(--ptl-card);border:1px solid var(--ptl-line);border-radius:3px;box-shadow:var(--ptl-shadow);padding:21px 22px}
+.card h3{font:400 19px/1.25 'DM Serif Display',Georgia,serif;color:var(--ptl-forest);margin:0 0 14px}
+.metric{font:400 34px/1.05 'DM Serif Display',Georgia,serif;color:var(--ptl-forest);letter-spacing:-.02em}
+.muted{color:var(--ptl-muted)}
+.notice{background:#eeeee4;border:1px solid #d9ddcf;border-left:3px solid var(--ptl-ochre);border-radius:2px;padding:16px 19px}
+.notice h3{font:400 19px 'DM Serif Display',Georgia,serif;color:var(--ptl-forest)}.notice p{color:#66736a}
+.notice-inline{background:#efeee5;border-left-color:var(--ptl-ochre);color:#647067}
+.grid{gap:17px}
+.table-wrap,.school-table{border:1px solid var(--ptl-line);border-radius:3px;background:var(--ptl-card)}
+table{font-size:12px}th{background:#eeefe7;color:#586b5e;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}td{color:#38483e}th,td{padding:11px 12px;border-bottom:1px solid #e6e6dc}
+button,.secondary-button{font-family:'DM Sans',sans-serif}.secondary-button{border:1px solid #c9d1c4;border-radius:2px;background:#eef0e8;color:var(--ptl-forest);font-size:11px}.secondary-button:hover{background:#e2e7dc}
+.data-status{border-radius:2px;background:#e7ece3;color:var(--ptl-forest);font-size:10px;letter-spacing:.04em}
+#map,#realizedAmenitiesMap,#schoolMap,#standardSchoolMap,#greenMap,#overviewTerritoryMap{border:1px solid #d2d8cd;border-radius:3px;background:#e7e9df}
+#map{height: min(70vh,760px);min-height:520px}
+.leaflet-control-layers{border:1px solid #d7dbd0!important;border-radius:2px!important;box-shadow:0 4px 15px #1b33251a!important;font:11px 'DM Sans',sans-serif!important}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{border-radius:2px}
+footer{margin-top:36px;padding:19px 0;border-top:1px solid var(--ptl-line);color:#7b8378;font-size:10px;letter-spacing:.04em}
+footer strong{color:var(--ptl-forest);font:400 16px 'DM Serif Display',Georgia,serif;letter-spacing:.04em}
+footer .social-links a{color:var(--ptl-petrol)}
+/* Componenti editoriali già presenti: uniformità cromatica senza alterare contenuti */
+#content .overview-heading h2,#content .overview-heading h1{font-family:'DM Serif Display',Georgia,serif;color:var(--ptl-forest);font-weight:400}
+#content .overview-card-head strong,#content .overview-side-stack h3{color:var(--ptl-forest)}
+#content .overview-map-card,#content .overview-side-stack>.card{background:var(--ptl-card);border-color:var(--ptl-line);border-radius:3px;box-shadow:var(--ptl-shadow)}
+#content .overview-kpis>.card,#content .social-kpis>.card,#content .service-kpis>.card,#content .standards-kpis>.card,#content .gis-kpis>.card{border-radius:3px;border-color:var(--ptl-line);background:var(--ptl-card);box-shadow:var(--ptl-shadow)}
+#content .overview-kpis .metric,#content .social-kpis .metric,#content .service-kpis .metric,#content .standards-kpis .metric,#content .gis-kpis .metric{font-family:'DM Serif Display',Georgia,serif;color:var(--ptl-forest)}
+#content .school-controls,#content .gis-selection-panel,#content .gis-import-panel{background:#eeefe7;border-color:var(--ptl-line);border-radius:3px}
+#content .school-controls input,#content .school-controls select,#content .gis-selection-grid select{border-radius:2px;border-color:#d0d6ca;background:#fffefa}
+#content .school-legend{background:#eeefe7;border-color:var(--ptl-line);border-radius:3px}
+#content .metabolism-intro,#content .metabolism-simulator{background:#e9ede5;border-color:#d5ddd1;border-radius:3px}
+#content .metabolism-score{background:var(--ptl-forest);border-radius:3px}
+#content .source-list{background:var(--ptl-card);border-color:var(--ptl-line);border-radius:3px}
+#content .source-list>h3{font:400 23px 'DM Serif Display',Georgia,serif;color:var(--ptl-forest)}
+#content .selection-stats>div{background:#f8f7f0;border-color:var(--ptl-line);border-radius:2px}
+@media(max-width:850px){
+ .top{height:auto;min-height:76px;padding:13px 18px}.brand b{font-size:19px}.brand small{font-size:8px;letter-spacing:.12em}.top-edition{display:none}
+ .layout{grid-template-columns:1fr}.side{position:relative;top:auto;height:auto;padding:11px 12px 9px;border-bottom:1px solid rgba(255,255,255,.12)}
+ .side-label{display:block;padding:0 9px 7px}.side-note{display:none}#nav{display:flex;gap:4px;overflow-x:auto;padding-bottom:3px}
+ .nav{flex:0 0 auto;width:auto;white-space:nowrap;padding:9px 11px;font-size:11px}.nav.active:before{top:auto;left:10px;right:10px;bottom:2px;width:auto;height:2px}
+ main{padding:19px 15px}.filters{padding:12px;gap:10px}.filters label{min-width:calc(50% - 8px)}.territory{min-width:100%;margin:2px 0 0;padding:7px 2px 0;border-top:1px solid var(--ptl-line)}
+ #map{min-height:430px;height:60vh}.card{padding:17px}
+}
+@media(max-width:480px){
+ .brand{gap:10px}.mark{width:37px;height:37px}.brand b{font-size:17px}.brand small{max-width:230px;font-size:7px}
+ .status{font-size:9px;padding:5px 7px}.filters label{min-width:100%;flex:1}.page-title{font-size:32px}
+ .export-toolbar{gap:8px}.export-toolbar>span{width:100%}
+}
