@@ -2688,3 +2688,48 @@ footer .social-links a{color:var(--ptl-petrol)}
  .status{font-size:9px;padding:5px 7px}.filters label{min-width:100%;flex:1}.page-title{font-size:32px}
  .export-toolbar{gap:8px}.export-toolbar>span{width:100%}
 }
+
+
+/* PTL · gerarchia editoriale comune a tutti i moduli */
+.module-heading{
+  display:grid;grid-template-columns:54px minmax(0,1fr) 74px;align-items:start;
+  gap:18px;margin:8px 0 25px;padding:4px 0 22px;
+  border-bottom:1px solid var(--ptl-line);
+}
+.module-heading-index{
+  padding-top:7px;color:var(--ptl-ochre);
+  font:400 25px/1 'DM Serif Display',Georgia,serif;
+  border-top:2px solid var(--ptl-ochre);
+}
+.module-heading-copy{min-width:0}
+.module-heading-copy .page-kicker{margin:0 0 9px}
+.module-heading-copy .page-title{margin:0 0 9px;max-width:1000px}
+.module-heading-copy .lead{margin:0;max-width:850px}
+.module-heading-mark{display:flex;justify-content:flex-end;gap:5px;padding-top:8px}
+.module-heading-mark span{display:block;width:7px;height:28px;background:#a8b9a6}
+.module-heading-mark span:nth-child(2){height:20px;background:var(--ptl-ochre)}
+.module-heading-mark span:nth-child(3){height:13px;background:var(--ptl-clay)}
+#content .overview-heading{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:28px;
+  padding:5px 0 23px;margin:4px 0 17px;border-bottom:1px solid var(--ptl-line);
+}
+#content .overview-heading .page-kicker{margin-bottom:10px}
+#content .overview-heading h2{
+  max-width:780px;margin:0 0 9px;font:400 clamp(32px,4vw,51px)/1.05 'DM Serif Display',Georgia,serif;
+  letter-spacing:-.025em;color:var(--ptl-forest);
+}
+#content .overview-heading p{max-width:720px;margin:0;color:#6d786e;font-size:13px;line-height:1.75}
+#content .overview-heading-tag{
+  flex:0 0 auto;min-width:150px;padding:12px 15px;
+  border-left:2px solid var(--ptl-ochre);background:#ebece2;
+}
+#content .overview-heading-tag span{display:block;color:#7c8277;font-size:8px;font-weight:700;letter-spacing:.17em}
+#content .overview-heading-tag strong{display:block;margin-top:4px;color:var(--ptl-forest);font:400 17px 'DM Serif Display',Georgia,serif}
+#content .overview-context{margin:0 0 18px}
+@media(max-width:760px){
+ .module-heading{grid-template-columns:35px minmax(0,1fr);gap:12px;margin-top:3px}
+ .module-heading-index{font-size:21px}
+ .module-heading-mark{display:none}
+ #content .overview-heading{align-items:flex-start;flex-direction:column;gap:15px}
+ #content .overview-heading-tag{width:100%}
+}
