@@ -496,3 +496,95 @@ footer{color:#87968f;border-top:1px solid var(--ud-line);margin-top:34px}
  .territory{width:100%;padding:4px 0}
  .metric{font-size:25px}
 }
+
+
+/* DESIGN SYSTEM 2.0 · Osservatorio urbano e territoriale */
+:root{
+ --obs-night:#102f3b;--obs-deep:#153f4b;--obs-teal:#28736f;--obs-mint:#b8cec1;
+ --obs-cream:#f4f2eb;--obs-canvas:#eeeee8;--obs-white:#fff;--obs-ink:#1c3941;
+ --obs-muted:#71817d;--obs-rule:#d9dfd8;--obs-gold:#c49a58;--obs-blue:#8eb6c7;--obs-rose:#c58f9e;
+}
+body{background:var(--obs-canvas);color:var(--obs-ink)}
+.top{height:78px;position:sticky;top:0;z-index:100;background:var(--obs-night);padding:0 clamp(20px,3vw,48px);box-shadow:0 8px 28px rgba(16,47,59,.14)}
+.brand{gap:15px}.mark{width:44px;height:44px;border-radius:8px;background:var(--obs-mint);color:var(--obs-night);font-size:13px;letter-spacing:1px}
+.brand b{font-size:15px;letter-spacing:.1px}.brand small{font-size:10px;color:#b9cbc7;letter-spacing:.45px;text-transform:uppercase}
+.status{font-size:10px;letter-spacing:.35px;text-transform:uppercase;border-radius:4px;background:#ffffff0b;border-color:#ffffff30}
+.layout{grid-template-columns:264px minmax(0,1fr);min-height:calc(100vh - 78px);align-items:start}
+.side{position:sticky;top:78px;height:calc(100vh - 78px);overflow-y:auto;background:var(--obs-night);border:0;padding:28px 17px 22px;box-shadow:none}
+.side-label{color:#8eaaa5;font-size:9px;letter-spacing:2.2px;padding:0 13px 15px}
+#nav{display:grid;gap:4px}
+.nav{min-height:42px;border-radius:6px;color:#c1d0cb;font-size:12px;letter-spacing:.05px;padding:10px 13px;margin:0;border:1px solid transparent;transition:all .16s ease}
+.nav:hover{background:#ffffff0d;color:#fff;transform:translateX(2px)}
+.nav.active{background:#214b55;border-color:#42656a;color:#fff;box-shadow:none}
+.nav.active:before{top:8px;bottom:8px;background:var(--obs-gold);width:3px}
+.side-note{margin:28px 4px 0;background:#183d47;border:1px solid #31545b;border-radius:7px;color:#e3ebe5;padding:14px}
+.side-note b{font-size:11px;letter-spacing:.2px}.side-note p{font-size:10px;color:#b1c4bd;line-height:1.6}
+main{max-width:none;padding:clamp(22px,3.1vw,48px);width:100%;margin:0}
+.filters{position:sticky;top:91px;z-index:50;display:grid;grid-template-columns:repeat(4,minmax(125px,1fr)) minmax(130px,.8fr);align-items:end;gap:11px;background:rgba(255,255,255,.96);border:1px solid #d9dfd8;border-radius:8px;padding:13px 15px;margin:0 0 30px;box-shadow:0 8px 24px rgba(28,57,65,.055);backdrop-filter:blur(12px)}
+.filters label{min-width:0;flex:initial;font-size:9px;text-transform:uppercase;letter-spacing:.75px;color:#74837e;font-weight:750}
+.filters select{height:39px;border-radius:5px;background:#f8f9f6;border-color:#dce2dc;font-size:11px}
+.territory{min-width:0;margin:0;padding:0 4px 3px;border-left:2px solid var(--obs-gold);padding-left:12px}
+.territory small{font-size:9px;letter-spacing:.7px;text-transform:uppercase;color:#83918a}
+.territory b{font-size:13px;color:var(--obs-deep)}
+.page-kicker,.overview-eyebrow{font-size:9px;letter-spacing:2px;color:var(--obs-teal);font-weight:800}
+.page-title{font-size:clamp(28px,3.2vw,40px);letter-spacing:-1.4px;line-height:1.08;color:var(--obs-night);font-weight:720}
+.lead{font-size:13px;line-height:1.75;color:#6c7d77;max-width:900px;margin-bottom:30px}
+.card{border-radius:8px;border:1px solid var(--obs-rule);box-shadow:0 3px 15px rgba(21,63,75,.035);padding:22px}
+.card:hover{border-color:#c7d3ca;box-shadow:0 8px 24px rgba(21,63,75,.065)}
+.card h3{font-size:14px;letter-spacing:-.15px}
+.grid{gap:15px}
+.metric{font-size:clamp(27px,2.7vw,36px);color:var(--obs-deep);font-weight:740}
+.notice,.notice-inline{border-radius:5px;background:#e8efea;border-color:#d5e1d8;color:#536d66}
+.notice{border-left:3px solid var(--obs-teal)}
+.notice-inline{border-left:3px solid var(--obs-gold)}
+.table-wrap,.comparison-table{border-radius:7px;border-color:var(--obs-rule)}
+table{font-size:11px}th{background:#eef2ed;color:#5c716a;font-size:9px;letter-spacing:.7px}
+th,td{padding:11px 12px}
+button,.secondary-button{border-radius:5px}
+.secondary-button{background:#edf3ee;border-color:#cad8ce;color:var(--obs-deep)}
+#map,.school-map,.green-map,.overview-territory-map{border-radius:7px;border-color:var(--obs-rule)}
+.overview-heading{margin:4px 0 22px}
+.overview-heading h2{font-size:clamp(32px,3.6vw,46px);letter-spacing:-1.7px;color:var(--obs-night)}
+.overview-heading p{font-size:13px;color:#6d7e77}
+.overview-heading-tag{border-radius:5px;background:#e4ece5;border-color:#d1ddd4;padding:12px 16px}
+.overview-heading-tag span{font-size:8px;letter-spacing:1.6px}
+.overview-heading-tag strong{font-size:12px}
+.overview-context{margin-bottom:18px}
+.overview-hero-grid{grid-template-columns:minmax(0,1.8fr) minmax(250px,.8fr);gap:14px}
+.overview-map-card{padding:17px}
+.overview-territory-map{height:430px;background:#e5ece7}
+.overview-side-stack{gap:10px}
+.overview-pop-card{background:var(--obs-deep);border-color:var(--obs-deep);border-radius:7px}
+.overview-mini-kpis,.overview-census-card{border-radius:7px}
+.overview-mini-kpis strong{font-size:24px}
+.overview-progress i{background:var(--obs-teal)}
+.overview-panels{gap:14px}
+.overview-method{background:#f9faf7}
+.export-toolbar{border:1px solid var(--obs-rule);border-radius:7px;background:#fff;padding:10px 13px;margin:0 0 22px}
+footer{font-size:10px;margin-top:42px;padding-top:18px}
+@media(max-width:1100px){
+ .layout{grid-template-columns:224px minmax(0,1fr)}
+ .side{padding:22px 12px}
+ .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .territory{min-height:39px;display:flex;justify-content:center;flex-direction:column}
+}
+@media(max-width:850px){
+ .top{position:relative;height:auto;min-height:72px}
+ .layout{grid-template-columns:1fr}
+ .side{position:relative;top:auto;height:auto;overflow:visible;background:var(--obs-night);padding:10px 12px}
+ #nav{display:flex;overflow-x:auto;scrollbar-width:thin;gap:5px}
+ .nav{flex:0 0 auto;white-space:nowrap}
+ .nav.active:before{top:auto;left:12px;right:12px;bottom:2px;width:auto;height:2px}
+ main{padding:20px 16px}
+ .filters{position:relative;top:auto;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:22px}
+ .overview-hero-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .top{padding:0 14px}.brand b{font-size:13px}.brand small{font-size:8px}
+ .status{font-size:8px;max-width:40%}
+ .filters{grid-template-columns:1fr;padding:12px}
+ .territory{min-height:auto;padding:7px 0 7px 12px}
+ main{padding:16px 12px}
+ .overview-territory-map{height:310px;min-height:280px}
+ .card{padding:15px}
+}
