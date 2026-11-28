@@ -6,6 +6,36 @@ let gisMap=null, gisImportedLayers=[], gisLayerControl=null, mapSelection=null, 
 let greenMapInstance=null,greenMapData=null,greenSummaryData=null,realizedAmenitiesMap=null;
 let GEO={asc1:null,asc2:null,asc3:null,sections:null};
 let geoSelection={asc2:'',asc3:'',section:''};
+
+// Palette coordinata con il sistema visivo Urban Design 18.
+const URBAN_CHART_PALETTE=['#176b68','#6f927d','#c18b43','#8aa89a','#426b78','#a9bcae','#d5a65a','#647a7c'];
+if(window.Chart){
+ Chart.defaults.color='#647a7c';
+ Chart.defaults.borderColor='#d8e0dc';
+ Chart.defaults.font.family='Inter, Aptos, system-ui, sans-serif';
+ Chart.defaults.plugins.legend.labels.color='#536d68';
+ Chart.defaults.plugins.title.color='#183746';
+ Chart.defaults.scale.grid.color='rgba(100,122,124,.13)';
+ Chart.defaults.elements.arc.borderColor='#ffffff';
+ Chart.defaults.elements.arc.borderWidth=2;
+ Chart.register({id:'urbanDesignPalette',beforeUpdate(chart){
+  const palette=URBAN_CHART_PALETTE;
+  chart.data.datasets.forEach((dataset,index)=>{
+   const type=dataset.type||chart.config.type;
+   if(dataset.backgroundColor===undefined){
+    dataset.backgroundColor=(type==='pie'||type==='doughnut'||type==='polarArea')
+      ?palette.map((color,i)=>palette[(i+index)%palette.length])
+      :type==='line'?'rgba(23,107,104,.14)':'#176b68';
+   }
+   if(dataset.borderColor===undefined){
+    dataset.borderColor=(type==='pie'||type==='doughnut'||type==='polarArea')
+      ?'#ffffff':type==='line'?'#176b68':'#176b68';
+   }
+   if(type==='line'&&dataset.pointBackgroundColor===undefined)dataset.pointBackgroundColor='#c18b43';
+   if(type==='bar'&&dataset.hoverBackgroundColor===undefined)dataset.hoverBackgroundColor='#c18b43';
+  });
+ }});
+}
 const pages={
 overview:['QUADRO CONOSCITIVO','Panoramica territoriale','Quadro integrato delle componenti demografiche, scolastiche, urbanistiche e spaziali.'],
 demography:['POPOLAZIONE RESIDENTE','Analisi demografica','Distribuzione per sesso, classi d’età e fasce funzionali.'],
@@ -1099,10 +1129,10 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
   charts.push(new Chart(document.getElementById('sectionTerritoryPie'),{type:'pie',data:{labels:pieLabels,datasets:[{data:pieValues}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw||0).toLocaleString('it-IT')}}}}}));
  }
  if(active==='standards'&&window.Chart&&document.getElementById('sectionTerritoryGeneralInterestPie')){
-  charts.push(new Chart(document.getElementById('sectionTerritoryGeneralInterestPie'),{type:'pie',data:{labels:['F1 · Istruzione superiore (1,50 m²/ab)','F2 · Sanità e ospedali (1,00 m²/ab)','F4 · Parchi urbani e territoriali (15,00 m²/ab)'],datasets:[{data:generalInterestPieValues,backgroundColor:['#7c3aed','#dc2626','#15803d']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw||0).toLocaleString('it-IT',{maximumFractionDigits:2})}}}}}));
+  charts.push(new Chart(document.getElementById('sectionTerritoryGeneralInterestPie'),{type:'pie',data:{labels:['F1 · Istruzione superiore (1,50 m²/ab)','F2 · Sanità e ospedali (1,00 m²/ab)','F4 · Parchi urbani e territoriali (15,00 m²/ab)'],datasets:[{data:generalInterestPieValues,backgroundColor:['#176b68','#c18b43','#6f927d']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:ctx=>ctx.label+': '+Number(ctx.raw||0).toLocaleString('it-IT',{maximumFractionDigits:2})}}}}}));
  }
  if(active==='overview'&&window.Chart&&document.getElementById('overviewSchoolChart')){
-  const cl=DATA.schoolClassification?.records||[],pt=filteredSchoolPoints(s),byId=new Map(cl.map(x=>[String(x.point_id),x])),orderKeys=['NIDO','INFANZIA','ELEMENTARI','MEDIE','SUPERIORI','Non classificati'],orderColors=['#d97706','#db2777','#16845b','#2563eb','#7c3aed','#64748b'],counts=Object.fromEntries(orderKeys.map(k=>[k,0]));
+  const cl=DATA.schoolClassification?.records||[],pt=filteredSchoolPoints(s),byId=new Map(cl.map(x=>[String(x.point_id),x])),orderKeys=['NIDO','INFANZIA','ELEMENTARI','MEDIE','SUPERIORI','Non classificati'],orderColors=['#c18b43','#a77b87','#176b68','#426b78','#6f927d','#a9bcae'],counts=Object.fromEntries(orderKeys.map(k=>[k,0]));
   pt.forEach(p=>{const k=(byId.get(String(p.id))?.orders||[])[0]||'Non classificati';counts[counts[k]!==undefined?k:'Non classificati']++;});
   const total=orderKeys.reduce((n,k)=>n+counts[k],0),fmtPie=n=>Number(n||0).toLocaleString('it-IT'),chartTitle=s.section?'Sezione censuaria':s.asc3?'UPL selezionata':s.quart?'Quartiere selezionato':s.circ?'Circoscrizione selezionata':'Intero Comune';
   charts.push(new Chart(document.getElementById('overviewSchoolChart'),{type:'doughnut',data:{labels:orderKeys,datasets:[{data:orderKeys.map(k=>counts[k]),backgroundColor:orderColors,borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,plugins:{title:{display:true,text:chartTitle+' · '+fmtPie(total)+' punti fisici'},legend:{position:'bottom'},tooltip:{callbacks:{label(ctx){const value=Number(ctx.raw)||0,pct=total?value/total*100:0;return ctx.label+': '+fmtPie(value)+' ('+pct.toLocaleString('it-IT',{maximumFractionDigits:1})+'%)';}}}}}}));
