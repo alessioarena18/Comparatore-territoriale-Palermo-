@@ -8,19 +8,23 @@
     }
   },
   "metadata": {
-    "source": "Comune di Palermo, schede ufficiali Luoghi e portale Librarsi",
+    "source": "Comune di Palermo, portale Librarsi e Università degli Studi di Palermo",
     "reference_date": "2026-11-18",
-    "method": "Punti ricavati dai link cartografici ufficiali delle schede comunali; nessun perimetro o superficie viene inferito.",
-    "mapped_locations": 7,
+    "method": "Punti ricavati dai collegamenti cartografici delle schede istituzionali comunali e UniPa; nessun perimetro o superficie viene inferito.",
+    "mapped_locations": 15,
     "not_yet_mapped": [
-      "Biblioteca comunale Leonardo Sciascia (indirizzo noto, coordinate da validare)",
-      "Biblioteche decentrate (rete da scomporre in singole sedi)"
+      "Biblioteca comunale dei bambini e dei ragazzi Il Piccolo Principe (indirizzo noto, coordinate puntuali da validare)",
+      "Biblioteca comunale · Sezione esterna quartiere IV Montegrappa-Santa Rosalia (sede ICCU da rivalidare, coordinate non validate)",
+      "Biblioteca comunale · Sezione esterna quartiere V Cuba-Calatafimi (sede ICCU da rivalidare, coordinate non validate)",
+      "Biblioteca centrale della Regione Siciliana Alberto Bombace (indirizzo noto, coordinate puntuali da validare)"
     ],
     "last_verified": "2026-11-18",
-    "methodology": "Punti di localizzazione derivati dai collegamenti Google Maps presenti nelle schede Luoghi ufficiali del Comune di Palermo. I punti indicano accessi/civici o complessi ospitanti e non costituiscono perimetri edilizi o superfici. La sede di Pallavicino è esclusa perché la scheda Librarsi la dichiara chiusa in attesa di nuova ubicazione.",
+    "methodology": "Punti di localizzazione derivati dai collegamenti cartografici delle schede istituzionali del Comune di Palermo e dell'Università degli Studi di Palermo. I punti indicano accessi, civici o edifici ospitanti e non costituiscono perimetri edilizi o superfici. La sede di Pallavicino è esclusa perché la scheda Librarsi la dichiara chiusa in attesa di nuova ubicazione; Spazio ZAC è rappresentato attraverso il complesso ospitante dei Cantieri Culturali alla Zisa.",
     "feature_count": 15,
     "notes": [
-      "Sono aggiunti quattro punti di biblioteche UniPa. Le coordinate localizzano gli edifici indicati dai collegamenti ufficiali, non ingressi autonomi o perimetri delle sale. La Biblioteca centrale regionale Bombace è censita nel registro ma non mappata per mancanza di coordinate validate."
+      "I quattro punti UniPa localizzano gli edifici indicati dalle schede ufficiali di Ateneo, non gli ingressi autonomi o i perimetri delle sale bibliotecarie.",
+      "Le quattro sedi UniPa sono collegate al registro tramite facility_id stabile, così da consentire selezione dalla tabella, associazione territoriale e filtro cartografico.",
+      "La Biblioteca centrale regionale Bombace, Il Piccolo Principe e le due sezioni esterne ICCU restano nel registro senza marker per mancanza di coordinate validate."
     ]
   },
   "features": [
@@ -292,7 +296,11 @@
         "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Ingegneria/",
         "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
         "isil": "IT-PA0066",
-        "managing_body": "Università degli Studi di Palermo"
+        "managing_body": "Università degli Studi di Palermo",
+        "facility_id": "culture-unipa-biblioteca-ingegneria",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "coordinate_source": "Collegamento cartografico della scheda ufficiale del Sistema Bibliotecario di Ateneo UniPa"
       },
       "geometry": {
         "type": "Point",
@@ -313,7 +321,11 @@
         "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-politecnico/Biblioteca-di-Architettura.-Centrale-di-architettura/index.html",
         "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
         "isil": "IT-PA0106",
-        "managing_body": "Università degli Studi di Palermo"
+        "managing_body": "Università degli Studi di Palermo",
+        "facility_id": "culture-unipa-biblioteca-architettura",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "coordinate_source": "Collegamento cartografico della scheda ufficiale del Sistema Bibliotecario di Ateneo UniPa"
       },
       "geometry": {
         "type": "Point",
@@ -334,7 +346,11 @@
         "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-umane/Biblioteca-di-Psicologia/",
         "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
         "isil": "IT-PA0327",
-        "managing_body": "Università degli Studi di Palermo"
+        "managing_body": "Università degli Studi di Palermo",
+        "facility_id": "culture-unipa-biblioteca-psicologia",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "coordinate_source": "Collegamento cartografico della scheda ufficiale del Sistema Bibliotecario di Ateneo UniPa"
       },
       "geometry": {
         "type": "Point",
@@ -355,7 +371,11 @@
         "source_url": "https://www.unipa.it/biblioteche/frequenta-biblioteca/Polo-di-scienze-di-base-e-applicate/Biblioteca-di-Scienze-agro-forestali.-Centrale-agraria/",
         "location_note": "Punto cartografico dell'edificio universitario indicato dalla scheda ufficiale UniPa; non rappresenta il locale o l'ingresso autonomo della biblioteca.",
         "isil": "IT-PA0107",
-        "managing_body": "Università degli Studi di Palermo"
+        "managing_body": "Università degli Studi di Palermo",
+        "facility_id": "culture-unipa-biblioteca-agraria",
+        "coordinate_reference": "WGS84",
+        "last_verified": "2026-11-18",
+        "coordinate_source": "Collegamento cartografico della scheda ufficiale del Sistema Bibliotecario di Ateneo UniPa"
       },
       "geometry": {
         "type": "Point",
