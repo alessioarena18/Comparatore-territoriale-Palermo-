@@ -1,0 +1,72 @@
+# Palermo Territorial Lab · App iOS e Android
+
+## Architettura
+
+L'app nativa usa Capacitor 8 e riutilizza l'applicazione web esistente come interfaccia. Non viene riscritto il motore territoriale: `app.js`, i moduli tematici, i dataset JSON/GeoJSON, le geometrie ISTAT, le analisi e gli stili vengono inclusi nel bundle locale.
+
+- Identificativo applicazione: `it.palermoterritorial.lab`
+- Nome visualizzato: `Palermo Territorial Lab`
+- Web bundle: `dist/`
+- Piattaforme: Android e iOS
+- Repository sorgente: il branch `main` resta la versione web di riferimento.
+
+## Preparazione
+
+Requisiti: Node.js 22 LTS, npm, Android Studio + Android SDK per Android, macOS + Xcode per iOS.
+
+```bash
+npm install
+npm run mobile:prepare
+npx cap add android
+npx cap add ios
+npm run mobile:sync
+```
+
+Per aggiornare le app native dopo una modifica ai file web:
+
+```bash
+npm run mobile:sync
+```
+
+Aprire i progetti nativi:
+
+```bash
+npm run mobile:open:android
+npm run mobile:open:ios
+```
+
+## Strategia di conservazione
+
+Il bundle viene generato copiando i file web e gli archivi territoriali nel pacchetto locale. I dati e le geometrie non vengono trasformati né ricalcolati. La procedura esclude soltanto strumenti di sviluppo, metadati Git e documentazione non necessaria all'esecuzione.
+
+La mappa di base OpenStreetMap, le ortofoto e le risorse CDN richiedono connettività. Gli archivi locali inclusi nel pacchetto restano disponibili senza rete; non si dichiara una modalità cartografica completamente offline finché non viene predistribuita e collaudata una base cartografica offline con licenze e attribuzioni adeguate.
+
+## Build automatizzate
+
+I workflow in `.github/workflows/mobile-build.yml` generano:
+- APK Android di debug per test su dispositivi.
+- Build iOS per simulatore, senza firma di distribuzione.
+
+Questi artefatti sono build di test, non versioni pubblicabili sugli store.
+
+## Pubblicazione sugli store
+
+Per Google Play servono un account Google Play Console, dati legali e privacy, scheda store, firma dell'app e un Android App Bundle firmato.
+
+Per Apple App Store servono un account Apple Developer, identificativo Bundle ID definitivo, certificati/provisioning, firma e scheda App Store Connect.
+
+Le credenziali e le firme devono essere configurate dal titolare degli account. Non vanno inserite nel repository.
+
+## Verifiche prima della distribuzione
+
+1. Confronto dei valori e dei conteggi tra web e app.
+2. Verifica dei filtri Comune/circoscrizione/quartiere/UPL/sezione.
+3. Verifica delle 13 sezioni e dei grafici.
+4. Verifica delle mappe Leaflet, dei layer PRG, delle ortofoto e delle attribuzioni.
+5. Verifica di stampa/esportazione, orientamento, tastiera e safe area.
+6. Test su iPhone reale, Android reale, rotazione e connessione assente/intermittente.
+7. Test accessibilità, privacy, prestazioni e crash.
+
+## Regola di progetto
+
+Nessun intervento sul packaging mobile deve modificare dataset, indicatori, formule, fonti, geometrie, classificazioni o logiche del comparatore web.
