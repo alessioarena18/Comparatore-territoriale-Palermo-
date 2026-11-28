@@ -91,6 +91,10 @@ Le regole sono isolate dalla classe `capacitor-native` e non modificano il DOM a
 
 ## Stato delle verifiche
 
-La pipeline automatizzata esegue la generazione delle icone/splash e una build separata per ciascuna piattaforma. La build di debug Android e quella iOS Simulator risultano completate con successo nel run [46154447987](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/46154470357). Le build non equivalgono ancora a un collaudo funzionale su dispositivi fisici né a pacchetti firmati per gli store.
+La pipeline automatizzata esegue la generazione delle icone/splash e una build separata per ciascuna piattaforma. La build di debug Android e quella iOS Simulator risultano completate con successo nel run [46154470357](https://github.com/alessioarena18/Comparatore-territoriale-Palermo-/actions/runs/46154470357). Le build non equivalgono ancora a un collaudo funzionale su dispositivi fisici né a pacchetti firmati per gli store.
 
 Per Capacitor 8 l'ambiente di sviluppo richiede Node.js 22 o superiore, Xcode 26 o superiore per iOS e Android Studio con Android SDK per Android. Riferimento: [Capacitor Environment Setup](https://capacitorjs.com/docs/getting-started/environment-setup).
+
+## Test automatici
+
+Il workflow Android esegue anche uno smoke test browser con Playwright prima della compilazione nativa. Il test verifica il caricamento dell'anagrafica, la presenza delle 13 voci di navigazione, i selettori territoriali e l'apertura delle sezioni Demografia e Cartografia GIS. È un controllo di regressione iniziale, non sostituisce i test manuali su dispositivi fisici.
