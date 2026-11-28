@@ -775,3 +775,91 @@ footer{color:#82918e}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.side{padding:10px 12px;background:#fdfefd}main{padding:17px}.filters{margin-bottom:20px}.page-title{font-size:25px}}
 @media(max-width:520px){.top{height:70px;padding:0 15px}.brand b{font-size:14px}.brand small{font-size:10px}.mark{padding:9px}.status{font-size:10px;padding:5px 8px}main{padding:14px 12px}.page-title{font-size:23px}.lead{font-size:12px}.filters{padding:12px;gap:9px}.filters label{min-width:calc(50% - 6px)}.card{padding:15px;border-radius:9px}.card h3{font-size:13px}.metric{font-size:24px}#content>.grid{gap:11px}}
 @media(prefers-reduced-motion:reduce){.nav,.card,.filters select{transition:none}}
+
+
+/* Rifinitura dei moduli analitici: densità, disagio, verde, metabolismo e GIS */
+.housing-level-select{display:grid;grid-template-columns:minmax(180px,.5fr) minmax(220px,1fr);gap:8px 16px;align-items:center;padding:16px 18px;background:#fbfdfb}
+.housing-level-select label{color:#315b5a;font-size:12px}
+.housing-level-select select{width:100%;max-width:380px;min-height:40px;padding:8px 11px;border:1px solid #d6e3dc;border-radius:7px;background:#fff;color:#315052;font:inherit}
+.housing-level-select p{grid-column:1/-1;margin:0;font-size:11px;line-height:1.55}
+.housing-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+.housing-circ-pies{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.housing-circ-pies>.card{background:#fbfcfb;border-radius:9px}
+#content .housing-kpis>.card:nth-child(1):before{background:#7faec2}
+#content .housing-kpis>.card:nth-child(2):before{background:#6f927d}
+#content .housing-kpis>.card:nth-child(3):before{background:#c18b43}
+#content .housing-kpis>.card:nth-child(4):before{background:#426b78}
+.social-kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.social-kpis>.card{position:relative;min-height:120px;padding:17px 18px;background:#fff;border:1px solid #e1e9e5;border-radius:10px}
+.social-kpis>.card:nth-child(1){border-top:3px solid #7faec2}
+.social-kpis>.card:nth-child(2){border-top:3px solid #6f927d}
+.social-kpis>.card:nth-child(3){border-top:3px solid #c18b43}
+.social-kpis>.card:nth-child(4){border-top:3px solid #c58f9e}
+.social-kpis .metric{font-size:clamp(23px,2vw,29px)}
+.social-kpis h3{margin:7px 0 1px;font-size:12px}
+.social-select{background:#fbfcfb}
+.upl-selector{max-height:430px;gap:9px;padding:10px}
+.circ-upl-group,.quart-upl-group{border:1px solid #e0e9e4;border-radius:8px;overflow:hidden}
+.circ-group-title,.quart-group-title{padding:10px 12px;cursor:pointer;font-size:12px}
+.circ-upl-options,.quart-upl-options{padding:9px 12px}
+.upl-option{padding:4px 2px;color:#526a68;font-size:11px}
+.indicator-panel{background:#f5f8f6;border-color:#e0e9e4;border-radius:9px}
+.indicator-item{color:#637875;border-bottom-color:#e3ebe6}
+.indicator-item strong{color:#245b58}
+.comparison-panel{min-width:0}
+.comparison-table table{min-width:680px}
+.green-status-overview .workflow-grid>div{background:#f6f9f6;border-color:#e1eae4;border-radius:8px}
+.green-kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.green-kpis>.card{min-height:110px}
+.green-map{display:block;width:100%;height:540px;min-height:420px;background:#e8efeb;border:1px solid #dfe8e3;border-radius:10px;position:relative;z-index:0}
+.green-chart-wrap{height:350px;max-width:100%}
+.green-map-legend{gap:10px 16px;padding:13px 0}
+.green-map-legend span{font-size:11px;color:#5d7470}
+.green-map-legend i{width:10px;height:10px;border-radius:3px}
+.metabolism-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0}
+.metabolism-grid>.card,.metabolism-grid>article{padding:18px;background:#fff;border:1px solid #e2e9e5;border-radius:10px}
+.metabolism-grid h3{font-size:13px;color:#285451}
+.metabolism-grid p,.metabolism-grid li{font-size:11px;line-height:1.6;color:#71827e}
+.metabolism-grid ul{padding-left:18px;margin:10px 0 14px}
+.metabolism-simulator{background:#fbfcfb}
+.metabolism-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 18px;margin:18px 0}
+.metabolism-inputs label{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:11px 12px;background:#f5f8f6;border:1px solid #e3ebe6;border-radius:8px;color:#526d68;font-size:11px}
+.metabolism-inputs output{color:#1c6660;font-weight:750;font-variant-numeric:tabular-nums}
+.metabolism-inputs input,.metabolism-weight-grid input{grid-column:1/-1;width:100%;accent-color:#397d76}
+.metabolism-weight-panel{background:#f5f8f6;border-color:#e0e9e4}
+.metabolism-score{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:center;margin:18px 0;padding:17px;background:#edf4f0;border:1px solid #dce9e1;border-radius:9px}
+.metabolism-score>div:first-child{display:grid;justify-items:center}
+.metabolism-score small{font-size:10px;color:#657d76}
+.metabolism-score strong{font-size:40px;line-height:1.2;color:#1d625c;font-variant-numeric:tabular-nums}
+.metabolism-score span{font-size:12px;color:#738780}
+.metabolism-bars{display:grid;gap:9px}
+.metabolism-bar-row{display:grid;grid-template-columns:minmax(105px,150px) minmax(0,1fr) 42px;gap:10px;align-items:center;font-size:11px;color:#5b716b}
+.metabolism-bar-row>div{height:8px;background:#dfe9e3;border-radius:20px;overflow:hidden}
+.metabolism-bar-row i{display:block;height:100%;background:#548b7d;border-radius:20px}
+#map.gis-map{display:block;width:100%;height:600px;min-height:480px;background:#e8efeb;border:1px solid #dfe8e3;border-radius:10px;position:relative;z-index:0}
+.gis-selection-panel{background:#fbfcfb}
+.gis-selection-grid label{color:#59736d;font-size:11px}
+.gis-selection-actions{gap:9px}
+@media(max-width:1100px){
+ .metabolism-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .green-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .social-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:850px){
+ .housing-level-select{grid-template-columns:1fr}
+ .housing-level-select p{grid-column:auto}
+ .metabolism-score{grid-template-columns:110px minmax(0,1fr);gap:12px}
+ #map.gis-map,.green-map{height:480px;min-height:400px}
+}
+@media(max-width:600px){
+ .housing-circ-pies,.metabolism-grid,.metabolism-inputs{grid-template-columns:1fr}
+ .social-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .social-kpis>.card{min-height:105px;padding:13px}
+ .green-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .metabolism-score{grid-template-columns:1fr}
+ .metabolism-bars{gap:8px}
+ .metabolism-bar-row{grid-template-columns:90px minmax(0,1fr) 34px;font-size:10px}
+ .upl-selector{max-height:360px}
+ #map.gis-map,.green-map{height:430px;min-height:360px}
+ .comparison-table table{min-width:640px}
+}
