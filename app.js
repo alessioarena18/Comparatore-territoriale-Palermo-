@@ -1157,6 +1157,27 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
    if(extent.minX<13||extent.maxX>14||extent.minY<37||extent.maxY>39)throw new Error('Coordinate ASC1 fuori dall’area geografica attesa');
    GEO.asc1=data;
    const renderer=L.svg({padding:0.5});
+   const quartieriResponse=await fetch('./data/geo/aree_subcomunali_liv2_palermo_2021.geojson?v=20261128-quartieri-01',{cache:'no-store'});
+   if(!quartieriResponse.ok)throw new Error('HTTP '+quartieriResponse.status+' durante il caricamento dei quartieri');
+   const quartieriData=await quartieriResponse.json();
+   if(quartieriData?.type!=='FeatureCollection'||!Array.isArray(quartieriData.features)||quartieriData.features.length!==25)throw new Error('Archivio quartieri non valido: attesi 25 poligoni');
+   GEO.asc2=quartieriData;
+   const quartieri=L.geoJSON(quartieriData,{
+    pane:'territoryBoundaries',renderer,
+    style:()=>({color:'#ffffff',weight:3,opacity:.95,fill:false,lineCap:'round',lineJoin:'round'})
+   }).addTo(map);
+   const quartieriLines=L.geoJSON(quartieriData,{
+    pane:'territoryBoundaries',renderer,
+    style:()=>({color:'#bd7445',weight:1.25,opacity:.95,fillColor:'#e2b47a',fillOpacity:.018,lineCap:'round',lineJoin:'round'}),
+    onEachFeature:(feature,layer)=>{
+     const p=feature.properties||{},name=String(p.DEN_ASC2||'Quartiere'),code=String(p.COD_ASC2??'');
+     layer.bindTooltip(name,{sticky:true,direction:'auto'});
+     layer.bindPopup('<strong>'+esc(name)+'</strong><br><small>Quartiere '+esc(code)+' · Confine ISTAT 2021</small>');
+     layer.on('click',()=>{const select=$('#quart'),next=code;if(!select||!code)return;select.value=select.value===next?'':next;syncMainFilter('quart');});
+     layer.on('mouseover',()=>layer.setStyle({weight:2,opacity:1,fillOpacity:.08}));
+     layer.on('mouseout',()=>quartieriLines.resetStyle(layer));
+    }
+   }).addTo(map);
    const casing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:5,opacity:0.9,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
    const boundaries=L.geoJSON(data,{
     pane:'territoryBoundaries',renderer,
@@ -1174,10 +1195,12 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
      layer.on('mouseout',()=>boundaries.resetStyle(layer));
     }
    }).addTo(map);
+   quartieri.bringToFront();quartieriLines.bringToFront();
+   const circCasing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:5,opacity:.98,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
    boundaries.bringToFront();
    const bounds=boundaries.getBounds();
    if(!bounds.isValid())throw new Error('I perimetri ASC1 non generano un’estensione cartografica valida');
-   const fit=()=>{map.invalidateSize(true);map.fitBounds(bounds,{padding:[20,20],maxZoom:12,animate:false});boundaries.bringToFront();};
+   const fit=()=>{map.invalidateSize(true);map.fitBounds(bounds,{padding:[20,20],maxZoom:12,animate:false});quartieri.bringToFront();quartieriLines.bringToFront();circCasing.bringToFront();boundaries.bringToFront();};
    fit();
    setTimeout(fit,250);
    el.dataset.boundaries='loaded';
