@@ -18,10 +18,8 @@ test('territorial app starts and exposes its main navigation and filters', async
   await page.locator('#nav [data-page="gis"]').click();
   await expect(page.locator('#content')).toContainText('Cartografia GIS');
   await expect(page.locator('#gisAutoStatus')).toContainText('ASC1 (8): 8 elementi caricati', { timeout: 30000 });
-  await expect(page.locator('#map .leaflet-overlay-pane path')).toHaveCount(8, { timeout: 30000 }).catch(async () => {
-    const polygonCount = await page.locator('#map .leaflet-overlay-pane path').count();
-    expect(polygonCount, 'The eight circoscrizione polygons must be rendered').toBeGreaterThanOrEqual(8);
-  });
+  const polygonCount = await page.locator('#map .leaflet-overlay-pane path').count();
+  expect(polygonCount, 'The eight circoscrizione polygons must be rendered').toBeGreaterThanOrEqual(8);
   await expect(page.locator('#gisSelectAsc1 option')).toHaveCount(9);
   await expect(page.locator('#map')).toBeVisible();
 
