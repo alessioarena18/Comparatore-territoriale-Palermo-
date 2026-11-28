@@ -13,6 +13,7 @@ on:
       - 'metabolism-data.js'
       - 'package.json'
       - 'capacitor.config.ts'
+      - 'capacitor.config.json'
       - 'scripts/**'
       - '.github/workflows/mobile-build.yml'
 
