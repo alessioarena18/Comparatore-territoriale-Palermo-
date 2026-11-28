@@ -3333,3 +3333,98 @@ body.capacitor-native{padding-bottom:env(safe-area-inset-bottom,0px)}
 body.capacitor-native .top{padding-top:env(safe-area-inset-top,0px)}
 body.capacitor-native .side{overscroll-behavior-x:contain}
 body.capacitor-native input,body.capacitor-native select,body.capacitor-native button{touch-action:manipulation}
+
+
+/* PALERMO TERRITORIAL LAB · rifinitura nativa mobile
+   Solo presentazione e usabilità touch. Nessuna modifica ai dati o al motore GIS. */
+html.capacitor-native{min-height:100%;scroll-padding-top:calc(78px + env(safe-area-inset-top,0px))}
+html.capacitor-native body{min-height:100%;padding-bottom:env(safe-area-inset-bottom,0px);-webkit-text-size-adjust:100%;overscroll-behavior-y:contain}
+html.capacitor-native .top{padding-top:calc(12px + env(safe-area-inset-top,0px))}
+html.capacitor-native #content{min-width:0}
+html.capacitor-native .leaflet-container,
+html.capacitor-native .maplibregl-map{touch-action:pan-x pan-y}
+html.capacitor-native button,
+html.capacitor-native select,
+html.capacitor-native input,
+html.capacitor-native textarea{font-size:max(16px,1em)}
+html.capacitor-native button,
+html.capacitor-native .nav,
+html.capacitor-native .secondary-button,
+html.capacitor-native .export-toolbar button{min-height:42px}
+html.capacitor-native .table-wrap,
+html.capacitor-native .comparison-table{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+html.capacitor-native .leaflet-control-zoom a{width:40px;height:40px;line-height:40px}
+html.capacitor-native .leaflet-control-layers-toggle{width:40px;height:40px}
+@media(max-width:850px){
+ html.capacitor-native .top{position:sticky;top:0;z-index:1100;min-height:70px;gap:10px}
+ html.capacitor-native .side{position:sticky;top:calc(70px + env(safe-area-inset-top,0px));z-index:1000;padding:8px 10px}
+ html.capacitor-native #nav{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:2px 0 5px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+ html.capacitor-native #nav::-webkit-scrollbar{display:none}
+ html.capacitor-native .nav{flex:0 0 auto;min-height:42px;padding:10px 13px;scroll-snap-align:start}
+ html.capacitor-native main{padding:16px 13px calc(22px + env(safe-area-inset-bottom,0px))}
+ html.capacitor-native .filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px;margin-bottom:16px}
+ html.capacitor-native .filters label{min-width:0;flex:initial;font-size:10px}
+ html.capacitor-native .filters select{width:100%;min-width:0;height:44px;padding:0 9px;font-size:14px}
+ html.capacitor-native .territory{grid-column:1/-1;min-height:0;padding:8px 2px 2px;border-top:1px solid #e5ebe7;border-left:0}
+ html.capacitor-native .export-toolbar{gap:8px;padding:10px 0 16px}
+ html.capacitor-native .export-option{flex:1 1 42%;min-width:0}
+ html.capacitor-native .export-option select{width:100%;min-height:42px}
+ html.capacitor-native .export-toolbar button{flex:1 1 28%;padding:9px 10px}
+ html.capacitor-native #map.gis-map,
+ html.capacitor-native .school-map,
+ html.capacitor-native .green-map{height: min(62vh,480px);min-height:340px}
+ html.capacitor-native .overview-territory-map{height:min(55vh,360px);min-height:280px}
+ html.capacitor-native .card{min-width:0}
+ html.capacitor-native .grid{min-width:0}
+}
+@media(max-width:560px){
+ html.capacitor-native .top{padding-right:12px;padding-left:12px;min-height:66px}
+ html.capacitor-native .brand{gap:9px;min-width:0}
+ html.capacitor-native .brand .mark{width:36px;height:36px;flex:0 0 36px}
+ html.capacitor-native .brand b{font-size:15px;line-height:1.2}
+ html.capacitor-native .brand small{max-width:54vw;font-size:8px;line-height:1.3;letter-spacing:.65px}
+ html.capacitor-native .top-meta{min-width:0;gap:0}
+ html.capacitor-native .top-edition{display:none}
+ html.capacitor-native .status{max-width:31vw;padding:5px 7px;font-size:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ html.capacitor-native .side{top:calc(66px + env(safe-area-inset-top,0px))}
+ html.capacitor-native main{padding:14px 11px calc(20px + env(safe-area-inset-bottom,0px))}
+ html.capacitor-native .filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:10px}
+ html.capacitor-native .filters label{font-size:9px;line-height:1.35}
+ html.capacitor-native .filters select{height:43px;font-size:13px}
+ html.capacitor-native .page-title{font-size:24px}
+ html.capacitor-native .lead{font-size:12px;line-height:1.55}
+ html.capacitor-native .card{padding:14px;border-radius:9px}
+ html.capacitor-native .card h3{font-size:13px}
+ html.capacitor-native .metric{font-size:24px}
+ html.capacitor-native .overview-kpis,
+ html.capacitor-native .social-kpis,
+ html.capacitor-native .green-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ html.capacitor-native .overview-kpis>.card,
+ html.capacitor-native .social-kpis>.card{min-height:98px;padding:11px}
+ html.capacitor-native .overview-kpis>.card .metric,
+ html.capacitor-native .social-kpis .metric{font-size:21px}
+ html.capacitor-native .section-pie-wrap{max-width:260px}
+ html.capacitor-native #content .table-wrap table,
+ html.capacitor-native #content .comparison-table table{min-width:620px}
+ html.capacitor-native #map.gis-map,
+ html.capacitor-native .school-map,
+ html.capacitor-native .green-map{height:390px;min-height:330px}
+ html.capacitor-native .overview-territory-map{height:300px;min-height:260px}
+ html.capacitor-native .export-toolbar>span{flex-basis:100%}
+ html.capacitor-native .export-toolbar button{flex:1 1 28%;font-size:10px}
+ html.capacitor-native footer{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:380px){
+ html.capacitor-native .brand small{display:none}
+ html.capacitor-native .status{max-width:35vw}
+ html.capacitor-native .filters{grid-template-columns:1fr}
+ html.capacitor-native .territory{grid-column:auto}
+}
+@media(orientation:landscape) and (max-height:520px) and (max-width:950px){
+ html.capacitor-native .top{min-height:54px;padding-top:calc(6px + env(safe-area-inset-top,0px));padding-bottom:6px}
+ html.capacitor-native .side{top:calc(54px + env(safe-area-inset-top,0px))}
+ html.capacitor-native main{padding-top:10px}
+ html.capacitor-native #map.gis-map,
+ html.capacitor-native .school-map,
+ html.capacitor-native .green-map{height:68vh;min-height:260px}
+}
