@@ -250,3 +250,118 @@
 .social-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:12px}
 .social-links a{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid #d4deea;border-radius:999px;background:#fff;color:#245b88;font-size:13px;font-weight:700;text-decoration:none}
 .social-links a:hover{background:#eaf1f8;text-decoration:underline}
+
+
+/* =========================================================
+   URBAN DESIGN SYSTEM · redesign editoriale GIS
+   Intervento esclusivamente presentazionale: nessuna modifica
+   a dati, selettori, identificativi o logica applicativa.
+   ========================================================= */
+:root{
+ --ud-ink:#183746;--ud-deep:#123b49;--ud-teal:#176b68;--ud-green:#6f927d;
+ --ud-sage:#dce8df;--ud-sand:#f2eee5;--ud-paper:#f6f5f0;--ud-white:#fff;
+ --ud-line:#d8e0dc;--ud-muted:#647a7c;--ud-ochre:#c18b43;
+ --ud-shadow:0 8px 24px rgba(23,55,65,.075);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ud-paper);color:var(--ud-ink);font-family:Inter,"Aptos",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+.top{height:88px;padding:0 30px;background:linear-gradient(110deg,#103946 0%,#175a60 62%,#274e55 100%);box-shadow:0 4px 18px rgba(12,45,53,.18);position:relative;isolation:isolate}
+.top:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.13;background:repeating-linear-gradient(135deg,transparent 0 34px,rgba(255,255,255,.2) 35px 36px,transparent 37px 70px)}
+.brand{gap:15px}.mark{display:grid;place-items:center;width:48px;height:48px;padding:0;border:1px solid rgba(255,255,255,.35);border-radius:13px;background:rgba(255,255,255,.12);color:#fff;font-size:16px;letter-spacing:.06em}
+.brand b{font-size:19px;letter-spacing:-.35px}.brand small{margin-top:2px;color:#d0e1dc;font-size:12px;letter-spacing:.02em}
+.status{border:1px solid rgba(230,242,235,.3);border-radius:999px;padding:7px 13px;background:rgba(255,255,255,.08);color:#e5f0eb;font-size:11px}
+.layout{grid-template-columns:252px minmax(0,1fr);min-height:calc(100vh - 88px)}
+.side{background:#123d49;border-right:0;padding:25px 15px;color:#e7efeb}
+.side-label{padding:0 13px 14px;color:#a8c5bc;font-size:10px;letter-spacing:2.2px}
+#nav{display:grid;gap:5px}
+.nav{position:relative;padding:11px 13px;margin:0;border-radius:9px;color:#d1e0dc;font-size:12px;font-weight:560;transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav:hover{background:rgba(255,255,255,.09);color:#fff;transform:translateX(2px)}
+.nav.active{background:#e6eee8;color:#173f49;font-weight:750;box-shadow:inset 3px 0 0 var(--ud-ochre)}
+.side-note{margin:30px 5px 0;padding:14px;border:1px solid rgba(219,237,228,.18);border-radius:12px;background:rgba(255,255,255,.07);color:#e4eee9;font-size:11px}
+.side-note p{color:#bfd2cc;line-height:1.6}
+main{min-width:0;padding:25px clamp(16px,2.4vw,36px) 22px}
+.filters{gap:12px;margin-bottom:17px;padding:15px 16px;border:1px solid var(--ud-line);border-radius:14px;background:#fff;box-shadow:var(--ud-shadow)}
+.filters label{color:#607779;font-size:10px;font-weight:750;letter-spacing:.035em;text-transform:uppercase}
+.filters select,.gis-selection-grid select,.housing-level-select select{height:41px;border:1px solid #cbd8d2;border-radius:8px;background:#fbfcfa;color:#25464c;font-size:12px;outline:none}
+.filters select:focus,.gis-selection-grid select:focus,.housing-level-select select:focus{border-color:var(--ud-teal);box-shadow:0 0 0 3px rgba(23,107,104,.12)}
+.territory{padding:0 8px 5px}.territory small{color:#788b87;font-size:10px;text-transform:uppercase;letter-spacing:.06em}.territory b{color:var(--ud-deep);font-size:15px}
+.export-toolbar{margin:0 0 20px;padding:9px 12px;border:1px solid var(--ud-line);border-radius:12px;background:#fbfcfa;box-shadow:none}
+.export-toolbar span{color:#607779;font-size:11px}
+.export-toolbar button,.export-card-button{border:1px solid #c8d7d0;border-radius:8px;background:#fff;color:#28515a;transition:all .18s ease}
+.export-toolbar button:hover,.export-card-button:hover{border-color:var(--ud-teal);background:#edf4ef;filter:none}
+.export-toolbar button.primary-export{background:var(--ud-deep);border-color:var(--ud-deep);color:#fff}
+.page-kicker{color:var(--ud-teal);font-size:10px;letter-spacing:2px}
+.page-title{margin:0 0 7px;color:var(--ud-deep);font-size:clamp(25px,2.2vw,34px);font-weight:760;letter-spacing:-1.1px;line-height:1.15}
+.lead{max-width:900px;margin:0 0 22px;color:#637a79;font-size:13px;line-height:1.65}
+.notice{border:1px solid #d7e4dc;border-left:4px solid var(--ud-teal);border-radius:13px;background:#fdfefb;box-shadow:0 3px 12px rgba(25,66,66,.035)}
+.notice h3{color:var(--ud-deep)}
+.notice p{color:#5c7472}
+.grid{gap:16px}
+.card{border:1px solid #dce4df;border-radius:14px;background:#fff;padding:19px;box-shadow:var(--ud-shadow);transition:box-shadow .2s ease,border-color .2s ease}
+.card:hover{border-color:#c7d8ce;box-shadow:0 10px 26px rgba(23,55,65,.09)}
+.card h3{color:var(--ud-deep);font-size:15px;font-weight:740;letter-spacing:-.2px}
+.metric{color:var(--ud-deep);font-size:29px;font-weight:780;letter-spacing:-.8px;font-variant-numeric:tabular-nums}
+.muted{color:#788c88}
+table{font-size:12px}
+th{background:#f3f6f2;color:#56706e;font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+th,td{padding:11px 10px;border-bottom:1px solid #e7ece8}
+td{color:#344f50}
+#map,.school-map,.green-map{border:1px solid #d4dfd9;border-radius:13px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+footer{margin-top:28px;padding:22px 0 8px;border-top:1px solid var(--ud-line);color:#718581;font-size:11px}
+.social-links a{border-color:#cadbd2;background:#fff;color:var(--ud-teal)}
+.social-links a:hover{background:#e9f1eb}
+.data-status{background:#e8f0e9;color:#376653}
+.notice-inline{border-left-color:var(--ud-ochre);border-radius:8px;background:#f8f5ed;color:#6b6657}
+.selection-stats>div{border-color:#dce5df;border-radius:9px;background:#f9fbf8;color:#526b68}
+.selection-stats strong{color:var(--ud-deep)}
+.indicator-panel{border-color:#dce5df;border-radius:12px;background:#f8faf7}
+.indicator-item{border-bottom-color:#e2e9e3;color:#607573}
+.indicator-item strong{color:var(--ud-deep)}
+.comparison-table th:first-child{background:#f2f6f2}
+.service-categories>div,.workflow-grid>div{border-color:#dce5df;border-radius:11px;background:#f6f8f4}
+.services-layer-switches,.gis-import-panel,.gis-selection-panel{border-color:#dce5df;border-radius:12px;background:#f9fbf8}
+.secondary-button{border-color:#c5d6cd;border-radius:8px;background:#edf3ee;color:#24575a}
+.secondary-button:hover{background:#e1ece4}
+.gis-selection-grid select{background:#fff}
+.school-map,.green-map{background:#e9efeb}
+.map-legend{color:#637a76}
+.school-map-legend{border-color:#dce5df;border-radius:11px}
+.green-map-select{border-color:#c8d8d0;background:#f8fbf8;color:#28545a}
+.green-map-select:hover,.green-map-select.is-selected{border-color:var(--ud-deep);background:var(--ud-deep);color:#fff}
+.metabolism-weight-panel{border-color:#d9e4dd;background:#f8faf7}
+.metabolism-score>div:first-child{background:#e8f0e9}
+.metabolism-score strong{color:var(--ud-deep)}
+.metabolism-bar-row i{background:var(--ud-teal)}
+.circ-upl-group{border-color:#c8d9d1;border-left-color:#286b70;background:#eff5f0}
+.circ-group-title{background:#e2ede6;color:#1c555b!important}
+.circ-group-title strong{color:#1c555b!important}
+.quart-upl-group{border-left-color:#8a9d76;background:#fff}
+.quart-group-title{background:#edf2e9;color:#526d4f!important}
+.quart-group-title strong{color:#526d4f!important}
+@media(max-width:1050px){
+ .layout{grid-template-columns:210px minmax(0,1fr)}
+ .side{padding:20px 11px}
+ main{padding:20px 17px}
+}
+@media(max-width:850px){
+ .top{height:auto;min-height:76px;padding:13px 17px}
+ .layout{grid-template-columns:1fr;min-height:calc(100vh - 76px)}
+ .side{padding:9px 10px;background:#123d49}
+ #nav{display:flex;gap:5px;overflow-x:auto;scrollbar-width:thin}
+ .nav{flex:0 0 auto;width:auto;padding:9px 12px;font-size:11px}
+ .nav.active{box-shadow:inset 0 -3px 0 var(--ud-ochre)}
+ .side-label,.side-note{display:none}
+ main{padding:16px 13px}
+ .filters{gap:9px;padding:12px}
+ .filters label{min-width:calc(50% - 8px)}
+ .filters select{min-width:0;width:100%}
+}
+@media(max-width:520px){
+ .brand b{font-size:16px}.brand small{font-size:10px}
+ .status{max-width:42%;font-size:9px;padding:6px 9px}
+ .filters label{min-width:100%}
+ .export-toolbar{justify-content:flex-start}
+ .export-toolbar span{flex-basis:100%}
+ .card{padding:15px}
+ .page-title{font-size:25px}
+}
