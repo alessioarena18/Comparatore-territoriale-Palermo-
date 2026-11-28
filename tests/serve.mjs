@@ -21,7 +21,7 @@ const types = {
 createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-    let file = path.resolve(root, '.' + pathname);
+    let file = pathname === '/' ? path.join(root, 'index.html') : path.resolve(root, '.' + pathname);
     if (!file.startsWith(root + path.sep) && file !== path.join(root, 'index.html')) {
       res.writeHead(403).end('Forbidden');
       return;
