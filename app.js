@@ -2191,7 +2191,7 @@ async function load(){
 document.getElementById('printPageButton')?.addEventListener('click',()=>printCurrentView());
 document.getElementById('savePdfButton')?.addEventListener('click',()=>printCurrentView());
 document.getElementById('exportPngButton')?.addEventListener('click',()=>exportElementPng());
-$('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));render();});
+$('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(!b)return;active=b.dataset.page;document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x===b));if(window.matchMedia('(max-width:850px)').matches)b.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});render();});
 function syncMainFilter(id){
  const value=$('#'+id)?.value||'';
  if(id==='circ'){

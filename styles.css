@@ -1546,3 +1546,39 @@ footer strong{color:var(--co-forest);font-family:Georgia,serif;font-size:13px;fo
  #content[data-module="standards"] .school-map{min-height:350px}
  #content[data-module="social"] .upl-selector{max-height:420px}
 }
+
+
+/* Città Osmotica · navigazione e consultazione mobile */
+@media(max-width:850px){
+ .top{position:sticky;top:0;z-index:60;min-height:72px}
+ .side{position:sticky;top:72px;z-index:55;padding:7px 10px 5px;background:var(--co-forest);border-bottom:1px solid rgba(255,255,255,.13);box-shadow:0 5px 14px rgba(18,59,59,.12)}
+ #nav{display:flex;align-items:center;gap:6px;padding:2px 1px 5px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+ #nav .nav{flex:0 0 auto;width:auto;min-height:39px;padding:8px 12px;border:1px solid rgba(255,255,255,.13);border-radius:3px;color:#e2ebe5;white-space:nowrap;scroll-snap-align:center;font-size:12px}
+ #nav .nav.active{background:var(--co-paper);border-color:var(--co-paper);color:var(--co-forest);font-weight:700}
+ #nav .nav.active:before{display:none}
+ main{scroll-margin-top:132px}
+ #content{scroll-margin-top:132px}
+}
+@media(max-width:560px){
+ .top{min-height:70px;padding:0 12px}
+ .side{top:70px;padding:6px 9px 4px}
+ #nav{gap:5px}
+ #nav .nav{min-height:37px;padding:7px 10px;font-size:11px}
+ .filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 10px;padding:12px;margin-bottom:18px}
+ .filters label{min-width:0;width:auto;font-size:10px}
+ .filters select{width:100%;min-width:0;height:39px;padding:0 8px;font-size:11px}
+ .territory{grid-column:1/-1;display:flex;flex-direction:row;align-items:baseline;justify-content:space-between;gap:10px;margin:0;padding:9px 1px 0;border-top:1px solid var(--co-line)}
+ .territory small{font-size:10px}
+ .territory b{font-size:12px}
+ #content .overview-territory-map{height:300px;min-height:270px}
+ #content .green-map,#content .school-map{min-height:340px}
+ #content .table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+ #content .table-wrap table{min-width:560px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ #nav{scroll-behavior:auto}
+}
+#nav .nav:focus-visible,#content button:focus-visible,#content select:focus-visible,#content input:focus-visible{
+ outline:2px solid var(--co-accent);outline-offset:2px
+}
