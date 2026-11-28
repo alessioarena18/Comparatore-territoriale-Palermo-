@@ -384,7 +384,7 @@ footer{margin-top:28px;padding:22px 0 8px;border-top:1px solid var(--ud-line);co
 .overview-map-key i{width:10px;height:10px;border:1px solid #286b70;border-radius:2px;background:#5c9385}
 .overview-territory-map{height:390px;min-height:330px;border:1px solid #d5e0da;border-radius:11px;background:#e8efeb;overflow:hidden;z-index:0}
 .overview-territory-map .leaflet-control-attribution{font-size:9px}
-.overview-map-foot{display:flex;justify-content:space-between;gap:10px;margin-top:9px;color:#83938c;font-size:9px}
+.overview-map-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px 12px;margin-top:9px;color:#83938c;font-size:9px}.overview-map-hint{color:#286b70;font-weight:650}
 .overview-side-stack{display:grid;grid-template-rows:auto 1fr auto;gap:12px;min-width:0}
 .overview-side-stack .card{padding:16px}
 .overview-pop-card{background:linear-gradient(135deg,#174a53,#216b68);border-color:#216b68;color:#fff}
