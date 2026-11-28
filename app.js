@@ -1186,7 +1186,7 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
    if(note){const status=note.querySelector('[data-boundary-status]')||document.createElement('span');status.dataset.boundaryStatus='loaded';status.textContent='8 perimetri ISTAT 2021 caricati';if(!status.parentElement)note.appendChild(status);}
    return {casing,boundaries};
   };
-  fetch('data/geo/circoscrizioni_palermo_2021.geojson',{cache:'reload'})
+  fetch('./data/geo/circoscrizioni_palermo_2021.geojson?v=20261128-asc1-live-01',{cache:'no-store'})
    .then(response=>{if(!response.ok)throw new Error('HTTP '+response.status+' durante il caricamento ASC1');return response.json();})
    .then(drawCircoscrizioni)
    .catch(error=>{
