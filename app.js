@@ -12,9 +12,9 @@ const URBAN_CHART_PALETTE=['#1b5550','#8fb9c7','#c58b45','#7d9785','#c58f9e','#6
 if(window.Chart){
  Chart.defaults.color='#6d7c73';
  Chart.defaults.borderColor='#d9ded3';
- Chart.defaults.font.family='Inter, Aptos, system-ui, sans-serif';
+ Chart.defaults.font.family="'DM Sans', Inter, Aptos, system-ui, sans-serif";
  Chart.defaults.plugins.legend.labels.color='#526b60';
- Chart.defaults.plugins.title.color='#123b3b';
+ Chart.defaults.plugins.title.color='#173d35';
  Chart.defaults.scale.grid.color='rgba(109,124,115,.14)';
  Chart.defaults.elements.arc.borderColor='#ffffff';
  Chart.defaults.elements.arc.borderWidth=2;
@@ -565,7 +565,7 @@ function renderUnsafe(){
  const censusMeta=DATA.schoolCensus?.meta||{},censusTotal=Number(censusMeta.records_total)||305,statusCounts=censusMeta.status_counts||{},documented=Number(statusCounts.DOCUMENTATO)||0,docPct=censusTotal?documented/censusTotal*100:0;
  const idiseRows=(DATA.sociale||[]).filter(x=>!s.asc3||String(x.cod_asc)===String(s.asc3)),idiseSelected=s.asc3?idiseRows[0]:null,idiseValue=idiseSelected?Number(idiseSelected.idise):null;
  const populationLabel=overviewPopulation.value===null?'N.D.':fmt(overviewPopulation.value),territoryLevel=s.section?'Sezione censuaria':s.asc3?'UPL':s.quart?'Quartiere':s.circ?'Circoscrizione':'Intero Comune';
- html+=`<div class="overview-heading"><div><div class="page-kicker">CITTÀ OSMOTICA · ATLANTE URBANO</div><h2>Palermo, città in relazione.</h2><p>Un atlante interattivo per leggere strutture, squilibri e potenzialità urbane attraverso dati, cartografie e indicatori territoriali.</p></div><div class="overview-heading-tag"><span>AMBITO DI ANALISI</span><strong>${esc(territoryLevel)}</strong></div></div>`;
+ html+=`<div class="overview-heading"><div><div class="page-kicker">PALERMO TERRITORIAL LAB · URBAN & TERRITORIAL ATLAS</div><h2>Palermo, città in relazione.</h2><p>Un atlante interattivo per leggere strutture, squilibri e potenzialità urbane attraverso dati, cartografie e indicatori territoriali.</p></div><div class="overview-heading-tag"><span>AMBITO DI ANALISI</span><strong>${esc(territoryLevel)}</strong></div></div>`;
  html+=`<div class="notice-inline overview-context"><strong>Quadro territoriale:</strong> ${esc(territoryLevel)}. ${esc(overviewPopulation.source)}. I dati non disponibili alla scala selezionata sono indicati come N.D. e non vengono stimati.</div>`;
  html+=`<div class="overview-hero-grid"><section class="card overview-map-card"><div class="overview-card-head"><div><span class="overview-eyebrow">INQUADRAMENTO SPAZIALE</span><h3>Palermo · struttura territoriale</h3><p>Confini amministrativi delle circoscrizioni</p></div><span class="overview-map-key"><i></i> Circoscrizioni</span></div><div id="overviewTerritoryMap" class="overview-territory-map" role="img" aria-label="Mappa delle circoscrizioni di Palermo"></div><div class="overview-map-foot"><span>Base cartografica OpenStreetMap</span><span>Perimetri territoriali ISTAT 2021</span><span class="overview-map-hint">Seleziona un poligono per filtrare · Riclicca per tornare a Palermo</span></div></section>
  <div class="overview-side-stack"><div class="card overview-pop-card"><span class="overview-eyebrow">POPOLAZIONE</span><div class="metric">${populationLabel}</div><small>${esc(overviewPopulation.source)}</small></div>
