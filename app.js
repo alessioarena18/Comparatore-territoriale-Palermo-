@@ -1318,7 +1318,7 @@ function initMap(mapId='map'){
    if(!data){const response=await fetch(item.file,{cache:'no-store'});if(!response.ok)throw new Error('HTTP '+response.status);data=await response.json();}
    if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features))throw new Error('GeoJSON non valido');
    GEO[item.key]=data;
-   const layer=L.geoJSON(data,{style:()=>({color:item.color,weight:1.2,fillOpacity:.035}),onEachFeature:(feature,featureLayer)=>{
+   const layer=L.geoJSON(data,{style:()=>({color:item.color,weight:item.key==='asc1'?2.8:item.key==='asc2'?1.7:item.key==='asc3'?1.1:.55,opacity:item.key==='asc1'?1:.82,fillColor:item.color,fillOpacity:item.key==='asc1'?.10:item.key==='asc2'?.045:item.key==='asc3'?.025:.008}),onEachFeature:(feature,featureLayer)=>{
     const props=feature.properties||{};
     const label=props.DEN_ASC1||props.DEN_ASC2||props.DEN_ASC3||props.SEZ21||props.SEZ21_ID||'';
     const details=[['Popolazione censuaria 2021',props.POP21],['Famiglie',props.FAM21],['Abitazioni',props.ABI21],['Edifici',props.EDI21]].filter(x=>x[1]!==undefined&&x[1]!==null).map(x=>'<br><small>'+x[0]+': '+Number(x[1]).toLocaleString('it-IT')+'</small>').join('');
@@ -1479,6 +1479,12 @@ function initMap(mapId='map'){
     gisImportedLayers.push({name:'Sedi amministrative delle 8 circoscrizioni · Comune di Palermo',key:'circ_offices',layer:officeLayer,featureLayers:officeLayer.getLayers()});
     results.push('Sedi amministrative circoscrizionali: '+officeLayer.getLayers().length+' punti caricati');
    }catch(error){results.push('Sedi circoscrizionali: errore di caricamento ('+error.message+')');}
+  }
+  const circLayer=gisImportedLayers.find(item=>item.key==='asc1');
+  if(circLayer){
+   if(!gisMap.hasLayer(circLayer.layer))circLayer.layer.addTo(gisMap);
+   circLayer.layer.setStyle({color:'#174f49',weight:2.8,opacity:1,fillColor:'#8fb9a8',fillOpacity:.10});
+   circLayer.layer.eachLayer(featureLayer=>featureLayer.bringToFront?.());
   }
   updateControl();
   if(mapId==='servicesTerritoryMap'){
