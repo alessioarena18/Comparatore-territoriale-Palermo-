@@ -3697,3 +3697,50 @@ footer strong{color:#e8c875}
   #content .card-export-actions button{font-size:10px;padding:7px 8px}
   #content .overview-kpis>.card,#content .social-kpis>.card,#content .service-kpis>.card,#content .standards-kpis>.card,#content .gis-kpis>.card,#content .spatial-kpis>.card,#content .green-kpis>.card{padding:10px}
 }
+
+
+/* LEAFLET MOBILE CONTROL · all map modules
+   Layer selectors start collapsed on phones; expanded lists remain scrollable. */
+@media (max-width:760px){
+  #content .leaflet-top,
+  #content .leaflet-bottom{z-index:700}
+  #content .leaflet-control-layers{
+    max-width:min(245px,calc(100vw - 58px));
+    border-radius:9px;
+    box-shadow:0 3px 14px rgba(22,45,39,.18);
+  }
+  #content .leaflet-control-layers-expanded{
+    max-height:48vh;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  #content .leaflet-control-layers-list{
+    max-height:44vh;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  #content .leaflet-control-layers label{
+    display:block;
+    margin:0;
+    padding:5px 2px;
+    font-size:12px;
+    line-height:1.45;
+    overflow-wrap:anywhere;
+  }
+  #content .leaflet-control-layers-toggle{
+    width:42px;
+    height:42px;
+    background-size:22px 22px;
+  }
+  #content .leaflet-control-zoom a{
+    width:36px;
+    height:36px;
+    line-height:36px;
+  }
+}
+@media(max-width:420px){
+  #content .leaflet-control-layers{max-width:calc(100vw - 52px)}
+  #content .leaflet-control-layers label{font-size:11px;line-height:1.4}
+}
