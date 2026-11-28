@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('territorial app starts and exposes its main navigation and filters', async ({ page }) => {
   const pageErrors = [];
-  page.on('pageerror', error => pageErrors.push(error.message));
+  page.on('pageerror', error => pageErrors.push(error.stack || error.message));
 
   await page.goto('/');
   await expect(page.locator('#status')).toContainText('Dati territoriali', { timeout: 45000 });
