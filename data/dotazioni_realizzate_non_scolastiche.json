@@ -99,9 +99,9 @@
       "id": "asp_consultori",
       "publisher": "ASP Palermo",
       "title": "Elenco dei Consultori",
-      "reference_date": "Consultazione 18/11/2026",
+      "reference_date": "Consultazione 28/11/2026",
       "url": "https://www.asppalermo.org/consultori/",
-      "scope": "Elenco dei consultori familiari e indirizzi; contiene sedi di Palermo e comuni del territorio provinciale, da filtrare."
+      "scope": "Elenco ASP aggiornato consultato il 28/11/2026: sedi dei consultori familiari, recapiti e orari. Per Villagrazia e Oreto riporta lo stesso civico (Via della Vega 25); per ZEN riporta Via Luigi Einaudi 16."
     },
     {
       "id": "social_accreditati_2026",
@@ -262,6 +262,22 @@
       "reference_date": "Consultato il 18/11/2026",
       "url": "https://www.asppalermo.org/vivere-il-comune/luoghi/corso-calatafimi-1002-palermo/",
       "scope": "Presidio ospedaliero ASP in Corso Calatafimi 1002."
+    },
+    {
+      "id": "asp_screening_consultori_2026",
+      "publisher": "ASP Palermo · Centro Gestionale Screening",
+      "title": "Elenco Consultori Familiari · portale Screening",
+      "reference_date": "Consultazione 28/11/2026",
+      "url": "https://screening.asppalermo.org/consultori.php",
+      "scope": "Elenco consultori e recapiti utilizzato come fonte di confronto. Per la sede ZEN riporta Via Luigi Einaudi 16/20, in difformità rispetto alla directory ASP Consultori che riporta il civico 16."
+    },
+    {
+      "id": "asp_fitti_passivi_2025",
+      "publisher": "ASP Palermo",
+      "title": "Elenco fitti passivi e immobili in uso · 2025",
+      "reference_date": "Marzo 2026",
+      "url": "https://www.asppalermo.org/wp-content/uploads/2026/03/Elenco-Fitti-Passivi-2025.pdf",
+      "scope": "Elenco immobili in uso dall'ASP. Per Via Luigi Einaudi riporta i civici 16, 18 e 26 associati a consultorio familiare, igiene pubblica e uffici; non identifica il civico del singolo ingresso del consultorio."
     }
   ],
   "categories": [
@@ -360,8 +376,8 @@
       "category": "sport",
       "status": "GESTIONE_COMUNALE_DOCUMENTATA",
       "source_id": "sport_carta_2025",
-      "note": "Impianto incluso nell'elenco comunale 2025; fruibilità puntuale da verificare.",
-      "address": "Via Nissa, 1, 90135 Palermo PA, Italia",
+      "note": "Impianto incluso nell'elenco comunale 2025. L'indirizzo Via Nissa 1 è coerente con il registro patrimoniale comunale; la localizzazione resta da validare perché alcune directory secondarie associano l'impianto anche a Via Ortigia 2. CAP corretto a 90125. Nessun marker finché il Comune non chiarisce il civico di accesso.",
+      "address": "Via Nissa, 1, 90125 Palermo PA, Italia",
       "location_source_url": "https://docs.comune.palermo.it/js/server/uploads/trasparenza_all/_07082023113114.pdf",
       "location_verification": "Indirizzo da fonte comunale, coordinate non ancora validate."
     },
@@ -656,7 +672,7 @@
       "address": "Via della Vega, 25, 90127 Palermo PA, Italia",
       "location_source_url": "https://www.asppalermo.org/consultori/",
       "location_verification": "Indirizzo riportato nell'elenco ufficiale dei Consultori ASP; coordinate non ancora validate.",
-      "note": "Servizio territoriale sanitario. Verificare sede attiva e orari prima di rappresentare la fruibilità."
+      "note": "L'elenco ufficiale ASP aggiornato consultato il 28/11/2026 conferma Via della Vega 25 e gli orari al pubblico. La stessa sede e lo stesso civico sono riportati per il Consultorio Oreto: i due record identificano servizi distinti ma condividono l'indirizzo. Non generare due punti autonomi; georeferenziare una sola sede comune quando sarà validato il punto."
     },
     {
       "id": "health-consultorio-zen",
@@ -667,7 +683,7 @@
       "address": "Via Luigi Einaudi, 16, 90146 Palermo PA, Italia",
       "location_source_url": "https://www.asppalermo.org/consultori/",
       "location_verification": "Indirizzo riportato nell'elenco ufficiale dei Consultori ASP; coordinate non ancora validate.",
-      "note": "Servizio territoriale sanitario. Verificare sede attiva e orari prima di rappresentare la fruibilità."
+      "note": "L'elenco ufficiale ASP consultato il 28/11/2026 riporta Via Luigi Einaudi 16 e gli orari al pubblico. La pagina ASP Screening riporta invece il civico 16/20; l'elenco dei fitti passivi ASP 2025 documenta locali ai civici 16, 18 e 26 destinati a consultorio, igiene pubblica e uffici. Si mantiene il civico 16 come riferimento della directory consultori, ma l'ingresso puntuale resta da verificare prima della georeferenziazione."
     },
     {
       "id": "culture-biblioteca-verde-terrasi",
