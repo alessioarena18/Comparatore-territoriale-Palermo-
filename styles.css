@@ -2962,3 +2962,88 @@ footer .social-links a{color:#d5e8e7}
  #content .overview-heading h2{font-size:34px}
  #content .overview-territory-map{height:350px;min-height:320px}
 }
+
+
+/* PTL · secondo passaggio: gerarchia dei moduli e cartografia in primo piano */
+.top{min-height:100px}
+.brand{position:relative}
+.brand:after{content:"";display:block;width:1px;height:43px;margin-left:10px;background:rgba(231,239,237,.45)}
+.mark{position:relative;box-shadow:inset 0 0 0 4px rgba(255,255,255,.035);letter-spacing:.04em}
+.top-meta .status{background:rgba(255,255,255,.09);backdrop-filter:blur(8px)}
+#nav .nav{border:1px solid transparent}
+#nav .nav.active{border-color:rgba(255,255,255,.17);box-shadow:0 3px 9px rgba(0,0,0,.12)}
+#nav .nav:focus-visible{outline:2px solid #f0ce62;outline-offset:2px}
+main{padding-top:20px}
+.filters label{font-weight:700}
+.filters select:hover{border-color:#8bb8b1}
+.filters select:focus-visible{outline:2px solid #e4b83f;outline-offset:2px}
+#content .overview-heading{position:relative}
+#content .overview-heading:after{
+ content:"";display:block;position:absolute;left:0;bottom:0;width:78px;height:3px;
+ background:linear-gradient(90deg,#e4b83f 0 65%,#d77b55 65% 100%)
+}
+#content .overview-heading-tag{box-shadow:0 4px 12px rgba(12,49,59,.05)}
+#content .overview-map-card{position:relative}
+#content .overview-map-card:before{
+ content:"";position:absolute;top:0;left:16px;right:16px;height:3px;
+ background:linear-gradient(90deg,#087b7d 0 58%,#e4b83f 58% 78%,#d77b55 78%)
+}
+#content .overview-card-head{align-items:center}
+#content .overview-card-head h3{font-size:18px}
+#content .overview-map-key{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:20px;background:#eaf3f1;font-size:10px;font-weight:700}
+#content .overview-map-key i{width:8px;height:8px;border-radius:50%;display:inline-block}
+#content .overview-map-foot{border-top:1px solid #e8efed;margin-top:7px}
+#content .overview-map-hint{color:#087b7d;font-weight:700}
+#content .overview-territory-map .leaflet-control-zoom a{
+ width:32px;height:32px;line-height:30px;border:0!important;border-radius:8px!important;
+ color:#123e4b;background:#fff;box-shadow:0 2px 8px rgba(15,53,62,.16)
+}
+#content .overview-territory-map .leaflet-control-zoom{border:0;box-shadow:none}
+#content .overview-territory-map .leaflet-control-attribution{
+ background:rgba(255,255,255,.86);padding:2px 5px;border-radius:4px
+}
+#content .overview-side-stack>.card{position:relative;overflow:hidden}
+#content .overview-side-stack>.card:before{
+ content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#0b8584
+}
+#content .overview-side-stack>.overview-census-card:before{background:#e4b83f}
+#content .overview-side-stack>.overview-pop-card:before{background:#d77b55}
+#content .overview-pop-card small{display:block;margin-top:8px;color:#71858a;line-height:1.5}
+#content .overview-mini-kpis strong{font-variant-numeric:tabular-nums}
+#content .overview-census-card small{color:#71858a}
+#content .overview-panels>.card{position:relative}
+#content .overview-panels>.card:before{
+ content:"";position:absolute;top:0;left:18px;right:18px;height:2px;background:#dceae6
+}
+#content .overview-panels>.card h3{font-size:18px}
+#content .overview-method{border-top:3px solid #123e4b!important}
+#content .workflow-grid>div{background:#f1f6f4;border:1px solid #e2ebe8;border-radius:8px;padding:13px}
+#content .workflow-grid>div b{color:#087b7d}
+#content .module-heading{grid-template-columns:48px minmax(0,1fr) 54px;gap:15px;padding-bottom:17px}
+#content .module-heading-index{font-size:23px}
+#content .module-heading-copy .page-title{font-size:clamp(27px,3vw,39px);line-height:1.08}
+#content .module-heading-copy .lead{font-size:13px;line-height:1.65}
+#content .card{transition:box-shadow .18s ease,border-color .18s ease}
+#content .card:hover{border-color:#c9dcda;box-shadow:0 10px 27px rgba(12,49,59,.105)}
+#content .card h3{font-size:17px}
+#content .metric{font-variant-numeric:tabular-nums}
+#content .notice,#content .notice-inline{border-radius:9px}
+#content .table-wrap{border:1px solid #e0e9e7;border-radius:9px}
+#content .table-wrap table{font-variant-numeric:tabular-nums}
+#content .table-wrap th{font-size:10px;letter-spacing:.035em;text-transform:uppercase}
+#content .table-wrap td{color:#3d555d}
+#content button:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out){
+ transition:background .16s ease,border-color .16s ease,transform .16s ease
+}
+#content button:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):hover{transform:translateY(-1px)}
+@media(max-width:760px){
+ .brand:after{display:none}
+ #content .module-heading{grid-template-columns:32px minmax(0,1fr);gap:10px}
+ #content .module-heading-index{font-size:19px}
+ #content .overview-card-head{align-items:flex-start}
+ #content .overview-map-foot{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ #content .card,#content button{transition:none}
+ #content .card:hover,#content button:hover{transform:none}
+}
