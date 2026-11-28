@@ -971,6 +971,7 @@ if(active==='social'){
  }
  html=html.replace(/(?:\\[object Object\\]\\s*,?\\s*){2,}/g,'').replace(/\\[object Object\\]/g,'');
  $('#content').innerHTML=html;
+ $('#content').dataset.module=active;
  // Esportazione gestita dai comandi globali: evita pulsanti duplicati nelle schede annidate.
  if(active==='metabolism'){
   const fields=[['metPermeable','metPermeableValue'],['metGreen','metGreenValue'],['metCanopy','metCanopyValue'],['metWater','metWaterValue'],['metHeat','metHeatValue']];
