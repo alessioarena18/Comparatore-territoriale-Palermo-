@@ -10,10 +10,10 @@
   "metadata": {
     "title": "Presidi ospedalieri di Palermo",
     "created_at": "2026-11-18",
-    "methodology": "Coordinate estratte dai collegamenti cartografici della pagina Assistenza medica del Comune di Palermo; per ISMETT coordinate da fonte cartografica secondaria con indirizzo confermato dal sito ufficiale. Punti del complesso, non rilievi degli ingressi.",
+    "methodology": "Coordinate estratte dai collegamenti cartografici della pagina Assistenza medica del Comune di Palermo; per ISMETT coordinate da fonte cartografica secondaria con indirizzo confermato dal sito ufficiale; per Maria Eleonora Hospital coordinate dal collegamento «Ottieni indicazioni» della scheda ufficiale GVM. Punti del complesso, non rilievi degli ingressi.",
     "inventory_records": 10,
-    "mapped_features": 8,
-    "without_verified_coordinates": 2
+    "mapped_features": 9,
+    "without_verified_coordinates": 1
   },
   "features": [
     {
@@ -198,6 +198,29 @@
         "coordinate_reference": "WGS84 · EPSG:4326",
         "coordinate_status": "COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA",
         "geometry_note": "Punto localizzativo del complesso ospedaliero, non rilievo catastale né certificazione dell'ingresso."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.32947049032633,
+          38.11727398210811
+        ]
+      },
+      "properties": {
+        "facility_id": "hospital-maria-eleonora",
+        "name": "Maria Eleonora Hospital",
+        "category": "hospitals",
+        "documentary_status": "OSPEDALE_DOCUMENTATO",
+        "address": "Viale della Regione Siciliana Nord Ovest, 1571, 90135 Palermo PA, Italia",
+        "source_url": "https://ospedali.gvmnet.it/osp/maria-eleonora-hospital",
+        "coordinate_source": "Collegamento «Ottieni indicazioni» della scheda ufficiale GVM Care & Research; il link restituisce la destinazione 38.11727398210811, 13.32947049032633",
+        "coordinate_reference": "WGS84 · EPSG:4326",
+        "coordinate_status": "COORDINATA_DA_LINK_CARTOGRAFICO_GESTORE",
+        "last_verified": "2026-11-28",
+        "geometry_note": "Punto localizzativo restituito dal collegamento cartografico del gestore; non costituisce rilievo catastale né certificazione dell'ingresso."
       }
     }
   ]
