@@ -1253,7 +1253,7 @@ async function initRealizedAmenitiesMap(){
   layer.eachLayer(marker=>{const id=String(marker.feature?.properties?.facility_id||marker.feature?.properties?.id||'');const entry=realizedFacilityMarkers.get(id);if(entry)entry.groupLayer=layer;});
   layer.addTo(map);overlays[label]=layer;allLayers.push(layer);return clean.length;
  };
- const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato'};
+ const statusLabels={GESTIONE_COMUNALE_DOCUMENTATA:'Gestione comunale documentata',NON_FRUIBILE_DA_FONTE:'Non fruibile secondo la fonte',CHIUSO_LAVORI_DA_FONTE:'Chiuso per lavori secondo la fonte',SERVIZIO_CULTURALE_CENSITO:'Servizio culturale censito',SERVIZIO_BIBLIOTECARIO_UNIVERSITARIO:'Biblioteca universitaria',SERVIZIO_SOSPESO_DA_AVVISO:'Servizio sospeso da avviso',PRESIDIO_SANITARIO_DOCUMENTATO:'Presidio sanitario documentato',SERVIZIO_SANITARIO_DOCUMENTATO:'Servizio sanitario documentato',OSPEDALE_DOCUMENTATO:'Presidio ospedaliero documentato'};
  const jobs=[
   (async()=>{const r=await fetch('data/geo/dotazioni_sportive_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Sport HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'sport','Impianti sportivi',p=>p.documentary_status==='NON_FRUIBILE_DA_FONTE'?'#b45309':p.documentary_status==='CHIUSO_LAVORI_DA_FONTE'?'#b91c1c':'#2563eb',p=>statusLabels[p.documentary_status]||p.documentary_status||'N.D.');})(),
   (async()=>{const r=await fetch('data/geo/dotazioni_culturali_comunali.geojson',{cache:'no-store'});if(!r.ok)throw new Error('Cultura HTTP '+r.status);const d=await r.json();return addFacilityLayer(d.features,'culture','Cultura, biblioteche e musei',p=>p.status==='SERVIZIO_SOSPESO_DA_AVVISO'?'#b91c1c':p.category==='biblioteca_universitaria'?'#7c3aed':p.managing_body==='Regione Siciliana'?'#0e7490':'#c026d3',p=>statusLabels[p.status||p.documentary_status]||p.status||p.documentary_status||'N.D.');})(),
@@ -1270,7 +1270,7 @@ async function initRealizedAmenitiesMap(){
    features.forEach(feature=>{
     const id=feature.properties?.facility_id;
     const row=document.querySelector('.realized-facility-row[data-facility-id="'+CSS.escape(String(id))+'"]');
-    if(row&&row.children[3])row.children[3].textContent='Coordinate da documento tecnico ASP · WGS84';
+    if(row&&row.children[3]){const coordinateLabels={COORDINATA_DA_DOCUMENTO_TECNICO_ASP:'Coordinate da documento tecnico ASP · WGS84',COORDINATA_DA_CARTOGRAFIA_COMUNE:'Punto da cartografia comunale · WGS84',COORDINATA_DA_FONTE_CARTOGRAFICA_SECONDARIA:'Punto da fonte cartografica secondaria · WGS84'};row.children[3].textContent=coordinateLabels[feature.properties?.coordinate_status]||'Georeferenziato · WGS84';}
    });
    return mapped;
   })(),
