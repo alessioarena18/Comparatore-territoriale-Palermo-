@@ -2172,3 +2172,433 @@ footer strong{color:var(--co-forest);font:500 15px Georgia,serif;letter-spacing:
   #content:has(#greenMap) .green-status-overview,
   #content:has(#standardSchoolMap) .standards-calculator{padding:16px}
 }
+
+
+/* CITTÀ OSMOTICA · ATLANTE, STRUMENTI E NAVIGAZIONE · PASS 03
+   Rifinitura esclusivamente visiva. Dati, testi informativi, logiche e mappe invariati. */
+
+/* PANORAMICA · apertura editoriale e mappa come elemento principale */
+#content:has(.overview-hero-grid) .overview-heading{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  padding:10px 2px 18px;border-bottom:1px solid #dce3dc;margin-bottom:16px;
+}
+#content:has(.overview-hero-grid) .overview-heading h1,
+#content:has(.overview-hero-grid) .overview-heading h2{
+  font-family:Georgia,serif;color:#183d37;letter-spacing:-.035em;
+}
+#content:has(.overview-hero-grid) .overview-heading-tag{
+  display:flex;flex-direction:column;gap:5px;align-items:flex-end;
+  padding:10px 14px;border:1px solid #dce3dc;border-radius:10px;
+  background:#f5f7f2;color:#567064;font-size:.72rem;letter-spacing:.08em;
+}
+#content:has(.overview-hero-grid) .overview-heading-tag strong{
+  color:#1b5550;font-size:.92rem;letter-spacing:0;
+}
+#content:has(.overview-hero-grid) .overview-context{
+  padding:13px 17px;border-left:3px solid #c58b45;
+  background:#f7f3e9;border-radius:0 10px 10px 0;
+}
+#content:has(.overview-hero-grid) .overview-hero-grid{
+  display:grid;grid-template-columns:minmax(0,1.75fr) minmax(270px,.78fr);
+  gap:18px;align-items:stretch;
+}
+#content:has(.overview-hero-grid) .overview-map-card{
+  padding:20px 22px 15px;background:#fffefa;border:1px solid #dce3dc;
+  box-shadow:0 8px 24px rgba(24,61,55,.055);
+}
+#content:has(.overview-hero-grid) .overview-card-head{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+  margin-bottom:12px;
+}
+#content:has(.overview-hero-grid) .overview-card-head h3{
+  font-family:Georgia,serif;font-size:1.35rem;color:#183d37;margin:5px 0;
+}
+#content:has(.overview-hero-grid) .overview-map-key{
+  padding:7px 10px;border-radius:20px;background:#edf3ed;
+  color:#315f4b;font-size:.76rem;white-space:nowrap;
+}
+#content:has(.overview-hero-grid) .overview-map-key i{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:#1b5550;margin-right:5px;
+}
+#content:has(.overview-hero-grid) .overview-territory-map{
+  min-height:470px;height:min(58vh,650px);border-radius:12px;
+  border:1px solid #dce3dc;overflow:hidden;background:#edf1e9;
+}
+#content:has(.overview-hero-grid) .overview-map-foot{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px 14px;
+  padding-top:12px;color:#728078;font-size:.73rem;
+}
+#content:has(.overview-hero-grid) .overview-side-stack{
+  display:flex;flex-direction:column;gap:12px;min-width:0;
+}
+#content:has(.overview-hero-grid) .overview-pop-card{
+  flex:1;min-height:155px;display:flex;flex-direction:column;
+  justify-content:center;padding:23px;background:#1b5550;color:#fffefa;
+  border:0;box-shadow:0 8px 22px rgba(27,85,80,.15);
+}
+#content:has(.overview-hero-grid) .overview-pop-card .overview-eyebrow,
+#content:has(.overview-hero-grid) .overview-pop-card small{color:#d6e4dc}
+#content:has(.overview-hero-grid) .overview-pop-card .metric{
+  font-family:Georgia,serif;font-size:clamp(2rem,3vw,3.2rem);
+  color:#fffefa;letter-spacing:-.04em;margin:8px 0;
+}
+#content:has(.overview-hero-grid) .overview-mini-kpis{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;
+  padding:8px 18px;background:#fffefa;border:1px solid #dce3dc;
+}
+#content:has(.overview-hero-grid) .overview-mini-kpis>div{
+  padding:13px 5px;border-bottom:1px solid #e8ece6;
+}
+#content:has(.overview-hero-grid) .overview-mini-kpis>div:nth-last-child(-n+2){border-bottom:0}
+#content:has(.overview-hero-grid) .overview-mini-kpis span{
+  display:block;color:#6e7d74;font-size:.72rem;line-height:1.35;
+}
+#content:has(.overview-hero-grid) .overview-mini-kpis strong{
+  display:block;color:#1b5550;font-family:Georgia,serif;
+  font-size:1.45rem;margin-top:4px;
+}
+#content:has(.overview-hero-grid) .overview-census-card{
+  padding:17px 19px;background:#f5f7f2;border:1px solid #dce3dc;
+}
+#content:has(.overview-hero-grid) .overview-census-value{
+  font-family:Georgia,serif;color:#183d37;font-size:1.7rem;margin:7px 0;
+}
+#content:has(.overview-hero-grid) .overview-progress{
+  height:7px;background:#e1e8df;border-radius:20px;overflow:hidden;margin:10px 0;
+}
+#content:has(.overview-hero-grid) .overview-progress i{
+  display:block;height:100%;border-radius:20px;background:#78947b;
+}
+#content:has(.overview-hero-grid) .overview-panels{
+  margin-top:18px;gap:16px;
+}
+#content:has(.overview-hero-grid) .overview-panels>.card,
+#content:has(.overview-hero-grid) .overview-method{
+  border:1px solid #dce3dc;background:#fffefa;padding:21px 23px;
+}
+#content:has(.overview-hero-grid) .overview-method .workflow-grid>div{
+  padding:14px 16px;background:#f5f7f2;border:1px solid #e1e7df;border-radius:10px;
+}
+
+/* DENSITÀ E ABITABILITÀ · lettura dei numeri prima delle distribuzioni */
+#content:has(#housingLevel) .housing-kpis{
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+}
+#content:has(#housingLevel) .housing-kpis>.card{
+  min-height:120px;padding:18px 20px;background:#fffefa;
+  border:1px solid #dce3dc;border-top:3px solid #7d9785;
+}
+#content:has(#housingLevel) .housing-kpis .metric{
+  font-family:Georgia,serif;font-size:clamp(1.65rem,2.5vw,2.35rem);
+  color:#183d37;letter-spacing:-.035em;
+}
+#content:has(#housingLevel) .housing-level-select{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:14px 17px;background:#f4f6f1;border:1px solid #dce3dc;
+  border-radius:12px;
+}
+#content:has(#housingLevel) .section-pie-wrap{
+  min-height:245px;max-height:310px;padding:12px;
+}
+#content:has(#housingLevel) .housing-circ-pies{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+}
+#content:has(#housingLevel) .housing-circ-pies>.card{
+  background:#f8faf6;border:1px solid #e1e7df;padding:17px;
+}
+#content:has(#housingLevel) .chart-frame{
+  min-height:280px;padding:12px 8px 8px;
+}
+#content:has(#housingLevel) .table-wrap{
+  border:1px solid #dce3dc;border-radius:12px;background:#fffefa;
+}
+#content:has(#housingLevel) .notice-inline{
+  background:#f7f3e9;border-left:3px solid #c58b45;
+  border-radius:0 9px 9px 0;padding:13px 16px;
+}
+
+/* DOTAZIONI REALIZZATE · inventario documentale e mappa */
+#content:has(#realizedAmenitiesMap)>.notice{
+  padding:20px 23px;background:#f4f7f1;border:1px solid #dce5da;
+  border-left:4px solid #547b62;
+}
+#content:has(#realizedAmenitiesMap)>.notice h3{
+  font-family:Georgia,serif;color:#183d37;font-size:1.35rem;
+}
+#content:has(#realizedAmenitiesMap) #realizedAmenitiesMap{
+  min-height:530px;height:min(68vh,730px);border:1px solid #d4ded3;
+  border-radius:15px;overflow:hidden;background:#edf1e9;
+}
+#content:has(#realizedAmenitiesMap) .map-legend{
+  display:flex;flex-wrap:wrap;gap:9px 16px;padding:14px 16px;
+  background:#f5f7f2;border:1px solid #e0e7dc;border-radius:11px;
+}
+#content:has(#realizedAmenitiesMap) .map-legend span{
+  display:inline-flex;align-items:center;gap:7px;font-size:.8rem;
+}
+#content:has(#realizedAmenitiesMap) .grid>.card{
+  padding:20px 22px;border:1px solid #dce3dc;background:#fffefa;
+}
+#content:has(#realizedAmenitiesMap) .school-note{
+  color:#68786f;line-height:1.6;font-size:.82rem;
+}
+
+/* CARTOGRAFIA GIS · filtri ordinati e spazio alla mappa */
+#content:has(.gis-selection-panel) .gis-selection-panel{
+  padding:21px 23px;background:#f5f7f2;border:1px solid #dce3dc;
+}
+#content:has(.gis-selection-panel) .gis-selection-panel>h3{
+  font-family:Georgia,serif;color:#183d37;font-size:1.35rem;
+}
+#content:has(.gis-selection-panel) .gis-selection-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+  margin-top:15px;
+}
+#content:has(.gis-selection-panel) .gis-selection-grid label{
+  display:flex;flex-direction:column;gap:7px;color:#526b60;
+  font-size:.78rem;font-weight:700;
+}
+#content:has(.gis-selection-panel) .gis-selection-grid select{
+  width:100%;min-width:0;padding:11px 12px;border:1px solid #d4ded3;
+  border-radius:9px;background:#fffefa;color:#183d37;
+}
+#content:has(.gis-selection-panel) #gisSelectionStatus{
+  margin-top:14px;padding:12px 15px;background:#eaf1e9;
+  border-left:3px solid #547b62;border-radius:0 9px 9px 0;
+}
+#content:has(.gis-selection-panel) #map{
+  min-height:620px;height:min(74vh,820px);margin-top:15px;
+  border:1px solid #d4ded3;border-radius:15px;overflow:hidden;
+  background:#edf1e9;box-shadow:0 8px 24px rgba(24,61,55,.05);
+}
+#content:has(.gis-selection-panel) #gisAutoStatus{
+  margin-top:10px;padding:10px 13px;background:#f5f7f2;border-radius:8px;
+}
+
+/* ANALISI SPAZIALE · indicatori sintetici e risultati tabellari */
+#content:has(#spatialUplChart) .spatial-kpis{
+  grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;
+}
+#content:has(#spatialUplChart) .spatial-kpis>.card{
+  padding:18px 19px;min-height:124px;background:#fffefa;
+  border:1px solid #dce3dc;border-top:3px solid #78947b;
+}
+#content:has(#spatialUplChart) .spatial-kpis .metric{
+  font-family:Georgia,serif;color:#183d37;font-size:2rem;
+}
+#content:has(#spatialUplChart) .card:has(#spatialUplChart){
+  padding:22px 24px;background:#f7f9f5;border:1px solid #dce3dc;
+}
+#content:has(#spatialUplChart) #spatialUplChart{
+  width:100%;max-height:390px;
+}
+#content:has(#spatialUplChart) .table-wrap{
+  border:1px solid #dce3dc;border-radius:12px;background:#fffefa;
+}
+#content:has(#spatialUplChart) .notice-inline{
+  padding:13px 16px;background:#f7f3e9;border-left:3px solid #c58b45;
+  border-radius:0 9px 9px 0;
+}
+
+/* CONFRONTI · confronto circoscrizionale con grafici leggibili */
+#content:has(#chartCircoscrizioni) .grid:has(#chartCircoscrizioni){
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;
+}
+#content:has(#chartCircoscrizioni) .grid:has(#chartCircoscrizioni)>.card{
+  padding:21px 23px;background:#fffefa;border:1px solid #dce3dc;
+}
+#content:has(#chartCircoscrizioni) .chart-frame-compact-bars{
+  min-height:300px;max-height:390px;padding:12px 6px;
+}
+#content:has(#chartCircoscrizioni) .table-wrap{
+  border:1px solid #dce3dc;border-radius:12px;background:#fffefa;
+}
+
+/* METABOLISMO URBANO · simulatore e indicatori come scenario, non dashboard */
+#content:has(.metabolism-simulator) .metabolism-intro{
+  padding:22px 25px;background:linear-gradient(135deg,#f3f7f1,#fffefa);
+  border:1px solid #dce5da;border-left:4px solid #547b62;
+}
+#content:has(.metabolism-simulator) .metabolism-intro h3{
+  font-family:Georgia,serif;color:#183d37;font-size:1.42rem;
+}
+#content:has(.metabolism-simulator) .metabolism-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+}
+#content:has(.metabolism-simulator) .metabolism-grid>.card{
+  padding:20px 22px;background:#fffefa;border:1px solid #dce3dc;
+}
+#content:has(.metabolism-simulator) .metabolism-grid>.card h3{
+  font-family:Georgia,serif;color:#244b3b;
+}
+#content:has(.metabolism-simulator) .data-status{
+  display:inline-flex;padding:6px 9px;border-radius:7px;
+  background:#edf2eb;color:#54745e;font-size:.74rem;font-weight:700;
+}
+#content:has(.metabolism-simulator) .metabolism-simulator{
+  padding:24px 26px;background:#f4f7f1;border:1px solid #dce5da;
+}
+#content:has(.metabolism-simulator) .metabolism-simulator>h3{
+  font-family:Georgia,serif;font-size:1.45rem;color:#183d37;
+}
+#content:has(.metabolism-simulator) .metabolism-inputs{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;
+  margin:18px 0;
+}
+#content:has(.metabolism-simulator) .metabolism-inputs label,
+#content:has(.metabolism-simulator) .metabolism-weight-grid label{
+  display:flex;flex-direction:column;gap:8px;padding:14px 16px;
+  background:#fffefa;border:1px solid #dce3dc;border-radius:10px;
+  color:#526b60;font-size:.83rem;font-weight:650;
+}
+#content:has(.metabolism-simulator) .metabolism-inputs output{
+  font-family:Georgia,serif;font-size:1.35rem;color:#1b5550;
+}
+#content:has(.metabolism-simulator) input[type="range"]{width:100%;accent-color:#547b62}
+#content:has(.metabolism-simulator) .metabolism-weight-panel{
+  padding:18px 19px;background:#fffefa;border:1px solid #dce3dc;border-radius:12px;
+}
+#content:has(.metabolism-simulator) .metabolism-weight-panel h4{
+  color:#244b3b;font-family:Georgia,serif;font-size:1.05rem;
+}
+#content:has(.metabolism-simulator) .metabolism-weight-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+}
+#content:has(.metabolism-simulator) .metabolism-score{
+  margin-top:16px;padding:19px;background:#1b5550;color:#fffefa;
+  border-radius:12px;
+}
+#content:has(.metabolism-simulator) .metabolism-score strong{
+  font-family:Georgia,serif;font-size:2.2rem;
+}
+#content:has(.metabolism-simulator) .metabolism-bars{
+  padding:17px;background:#fffefa;border:1px solid #dce3dc;border-radius:12px;
+}
+#content:has(.metabolism-simulator) .metabolism-sources{
+  background:#f5f7f2;border:1px solid #dce3dc;border-radius:12px;padding:17px;
+}
+
+/* FONTI E METODOLOGIA · registro documentale */
+#content:has(.source-list) .source-list{
+  padding:22px 24px;background:#fffefa;border:1px solid #dce3dc;
+}
+#content:has(.source-list) .source-list>h3{
+  font-family:Georgia,serif;font-size:1.38rem;color:#183d37;
+}
+#content:has(.source-list) .table-wrap{
+  border:1px solid #dce3dc;border-radius:12px;background:#fffefa;
+}
+#content:has(.source-list) .source-list table th{
+  background:#edf2eb;color:#315f4b;
+}
+#content:has(.source-list) .source-list table td{
+  vertical-align:top;line-height:1.5;
+}
+#content:has(.source-list) .grid>.card{
+  padding:20px 22px;background:#fffefa;border:1px solid #dce3dc;
+}
+
+/* CENSIMENTO SCOLASTICO · leggibilità di mappa, filtri e tabelle */
+#content:has(#schoolMap) .school-kpis{
+  grid-template-columns:repeat(5,minmax(0,1fr));gap:11px;
+}
+#content:has(#schoolMap) .school-kpis>.card{
+  padding:16px 17px;min-height:116px;background:#fffefa;
+  border:1px solid #dce3dc;border-top:3px solid #78947b;
+}
+#content:has(#schoolMap) .school-kpis .metric{
+  font-family:Georgia,serif;font-size:1.8rem;color:#183d37;
+}
+#content:has(#schoolMap) .school-controls{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;
+  padding:16px 18px;background:#f4f6f1;border:1px solid #dce3dc;
+  border-radius:12px;
+}
+#content:has(#schoolMap) .school-controls label{
+  display:flex;flex-direction:column;gap:7px;color:#526b60;
+  font-size:.78rem;font-weight:700;
+}
+#content:has(#schoolMap) .school-controls input,
+#content:has(#schoolMap) .school-controls select{
+  width:100%;min-width:0;padding:10px 11px;background:#fffefa;
+  border:1px solid #d4ded3;border-radius:9px;color:#183d37;
+}
+#content:has(#schoolMap) #schoolMap{
+  min-height:550px;height:min(68vh,740px);margin-top:15px;
+  border:1px solid #d4ded3;border-radius:15px;overflow:hidden;
+  background:#edf1e9;
+}
+#content:has(#schoolMap) .school-legend{
+  display:flex;flex-wrap:wrap;gap:10px 17px;padding:13px 15px;
+  background:#f5f7f2;border:1px solid #e0e7dc;border-radius:11px;
+}
+#content:has(#schoolMap) .school-table{
+  overflow-x:auto;border:1px solid #dce3dc;border-radius:12px;
+  background:#fffefa;
+}
+#content:has(#schoolMap) .school-table table{min-width:1050px}
+#content:has(#schoolMap) .school-table th{
+  position:sticky;top:0;background:#edf2eb;color:#315f4b;
+}
+#content:has(#schoolMap) .school-note{
+  color:#68786f;line-height:1.6;font-size:.82rem;
+}
+
+@media(max-width:1100px){
+  #content:has(.overview-hero-grid) .overview-hero-grid{
+    grid-template-columns:minmax(0,1.35fr) minmax(240px,.8fr);
+  }
+  #content:has(#housingLevel) .housing-kpis,
+  #content:has(#spatialUplChart) .spatial-kpis{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  #content:has(#schoolMap) .school-kpis{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  #content:has(.gis-selection-panel) .gis-selection-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:760px){
+  #content:has(.overview-hero-grid) .overview-heading{
+    align-items:flex-start;flex-direction:column;
+  }
+  #content:has(.overview-hero-grid) .overview-heading-tag{align-items:flex-start}
+  #content:has(.overview-hero-grid) .overview-hero-grid,
+  #content:has(#housingLevel) .housing-circ-pies,
+  #content:has(#chartCircoscrizioni) .grid:has(#chartCircoscrizioni),
+  #content:has(.metabolism-simulator) .metabolism-grid{
+    grid-template-columns:1fr;
+  }
+  #content:has(.overview-hero-grid) .overview-territory-map{
+    min-height:360px;height:52vh;
+  }
+  #content:has(.overview-hero-grid) .overview-side-stack{display:grid;grid-template-columns:1fr}
+  #content:has(#housingLevel) .housing-kpis,
+  #content:has(#spatialUplChart) .spatial-kpis,
+  #content:has(#schoolMap) .school-kpis{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  #content:has(.gis-selection-panel) .gis-selection-grid,
+  #content:has(#schoolMap) .school-controls,
+  #content:has(.metabolism-simulator) .metabolism-inputs,
+  #content:has(.metabolism-simulator) .metabolism-weight-grid{
+    grid-template-columns:1fr;
+  }
+  #content:has(.gis-selection-panel) #map,
+  #content:has(#realizedAmenitiesMap) #realizedAmenitiesMap,
+  #content:has(#schoolMap) #schoolMap{
+    min-height:410px;height:60vh;
+  }
+  #content:has(.metabolism-simulator) .metabolism-simulator{padding:17px}
+}
+@media(max-width:420px){
+  #content:has(#housingLevel) .housing-kpis,
+  #content:has(#spatialUplChart) .spatial-kpis,
+  #content:has(#schoolMap) .school-kpis{grid-template-columns:1fr}
+  #content:has(.overview-hero-grid) .overview-map-card{padding:14px}
+  #content:has(.overview-hero-grid) .overview-card-head{
+    flex-direction:column;align-items:flex-start;
+  }
+}
