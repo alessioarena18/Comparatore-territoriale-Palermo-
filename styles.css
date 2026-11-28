@@ -2820,3 +2820,145 @@ footer .social-links a{color:var(--ptl-petrol)}
  html{scroll-behavior:auto}
  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+
+/* PALERMO TERRITORIAL LAB · visual direction: urban atlas / interactive observatory */
+:root{
+ --ptl-forest:#123e4b;--ptl-deep:#0b303b;--ptl-petrol:#087b7d;
+ --ptl-ochre:#e4b83f;--ptl-clay:#d77b55;--ptl-card:#fff;
+ --ptl-paper:#f2f5f4;--ptl-line:#d8e2e2;--ptl-ink:#172f3a;
+ --ptl-muted:#627781;--ptl-shadow:0 8px 24px rgba(12,49,59,.09);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ptl-paper);color:var(--ptl-ink);font-family:'DM Sans',Inter,system-ui,sans-serif}
+.top{
+ position:relative;isolation:isolate;overflow:hidden;min-height:94px;height:auto;
+ padding:17px 30px;background:linear-gradient(105deg,#103c4a 0%,#15566a 48%,#0b3543 100%);
+ box-shadow:0 3px 16px rgba(7,37,46,.22)
+}
+.top:before{
+ content:"";position:absolute;z-index:-1;inset:0;opacity:.28;
+ background:
+ linear-gradient(90deg,transparent 0 9%,rgba(255,255,255,.16) 9.1% 9.25%,transparent 9.35% 100%),
+ repeating-linear-gradient(90deg,transparent 0 42px,rgba(255,255,255,.12) 43px 44px,transparent 45px 76px),
+ linear-gradient(0deg,transparent 0 67%,rgba(255,255,255,.18) 67.2% 67.6%,transparent 68%);
+ mask-image:linear-gradient(90deg,#000 0%,#000 58%,transparent 94%)
+}
+.brand{gap:16px}
+.mark{
+ width:49px;height:49px;display:grid;place-items:center;padding:0;border:1px solid rgba(238,199,93,.8);
+ border-radius:50%;background:rgba(255,255,255,.08);color:#f4d36d;font:700 13px 'DM Sans',sans-serif;letter-spacing:.08em
+}
+.brand b{font-size:25px;line-height:1.05;letter-spacing:-.04em;color:#fff}
+.brand small{margin-top:5px;color:#d3e4e8;font-size:11px;letter-spacing:.045em}
+.top-meta{display:flex;align-items:center;gap:18px}
+.top-edition{color:#e5c45c;font-size:9px;font-weight:700;letter-spacing:.2em}
+.status{border-color:#ffffff50;color:#e8f0f1;background:#ffffff0d}
+.layout{display:block;min-height:calc(100vh - 94px)}
+.side{
+ position:sticky;top:0;z-index:1000;height:auto;min-height:58px;padding:7px 18px;
+ display:flex;flex-direction:row;align-items:center;gap:18px;
+ background:#123e4b;border:0;border-bottom:3px solid #e4b83f;box-shadow:0 4px 12px rgba(10,44,53,.13)
+}
+.side-label,.side-note{display:none}
+#nav{display:flex;align-items:center;gap:5px;width:100%;overflow-x:auto;padding:0 0 1px}
+.nav{
+ position:relative;flex:0 0 auto;width:auto;margin:0;padding:11px 13px;border-radius:7px;
+ color:#d7e6e8;font-size:12px;font-weight:600;white-space:nowrap;transition:background .18s,color .18s
+}
+.nav:hover{background:#ffffff15;color:#fff}
+.nav.active{background:#087b7d;color:#fff;font-weight:700;box-shadow:inset 0 0 0 1px #ffffff26}
+.nav.active:before{content:none}
+main{max-width:1900px;margin:0 auto;padding:22px 26px 30px}
+.filters{
+ position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:12px;align-items:end;
+ margin:0 0 16px;padding:13px 16px;background:#fff;border:1px solid var(--ptl-line);
+ border-radius:12px;box-shadow:0 4px 15px rgba(12,49,59,.055)
+}
+.filters label{min-width:150px;color:#55707a;font-size:10px;font-weight:700;letter-spacing:.04em}
+.filters select{min-width:160px;height:38px;border:1px solid #cbd9d9;border-radius:7px;background:#f9fbfa;color:#173e49;font:500 12px 'DM Sans',sans-serif}
+.territory{padding:0 8px 3px}
+.territory small{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#7a9096}
+.territory b{color:#087b7d;font-size:15px}
+.export-toolbar{margin-bottom:18px;border-radius:9px;border:1px solid var(--ptl-line);background:#fff}
+#content .overview-heading{align-items:center;border:0;padding:9px 0 15px;margin:0 0 10px}
+#content .overview-heading .page-kicker{color:#0b8584}
+#content .overview-heading h2{
+ max-width:900px;color:#123e4b;font:700 clamp(31px,3.3vw,46px)/1.04 'DM Sans',sans-serif;
+ letter-spacing:-.055em
+}
+#content .overview-heading p{color:#5c737b;font-size:14px;max-width:760px}
+#content .overview-heading-tag{background:#e5efed;border-left:3px solid #e4b83f;border-radius:0 8px 8px 0}
+#content .overview-context{background:#e9f2f0;border:1px solid #d2e4e0;border-left:4px solid #087b7d;border-radius:8px}
+#content .overview-hero-grid{grid-template-columns:minmax(0,1.85fr) minmax(270px,.82fr);gap:17px;align-items:stretch}
+#content .card,#content .overview-map-card,#content .overview-side-stack>.card{
+ background:#fff;border:1px solid #dce6e5;border-radius:13px;box-shadow:var(--ptl-shadow)
+}
+#content .overview-map-card{padding:16px;overflow:hidden}
+#content .overview-card-head h3,#content .card h3{color:#153e4a;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.025em}
+#content .overview-eyebrow{color:#0a8583;letter-spacing:.16em}
+#content .overview-territory-map{height:clamp(380px,42vw,530px);min-height:360px;border-radius:9px;overflow:hidden;background:#e4eceb}
+#content .overview-map-key{color:#52717a}
+#content .overview-map-key i{background:#0a8583}
+#content .overview-map-foot{display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 2px 0;color:#75898e;font-size:9px}
+#content .overview-side-stack{display:flex;flex-direction:column;gap:13px}
+#content .overview-side-stack>.card{padding:17px}
+#content .overview-pop-card .metric{font:700 clamp(32px,3vw,43px)/1 'DM Sans',sans-serif;color:#123e4b;letter-spacing:-.05em}
+#content .overview-mini-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+#content .overview-mini-kpis>div{padding:10px 8px;border-bottom:1px solid #e7eded}
+#content .overview-mini-kpis>div:nth-child(odd){border-right:1px solid #e7eded}
+#content .overview-mini-kpis>div:nth-last-child(-n+2){border-bottom:0}
+#content .overview-mini-kpis span{display:block;color:#71858a;font-size:10px}
+#content .overview-mini-kpis strong{display:block;margin-top:3px;color:#123e4b;font-size:24px;line-height:1.1}
+#content .overview-census-value{color:#123e4b;font-size:24px;font-weight:700}
+#content .overview-progress{height:9px;border-radius:12px;background:#e7efed;overflow:hidden}
+#content .overview-progress i{background:linear-gradient(90deg,#087b7d,#e4b83f);border-radius:12px}
+#content .overview-panels{grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-top:17px}
+#content .overview-panels>.card{padding:18px}
+#content .overview-method{margin-top:17px}
+#content .overview-stat{border-bottom:1px solid #e8eeee;padding:10px 0}
+#content .overview-stat strong{color:#123e4b}
+#content .section-pie-wrap,#content .green-chart-wrap{min-height:245px}
+#content .school-legend{background:#f1f6f5;border:1px solid #e1eae8;border-radius:8px}
+#content .module-heading{border-bottom:1px solid #d8e4e2}
+#content .module-heading-index{color:#bd8e2e;border-top-color:#e4b83f}
+#content .module-heading-copy .page-title{color:#123e4b;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-.045em}
+#content .module-heading-mark span{background:#9fc4bd}
+#content .module-heading-mark span:nth-child(2){background:#e4b83f}
+#content .module-heading-mark span:nth-child(3){background:#d77b55}
+#content .selection-context{background:#eaf2f0;border:1px solid #d8e5e2;border-left:3px solid #0a8583;border-radius:8px}
+#content .selection-stats>div{background:#fff;border:1px solid #dce7e4;border-radius:7px}
+#content .selection-stats strong{color:#087b7d;font-family:'DM Sans',sans-serif;font-weight:700}
+#content .table-wrap thead th{background:#eaf2f0;color:#315b64}
+#content .table-wrap tbody tr:hover td{background:#f1f7f5}
+#content .card-export-actions button{border-radius:6px!important;background:#eef5f3;color:#43666c;border-color:#d8e5e2}
+footer{margin-top:25px;padding:17px 20px;border-radius:10px;background:#123e4b;color:#d3e2e4}
+footer strong{color:#f1d16b}
+footer .social-links a{color:#d5e8e7}
+@media(max-width:1050px){
+ #content .overview-hero-grid{grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr)}
+ .nav{padding:10px 10px;font-size:11px}
+}
+@media(max-width:760px){
+ .top{padding:14px 16px;min-height:78px}
+ .brand b{font-size:20px}.brand small{font-size:9px;letter-spacing:0}
+ .top-edition{display:none}.top-meta{gap:6px}
+ .side{position:sticky;top:0;padding:6px 9px;min-height:52px}
+ #nav{gap:3px}.nav{font-size:10px;padding:9px 10px}
+ main{padding:15px 12px 24px}
+ .filters{gap:9px;padding:11px}
+ .filters label{min-width:calc(50% - 6px);flex:1}
+ .filters select{min-width:0;width:100%}
+ #content .overview-hero-grid{grid-template-columns:1fr}
+ #content .overview-territory-map{height:390px;min-height:340px}
+ #content .overview-side-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ #content .overview-census-card{grid-column:1/-1}
+ #content .overview-panels{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .brand b{font-size:18px}.brand small{max-width:220px;font-size:8px}
+ .status{font-size:8px;padding:5px 7px}
+ #content .overview-side-stack{grid-template-columns:1fr}
+ #content .overview-heading h2{font-size:34px}
+ #content .overview-territory-map{height:350px;min-height:320px}
+}
