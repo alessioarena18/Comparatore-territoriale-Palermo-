@@ -1,7 +1,7 @@
 {
-  "name": "Palermo Territorial Comparator",
-  "short_name": "Palermo Comparator",
-  "description": "Interactive platform for territorial and urban analysis of Palermo",
+  "name": "Palermo Territorial Lab",
+  "short_name": "Territorial Lab",
+  "description": "Interactive territorial research and urban analysis platform for Palermo",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
