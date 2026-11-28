@@ -1,7 +1,7 @@
 {
-  "name": "Comparatore territoriale di Palermo",
-  "short_name": "Comparatore Palermo",
-  "description": "Piattaforma interattiva di analisi territoriale e urbana di Palermo",
+  "name": "Palermo Territorial Comparator",
+  "short_name": "Palermo Comparator",
+  "description": "Interactive platform for territorial and urban analysis of Palermo",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
