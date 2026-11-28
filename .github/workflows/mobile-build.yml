@@ -65,6 +65,8 @@ jobs:
         run: npm install
       - name: Prepare web bundle
         run: npm run mobile:prepare
+      - name: Generate app icons and launch screens
+        run: npm run mobile:assets
       - name: Generate iOS project
         run: npx cap add ios
       - name: Sync Capacitor
