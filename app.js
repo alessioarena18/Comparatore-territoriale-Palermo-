@@ -476,7 +476,7 @@ function applyGisSelectedStyle(){
   (item.featureLayers||[]).forEach(layer=>{
    const p=layer.feature?.properties||{},codeKey={asc1:'COM_ASC1',asc2:'COM_ASC2',asc3:'COM_ASC3',sections:'SEZ21_ID'}[item.key];
    const match=wanted.some(([key,field,value])=>key===item.key&&String(p[field]??'')===String(value));
-   layer.setStyle?.({weight:match?4:1.2,color:match?'#111827':item.key==='asc1'?'#1769aa':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:match?.32:.035});
+   layer.setStyle?.({weight:match?4.8:item.key==='asc1'?3.4:item.key==='asc2'?1.7:item.key==='asc3'?1.15:.55,opacity:1,color:match?'#a65f22':item.key==='asc1'?'#123f3b':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillColor:match?'#d7a34b':item.key==='asc1'?'#69a68e':item.key==='asc2'?'#c05a21':item.key==='asc3'?'#27834a':'#8054a6',fillOpacity:match?.20:item.key==='asc1'?.055:item.key==='asc2'?.025:item.key==='asc3'?.012:.004});
    if(match)layer.bringToFront?.();
   });
  });
@@ -1138,13 +1138,51 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
   const total=orderKeys.reduce((n,k)=>n+counts[k],0),fmtPie=n=>Number(n||0).toLocaleString('it-IT'),chartTitle=s.section?'Sezione censuaria':s.asc3?'UPL selezionata':s.quart?'Quartiere selezionato':s.circ?'Circoscrizione selezionata':'Intero Comune';
   charts.push(new Chart(document.getElementById('overviewSchoolChart'),{type:'doughnut',data:{labels:orderKeys,datasets:[{data:orderKeys.map(k=>counts[k]),backgroundColor:orderColors,borderWidth:1}]},options:{responsive:true,maintainAspectRatio:false,cutout:'66%',radius:'92%',layout:{padding:8},plugins:{title:{display:false},legend:{display:false},tooltip:{callbacks:{label(ctx){const value=Number(ctx.raw)||0,pct=total?value/total*100:0;return ctx.label+': '+fmtPie(value)+' ('+pct.toLocaleString('it-IT',{maximumFractionDigits:1})+'%)';}}}}}}));
  }
- if(active==='overview'&&window.L&&document.getElementById('overviewTerritoryMap')&&GEO.asc1?.features?.length){
-  const el=document.getElementById('overviewTerritoryMap'),map=L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:true}).setView([38.1157,13.3615],11);
-  const base=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+ if(active==='overview'&&window.L&&document.getElementById('overviewTerritoryMap')){
+  const el=document.getElementById('overviewTerritoryMap');
+  const map=L.map(el,{scrollWheelZoom:false,zoomControl:true,preferCanvas:true}).setView([38.1157,13.3615],11);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+  L.control.scale({metric:true,imperial:false}).addTo(map);
   const selectedCirc=s.circ?String(s.circ).replace(/^c/,''):'';
-  const boundaries=L.geoJSON(GEO.asc1,{style:feature=>{const code=String(feature.properties?.COD_ASC1||'');const selected=selectedCirc&&code===selectedCirc;return {color:selected?'#a96f2d':'#174f49',weight:selected?4:3,opacity:1,fillColor:selected?'#c18b43':'#8fb9a8',fillOpacity:selected?.38:.26};},onEachFeature:(feature,layer)=>{const p=feature.properties||{},code=String(p.COD_ASC1||'');layer.bindTooltip('Seleziona circoscrizione '+code+' · '+String(p.DEN_ASC1||''),{sticky:true});layer.bindPopup('<strong>Circoscrizione '+code+'</strong><br>'+String(p.DEN_ASC1||'')+'<br><small>Perimetro ISTAT 2021 · Seleziona il poligono per applicare il filtro</small>');layer.on('click',()=>{const select=$('#circ'),next='c'+code;if(!select||!code)return;select.value=select.value===next?'':next;syncMainFilter('circ');});layer.on('mouseover',()=>layer.setStyle({weight:2.8,fillOpacity:.28}));layer.on('mouseout',()=>boundaries.resetStyle(layer));}}).addTo(map);
-  const bounds=boundaries.getBounds();if(bounds.isValid())map.fitBounds(bounds,{padding:[12,12]});L.control.scale({metric:true,imperial:false}).addTo(map);
-  setTimeout(()=>map.invalidateSize(),120);
+  const drawCircoscrizioni=data=>{
+   if(!data||data.type!=='FeatureCollection'||!Array.isArray(data.features)||!data.features.length)throw new Error('GeoJSON ASC1 vuoto o non valido');
+   GEO.asc1=data;
+   const casing=L.geoJSON(data,{interactive:false,style:()=>({color:'#ffffff',weight:8,opacity:1,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
+   const boundaries=L.geoJSON(data,{
+    style:feature=>{
+     const code=String(feature.properties?.COD_ASC1??'');
+     const isSelected=!!selectedCirc&&code===selectedCirc;
+     return {color:isSelected?'#a65f22':'#123f3b',weight:isSelected?4.8:3.5,opacity:1,fillColor:isSelected?'#d7a34b':'#69a68e',fillOpacity:isSelected?.20:.055,lineCap:'round',lineJoin:'round'};
+    },
+    onEachFeature:(feature,layer)=>{
+     const p=feature.properties||{},code=String(p.COD_ASC1??''),name=String(p.DEN_ASC1||'');
+     layer.bindTooltip('Circoscrizione '+code+' · '+name,{sticky:true,direction:'auto'});
+     layer.bindPopup('<strong>Circoscrizione '+code+'</strong><br>'+esc(name)+'<br><small>Perimetro ISTAT 2021 · Seleziona il poligono per applicare il filtro</small>');
+     layer.on('click',()=>{
+      const select=$('#circ'),next='c'+code;
+      if(!select||!code)return;
+      select.value=select.value===next?'':next;
+      syncMainFilter('circ');
+     });
+     layer.on('mouseover',()=>layer.setStyle({weight:4.5,fillOpacity:.16}));
+     layer.on('mouseout',()=>boundaries.resetStyle(layer));
+    }
+   }).addTo(map);
+   const bounds=boundaries.getBounds();
+   if(bounds.isValid())map.fitBounds(bounds,{padding:[16,16],maxZoom:12});
+   el.dataset.boundaries='loaded';
+   el.setAttribute('aria-label','Mappa delle otto circoscrizioni di Palermo con perimetri ISTAT 2021 evidenziati');
+   return {casing,boundaries};
+  };
+  const source=GEO.asc1?.features?.length?Promise.resolve(GEO.asc1):fetch('data/geo/circoscrizioni_palermo_2021.geojson',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('HTTP '+response.status);return response.json();});
+  source.then(drawCircoscrizioni).catch(error=>{
+   console.error('Perimetri circoscrizionali non caricati nella panoramica',error);
+   el.dataset.boundaries='error';
+   el.setAttribute('aria-label','Mappa base di Palermo. Perimetri circoscrizionali non disponibili');
+   const note=el.parentElement?.querySelector('.overview-map-foot');
+   if(note)note.insertAdjacentHTML('beforeend','<span class="overview-map-hint">Perimetri circoscrizionali non caricati: ricaricare la pagina</span>');
+  });
+  setTimeout(()=>map.invalidateSize(true),180);
  }
  if(active==='gis') initMap();
 $('#territory').textContent=(DATA.territories.quartieri.find(x=>x.id===s.quart)?.name||DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||'Palermo').replace(/(^|[\s-])(\p{L})/gu,(_,sep,letter)=>sep+letter.toLocaleUpperCase('it-IT'));
