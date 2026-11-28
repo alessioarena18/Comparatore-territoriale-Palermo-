@@ -1582,3 +1582,68 @@ footer strong{color:var(--co-forest);font-family:Georgia,serif;font-size:13px;fo
 #nav .nav:focus-visible,#content button:focus-visible,#content select:focus-visible,#content input:focus-visible{
  outline:2px solid var(--co-accent);outline-offset:2px
 }
+
+
+/* Città Osmotica · identità e gerarchia dei moduli complementari */
+#content[data-module="housing"]{--module-accent:#8caa9b}
+#content[data-module="schools"]{--module-accent:#719caf}
+#content[data-module="realized"]{--module-accent:#4f897c}
+#content[data-module="metabolism"]{--module-accent:#7e9b75}
+#content[data-module="gis"]{--module-accent:#719eae}
+#content[data-module="spatial"]{--module-accent:#c58b45}
+#content[data-module="compare"]{--module-accent:#c58f9e}
+#content[data-module="sources"]{--module-accent:#8b9487}
+#content[data-module] .module-heading-index{color:var(--module-accent)}
+#content[data-module]>.module-heading:after{background:var(--module-accent)}
+#content[data-module="housing"] .housing-level-select,
+#content[data-module="gis"] .gis-selection-panel{background:#f5f4ed;border:1px solid var(--co-line);border-top:3px solid var(--module-accent);border-radius:4px;padding:clamp(16px,2vw,24px)}
+#content[data-module="housing"] .housing-kpis{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+#content[data-module="housing"] .housing-kpis>.card{border-top:2px solid var(--module-accent);background:#fffefa}
+#content[data-module="housing"] .housing-circ-pies{gap:14px}
+#content[data-module="housing"] .section-pie-wrap{min-height:220px}
+#content[data-module="schools"] .school-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+#content[data-module="schools"] .school-kpis>.card{border-top:2px solid var(--module-accent);background:#fffefa}
+#content[data-module="schools"] .school-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}
+#content[data-module="schools"] .school-map,
+#content[data-module="realized"] #realizedAmenitiesMap{height:clamp(380px,52vw,620px);min-height:380px;border:1px solid var(--co-line);border-radius:4px;overflow:hidden}
+#content[data-module="schools"] .school-legend,
+#content[data-module="realized"] .school-legend{padding:13px 15px;background:#f5f4ed;border:1px solid var(--co-line);border-radius:4px;gap:9px 15px}
+#content[data-module="realized"]>.card:has(#realizedAmenitiesMap){border-top:3px solid var(--module-accent)}
+#content[data-module="realized"]>.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+#content[data-module="metabolism"] .metabolism-intro{padding:clamp(18px,2.4vw,28px);border-top:3px solid var(--module-accent);background:#edf1e8}
+#content[data-module="metabolism"] .metabolism-grid{gap:15px}
+#content[data-module="metabolism"] .metabolism-grid>.card{border-top:2px solid var(--module-accent)}
+#content[data-module="metabolism"] .metabolism-simulator{background:#f5f4ed}
+#content[data-module="gis"] .gis-selection-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+#content[data-module="gis"] .gis-selection-grid label{display:flex;flex-direction:column;gap:6px;min-width:0}
+#content[data-module="gis"] .gis-selection-grid select{width:100%;min-width:0}
+#content[data-module="gis"] .gis-map{height:clamp(480px,62vw,720px);min-height:480px;border:1px solid var(--co-line);border-radius:4px;overflow:hidden}
+#content[data-module="spatial"]>.grid{gap:16px}
+#content[data-module="spatial"]>.grid:first-of-type>.card{border-top:2px solid var(--module-accent)}
+#content[data-module="spatial"] #spatialUplChart{max-height:360px}
+#content[data-module="compare"]>.card{border-top:2px solid var(--module-accent)}
+#content[data-module="compare"]>.grid{gap:16px}
+#content[data-module="compare"] .chart-frame-compact-bars{min-height:250px}
+#content[data-module="sources"] .source-list{border-left:3px solid var(--module-accent)}
+#content[data-module="sources"] .source-list a{overflow-wrap:anywhere}
+#content[data-module="sources"]>.grid>.card{background:#f7f6f0}
+#content[data-module] .card{min-width:0}
+@media(max-width:950px){
+ #content[data-module="housing"] .housing-kpis,
+ #content[data-module="schools"] .school-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #content[data-module="schools"] .school-controls,
+ #content[data-module="gis"] .gis-selection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #content[data-module="realized"]>.grid{grid-template-columns:1fr}
+ #content[data-module="gis"] .gis-map{height:520px;min-height:420px}
+}
+@media(max-width:600px){
+ #content[data-module="housing"] .housing-kpis,
+ #content[data-module="schools"] .school-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #content[data-module="schools"] .school-controls,
+ #content[data-module="gis"] .gis-selection-grid{grid-template-columns:1fr}
+ #content[data-module="schools"] .school-map,
+ #content[data-module="realized"] #realizedAmenitiesMap{height:390px;min-height:340px}
+ #content[data-module="gis"] .gis-map{height:430px;min-height:360px}
+ #content[data-module="metabolism"] .metabolism-grid{grid-template-columns:1fr}
+ #content[data-module="spatial"] #spatialUplChart{max-height:300px}
+}
