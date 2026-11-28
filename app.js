@@ -1593,8 +1593,12 @@ function initMap(mapId='map'){
     input.onchange=()=>{if(input.checked)item.layer.addTo(gisMap);else gisMap.removeLayer(item.layer);};
    });
   }
-  const group=L.featureGroup(gisImportedLayers.map(x=>x.layer));
-  if(gisImportedLayers.length){const bounds=group.getBounds();if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});}
+  const bounds=L.latLngBounds();
+  gisImportedLayers.forEach(item=>(item.featureLayers||[]).forEach(layer=>{
+   if(typeof layer.getBounds==='function')bounds.extend(layer.getBounds());
+   else if(typeof layer.getLatLng==='function')bounds.extend(layer.getLatLng());
+  }));
+  if(bounds.isValid())gisMap.fitBounds(bounds,{padding:[18,18]});
   applyGisSelectedStyle();focusGeneralSelection();
   setTimeout(()=>gisMap&&gisMap.invalidateSize(true),180);
   if(autoStatus)autoStatus.textContent=results.join(' · ')+(gisImportedLayers.length?' · Usa i selettori sopra la mappa per attivare i livelli.':' · Nessun layer ufficiale caricato.');
