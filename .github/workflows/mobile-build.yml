@@ -15,6 +15,9 @@ on:
       - 'capacitor.config.ts'
       - 'capacitor.config.json'
       - 'scripts/**'
+      - 'tests/**'
+      - 'playwright.config.js'
+      - '.gitignore'
       - '.github/workflows/mobile-build.yml'
 
 permissions:
@@ -35,6 +38,10 @@ jobs:
         run: npm run mobile:prepare
       - name: Generate app icons and launch screens
         run: npm run mobile:assets
+      - name: Install Chromium for smoke tests
+        run: npx playwright install --with-deps chromium
+      - name: Run mobile web smoke tests
+        run: npm run test:mobile-smoke
       - name: Generate Android project
         run: npx cap add android
       - name: Sync Capacitor
