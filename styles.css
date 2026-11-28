@@ -588,3 +588,109 @@ footer{font-size:10px;margin-top:42px;padding-top:18px}
  .overview-territory-map{height:310px;min-height:280px}
  .card{padding:15px}
 }
+
+
+/* ==========================================================
+   OSSERVATORIO URBANO · DESIGN SYSTEM 2026
+   Layer visuale additivo: non modifica dati o logica applicativa
+   ========================================================== */
+:root{
+  --obs-ink:#172d3d;
+  --obs-ink-soft:#40596b;
+  --obs-muted:#718596;
+  --obs-paper:#f4f6f7;
+  --obs-surface:#ffffff;
+  --obs-line:#e1e7e9;
+  --obs-navy:#142f3e;
+  --obs-navy-2:#1b3c4c;
+  --obs-teal:#4e8990;
+  --obs-teal-soft:#e8f1f0;
+  --obs-blue:#91b8d3;
+  --obs-pink:#d9a2b5;
+  --obs-shadow:0 8px 26px rgba(22,48,63,.055);
+}
+html{scroll-behavior:smooth}
+body{background:var(--obs-paper);color:var(--obs-ink);font-family:Inter,"Avenir Next",Avenir,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.005em}
+.top{height:88px;padding:0 clamp(18px,3vw,42px);background:var(--obs-navy);box-shadow:0 5px 22px rgba(10,31,43,.13);position:relative;z-index:20}
+.brand{gap:15px}
+.mark{width:43px;height:43px;display:grid;place-items:center;padding:0;border-radius:12px;background:#d9e8e6;color:var(--obs-navy);font-size:14px;letter-spacing:.08em}
+.brand b{font-size:16px;font-weight:700;letter-spacing:.005em}
+.brand small{margin-top:3px;color:#b7c9cf;font-size:11px;letter-spacing:.035em}
+.status{border-color:#ffffff35;background:#ffffff0c;color:#dce9e9;padding:7px 12px}
+.layout{grid-template-columns:252px minmax(0,1fr);min-height:calc(100vh - 88px)}
+.side{position:sticky;top:0;height:calc(100vh - 0px);overflow-y:auto;background:var(--obs-navy);border:0;padding:27px 16px 22px;z-index:10}
+.side-label{color:#8fa9b2;letter-spacing:.19em;font-size:9px;padding:0 13px 14px}
+#nav{display:grid;gap:4px}
+.nav{position:relative;display:flex;align-items:center;min-height:41px;padding:9px 13px;margin:0;border-radius:8px;color:#c2d0d4;font-size:12px;font-weight:500;line-height:1.35;transition:background .18s ease,color .18s ease,transform .18s ease}
+.nav:hover{background:#ffffff10;color:#fff;transform:translateX(2px)}
+.nav.active{background:#e4efed;color:#183744;font-weight:700;box-shadow:inset 3px 0 0 var(--obs-teal)}
+.side-note{margin:30px 4px 0;padding:15px;background:#ffffff0b;border:1px solid #ffffff14;border-radius:10px;color:#d7e2e3}
+.side-note b{font-size:11px;color:#fff}
+.side-note p{font-size:11px;line-height:1.55;color:#a9bdc2}
+main{padding:clamp(20px,2.8vw,38px) clamp(18px,3vw,44px);min-width:0;max-width:1760px;width:100%;margin:0 auto}
+.filters{position:relative;background:#fff;border:1px solid var(--obs-line);border-radius:12px;padding:15px 17px;gap:12px;margin-bottom:17px;box-shadow:var(--obs-shadow)}
+.filters label{font-size:10px;font-weight:700;letter-spacing:.025em;color:#637987;gap:7px}
+.filters select{height:39px;border:1px solid #dce4e6;border-radius:7px;background:#fbfcfc;color:#263f4d;font-size:12px;transition:border-color .18s,box-shadow .18s}
+.filters select:focus,.calc-input input:focus,.std-area:focus,.gis-selection-grid select:focus{outline:none;border-color:#6c9da0;box-shadow:0 0 0 3px #6c9da01c}
+.territory{padding:0 8px 5px}
+.territory small{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:#81929b}
+.territory b{font-size:14px;color:var(--obs-ink)}
+.export-toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px 0 18px;color:#71828c;font-size:11px}
+.export-toolbar>span{font-weight:700;color:#536b78;margin-right:5px}
+.export-option{display:flex;align-items:center;gap:7px}
+.export-option select{height:32px;border:1px solid #dce4e6;border-radius:7px;background:#fff;padding:0 8px;color:#405865;font:inherit}
+.export-toolbar button,.secondary-button{border:1px solid #d3dfe1;border-radius:7px;background:#fff;color:#34525e;padding:8px 12px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;transition:all .18s}
+.export-toolbar button:hover,.secondary-button:hover{background:#edf4f3;border-color:#a9c4c1}
+.export-toolbar .primary-export{background:var(--obs-navy);border-color:var(--obs-navy);color:#fff}
+.export-toolbar .primary-export:hover{background:#244b59}
+.page-kicker{font-size:9px;letter-spacing:.2em;color:var(--obs-teal);font-weight:800;margin-bottom:8px}
+.page-title{font-size:clamp(25px,2.4vw,34px);line-height:1.15;letter-spacing:-.045em;font-weight:720;color:#183342;margin:0 0 8px}
+.lead{max-width:900px;color:#70818b;font-size:13px;line-height:1.65;margin:0 0 25px}
+.grid{gap:16px}
+.card{background:var(--obs-surface);border:1px solid var(--obs-line);border-radius:12px;padding:19px;box-shadow:var(--obs-shadow);transition:box-shadow .2s,border-color .2s}
+.card:hover{border-color:#d3dfdf;box-shadow:0 10px 28px rgba(22,48,63,.075)}
+.card h3{font-size:13px;font-weight:700;letter-spacing:.005em;color:#2b4654;margin-bottom:13px}
+.metric{font-size:clamp(25px,2.3vw,32px);line-height:1.1;letter-spacing:-.04em;color:#183744;font-weight:750;font-variant-numeric:tabular-nums}
+.muted,.lead{color:var(--obs-muted)}
+.notice{background:#f7faf9;border:1px solid #e0e9e7;border-left:3px solid var(--obs-teal);border-radius:10px;padding:17px 19px}
+.notice h3{font-size:14px;color:#294753}
+.notice p{font-size:12px;line-height:1.65;color:#647983}
+.table-wrap,.comparison-table{border:1px solid var(--obs-line);border-radius:9px}
+table{font-size:12px}
+th{background:#f6f8f8;color:#637985;font-size:10px;letter-spacing:.035em;text-transform:uppercase}
+th,td{padding:11px 12px;border-bottom:1px solid #e9eeee}
+tbody tr:hover{background:#f8fbfa}
+#map,.leaflet-container{border-radius:10px}
+.section-pie-card{margin-top:17px}
+.section-pie-wrap{height:300px}
+.data-status{background:#edf4f2;color:#416a68}
+.notice-inline{background:#f6f9f8;border-left-color:#83a9a5;color:#61767d;border-radius:7px}
+footer{margin-top:32px;border-top:1px solid var(--obs-line);padding:22px 0;color:#8a999f}
+.social-links a{color:#527f83}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #79a9a6;outline-offset:2px}
+@media(min-width:1500px){.layout{grid-template-columns:270px minmax(0,1fr)}.side{padding-left:18px;padding-right:18px}.nav{font-size:12px;min-height:43px}}
+@media(max-width:850px){
+ .top{height:auto;min-height:76px;padding:13px 17px;gap:12px}
+ .brand b{font-size:14px}.brand small{font-size:10px}
+ .layout{grid-template-columns:1fr;min-height:calc(100vh - 76px)}
+ .side{position:relative;height:auto;overflow:visible;padding:10px 12px;background:var(--obs-navy-2);border-bottom:1px solid #ffffff18}
+ #nav{display:flex;gap:5px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+ .nav{flex:0 0 auto;min-height:36px;padding:8px 11px;font-size:11px}
+ .nav.active{box-shadow:inset 0 -2px 0 var(--obs-teal)}
+ main{padding:18px 15px}
+ .filters{padding:13px;gap:10px}
+ .export-toolbar{padding-bottom:15px}
+}
+@media(max-width:520px){
+ .top{align-items:flex-start}.status{font-size:10px;padding:5px 8px;white-space:nowrap}
+ .mark{width:38px;height:38px}
+ .brand{gap:10px}
+ .filters label{flex:1 1 calc(50% - 8px);min-width:0}
+ .territory{flex:1 1 100%;padding:7px 2px 1px;border-top:1px solid #edf0f0}
+ .export-toolbar>span{flex-basis:100%}
+ .export-option{font-size:10px}
+ .export-toolbar button{padding:8px 10px}
+ .card{padding:15px}
+ .page-title{font-size:25px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
