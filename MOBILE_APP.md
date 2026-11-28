@@ -70,3 +70,8 @@ Le credenziali e le firme devono essere configurate dal titolare degli account. 
 ## Regola di progetto
 
 Nessun intervento sul packaging mobile deve modificare dataset, indicatori, formule, fonti, geometrie, classificazioni o logiche del comparatore web.
+
+
+## Identità visiva nativa
+
+La pipeline genera icona e schermata di avvio coerenti con la palette petrolio, avorio e ocra di Territorial Lab. Le immagini vengono create da sorgenti SVG versionabili e poi convertite nei formati richiesti da Capacitor Assets. Per aggiornare: `npm run mobile:assets`. La generazione usa le dimensioni consigliate dalla documentazione Capacitor: icona 1024×1024 e splash 2732×2732.
