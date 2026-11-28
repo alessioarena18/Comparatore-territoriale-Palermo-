@@ -365,3 +365,61 @@ footer{margin-top:28px;padding:22px 0 8px;border-top:1px solid var(--ud-line);co
  .card{padding:15px}
  .page-title{font-size:25px}
 }
+
+
+/* Panoramica · composizione da osservatorio urbano */
+.overview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:4px 0 16px}
+.overview-heading h2{margin:2px 0 5px;color:var(--ud-deep);font-size:clamp(26px,2.6vw,37px);letter-spacing:-1.2px;line-height:1.1}
+.overview-heading p{margin:0;color:#637a79;font-size:13px}
+.overview-heading-tag{display:grid;gap:3px;min-width:150px;padding:10px 13px;border:1px solid #d6e1d9;border-radius:10px;background:#edf3ed}
+.overview-heading-tag span,.overview-eyebrow{color:#6c8580;font-size:9px;font-weight:800;letter-spacing:1.4px}
+.overview-heading-tag strong{color:#1a5559;font-size:13px}
+.overview-context{margin:0 0 15px;padding:11px 14px;border-left:3px solid var(--ud-ochre);background:#f8f5ed}
+.overview-hero-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(260px,.8fr);gap:15px;align-items:stretch;margin:0 0 16px}
+.overview-map-card{padding:16px;min-width:0}
+.overview-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.overview-card-head h3{margin:3px 0 2px}
+.overview-card-head p{margin:0;color:#758985;font-size:11px}
+.overview-map-key{display:flex;align-items:center;gap:7px;white-space:nowrap;color:#607976;font-size:10px}
+.overview-map-key i{width:10px;height:10px;border:1px solid #286b70;border-radius:2px;background:#5c9385}
+.overview-territory-map{height:390px;min-height:330px;border:1px solid #d5e0da;border-radius:11px;background:#e8efeb;overflow:hidden;z-index:0}
+.overview-territory-map .leaflet-control-attribution{font-size:9px}
+.overview-map-foot{display:flex;justify-content:space-between;gap:10px;margin-top:9px;color:#83938c;font-size:9px}
+.overview-side-stack{display:grid;grid-template-rows:auto 1fr auto;gap:12px;min-width:0}
+.overview-side-stack .card{padding:16px}
+.overview-pop-card{background:linear-gradient(135deg,#174a53,#216b68);border-color:#216b68;color:#fff}
+.overview-pop-card .overview-eyebrow,.overview-pop-card small{color:#d1e2d9}
+.overview-pop-card .metric{margin:4px 0;color:#fff;font-size:34px}
+.overview-mini-kpis{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.overview-mini-kpis>div{display:grid;gap:2px;padding:10px 0;border-bottom:1px solid #e8eee9}
+.overview-mini-kpis span{color:#71847f;font-size:10px}
+.overview-mini-kpis strong{color:var(--ud-deep);font-size:22px;font-weight:760;font-variant-numeric:tabular-nums}
+.overview-census-card{background:#f8faf6}
+.overview-census-value{margin:7px 0 8px;color:var(--ud-deep);font-size:23px;font-weight:780}
+.overview-census-value small{font-size:10px;font-weight:600;color:#6d827c}
+.overview-progress{height:7px;margin:0 0 7px;border-radius:9px;background:#e3eae4;overflow:hidden}
+.overview-progress i{display:block;height:100%;border-radius:9px;background:#4d8a75}
+.overview-census-card>small{color:#71847f;font-size:10px}
+.overview-panels{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin:0 0 16px}
+.overview-panels>.card{min-width:0}
+.overview-panels .overview-card-head{margin-bottom:2px}
+.overview-method{margin-top:0}
+.overview-method h3{margin-top:3px}
+.overview-method .workflow-grid{margin-top:13px}
+@media(max-width:1050px){.overview-hero-grid{grid-template-columns:minmax(0,1.3fr) minmax(230px,.8fr)}.overview-territory-map{height:350px}}
+@media(max-width:760px){
+ .overview-heading{align-items:flex-start;flex-direction:column}
+ .overview-heading-tag{width:100%}
+ .overview-hero-grid{grid-template-columns:1fr}
+ .overview-territory-map{height:340px;min-height:300px}
+ .overview-side-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+ .overview-pop-card{grid-column:1/-1}
+ .overview-census-card{grid-column:1/-1}
+ .overview-panels{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+ .overview-side-stack{grid-template-columns:1fr}
+ .overview-pop-card,.overview-census-card{grid-column:auto}
+ .overview-map-foot{flex-direction:column;gap:2px}
+ .overview-territory-map{height:300px;min-height:270px}
+}
