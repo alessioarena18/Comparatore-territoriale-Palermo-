@@ -1924,7 +1924,7 @@ function initStandardSchoolMap(){
  markers.addTo(map);buffers.addTo(map);
  const baseOSM=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
  const baseOrtho=L.tileLayer('https://map.sitr.regione.sicilia.it/gis/rest/services/ortofoto/ortofoto_2022_20cm_sicilia/ImageServer/tile/{z}/{y}/{x}',{maxZoom:20,attribution:'Regione Siciliana · SITR'});
- L.control.layers({'OpenStreetMap':baseOSM,'Ortofoto Regione Siciliana 2022':baseOrtho},overlays,{collapsed:false,position:'topright'}).addTo(map);
+ L.control.layers({'OpenStreetMap':baseOSM,'Ortofoto Regione Siciliana 2022':baseOrtho},overlays,{collapsed:window.matchMedia('(max-width: 650px)').matches,position:'topright'}).addTo(map);
  order.addEventListener('change',draw);mode.addEventListener('change',draw);draw();
  const selectedPoints=pts.filter(belongs);if(selectedPoints.length){const b=L.latLngBounds(selectedPoints.map(p=>[p.lat,p.lon]));if(b.isValid())map.fitBounds(b,{padding:[20,20],maxZoom:13});}
  window.__standardAmenitiesMap=map;window.__stdAmenities=[];
