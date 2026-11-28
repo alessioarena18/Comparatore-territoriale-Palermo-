@@ -1,0 +1,88 @@
+name: Mobile app builds
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [mobile-app-capacitor]
+    paths:
+      - 'app.js'
+      - 'index.html'
+      - 'styles.css'
+      - 'data/**'
+      - 'green-*.js'
+      - 'metabolism-data.js'
+      - 'package.json'
+      - 'capacitor.config.ts'
+      - 'capacitor.config.json'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'playwright.config.js'
+      - '.gitignore'
+      - '.github/workflows/mobile-build.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  android-debug:
+    name: Android debug APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Prepare web bundle
+        run: npm run mobile:prepare
+      - name: Generate app icons and launch screens
+        run: npm run mobile:assets
+      - name: Install Chromium for smoke tests
+        run: npx playwright install --with-deps chromium
+      - name: Run mobile web smoke tests
+        run: npm run test:mobile-smoke
+      - name: Generate Android project
+        run: npx cap add android
+      - name: Sync Capacitor
+        run: npx cap sync android
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: palermo-territorial-lab-android-debug
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  ios-simulator:
+    name: iOS simulator build
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Prepare web bundle
+        run: npm run mobile:prepare
+      - name: Generate app icons and launch screens
+        run: npm run mobile:assets
+      - name: Generate iOS project
+        run: npx cap add ios
+      - name: Sync Capacitor
+        run: npx cap sync ios
+      - name: Build for iOS Simulator
+        run: xcodebuild -project ios/App/App.xcodeproj -scheme App -sdk iphonesimulator -configuration Debug -derivedDataPath build/ios CODE_SIGNING_ALLOWED=NO build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: palermo-territorial-lab-ios-simulator
+          path: build/ios/Build/Products/Debug-iphonesimulator/App.app
+          if-no-files-found: error
+          retention-days: 14

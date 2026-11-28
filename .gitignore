@@ -1,0 +1,8 @@
+node_modules/
+dist/
+android/
+ios/
+build/
+.DS_Store
+*.xcuserstate
+*.xcuserdatad/

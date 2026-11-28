@@ -1,0 +1,28 @@
+{
+  "name": "palermo-territorial-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Native iOS and Android container for Palermo Territorial Lab",
+  "scripts": {
+    "mobile:prepare": "node scripts/prepare-mobile.mjs",
+    "mobile:sync": "npm run mobile:prepare && cap sync",
+    "mobile:add:ios": "cap add ios",
+    "mobile:add:android": "cap add android",
+    "mobile:open:ios": "cap open ios",
+    "mobile:open:android": "cap open android",
+    "mobile:doctor": "cap doctor",
+    "mobile:assets": "node scripts/generate-mobile-assets.mjs && capacitor-assets generate",
+    "test:mobile-smoke": "playwright test"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.3",
+    "@capacitor/ios": "8.6.3",
+    "@capacitor/android": "8.6.3",
+    "@capacitor/assets": "4.0.0",
+    "sharp": "^0.34.5",
+    "@playwright/test": "^1.56.1"
+  }
+}

@@ -60,6 +60,6 @@
 <div class="export-toolbar no-print" aria-label="Esportazione e stampa"><span>Esporta la vista corrente</span><label class="export-option">Formato<select id="exportPaperSize"><option value="A4">A4</option><option value="A3">A3</option><option value="A2">A2</option><option value="A1">A1</option><option value="A0">A0</option><option value="Letter">Letter</option><option value="Legal">Legal</option><option value="Tabloid">Tabloid</option></select></label><label class="export-option">Orientamento<select id="exportOrientation"><option value="portrait">Verticale</option><option value="landscape">Orizzontale</option></select></label><button type="button" id="printPageButton">Stampa</button><button type="button" id="savePdfButton" class="primary-export">Salva PDF</button><button type="button" id="exportPngButton">Esporta PNG</button></div>
 </main></div>
 <script>
-if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20261128-offline-31").then(reg=>reg.update()).catch(err=>console.warn("Offline non attivato",err))); }
+if ("serviceWorker" in navigator && location.protocol.startsWith("http") && !window.Capacitor?.isNativePlatform?.()) { window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=20261128-offline-31").then(reg=>reg.update()).catch(err=>console.warn("Offline non attivato",err))); }
 </script>
 </body></html>
