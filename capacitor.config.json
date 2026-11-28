@@ -1,0 +1,14 @@
+{
+  "appId": "it.palermoterritorial.lab",
+  "appName": "Palermo Territorial Lab",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#123d49",
+    "preferredContentMode": "mobile"
+  },
+  "android": {
+    "backgroundColor": "#123d49",
+    "allowMixedContent": false
+  }
+}
