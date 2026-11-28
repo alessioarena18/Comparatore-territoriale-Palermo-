@@ -8,14 +8,14 @@ let GEO={asc1:null,asc2:null,asc3:null,sections:null};
 let geoSelection={asc2:'',asc3:'',section:''};
 
 // Palette coordinata con il sistema visivo Urban Design 18.
-const URBAN_CHART_PALETTE=['#176b68','#6f927d','#c18b43','#8aa89a','#426b78','#a9bcae','#d5a65a','#647a7c'];
+const URBAN_CHART_PALETTE=['#1b5550','#8fb9c7','#c58b45','#7d9785','#c58f9e','#6d8580','#d9b878','#a8b7a7'];
 if(window.Chart){
- Chart.defaults.color='#647a7c';
- Chart.defaults.borderColor='#d8e0dc';
+ Chart.defaults.color='#6d7c73';
+ Chart.defaults.borderColor='#d9ded3';
  Chart.defaults.font.family='Inter, Aptos, system-ui, sans-serif';
- Chart.defaults.plugins.legend.labels.color='#536d68';
- Chart.defaults.plugins.title.color='#183746';
- Chart.defaults.scale.grid.color='rgba(100,122,124,.13)';
+ Chart.defaults.plugins.legend.labels.color='#526b60';
+ Chart.defaults.plugins.title.color='#123b3b';
+ Chart.defaults.scale.grid.color='rgba(109,124,115,.14)';
  Chart.defaults.elements.arc.borderColor='#ffffff';
  Chart.defaults.elements.arc.borderWidth=2;
  Chart.register({id:'urbanDesignPalette',beforeUpdate(chart){
@@ -31,8 +31,8 @@ if(window.Chart){
     dataset.borderColor=(type==='pie'||type==='doughnut'||type==='polarArea')
       ?'#ffffff':type==='line'?'#176b68':'#176b68';
    }
-   if(type==='line'&&dataset.pointBackgroundColor===undefined)dataset.pointBackgroundColor='#c18b43';
-   if(type==='bar'&&dataset.hoverBackgroundColor===undefined)dataset.hoverBackgroundColor='#c18b43';
+   if(type==='line'&&dataset.pointBackgroundColor===undefined)dataset.pointBackgroundColor='#c58b45';
+   if(type==='bar'&&dataset.hoverBackgroundColor===undefined)dataset.hoverBackgroundColor='#c58b45';
   });
  }});
 }
@@ -492,7 +492,7 @@ function focusGeneralSelection(){
  const item=gisImportedLayers.find(x=>x.key===key),layer=item?.featureLayers?.find(l=>String(l.feature?.properties?.[field]??'')===String(value));
  const bounds=layer?.getBounds?.();if(bounds?.isValid?.())gisMap.fitBounds(bounds,{padding:[28,28],maxZoom:key==='sections'?17:key==='asc3'?15:key==='asc2'?14:13});
 }
-function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistiche=[];const fmtGeo=v=>Number(v).toLocaleString('it-IT');const fmtArea=v=>{const m2=Number(v);return Number.isFinite(m2)&&m2>0?(m2/1000000).toLocaleString('it-IT',{minimumFractionDigits:3,maximumFractionDigits:3})+' km²':'N.D.';};const dettaglio=(feature,label)=>{if(!feature)return;const x=feature.properties||{};ambiti.push(label+': '+(x.DEN_ASC1||x.DEN_ASC2||x.DEN_ASC3||x.SEZ21_ID||''));const valori=[['Estensione territoriale',fmtArea(x.SHAPE_Area??x.Shape_Area)],['POP21 · ISTAT 2021',x.POP21],['Famiglie',x.FAM21],['Abitazioni',x.ABI21],['Edifici',x.EDI21]].filter(v=>v[1]!==undefined&&v[1]!==null).map(v=>v[0]+': '+(v[0]==='Estensione territoriale'?v[1]:fmtGeo(v[1])));if(valori.length)statistiche.push('<div><strong>'+esc(label)+'</strong><br><span>'+valori.map(esc).join(' · ')+'</span></div>');};if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)dettaglio(f,'Circoscrizione');else ambiti.push('Circoscrizione: '+(DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||s.circ));}if(s.quart){const q=DATA.territories.quartieri.find(x=>x.id===s.quart);const feature=findAsc2FeatureForQuartiere(q);if(feature)dettaglio(feature,'Quartiere');else ambiti.push('Quartiere: '+(q?.name||s.quart)+' · estensione non disponibile nel layer ISTAT');}if(s.asc2){const f=GEO.asc2?.features.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));ambiti.push('Quartiere ASC2: '+(f?.properties?.DEN_ASC2||s.asc2));}if(s.asc3){const f=GEO.asc3?.features.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(f)dettaglio(f,'UPL');else ambiti.push('UPL: '+s.asc3);}if(s.section){const f=GEO.sections?.features.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(f)dettaglio(f,'Sezione censuaria');else ambiti.push('Sezione censuaria: '+s.section);}const contesto=ambiti.length?'<div class="notice-inline selection-context"><strong>Ambiti territoriali attivi:</strong> '+ambiti.map(esc).join(' · ')+(statistiche.length?'<div class="selection-stats">'+statistiche.join('')+'</div>':'')+'<span>I filtri vengono mantenuti passando da una pagina all’altra. POP21, famiglie, abitazioni ed edifici sono riferiti al Censimento ISTAT 2021 e restano distinti dai dati anagrafici comunali 2022 e dall’IDISE 2023. L’elaborazione si applica solo quando la fonte dispone di una corrispondenza geografica verificata alla scala selezionata.</span></div>':'';return `<p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p>${contesto}`;}
+function pageShell(){let p=pages[active],s=selected();const ambiti=[],statistiche=[];const fmtGeo=v=>Number(v).toLocaleString('it-IT');const fmtArea=v=>{const m2=Number(v);return Number.isFinite(m2)&&m2>0?(m2/1000000).toLocaleString('it-IT',{minimumFractionDigits:3,maximumFractionDigits:3})+' km²':'N.D.';};const dettaglio=(feature,label)=>{if(!feature)return;const x=feature.properties||{};ambiti.push(label+': '+(x.DEN_ASC1||x.DEN_ASC2||x.DEN_ASC3||x.SEZ21_ID||''));const valori=[['Estensione territoriale',fmtArea(x.SHAPE_Area??x.Shape_Area)],['POP21 · ISTAT 2021',x.POP21],['Famiglie',x.FAM21],['Abitazioni',x.ABI21],['Edifici',x.EDI21]].filter(v=>v[1]!==undefined&&v[1]!==null).map(v=>v[0]+': '+(v[0]==='Estensione territoriale'?v[1]:fmtGeo(v[1])));if(valori.length)statistiche.push('<div><strong>'+esc(label)+'</strong><br><span>'+valori.map(esc).join(' · ')+'</span></div>');};if(s.circ){const f=GEO.asc1?.features.find(x=>'c'+String(x.properties?.COD_ASC1)===s.circ);if(f)dettaglio(f,'Circoscrizione');else ambiti.push('Circoscrizione: '+(DATA.territories.circoscrizioni.find(x=>x.id===s.circ)?.name||s.circ));}if(s.quart){const q=DATA.territories.quartieri.find(x=>x.id===s.quart);const feature=findAsc2FeatureForQuartiere(q);if(feature)dettaglio(feature,'Quartiere');else ambiti.push('Quartiere: '+(q?.name||s.quart)+' · estensione non disponibile nel layer ISTAT');}if(s.asc2){const f=GEO.asc2?.features.find(x=>String(x.properties?.COM_ASC2)===String(s.asc2));ambiti.push('Quartiere ASC2: '+(f?.properties?.DEN_ASC2||s.asc2));}if(s.asc3){const f=GEO.asc3?.features.find(x=>String(x.properties?.COM_ASC3)===String(s.asc3));if(f)dettaglio(f,'UPL');else ambiti.push('UPL: '+s.asc3);}if(s.section){const f=GEO.sections?.features.find(x=>String(x.properties?.SEZ21_ID)===String(s.section));if(f)dettaglio(f,'Sezione censuaria');else ambiti.push('Sezione censuaria: '+s.section);}const contesto=ambiti.length?'<div class="notice-inline selection-context"><strong>Ambiti territoriali attivi:</strong> '+ambiti.map(esc).join(' · ')+(statistiche.length?'<div class="selection-stats">'+statistiche.join('')+'</div>':'')+'<span>I filtri vengono mantenuti passando da una pagina all’altra. POP21, famiglie, abitazioni ed edifici sono riferiti al Censimento ISTAT 2021 e restano distinti dai dati anagrafici comunali 2022 e dall’IDISE 2023. L’elaborazione si applica solo quando la fonte dispone di una corrispondenza geografica verificata alla scala selezionata.</span></div>':'';const moduleNumber=String(Object.keys(pages).indexOf(active)+1).padStart(2,'0');return `<header class="module-heading"><div class="module-heading-index" aria-hidden="true">${moduleNumber}</div><div class="module-heading-copy"><p class="page-kicker">${p[0]}</p><h1 class="page-title">${p[1]}</h1><p class="lead">${p[2]}</p></div><div class="module-heading-mark" aria-hidden="true"><span></span><span></span><span></span></div></header>${contesto}`;}
 function empty(title,desc){return `<div class="notice"><h3>${title}</h3><p>${desc}</p></div>`;}
 
 // Stampa ed esportazione PDF della pagina e delle singole schede
