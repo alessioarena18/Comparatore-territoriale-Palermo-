@@ -3207,3 +3207,86 @@ main{padding-top:20px}
 /* Demografia: mostrare tutti i 25 quartieri nel grafico di incidenza */
 #content #chartIncidenza{height:650px!important;max-height:none!important}
 @media(max-width:650px){#content #chartIncidenza{height:760px!important}}
+
+
+/* PTL · ottimizzazione completa per smartphone */
+@media(max-width:650px){
+ html,body{width:100%;max-width:100%;overflow-x:hidden}
+ .top{height:auto;min-height:76px;padding:12px 14px;gap:10px;align-items:center}
+ .top .brand{gap:9px;min-width:0}
+ .top .mark{padding:8px 9px;border-radius:9px;font-size:12px}
+ .top .brand b{font-size:14px;line-height:1.2;white-space:normal}
+ .top .brand small{font-size:9px;line-height:1.25;margin-top:3px}
+ .top .top-meta{display:flex;flex-direction:column;align-items:flex-end;gap:3px;min-width:0}
+ .top .top-edition{font-size:7px;letter-spacing:.06em;text-align:right}
+ .top .status{font-size:9px;padding:3px 7px;max-width:112px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .top .banner-credit{font-size:7px;margin-top:0}
+ .layout{display:block;min-height:0}
+ .side{position:sticky;top:0;z-index:1000;padding:7px 8px;border-bottom:2px solid #d9b34b;background:#153e49;box-shadow:0 4px 12px #173b4320}
+ #nav{display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding:0 0 2px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+ #nav::-webkit-scrollbar{display:none}
+ .nav{flex:0 0 auto;width:auto;margin:0;padding:9px 12px;border:1px solid transparent;border-radius:7px;color:#e4ece8;font-size:11px;line-height:1.25}
+ .nav.active{background:#f0efe5;color:#183b43;border-color:#e4e0ce}
+ main{padding:13px 11px 22px;min-width:0}
+ .filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:11px;margin:0 0 12px;border-radius:10px}
+ .filters label{min-width:0;width:100%;font-size:10px;gap:4px}
+ .filters select{height:38px;width:100%;min-width:0;max-width:none;padding:0 7px;font-size:11px}
+ .territory{grid-column:1/-1;min-width:0;margin:0;padding:7px 9px;border-radius:7px;background:#f1f6f3}
+ .territory small{font-size:9px}
+ .territory b{font-size:12px}
+ .export-toolbar{justify-content:flex-start;gap:7px;padding:9px;margin:0 0 13px}
+ .export-toolbar>span{flex:1 0 100%;font-size:10px}
+ .export-option{font-size:10px}
+ .export-option select{max-width:100px;padding:6px;font-size:10px}
+ .export-toolbar button{padding:7px 9px;font-size:10px}
+ #content{min-width:0;width:100%;overflow-wrap:anywhere}
+ #content .page-title{font-size:23px;line-height:1.15;letter-spacing:-.5px}
+ #content .lead{font-size:12px;line-height:1.55;margin-bottom:15px}
+ #content .page-kicker{font-size:9px;letter-spacing:1.4px}
+ #content .card{padding:13px;border-radius:10px;margin-bottom:10px}
+ #content .card h3{font-size:14px;line-height:1.35;margin-bottom:8px}
+ #content p,#content li{overflow-wrap:anywhere}
+ #content .grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ #content .overview-kpis,#content .social-kpis,#content .service-kpis,
+ #content .standards-kpis,#content .gis-kpis,#content .spatial-kpis,#content .green-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #content .overview-kpis>.card,#content .social-kpis>.card,#content .service-kpis>.card,
+ #content .standards-kpis>.card,#content .gis-kpis>.card,#content .spatial-kpis>.card,
+ #content .green-kpis>.card{padding:11px 9px 11px 12px;min-width:0}
+ #content .overview-kpis .metric,#content .social-kpis .metric,#content .service-kpis .metric,
+ #content .standards-kpis .metric,#content .gis-kpis .metric,#content .spatial-kpis .metric,
+ #content .green-kpis .metric{font-size:22px;overflow-wrap:anywhere}
+ #content .overview-kpis .muted,#content .social-kpis .muted,#content .service-kpis .muted,
+ #content .standards-kpis .muted,#content .gis-kpis .muted,#content .spatial-kpis .muted,
+ #content .green-kpis .muted{font-size:9px}
+ #content .chart-frame{min-width:0;width:100%;padding:0}
+ #content .chart-frame canvas{max-width:100%!important}
+ #content #chartIncidenza{height:760px!important}
+ #content #chartQuartieri{height:675px!important}
+ #content .table-wrap,#content .comparison-table{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+ #content table{font-size:11px}
+ #content th,#content td{padding:7px 8px;white-space:normal}
+ #content .gis-map,#content #map{height:58vh;min-height:360px}
+ #content .school-map,#content .school-map.leaflet-container{height:430px;min-height:360px}
+ #content .green-map{height:430px;min-height:360px}
+ #content .green-chart-wrap{height:360px}
+ #content .section-pie-wrap{height:260px}
+ #content .gis-selection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #content .gis-selection-grid select{font-size:11px}
+ #content .upl-selector{grid-template-columns:1fr;max-height:300px}
+ #content .metabolism-inputs{grid-template-columns:1fr}
+ #content .metabolism-bar-row{grid-template-columns:90px minmax(0,1fr) 38px;font-size:10px}
+ #content .notice{padding:12px 13px}
+ #content .notice h3{font-size:14px}
+ footer{padding:18px 3px;font-size:10px}
+}
+@media(max-width:380px){
+ .top .brand b{font-size:12px}
+ .top .brand small{font-size:8px}
+ .top .top-edition{display:none}
+ .nav{font-size:10px;padding:8px 10px}
+ main{padding-left:8px;padding-right:8px}
+ #content .overview-kpis .metric,#content .social-kpis .metric,#content .service-kpis .metric,
+ #content .standards-kpis .metric,#content .gis-kpis .metric,#content .spatial-kpis .metric,
+ #content .green-kpis .metric{font-size:20px}
+ #content .gis-selection-grid{grid-template-columns:1fr}
+}
