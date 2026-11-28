@@ -1176,16 +1176,8 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
     const marker=L.marker(labelPoint(feature),{pane:'territoryLabels',interactive:false,keyboard:false,icon:L.divIcon({className:'ptl-map-label-host',html:'<span class="ptl-circ-label">'+esc(code)+'</span>',iconSize:null,iconAnchor:[0,0]})});
     marker.addTo(circLabels);
    });
-   const quartLabels=L.layerGroup([], {pane:'territoryLabels'}).addTo(map);
-   quartieriData.features.forEach(feature=>{
-    const name=String(feature.properties?.DEN_ASC2||'');
-    if(!name)return;
-    const marker=L.marker(labelPoint(feature),{pane:'territoryLabels',interactive:false,keyboard:false,icon:L.divIcon({className:'ptl-map-label-host',html:'<span class="ptl-quart-label">'+esc(name)+'</span>',iconSize:null,iconAnchor:[0,0]})});
-    marker.addTo(quartLabels);
-   });
    const updateLabelVisibility=()=>{
     const zoom=map.getZoom();
-    if(zoom<10){if(map.hasLayer(quartLabels))map.removeLayer(quartLabels);}else if(!map.hasLayer(quartLabels))quartLabels.addTo(map);
     if(zoom<9){if(map.hasLayer(circLabels))map.removeLayer(circLabels);}else if(!map.hasLayer(circLabels))circLabels.addTo(map);
    };
    map.on('zoomend',updateLabelVisibility);
@@ -1226,10 +1218,10 @@ charts.push(new Chart(document.getElementById('chartStranieriCircoscrizioni'),{t
    quartieri.bringToFront();quartieriLines.bringToFront();
    const circCasing=L.geoJSON(data,{pane:'territoryBoundaries',renderer,interactive:false,style:()=>({color:'#ffffff',weight:5,opacity:.98,fill:false,lineCap:'round',lineJoin:'round'})}).addTo(map);
    boundaries.bringToFront();
-   circLabels.bringToFront();quartLabels.bringToFront();
+   circLabels.bringToFront();
    const bounds=boundaries.getBounds();
    if(!bounds.isValid())throw new Error('I perimetri ASC1 non generano un’estensione cartografica valida');
-   const fit=()=>{map.invalidateSize(true);map.fitBounds(bounds,{padding:[20,20],maxZoom:12,animate:false});quartieri.bringToFront();quartieriLines.bringToFront();circCasing.bringToFront();boundaries.bringToFront();circLabels.bringToFront();quartLabels.bringToFront();updateLabelVisibility();};
+   const fit=()=>{map.invalidateSize(true);map.fitBounds(bounds,{padding:[20,20],maxZoom:12,animate:false});quartieri.bringToFront();quartieriLines.bringToFront();circCasing.bringToFront();boundaries.bringToFront();circLabels.bringToFront();updateLabelVisibility();};
    fit();
    setTimeout(fit,250);
    el.dataset.boundaries='loaded';
