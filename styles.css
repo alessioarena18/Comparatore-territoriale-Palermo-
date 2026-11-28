@@ -3604,3 +3604,96 @@ footer strong{color:#e8c875}
   .filters label{font-size:11px}
   .filters select{font-size:13px}
 }
+
+
+/* MOBILE LAYOUT SYSTEM · hierarchy and navigation pass 06
+   Mobile-only composition refinements. No content, data or interaction changes. */
+@media(max-width:760px){
+  .top{gap:9px;padding:12px 13px}
+  .top .brand{align-items:center;gap:9px}
+  .top .brand b{font-size:15px;line-height:1.16;letter-spacing:-.025em}
+  .top .brand small{font-size:8px;line-height:1.35;letter-spacing:.015em}
+  .top .top-meta{flex-basis:30%;gap:4px}
+  .top .status{max-width:100%;font-size:8px;line-height:1.3;white-space:normal;text-align:right}
+  .top .banner-credit{max-width:100%;font-size:7px;line-height:1.25}
+  .side{padding:7px 9px}
+  #nav{gap:6px;padding:1px 1px 4px;scroll-snap-type:x proximity;scroll-padding-inline:10px}
+  #nav .nav{min-height:38px;padding:9px 12px;border-radius:7px;font-size:11px;line-height:1.25;scroll-snap-align:start}
+  #nav .nav.active{font-weight:700;box-shadow:inset 0 -2px 0 var(--ptl-ochre)}
+  main{padding-top:16px}
+  #content .module-heading{
+    display:grid;
+    grid-template-columns:34px minmax(0,1fr);
+    gap:0 11px;
+    align-items:start;
+    margin:0 0 17px;
+    padding:0 0 15px;
+  }
+  #content .module-heading-index{
+    grid-column:1;
+    grid-row:1;
+    width:32px;height:32px;
+    display:grid;place-items:center;
+    margin-top:2px;
+    border:1px solid #d8dfd4;
+    border-top:2px solid var(--ptl-ochre);
+    border-radius:8px;
+    font-size:12px;
+  }
+  #content .module-heading-copy{grid-column:2;min-width:0}
+  #content .module-heading-copy .page-kicker{margin:0 0 5px;font-size:9px;line-height:1.4;letter-spacing:.1em}
+  #content .module-heading-copy .page-title{margin:0;max-width:22ch;font-size:clamp(25px,6.8vw,31px);line-height:1.1;letter-spacing:-.04em;text-wrap:balance}
+  #content .module-heading-copy .lead{grid-column:1/-1;margin:8px 0 0;font-size:14px;line-height:1.62}
+  #content .module-heading-mark{display:none}
+  #content .selection-context{margin:0 0 16px;padding:13px 14px;border-radius:9px;font-size:13px;line-height:1.6}
+  #content .selection-context>span{display:block;margin-top:8px;font-size:12px;line-height:1.6}
+  #content .selection-stats{display:grid;grid-template-columns:1fr;gap:8px;margin-top:9px}
+  #content .selection-stats>div{padding:9px 10px;border-radius:7px;background:rgba(255,255,255,.65);font-size:12px;line-height:1.55}
+  #content .grid{gap:11px}
+  #content .card{padding:15px;margin-bottom:11px}
+  #content .card>h3:first-child{margin-top:0}
+  #content .card>p:last-child{margin-bottom:0}
+  #content .overview-kpis,#content .social-kpis,#content .service-kpis,#content .standards-kpis,#content .gis-kpis,#content .spatial-kpis,#content .green-kpis{gap:9px}
+  #content .overview-kpis>.card,#content .social-kpis>.card,#content .service-kpis>.card,#content .standards-kpis>.card,#content .gis-kpis>.card,#content .spatial-kpis>.card,#content .green-kpis>.card{min-height:96px;padding:12px 11px}
+  #content .metric{line-height:1.08;letter-spacing:-.035em}
+  #content .section-pie-wrap{position:relative;min-width:0;width:100%;margin:8px auto 0}
+  #content .chart-frame{margin-top:8px}
+  #content .card-export-actions{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+  #content .card-export-actions button{min-height:34px;padding:7px 9px;font-size:11px;line-height:1.3}
+  #content .table-wrap{border-radius:8px}
+  #content .table-wrap table{min-width:520px}
+  #content .table-wrap th,#content .table-wrap td{padding:8px 9px;vertical-align:top}
+  #content .gis-selection-grid{gap:9px}
+  #content .gis-selection-grid label{font-size:12px;line-height:1.4}
+  #content .gis-selection-grid select{min-height:40px;font-size:13px}
+  #content .leaflet-popup-content{max-width:230px;font-size:13px;line-height:1.55}
+  #content .map-legend,#content .green-map-legend{gap:7px 10px;padding:10px 11px}
+  #content .map-legend span,#content .green-map-legend span{font-size:11px;line-height:1.4}
+  #content .workflow-grid{gap:9px}
+  #content .workflow-grid>div{padding:12px;border-radius:8px}
+  #content .workflow-grid b{font-size:13px;line-height:1.4}
+  #content .workflow-grid span{font-size:13px;line-height:1.6}
+  #content .notice{padding:14px 15px}
+  #content .notice h3{font-size:16px;line-height:1.35}
+  #content button,#content input,#content select,#content textarea{max-width:100%}
+  footer{margin-top:20px;padding:16px 13px;font-size:11px;line-height:1.55}
+}
+@media(max-width:420px){
+  .top{align-items:center;padding:10px 10px}
+  .top .mark{width:34px;height:34px;flex-basis:34px;font-size:10px}
+  .top .brand{gap:7px}
+  .top .brand b{font-size:13px}
+  .top .brand small{font-size:7px;line-height:1.3}
+  .top .top-meta{flex-basis:29%}
+  .top .status{font-size:7px}
+  .top .banner-credit{font-size:6px}
+  #nav .nav{min-height:36px;padding:8px 10px;font-size:10px}
+  main{padding-left:10px;padding-right:10px}
+  #content .module-heading{grid-template-columns:29px minmax(0,1fr);gap:0 9px}
+  #content .module-heading-index{width:28px;height:28px;font-size:11px}
+  #content .module-heading-copy .page-title{font-size:25px}
+  #content .module-heading-copy .lead{font-size:13px;line-height:1.62}
+  #content .card{padding:13px}
+  #content .card-export-actions button{font-size:10px;padding:7px 8px}
+  #content .overview-kpis>.card,#content .social-kpis>.card,#content .service-kpis>.card,#content .standards-kpis>.card,#content .gis-kpis>.card,#content .spatial-kpis>.card,#content .green-kpis>.card{padding:10px}
+}
