@@ -723,3 +723,55 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .overview-kpis>.card .metric{font-size:23px}
  #content .section-pie-wrap{height:235px}
 }
+
+
+/* Sistema visivo integrato · rifinitura trasversale dei moduli */
+:root{--ink:#183746;--muted:#687f87;--line:#e1e9e6;--surface:#fff;--canvas:#f4f7f5;--teal:#176b68;--teal-soft:#eaf2f0;--blue:#7faec2;--rose:#c58f9e;--gold:#c18b43}
+body{background:var(--canvas);color:#29424a}
+.top{background:linear-gradient(112deg,#173b4b 0%,#1d5155 100%);box-shadow:0 3px 18px rgba(21,55,66,.14)}
+.mark{background:#e4efeb;color:#1b5554;border-radius:10px}
+.layout{grid-template-columns:248px minmax(0,1fr)}
+.side{background:#fbfcfb;border-right:1px solid #e0e8e4;padding:22px 13px}
+.side-label{color:#81918e;letter-spacing:1.65px}
+.nav{position:relative;padding:10px 12px;margin:3px 0;border-radius:8px;color:#526a6d;font-size:13px;transition:background .16s ease,color .16s ease}
+.nav:hover{background:#f0f5f2;color:#1c5e5c}
+.nav.active{background:#e8f1ee;color:#155b59;font-weight:750}
+.nav.active:before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:4px;background:#438681}
+.side-note{background:#f0f5f2;border:1px solid #e2ebe6;color:#4f6968}
+main{padding:27px clamp(18px,2.4vw,38px);background:var(--canvas)}
+.page-kicker{color:#648783;font-size:10px;letter-spacing:1.8px}
+.page-title{color:#183746;font-size:clamp(24px,2.2vw,31px);font-weight:750;letter-spacing:-.8px}
+.lead{max-width:920px;color:#70817f;font-size:13px;line-height:1.65;margin-bottom:23px}
+.filters{position:relative;background:#fff;border:1px solid #e0e8e4;border-radius:11px;padding:14px 16px;gap:12px;box-shadow:0 3px 12px rgba(28,61,63,.035)}
+.filters label{color:#607a78;font-size:10px;font-weight:700;letter-spacing:.2px}
+.filters select,.gis-selection-grid select,.calc-input input,.std-area{border-color:#d8e3de;border-radius:7px;color:#29464a;background-color:#fff;transition:border-color .15s,box-shadow .15s}
+.filters select:focus,.gis-selection-grid select:focus,.calc-input input:focus,.std-area:focus{outline:none;border-color:#6b9a91;box-shadow:0 0 0 3px rgba(77,137,128,.12)}
+.card{background:var(--surface);border:1px solid #e2e9e5;border-radius:11px;padding:19px;box-shadow:0 2px 9px rgba(26,59,58,.035);transition:box-shadow .18s,border-color .18s}
+.card:hover{border-color:#d5e2dc;box-shadow:0 6px 18px rgba(26,59,58,.055)}
+.card h3{color:#25444a;font-size:14px;font-weight:700;letter-spacing:-.1px}
+.metric{color:#1b4c50;font-variant-numeric:tabular-nums;letter-spacing:-.7px}
+.muted{color:#788b88}
+.notice{background:#f0f6f3;border-color:#dce9e2;border-left-color:#4f8980;border-radius:9px}
+.notice h3{color:#244c4d}
+.notice p{color:#5f7773}
+.notice-inline{background:#f5f8f6;border-left-color:#79a39a;color:#617875;border-radius:7px}
+.data-status{background:#edf4f0;color:#426c64}
+.secondary-button{border-color:#cbdcd4;background:#f3f7f4;color:#315e59;border-radius:7px}
+.secondary-button:hover{background:#e8f1ed}
+table{color:#425c5b}
+th{background:#f5f8f6;color:#58716d;font-size:10px;letter-spacing:.45px;text-transform:uppercase}
+td{color:#405958}
+th,td{border-bottom-color:#e8eeea}
+.table-wrap,.comparison-table{border:1px solid #e5ece8;border-radius:8px}
+#map{border:1px solid #dfe8e3;border-radius:10px}
+footer{color:#82918e}
+.source-list a{color:#26736e}
+.section-pie-wrap{max-width:100%}
+#content>.grid{gap:16px}
+#content>.card,#content>.grid>.card{min-width:0}
+#content .card h3+small{color:#758984}
+#content canvas{max-width:100%}
+@media(min-width:1200px){#content>.grid{gap:18px}#content>.grid>.card{padding:21px}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{padding:10px 12px;background:#fdfefd}main{padding:17px}.filters{margin-bottom:20px}.page-title{font-size:25px}}
+@media(max-width:520px){.top{height:70px;padding:0 15px}.brand b{font-size:14px}.brand small{font-size:10px}.mark{padding:9px}.status{font-size:10px;padding:5px 8px}main{padding:14px 12px}.page-title{font-size:23px}.lead{font-size:12px}.filters{padding:12px;gap:9px}.filters label{min-width:calc(50% - 6px)}.card{padding:15px;border-radius:9px}.card h3{font-size:13px}.metric{font-size:24px}#content>.grid{gap:11px}}
+@media(prefers-reduced-motion:reduce){.nav,.card,.filters select{transition:none}}
