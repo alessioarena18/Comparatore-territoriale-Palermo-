@@ -3317,3 +3317,11 @@ main{padding-top:20px}
  #content .leaflet-top.leaflet-right{top:8px;right:8px}
  #content .leaflet-control-zoom a{width:34px;height:34px;line-height:34px}
 }
+
+
+/* Barra esportazione e stampa · collocazione a fine pagina */
+.export-toolbar{margin-top:24px;margin-bottom:12px}
+@media(max-width:650px){
+ .export-toolbar{margin-top:20px;margin-bottom:10px;padding:11px;gap:8px}
+ .export-toolbar>span{font-weight:700;color:#244c50}
+}
