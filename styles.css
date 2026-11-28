@@ -863,3 +863,74 @@ footer{color:#82918e}
  #map.gis-map,.green-map{height:430px;min-height:360px}
  .comparison-table table{min-width:640px}
 }
+
+
+/* Data display · leggibilità delle tabelle e comportamento responsive */
+#content{min-width:0}
+#content .grid,
+#content .card,
+#content .table-wrap,
+#content .comparison-table{min-width:0}
+#content .table-wrap,
+#content .comparison-table{
+  max-width:100%;
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:#a9bdb5 #f1f5f2;
+}
+#content .table-wrap table,
+#content .comparison-table table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+}
+#content .table-wrap th,
+#content .comparison-table th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  white-space:normal;
+  line-height:1.4;
+}
+#content .table-wrap td,
+#content .comparison-table td{
+  vertical-align:top;
+  line-height:1.5;
+}
+#content .table-wrap tbody tr:nth-child(even),
+#content .comparison-table tbody tr:nth-child(even){background:#fbfcfb}
+#content .table-wrap tbody tr:hover,
+#content .comparison-table tbody tr:hover{background:#f1f7f4}
+#content .section-pie-wrap{position:relative;min-width:0}
+#content canvas{max-width:100%}
+#content .notice,
+#content .notice-inline,
+#content .school-note{overflow-wrap:anywhere}
+#content input,
+#content select,
+#content textarea{max-width:100%}
+@media(max-width:850px){
+  #content .table-wrap table,
+  #content .comparison-table table{min-width:640px}
+  #content .section-pie-wrap{height:280px}
+}
+@media(max-width:520px){
+  #content .table-wrap,
+  #content .comparison-table{border-radius:8px}
+  #content .table-wrap th,
+  #content .table-wrap td,
+  #content .comparison-table th,
+  #content .comparison-table td{padding:9px 10px;font-size:11px}
+  #content .section-pie-wrap{height:250px}
+  .filters{display:flex;flex-wrap:wrap;align-items:stretch}
+  .filters label{flex:1 1 calc(50% - 8px)}
+  .filters select{width:100%;min-width:0}
+}
+@media print{
+  #content .table-wrap,
+  #content .comparison-table{overflow:visible!important;max-width:none}
+  #content .table-wrap table,
+  #content .comparison-table table{min-width:0!important;font-size:9pt}
+}
