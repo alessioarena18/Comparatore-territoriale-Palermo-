@@ -2608,7 +2608,7 @@ footer strong{color:var(--co-forest);font:500 15px Georgia,serif;letter-spacing:
    PALERMO TERRITORIAL LAB · EDITORIAL URBAN ATLAS SYSTEM
    Visual-only layer. No data, calculations or map sources changed.
    ========================================================= */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+/* Font editoriali caricati da index.html per garantire il parsing corretto del foglio stile. */
 :root{
  --ptl-forest:#173d35;--ptl-forest-deep:#102e29;--ptl-petrol:#28584f;
  --ptl-sage:#a8b9a6;--ptl-paper:#f3f0e7;--ptl-card:#fbfaf5;
