@@ -1168,3 +1168,90 @@ main{max-width:1880px;padding:clamp(20px,2.6vw,40px)}
  #content .housing-circ-pies{grid-template-columns:1fr}
  #content .grid>.card>canvas{height:280px!important}
 }
+
+
+/* Riequilibrio dimensionale dei grafici: area utile, non solo altezza del canvas */
+#content .grid:has(> .card > .section-pie-wrap),
+#content .grid:has(> .card > .chart-frame){
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:20px;
+}
+#content .section-pie-wrap{
+  width:min(100%,310px);
+  height:auto;
+  aspect-ratio:1/1;
+  min-height:0;
+  max-width:310px;
+  margin:12px auto 14px;
+  flex:0 0 auto;
+  position:relative;
+}
+#content .section-pie-wrap canvas{
+  display:block;
+  width:100%!important;
+  height:100%!important;
+}
+#content .overview-panels .section-pie-wrap{
+  width:min(100%,270px);
+  max-width:270px;
+  aspect-ratio:1/1;
+  height:auto;
+  margin:8px auto 14px;
+}
+#content .section-pie-wrap:has(#demoAge2024){
+  width:min(100%,520px);
+  max-width:520px;
+  aspect-ratio:2/1;
+  height:auto;
+}
+#content .chart-frame{
+  position:relative;
+  width:100%;
+  min-width:0;
+  margin:10px auto 2px;
+}
+#content .chart-frame canvas{
+  display:block;
+  width:100%!important;
+  max-width:100%;
+}
+#content .chart-frame-donut{
+  width:min(100%,320px);
+  aspect-ratio:1/1;
+  height:auto;
+  margin:8px auto 12px;
+}
+#content .chart-frame-donut canvas{height:100%!important}
+#content .chart-frame-bars{height:clamp(340px,34vw,470px)}
+#content .chart-frame-bars canvas{height:100%!important}
+#content .chart-frame-compact-bars{height:300px}
+#content .chart-frame-compact-bars canvas{height:100%!important}
+#content .housing-circ-pies .section-pie-wrap{
+  width:min(100%,290px);
+  max-width:290px;
+  aspect-ratio:1/1;
+  height:auto;
+}
+#content .grid:has(> .card > .chart-frame)>.card{
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+#content .grid:has(> .card > .chart-frame)>.card h3{min-height:0}
+@media(max-width:760px){
+  #content .grid:has(> .card > .section-pie-wrap),
+  #content .grid:has(> .card > .chart-frame){grid-template-columns:1fr;gap:14px}
+  #content .section-pie-wrap{width:min(100%,300px);max-width:300px}
+  #content .overview-panels .section-pie-wrap{width:min(100%,270px);max-width:270px}
+  #content .chart-frame-bars{height:420px}
+  #content .chart-frame-compact-bars{height:300px}
+}
+@media(max-width:520px){
+  #content .section-pie-wrap{width:min(100%,280px);max-width:280px}
+  #content .overview-panels .section-pie-wrap{width:min(100%,250px);max-width:250px}
+  #content .chart-frame-donut{width:min(100%,280px)}
+  #content .chart-frame-bars{height:440px}
+  #content .chart-frame-compact-bars{height:280px}
+}
