@@ -3325,3 +3325,11 @@ main{padding-top:20px}
  .export-toolbar{margin-top:20px;margin-bottom:10px;padding:11px;gap:8px}
  .export-toolbar>span{font-weight:700;color:#244c50}
 }
+
+
+/* Capacitor native shell · safe areas iOS/Android */
+html.capacitor-native,body.capacitor-native{min-height:100%;overscroll-behavior-y:contain}
+body.capacitor-native{padding-bottom:env(safe-area-inset-bottom,0px)}
+body.capacitor-native .top{padding-top:env(safe-area-inset-top,0px)}
+body.capacitor-native .side{overscroll-behavior-x:contain}
+body.capacitor-native input,body.capacitor-native select,body.capacitor-native button{touch-action:manipulation}
