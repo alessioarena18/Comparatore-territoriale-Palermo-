@@ -934,3 +934,90 @@ footer{color:#82918e}
   #content .table-wrap table,
   #content .comparison-table table{min-width:0!important;font-size:9pt}
 }
+
+
+/* Moduli analitici · gerarchia editoriale e continuità visiva */
+#content>.page-title,
+#content>.page-kicker{max-width:100%}
+#content .grid:has(> .card .section-pie-wrap){align-items:stretch}
+#content .grid:has(> .card .section-pie-wrap)>.card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  border-color:#e0e9e4;
+  box-shadow:0 2px 9px rgba(24,55,70,.035);
+}
+#content .grid:has(> .card .section-pie-wrap)>.card h3{
+  min-height:38px;
+  color:#244b50;
+  font-size:13px;
+  line-height:1.45;
+}
+#content .grid:has(> .card .section-pie-wrap)>.card .section-pie-wrap{
+  width:100%;
+  margin:auto 0;
+}
+#content .grid:has(> .card .section-pie-wrap)>.card>p{
+  margin:10px 0 0;
+  color:#738680;
+  font-size:10px;
+  line-height:1.55;
+}
+#content .overview-kpis>.card,
+#content .social-kpis>.card,
+#content .housing-kpis>.card,
+#content .standards-kpis>.card{
+  box-shadow:0 2px 8px rgba(24,55,70,.035);
+}
+#content .social-select{
+  border-color:#dfe8e3;
+  background:linear-gradient(180deg,#fff 0%,#fbfcfb 100%);
+}
+#content .social-select>h3,
+#content .comparison-panel>h3,
+#content .indicator-panel>h3{
+  color:#244b50;
+  font-size:14px;
+}
+#content .indicator-panel{
+  border-color:#dfe8e3;
+  box-shadow:0 2px 8px rgba(24,55,70,.025);
+}
+#content .indicator-item strong{letter-spacing:.02em}
+#content .comparison-table th:first-child{
+  background:#f1f6f3;
+  color:#315b59;
+}
+#content .standards-calculator{
+  overflow:hidden;
+  border:1px solid #dfe8e3;
+  border-radius:10px;
+  background:#fff;
+}
+#content .standards-calculator>h3{padding:16px 17px 11px}
+#content .standards-calculator .table-wrap{margin:0 16px 16px}
+#content .std-area{
+  border-color:#d4e0da;
+  border-radius:7px;
+  transition:border-color .15s ease,box-shadow .15s ease;
+}
+#content .std-area:focus{
+  border-color:#5c9288;
+  box-shadow:0 0 0 3px rgba(92,146,136,.13);
+  outline:0;
+}
+#content .housing-level-select select,
+#content .social-select select{
+  border-color:#d4e0da;
+  border-radius:8px;
+}
+@media(max-width:850px){
+  #content .grid:has(> .card .section-pie-wrap)>.card h3{min-height:0}
+  #content .indicator-panel{max-height:320px}
+}
+@media(max-width:520px){
+  #content .social-kpis>.card h3{font-size:12px}
+  #content .social-kpis .metric{font-size:22px}
+  #content .standards-calculator>h3{padding:13px 14px 9px}
+  #content .standards-calculator .table-wrap{margin:0 10px 12px}
+}
