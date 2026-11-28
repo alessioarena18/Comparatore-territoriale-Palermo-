@@ -246,3 +246,7 @@
 .circ-group-title,.quart-group-title{cursor:pointer;list-style-position:inside}
 .circ-group-title::marker{color:#245b88}
 .quart-group-title::marker{color:#2b8a78}
+
+.social-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:12px}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;padding:8px 13px;border:1px solid #d4deea;border-radius:999px;background:#fff;color:#245b88;font-size:13px;font-weight:700;text-decoration:none}
+.social-links a:hover{background:#eaf1f8;text-decoration:underline}
